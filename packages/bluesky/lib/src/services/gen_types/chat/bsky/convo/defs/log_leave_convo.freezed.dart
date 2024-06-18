@@ -30,7 +30,7 @@ mixin _$LogLeaveConvo {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $LogLeaveConvoCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String rev,
       String convoId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$LogLeaveConvoCopyWithImpl<$Res, $Val extends LogLeaveConvo>
     Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -82,10 +82,10 @@ class _$LogLeaveConvoCopyWithImpl<$Res, $Val extends LogLeaveConvo>
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -102,7 +102,7 @@ abstract class _$$LogLeaveConvoImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String rev,
       String convoId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -119,7 +119,7 @@ class __$$LogLeaveConvoImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LogLeaveConvoImpl(
       $type: null == $type
@@ -134,10 +134,10 @@ class __$$LogLeaveConvoImplCopyWithImpl<$Res>
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -150,8 +150,7 @@ class _$LogLeaveConvoImpl implements _LogLeaveConvo {
       {@JsonKey(name: r'$type') this.$type = chatBskyConvoDefsLogLeaveConvo,
       required this.rev,
       required this.convoId,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$LogLeaveConvoImpl.fromJson(Map<String, dynamic> json) =>
@@ -169,15 +168,17 @@ class _$LogLeaveConvoImpl implements _LogLeaveConvo {
   final String convoId;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -220,7 +221,7 @@ abstract class _LogLeaveConvo implements LogLeaveConvo {
           {@JsonKey(name: r'$type') final String $type,
           required final String rev,
           required final String convoId,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LogLeaveConvoImpl;
 
   factory _LogLeaveConvo.fromJson(Map<String, dynamic> json) =
@@ -241,7 +242,7 @@ abstract class _LogLeaveConvo implements LogLeaveConvo {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LogLeaveConvoImplCopyWith<_$LogLeaveConvoImpl> get copyWith =>

@@ -47,7 +47,7 @@ mixin _$PostView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -74,7 +74,7 @@ abstract class $PostViewCopyWith<$Res> {
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
       @ThreadgateViewConverter() ThreadgateView threadgate,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileViewBasicCopyWith<$Res> get author;
   $PostRecordCopyWith<$Res> get record;
@@ -109,7 +109,7 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
     Object? viewer = null,
     Object? labels = freezed,
     Object? threadgate = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -164,10 +164,10 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
           ? _value.threadgate
           : threadgate // ignore: cast_nullable_to_non_nullable
               as ThreadgateView,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -238,7 +238,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
       @ThreadgateViewConverter() ThreadgateView threadgate,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ProfileViewBasicCopyWith<$Res> get author;
@@ -276,7 +276,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
     Object? viewer = null,
     Object? labels = freezed,
     Object? threadgate = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$PostViewImpl(
       $type: null == $type
@@ -331,10 +331,10 @@ class __$$PostViewImplCopyWithImpl<$Res>
           ? _value.threadgate
           : threadgate // ignore: cast_nullable_to_non_nullable
               as ThreadgateView,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -357,8 +357,7 @@ class _$PostViewImpl implements _PostView {
       @ViewerStateConverter() this.viewer = const ViewerState(),
       @LabelConverter() final List<Label>? labels,
       @ThreadgateViewConverter() this.threadgate = const ThreadgateView(),
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _labels = labels,
         _$unknown = $unknown;
 
@@ -417,15 +416,17 @@ class _$PostViewImpl implements _PostView {
   final ThreadgateView threadgate;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -507,7 +508,7 @@ abstract class _PostView implements PostView {
           @ViewerStateConverter() final ViewerState viewer,
           @LabelConverter() final List<Label>? labels,
           @ThreadgateViewConverter() final ThreadgateView threadgate,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$PostViewImpl;
 
   factory _PostView.fromJson(Map<String, dynamic> json) =
@@ -555,7 +556,7 @@ abstract class _PostView implements PostView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$PostViewImplCopyWith<_$PostViewImpl> get copyWith =>

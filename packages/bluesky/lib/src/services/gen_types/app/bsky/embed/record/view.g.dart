@@ -21,19 +21,26 @@ _$RecordViewImpl _$$RecordViewImplFromJson(Map json) => $checkedCreate(
                   .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$RecordViewImplToJson(_$RecordViewImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'record': const URecordRecordConverter().toJson(instance.record),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$RecordViewImplToJson(_$RecordViewImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'record': const URecordRecordConverter().toJson(instance.record),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

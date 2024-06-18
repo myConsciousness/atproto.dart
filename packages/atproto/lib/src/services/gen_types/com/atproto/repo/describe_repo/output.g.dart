@@ -26,24 +26,31 @@ _$DescribeRepoOutputImpl _$$DescribeRepoOutputImplFromJson(Map json) =>
           handleIsCorrect: $checkedConvert('handleIsCorrect', (v) => v as bool),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$DescribeRepoOutputImplToJson(
-        _$DescribeRepoOutputImpl instance) =>
-    <String, dynamic>{
-      'handle': instance.handle,
-      'did': instance.did,
-      'didDoc': instance.didDoc,
-      'collections':
-          instance.collections.map(const NSIDConverter().toJson).toList(),
-      'handleIsCorrect': instance.handleIsCorrect,
-      r'$unknown': instance.$unknown,
-    };
+    _$DescribeRepoOutputImpl instance) {
+  final val = <String, dynamic>{
+    'handle': instance.handle,
+    'did': instance.did,
+    'didDoc': instance.didDoc,
+    'collections':
+        instance.collections.map(const NSIDConverter().toJson).toList(),
+    'handleIsCorrect': instance.handleIsCorrect,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

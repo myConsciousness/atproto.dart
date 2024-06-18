@@ -25,7 +25,7 @@ mixin _$RequestPhoneVerificationInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $RequestPhoneVerificationInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String phoneNumber,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -61,17 +61,17 @@ class _$RequestPhoneVerificationInputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? phoneNumber = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$RequestPhoneVerificationInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String phoneNumber,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -104,17 +104,17 @@ class __$$RequestPhoneVerificationInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? phoneNumber = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$RequestPhoneVerificationInputImpl(
       phoneNumber: null == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -126,8 +126,7 @@ class _$RequestPhoneVerificationInputImpl
     implements _RequestPhoneVerificationInput {
   const _$RequestPhoneVerificationInputImpl(
       {required this.phoneNumber,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$RequestPhoneVerificationInputImpl.fromJson(
@@ -138,15 +137,17 @@ class _$RequestPhoneVerificationInputImpl
   final String phoneNumber;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -189,7 +190,7 @@ abstract class _RequestPhoneVerificationInput
     implements RequestPhoneVerificationInput {
   const factory _RequestPhoneVerificationInput(
           {required final String phoneNumber,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RequestPhoneVerificationInputImpl;
 
   factory _RequestPhoneVerificationInput.fromJson(Map<String, dynamic> json) =
@@ -201,7 +202,7 @@ abstract class _RequestPhoneVerificationInput
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RequestPhoneVerificationInputImplCopyWith<

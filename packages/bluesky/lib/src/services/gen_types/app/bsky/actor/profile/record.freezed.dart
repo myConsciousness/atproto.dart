@@ -39,7 +39,7 @@ mixin _$ProfileRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +59,7 @@ abstract class $ProfileRecordCopyWith<$Res> {
       @BlobConverter() Blob? avatar,
       @BlobConverter() Blob? banner,
       @UProfileLabelConverter() UProfileLabel? labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $BlobCopyWith<$Res>? get avatar;
   $BlobCopyWith<$Res>? get banner;
@@ -84,7 +84,7 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
     Object? avatar = freezed,
     Object? banner = freezed,
     Object? labels = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       displayName: freezed == displayName
@@ -107,10 +107,10 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UProfileLabel?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -165,7 +165,7 @@ abstract class _$$ProfileRecordImplCopyWith<$Res>
       @BlobConverter() Blob? avatar,
       @BlobConverter() Blob? banner,
       @UProfileLabelConverter() UProfileLabel? labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
@@ -191,7 +191,7 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? banner = freezed,
     Object? labels = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ProfileRecordImpl(
       displayName: freezed == displayName
@@ -214,10 +214,10 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UProfileLabel?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -232,8 +232,7 @@ class _$ProfileRecordImpl implements _ProfileRecord {
       @BlobConverter() this.avatar,
       @BlobConverter() this.banner,
       @UProfileLabelConverter() this.labels,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ProfileRecordImpl.fromJson(Map<String, dynamic> json) =>
@@ -262,15 +261,17 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   final UProfileLabel? labels;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -319,7 +320,7 @@ abstract class _ProfileRecord implements ProfileRecord {
           @BlobConverter() final Blob? avatar,
           @BlobConverter() final Blob? banner,
           @UProfileLabelConverter() final UProfileLabel? labels,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ProfileRecordImpl;
 
   factory _ProfileRecord.fromJson(Map<String, dynamic> json) =
@@ -350,7 +351,7 @@ abstract class _ProfileRecord implements ProfileRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ProfileRecordImplCopyWith<_$ProfileRecordImpl> get copyWith =>

@@ -33,7 +33,7 @@ mixin _$SavedFeed {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +52,7 @@ abstract class $SavedFeedCopyWith<$Res> {
       @UTypeConverter() UType type,
       String value,
       bool pinned,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UTypeCopyWith<$Res> get type;
 }
@@ -75,7 +75,7 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
     Object? type = null,
     Object? value = null,
     Object? pinned = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -98,10 +98,10 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -128,7 +128,7 @@ abstract class _$$SavedFeedImplCopyWith<$Res>
       @UTypeConverter() UType type,
       String value,
       bool pinned,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UTypeCopyWith<$Res> get type;
@@ -150,7 +150,7 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
     Object? type = null,
     Object? value = null,
     Object? pinned = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SavedFeedImpl(
       $type: null == $type
@@ -173,10 +173,10 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -191,8 +191,7 @@ class _$SavedFeedImpl implements _SavedFeed {
       @UTypeConverter() required this.type,
       required this.value,
       required this.pinned,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$SavedFeedImpl.fromJson(Map<String, dynamic> json) =>
@@ -215,15 +214,17 @@ class _$SavedFeedImpl implements _SavedFeed {
   final bool pinned;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -270,7 +271,7 @@ abstract class _SavedFeed implements SavedFeed {
           @UTypeConverter() required final UType type,
           required final String value,
           required final bool pinned,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SavedFeedImpl;
 
   factory _SavedFeed.fromJson(Map<String, dynamic> json) =
@@ -296,7 +297,7 @@ abstract class _SavedFeed implements SavedFeed {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SavedFeedImplCopyWith<_$SavedFeedImpl> get copyWith =>

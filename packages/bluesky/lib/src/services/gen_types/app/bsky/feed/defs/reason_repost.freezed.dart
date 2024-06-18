@@ -31,7 +31,7 @@ mixin _$ReasonRepost {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ abstract class $ReasonRepostCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @ProfileViewBasicConverter() ProfileViewBasic by,
       DateTime indexedAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileViewBasicCopyWith<$Res> get by;
 }
@@ -70,7 +70,7 @@ class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
     Object? $type = null,
     Object? by = null,
     Object? indexedAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -85,10 +85,10 @@ class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -113,7 +113,7 @@ abstract class _$$ReasonRepostImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @ProfileViewBasicConverter() ProfileViewBasic by,
       DateTime indexedAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ProfileViewBasicCopyWith<$Res> get by;
@@ -133,7 +133,7 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? by = null,
     Object? indexedAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ReasonRepostImpl(
       $type: null == $type
@@ -148,10 +148,10 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -164,8 +164,7 @@ class _$ReasonRepostImpl implements _ReasonRepost {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsReasonRepost,
       @ProfileViewBasicConverter() required this.by,
       required this.indexedAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
@@ -184,15 +183,17 @@ class _$ReasonRepostImpl implements _ReasonRepost {
   final DateTime indexedAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -236,7 +237,7 @@ abstract class _ReasonRepost implements ReasonRepost {
           {@JsonKey(name: r'$type') final String $type,
           @ProfileViewBasicConverter() required final ProfileViewBasic by,
           required final DateTime indexedAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ReasonRepostImpl;
 
   factory _ReasonRepost.fromJson(Map<String, dynamic> json) =
@@ -258,7 +259,7 @@ abstract class _ReasonRepost implements ReasonRepost {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ReasonRepostImplCopyWith<_$ReasonRepostImpl> get copyWith =>

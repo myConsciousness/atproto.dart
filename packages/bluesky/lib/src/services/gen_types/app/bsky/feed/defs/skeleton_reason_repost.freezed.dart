@@ -30,7 +30,7 @@ mixin _$SkeletonReasonRepost {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $SkeletonReasonRepostCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri repost,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$SkeletonReasonRepostCopyWithImpl<$Res,
   $Res call({
     Object? $type = null,
     Object? repost = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -77,10 +77,10 @@ class _$SkeletonReasonRepostCopyWithImpl<$Res,
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -96,7 +96,7 @@ abstract class _$$SkeletonReasonRepostImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri repost,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? repost = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SkeletonReasonRepostImpl(
       $type: null == $type
@@ -123,10 +123,10 @@ class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -139,8 +139,7 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
       {@JsonKey(name: r'$type')
       this.$type = appBskyFeedDefsSkeletonReasonRepost,
       @AtUriConverter() required this.repost,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$SkeletonReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
@@ -157,15 +156,17 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
   final AtUri repost;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -208,7 +209,7 @@ abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
   const factory _SkeletonReasonRepost(
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri repost,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SkeletonReasonRepostImpl;
 
   factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =
@@ -228,7 +229,7 @@ abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SkeletonReasonRepostImplCopyWith<_$SkeletonReasonRepostImpl>

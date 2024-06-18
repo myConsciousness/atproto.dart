@@ -24,22 +24,29 @@ _$LogCreateMessageImpl _$$LogCreateMessageImplFromJson(Map json) =>
                   .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$LogCreateMessageImplToJson(
-        _$LogCreateMessageImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'rev': instance.rev,
-      'convoId': instance.convoId,
-      'message': const UMessageConverter().toJson(instance.message),
-      r'$unknown': instance.$unknown,
-    };
+    _$LogCreateMessageImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'rev': instance.rev,
+    'convoId': instance.convoId,
+    'message': const UMessageConverter().toJson(instance.message),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

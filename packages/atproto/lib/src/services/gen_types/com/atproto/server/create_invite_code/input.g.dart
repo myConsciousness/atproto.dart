@@ -18,11 +18,9 @@ _$CreateInviteCodeInputImpl _$$CreateInviteCodeInputImplFromJson(Map json) =>
           forAccount: $checkedConvert('forAccount', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -41,6 +39,6 @@ Map<String, dynamic> _$$CreateInviteCodeInputImplToJson(
   }
 
   writeNotNull('forAccount', instance.forAccount);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

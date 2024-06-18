@@ -17,19 +17,26 @@ _$GetUnreadCountOutputImpl _$$GetUnreadCountOutputImplFromJson(Map json) =>
           count: $checkedConvert('count', (v) => (v as num).toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$GetUnreadCountOutputImplToJson(
-        _$GetUnreadCountOutputImpl instance) =>
-    <String, dynamic>{
-      'count': instance.count,
-      r'$unknown': instance.$unknown,
-    };
+    _$GetUnreadCountOutputImpl instance) {
+  final val = <String, dynamic>{
+    'count': instance.count,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

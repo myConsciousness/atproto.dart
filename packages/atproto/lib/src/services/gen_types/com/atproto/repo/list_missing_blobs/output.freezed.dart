@@ -27,7 +27,7 @@ mixin _$ListMissingBlobsOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +44,7 @@ abstract class $ListMissingBlobsOutputCopyWith<$Res> {
   $Res call(
       {String? cursor,
       @RecordBlobConverter() List<RecordBlob> blobs,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$ListMissingBlobsOutputCopyWithImpl<$Res,
   $Res call({
     Object? cursor = freezed,
     Object? blobs = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -74,10 +74,10 @@ class _$ListMissingBlobsOutputCopyWithImpl<$Res,
           ? _value.blobs
           : blobs // ignore: cast_nullable_to_non_nullable
               as List<RecordBlob>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -94,7 +94,7 @@ abstract class _$$ListMissingBlobsOutputImplCopyWith<$Res>
   $Res call(
       {String? cursor,
       @RecordBlobConverter() List<RecordBlob> blobs,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class __$$ListMissingBlobsOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? blobs = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ListMissingBlobsOutputImpl(
       cursor: freezed == cursor
@@ -123,10 +123,10 @@ class __$$ListMissingBlobsOutputImplCopyWithImpl<$Res>
           ? _value._blobs
           : blobs // ignore: cast_nullable_to_non_nullable
               as List<RecordBlob>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -138,8 +138,7 @@ class _$ListMissingBlobsOutputImpl implements _ListMissingBlobsOutput {
   const _$ListMissingBlobsOutputImpl(
       {this.cursor,
       @RecordBlobConverter() required final List<RecordBlob> blobs,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _blobs = blobs,
         _$unknown = $unknown;
 
@@ -158,15 +157,17 @@ class _$ListMissingBlobsOutputImpl implements _ListMissingBlobsOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -211,7 +212,7 @@ abstract class _ListMissingBlobsOutput implements ListMissingBlobsOutput {
   const factory _ListMissingBlobsOutput(
           {final String? cursor,
           @RecordBlobConverter() required final List<RecordBlob> blobs,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListMissingBlobsOutputImpl;
 
   factory _ListMissingBlobsOutput.fromJson(Map<String, dynamic> json) =
@@ -226,7 +227,7 @@ abstract class _ListMissingBlobsOutput implements ListMissingBlobsOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListMissingBlobsOutputImplCopyWith<_$ListMissingBlobsOutputImpl>

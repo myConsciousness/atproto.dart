@@ -22,19 +22,26 @@ _$SendMessageBatchInputImpl _$$SendMessageBatchInputImplFromJson(Map json) =>
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$SendMessageBatchInputImplToJson(
-        _$SendMessageBatchInputImpl instance) =>
-    <String, dynamic>{
-      'items': instance.items.map(const BatchItemConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+    _$SendMessageBatchInputImpl instance) {
+  final val = <String, dynamic>{
+    'items': instance.items.map(const BatchItemConverter().toJson).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

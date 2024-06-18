@@ -19,19 +19,26 @@ _$InterestsPrefImpl _$$InterestsPrefImplFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$InterestsPrefImplToJson(_$InterestsPrefImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'tags': instance.tags,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$InterestsPrefImplToJson(_$InterestsPrefImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'tags': instance.tags,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

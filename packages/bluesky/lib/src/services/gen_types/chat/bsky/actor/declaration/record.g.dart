@@ -20,20 +20,27 @@ _$DeclarationRecordImpl _$$DeclarationRecordImplFromJson(Map json) =>
                   .fromJson(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$DeclarationRecordImplToJson(
-        _$DeclarationRecordImpl instance) =>
-    <String, dynamic>{
-      'allowIncoming': const UDeclarationAllowIncomingConverter()
-          .toJson(instance.allowIncoming),
-      r'$unknown': instance.$unknown,
-    };
+    _$DeclarationRecordImpl instance) {
+  final val = <String, dynamic>{
+    'allowIncoming': const UDeclarationAllowIncomingConverter()
+        .toJson(instance.allowIncoming),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

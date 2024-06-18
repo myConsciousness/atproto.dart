@@ -32,7 +32,7 @@ mixin _$ListItemView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $ListItemViewCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       @ProfileViewConverter() ProfileView subject,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileViewCopyWith<$Res> get subject;
 }
@@ -71,7 +71,7 @@ class _$ListItemViewCopyWithImpl<$Res, $Val extends ListItemView>
     Object? $type = null,
     Object? uri = null,
     Object? subject = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -86,10 +86,10 @@ class _$ListItemViewCopyWithImpl<$Res, $Val extends ListItemView>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as ProfileView,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -114,7 +114,7 @@ abstract class _$$ListItemViewImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       @ProfileViewConverter() ProfileView subject,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ProfileViewCopyWith<$Res> get subject;
@@ -134,7 +134,7 @@ class __$$ListItemViewImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? uri = null,
     Object? subject = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ListItemViewImpl(
       $type: null == $type
@@ -149,10 +149,10 @@ class __$$ListItemViewImplCopyWithImpl<$Res>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as ProfileView,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -165,8 +165,7 @@ class _$ListItemViewImpl implements _ListItemView {
       {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsListItemView,
       @AtUriConverter() required this.uri,
       @ProfileViewConverter() required this.subject,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ListItemViewImpl.fromJson(Map<String, dynamic> json) =>
@@ -186,15 +185,17 @@ class _$ListItemViewImpl implements _ListItemView {
   final ProfileView subject;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -237,7 +238,7 @@ abstract class _ListItemView implements ListItemView {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           @ProfileViewConverter() required final ProfileView subject,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListItemViewImpl;
 
   factory _ListItemView.fromJson(Map<String, dynamic> json) =
@@ -260,7 +261,7 @@ abstract class _ListItemView implements ListItemView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListItemViewImplCopyWith<_$ListItemViewImpl> get copyWith =>

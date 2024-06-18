@@ -28,7 +28,7 @@ mixin _$ListNotificationsOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $ListNotificationsOutputCopyWith<$Res> {
       {String? cursor,
       @NotificationConverter() List<Notification> notifications,
       DateTime? seenAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$ListNotificationsOutputCopyWithImpl<$Res,
     Object? cursor = freezed,
     Object? notifications = null,
     Object? seenAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -81,10 +81,10 @@ class _$ListNotificationsOutputCopyWithImpl<$Res,
           ? _value.seenAt
           : seenAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -102,7 +102,7 @@ abstract class _$$ListNotificationsOutputImplCopyWith<$Res>
       {String? cursor,
       @NotificationConverter() List<Notification> notifications,
       DateTime? seenAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class __$$ListNotificationsOutputImplCopyWithImpl<$Res>
     Object? cursor = freezed,
     Object? notifications = null,
     Object? seenAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ListNotificationsOutputImpl(
       cursor: freezed == cursor
@@ -136,10 +136,10 @@ class __$$ListNotificationsOutputImplCopyWithImpl<$Res>
           ? _value.seenAt
           : seenAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -152,8 +152,7 @@ class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
       {this.cursor,
       @NotificationConverter() required final List<Notification> notifications,
       this.seenAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _notifications = notifications,
         _$unknown = $unknown;
 
@@ -175,15 +174,17 @@ class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
   final DateTime? seenAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -233,7 +234,7 @@ abstract class _ListNotificationsOutput implements ListNotificationsOutput {
       @NotificationConverter() required final List<Notification> notifications,
       final DateTime? seenAt,
       @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown}) = _$ListNotificationsOutputImpl;
+      final Map<String, dynamic>? $unknown}) = _$ListNotificationsOutputImpl;
 
   factory _ListNotificationsOutput.fromJson(Map<String, dynamic> json) =
       _$ListNotificationsOutputImpl.fromJson;
@@ -249,7 +250,7 @@ abstract class _ListNotificationsOutput implements ListNotificationsOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListNotificationsOutputImplCopyWith<_$ListNotificationsOutputImpl>

@@ -19,11 +19,9 @@ _$EnableAccountInvitesInputImpl _$$EnableAccountInvitesInputImplFromJson(
           note: $checkedConvert('note', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -42,6 +40,6 @@ Map<String, dynamic> _$$EnableAccountInvitesInputImplToJson(
   }
 
   writeNotNull('note', instance.note);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

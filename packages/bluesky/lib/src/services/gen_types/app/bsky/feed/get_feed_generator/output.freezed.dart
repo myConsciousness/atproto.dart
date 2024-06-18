@@ -32,7 +32,7 @@ mixin _$GetFeedGeneratorOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $GetFeedGeneratorOutputCopyWith<$Res> {
       {@GeneratorViewConverter() GeneratorView view,
       bool isOnline,
       bool isValid,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $GeneratorViewCopyWith<$Res> get view;
 }
@@ -72,7 +72,7 @@ class _$GetFeedGeneratorOutputCopyWithImpl<$Res,
     Object? view = null,
     Object? isOnline = null,
     Object? isValid = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       view: null == view
@@ -87,10 +87,10 @@ class _$GetFeedGeneratorOutputCopyWithImpl<$Res,
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -116,7 +116,7 @@ abstract class _$$GetFeedGeneratorOutputImplCopyWith<$Res>
       {@GeneratorViewConverter() GeneratorView view,
       bool isOnline,
       bool isValid,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $GeneratorViewCopyWith<$Res> get view;
@@ -138,7 +138,7 @@ class __$$GetFeedGeneratorOutputImplCopyWithImpl<$Res>
     Object? view = null,
     Object? isOnline = null,
     Object? isValid = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetFeedGeneratorOutputImpl(
       view: null == view
@@ -153,10 +153,10 @@ class __$$GetFeedGeneratorOutputImplCopyWithImpl<$Res>
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -169,8 +169,7 @@ class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
       {@GeneratorViewConverter() required this.view,
       required this.isOnline,
       required this.isValid,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetFeedGeneratorOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -189,15 +188,17 @@ class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
   final bool isValid;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -242,7 +243,7 @@ abstract class _GetFeedGeneratorOutput implements GetFeedGeneratorOutput {
           {@GeneratorViewConverter() required final GeneratorView view,
           required final bool isOnline,
           required final bool isValid,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetFeedGeneratorOutputImpl;
 
   factory _GetFeedGeneratorOutput.fromJson(Map<String, dynamic> json) =
@@ -263,7 +264,7 @@ abstract class _GetFeedGeneratorOutput implements GetFeedGeneratorOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetFeedGeneratorOutputImplCopyWith<_$GetFeedGeneratorOutputImpl>

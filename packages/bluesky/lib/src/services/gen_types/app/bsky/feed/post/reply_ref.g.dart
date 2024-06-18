@@ -25,20 +25,27 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
                   .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$ReplyRefImplToJson(_$ReplyRefImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'root': const StrongRefConverter().toJson(instance.root),
-      'parent': const StrongRefConverter().toJson(instance.parent),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$ReplyRefImplToJson(_$ReplyRefImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'root': const StrongRefConverter().toJson(instance.root),
+    'parent': const StrongRefConverter().toJson(instance.parent),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

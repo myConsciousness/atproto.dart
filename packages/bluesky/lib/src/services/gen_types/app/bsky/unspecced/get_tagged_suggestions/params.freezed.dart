@@ -23,7 +23,7 @@ GetTaggedSuggestionsParams _$GetTaggedSuggestionsParamsFromJson(
 mixin _$GetTaggedSuggestionsParams {
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $GetTaggedSuggestionsParamsCopyWith<$Res> {
       _$GetTaggedSuggestionsParamsCopyWithImpl<$Res,
           GetTaggedSuggestionsParams>;
   @useResult
-  $Res call({@JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+  $Res call({@JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -55,13 +55,13 @@ class _$GetTaggedSuggestionsParamsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$GetTaggedSuggestionsParamsImplCopyWith<$Res>
       __$$GetTaggedSuggestionsParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+  $Res call({@JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -91,13 +91,13 @@ class __$$GetTaggedSuggestionsParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetTaggedSuggestionsParamsImpl(
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -107,8 +107,7 @@ class __$$GetTaggedSuggestionsParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetTaggedSuggestionsParamsImpl implements _GetTaggedSuggestionsParams {
   const _$GetTaggedSuggestionsParamsImpl(
-      {@JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      {@JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetTaggedSuggestionsParamsImpl.fromJson(
@@ -116,15 +115,17 @@ class _$GetTaggedSuggestionsParamsImpl implements _GetTaggedSuggestionsParams {
       _$$GetTaggedSuggestionsParamsImplFromJson(json);
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -163,7 +164,7 @@ class _$GetTaggedSuggestionsParamsImpl implements _GetTaggedSuggestionsParams {
 abstract class _GetTaggedSuggestionsParams
     implements GetTaggedSuggestionsParams {
   const factory _GetTaggedSuggestionsParams(
-          {@JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          {@JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetTaggedSuggestionsParamsImpl;
 
   factory _GetTaggedSuggestionsParams.fromJson(Map<String, dynamic> json) =
@@ -173,7 +174,7 @@ abstract class _GetTaggedSuggestionsParams
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetTaggedSuggestionsParamsImplCopyWith<_$GetTaggedSuggestionsParamsImpl>

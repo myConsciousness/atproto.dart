@@ -26,7 +26,7 @@ mixin _$GetMessageContextOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $GetMessageContextOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@UMessageConverter() List<UMessage> messages,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -60,17 +60,17 @@ class _$GetMessageContextOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? messages = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<UMessage>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -86,7 +86,7 @@ abstract class _$$GetMessageContextOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@UMessageConverter() List<UMessage> messages,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -103,17 +103,17 @@ class __$$GetMessageContextOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? messages = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetMessageContextOutputImpl(
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<UMessage>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -124,8 +124,7 @@ class __$$GetMessageContextOutputImplCopyWithImpl<$Res>
 class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
   const _$GetMessageContextOutputImpl(
       {@UMessageConverter() required final List<UMessage> messages,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _messages = messages,
         _$unknown = $unknown;
 
@@ -142,15 +141,17 @@ class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -192,7 +193,7 @@ class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
 abstract class _GetMessageContextOutput implements GetMessageContextOutput {
   const factory _GetMessageContextOutput(
           {@UMessageConverter() required final List<UMessage> messages,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetMessageContextOutputImpl;
 
   factory _GetMessageContextOutput.fromJson(Map<String, dynamic> json) =
@@ -205,7 +206,7 @@ abstract class _GetMessageContextOutput implements GetMessageContextOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetMessageContextOutputImplCopyWith<_$GetMessageContextOutputImpl>

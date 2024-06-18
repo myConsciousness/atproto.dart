@@ -25,7 +25,7 @@ mixin _$SubmitPlcOperationInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $SubmitPlcOperationInputCopyWith<$Res> {
   @useResult
   $Res call(
       {Map<String, dynamic> operation,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -59,17 +59,17 @@ class _$SubmitPlcOperationInputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? operation = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       operation: null == operation
           ? _value.operation
           : operation // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -85,7 +85,7 @@ abstract class _$$SubmitPlcOperationInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {Map<String, dynamic> operation,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -102,17 +102,17 @@ class __$$SubmitPlcOperationInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? operation = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SubmitPlcOperationInputImpl(
       operation: null == operation
           ? _value._operation
           : operation // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -123,8 +123,7 @@ class __$$SubmitPlcOperationInputImplCopyWithImpl<$Res>
 class _$SubmitPlcOperationInputImpl implements _SubmitPlcOperationInput {
   const _$SubmitPlcOperationInputImpl(
       {required final Map<String, dynamic> operation,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _operation = operation,
         _$unknown = $unknown;
 
@@ -140,15 +139,17 @@ class _$SubmitPlcOperationInputImpl implements _SubmitPlcOperationInput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -191,7 +192,7 @@ class _$SubmitPlcOperationInputImpl implements _SubmitPlcOperationInput {
 abstract class _SubmitPlcOperationInput implements SubmitPlcOperationInput {
   const factory _SubmitPlcOperationInput(
           {required final Map<String, dynamic> operation,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SubmitPlcOperationInputImpl;
 
   factory _SubmitPlcOperationInput.fromJson(Map<String, dynamic> json) =
@@ -203,7 +204,7 @@ abstract class _SubmitPlcOperationInput implements SubmitPlcOperationInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SubmitPlcOperationInputImplCopyWith<_$SubmitPlcOperationInputImpl>

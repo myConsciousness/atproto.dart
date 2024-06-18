@@ -31,7 +31,7 @@ mixin _$MessageRef {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $MessageRefCopyWith<$Res> {
       String did,
       String convoId,
       String messageId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$MessageRefCopyWithImpl<$Res, $Val extends MessageRef>
     Object? did = null,
     Object? convoId = null,
     Object? messageId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -89,10 +89,10 @@ class _$MessageRefCopyWithImpl<$Res, $Val extends MessageRef>
           ? _value.messageId
           : messageId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -110,7 +110,7 @@ abstract class _$$MessageRefImplCopyWith<$Res>
       String did,
       String convoId,
       String messageId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -128,7 +128,7 @@ class __$$MessageRefImplCopyWithImpl<$Res>
     Object? did = null,
     Object? convoId = null,
     Object? messageId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$MessageRefImpl(
       $type: null == $type
@@ -147,10 +147,10 @@ class __$$MessageRefImplCopyWithImpl<$Res>
           ? _value.messageId
           : messageId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -164,8 +164,7 @@ class _$MessageRefImpl implements _MessageRef {
       required this.did,
       required this.convoId,
       required this.messageId,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$MessageRefImpl.fromJson(Map<String, dynamic> json) =>
@@ -185,15 +184,17 @@ class _$MessageRefImpl implements _MessageRef {
   final String messageId;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -239,7 +240,7 @@ abstract class _MessageRef implements MessageRef {
           required final String did,
           required final String convoId,
           required final String messageId,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$MessageRefImpl;
 
   factory _MessageRef.fromJson(Map<String, dynamic> json) =
@@ -262,7 +263,7 @@ abstract class _MessageRef implements MessageRef {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$MessageRefImplCopyWith<_$MessageRefImpl> get copyWith =>

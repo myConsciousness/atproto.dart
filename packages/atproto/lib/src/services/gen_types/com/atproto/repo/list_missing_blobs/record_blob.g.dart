@@ -20,20 +20,27 @@ _$RecordBlobImpl _$$RecordBlobImplFromJson(Map json) => $checkedCreate(
               'recordUri', (v) => const AtUriConverter().fromJson(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$RecordBlobImplToJson(_$RecordBlobImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'cid': instance.cid,
-      'recordUri': const AtUriConverter().toJson(instance.recordUri),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$RecordBlobImplToJson(_$RecordBlobImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'cid': instance.cid,
+    'recordUri': const AtUriConverter().toJson(instance.recordUri),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

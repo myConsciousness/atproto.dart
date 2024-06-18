@@ -31,7 +31,7 @@ mixin _$ListViewerState {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ abstract class $ListViewerStateCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       bool muted,
       @AtUriConverter() AtUri? blocked,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$ListViewerStateCopyWithImpl<$Res, $Val extends ListViewerState>
     Object? $type = null,
     Object? muted = null,
     Object? blocked = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -83,10 +83,10 @@ class _$ListViewerStateCopyWithImpl<$Res, $Val extends ListViewerState>
           ? _value.blocked
           : blocked // ignore: cast_nullable_to_non_nullable
               as AtUri?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -103,7 +103,7 @@ abstract class _$$ListViewerStateImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       bool muted,
       @AtUriConverter() AtUri? blocked,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -120,7 +120,7 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? muted = null,
     Object? blocked = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ListViewerStateImpl(
       $type: null == $type
@@ -135,10 +135,10 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
           ? _value.blocked
           : blocked // ignore: cast_nullable_to_non_nullable
               as AtUri?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -151,8 +151,7 @@ class _$ListViewerStateImpl implements _ListViewerState {
       {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsListViewerState,
       this.muted = false,
       @AtUriConverter() this.blocked,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ListViewerStateImpl.fromJson(Map<String, dynamic> json) =>
@@ -172,15 +171,17 @@ class _$ListViewerStateImpl implements _ListViewerState {
   final AtUri? blocked;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -224,7 +225,7 @@ abstract class _ListViewerState implements ListViewerState {
           {@JsonKey(name: r'$type') final String $type,
           final bool muted,
           @AtUriConverter() final AtUri? blocked,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListViewerStateImpl;
 
   factory _ListViewerState.fromJson(Map<String, dynamic> json) =
@@ -246,7 +247,7 @@ abstract class _ListViewerState implements ListViewerState {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListViewerStateImplCopyWith<_$ListViewerStateImpl> get copyWith =>

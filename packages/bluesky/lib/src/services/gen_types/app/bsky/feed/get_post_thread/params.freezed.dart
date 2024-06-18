@@ -32,7 +32,7 @@ mixin _$GetPostThreadParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $GetPostThreadParamsCopyWith<$Res> {
       {@AtUriConverter() AtUri uri,
       int? depth,
       int? parentHeight,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -69,7 +69,7 @@ class _$GetPostThreadParamsCopyWithImpl<$Res, $Val extends GetPostThreadParams>
     Object? uri = null,
     Object? depth = freezed,
     Object? parentHeight = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       uri: null == uri
@@ -84,10 +84,10 @@ class _$GetPostThreadParamsCopyWithImpl<$Res, $Val extends GetPostThreadParams>
           ? _value.parentHeight
           : parentHeight // ignore: cast_nullable_to_non_nullable
               as int?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -104,7 +104,7 @@ abstract class _$$GetPostThreadParamsImplCopyWith<$Res>
       {@AtUriConverter() AtUri uri,
       int? depth,
       int? parentHeight,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class __$$GetPostThreadParamsImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? depth = freezed,
     Object? parentHeight = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetPostThreadParamsImpl(
       uri: null == uri
@@ -136,10 +136,10 @@ class __$$GetPostThreadParamsImplCopyWithImpl<$Res>
           ? _value.parentHeight
           : parentHeight // ignore: cast_nullable_to_non_nullable
               as int?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -152,8 +152,7 @@ class _$GetPostThreadParamsImpl implements _GetPostThreadParams {
       {@AtUriConverter() required this.uri,
       this.depth,
       this.parentHeight,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetPostThreadParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -173,15 +172,17 @@ class _$GetPostThreadParamsImpl implements _GetPostThreadParams {
   final int? parentHeight;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -226,7 +227,7 @@ abstract class _GetPostThreadParams implements GetPostThreadParams {
           {@AtUriConverter() required final AtUri uri,
           final int? depth,
           final int? parentHeight,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetPostThreadParamsImpl;
 
   factory _GetPostThreadParams.fromJson(Map<String, dynamic> json) =
@@ -249,7 +250,7 @@ abstract class _GetPostThreadParams implements GetPostThreadParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetPostThreadParamsImplCopyWith<_$GetPostThreadParamsImpl> get copyWith =>

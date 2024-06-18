@@ -26,7 +26,7 @@ mixin _$GetSuggestedFeedsParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $GetSuggestedFeedsParamsCopyWith<$Res> {
   $Res call(
       {int? limit,
       String? cursor,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$GetSuggestedFeedsParamsCopyWithImpl<$Res,
   $Res call({
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       limit: freezed == limit
@@ -73,10 +73,10 @@ class _$GetSuggestedFeedsParamsCopyWithImpl<$Res,
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -93,7 +93,7 @@ abstract class _$$GetSuggestedFeedsParamsImplCopyWith<$Res>
   $Res call(
       {int? limit,
       String? cursor,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$GetSuggestedFeedsParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetSuggestedFeedsParamsImpl(
       limit: freezed == limit
@@ -122,10 +122,10 @@ class __$$GetSuggestedFeedsParamsImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -137,8 +137,7 @@ class _$GetSuggestedFeedsParamsImpl implements _GetSuggestedFeedsParams {
   const _$GetSuggestedFeedsParamsImpl(
       {this.limit,
       this.cursor,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetSuggestedFeedsParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -150,15 +149,17 @@ class _$GetSuggestedFeedsParamsImpl implements _GetSuggestedFeedsParams {
   final String? cursor;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -200,7 +201,7 @@ abstract class _GetSuggestedFeedsParams implements GetSuggestedFeedsParams {
   const factory _GetSuggestedFeedsParams(
           {final int? limit,
           final String? cursor,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetSuggestedFeedsParamsImpl;
 
   factory _GetSuggestedFeedsParams.fromJson(Map<String, dynamic> json) =
@@ -214,7 +215,7 @@ abstract class _GetSuggestedFeedsParams implements GetSuggestedFeedsParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetSuggestedFeedsParamsImplCopyWith<_$GetSuggestedFeedsParamsImpl>

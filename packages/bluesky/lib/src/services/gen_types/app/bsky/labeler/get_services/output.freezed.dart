@@ -25,7 +25,7 @@ mixin _$GetServicesOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $GetServicesOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@UViewConverter() List<UView> views,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -58,17 +58,17 @@ class _$GetServicesOutputCopyWithImpl<$Res, $Val extends GetServicesOutput>
   @override
   $Res call({
     Object? views = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       views: null == views
           ? _value.views
           : views // ignore: cast_nullable_to_non_nullable
               as List<UView>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$GetServicesOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@UViewConverter() List<UView> views,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -98,17 +98,17 @@ class __$$GetServicesOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? views = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetServicesOutputImpl(
       views: null == views
           ? _value._views
           : views // ignore: cast_nullable_to_non_nullable
               as List<UView>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -119,8 +119,7 @@ class __$$GetServicesOutputImplCopyWithImpl<$Res>
 class _$GetServicesOutputImpl implements _GetServicesOutput {
   const _$GetServicesOutputImpl(
       {@UViewConverter() required final List<UView> views,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _views = views,
         _$unknown = $unknown;
 
@@ -137,15 +136,17 @@ class _$GetServicesOutputImpl implements _GetServicesOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -187,7 +188,7 @@ class _$GetServicesOutputImpl implements _GetServicesOutput {
 abstract class _GetServicesOutput implements GetServicesOutput {
   const factory _GetServicesOutput(
           {@UViewConverter() required final List<UView> views,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetServicesOutputImpl;
 
   factory _GetServicesOutput.fromJson(Map<String, dynamic> json) =
@@ -200,7 +201,7 @@ abstract class _GetServicesOutput implements GetServicesOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetServicesOutputImplCopyWith<_$GetServicesOutputImpl> get copyWith =>

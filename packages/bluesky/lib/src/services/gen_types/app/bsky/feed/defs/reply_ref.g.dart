@@ -30,11 +30,9 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
                   v, const ProfileViewBasicConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -58,7 +56,7 @@ Map<String, dynamic> _$$ReplyRefImplToJson(_$ReplyRefImpl instance) {
       _$JsonConverterToJson<Map<String, dynamic>, ProfileViewBasic>(
           instance.grandparentAuthor,
           const ProfileViewBasicConverter().toJson));
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

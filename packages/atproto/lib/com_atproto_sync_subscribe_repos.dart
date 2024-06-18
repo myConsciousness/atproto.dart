@@ -20,4 +20,3 @@ export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_name.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/repo_op.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_action.dart';
-export 'package:atproto/src/services/extensions/repo_op.dart';

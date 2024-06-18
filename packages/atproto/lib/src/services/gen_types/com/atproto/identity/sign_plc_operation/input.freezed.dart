@@ -31,7 +31,7 @@ mixin _$SignPlcOperationInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +51,7 @@ abstract class $SignPlcOperationInputCopyWith<$Res> {
       List<String>? alsoKnownAs,
       Map<String, dynamic>? verificationMethods,
       Map<String, dynamic>? services,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -73,7 +73,7 @@ class _$SignPlcOperationInputCopyWithImpl<$Res,
     Object? alsoKnownAs = freezed,
     Object? verificationMethods = freezed,
     Object? services = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       token: freezed == token
@@ -96,10 +96,10 @@ class _$SignPlcOperationInputCopyWithImpl<$Res,
           ? _value.services
           : services // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -119,7 +119,7 @@ abstract class _$$SignPlcOperationInputImplCopyWith<$Res>
       List<String>? alsoKnownAs,
       Map<String, dynamic>? verificationMethods,
       Map<String, dynamic>? services,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -139,7 +139,7 @@ class __$$SignPlcOperationInputImplCopyWithImpl<$Res>
     Object? alsoKnownAs = freezed,
     Object? verificationMethods = freezed,
     Object? services = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SignPlcOperationInputImpl(
       token: freezed == token
@@ -162,10 +162,10 @@ class __$$SignPlcOperationInputImplCopyWithImpl<$Res>
           ? _value._services
           : services // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -180,8 +180,7 @@ class _$SignPlcOperationInputImpl implements _SignPlcOperationInput {
       final List<String>? alsoKnownAs,
       final Map<String, dynamic>? verificationMethods,
       final Map<String, dynamic>? services,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _rotationKeys = rotationKeys,
         _alsoKnownAs = alsoKnownAs,
         _verificationMethods = verificationMethods,
@@ -236,15 +235,17 @@ class _$SignPlcOperationInputImpl implements _SignPlcOperationInput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -301,7 +302,7 @@ abstract class _SignPlcOperationInput implements SignPlcOperationInput {
           final List<String>? alsoKnownAs,
           final Map<String, dynamic>? verificationMethods,
           final Map<String, dynamic>? services,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SignPlcOperationInputImpl;
 
   factory _SignPlcOperationInput.fromJson(Map<String, dynamic> json) =
@@ -323,7 +324,7 @@ abstract class _SignPlcOperationInput implements SignPlcOperationInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SignPlcOperationInputImplCopyWith<_$SignPlcOperationInputImpl>

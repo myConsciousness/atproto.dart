@@ -18,11 +18,9 @@ _$CreateAppPasswordInputImpl _$$CreateAppPasswordInputImplFromJson(Map json) =>
           privileged: $checkedConvert('privileged', (v) => v as bool?),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -41,6 +39,6 @@ Map<String, dynamic> _$$CreateAppPasswordInputImplToJson(
   }
 
   writeNotNull('privileged', instance.privileged);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

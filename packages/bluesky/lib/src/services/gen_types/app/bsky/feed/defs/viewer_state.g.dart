@@ -29,11 +29,9 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
               $checkedConvert('replyDisabled', (v) => v as bool? ?? false),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -60,7 +58,7 @@ Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
           instance.like, const AtUriConverter().toJson));
   val['threadMuted'] = instance.threadMuted;
   val['replyDisabled'] = instance.replyDisabled;
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

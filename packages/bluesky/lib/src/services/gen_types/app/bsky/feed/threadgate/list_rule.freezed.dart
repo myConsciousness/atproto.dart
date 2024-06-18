@@ -30,7 +30,7 @@ mixin _$ListRule {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $ListRuleCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri list,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -64,7 +64,7 @@ class _$ListRuleCopyWithImpl<$Res, $Val extends ListRule>
   $Res call({
     Object? $type = null,
     Object? list = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -75,10 +75,10 @@ class _$ListRuleCopyWithImpl<$Res, $Val extends ListRule>
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -94,7 +94,7 @@ abstract class _$$ListRuleImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri list,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$ListRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? list = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ListRuleImpl(
       $type: null == $type
@@ -121,10 +121,10 @@ class __$$ListRuleImplCopyWithImpl<$Res>
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -136,8 +136,7 @@ class _$ListRuleImpl implements _ListRule {
   const _$ListRuleImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedThreadgateListRule,
       @AtUriConverter() required this.list,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ListRuleImpl.fromJson(Map<String, dynamic> json) =>
@@ -154,15 +153,17 @@ class _$ListRuleImpl implements _ListRule {
   final AtUri list;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -203,7 +204,7 @@ abstract class _ListRule implements ListRule {
   const factory _ListRule(
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri list,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListRuleImpl;
 
   factory _ListRule.fromJson(Map<String, dynamic> json) =
@@ -223,7 +224,7 @@ abstract class _ListRule implements ListRule {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListRuleImplCopyWith<_$ListRuleImpl> get copyWith =>

@@ -31,7 +31,7 @@ mixin _$StrongRef {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $StrongRefCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$StrongRefCopyWithImpl<$Res, $Val extends StrongRef>
     Object? $type = null,
     Object? uri = null,
     Object? cid = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -82,10 +82,10 @@ class _$StrongRefCopyWithImpl<$Res, $Val extends StrongRef>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -102,7 +102,7 @@ abstract class _$$StrongRefImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -119,7 +119,7 @@ class __$$StrongRefImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? uri = null,
     Object? cid = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$StrongRefImpl(
       $type: null == $type
@@ -134,10 +134,10 @@ class __$$StrongRefImplCopyWithImpl<$Res>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -150,8 +150,7 @@ class _$StrongRefImpl implements _StrongRef {
       {@JsonKey(name: r'$type') this.$type = comAtprotoRepoStrongRef,
       @AtUriConverter() required this.uri,
       required this.cid,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$StrongRefImpl.fromJson(Map<String, dynamic> json) =>
@@ -170,15 +169,17 @@ class _$StrongRefImpl implements _StrongRef {
   final String cid;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -221,7 +222,7 @@ abstract class _StrongRef implements StrongRef {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           required final String cid,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$StrongRefImpl;
 
   factory _StrongRef.fromJson(Map<String, dynamic> json) =
@@ -243,7 +244,7 @@ abstract class _StrongRef implements StrongRef {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$StrongRefImplCopyWith<_$StrongRefImpl> get copyWith =>

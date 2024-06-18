@@ -33,7 +33,7 @@ mixin _$DeletedMessageView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +53,7 @@ abstract class $DeletedMessageViewCopyWith<$Res> {
       String rev,
       @MessageViewSenderConverter() MessageViewSender sender,
       DateTime sentAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $MessageViewSenderCopyWith<$Res> get sender;
 }
@@ -76,7 +76,7 @@ class _$DeletedMessageViewCopyWithImpl<$Res, $Val extends DeletedMessageView>
     Object? rev = null,
     Object? sender = null,
     Object? sentAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -99,10 +99,10 @@ class _$DeletedMessageViewCopyWithImpl<$Res, $Val extends DeletedMessageView>
           ? _value.sentAt
           : sentAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -129,7 +129,7 @@ abstract class _$$DeletedMessageViewImplCopyWith<$Res>
       String rev,
       @MessageViewSenderConverter() MessageViewSender sender,
       DateTime sentAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $MessageViewSenderCopyWith<$Res> get sender;
@@ -151,7 +151,7 @@ class __$$DeletedMessageViewImplCopyWithImpl<$Res>
     Object? rev = null,
     Object? sender = null,
     Object? sentAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$DeletedMessageViewImpl(
       $type: null == $type
@@ -174,10 +174,10 @@ class __$$DeletedMessageViewImplCopyWithImpl<$Res>
           ? _value.sentAt
           : sentAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -193,8 +193,7 @@ class _$DeletedMessageViewImpl implements _DeletedMessageView {
       required this.rev,
       @MessageViewSenderConverter() required this.sender,
       required this.sentAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$DeletedMessageViewImpl.fromJson(Map<String, dynamic> json) =>
@@ -217,15 +216,17 @@ class _$DeletedMessageViewImpl implements _DeletedMessageView {
   final DateTime sentAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -273,7 +274,7 @@ abstract class _DeletedMessageView implements DeletedMessageView {
           required final String rev,
           @MessageViewSenderConverter() required final MessageViewSender sender,
           required final DateTime sentAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$DeletedMessageViewImpl;
 
   factory _DeletedMessageView.fromJson(Map<String, dynamic> json) =
@@ -299,7 +300,7 @@ abstract class _DeletedMessageView implements DeletedMessageView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$DeletedMessageViewImplCopyWith<_$DeletedMessageViewImpl> get copyWith =>

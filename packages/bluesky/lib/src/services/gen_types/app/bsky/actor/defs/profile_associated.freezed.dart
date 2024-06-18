@@ -33,7 +33,7 @@ mixin _$ProfileAssociated {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +53,7 @@ abstract class $ProfileAssociatedCopyWith<$Res> {
       int feedgens,
       bool labeler,
       @ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileAssociatedChatCopyWith<$Res>? get chat;
 }
@@ -76,7 +76,7 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
     Object? feedgens = null,
     Object? labeler = null,
     Object? chat = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -99,10 +99,10 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
           ? _value.chat
           : chat // ignore: cast_nullable_to_non_nullable
               as ProfileAssociatedChat?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -133,7 +133,7 @@ abstract class _$$ProfileAssociatedImplCopyWith<$Res>
       int feedgens,
       bool labeler,
       @ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ProfileAssociatedChatCopyWith<$Res>? get chat;
@@ -155,7 +155,7 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
     Object? feedgens = null,
     Object? labeler = null,
     Object? chat = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ProfileAssociatedImpl(
       $type: null == $type
@@ -178,10 +178,10 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
           ? _value.chat
           : chat // ignore: cast_nullable_to_non_nullable
               as ProfileAssociatedChat?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -196,8 +196,7 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
       this.feedgens = 0,
       this.labeler = false,
       @ProfileAssociatedChatConverter() this.chat,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ProfileAssociatedImpl.fromJson(Map<String, dynamic> json) =>
@@ -223,15 +222,17 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
   final ProfileAssociatedChat? chat;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -280,7 +281,7 @@ abstract class _ProfileAssociated implements ProfileAssociated {
           final int feedgens,
           final bool labeler,
           @ProfileAssociatedChatConverter() final ProfileAssociatedChat? chat,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ProfileAssociatedImpl;
 
   factory _ProfileAssociated.fromJson(Map<String, dynamic> json) =
@@ -306,7 +307,7 @@ abstract class _ProfileAssociated implements ProfileAssociated {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ProfileAssociatedImplCopyWith<_$ProfileAssociatedImpl> get copyWith =>

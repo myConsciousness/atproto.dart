@@ -26,7 +26,7 @@ mixin _$DeclarationRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $DeclarationRecordCopyWith<$Res> {
   $Res call(
       {@UDeclarationAllowIncomingConverter()
       UDeclarationAllowIncoming allowIncoming,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;
 }
@@ -62,17 +62,17 @@ class _$DeclarationRecordCopyWithImpl<$Res, $Val extends DeclarationRecord>
   @override
   $Res call({
     Object? allowIncoming = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
               as UDeclarationAllowIncoming,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -97,7 +97,7 @@ abstract class _$$DeclarationRecordImplCopyWith<$Res>
   $Res call(
       {@UDeclarationAllowIncomingConverter()
       UDeclarationAllowIncoming allowIncoming,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;
@@ -115,17 +115,17 @@ class __$$DeclarationRecordImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? allowIncoming = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$DeclarationRecordImpl(
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
               as UDeclarationAllowIncoming,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -136,8 +136,7 @@ class __$$DeclarationRecordImplCopyWithImpl<$Res>
 class _$DeclarationRecordImpl implements _DeclarationRecord {
   const _$DeclarationRecordImpl(
       {@UDeclarationAllowIncomingConverter() required this.allowIncoming,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$DeclarationRecordImpl.fromJson(Map<String, dynamic> json) =>
@@ -148,15 +147,17 @@ class _$DeclarationRecordImpl implements _DeclarationRecord {
   final UDeclarationAllowIncoming allowIncoming;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -198,7 +199,7 @@ abstract class _DeclarationRecord implements DeclarationRecord {
   const factory _DeclarationRecord(
           {@UDeclarationAllowIncomingConverter()
           required final UDeclarationAllowIncoming allowIncoming,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$DeclarationRecordImpl;
 
   factory _DeclarationRecord.fromJson(Map<String, dynamic> json) =
@@ -211,7 +212,7 @@ abstract class _DeclarationRecord implements DeclarationRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$DeclarationRecordImplCopyWith<_$DeclarationRecordImpl> get copyWith =>

@@ -17,19 +17,26 @@ _$GetProfileParamsImpl _$$GetProfileParamsImplFromJson(Map json) =>
           actor: $checkedConvert('actor', (v) => v as String),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$GetProfileParamsImplToJson(
-        _$GetProfileParamsImpl instance) =>
-    <String, dynamic>{
-      'actor': instance.actor,
-      r'$unknown': instance.$unknown,
-    };
+    _$GetProfileParamsImpl instance) {
+  final val = <String, dynamic>{
+    'actor': instance.actor,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

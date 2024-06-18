@@ -585,7 +585,7 @@ extension FeedServiceExtension on FeedService {
                 value: {
                   'subject': e.subject,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
+                  ...?e.$unknown,
                 },
               ),
             )
@@ -608,7 +608,7 @@ extension FeedServiceExtension on FeedService {
                 value: {
                   'subject': e.subject,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
+                  ...?e.$unknown,
                 },
               ),
             )
@@ -638,7 +638,7 @@ extension FeedServiceExtension on FeedService {
                   if (e.labels != null) 'labels': e.labels!.toJson(),
                   if (e.tags != null) 'tags': e.tags!,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
+                  ...?e.$unknown,
                 },
               ),
             )

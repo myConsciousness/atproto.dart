@@ -35,7 +35,7 @@ mixin _$Interaction {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +54,7 @@ abstract class $InteractionCopyWith<$Res> {
       @AtUriConverter() AtUri? item,
       @UEventConverter() UEvent? event,
       String? feedContext,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UEventCopyWith<$Res>? get event;
 }
@@ -76,7 +76,7 @@ class _$InteractionCopyWithImpl<$Res, $Val extends Interaction>
     Object? item = freezed,
     Object? event = freezed,
     Object? feedContext = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -95,10 +95,10 @@ class _$InteractionCopyWithImpl<$Res, $Val extends Interaction>
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -128,7 +128,7 @@ abstract class _$$InteractionImplCopyWith<$Res>
       @AtUriConverter() AtUri? item,
       @UEventConverter() UEvent? event,
       String? feedContext,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UEventCopyWith<$Res>? get event;
@@ -149,7 +149,7 @@ class __$$InteractionImplCopyWithImpl<$Res>
     Object? item = freezed,
     Object? event = freezed,
     Object? feedContext = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$InteractionImpl(
       $type: null == $type
@@ -168,10 +168,10 @@ class __$$InteractionImplCopyWithImpl<$Res>
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -185,8 +185,7 @@ class _$InteractionImpl implements _Interaction {
       @AtUriConverter() this.item,
       @UEventConverter() this.event,
       this.feedContext,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$InteractionImpl.fromJson(Map<String, dynamic> json) =>
@@ -210,15 +209,17 @@ class _$InteractionImpl implements _Interaction {
   final String? feedContext;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -264,7 +265,7 @@ abstract class _Interaction implements Interaction {
           @AtUriConverter() final AtUri? item,
           @UEventConverter() final UEvent? event,
           final String? feedContext,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$InteractionImpl;
 
   factory _Interaction.fromJson(Map<String, dynamic> json) =
@@ -291,7 +292,7 @@ abstract class _Interaction implements Interaction {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$InteractionImplCopyWith<_$InteractionImpl> get copyWith =>

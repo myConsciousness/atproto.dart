@@ -28,7 +28,7 @@ mixin _$GetSubjectStatusParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $GetSubjectStatusParamsCopyWith<$Res> {
       {String? did,
       @AtUriConverter() AtUri? uri,
       String? blob,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$GetSubjectStatusParamsCopyWithImpl<$Res,
     Object? did = freezed,
     Object? uri = freezed,
     Object? blob = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       did: freezed == did
@@ -81,10 +81,10 @@ class _$GetSubjectStatusParamsCopyWithImpl<$Res,
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -102,7 +102,7 @@ abstract class _$$GetSubjectStatusParamsImplCopyWith<$Res>
       {String? did,
       @AtUriConverter() AtUri? uri,
       String? blob,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class __$$GetSubjectStatusParamsImplCopyWithImpl<$Res>
     Object? did = freezed,
     Object? uri = freezed,
     Object? blob = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetSubjectStatusParamsImpl(
       did: freezed == did
@@ -136,10 +136,10 @@ class __$$GetSubjectStatusParamsImplCopyWithImpl<$Res>
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -152,8 +152,7 @@ class _$GetSubjectStatusParamsImpl implements _GetSubjectStatusParams {
       {this.did,
       @AtUriConverter() this.uri,
       this.blob,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetSubjectStatusParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -168,15 +167,17 @@ class _$GetSubjectStatusParamsImpl implements _GetSubjectStatusParams {
   final String? blob;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -220,7 +221,7 @@ abstract class _GetSubjectStatusParams implements GetSubjectStatusParams {
           {final String? did,
           @AtUriConverter() final AtUri? uri,
           final String? blob,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetSubjectStatusParamsImpl;
 
   factory _GetSubjectStatusParams.fromJson(Map<String, dynamic> json) =
@@ -237,7 +238,7 @@ abstract class _GetSubjectStatusParams implements GetSubjectStatusParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetSubjectStatusParamsImplCopyWith<_$GetSubjectStatusParamsImpl>

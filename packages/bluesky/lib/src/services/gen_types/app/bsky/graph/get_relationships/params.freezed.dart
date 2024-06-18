@@ -29,7 +29,7 @@ mixin _$GetRelationshipsParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $GetRelationshipsParamsCopyWith<$Res> {
   $Res call(
       {String actor,
       List<String>? others,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$GetRelationshipsParamsCopyWithImpl<$Res,
   $Res call({
     Object? actor = null,
     Object? others = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       actor: null == actor
@@ -76,10 +76,10 @@ class _$GetRelationshipsParamsCopyWithImpl<$Res,
           ? _value.others
           : others // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -96,7 +96,7 @@ abstract class _$$GetRelationshipsParamsImplCopyWith<$Res>
   $Res call(
       {String actor,
       List<String>? others,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -114,7 +114,7 @@ class __$$GetRelationshipsParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? actor = null,
     Object? others = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetRelationshipsParamsImpl(
       actor: null == actor
@@ -125,10 +125,10 @@ class __$$GetRelationshipsParamsImplCopyWithImpl<$Res>
           ? _value._others
           : others // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -140,8 +140,7 @@ class _$GetRelationshipsParamsImpl implements _GetRelationshipsParams {
   const _$GetRelationshipsParamsImpl(
       {required this.actor,
       final List<String>? others,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _others = others,
         _$unknown = $unknown;
 
@@ -166,15 +165,17 @@ class _$GetRelationshipsParamsImpl implements _GetRelationshipsParams {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -219,7 +220,7 @@ abstract class _GetRelationshipsParams implements GetRelationshipsParams {
   const factory _GetRelationshipsParams(
           {required final String actor,
           final List<String>? others,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetRelationshipsParamsImpl;
 
   factory _GetRelationshipsParams.fromJson(Map<String, dynamic> json) =
@@ -237,7 +238,7 @@ abstract class _GetRelationshipsParams implements GetRelationshipsParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetRelationshipsParamsImplCopyWith<_$GetRelationshipsParamsImpl>

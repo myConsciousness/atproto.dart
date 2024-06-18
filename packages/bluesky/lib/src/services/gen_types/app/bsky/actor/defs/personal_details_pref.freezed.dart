@@ -31,7 +31,7 @@ mixin _$PersonalDetailsPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $PersonalDetailsPrefCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       DateTime? birthDate,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$PersonalDetailsPrefCopyWithImpl<$Res, $Val extends PersonalDetailsPref>
   $Res call({
     Object? $type = null,
     Object? birthDate = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -77,10 +77,10 @@ class _$PersonalDetailsPrefCopyWithImpl<$Res, $Val extends PersonalDetailsPref>
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -96,7 +96,7 @@ abstract class _$$PersonalDetailsPrefImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       DateTime? birthDate,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class __$$PersonalDetailsPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? birthDate = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$PersonalDetailsPrefImpl(
       $type: null == $type
@@ -123,10 +123,10 @@ class __$$PersonalDetailsPrefImplCopyWithImpl<$Res>
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -139,8 +139,7 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
       {@JsonKey(name: r'$type')
       this.$type = appBskyActorDefsPersonalDetailsPref,
       this.birthDate,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$PersonalDetailsPrefImpl.fromJson(Map<String, dynamic> json) =>
@@ -158,15 +157,17 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
   final DateTime? birthDate;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -209,7 +210,7 @@ abstract class _PersonalDetailsPref implements PersonalDetailsPref {
   const factory _PersonalDetailsPref(
           {@JsonKey(name: r'$type') final String $type,
           final DateTime? birthDate,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$PersonalDetailsPrefImpl;
 
   factory _PersonalDetailsPref.fromJson(Map<String, dynamic> json) =
@@ -230,7 +231,7 @@ abstract class _PersonalDetailsPref implements PersonalDetailsPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$PersonalDetailsPrefImplCopyWith<_$PersonalDetailsPrefImpl> get copyWith =>

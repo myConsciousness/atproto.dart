@@ -25,7 +25,7 @@ mixin _$UpdateHandleInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $UpdateHandleInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String handle,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -58,17 +58,17 @@ class _$UpdateHandleInputCopyWithImpl<$Res, $Val extends UpdateHandleInput>
   @override
   $Res call({
     Object? handle = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       handle: null == handle
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$UpdateHandleInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String handle,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -98,17 +98,17 @@ class __$$UpdateHandleInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? handle = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$UpdateHandleInputImpl(
       handle: null == handle
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -119,8 +119,7 @@ class __$$UpdateHandleInputImplCopyWithImpl<$Res>
 class _$UpdateHandleInputImpl implements _UpdateHandleInput {
   const _$UpdateHandleInputImpl(
       {required this.handle,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$UpdateHandleInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -131,15 +130,17 @@ class _$UpdateHandleInputImpl implements _UpdateHandleInput {
   final String handle;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -179,7 +180,7 @@ class _$UpdateHandleInputImpl implements _UpdateHandleInput {
 abstract class _UpdateHandleInput implements UpdateHandleInput {
   const factory _UpdateHandleInput(
           {required final String handle,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$UpdateHandleInputImpl;
 
   factory _UpdateHandleInput.fromJson(Map<String, dynamic> json) =
@@ -193,7 +194,7 @@ abstract class _UpdateHandleInput implements UpdateHandleInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$UpdateHandleInputImplCopyWith<_$UpdateHandleInputImpl> get copyWith =>

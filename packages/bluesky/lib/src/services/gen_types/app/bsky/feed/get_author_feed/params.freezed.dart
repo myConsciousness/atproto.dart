@@ -30,7 +30,7 @@ mixin _$GetAuthorFeedParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ abstract class $GetAuthorFeedParamsCopyWith<$Res> {
       int? limit,
       String? cursor,
       @UFilterConverter() UFilter? filter,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UFilterCopyWith<$Res>? get filter;
 }
@@ -71,7 +71,7 @@ class _$GetAuthorFeedParamsCopyWithImpl<$Res, $Val extends GetAuthorFeedParams>
     Object? limit = freezed,
     Object? cursor = freezed,
     Object? filter = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       actor: null == actor
@@ -90,10 +90,10 @@ class _$GetAuthorFeedParamsCopyWithImpl<$Res, $Val extends GetAuthorFeedParams>
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as UFilter?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -123,7 +123,7 @@ abstract class _$$GetAuthorFeedParamsImplCopyWith<$Res>
       int? limit,
       String? cursor,
       @UFilterConverter() UFilter? filter,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UFilterCopyWith<$Res>? get filter;
@@ -144,7 +144,7 @@ class __$$GetAuthorFeedParamsImplCopyWithImpl<$Res>
     Object? limit = freezed,
     Object? cursor = freezed,
     Object? filter = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetAuthorFeedParamsImpl(
       actor: null == actor
@@ -163,10 +163,10 @@ class __$$GetAuthorFeedParamsImplCopyWithImpl<$Res>
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as UFilter?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -180,8 +180,7 @@ class _$GetAuthorFeedParamsImpl implements _GetAuthorFeedParams {
       this.limit,
       this.cursor,
       @UFilterConverter() this.filter,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetAuthorFeedParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -200,15 +199,17 @@ class _$GetAuthorFeedParamsImpl implements _GetAuthorFeedParams {
   final UFilter? filter;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -254,7 +255,7 @@ abstract class _GetAuthorFeedParams implements GetAuthorFeedParams {
           final int? limit,
           final String? cursor,
           @UFilterConverter() final UFilter? filter,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetAuthorFeedParamsImpl;
 
   factory _GetAuthorFeedParams.fromJson(Map<String, dynamic> json) =
@@ -275,7 +276,7 @@ abstract class _GetAuthorFeedParams implements GetAuthorFeedParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetAuthorFeedParamsImplCopyWith<_$GetAuthorFeedParamsImpl> get copyWith =>

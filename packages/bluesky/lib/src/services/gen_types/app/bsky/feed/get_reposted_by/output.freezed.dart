@@ -29,7 +29,7 @@ mixin _$GetRepostedByOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $GetRepostedByOutputCopyWith<$Res> {
       String? cid,
       String? cursor,
       @ProfileViewConverter() List<ProfileView> repostedBy,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$GetRepostedByOutputCopyWithImpl<$Res, $Val extends GetRepostedByOutput>
     Object? cid = freezed,
     Object? cursor = freezed,
     Object? repostedBy = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       uri: null == uri
@@ -87,10 +87,10 @@ class _$GetRepostedByOutputCopyWithImpl<$Res, $Val extends GetRepostedByOutput>
           ? _value.repostedBy
           : repostedBy // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -108,7 +108,7 @@ abstract class _$$GetRepostedByOutputImplCopyWith<$Res>
       String? cid,
       String? cursor,
       @ProfileViewConverter() List<ProfileView> repostedBy,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -126,7 +126,7 @@ class __$$GetRepostedByOutputImplCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? cursor = freezed,
     Object? repostedBy = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetRepostedByOutputImpl(
       uri: null == uri
@@ -145,10 +145,10 @@ class __$$GetRepostedByOutputImplCopyWithImpl<$Res>
           ? _value._repostedBy
           : repostedBy // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -162,8 +162,7 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
       this.cid,
       this.cursor,
       @ProfileViewConverter() required final List<ProfileView> repostedBy,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _repostedBy = repostedBy,
         _$unknown = $unknown;
 
@@ -187,15 +186,17 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -247,7 +248,7 @@ abstract class _GetRepostedByOutput implements GetRepostedByOutput {
           final String? cid,
           final String? cursor,
           @ProfileViewConverter() required final List<ProfileView> repostedBy,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetRepostedByOutputImpl;
 
   factory _GetRepostedByOutput.fromJson(Map<String, dynamic> json) =
@@ -267,7 +268,7 @@ abstract class _GetRepostedByOutput implements GetRepostedByOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetRepostedByOutputImplCopyWith<_$GetRepostedByOutputImpl> get copyWith =>

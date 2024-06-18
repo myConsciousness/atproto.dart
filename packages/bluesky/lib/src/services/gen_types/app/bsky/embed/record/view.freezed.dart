@@ -30,7 +30,7 @@ mixin _$RecordView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $RecordViewCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @URecordRecordConverter() URecordRecord record,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $URecordRecordCopyWith<$Res> get record;
 }
@@ -67,7 +67,7 @@ class _$RecordViewCopyWithImpl<$Res, $Val extends RecordView>
   $Res call({
     Object? $type = null,
     Object? record = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -78,10 +78,10 @@ class _$RecordViewCopyWithImpl<$Res, $Val extends RecordView>
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as URecordRecord,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -105,7 +105,7 @@ abstract class _$$RecordViewImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @URecordRecordConverter() URecordRecord record,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $URecordRecordCopyWith<$Res> get record;
@@ -124,7 +124,7 @@ class __$$RecordViewImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? record = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$RecordViewImpl(
       $type: null == $type
@@ -135,10 +135,10 @@ class __$$RecordViewImplCopyWithImpl<$Res>
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as URecordRecord,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -150,8 +150,7 @@ class _$RecordViewImpl implements _RecordView {
   const _$RecordViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordView,
       @URecordRecordConverter() required this.record,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$RecordViewImpl.fromJson(Map<String, dynamic> json) =>
@@ -168,15 +167,17 @@ class _$RecordViewImpl implements _RecordView {
   final URecordRecord record;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -217,7 +218,7 @@ abstract class _RecordView implements RecordView {
   const factory _RecordView(
           {@JsonKey(name: r'$type') final String $type,
           @URecordRecordConverter() required final URecordRecord record,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RecordViewImpl;
 
   factory _RecordView.fromJson(Map<String, dynamic> json) =
@@ -237,7 +238,7 @@ abstract class _RecordView implements RecordView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordViewImplCopyWith<_$RecordViewImpl> get copyWith =>

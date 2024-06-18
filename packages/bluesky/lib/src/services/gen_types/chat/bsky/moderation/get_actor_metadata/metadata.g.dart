@@ -26,22 +26,29 @@ _$MetadataImpl _$$MetadataImplFromJson(Map json) => $checkedCreate(
               $checkedConvert('convosStarted', (v) => (v as num).toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$MetadataImplToJson(_$MetadataImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'messagesSent': instance.messagesSent,
-      'messagesReceived': instance.messagesReceived,
-      'convos': instance.convos,
-      'convosStarted': instance.convosStarted,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$MetadataImplToJson(_$MetadataImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'messagesSent': instance.messagesSent,
+    'messagesReceived': instance.messagesReceived,
+    'convos': instance.convos,
+    'convosStarted': instance.convosStarted,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

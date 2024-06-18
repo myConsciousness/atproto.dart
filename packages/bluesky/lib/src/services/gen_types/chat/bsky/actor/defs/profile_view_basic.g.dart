@@ -42,11 +42,9 @@ _$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
               $checkedConvert('chatDisabled', (v) => v as bool? ?? false),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -74,6 +72,6 @@ Map<String, dynamic> _$$ProfileViewBasicImplToJson(
   writeNotNull(
       'labels', instance.labels?.map(const LabelConverter().toJson).toList());
   val['chatDisabled'] = instance.chatDisabled;
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

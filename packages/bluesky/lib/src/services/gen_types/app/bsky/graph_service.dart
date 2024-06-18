@@ -521,7 +521,7 @@ extension GraphServiceExtension on GraphService {
                   'subject': e.subject,
                   'list': e.list.toString(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
+                  ...?e.$unknown,
                 },
               ),
             )
@@ -544,7 +544,7 @@ extension GraphServiceExtension on GraphService {
                 value: {
                   'subject': e.subject.toString(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
+                  ...?e.$unknown,
                 },
               ),
             )
@@ -567,7 +567,7 @@ extension GraphServiceExtension on GraphService {
                 value: {
                   'subject': e.subject,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
+                  ...?e.$unknown,
                 },
               ),
             )
@@ -590,7 +590,7 @@ extension GraphServiceExtension on GraphService {
                 value: {
                   'subject': e.subject,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
+                  ...?e.$unknown,
                 },
               ),
             )
@@ -620,7 +620,7 @@ extension GraphServiceExtension on GraphService {
                   if (e.avatar != null) 'avatar': e.avatar!.toJson(),
                   if (e.labels != null) 'labels': e.labels!.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
+                  ...?e.$unknown,
                 },
               ),
             )

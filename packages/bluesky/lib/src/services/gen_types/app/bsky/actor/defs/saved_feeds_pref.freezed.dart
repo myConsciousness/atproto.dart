@@ -33,7 +33,7 @@ mixin _$SavedFeedsPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +52,7 @@ abstract class $SavedFeedsPrefCopyWith<$Res> {
       @AtUriConverter() List<AtUri> pinned,
       @AtUriConverter() List<AtUri> saved,
       int timelineIndex,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$SavedFeedsPrefCopyWithImpl<$Res, $Val extends SavedFeedsPref>
     Object? pinned = null,
     Object? saved = null,
     Object? timelineIndex = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -91,10 +91,10 @@ class _$SavedFeedsPrefCopyWithImpl<$Res, $Val extends SavedFeedsPref>
           ? _value.timelineIndex
           : timelineIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -112,7 +112,7 @@ abstract class _$$SavedFeedsPrefImplCopyWith<$Res>
       @AtUriConverter() List<AtUri> pinned,
       @AtUriConverter() List<AtUri> saved,
       int timelineIndex,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -130,7 +130,7 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
     Object? pinned = null,
     Object? saved = null,
     Object? timelineIndex = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SavedFeedsPrefImpl(
       $type: null == $type
@@ -149,10 +149,10 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
           ? _value.timelineIndex
           : timelineIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -166,8 +166,7 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
       @AtUriConverter() required final List<AtUri> pinned,
       @AtUriConverter() required final List<AtUri> saved,
       this.timelineIndex = 0,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _pinned = pinned,
         _saved = saved,
         _$unknown = $unknown;
@@ -204,15 +203,17 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
   final int timelineIndex;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -264,7 +265,7 @@ abstract class _SavedFeedsPref implements SavedFeedsPref {
           @AtUriConverter() required final List<AtUri> pinned,
           @AtUriConverter() required final List<AtUri> saved,
           final int timelineIndex,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SavedFeedsPrefImpl;
 
   factory _SavedFeedsPref.fromJson(Map<String, dynamic> json) =
@@ -289,7 +290,7 @@ abstract class _SavedFeedsPref implements SavedFeedsPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SavedFeedsPrefImplCopyWith<_$SavedFeedsPrefImpl> get copyWith =>

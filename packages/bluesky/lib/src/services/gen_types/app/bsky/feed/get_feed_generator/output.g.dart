@@ -22,21 +22,28 @@ _$GetFeedGeneratorOutputImpl _$$GetFeedGeneratorOutputImplFromJson(Map json) =>
           isValid: $checkedConvert('isValid', (v) => v as bool),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$GetFeedGeneratorOutputImplToJson(
-        _$GetFeedGeneratorOutputImpl instance) =>
-    <String, dynamic>{
-      'view': const GeneratorViewConverter().toJson(instance.view),
-      'isOnline': instance.isOnline,
-      'isValid': instance.isValid,
-      r'$unknown': instance.$unknown,
-    };
+    _$GetFeedGeneratorOutputImpl instance) {
+  final val = <String, dynamic>{
+    'view': const GeneratorViewConverter().toJson(instance.view),
+    'isOnline': instance.isOnline,
+    'isValid': instance.isValid,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

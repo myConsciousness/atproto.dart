@@ -20,11 +20,9 @@ _$CreateSessionInputImpl _$$CreateSessionInputImplFromJson(Map json) =>
               $checkedConvert('authFactorToken', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -44,6 +42,6 @@ Map<String, dynamic> _$$CreateSessionInputImplToJson(
   }
 
   writeNotNull('authFactorToken', instance.authFactorToken);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

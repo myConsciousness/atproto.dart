@@ -19,11 +19,9 @@ _$GetServicesParamsImpl _$$GetServicesParamsImplFromJson(Map json) =>
           detailed: $checkedConvert('detailed', (v) => v as bool?),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -42,6 +40,6 @@ Map<String, dynamic> _$$GetServicesParamsImplToJson(
   }
 
   writeNotNull('detailed', instance.detailed);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

@@ -26,7 +26,7 @@ mixin _$QueryLabelsOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $QueryLabelsOutputCopyWith<$Res> {
   $Res call(
       {String? cursor,
       @LabelConverter() List<Label> labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -61,7 +61,7 @@ class _$QueryLabelsOutputCopyWithImpl<$Res, $Val extends QueryLabelsOutput>
   $Res call({
     Object? cursor = freezed,
     Object? labels = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -72,10 +72,10 @@ class _$QueryLabelsOutputCopyWithImpl<$Res, $Val extends QueryLabelsOutput>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -91,7 +91,7 @@ abstract class _$$QueryLabelsOutputImplCopyWith<$Res>
   $Res call(
       {String? cursor,
       @LabelConverter() List<Label> labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -107,7 +107,7 @@ class __$$QueryLabelsOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? labels = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$QueryLabelsOutputImpl(
       cursor: freezed == cursor
@@ -118,10 +118,10 @@ class __$$QueryLabelsOutputImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -133,8 +133,7 @@ class _$QueryLabelsOutputImpl implements _QueryLabelsOutput {
   const _$QueryLabelsOutputImpl(
       {this.cursor,
       @LabelConverter() required final List<Label> labels,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _labels = labels,
         _$unknown = $unknown;
 
@@ -153,15 +152,17 @@ class _$QueryLabelsOutputImpl implements _QueryLabelsOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -206,7 +207,7 @@ abstract class _QueryLabelsOutput implements QueryLabelsOutput {
   const factory _QueryLabelsOutput(
           {final String? cursor,
           @LabelConverter() required final List<Label> labels,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$QueryLabelsOutputImpl;
 
   factory _QueryLabelsOutput.fromJson(Map<String, dynamic> json) =
@@ -221,7 +222,7 @@ abstract class _QueryLabelsOutput implements QueryLabelsOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$QueryLabelsOutputImplCopyWith<_$QueryLabelsOutputImpl> get copyWith =>

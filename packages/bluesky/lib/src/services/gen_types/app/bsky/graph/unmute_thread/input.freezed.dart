@@ -25,7 +25,7 @@ mixin _$UnmuteThreadInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $UnmuteThreadInputCopyWith<$Res> {
   @useResult
   $Res call(
       {@AtUriConverter() AtUri root,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -58,17 +58,17 @@ class _$UnmuteThreadInputCopyWithImpl<$Res, $Val extends UnmuteThreadInput>
   @override
   $Res call({
     Object? root = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$UnmuteThreadInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@AtUriConverter() AtUri root,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -98,17 +98,17 @@ class __$$UnmuteThreadInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? root = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$UnmuteThreadInputImpl(
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -119,8 +119,7 @@ class __$$UnmuteThreadInputImplCopyWithImpl<$Res>
 class _$UnmuteThreadInputImpl implements _UnmuteThreadInput {
   const _$UnmuteThreadInputImpl(
       {@AtUriConverter() required this.root,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$UnmuteThreadInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -131,15 +130,17 @@ class _$UnmuteThreadInputImpl implements _UnmuteThreadInput {
   final AtUri root;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -179,7 +180,7 @@ class _$UnmuteThreadInputImpl implements _UnmuteThreadInput {
 abstract class _UnmuteThreadInput implements UnmuteThreadInput {
   const factory _UnmuteThreadInput(
           {@AtUriConverter() required final AtUri root,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$UnmuteThreadInputImpl;
 
   factory _UnmuteThreadInput.fromJson(Map<String, dynamic> json) =
@@ -192,7 +193,7 @@ abstract class _UnmuteThreadInput implements UnmuteThreadInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$UnmuteThreadInputImplCopyWith<_$UnmuteThreadInputImpl> get copyWith =>

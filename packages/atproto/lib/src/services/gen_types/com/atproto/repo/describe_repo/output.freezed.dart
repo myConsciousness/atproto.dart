@@ -35,7 +35,7 @@ mixin _$DescribeRepoOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +55,7 @@ abstract class $DescribeRepoOutputCopyWith<$Res> {
       Map<String, dynamic> didDoc,
       @NSIDConverter() List<NSID> collections,
       bool handleIsCorrect,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ class _$DescribeRepoOutputCopyWithImpl<$Res, $Val extends DescribeRepoOutput>
     Object? didDoc = null,
     Object? collections = null,
     Object? handleIsCorrect = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       handle: null == handle
@@ -99,10 +99,10 @@ class _$DescribeRepoOutputCopyWithImpl<$Res, $Val extends DescribeRepoOutput>
           ? _value.handleIsCorrect
           : handleIsCorrect // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -121,7 +121,7 @@ abstract class _$$DescribeRepoOutputImplCopyWith<$Res>
       Map<String, dynamic> didDoc,
       @NSIDConverter() List<NSID> collections,
       bool handleIsCorrect,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -140,7 +140,7 @@ class __$$DescribeRepoOutputImplCopyWithImpl<$Res>
     Object? didDoc = null,
     Object? collections = null,
     Object? handleIsCorrect = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$DescribeRepoOutputImpl(
       handle: null == handle
@@ -163,10 +163,10 @@ class __$$DescribeRepoOutputImplCopyWithImpl<$Res>
           ? _value.handleIsCorrect
           : handleIsCorrect // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -181,8 +181,7 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
       required final Map<String, dynamic> didDoc,
       @NSIDConverter() required final List<NSID> collections,
       required this.handleIsCorrect,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _didDoc = didDoc,
         _collections = collections,
         _$unknown = $unknown;
@@ -223,15 +222,17 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
   final bool handleIsCorrect;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -287,7 +288,7 @@ abstract class _DescribeRepoOutput implements DescribeRepoOutput {
           required final Map<String, dynamic> didDoc,
           @NSIDConverter() required final List<NSID> collections,
           required final bool handleIsCorrect,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$DescribeRepoOutputImpl;
 
   factory _DescribeRepoOutput.fromJson(Map<String, dynamic> json) =
@@ -314,7 +315,7 @@ abstract class _DescribeRepoOutput implements DescribeRepoOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$DescribeRepoOutputImplCopyWith<_$DescribeRepoOutputImpl> get copyWith =>

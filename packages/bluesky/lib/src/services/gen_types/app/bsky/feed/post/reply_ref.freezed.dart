@@ -32,7 +32,7 @@ mixin _$ReplyRef {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ abstract class $ReplyRefCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @StrongRefConverter() StrongRef root,
       @StrongRefConverter() StrongRef parent,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $StrongRefCopyWith<$Res> get root;
   $StrongRefCopyWith<$Res> get parent;
@@ -71,7 +71,7 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
     Object? $type = null,
     Object? root = null,
     Object? parent = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -86,10 +86,10 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
               as StrongRef,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -122,7 +122,7 @@ abstract class _$$ReplyRefImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @StrongRefConverter() StrongRef root,
       @StrongRefConverter() StrongRef parent,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $StrongRefCopyWith<$Res> get root;
@@ -144,7 +144,7 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? root = null,
     Object? parent = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ReplyRefImpl(
       $type: null == $type
@@ -159,10 +159,10 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
               as StrongRef,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -175,8 +175,7 @@ class _$ReplyRefImpl implements _ReplyRef {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedPostReplyRef,
       @StrongRefConverter() required this.root,
       @StrongRefConverter() required this.parent,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ReplyRefImpl.fromJson(Map<String, dynamic> json) =>
@@ -196,15 +195,17 @@ class _$ReplyRefImpl implements _ReplyRef {
   final StrongRef parent;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -247,7 +248,7 @@ abstract class _ReplyRef implements ReplyRef {
           {@JsonKey(name: r'$type') final String $type,
           @StrongRefConverter() required final StrongRef root,
           @StrongRefConverter() required final StrongRef parent,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ReplyRefImpl;
 
   factory _ReplyRef.fromJson(Map<String, dynamic> json) =
@@ -270,7 +271,7 @@ abstract class _ReplyRef implements ReplyRef {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>

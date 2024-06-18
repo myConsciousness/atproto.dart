@@ -26,11 +26,9 @@ _$InteractionImpl _$$InteractionImplFromJson(Map json) => $checkedCreate(
           feedContext: $checkedConvert('feedContext', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -56,7 +54,7 @@ Map<String, dynamic> _$$InteractionImplToJson(_$InteractionImpl instance) {
       _$JsonConverterToJson<String, UEvent>(
           instance.event, const UEventConverter().toJson));
   writeNotNull('feedContext', instance.feedContext);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

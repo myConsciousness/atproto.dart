@@ -29,7 +29,7 @@ mixin _$AdultContentPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $AdultContentPrefCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       bool enabled,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -64,7 +64,7 @@ class _$AdultContentPrefCopyWithImpl<$Res, $Val extends AdultContentPref>
   $Res call({
     Object? $type = null,
     Object? enabled = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -75,10 +75,10 @@ class _$AdultContentPrefCopyWithImpl<$Res, $Val extends AdultContentPref>
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -94,7 +94,7 @@ abstract class _$$AdultContentPrefImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       bool enabled,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$AdultContentPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? enabled = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$AdultContentPrefImpl(
       $type: null == $type
@@ -121,10 +121,10 @@ class __$$AdultContentPrefImplCopyWithImpl<$Res>
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -136,8 +136,7 @@ class _$AdultContentPrefImpl implements _AdultContentPref {
   const _$AdultContentPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsAdultContentPref,
       required this.enabled,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$AdultContentPrefImpl.fromJson(Map<String, dynamic> json) =>
@@ -153,15 +152,17 @@ class _$AdultContentPrefImpl implements _AdultContentPref {
   final bool enabled;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -203,7 +204,7 @@ abstract class _AdultContentPref implements AdultContentPref {
   const factory _AdultContentPref(
           {@JsonKey(name: r'$type') final String $type,
           required final bool enabled,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$AdultContentPrefImpl;
 
   factory _AdultContentPref.fromJson(Map<String, dynamic> json) =
@@ -222,7 +223,7 @@ abstract class _AdultContentPref implements AdultContentPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$AdultContentPrefImplCopyWith<_$AdultContentPrefImpl> get copyWith =>

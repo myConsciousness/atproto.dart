@@ -26,7 +26,7 @@ mixin _$GetConvoForMembersOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $GetConvoForMembersOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@ConvoViewConverter() ConvoView convo,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ConvoViewCopyWith<$Res> get convo;
 }
@@ -62,17 +62,17 @@ class _$GetConvoForMembersOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? convo = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       convo: null == convo
           ? _value.convo
           : convo // ignore: cast_nullable_to_non_nullable
               as ConvoView,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -96,7 +96,7 @@ abstract class _$$GetConvoForMembersOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@ConvoViewConverter() ConvoView convo,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ConvoViewCopyWith<$Res> get convo;
@@ -116,17 +116,17 @@ class __$$GetConvoForMembersOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? convo = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetConvoForMembersOutputImpl(
       convo: null == convo
           ? _value.convo
           : convo // ignore: cast_nullable_to_non_nullable
               as ConvoView,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -137,8 +137,7 @@ class __$$GetConvoForMembersOutputImplCopyWithImpl<$Res>
 class _$GetConvoForMembersOutputImpl implements _GetConvoForMembersOutput {
   const _$GetConvoForMembersOutputImpl(
       {@ConvoViewConverter() required this.convo,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetConvoForMembersOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -149,15 +148,17 @@ class _$GetConvoForMembersOutputImpl implements _GetConvoForMembersOutput {
   final ConvoView convo;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -197,7 +198,7 @@ class _$GetConvoForMembersOutputImpl implements _GetConvoForMembersOutput {
 abstract class _GetConvoForMembersOutput implements GetConvoForMembersOutput {
   const factory _GetConvoForMembersOutput(
           {@ConvoViewConverter() required final ConvoView convo,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetConvoForMembersOutputImpl;
 
   factory _GetConvoForMembersOutput.fromJson(Map<String, dynamic> json) =
@@ -210,7 +211,7 @@ abstract class _GetConvoForMembersOutput implements GetConvoForMembersOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetConvoForMembersOutputImplCopyWith<_$GetConvoForMembersOutputImpl>

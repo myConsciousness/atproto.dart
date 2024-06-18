@@ -26,11 +26,9 @@ _$ImagesViewImageImpl _$$ImagesViewImageImplFromJson(Map json) =>
                   v, const ImagesAspectRatioConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -55,7 +53,7 @@ Map<String, dynamic> _$$ImagesViewImageImplToJson(
       'aspectRatio',
       _$JsonConverterToJson<Map<String, dynamic>, ImagesAspectRatio>(
           instance.aspectRatio, const ImagesAspectRatioConverter().toJson));
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

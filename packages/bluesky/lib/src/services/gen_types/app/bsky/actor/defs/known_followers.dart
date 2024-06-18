@@ -37,7 +37,7 @@ class KnownFollowers with _$KnownFollowers {
     @ProfileViewBasicConverter() required List<ProfileViewBasic> followers,
 
     /// Contains unknown objects not defined in Lexicon.
-    @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
+    @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
   }) = _KnownFollowers;
 
   factory KnownFollowers.fromJson(Map<String, dynamic> json) =>
@@ -55,7 +55,7 @@ bool isKnownFollowers(final Map<String, dynamic>? object) {
 extension $KnownFollowersExtension on KnownFollowers {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
-  bool get hasUnknown => $unknown.isNotEmpty;
+  bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;
 
   /// Returns true if this object has not unknown objects,
   /// otherwise false.
@@ -74,35 +74,39 @@ final class KnownFollowersConverter
 
   @override
   KnownFollowers fromJson(Map<String, dynamic> json) {
-    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
-      r'$unknown': <String, dynamic>{}
-    };
+    final props = <String, dynamic>{};
     for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatiblePropertiesWithUnknown[key] = json[key];
+        props[key] = json[key];
       } else {
-        lexCompatiblePropertiesWithUnknown[r'$unknown'][key] = json[key];
+        if (props.containsKey(r'$unknown')) {
+          props[r'$unknown'][key] = json[key];
+        } else {
+          props[r'$unknown'] = <String, dynamic>{};
+          props[r'$unknown'][key] = json[key];
+        }
       }
     }
 
-    return KnownFollowers.fromJson(lexCompatiblePropertiesWithUnknown);
+    return KnownFollowers.fromJson(props);
   }
 
   @override
   Map<String, dynamic> toJson(KnownFollowers object) {
-    if (object.$unknown.isEmpty) {
+    if (object.hasNotUnknown) {
       return object.toJson();
     }
 
     final json = object.toJson();
 
-    final lexCompatibleProperties = <String, dynamic>{};
+    final props = <String, dynamic>{};
     for (final key in json.keys) {
-      lexCompatibleProperties[key] = json[key];
+      if (key == r'$unknown') continue;
+      props[key] = json[key];
     }
 
     return <String, dynamic>{
-      ...lexCompatibleProperties,
+      ...props,
       ...json[r'$unknown'],
     };
   }

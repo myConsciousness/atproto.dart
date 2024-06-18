@@ -21,11 +21,9 @@ _$LikeRecordImpl _$$LikeRecordImplFromJson(Map json) => $checkedCreate(
               (v) => v == null ? null : DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -43,6 +41,6 @@ Map<String, dynamic> _$$LikeRecordImplToJson(_$LikeRecordImpl instance) {
   }
 
   writeNotNull('createdAt', instance.createdAt?.toIso8601String());
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

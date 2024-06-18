@@ -28,11 +28,9 @@ _$GetSubjectStatusOutputImpl _$$GetSubjectStatusOutputImplFromJson(Map json) =>
                   v, const StatusAttrConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -58,7 +56,7 @@ Map<String, dynamic> _$$GetSubjectStatusOutputImplToJson(
       'deactivated',
       _$JsonConverterToJson<Map<String, dynamic>, StatusAttr>(
           instance.deactivated, const StatusAttrConverter().toJson));
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

@@ -20,21 +20,28 @@ _$MessageRefImpl _$$MessageRefImplFromJson(Map json) => $checkedCreate(
           messageId: $checkedConvert('messageId', (v) => v as String),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$MessageRefImplToJson(_$MessageRefImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'did': instance.did,
-      'convoId': instance.convoId,
-      'messageId': instance.messageId,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$MessageRefImplToJson(_$MessageRefImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'did': instance.did,
+    'convoId': instance.convoId,
+    'messageId': instance.messageId,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

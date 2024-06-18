@@ -18,19 +18,26 @@ _$SignPlcOperationOutputImpl _$$SignPlcOperationOutputImplFromJson(Map json) =>
               'operation', (v) => Map<String, dynamic>.from(v as Map)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$SignPlcOperationOutputImplToJson(
-        _$SignPlcOperationOutputImpl instance) =>
-    <String, dynamic>{
-      'operation': instance.operation,
-      r'$unknown': instance.$unknown,
-    };
+    _$SignPlcOperationOutputImpl instance) {
+  final val = <String, dynamic>{
+    'operation': instance.operation,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

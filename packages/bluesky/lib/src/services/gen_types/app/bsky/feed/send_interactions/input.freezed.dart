@@ -26,7 +26,7 @@ mixin _$SendInteractionsInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $SendInteractionsInputCopyWith<$Res> {
   @useResult
   $Res call(
       {@InteractionConverter() List<Interaction> interactions,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -60,17 +60,17 @@ class _$SendInteractionsInputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? interactions = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       interactions: null == interactions
           ? _value.interactions
           : interactions // ignore: cast_nullable_to_non_nullable
               as List<Interaction>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -86,7 +86,7 @@ abstract class _$$SendInteractionsInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@InteractionConverter() List<Interaction> interactions,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -102,17 +102,17 @@ class __$$SendInteractionsInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? interactions = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SendInteractionsInputImpl(
       interactions: null == interactions
           ? _value._interactions
           : interactions // ignore: cast_nullable_to_non_nullable
               as List<Interaction>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -123,8 +123,7 @@ class __$$SendInteractionsInputImplCopyWithImpl<$Res>
 class _$SendInteractionsInputImpl implements _SendInteractionsInput {
   const _$SendInteractionsInputImpl(
       {@InteractionConverter() required final List<Interaction> interactions,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _interactions = interactions,
         _$unknown = $unknown;
 
@@ -141,15 +140,17 @@ class _$SendInteractionsInputImpl implements _SendInteractionsInput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -193,7 +194,7 @@ abstract class _SendInteractionsInput implements SendInteractionsInput {
   const factory _SendInteractionsInput(
       {@InteractionConverter() required final List<Interaction> interactions,
       @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown}) = _$SendInteractionsInputImpl;
+      final Map<String, dynamic>? $unknown}) = _$SendInteractionsInputImpl;
 
   factory _SendInteractionsInput.fromJson(Map<String, dynamic> json) =
       _$SendInteractionsInputImpl.fromJson;
@@ -205,7 +206,7 @@ abstract class _SendInteractionsInput implements SendInteractionsInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SendInteractionsInputImplCopyWith<_$SendInteractionsInputImpl>

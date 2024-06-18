@@ -18,19 +18,26 @@ _$GetFeedGeneratorParamsImpl _$$GetFeedGeneratorParamsImplFromJson(Map json) =>
               'feed', (v) => const AtUriConverter().fromJson(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$GetFeedGeneratorParamsImplToJson(
-        _$GetFeedGeneratorParamsImpl instance) =>
-    <String, dynamic>{
-      'feed': const AtUriConverter().toJson(instance.feed),
-      r'$unknown': instance.$unknown,
-    };
+    _$GetFeedGeneratorParamsImpl instance) {
+  final val = <String, dynamic>{
+    'feed': const AtUriConverter().toJson(instance.feed),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

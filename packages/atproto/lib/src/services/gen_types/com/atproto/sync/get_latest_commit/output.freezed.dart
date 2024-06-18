@@ -26,7 +26,7 @@ mixin _$GetLatestCommitOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $GetLatestCommitOutputCopyWith<$Res> {
   $Res call(
       {String cid,
       String rev,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$GetLatestCommitOutputCopyWithImpl<$Res,
   $Res call({
     Object? cid = null,
     Object? rev = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       cid: null == cid
@@ -73,10 +73,10 @@ class _$GetLatestCommitOutputCopyWithImpl<$Res,
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -93,7 +93,7 @@ abstract class _$$GetLatestCommitOutputImplCopyWith<$Res>
   $Res call(
       {String cid,
       String rev,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$GetLatestCommitOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cid = null,
     Object? rev = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetLatestCommitOutputImpl(
       cid: null == cid
@@ -121,10 +121,10 @@ class __$$GetLatestCommitOutputImplCopyWithImpl<$Res>
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -136,8 +136,7 @@ class _$GetLatestCommitOutputImpl implements _GetLatestCommitOutput {
   const _$GetLatestCommitOutputImpl(
       {required this.cid,
       required this.rev,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetLatestCommitOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -149,15 +148,17 @@ class _$GetLatestCommitOutputImpl implements _GetLatestCommitOutput {
   final String rev;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -199,7 +200,7 @@ abstract class _GetLatestCommitOutput implements GetLatestCommitOutput {
   const factory _GetLatestCommitOutput(
           {required final String cid,
           required final String rev,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetLatestCommitOutputImpl;
 
   factory _GetLatestCommitOutput.fromJson(Map<String, dynamic> json) =
@@ -213,7 +214,7 @@ abstract class _GetLatestCommitOutput implements GetLatestCommitOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetLatestCommitOutputImplCopyWith<_$GetLatestCommitOutputImpl>

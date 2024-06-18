@@ -24,7 +24,7 @@ mixin _$SendEmailOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +39,7 @@ abstract class $SendEmailOutputCopyWith<$Res> {
       _$SendEmailOutputCopyWithImpl<$Res, SendEmailOutput>;
   @useResult
   $Res call(
-      {bool sent, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      {bool sent, @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -56,17 +56,17 @@ class _$SendEmailOutputCopyWithImpl<$Res, $Val extends SendEmailOutput>
   @override
   $Res call({
     Object? sent = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       sent: null == sent
           ? _value.sent
           : sent // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -80,7 +80,7 @@ abstract class _$$SendEmailOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool sent, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      {bool sent, @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -95,17 +95,17 @@ class __$$SendEmailOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? sent = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SendEmailOutputImpl(
       sent: null == sent
           ? _value.sent
           : sent // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -116,8 +116,7 @@ class __$$SendEmailOutputImplCopyWithImpl<$Res>
 class _$SendEmailOutputImpl implements _SendEmailOutput {
   const _$SendEmailOutputImpl(
       {required this.sent,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$SendEmailOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -127,15 +126,17 @@ class _$SendEmailOutputImpl implements _SendEmailOutput {
   final bool sent;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -175,7 +176,7 @@ class _$SendEmailOutputImpl implements _SendEmailOutput {
 abstract class _SendEmailOutput implements SendEmailOutput {
   const factory _SendEmailOutput(
           {required final bool sent,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SendEmailOutputImpl;
 
   factory _SendEmailOutput.fromJson(Map<String, dynamic> json) =
@@ -187,7 +188,7 @@ abstract class _SendEmailOutput implements SendEmailOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SendEmailOutputImplCopyWith<_$SendEmailOutputImpl> get copyWith =>

@@ -345,7 +345,7 @@ final class LexServiceEndpoint {
     for (final arg in args) {
       buffer.writeln(Payload(arg, prefix: 'e.').toString());
     }
-    buffer.writeln('                  ...e.\$unknown,');
+    buffer.writeln('                  ...?e.\$unknown,');
     buffer.writeln('                },');
     buffer.writeln('              ),');
     buffer.writeln('            )');

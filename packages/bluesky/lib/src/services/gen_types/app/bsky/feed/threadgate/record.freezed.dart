@@ -29,7 +29,7 @@ mixin _$ThreadgateRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $ThreadgateRecordCopyWith<$Res> {
       {@AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
       DateTime? createdAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
     Object? post = null,
     Object? allow = freezed,
     Object? createdAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       post: null == post
@@ -81,10 +81,10 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -101,7 +101,7 @@ abstract class _$$ThreadgateRecordImplCopyWith<$Res>
       {@AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
       DateTime? createdAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -118,7 +118,7 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
     Object? post = null,
     Object? allow = freezed,
     Object? createdAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ThreadgateRecordImpl(
       post: null == post
@@ -133,10 +133,10 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -149,8 +149,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
       {@AtUriConverter() required this.post,
       @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
       this.createdAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _allow = allow,
         _$unknown = $unknown;
 
@@ -176,15 +175,17 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   final DateTime? createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -233,7 +234,7 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
           {@AtUriConverter() required final AtUri post,
           @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
           final DateTime? createdAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ThreadgateRecordImpl;
 
   factory _ThreadgateRecord.fromJson(Map<String, dynamic> json) =
@@ -253,7 +254,7 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ThreadgateRecordImplCopyWith<_$ThreadgateRecordImpl> get copyWith =>

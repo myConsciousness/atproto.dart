@@ -25,7 +25,7 @@ mixin _$UploadBlobOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $UploadBlobOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@BlobConverter() Blob blob,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $BlobCopyWith<$Res> get blob;
 }
@@ -60,17 +60,17 @@ class _$UploadBlobOutputCopyWithImpl<$Res, $Val extends UploadBlobOutput>
   @override
   $Res call({
     Object? blob = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       blob: null == blob
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
               as Blob,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -93,7 +93,7 @@ abstract class _$$UploadBlobOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@BlobConverter() Blob blob,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $BlobCopyWith<$Res> get blob;
@@ -111,17 +111,17 @@ class __$$UploadBlobOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? blob = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$UploadBlobOutputImpl(
       blob: null == blob
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
               as Blob,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -132,8 +132,7 @@ class __$$UploadBlobOutputImplCopyWithImpl<$Res>
 class _$UploadBlobOutputImpl implements _UploadBlobOutput {
   const _$UploadBlobOutputImpl(
       {@BlobConverter() required this.blob,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$UploadBlobOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -144,15 +143,17 @@ class _$UploadBlobOutputImpl implements _UploadBlobOutput {
   final Blob blob;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -192,7 +193,7 @@ class _$UploadBlobOutputImpl implements _UploadBlobOutput {
 abstract class _UploadBlobOutput implements UploadBlobOutput {
   const factory _UploadBlobOutput(
           {@BlobConverter() required final Blob blob,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$UploadBlobOutputImpl;
 
   factory _UploadBlobOutput.fromJson(Map<String, dynamic> json) =
@@ -205,7 +206,7 @@ abstract class _UploadBlobOutput implements UploadBlobOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$UploadBlobOutputImplCopyWith<_$UploadBlobOutputImpl> get copyWith =>

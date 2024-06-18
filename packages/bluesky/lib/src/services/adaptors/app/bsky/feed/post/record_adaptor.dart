@@ -78,6 +78,7 @@ Map<String, dynamic> _orderFacetsByByteStart(
   final Map<String, dynamic> json,
 ) {
   final facets = json['facets'];
+  if (facets == null) return json;
 
   return {
     ...json,

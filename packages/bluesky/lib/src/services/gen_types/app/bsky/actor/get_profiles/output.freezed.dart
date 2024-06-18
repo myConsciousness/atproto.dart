@@ -25,7 +25,7 @@ mixin _$GetProfilesOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $GetProfilesOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@ProfileViewDetailedConverter() List<ProfileViewDetailed> profiles,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -58,17 +58,17 @@ class _$GetProfilesOutputCopyWithImpl<$Res, $Val extends GetProfilesOutput>
   @override
   $Res call({
     Object? profiles = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       profiles: null == profiles
           ? _value.profiles
           : profiles // ignore: cast_nullable_to_non_nullable
               as List<ProfileViewDetailed>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$GetProfilesOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@ProfileViewDetailedConverter() List<ProfileViewDetailed> profiles,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -98,17 +98,17 @@ class __$$GetProfilesOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? profiles = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetProfilesOutputImpl(
       profiles: null == profiles
           ? _value._profiles
           : profiles // ignore: cast_nullable_to_non_nullable
               as List<ProfileViewDetailed>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -120,8 +120,7 @@ class _$GetProfilesOutputImpl implements _GetProfilesOutput {
   const _$GetProfilesOutputImpl(
       {@ProfileViewDetailedConverter()
       required final List<ProfileViewDetailed> profiles,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _profiles = profiles,
         _$unknown = $unknown;
 
@@ -138,15 +137,17 @@ class _$GetProfilesOutputImpl implements _GetProfilesOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -189,7 +190,7 @@ abstract class _GetProfilesOutput implements GetProfilesOutput {
   const factory _GetProfilesOutput(
           {@ProfileViewDetailedConverter()
           required final List<ProfileViewDetailed> profiles,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetProfilesOutputImpl;
 
   factory _GetProfilesOutput.fromJson(Map<String, dynamic> json) =
@@ -202,7 +203,7 @@ abstract class _GetProfilesOutput implements GetProfilesOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetProfilesOutputImplCopyWith<_$GetProfilesOutputImpl> get copyWith =>

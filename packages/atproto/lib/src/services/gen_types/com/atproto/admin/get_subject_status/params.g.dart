@@ -22,11 +22,9 @@ _$GetSubjectStatusParamsImpl _$$GetSubjectStatusParamsImplFromJson(Map json) =>
           blob: $checkedConvert('blob', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -48,7 +46,7 @@ Map<String, dynamic> _$$GetSubjectStatusParamsImplToJson(
       _$JsonConverterToJson<String, AtUri>(
           instance.uri, const AtUriConverter().toJson));
   writeNotNull('blob', instance.blob);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

@@ -23,11 +23,9 @@ _$CreateReportInputImpl _$$CreateReportInputImplFromJson(Map json) =>
                   .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -47,6 +45,6 @@ Map<String, dynamic> _$$CreateReportInputImplToJson(
 
   writeNotNull('reason', instance.reason);
   val['subject'] = const USubjectConverter().toJson(instance.subject);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

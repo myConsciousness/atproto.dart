@@ -26,7 +26,7 @@ mixin _$DeleteMessageForSelfInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $DeleteMessageForSelfInputCopyWith<$Res> {
   $Res call(
       {String convoId,
       String messageId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$DeleteMessageForSelfInputCopyWithImpl<$Res,
   $Res call({
     Object? convoId = null,
     Object? messageId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       convoId: null == convoId
@@ -73,10 +73,10 @@ class _$DeleteMessageForSelfInputCopyWithImpl<$Res,
           ? _value.messageId
           : messageId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -93,7 +93,7 @@ abstract class _$$DeleteMessageForSelfInputImplCopyWith<$Res>
   $Res call(
       {String convoId,
       String messageId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$DeleteMessageForSelfInputImplCopyWithImpl<$Res>
   $Res call({
     Object? convoId = null,
     Object? messageId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$DeleteMessageForSelfInputImpl(
       convoId: null == convoId
@@ -122,10 +122,10 @@ class __$$DeleteMessageForSelfInputImplCopyWithImpl<$Res>
           ? _value.messageId
           : messageId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -137,8 +137,7 @@ class _$DeleteMessageForSelfInputImpl implements _DeleteMessageForSelfInput {
   const _$DeleteMessageForSelfInputImpl(
       {required this.convoId,
       required this.messageId,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$DeleteMessageForSelfInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -150,15 +149,17 @@ class _$DeleteMessageForSelfInputImpl implements _DeleteMessageForSelfInput {
   final String messageId;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -201,7 +202,7 @@ abstract class _DeleteMessageForSelfInput implements DeleteMessageForSelfInput {
   const factory _DeleteMessageForSelfInput(
           {required final String convoId,
           required final String messageId,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$DeleteMessageForSelfInputImpl;
 
   factory _DeleteMessageForSelfInput.fromJson(Map<String, dynamic> json) =
@@ -215,7 +216,7 @@ abstract class _DeleteMessageForSelfInput implements DeleteMessageForSelfInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$DeleteMessageForSelfInputImplCopyWith<_$DeleteMessageForSelfInputImpl>

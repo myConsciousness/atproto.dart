@@ -25,7 +25,7 @@ mixin _$GetConvoForMembersParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $GetConvoForMembersParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {List<String> members,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -59,17 +59,17 @@ class _$GetConvoForMembersParamsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? members = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       members: null == members
           ? _value.members
           : members // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -85,7 +85,7 @@ abstract class _$$GetConvoForMembersParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<String> members,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -102,17 +102,17 @@ class __$$GetConvoForMembersParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? members = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetConvoForMembersParamsImpl(
       members: null == members
           ? _value._members
           : members // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -123,8 +123,7 @@ class __$$GetConvoForMembersParamsImplCopyWithImpl<$Res>
 class _$GetConvoForMembersParamsImpl implements _GetConvoForMembersParams {
   const _$GetConvoForMembersParamsImpl(
       {required final List<String> members,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _members = members,
         _$unknown = $unknown;
 
@@ -140,15 +139,17 @@ class _$GetConvoForMembersParamsImpl implements _GetConvoForMembersParams {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -190,7 +191,7 @@ class _$GetConvoForMembersParamsImpl implements _GetConvoForMembersParams {
 abstract class _GetConvoForMembersParams implements GetConvoForMembersParams {
   const factory _GetConvoForMembersParams(
           {required final List<String> members,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetConvoForMembersParamsImpl;
 
   factory _GetConvoForMembersParams.fromJson(Map<String, dynamic> json) =
@@ -202,7 +203,7 @@ abstract class _GetConvoForMembersParams implements GetConvoForMembersParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetConvoForMembersParamsImplCopyWith<_$GetConvoForMembersParamsImpl>

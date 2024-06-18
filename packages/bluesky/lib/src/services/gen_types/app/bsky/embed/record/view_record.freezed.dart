@@ -45,7 +45,7 @@ mixin _$RecordViewRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,7 +71,7 @@ abstract class $RecordViewRecordCopyWith<$Res> {
       int likeCount,
       @URecordEmbedConverter() List<URecordEmbed>? embeds,
       DateTime indexedAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileViewBasicCopyWith<$Res> get author;
   $PostRecordCopyWith<$Res> get value;
@@ -101,7 +101,7 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
     Object? likeCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -148,10 +148,10 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -192,7 +192,7 @@ abstract class _$$RecordViewRecordImplCopyWith<$Res>
       int likeCount,
       @URecordEmbedConverter() List<URecordEmbed>? embeds,
       DateTime indexedAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ProfileViewBasicCopyWith<$Res> get author;
@@ -222,7 +222,7 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
     Object? likeCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$RecordViewRecordImpl(
       $type: null == $type
@@ -269,10 +269,10 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -293,8 +293,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       this.likeCount = 0,
       @URecordEmbedConverter() final List<URecordEmbed>? embeds,
       required this.indexedAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _labels = labels,
         _embeds = embeds,
         _$unknown = $unknown;
@@ -356,15 +355,17 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
   final DateTime indexedAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -440,7 +441,7 @@ abstract class _RecordViewRecord implements RecordViewRecord {
           final int likeCount,
           @URecordEmbedConverter() final List<URecordEmbed>? embeds,
           required final DateTime indexedAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RecordViewRecordImpl;
 
   factory _RecordViewRecord.fromJson(Map<String, dynamic> json) =
@@ -484,7 +485,7 @@ abstract class _RecordViewRecord implements RecordViewRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordViewRecordImplCopyWith<_$RecordViewRecordImpl> get copyWith =>

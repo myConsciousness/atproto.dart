@@ -44,11 +44,9 @@ _$AccountViewImpl _$$AccountViewImplFromJson(Map json) => $checkedCreate(
               (v) => v == null ? null : DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -81,7 +79,7 @@ Map<String, dynamic> _$$AccountViewImplToJson(_$AccountViewImpl instance) {
       'emailConfirmedAt', instance.emailConfirmedAt?.toIso8601String());
   writeNotNull('inviteNote', instance.inviteNote);
   writeNotNull('deactivatedAt', instance.deactivatedAt?.toIso8601String());
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

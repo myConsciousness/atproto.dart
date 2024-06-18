@@ -17,11 +17,9 @@ _$SubscribeReposParamsImpl _$$SubscribeReposParamsImplFromJson(Map json) =>
           cursor: $checkedConvert('cursor', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -38,6 +36,6 @@ Map<String, dynamic> _$$SubscribeReposParamsImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

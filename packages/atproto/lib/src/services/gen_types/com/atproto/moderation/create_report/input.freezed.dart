@@ -31,7 +31,7 @@ mixin _$CreateReportInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ abstract class $CreateReportInputCopyWith<$Res> {
       {@UReasonTypeConverter() UReasonType reasonType,
       String? reason,
       @USubjectConverter() USubject subject,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UReasonTypeCopyWith<$Res> get reasonType;
   $USubjectCopyWith<$Res> get subject;
@@ -71,7 +71,7 @@ class _$CreateReportInputCopyWithImpl<$Res, $Val extends CreateReportInput>
     Object? reasonType = null,
     Object? reason = freezed,
     Object? subject = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       reasonType: null == reasonType
@@ -86,10 +86,10 @@ class _$CreateReportInputCopyWithImpl<$Res, $Val extends CreateReportInput>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as USubject,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -122,7 +122,7 @@ abstract class _$$CreateReportInputImplCopyWith<$Res>
       {@UReasonTypeConverter() UReasonType reasonType,
       String? reason,
       @USubjectConverter() USubject subject,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UReasonTypeCopyWith<$Res> get reasonType;
@@ -144,7 +144,7 @@ class __$$CreateReportInputImplCopyWithImpl<$Res>
     Object? reasonType = null,
     Object? reason = freezed,
     Object? subject = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$CreateReportInputImpl(
       reasonType: null == reasonType
@@ -159,10 +159,10 @@ class __$$CreateReportInputImplCopyWithImpl<$Res>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as USubject,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -175,8 +175,7 @@ class _$CreateReportInputImpl implements _CreateReportInput {
       {@UReasonTypeConverter() required this.reasonType,
       this.reason,
       @USubjectConverter() required this.subject,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$CreateReportInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -195,15 +194,17 @@ class _$CreateReportInputImpl implements _CreateReportInput {
   final USubject subject;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -248,7 +249,7 @@ abstract class _CreateReportInput implements CreateReportInput {
           {@UReasonTypeConverter() required final UReasonType reasonType,
           final String? reason,
           @USubjectConverter() required final USubject subject,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$CreateReportInputImpl;
 
   factory _CreateReportInput.fromJson(Map<String, dynamic> json) =
@@ -270,7 +271,7 @@ abstract class _CreateReportInput implements CreateReportInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CreateReportInputImplCopyWith<_$CreateReportInputImpl> get copyWith =>

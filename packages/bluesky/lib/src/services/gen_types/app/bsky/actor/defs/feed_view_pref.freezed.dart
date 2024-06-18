@@ -46,7 +46,7 @@ mixin _$FeedViewPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -68,7 +68,7 @@ abstract class $FeedViewPrefCopyWith<$Res> {
       int hideRepliesByLikeCount,
       bool hideReposts,
       bool hideQuotePosts,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -91,7 +91,7 @@ class _$FeedViewPrefCopyWithImpl<$Res, $Val extends FeedViewPref>
     Object? hideRepliesByLikeCount = null,
     Object? hideReposts = null,
     Object? hideQuotePosts = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -122,10 +122,10 @@ class _$FeedViewPrefCopyWithImpl<$Res, $Val extends FeedViewPref>
           ? _value.hideQuotePosts
           : hideQuotePosts // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -146,7 +146,7 @@ abstract class _$$FeedViewPrefImplCopyWith<$Res>
       int hideRepliesByLikeCount,
       bool hideReposts,
       bool hideQuotePosts,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -167,7 +167,7 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
     Object? hideRepliesByLikeCount = null,
     Object? hideReposts = null,
     Object? hideQuotePosts = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$FeedViewPrefImpl(
       $type: null == $type
@@ -198,10 +198,10 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
           ? _value.hideQuotePosts
           : hideQuotePosts // ignore: cast_nullable_to_non_nullable
               as bool,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -218,8 +218,7 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
       this.hideRepliesByLikeCount = 0,
       this.hideReposts = false,
       this.hideQuotePosts = false,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$FeedViewPrefImpl.fromJson(Map<String, dynamic> json) =>
@@ -262,15 +261,17 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
   final bool hideQuotePosts;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -335,7 +336,7 @@ abstract class _FeedViewPref implements FeedViewPref {
           final int hideRepliesByLikeCount,
           final bool hideReposts,
           final bool hideQuotePosts,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$FeedViewPrefImpl;
 
   factory _FeedViewPref.fromJson(Map<String, dynamic> json) =
@@ -376,7 +377,7 @@ abstract class _FeedViewPref implements FeedViewPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FeedViewPrefImplCopyWith<_$FeedViewPrefImpl> get copyWith =>

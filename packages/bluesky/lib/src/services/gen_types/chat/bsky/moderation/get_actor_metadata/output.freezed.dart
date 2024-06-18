@@ -30,7 +30,7 @@ mixin _$GetActorMetadataOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $GetActorMetadataOutputCopyWith<$Res> {
       {@MetadataConverter() Metadata day,
       @MetadataConverter() Metadata month,
       @MetadataConverter() Metadata all,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $MetadataCopyWith<$Res> get day;
   $MetadataCopyWith<$Res> get month;
@@ -72,7 +72,7 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
     Object? day = null,
     Object? month = null,
     Object? all = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       day: null == day
@@ -87,10 +87,10 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
           ? _value.all
           : all // ignore: cast_nullable_to_non_nullable
               as Metadata,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -132,7 +132,7 @@ abstract class _$$GetActorMetadataOutputImplCopyWith<$Res>
       {@MetadataConverter() Metadata day,
       @MetadataConverter() Metadata month,
       @MetadataConverter() Metadata all,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $MetadataCopyWith<$Res> get day;
@@ -158,7 +158,7 @@ class __$$GetActorMetadataOutputImplCopyWithImpl<$Res>
     Object? day = null,
     Object? month = null,
     Object? all = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetActorMetadataOutputImpl(
       day: null == day
@@ -173,10 +173,10 @@ class __$$GetActorMetadataOutputImplCopyWithImpl<$Res>
           ? _value.all
           : all // ignore: cast_nullable_to_non_nullable
               as Metadata,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -189,8 +189,7 @@ class _$GetActorMetadataOutputImpl implements _GetActorMetadataOutput {
       {@MetadataConverter() required this.day,
       @MetadataConverter() required this.month,
       @MetadataConverter() required this.all,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetActorMetadataOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -207,15 +206,17 @@ class _$GetActorMetadataOutputImpl implements _GetActorMetadataOutput {
   final Metadata all;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -259,7 +260,7 @@ abstract class _GetActorMetadataOutput implements GetActorMetadataOutput {
           {@MetadataConverter() required final Metadata day,
           @MetadataConverter() required final Metadata month,
           @MetadataConverter() required final Metadata all,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetActorMetadataOutputImpl;
 
   factory _GetActorMetadataOutput.fromJson(Map<String, dynamic> json) =
@@ -278,7 +279,7 @@ abstract class _GetActorMetadataOutput implements GetActorMetadataOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetActorMetadataOutputImplCopyWith<_$GetActorMetadataOutputImpl>

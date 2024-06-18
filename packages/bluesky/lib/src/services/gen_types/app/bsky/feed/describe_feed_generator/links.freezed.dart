@@ -30,7 +30,7 @@ mixin _$Links {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $LinksCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String? privacyPolicy,
       String? termsOfService,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
     Object? $type = null,
     Object? privacyPolicy = freezed,
     Object? termsOfService = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -80,10 +80,10 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
           ? _value.termsOfService
           : termsOfService // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -99,7 +99,7 @@ abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String? privacyPolicy,
       String? termsOfService,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -116,7 +116,7 @@ class __$$LinksImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? privacyPolicy = freezed,
     Object? termsOfService = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LinksImpl(
       $type: null == $type
@@ -131,10 +131,10 @@ class __$$LinksImplCopyWithImpl<$Res>
           ? _value.termsOfService
           : termsOfService // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -148,8 +148,7 @@ class _$LinksImpl implements _Links {
       this.$type = appBskyFeedDescribeFeedGeneratorLinks,
       this.privacyPolicy,
       this.termsOfService,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$LinksImpl.fromJson(Map<String, dynamic> json) =>
@@ -167,15 +166,17 @@ class _$LinksImpl implements _Links {
   final String? termsOfService;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -220,7 +221,7 @@ abstract class _Links implements Links {
           {@JsonKey(name: r'$type') final String $type,
           final String? privacyPolicy,
           final String? termsOfService,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LinksImpl;
 
   factory _Links.fromJson(Map<String, dynamic> json) = _$LinksImpl.fromJson;
@@ -240,7 +241,7 @@ abstract class _Links implements Links {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LinksImplCopyWith<_$LinksImpl> get copyWith =>

@@ -32,7 +32,7 @@ mixin _$HiddenPostsPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ abstract class $HiddenPostsPrefCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() List<AtUri> items,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$HiddenPostsPrefCopyWithImpl<$Res, $Val extends HiddenPostsPref>
   $Res call({
     Object? $type = null,
     Object? items = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -78,10 +78,10 @@ class _$HiddenPostsPrefCopyWithImpl<$Res, $Val extends HiddenPostsPref>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -97,7 +97,7 @@ abstract class _$$HiddenPostsPrefImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() List<AtUri> items,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -113,7 +113,7 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? items = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$HiddenPostsPrefImpl(
       $type: null == $type
@@ -124,10 +124,10 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -139,8 +139,7 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
   const _$HiddenPostsPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsHiddenPostsPref,
       @AtUriConverter() required final List<AtUri> items,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _items = items,
         _$unknown = $unknown;
 
@@ -167,15 +166,17 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -220,7 +221,7 @@ abstract class _HiddenPostsPref implements HiddenPostsPref {
   const factory _HiddenPostsPref(
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final List<AtUri> items,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$HiddenPostsPrefImpl;
 
   factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) =
@@ -242,7 +243,7 @@ abstract class _HiddenPostsPref implements HiddenPostsPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$HiddenPostsPrefImplCopyWith<_$HiddenPostsPrefImpl> get copyWith =>

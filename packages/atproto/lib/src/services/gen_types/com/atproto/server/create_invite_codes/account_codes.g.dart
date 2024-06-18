@@ -23,20 +23,27 @@ _$AccountCodesImpl _$$AccountCodesImplFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$AccountCodesImplToJson(_$AccountCodesImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'account': instance.account,
-      'codes': instance.codes,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$AccountCodesImplToJson(_$AccountCodesImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'account': instance.account,
+    'codes': instance.codes,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

@@ -28,7 +28,7 @@ mixin _$MentionRule {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +44,7 @@ abstract class $MentionRuleCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -61,17 +61,17 @@ class _$MentionRuleCopyWithImpl<$Res, $Val extends MentionRule>
   @override
   $Res call({
     Object? $type = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
           ? _value.$type
           : $type // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -86,7 +86,7 @@ abstract class _$$MentionRuleImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -101,17 +101,17 @@ class __$$MentionRuleImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? $type = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$MentionRuleImpl(
       $type: null == $type
           ? _value.$type
           : $type // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -122,8 +122,7 @@ class __$$MentionRuleImplCopyWithImpl<$Res>
 class _$MentionRuleImpl implements _MentionRule {
   const _$MentionRuleImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedThreadgateMentionRule,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$MentionRuleImpl.fromJson(Map<String, dynamic> json) =>
@@ -137,15 +136,17 @@ class _$MentionRuleImpl implements _MentionRule {
   final String $type;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -184,7 +185,7 @@ class _$MentionRuleImpl implements _MentionRule {
 abstract class _MentionRule implements MentionRule {
   const factory _MentionRule(
           {@JsonKey(name: r'$type') final String $type,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$MentionRuleImpl;
 
   factory _MentionRule.fromJson(Map<String, dynamic> json) =
@@ -201,7 +202,7 @@ abstract class _MentionRule implements MentionRule {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$MentionRuleImplCopyWith<_$MentionRuleImpl> get copyWith =>

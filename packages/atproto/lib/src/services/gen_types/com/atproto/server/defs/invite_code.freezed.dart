@@ -36,7 +36,7 @@ mixin _$InviteCode {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +59,7 @@ abstract class $InviteCodeCopyWith<$Res> {
       String createdBy,
       DateTime createdAt,
       @InviteCodeUseConverter() List<InviteCodeUse> uses,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -83,7 +83,7 @@ class _$InviteCodeCopyWithImpl<$Res, $Val extends InviteCode>
     Object? createdBy = null,
     Object? createdAt = null,
     Object? uses = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -118,10 +118,10 @@ class _$InviteCodeCopyWithImpl<$Res, $Val extends InviteCode>
           ? _value.uses
           : uses // ignore: cast_nullable_to_non_nullable
               as List<InviteCodeUse>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -143,7 +143,7 @@ abstract class _$$InviteCodeImplCopyWith<$Res>
       String createdBy,
       DateTime createdAt,
       @InviteCodeUseConverter() List<InviteCodeUse> uses,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -165,7 +165,7 @@ class __$$InviteCodeImplCopyWithImpl<$Res>
     Object? createdBy = null,
     Object? createdAt = null,
     Object? uses = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$InviteCodeImpl(
       $type: null == $type
@@ -200,10 +200,10 @@ class __$$InviteCodeImplCopyWithImpl<$Res>
           ? _value._uses
           : uses // ignore: cast_nullable_to_non_nullable
               as List<InviteCodeUse>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -221,8 +221,7 @@ class _$InviteCodeImpl implements _InviteCode {
       required this.createdBy,
       required this.createdAt,
       @InviteCodeUseConverter() required final List<InviteCodeUse> uses,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _uses = uses,
         _$unknown = $unknown;
 
@@ -257,15 +256,17 @@ class _$InviteCodeImpl implements _InviteCode {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -332,7 +333,7 @@ abstract class _InviteCode implements InviteCode {
           required final String createdBy,
           required final DateTime createdAt,
           @InviteCodeUseConverter() required final List<InviteCodeUse> uses,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$InviteCodeImpl;
 
   factory _InviteCode.fromJson(Map<String, dynamic> json) =
@@ -364,7 +365,7 @@ abstract class _InviteCode implements InviteCode {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$InviteCodeImplCopyWith<_$InviteCodeImpl> get copyWith =>

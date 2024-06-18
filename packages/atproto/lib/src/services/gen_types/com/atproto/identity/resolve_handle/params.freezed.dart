@@ -25,7 +25,7 @@ mixin _$ResolveHandleParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $ResolveHandleParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String handle,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -58,17 +58,17 @@ class _$ResolveHandleParamsCopyWithImpl<$Res, $Val extends ResolveHandleParams>
   @override
   $Res call({
     Object? handle = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       handle: null == handle
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$ResolveHandleParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String handle,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -98,17 +98,17 @@ class __$$ResolveHandleParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? handle = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ResolveHandleParamsImpl(
       handle: null == handle
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -119,8 +119,7 @@ class __$$ResolveHandleParamsImplCopyWithImpl<$Res>
 class _$ResolveHandleParamsImpl implements _ResolveHandleParams {
   const _$ResolveHandleParamsImpl(
       {required this.handle,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ResolveHandleParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -131,15 +130,17 @@ class _$ResolveHandleParamsImpl implements _ResolveHandleParams {
   final String handle;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -179,7 +180,7 @@ class _$ResolveHandleParamsImpl implements _ResolveHandleParams {
 abstract class _ResolveHandleParams implements ResolveHandleParams {
   const factory _ResolveHandleParams(
           {required final String handle,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ResolveHandleParamsImpl;
 
   factory _ResolveHandleParams.fromJson(Map<String, dynamic> json) =
@@ -193,7 +194,7 @@ abstract class _ResolveHandleParams implements ResolveHandleParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ResolveHandleParamsImplCopyWith<_$ResolveHandleParamsImpl> get copyWith =>

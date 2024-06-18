@@ -26,11 +26,9 @@ _$RelationshipImpl _$$RelationshipImplFromJson(Map json) => $checkedCreate(
                   v, const AtUriConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -56,7 +54,7 @@ Map<String, dynamic> _$$RelationshipImplToJson(_$RelationshipImpl instance) {
       'followedBy',
       _$JsonConverterToJson<String, AtUri>(
           instance.followedBy, const AtUriConverter().toJson));
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

@@ -46,7 +46,7 @@ mixin _$PostRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,7 +69,7 @@ abstract class $PostRecordCopyWith<$Res> {
       @UPostLabelConverter() UPostLabel? labels,
       List<String>? tags,
       DateTime? createdAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ReplyRefCopyWith<$Res>? get reply;
   $UPostEmbedCopyWith<$Res>? get embed;
@@ -97,7 +97,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? labels = freezed,
     Object? tags = freezed,
     Object? createdAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       text: null == text
@@ -132,10 +132,10 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -193,7 +193,7 @@ abstract class _$$PostRecordImplCopyWith<$Res>
       @UPostLabelConverter() UPostLabel? labels,
       List<String>? tags,
       DateTime? createdAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ReplyRefCopyWith<$Res>? get reply;
@@ -222,7 +222,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? tags = freezed,
     Object? createdAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$PostRecordImpl(
       text: null == text
@@ -257,10 +257,10 @@ class __$$PostRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -278,8 +278,7 @@ class _$PostRecordImpl implements _PostRecord {
       @UPostLabelConverter() this.labels,
       final List<String>? tags,
       this.createdAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _facets = facets,
         _langs = langs,
         _tags = tags,
@@ -349,15 +348,17 @@ class _$PostRecordImpl implements _PostRecord {
   final DateTime? createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -420,7 +421,7 @@ abstract class _PostRecord implements PostRecord {
           @UPostLabelConverter() final UPostLabel? labels,
           final List<String>? tags,
           final DateTime? createdAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$PostRecordImpl;
 
   factory _PostRecord.fromJson(Map<String, dynamic> json) =
@@ -462,7 +463,7 @@ abstract class _PostRecord implements PostRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$PostRecordImplCopyWith<_$PostRecordImpl> get copyWith =>

@@ -31,7 +31,7 @@ mixin _$Info {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $InfoCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @UNameConverter() UName name,
       String? message,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UNameCopyWith<$Res> get name;
 }
@@ -68,7 +68,7 @@ class _$InfoCopyWithImpl<$Res, $Val extends Info>
     Object? $type = null,
     Object? name = null,
     Object? message = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -83,10 +83,10 @@ class _$InfoCopyWithImpl<$Res, $Val extends Info>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -110,7 +110,7 @@ abstract class _$$InfoImplCopyWith<$Res> implements $InfoCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @UNameConverter() UName name,
       String? message,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UNameCopyWith<$Res> get name;
@@ -129,7 +129,7 @@ class __$$InfoImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? name = null,
     Object? message = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$InfoImpl(
       $type: null == $type
@@ -144,10 +144,10 @@ class __$$InfoImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -160,8 +160,7 @@ class _$InfoImpl implements _Info {
       {@JsonKey(name: r'$type') this.$type = comAtprotoSyncSubscribeReposInfo,
       @UNameConverter() required this.name,
       this.message,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$InfoImpl.fromJson(Map<String, dynamic> json) =>
@@ -180,15 +179,17 @@ class _$InfoImpl implements _Info {
   final String? message;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -231,7 +232,7 @@ abstract class _Info implements Info {
           {@JsonKey(name: r'$type') final String $type,
           @UNameConverter() required final UName name,
           final String? message,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$InfoImpl;
 
   factory _Info.fromJson(Map<String, dynamic> json) = _$InfoImpl.fromJson;
@@ -252,7 +253,7 @@ abstract class _Info implements Info {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$InfoImplCopyWith<_$InfoImpl> get copyWith =>

@@ -26,7 +26,7 @@ mixin _$GetLogOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $GetLogOutputCopyWith<$Res> {
   $Res call(
       {String? cursor,
       @ULogConverter() List<ULog> logs,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -61,7 +61,7 @@ class _$GetLogOutputCopyWithImpl<$Res, $Val extends GetLogOutput>
   $Res call({
     Object? cursor = freezed,
     Object? logs = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -72,10 +72,10 @@ class _$GetLogOutputCopyWithImpl<$Res, $Val extends GetLogOutput>
           ? _value.logs
           : logs // ignore: cast_nullable_to_non_nullable
               as List<ULog>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -91,7 +91,7 @@ abstract class _$$GetLogOutputImplCopyWith<$Res>
   $Res call(
       {String? cursor,
       @ULogConverter() List<ULog> logs,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -107,7 +107,7 @@ class __$$GetLogOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? logs = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetLogOutputImpl(
       cursor: freezed == cursor
@@ -118,10 +118,10 @@ class __$$GetLogOutputImplCopyWithImpl<$Res>
           ? _value._logs
           : logs // ignore: cast_nullable_to_non_nullable
               as List<ULog>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -133,8 +133,7 @@ class _$GetLogOutputImpl implements _GetLogOutput {
   const _$GetLogOutputImpl(
       {this.cursor,
       @ULogConverter() required final List<ULog> logs,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _logs = logs,
         _$unknown = $unknown;
 
@@ -153,15 +152,17 @@ class _$GetLogOutputImpl implements _GetLogOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -205,7 +206,7 @@ abstract class _GetLogOutput implements GetLogOutput {
   const factory _GetLogOutput(
           {final String? cursor,
           @ULogConverter() required final List<ULog> logs,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetLogOutputImpl;
 
   factory _GetLogOutput.fromJson(Map<String, dynamic> json) =
@@ -220,7 +221,7 @@ abstract class _GetLogOutput implements GetLogOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetLogOutputImplCopyWith<_$GetLogOutputImpl> get copyWith =>

@@ -25,11 +25,9 @@ _$ExternalExternalImpl _$$ExternalExternalImplFromJson(Map json) =>
                   v, const BlobConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -54,7 +52,7 @@ Map<String, dynamic> _$$ExternalExternalImplToJson(
       'thumb',
       _$JsonConverterToJson<Map<String, dynamic>, Blob>(
           instance.thumb, const BlobConverter().toJson));
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

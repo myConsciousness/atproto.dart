@@ -35,7 +35,7 @@ mixin _$MutedWord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +52,7 @@ abstract class $MutedWordCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String value,
       @UMutedWordTargetConverter() List<UMutedWordTarget> targets,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ class _$MutedWordCopyWithImpl<$Res, $Val extends MutedWord>
     Object? $type = null,
     Object? value = null,
     Object? targets = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -86,10 +86,10 @@ class _$MutedWordCopyWithImpl<$Res, $Val extends MutedWord>
           ? _value.targets
           : targets // ignore: cast_nullable_to_non_nullable
               as List<UMutedWordTarget>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -106,7 +106,7 @@ abstract class _$$MutedWordImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String value,
       @UMutedWordTargetConverter() List<UMutedWordTarget> targets,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -123,7 +123,7 @@ class __$$MutedWordImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? value = null,
     Object? targets = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$MutedWordImpl(
       $type: null == $type
@@ -138,10 +138,10 @@ class __$$MutedWordImplCopyWithImpl<$Res>
           ? _value._targets
           : targets // ignore: cast_nullable_to_non_nullable
               as List<UMutedWordTarget>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -155,8 +155,7 @@ class _$MutedWordImpl implements _MutedWord {
       required this.value,
       @UMutedWordTargetConverter()
       required final List<UMutedWordTarget> targets,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _targets = targets,
         _$unknown = $unknown;
 
@@ -187,15 +186,17 @@ class _$MutedWordImpl implements _MutedWord {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -243,7 +244,7 @@ abstract class _MutedWord implements MutedWord {
           required final String value,
           @UMutedWordTargetConverter()
           required final List<UMutedWordTarget> targets,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$MutedWordImpl;
 
   factory _MutedWord.fromJson(Map<String, dynamic> json) =
@@ -269,7 +270,7 @@ abstract class _MutedWord implements MutedWord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$MutedWordImplCopyWith<_$MutedWordImpl> get copyWith =>

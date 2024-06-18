@@ -26,7 +26,7 @@ mixin _$LikeRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $LikeRecordCopyWith<$Res> {
   $Res call(
       {@StrongRefConverter() StrongRef subject,
       DateTime? createdAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $StrongRefCopyWith<$Res> get subject;
 }
@@ -63,7 +63,7 @@ class _$LikeRecordCopyWithImpl<$Res, $Val extends LikeRecord>
   $Res call({
     Object? subject = null,
     Object? createdAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -74,10 +74,10 @@ class _$LikeRecordCopyWithImpl<$Res, $Val extends LikeRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -101,7 +101,7 @@ abstract class _$$LikeRecordImplCopyWith<$Res>
   $Res call(
       {@StrongRefConverter() StrongRef subject,
       DateTime? createdAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $StrongRefCopyWith<$Res> get subject;
@@ -120,7 +120,7 @@ class __$$LikeRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? subject = null,
     Object? createdAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LikeRecordImpl(
       subject: null == subject
@@ -131,10 +131,10 @@ class __$$LikeRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -146,8 +146,7 @@ class _$LikeRecordImpl implements _LikeRecord {
   const _$LikeRecordImpl(
       {@StrongRefConverter() required this.subject,
       this.createdAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$LikeRecordImpl.fromJson(Map<String, dynamic> json) =>
@@ -160,15 +159,17 @@ class _$LikeRecordImpl implements _LikeRecord {
   final DateTime? createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -210,7 +211,7 @@ abstract class _LikeRecord implements LikeRecord {
   const factory _LikeRecord(
           {@StrongRefConverter() required final StrongRef subject,
           final DateTime? createdAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LikeRecordImpl;
 
   factory _LikeRecord.fromJson(Map<String, dynamic> json) =
@@ -225,7 +226,7 @@ abstract class _LikeRecord implements LikeRecord {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LikeRecordImplCopyWith<_$LikeRecordImpl> get copyWith =>

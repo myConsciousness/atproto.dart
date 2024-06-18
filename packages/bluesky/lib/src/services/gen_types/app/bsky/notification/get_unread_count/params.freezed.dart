@@ -24,7 +24,7 @@ mixin _$GetUnreadCountParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +40,7 @@ abstract class $GetUnreadCountParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {DateTime? seenAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -58,17 +58,17 @@ class _$GetUnreadCountParamsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? seenAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       seenAt: freezed == seenAt
           ? _value.seenAt
           : seenAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$GetUnreadCountParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {DateTime? seenAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -98,17 +98,17 @@ class __$$GetUnreadCountParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? seenAt = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetUnreadCountParamsImpl(
       seenAt: freezed == seenAt
           ? _value.seenAt
           : seenAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -119,8 +119,7 @@ class __$$GetUnreadCountParamsImplCopyWithImpl<$Res>
 class _$GetUnreadCountParamsImpl implements _GetUnreadCountParams {
   const _$GetUnreadCountParamsImpl(
       {this.seenAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetUnreadCountParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -130,15 +129,17 @@ class _$GetUnreadCountParamsImpl implements _GetUnreadCountParams {
   final DateTime? seenAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -179,7 +180,7 @@ class _$GetUnreadCountParamsImpl implements _GetUnreadCountParams {
 abstract class _GetUnreadCountParams implements GetUnreadCountParams {
   const factory _GetUnreadCountParams(
           {final DateTime? seenAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetUnreadCountParamsImpl;
 
   factory _GetUnreadCountParams.fromJson(Map<String, dynamic> json) =
@@ -191,7 +192,7 @@ abstract class _GetUnreadCountParams implements GetUnreadCountParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetUnreadCountParamsImplCopyWith<_$GetUnreadCountParamsImpl>

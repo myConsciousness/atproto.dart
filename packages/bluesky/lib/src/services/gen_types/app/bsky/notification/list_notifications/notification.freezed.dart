@@ -44,7 +44,7 @@ mixin _$Notification {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,7 +69,7 @@ abstract class $NotificationCopyWith<$Res> {
       bool isRead,
       DateTime indexedAt,
       @LabelConverter() List<Label>? labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileViewCopyWith<$Res> get author;
   $UReasonCopyWith<$Res> get reason;
@@ -98,7 +98,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
     Object? isRead = null,
     Object? indexedAt = null,
     Object? labels = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -141,10 +141,10 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -184,7 +184,7 @@ abstract class _$$NotificationImplCopyWith<$Res>
       bool isRead,
       DateTime indexedAt,
       @LabelConverter() List<Label>? labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ProfileViewCopyWith<$Res> get author;
@@ -213,7 +213,7 @@ class __$$NotificationImplCopyWithImpl<$Res>
     Object? isRead = null,
     Object? indexedAt = null,
     Object? labels = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$NotificationImpl(
       $type: null == $type
@@ -256,10 +256,10 @@ class __$$NotificationImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -280,8 +280,7 @@ class _$NotificationImpl implements _Notification {
       required this.isRead,
       required this.indexedAt,
       @LabelConverter() final List<Label>? labels,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _record = record,
         _labels = labels,
         _$unknown = $unknown;
@@ -335,15 +334,17 @@ class _$NotificationImpl implements _Notification {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -413,7 +414,7 @@ abstract class _Notification implements Notification {
           required final bool isRead,
           required final DateTime indexedAt,
           @LabelConverter() final List<Label>? labels,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$NotificationImpl;
 
   factory _Notification.fromJson(Map<String, dynamic> json) =
@@ -455,7 +456,7 @@ abstract class _Notification implements Notification {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>

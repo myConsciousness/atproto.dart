@@ -41,7 +41,7 @@ mixin _$CreateRecordInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +62,7 @@ abstract class $CreateRecordInputCopyWith<$Res> {
       bool? validate,
       Map<String, dynamic> record,
       String? swapCommit,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -84,7 +84,7 @@ class _$CreateRecordInputCopyWithImpl<$Res, $Val extends CreateRecordInput>
     Object? validate = freezed,
     Object? record = null,
     Object? swapCommit = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       repo: freezed == repo
@@ -111,10 +111,10 @@ class _$CreateRecordInputCopyWithImpl<$Res, $Val extends CreateRecordInput>
           ? _value.swapCommit
           : swapCommit // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -134,7 +134,7 @@ abstract class _$$CreateRecordInputImplCopyWith<$Res>
       bool? validate,
       Map<String, dynamic> record,
       String? swapCommit,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -154,7 +154,7 @@ class __$$CreateRecordInputImplCopyWithImpl<$Res>
     Object? validate = freezed,
     Object? record = null,
     Object? swapCommit = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$CreateRecordInputImpl(
       repo: freezed == repo
@@ -181,10 +181,10 @@ class __$$CreateRecordInputImplCopyWithImpl<$Res>
           ? _value.swapCommit
           : swapCommit // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -200,8 +200,7 @@ class _$CreateRecordInputImpl implements _CreateRecordInput {
       this.validate,
       required final Map<String, dynamic> record,
       this.swapCommit,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _record = record,
         _$unknown = $unknown;
 
@@ -241,15 +240,17 @@ class _$CreateRecordInputImpl implements _CreateRecordInput {
   final String? swapCommit;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -309,7 +310,7 @@ abstract class _CreateRecordInput implements CreateRecordInput {
           final bool? validate,
           required final Map<String, dynamic> record,
           final String? swapCommit,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$CreateRecordInputImpl;
 
   factory _CreateRecordInput.fromJson(Map<String, dynamic> json) =
@@ -344,7 +345,7 @@ abstract class _CreateRecordInput implements CreateRecordInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CreateRecordInputImplCopyWith<_$CreateRecordInputImpl> get copyWith =>

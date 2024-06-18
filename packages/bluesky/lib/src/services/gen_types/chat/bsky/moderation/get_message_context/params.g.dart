@@ -21,11 +21,9 @@ _$GetMessageContextParamsImpl _$$GetMessageContextParamsImplFromJson(
           after: $checkedConvert('after', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -45,6 +43,6 @@ Map<String, dynamic> _$$GetMessageContextParamsImplToJson(
   val['messageId'] = instance.messageId;
   writeNotNull('before', instance.before);
   writeNotNull('after', instance.after);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

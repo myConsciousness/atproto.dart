@@ -28,7 +28,7 @@ mixin _$GetRepoParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +45,7 @@ abstract class $GetRepoParamsCopyWith<$Res> {
   $Res call(
       {String did,
       String? since,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$GetRepoParamsCopyWithImpl<$Res, $Val extends GetRepoParams>
   $Res call({
     Object? did = null,
     Object? since = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -74,10 +74,10 @@ class _$GetRepoParamsCopyWithImpl<$Res, $Val extends GetRepoParams>
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -93,7 +93,7 @@ abstract class _$$GetRepoParamsImplCopyWith<$Res>
   $Res call(
       {String did,
       String? since,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -109,7 +109,7 @@ class __$$GetRepoParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
     Object? since = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetRepoParamsImpl(
       did: null == did
@@ -120,10 +120,10 @@ class __$$GetRepoParamsImplCopyWithImpl<$Res>
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -135,8 +135,7 @@ class _$GetRepoParamsImpl implements _GetRepoParams {
   const _$GetRepoParamsImpl(
       {required this.did,
       this.since,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetRepoParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -151,15 +150,17 @@ class _$GetRepoParamsImpl implements _GetRepoParams {
   final String? since;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -200,7 +201,7 @@ abstract class _GetRepoParams implements GetRepoParams {
   const factory _GetRepoParams(
           {required final String did,
           final String? since,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetRepoParamsImpl;
 
   factory _GetRepoParams.fromJson(Map<String, dynamic> json) =
@@ -218,7 +219,7 @@ abstract class _GetRepoParams implements GetRepoParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetRepoParamsImplCopyWith<_$GetRepoParamsImpl> get copyWith =>

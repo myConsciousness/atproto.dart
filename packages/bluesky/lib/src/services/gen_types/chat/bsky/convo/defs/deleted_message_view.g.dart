@@ -25,23 +25,30 @@ _$DeletedMessageViewImpl _$$DeletedMessageViewImplFromJson(Map json) =>
           sentAt: $checkedConvert('sentAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$DeletedMessageViewImplToJson(
-        _$DeletedMessageViewImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'id': instance.id,
-      'rev': instance.rev,
-      'sender': const MessageViewSenderConverter().toJson(instance.sender),
-      'sentAt': instance.sentAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
-    };
+    _$DeletedMessageViewImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'id': instance.id,
+    'rev': instance.rev,
+    'sender': const MessageViewSenderConverter().toJson(instance.sender),
+    'sentAt': instance.sentAt.toIso8601String(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

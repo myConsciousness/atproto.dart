@@ -26,7 +26,7 @@ mixin _$UpdateAccountPasswordInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +44,7 @@ abstract class $UpdateAccountPasswordInputCopyWith<$Res> {
   $Res call(
       {String did,
       String password,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$UpdateAccountPasswordInputCopyWithImpl<$Res,
   $Res call({
     Object? did = null,
     Object? password = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -74,10 +74,10 @@ class _$UpdateAccountPasswordInputCopyWithImpl<$Res,
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -94,7 +94,7 @@ abstract class _$$UpdateAccountPasswordInputImplCopyWith<$Res>
   $Res call(
       {String did,
       String password,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class __$$UpdateAccountPasswordInputImplCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
     Object? password = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$UpdateAccountPasswordInputImpl(
       did: null == did
@@ -123,10 +123,10 @@ class __$$UpdateAccountPasswordInputImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -138,8 +138,7 @@ class _$UpdateAccountPasswordInputImpl implements _UpdateAccountPasswordInput {
   const _$UpdateAccountPasswordInputImpl(
       {required this.did,
       required this.password,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$UpdateAccountPasswordInputImpl.fromJson(
@@ -152,15 +151,17 @@ class _$UpdateAccountPasswordInputImpl implements _UpdateAccountPasswordInput {
   final String password;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -204,7 +205,7 @@ abstract class _UpdateAccountPasswordInput
   const factory _UpdateAccountPasswordInput(
           {required final String did,
           required final String password,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$UpdateAccountPasswordInputImpl;
 
   factory _UpdateAccountPasswordInput.fromJson(Map<String, dynamic> json) =
@@ -218,7 +219,7 @@ abstract class _UpdateAccountPasswordInput
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$UpdateAccountPasswordInputImplCopyWith<_$UpdateAccountPasswordInputImpl>

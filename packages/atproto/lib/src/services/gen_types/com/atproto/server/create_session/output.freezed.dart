@@ -36,7 +36,7 @@ mixin _$CreateSessionOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,7 +61,7 @@ abstract class $CreateSessionOutputCopyWith<$Res> {
       bool? emailAuthFactor,
       bool? active,
       @UStatusConverter() UStatus? status,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UStatusCopyWith<$Res>? get status;
 }
@@ -89,7 +89,7 @@ class _$CreateSessionOutputCopyWithImpl<$Res, $Val extends CreateSessionOutput>
     Object? emailAuthFactor = freezed,
     Object? active = freezed,
     Object? status = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       accessJwt: null == accessJwt
@@ -132,10 +132,10 @@ class _$CreateSessionOutputCopyWithImpl<$Res, $Val extends CreateSessionOutput>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -171,7 +171,7 @@ abstract class _$$CreateSessionOutputImplCopyWith<$Res>
       bool? emailAuthFactor,
       bool? active,
       @UStatusConverter() UStatus? status,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UStatusCopyWith<$Res>? get status;
@@ -198,7 +198,7 @@ class __$$CreateSessionOutputImplCopyWithImpl<$Res>
     Object? emailAuthFactor = freezed,
     Object? active = freezed,
     Object? status = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$CreateSessionOutputImpl(
       accessJwt: null == accessJwt
@@ -241,10 +241,10 @@ class __$$CreateSessionOutputImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -264,8 +264,7 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
       this.emailAuthFactor,
       this.active,
       @UStatusConverter() this.status,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _didDoc = didDoc,
         _$unknown = $unknown;
 
@@ -305,15 +304,17 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
   final UStatus? status;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -386,7 +387,7 @@ abstract class _CreateSessionOutput implements CreateSessionOutput {
           final bool? emailAuthFactor,
           final bool? active,
           @UStatusConverter() final UStatus? status,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$CreateSessionOutputImpl;
 
   factory _CreateSessionOutput.fromJson(Map<String, dynamic> json) =
@@ -419,7 +420,7 @@ abstract class _CreateSessionOutput implements CreateSessionOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CreateSessionOutputImplCopyWith<_$CreateSessionOutputImpl> get copyWith =>

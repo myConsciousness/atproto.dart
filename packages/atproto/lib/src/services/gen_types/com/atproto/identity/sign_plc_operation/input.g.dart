@@ -31,11 +31,9 @@ _$SignPlcOperationInputImpl _$$SignPlcOperationInputImplFromJson(Map json) =>
                   )),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -56,6 +54,6 @@ Map<String, dynamic> _$$SignPlcOperationInputImplToJson(
   writeNotNull('alsoKnownAs', instance.alsoKnownAs);
   writeNotNull('verificationMethods', instance.verificationMethods);
   writeNotNull('services', instance.services);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

@@ -36,7 +36,7 @@ mixin _$ConvoView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -57,7 +57,7 @@ abstract class $ConvoViewCopyWith<$Res> {
       @ULastMessageConverter() ULastMessage? lastMessage,
       bool muted,
       int unreadCount,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ULastMessageCopyWith<$Res>? get lastMessage;
 }
@@ -82,7 +82,7 @@ class _$ConvoViewCopyWithImpl<$Res, $Val extends ConvoView>
     Object? lastMessage = freezed,
     Object? muted = null,
     Object? unreadCount = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -113,10 +113,10 @@ class _$ConvoViewCopyWithImpl<$Res, $Val extends ConvoView>
           ? _value.unreadCount
           : unreadCount // ignore: cast_nullable_to_non_nullable
               as int,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -149,7 +149,7 @@ abstract class _$$ConvoViewImplCopyWith<$Res>
       @ULastMessageConverter() ULastMessage? lastMessage,
       bool muted,
       int unreadCount,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ULastMessageCopyWith<$Res>? get lastMessage;
@@ -173,7 +173,7 @@ class __$$ConvoViewImplCopyWithImpl<$Res>
     Object? lastMessage = freezed,
     Object? muted = null,
     Object? unreadCount = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ConvoViewImpl(
       $type: null == $type
@@ -204,10 +204,10 @@ class __$$ConvoViewImplCopyWithImpl<$Res>
           ? _value.unreadCount
           : unreadCount // ignore: cast_nullable_to_non_nullable
               as int,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -225,8 +225,7 @@ class _$ConvoViewImpl implements _ConvoView {
       @ULastMessageConverter() this.lastMessage,
       required this.muted,
       required this.unreadCount,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _members = members,
         _$unknown = $unknown;
 
@@ -261,15 +260,17 @@ class _$ConvoViewImpl implements _ConvoView {
   final int unreadCount;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -331,7 +332,7 @@ abstract class _ConvoView implements ConvoView {
           @ULastMessageConverter() final ULastMessage? lastMessage,
           required final bool muted,
           required final int unreadCount,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ConvoViewImpl;
 
   factory _ConvoView.fromJson(Map<String, dynamic> json) =
@@ -362,7 +363,7 @@ abstract class _ConvoView implements ConvoView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ConvoViewImplCopyWith<_$ConvoViewImpl> get copyWith =>

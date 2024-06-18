@@ -19,20 +19,27 @@ _$NotFoundActorImpl _$$NotFoundActorImplFromJson(Map json) => $checkedCreate(
           notFound: $checkedConvert('notFound', (v) => v as bool),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$NotFoundActorImplToJson(_$NotFoundActorImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'actor': instance.actor,
-      'notFound': instance.notFound,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$NotFoundActorImplToJson(_$NotFoundActorImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'actor': instance.actor,
+    'notFound': instance.notFound,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

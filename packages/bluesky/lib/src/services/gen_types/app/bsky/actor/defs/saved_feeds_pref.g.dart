@@ -29,22 +29,29 @@ _$SavedFeedsPrefImpl _$$SavedFeedsPrefImplFromJson(Map json) => $checkedCreate(
               'timelineIndex', (v) => (v as num?)?.toInt() ?? 0),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$SavedFeedsPrefImplToJson(
-        _$SavedFeedsPrefImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'pinned': instance.pinned.map(const AtUriConverter().toJson).toList(),
-      'saved': instance.saved.map(const AtUriConverter().toJson).toList(),
-      'timelineIndex': instance.timelineIndex,
-      r'$unknown': instance.$unknown,
-    };
+    _$SavedFeedsPrefImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'pinned': instance.pinned.map(const AtUriConverter().toJson).toList(),
+    'saved': instance.saved.map(const AtUriConverter().toJson).toList(),
+    'timelineIndex': instance.timelineIndex,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

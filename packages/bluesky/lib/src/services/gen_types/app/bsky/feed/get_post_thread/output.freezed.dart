@@ -25,7 +25,7 @@ mixin _$GetPostThreadOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $GetPostThreadOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@UThreadConverter() UThread thread,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UThreadCopyWith<$Res> get thread;
 }
@@ -60,17 +60,17 @@ class _$GetPostThreadOutputCopyWithImpl<$Res, $Val extends GetPostThreadOutput>
   @override
   $Res call({
     Object? thread = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
               as UThread,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -93,7 +93,7 @@ abstract class _$$GetPostThreadOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@UThreadConverter() UThread thread,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UThreadCopyWith<$Res> get thread;
@@ -111,17 +111,17 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? thread = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetPostThreadOutputImpl(
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
               as UThread,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -132,8 +132,7 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
 class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
   const _$GetPostThreadOutputImpl(
       {@UThreadConverter() required this.thread,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetPostThreadOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -144,15 +143,17 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
   final UThread thread;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -192,7 +193,7 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
 abstract class _GetPostThreadOutput implements GetPostThreadOutput {
   const factory _GetPostThreadOutput(
           {@UThreadConverter() required final UThread thread,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetPostThreadOutputImpl;
 
   factory _GetPostThreadOutput.fromJson(Map<String, dynamic> json) =
@@ -205,7 +206,7 @@ abstract class _GetPostThreadOutput implements GetPostThreadOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetPostThreadOutputImplCopyWith<_$GetPostThreadOutputImpl> get copyWith =>

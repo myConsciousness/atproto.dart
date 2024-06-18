@@ -25,7 +25,7 @@ mixin _$GetAccountInfosParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $GetAccountInfosParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {List<String> dids,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -59,17 +59,17 @@ class _$GetAccountInfosParamsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? dids = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       dids: null == dids
           ? _value.dids
           : dids // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -85,7 +85,7 @@ abstract class _$$GetAccountInfosParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<String> dids,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -101,17 +101,17 @@ class __$$GetAccountInfosParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? dids = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetAccountInfosParamsImpl(
       dids: null == dids
           ? _value._dids
           : dids // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -122,8 +122,7 @@ class __$$GetAccountInfosParamsImplCopyWithImpl<$Res>
 class _$GetAccountInfosParamsImpl implements _GetAccountInfosParams {
   const _$GetAccountInfosParamsImpl(
       {required final List<String> dids,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _dids = dids,
         _$unknown = $unknown;
 
@@ -139,15 +138,17 @@ class _$GetAccountInfosParamsImpl implements _GetAccountInfosParams {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -189,7 +190,7 @@ class _$GetAccountInfosParamsImpl implements _GetAccountInfosParams {
 abstract class _GetAccountInfosParams implements GetAccountInfosParams {
   const factory _GetAccountInfosParams(
           {required final List<String> dids,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetAccountInfosParamsImpl;
 
   factory _GetAccountInfosParams.fromJson(Map<String, dynamic> json) =
@@ -201,7 +202,7 @@ abstract class _GetAccountInfosParams implements GetAccountInfosParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetAccountInfosParamsImplCopyWith<_$GetAccountInfosParamsImpl>

@@ -26,7 +26,7 @@ mixin _$GetInviteCodesOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $GetInviteCodesOutputCopyWith<$Res> {
   $Res call(
       {String? cursor,
       @InviteCodeConverter() List<InviteCode> codes,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$GetInviteCodesOutputCopyWithImpl<$Res,
   $Res call({
     Object? cursor = freezed,
     Object? codes = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -73,10 +73,10 @@ class _$GetInviteCodesOutputCopyWithImpl<$Res,
           ? _value.codes
           : codes // ignore: cast_nullable_to_non_nullable
               as List<InviteCode>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -92,7 +92,7 @@ abstract class _$$GetInviteCodesOutputImplCopyWith<$Res>
   $Res call(
       {String? cursor,
       @InviteCodeConverter() List<InviteCode> codes,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -108,7 +108,7 @@ class __$$GetInviteCodesOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? codes = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetInviteCodesOutputImpl(
       cursor: freezed == cursor
@@ -119,10 +119,10 @@ class __$$GetInviteCodesOutputImplCopyWithImpl<$Res>
           ? _value._codes
           : codes // ignore: cast_nullable_to_non_nullable
               as List<InviteCode>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -134,8 +134,7 @@ class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
   const _$GetInviteCodesOutputImpl(
       {this.cursor,
       @InviteCodeConverter() required final List<InviteCode> codes,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _codes = codes,
         _$unknown = $unknown;
 
@@ -154,15 +153,17 @@ class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -208,7 +209,7 @@ abstract class _GetInviteCodesOutput implements GetInviteCodesOutput {
   const factory _GetInviteCodesOutput(
           {final String? cursor,
           @InviteCodeConverter() required final List<InviteCode> codes,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetInviteCodesOutputImpl;
 
   factory _GetInviteCodesOutput.fromJson(Map<String, dynamic> json) =
@@ -223,7 +224,7 @@ abstract class _GetInviteCodesOutput implements GetInviteCodesOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetInviteCodesOutputImplCopyWith<_$GetInviteCodesOutputImpl>

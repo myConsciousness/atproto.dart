@@ -27,11 +27,9 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
                   v, const ProfileAssociatedChatConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -56,7 +54,7 @@ Map<String, dynamic> _$$ProfileAssociatedImplToJson(
       'chat',
       _$JsonConverterToJson<Map<String, dynamic>, ProfileAssociatedChat>(
           instance.chat, const ProfileAssociatedChatConverter().toJson));
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

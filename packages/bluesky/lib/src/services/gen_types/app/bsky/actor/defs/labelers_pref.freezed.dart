@@ -30,7 +30,7 @@ mixin _$LabelersPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $LabelersPrefCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @LabelerPrefItemConverter() List<LabelerPrefItem> labelers,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$LabelersPrefCopyWithImpl<$Res, $Val extends LabelersPref>
   $Res call({
     Object? $type = null,
     Object? labelers = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -76,10 +76,10 @@ class _$LabelersPrefCopyWithImpl<$Res, $Val extends LabelersPref>
           ? _value.labelers
           : labelers // ignore: cast_nullable_to_non_nullable
               as List<LabelerPrefItem>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -95,7 +95,7 @@ abstract class _$$LabelersPrefImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @LabelerPrefItemConverter() List<LabelerPrefItem> labelers,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$LabelersPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? labelers = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LabelersPrefImpl(
       $type: null == $type
@@ -122,10 +122,10 @@ class __$$LabelersPrefImplCopyWithImpl<$Res>
           ? _value._labelers
           : labelers // ignore: cast_nullable_to_non_nullable
               as List<LabelerPrefItem>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -137,8 +137,7 @@ class _$LabelersPrefImpl implements _LabelersPref {
   const _$LabelersPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsLabelersPref,
       @LabelerPrefItemConverter() required final List<LabelerPrefItem> labelers,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _labelers = labelers,
         _$unknown = $unknown;
 
@@ -161,15 +160,17 @@ class _$LabelersPrefImpl implements _LabelersPref {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -214,7 +215,7 @@ abstract class _LabelersPref implements LabelersPref {
       {@JsonKey(name: r'$type') final String $type,
       @LabelerPrefItemConverter() required final List<LabelerPrefItem> labelers,
       @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown}) = _$LabelersPrefImpl;
+      final Map<String, dynamic>? $unknown}) = _$LabelersPrefImpl;
 
   factory _LabelersPref.fromJson(Map<String, dynamic> json) =
       _$LabelersPrefImpl.fromJson;
@@ -233,7 +234,7 @@ abstract class _LabelersPref implements LabelersPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelersPrefImplCopyWith<_$LabelersPrefImpl> get copyWith =>

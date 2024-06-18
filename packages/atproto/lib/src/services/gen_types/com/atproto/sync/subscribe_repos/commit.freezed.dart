@@ -55,7 +55,7 @@ mixin _$Commit {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -79,7 +79,7 @@ abstract class $CommitCopyWith<$Res> {
       @RepoOpConverter() List<RepoOp> ops,
       List<String> blobs,
       DateTime time,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
     Object? ops = null,
     Object? blobs = null,
     Object? time = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -153,10 +153,10 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -180,7 +180,7 @@ abstract class _$$CommitImplCopyWith<$Res> implements $CommitCopyWith<$Res> {
       @RepoOpConverter() List<RepoOp> ops,
       List<String> blobs,
       DateTime time,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -205,7 +205,7 @@ class __$$CommitImplCopyWithImpl<$Res>
     Object? ops = null,
     Object? blobs = null,
     Object? time = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$CommitImpl(
       $type: null == $type
@@ -252,10 +252,10 @@ class __$$CommitImplCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -276,8 +276,7 @@ class _$CommitImpl implements _Commit {
       @RepoOpConverter() required final List<RepoOp> ops,
       required final List<String> blobs,
       required this.time,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _blocks = blocks,
         _ops = ops,
         _blobs = blobs,
@@ -350,15 +349,17 @@ class _$CommitImpl implements _Commit {
   final DateTime time;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -429,7 +430,7 @@ abstract class _Commit implements Commit {
           @RepoOpConverter() required final List<RepoOp> ops,
           required final List<String> blobs,
           required final DateTime time,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$CommitImpl;
 
   factory _Commit.fromJson(Map<String, dynamic> json) = _$CommitImpl.fromJson;
@@ -482,7 +483,7 @@ abstract class _Commit implements Commit {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CommitImplCopyWith<_$CommitImpl> get copyWith =>

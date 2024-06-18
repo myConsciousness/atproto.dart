@@ -18,20 +18,27 @@ _$LeaveConvoOutputImpl _$$LeaveConvoOutputImplFromJson(Map json) =>
           rev: $checkedConvert('rev', (v) => v as String),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$LeaveConvoOutputImplToJson(
-        _$LeaveConvoOutputImpl instance) =>
-    <String, dynamic>{
-      'convoId': instance.convoId,
-      'rev': instance.rev,
-      r'$unknown': instance.$unknown,
-    };
+    _$LeaveConvoOutputImpl instance) {
+  final val = <String, dynamic>{
+    'convoId': instance.convoId,
+    'rev': instance.rev,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

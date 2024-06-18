@@ -25,7 +25,7 @@ mixin _$ListReposParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $ListReposParamsCopyWith<$Res> {
   $Res call(
       {int? limit,
       String? cursor,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$ListReposParamsCopyWithImpl<$Res, $Val extends ListReposParams>
   $Res call({
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       limit: freezed == limit
@@ -71,10 +71,10 @@ class _$ListReposParamsCopyWithImpl<$Res, $Val extends ListReposParams>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -90,7 +90,7 @@ abstract class _$$ListReposParamsImplCopyWith<$Res>
   $Res call(
       {int? limit,
       String? cursor,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class __$$ListReposParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ListReposParamsImpl(
       limit: freezed == limit
@@ -117,10 +117,10 @@ class __$$ListReposParamsImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -132,8 +132,7 @@ class _$ListReposParamsImpl implements _ListReposParams {
   const _$ListReposParamsImpl(
       {this.limit,
       this.cursor,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ListReposParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -145,15 +144,17 @@ class _$ListReposParamsImpl implements _ListReposParams {
   final String? cursor;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -195,7 +196,7 @@ abstract class _ListReposParams implements ListReposParams {
   const factory _ListReposParams(
           {final int? limit,
           final String? cursor,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListReposParamsImpl;
 
   factory _ListReposParams.fromJson(Map<String, dynamic> json) =
@@ -209,7 +210,7 @@ abstract class _ListReposParams implements ListReposParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListReposParamsImplCopyWith<_$ListReposParamsImpl> get copyWith =>

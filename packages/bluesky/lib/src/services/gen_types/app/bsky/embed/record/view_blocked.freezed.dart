@@ -33,7 +33,7 @@ mixin _$RecordViewBlocked {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +52,7 @@ abstract class $RecordViewBlockedCopyWith<$Res> {
       @AtUriConverter() AtUri uri,
       bool blocked,
       @BlockedAuthorConverter() BlockedAuthor author,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $BlockedAuthorCopyWith<$Res> get author;
 }
@@ -74,7 +74,7 @@ class _$RecordViewBlockedCopyWithImpl<$Res, $Val extends RecordViewBlocked>
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -93,10 +93,10 @@ class _$RecordViewBlockedCopyWithImpl<$Res, $Val extends RecordViewBlocked>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as BlockedAuthor,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -122,7 +122,7 @@ abstract class _$$RecordViewBlockedImplCopyWith<$Res>
       @AtUriConverter() AtUri uri,
       bool blocked,
       @BlockedAuthorConverter() BlockedAuthor author,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $BlockedAuthorCopyWith<$Res> get author;
@@ -143,7 +143,7 @@ class __$$RecordViewBlockedImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$RecordViewBlockedImpl(
       $type: null == $type
@@ -162,10 +162,10 @@ class __$$RecordViewBlockedImplCopyWithImpl<$Res>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as BlockedAuthor,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -179,8 +179,7 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
       @AtUriConverter() required this.uri,
       required this.blocked,
       @BlockedAuthorConverter() required this.author,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$RecordViewBlockedImpl.fromJson(Map<String, dynamic> json) =>
@@ -202,15 +201,17 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
   final BlockedAuthor author;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -256,7 +257,7 @@ abstract class _RecordViewBlocked implements RecordViewBlocked {
           @AtUriConverter() required final AtUri uri,
           required final bool blocked,
           @BlockedAuthorConverter() required final BlockedAuthor author,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RecordViewBlockedImpl;
 
   factory _RecordViewBlocked.fromJson(Map<String, dynamic> json) =
@@ -281,7 +282,7 @@ abstract class _RecordViewBlocked implements RecordViewBlocked {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordViewBlockedImplCopyWith<_$RecordViewBlockedImpl> get copyWith =>

@@ -26,7 +26,7 @@ mixin _$SendMessageInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $SendMessageInputCopyWith<$Res> {
   $Res call(
       {String convoId,
       @MessageInputConverter() MessageInput message,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $MessageInputCopyWith<$Res> get message;
 }
@@ -63,7 +63,7 @@ class _$SendMessageInputCopyWithImpl<$Res, $Val extends SendMessageInput>
   $Res call({
     Object? convoId = null,
     Object? message = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       convoId: null == convoId
@@ -74,10 +74,10 @@ class _$SendMessageInputCopyWithImpl<$Res, $Val extends SendMessageInput>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as MessageInput,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -101,7 +101,7 @@ abstract class _$$SendMessageInputImplCopyWith<$Res>
   $Res call(
       {String convoId,
       @MessageInputConverter() MessageInput message,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $MessageInputCopyWith<$Res> get message;
@@ -120,7 +120,7 @@ class __$$SendMessageInputImplCopyWithImpl<$Res>
   $Res call({
     Object? convoId = null,
     Object? message = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SendMessageInputImpl(
       convoId: null == convoId
@@ -131,10 +131,10 @@ class __$$SendMessageInputImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as MessageInput,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -146,8 +146,7 @@ class _$SendMessageInputImpl implements _SendMessageInput {
   const _$SendMessageInputImpl(
       {required this.convoId,
       @MessageInputConverter() required this.message,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$SendMessageInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -160,15 +159,17 @@ class _$SendMessageInputImpl implements _SendMessageInput {
   final MessageInput message;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -210,7 +211,7 @@ abstract class _SendMessageInput implements SendMessageInput {
   const factory _SendMessageInput(
           {required final String convoId,
           @MessageInputConverter() required final MessageInput message,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SendMessageInputImpl;
 
   factory _SendMessageInput.fromJson(Map<String, dynamic> json) =
@@ -225,7 +226,7 @@ abstract class _SendMessageInput implements SendMessageInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SendMessageInputImplCopyWith<_$SendMessageInputImpl> get copyWith =>

@@ -26,7 +26,7 @@ mixin _$GetLatestCommitParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $GetLatestCommitParamsCopyWith<$Res> {
       _$GetLatestCommitParamsCopyWithImpl<$Res, GetLatestCommitParams>;
   @useResult
   $Res call(
-      {String did, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      {String did, @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -59,17 +59,17 @@ class _$GetLatestCommitParamsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? did = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -84,7 +84,7 @@ abstract class _$$GetLatestCommitParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String did, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      {String did, @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -100,17 +100,17 @@ class __$$GetLatestCommitParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? did = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetLatestCommitParamsImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -121,8 +121,7 @@ class __$$GetLatestCommitParamsImplCopyWithImpl<$Res>
 class _$GetLatestCommitParamsImpl implements _GetLatestCommitParams {
   const _$GetLatestCommitParamsImpl(
       {required this.did,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetLatestCommitParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -133,15 +132,17 @@ class _$GetLatestCommitParamsImpl implements _GetLatestCommitParams {
   final String did;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -181,7 +182,7 @@ class _$GetLatestCommitParamsImpl implements _GetLatestCommitParams {
 abstract class _GetLatestCommitParams implements GetLatestCommitParams {
   const factory _GetLatestCommitParams(
           {required final String did,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetLatestCommitParamsImpl;
 
   factory _GetLatestCommitParams.fromJson(Map<String, dynamic> json) =
@@ -195,7 +196,7 @@ abstract class _GetLatestCommitParams implements GetLatestCommitParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetLatestCommitParamsImplCopyWith<_$GetLatestCommitParamsImpl>

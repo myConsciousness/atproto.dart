@@ -39,7 +39,7 @@ mixin _$ImagesViewImage {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +59,7 @@ abstract class $ImagesViewImageCopyWith<$Res> {
       String fullsize,
       String alt,
       @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ImagesAspectRatioCopyWith<$Res>? get aspectRatio;
 }
@@ -82,7 +82,7 @@ class _$ImagesViewImageCopyWithImpl<$Res, $Val extends ImagesViewImage>
     Object? fullsize = null,
     Object? alt = null,
     Object? aspectRatio = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -105,10 +105,10 @@ class _$ImagesViewImageCopyWithImpl<$Res, $Val extends ImagesViewImage>
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
               as ImagesAspectRatio?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -139,7 +139,7 @@ abstract class _$$ImagesViewImageImplCopyWith<$Res>
       String fullsize,
       String alt,
       @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ImagesAspectRatioCopyWith<$Res>? get aspectRatio;
@@ -161,7 +161,7 @@ class __$$ImagesViewImageImplCopyWithImpl<$Res>
     Object? fullsize = null,
     Object? alt = null,
     Object? aspectRatio = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ImagesViewImageImpl(
       $type: null == $type
@@ -184,10 +184,10 @@ class __$$ImagesViewImageImplCopyWithImpl<$Res>
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
               as ImagesAspectRatio?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -202,8 +202,7 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
       required this.fullsize,
       required this.alt,
       @ImagesAspectRatioConverter() this.aspectRatio,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ImagesViewImageImpl.fromJson(Map<String, dynamic> json) =>
@@ -232,15 +231,17 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
   final ImagesAspectRatio? aspectRatio;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -290,7 +291,7 @@ abstract class _ImagesViewImage implements ImagesViewImage {
           required final String fullsize,
           required final String alt,
           @ImagesAspectRatioConverter() final ImagesAspectRatio? aspectRatio,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ImagesViewImageImpl;
 
   factory _ImagesViewImage.fromJson(Map<String, dynamic> json) =
@@ -322,7 +323,7 @@ abstract class _ImagesViewImage implements ImagesViewImage {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ImagesViewImageImplCopyWith<_$ImagesViewImageImpl> get copyWith =>

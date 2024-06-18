@@ -30,7 +30,7 @@ mixin _$External {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $ExternalCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ExternalExternalConverter() ExternalExternal external,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ExternalExternalCopyWith<$Res> get external;
 }
@@ -66,7 +66,7 @@ class _$ExternalCopyWithImpl<$Res, $Val extends External>
   $Res call({
     Object? $type = null,
     Object? external = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -77,10 +77,10 @@ class _$ExternalCopyWithImpl<$Res, $Val extends External>
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
               as ExternalExternal,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -104,7 +104,7 @@ abstract class _$$ExternalImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ExternalExternalConverter() ExternalExternal external,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ExternalExternalCopyWith<$Res> get external;
@@ -123,7 +123,7 @@ class __$$ExternalImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? external = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ExternalImpl(
       $type: null == $type
@@ -134,10 +134,10 @@ class __$$ExternalImplCopyWithImpl<$Res>
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
               as ExternalExternal,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -149,8 +149,7 @@ class _$ExternalImpl implements _External {
   const _$ExternalImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedExternal,
       @ExternalExternalConverter() required this.external,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ExternalImpl.fromJson(Map<String, dynamic> json) =>
@@ -167,15 +166,17 @@ class _$ExternalImpl implements _External {
   final ExternalExternal external;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -217,7 +218,7 @@ abstract class _External implements External {
   const factory _External(
           {@JsonKey(name: r'$type') final String $type,
           @ExternalExternalConverter() required final ExternalExternal external,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ExternalImpl;
 
   factory _External.fromJson(Map<String, dynamic> json) =
@@ -237,7 +238,7 @@ abstract class _External implements External {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ExternalImplCopyWith<_$ExternalImpl> get copyWith =>

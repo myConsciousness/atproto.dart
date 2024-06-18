@@ -6,6 +6,7 @@
 import 'dart:async';
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto/com_atproto_sync_subscribe_repos.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 

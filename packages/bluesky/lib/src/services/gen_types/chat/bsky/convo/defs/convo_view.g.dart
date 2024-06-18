@@ -33,11 +33,9 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
               $checkedConvert('unreadCount', (v) => (v as num).toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -64,7 +62,7 @@ Map<String, dynamic> _$$ConvoViewImplToJson(_$ConvoViewImpl instance) {
           instance.lastMessage, const ULastMessageConverter().toJson));
   val['muted'] = instance.muted;
   val['unreadCount'] = instance.unreadCount;
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

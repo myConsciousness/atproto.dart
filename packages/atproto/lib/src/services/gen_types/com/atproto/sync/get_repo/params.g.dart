@@ -17,11 +17,9 @@ _$GetRepoParamsImpl _$$GetRepoParamsImplFromJson(Map json) => $checkedCreate(
           since: $checkedConvert('since', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -39,6 +37,6 @@ Map<String, dynamic> _$$GetRepoParamsImplToJson(_$GetRepoParamsImpl instance) {
   }
 
   writeNotNull('since', instance.since);
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

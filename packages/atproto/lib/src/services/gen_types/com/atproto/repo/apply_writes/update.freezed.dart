@@ -32,7 +32,7 @@ mixin _$Update {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ abstract class $UpdateCopyWith<$Res> {
       @NSIDConverter() NSID collection,
       String rkey,
       Map<String, dynamic> value,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -69,7 +69,7 @@ class _$UpdateCopyWithImpl<$Res, $Val extends Update>
     Object? collection = null,
     Object? rkey = null,
     Object? value = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -88,10 +88,10 @@ class _$UpdateCopyWithImpl<$Res, $Val extends Update>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -108,7 +108,7 @@ abstract class _$$UpdateImplCopyWith<$Res> implements $UpdateCopyWith<$Res> {
       @NSIDConverter() NSID collection,
       String rkey,
       Map<String, dynamic> value,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -126,7 +126,7 @@ class __$$UpdateImplCopyWithImpl<$Res>
     Object? collection = null,
     Object? rkey = null,
     Object? value = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$UpdateImpl(
       $type: null == $type
@@ -145,10 +145,10 @@ class __$$UpdateImplCopyWithImpl<$Res>
           ? _value._value
           : value // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -162,8 +162,7 @@ class _$UpdateImpl implements _Update {
       @NSIDConverter() required this.collection,
       required this.rkey,
       required final Map<String, dynamic> value,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _value = value,
         _$unknown = $unknown;
 
@@ -190,15 +189,17 @@ class _$UpdateImpl implements _Update {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -249,7 +250,7 @@ abstract class _Update implements Update {
           @NSIDConverter() required final NSID collection,
           required final String rkey,
           required final Map<String, dynamic> value,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$UpdateImpl;
 
   factory _Update.fromJson(Map<String, dynamic> json) = _$UpdateImpl.fromJson;
@@ -272,7 +273,7 @@ abstract class _Update implements Update {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$UpdateImplCopyWith<_$UpdateImpl> get copyWith =>

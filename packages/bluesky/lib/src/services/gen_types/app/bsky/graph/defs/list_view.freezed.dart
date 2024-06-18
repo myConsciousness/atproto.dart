@@ -45,7 +45,7 @@ mixin _$ListView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,7 +71,7 @@ abstract class $ListViewCopyWith<$Res> {
       @LabelConverter() List<Label>? labels,
       @ListViewerStateConverter() ListViewerState viewer,
       DateTime indexedAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileViewCopyWith<$Res> get creator;
   $UListPurposeCopyWith<$Res> get purpose;
@@ -103,7 +103,7 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -154,10 +154,10 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -207,7 +207,7 @@ abstract class _$$ListViewImplCopyWith<$Res>
       @LabelConverter() List<Label>? labels,
       @ListViewerStateConverter() ListViewerState viewer,
       DateTime indexedAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ProfileViewCopyWith<$Res> get creator;
@@ -240,7 +240,7 @@ class __$$ListViewImplCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ListViewImpl(
       $type: null == $type
@@ -291,10 +291,10 @@ class __$$ListViewImplCopyWithImpl<$Res>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -316,8 +316,7 @@ class _$ListViewImpl implements _ListView {
       @LabelConverter() final List<Label>? labels,
       @ListViewerStateConverter() this.viewer = const ListViewerState(),
       required this.indexedAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _descriptionFacets = descriptionFacets,
         _labels = labels,
         _$unknown = $unknown;
@@ -379,15 +378,17 @@ class _$ListViewImpl implements _ListView {
   final DateTime indexedAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -464,7 +465,7 @@ abstract class _ListView implements ListView {
           @LabelConverter() final List<Label>? labels,
           @ListViewerStateConverter() final ListViewerState viewer,
           required final DateTime indexedAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListViewImpl;
 
   factory _ListView.fromJson(Map<String, dynamic> json) =
@@ -509,7 +510,7 @@ abstract class _ListView implements ListView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListViewImplCopyWith<_$ListViewImpl> get copyWith =>

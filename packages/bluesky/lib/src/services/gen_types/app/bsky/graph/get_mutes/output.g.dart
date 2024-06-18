@@ -22,11 +22,9 @@ _$GetMutesOutputImpl _$$GetMutesOutputImplFromJson(Map json) => $checkedCreate(
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -45,6 +43,6 @@ Map<String, dynamic> _$$GetMutesOutputImplToJson(
   writeNotNull('cursor', instance.cursor);
   val['mutes'] =
       instance.mutes.map(const ProfileViewConverter().toJson).toList();
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

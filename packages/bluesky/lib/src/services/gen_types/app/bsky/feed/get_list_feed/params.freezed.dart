@@ -28,7 +28,7 @@ mixin _$GetListFeedParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $GetListFeedParamsCopyWith<$Res> {
       {@AtUriConverter() AtUri list,
       int? limit,
       String? cursor,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$GetListFeedParamsCopyWithImpl<$Res, $Val extends GetListFeedParams>
     Object? list = null,
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       list: null == list
@@ -80,10 +80,10 @@ class _$GetListFeedParamsCopyWithImpl<$Res, $Val extends GetListFeedParams>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -100,7 +100,7 @@ abstract class _$$GetListFeedParamsImplCopyWith<$Res>
       {@AtUriConverter() AtUri list,
       int? limit,
       String? cursor,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class __$$GetListFeedParamsImplCopyWithImpl<$Res>
     Object? list = null,
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetListFeedParamsImpl(
       list: null == list
@@ -132,10 +132,10 @@ class __$$GetListFeedParamsImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -148,8 +148,7 @@ class _$GetListFeedParamsImpl implements _GetListFeedParams {
       {@AtUriConverter() required this.list,
       this.limit,
       this.cursor,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetListFeedParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -165,15 +164,17 @@ class _$GetListFeedParamsImpl implements _GetListFeedParams {
   final String? cursor;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -217,7 +218,7 @@ abstract class _GetListFeedParams implements GetListFeedParams {
           {@AtUriConverter() required final AtUri list,
           final int? limit,
           final String? cursor,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetListFeedParamsImpl;
 
   factory _GetListFeedParams.fromJson(Map<String, dynamic> json) =
@@ -236,7 +237,7 @@ abstract class _GetListFeedParams implements GetListFeedParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetListFeedParamsImplCopyWith<_$GetListFeedParamsImpl> get copyWith =>

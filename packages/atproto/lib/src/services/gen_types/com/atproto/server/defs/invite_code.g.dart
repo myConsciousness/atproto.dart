@@ -30,25 +30,32 @@ _$InviteCodeImpl _$$InviteCodeImplFromJson(Map json) => $checkedCreate(
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$InviteCodeImplToJson(_$InviteCodeImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'code': instance.code,
-      'available': instance.available,
-      'disabled': instance.disabled,
-      'forAccount': instance.forAccount,
-      'createdBy': instance.createdBy,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'uses': instance.uses.map(const InviteCodeUseConverter().toJson).toList(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$InviteCodeImplToJson(_$InviteCodeImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'code': instance.code,
+    'available': instance.available,
+    'disabled': instance.disabled,
+    'forAccount': instance.forAccount,
+    'createdBy': instance.createdBy,
+    'createdAt': instance.createdAt.toIso8601String(),
+    'uses': instance.uses.map(const InviteCodeUseConverter().toJson).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

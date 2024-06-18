@@ -31,7 +31,7 @@ mixin _$InterestsPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $InterestsPrefCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       List<String> tags,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$InterestsPrefCopyWithImpl<$Res, $Val extends InterestsPref>
   $Res call({
     Object? $type = null,
     Object? tags = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -77,10 +77,10 @@ class _$InterestsPrefCopyWithImpl<$Res, $Val extends InterestsPref>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -96,7 +96,7 @@ abstract class _$$InterestsPrefImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       List<String> tags,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class __$$InterestsPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? tags = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$InterestsPrefImpl(
       $type: null == $type
@@ -123,10 +123,10 @@ class __$$InterestsPrefImplCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -138,8 +138,7 @@ class _$InterestsPrefImpl implements _InterestsPref {
   const _$InterestsPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsInterestsPref,
       required final List<String> tags,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _tags = tags,
         _$unknown = $unknown;
 
@@ -165,15 +164,17 @@ class _$InterestsPrefImpl implements _InterestsPref {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -217,7 +218,7 @@ abstract class _InterestsPref implements InterestsPref {
   const factory _InterestsPref(
           {@JsonKey(name: r'$type') final String $type,
           required final List<String> tags,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$InterestsPrefImpl;
 
   factory _InterestsPref.fromJson(Map<String, dynamic> json) =
@@ -238,7 +239,7 @@ abstract class _InterestsPref implements InterestsPref {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$InterestsPrefImplCopyWith<_$InterestsPrefImpl> get copyWith =>

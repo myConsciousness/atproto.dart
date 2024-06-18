@@ -28,7 +28,7 @@ mixin _$RegisterPushInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $RegisterPushInputCopyWith<$Res> {
       String token,
       @UPlatformConverter() UPlatform platform,
       String appId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UPlatformCopyWith<$Res> get platform;
 }
@@ -69,7 +69,7 @@ class _$RegisterPushInputCopyWithImpl<$Res, $Val extends RegisterPushInput>
     Object? token = null,
     Object? platform = null,
     Object? appId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       serviceDid: null == serviceDid
@@ -88,10 +88,10 @@ class _$RegisterPushInputCopyWithImpl<$Res, $Val extends RegisterPushInput>
           ? _value.appId
           : appId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -117,7 +117,7 @@ abstract class _$$RegisterPushInputImplCopyWith<$Res>
       String token,
       @UPlatformConverter() UPlatform platform,
       String appId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UPlatformCopyWith<$Res> get platform;
@@ -138,7 +138,7 @@ class __$$RegisterPushInputImplCopyWithImpl<$Res>
     Object? token = null,
     Object? platform = null,
     Object? appId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$RegisterPushInputImpl(
       serviceDid: null == serviceDid
@@ -157,10 +157,10 @@ class __$$RegisterPushInputImplCopyWithImpl<$Res>
           ? _value.appId
           : appId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -174,8 +174,7 @@ class _$RegisterPushInputImpl implements _RegisterPushInput {
       required this.token,
       @UPlatformConverter() required this.platform,
       required this.appId,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$RegisterPushInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -192,15 +191,17 @@ class _$RegisterPushInputImpl implements _RegisterPushInput {
   final String appId;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -248,7 +249,7 @@ abstract class _RegisterPushInput implements RegisterPushInput {
           required final String token,
           @UPlatformConverter() required final UPlatform platform,
           required final String appId,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RegisterPushInputImpl;
 
   factory _RegisterPushInput.fromJson(Map<String, dynamic> json) =
@@ -267,7 +268,7 @@ abstract class _RegisterPushInput implements RegisterPushInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RegisterPushInputImplCopyWith<_$RegisterPushInputImpl> get copyWith =>

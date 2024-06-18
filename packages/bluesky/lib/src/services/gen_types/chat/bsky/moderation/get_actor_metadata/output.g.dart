@@ -28,21 +28,28 @@ _$GetActorMetadataOutputImpl _$$GetActorMetadataOutputImplFromJson(Map json) =>
                   .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$GetActorMetadataOutputImplToJson(
-        _$GetActorMetadataOutputImpl instance) =>
-    <String, dynamic>{
-      'day': const MetadataConverter().toJson(instance.day),
-      'month': const MetadataConverter().toJson(instance.month),
-      'all': const MetadataConverter().toJson(instance.all),
-      r'$unknown': instance.$unknown,
-    };
+    _$GetActorMetadataOutputImpl instance) {
+  final val = <String, dynamic>{
+    'day': const MetadataConverter().toJson(instance.day),
+    'month': const MetadataConverter().toJson(instance.month),
+    'all': const MetadataConverter().toJson(instance.all),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

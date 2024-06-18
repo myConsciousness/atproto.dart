@@ -25,7 +25,7 @@ mixin _$RequestPasswordResetInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $RequestPasswordResetInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String email,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -59,17 +59,17 @@ class _$RequestPasswordResetInputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? email = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -85,7 +85,7 @@ abstract class _$$RequestPasswordResetInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String email,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -102,17 +102,17 @@ class __$$RequestPasswordResetInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? email = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$RequestPasswordResetInputImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -123,8 +123,7 @@ class __$$RequestPasswordResetInputImplCopyWithImpl<$Res>
 class _$RequestPasswordResetInputImpl implements _RequestPasswordResetInput {
   const _$RequestPasswordResetInputImpl(
       {required this.email,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$RequestPasswordResetInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -134,15 +133,17 @@ class _$RequestPasswordResetInputImpl implements _RequestPasswordResetInput {
   final String email;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -182,7 +183,7 @@ class _$RequestPasswordResetInputImpl implements _RequestPasswordResetInput {
 abstract class _RequestPasswordResetInput implements RequestPasswordResetInput {
   const factory _RequestPasswordResetInput(
           {required final String email,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RequestPasswordResetInputImpl;
 
   factory _RequestPasswordResetInput.fromJson(Map<String, dynamic> json) =
@@ -194,7 +195,7 @@ abstract class _RequestPasswordResetInput implements RequestPasswordResetInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RequestPasswordResetInputImplCopyWith<_$RequestPasswordResetInputImpl>

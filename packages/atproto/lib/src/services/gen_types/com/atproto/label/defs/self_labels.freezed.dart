@@ -30,7 +30,7 @@ mixin _$SelfLabels {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $SelfLabelsCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @SelfLabelConverter() List<SelfLabel> values,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$SelfLabelsCopyWithImpl<$Res, $Val extends SelfLabels>
   $Res call({
     Object? $type = null,
     Object? values = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -76,10 +76,10 @@ class _$SelfLabelsCopyWithImpl<$Res, $Val extends SelfLabels>
           ? _value.values
           : values // ignore: cast_nullable_to_non_nullable
               as List<SelfLabel>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -95,7 +95,7 @@ abstract class _$$SelfLabelsImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @SelfLabelConverter() List<SelfLabel> values,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$SelfLabelsImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? values = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SelfLabelsImpl(
       $type: null == $type
@@ -122,10 +122,10 @@ class __$$SelfLabelsImplCopyWithImpl<$Res>
           ? _value._values
           : values // ignore: cast_nullable_to_non_nullable
               as List<SelfLabel>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -137,8 +137,7 @@ class _$SelfLabelsImpl implements _SelfLabels {
   const _$SelfLabelsImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoLabelDefsSelfLabels,
       @SelfLabelConverter() required final List<SelfLabel> values,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _values = values,
         _$unknown = $unknown;
 
@@ -161,15 +160,17 @@ class _$SelfLabelsImpl implements _SelfLabels {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -213,7 +214,7 @@ abstract class _SelfLabels implements SelfLabels {
   const factory _SelfLabels(
           {@JsonKey(name: r'$type') final String $type,
           @SelfLabelConverter() required final List<SelfLabel> values,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SelfLabelsImpl;
 
   factory _SelfLabels.fromJson(Map<String, dynamic> json) =
@@ -233,7 +234,7 @@ abstract class _SelfLabels implements SelfLabels {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SelfLabelsImplCopyWith<_$SelfLabelsImpl> get copyWith =>

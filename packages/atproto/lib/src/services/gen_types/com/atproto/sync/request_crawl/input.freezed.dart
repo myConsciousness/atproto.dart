@@ -25,7 +25,7 @@ mixin _$RequestCrawlInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $RequestCrawlInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String hostname,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -58,17 +58,17 @@ class _$RequestCrawlInputCopyWithImpl<$Res, $Val extends RequestCrawlInput>
   @override
   $Res call({
     Object? hostname = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       hostname: null == hostname
           ? _value.hostname
           : hostname // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$RequestCrawlInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String hostname,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -98,17 +98,17 @@ class __$$RequestCrawlInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? hostname = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$RequestCrawlInputImpl(
       hostname: null == hostname
           ? _value.hostname
           : hostname // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -119,8 +119,7 @@ class __$$RequestCrawlInputImplCopyWithImpl<$Res>
 class _$RequestCrawlInputImpl implements _RequestCrawlInput {
   const _$RequestCrawlInputImpl(
       {required this.hostname,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$RequestCrawlInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -131,15 +130,17 @@ class _$RequestCrawlInputImpl implements _RequestCrawlInput {
   final String hostname;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -180,7 +181,7 @@ class _$RequestCrawlInputImpl implements _RequestCrawlInput {
 abstract class _RequestCrawlInput implements RequestCrawlInput {
   const factory _RequestCrawlInput(
           {required final String hostname,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RequestCrawlInputImpl;
 
   factory _RequestCrawlInput.fromJson(Map<String, dynamic> json) =
@@ -194,7 +195,7 @@ abstract class _RequestCrawlInput implements RequestCrawlInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RequestCrawlInputImplCopyWith<_$RequestCrawlInputImpl> get copyWith =>

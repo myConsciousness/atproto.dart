@@ -30,7 +30,7 @@ mixin _$ImagesView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $ImagesViewCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ImagesViewImageConverter() List<ImagesViewImage> images,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$ImagesViewCopyWithImpl<$Res, $Val extends ImagesView>
   $Res call({
     Object? $type = null,
     Object? images = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -76,10 +76,10 @@ class _$ImagesViewCopyWithImpl<$Res, $Val extends ImagesView>
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<ImagesViewImage>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -95,7 +95,7 @@ abstract class _$$ImagesViewImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ImagesViewImageConverter() List<ImagesViewImage> images,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$ImagesViewImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? images = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ImagesViewImpl(
       $type: null == $type
@@ -122,10 +122,10 @@ class __$$ImagesViewImplCopyWithImpl<$Res>
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<ImagesViewImage>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -137,8 +137,7 @@ class _$ImagesViewImpl implements _ImagesView {
   const _$ImagesViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesView,
       @ImagesViewImageConverter() required final List<ImagesViewImage> images,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _images = images,
         _$unknown = $unknown;
 
@@ -161,15 +160,17 @@ class _$ImagesViewImpl implements _ImagesView {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -214,7 +215,7 @@ abstract class _ImagesView implements ImagesView {
       {@JsonKey(name: r'$type') final String $type,
       @ImagesViewImageConverter() required final List<ImagesViewImage> images,
       @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown}) = _$ImagesViewImpl;
+      final Map<String, dynamic>? $unknown}) = _$ImagesViewImpl;
 
   factory _ImagesView.fromJson(Map<String, dynamic> json) =
       _$ImagesViewImpl.fromJson;
@@ -233,7 +234,7 @@ abstract class _ImagesView implements ImagesView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ImagesViewImplCopyWith<_$ImagesViewImpl> get copyWith =>

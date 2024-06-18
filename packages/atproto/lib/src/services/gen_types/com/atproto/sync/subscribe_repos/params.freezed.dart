@@ -25,7 +25,7 @@ mixin _$SubscribeReposParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +40,8 @@ abstract class $SubscribeReposParamsCopyWith<$Res> {
       _$SubscribeReposParamsCopyWithImpl<$Res, SubscribeReposParams>;
   @useResult
   $Res call(
-      {int? cursor, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      {int? cursor,
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -58,17 +59,17 @@ class _$SubscribeReposParamsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as int?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -82,7 +83,8 @@ abstract class _$$SubscribeReposParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? cursor, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      {int? cursor,
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -97,17 +99,17 @@ class __$$SubscribeReposParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SubscribeReposParamsImpl(
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as int?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -118,8 +120,7 @@ class __$$SubscribeReposParamsImplCopyWithImpl<$Res>
 class _$SubscribeReposParamsImpl implements _SubscribeReposParams {
   const _$SubscribeReposParamsImpl(
       {this.cursor,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$SubscribeReposParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -130,15 +131,17 @@ class _$SubscribeReposParamsImpl implements _SubscribeReposParams {
   final int? cursor;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -179,7 +182,7 @@ class _$SubscribeReposParamsImpl implements _SubscribeReposParams {
 abstract class _SubscribeReposParams implements SubscribeReposParams {
   const factory _SubscribeReposParams(
           {final int? cursor,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SubscribeReposParamsImpl;
 
   factory _SubscribeReposParams.fromJson(Map<String, dynamic> json) =
@@ -193,7 +196,7 @@ abstract class _SubscribeReposParams implements SubscribeReposParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SubscribeReposParamsImplCopyWith<_$SubscribeReposParamsImpl>

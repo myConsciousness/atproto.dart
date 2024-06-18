@@ -23,21 +23,28 @@ _$AppPasswordImpl _$$AppPasswordImplFromJson(Map json) => $checkedCreate(
           privileged: $checkedConvert('privileged', (v) => v as bool? ?? false),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$AppPasswordImplToJson(_$AppPasswordImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'name': instance.name,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'privileged': instance.privileged,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$AppPasswordImplToJson(_$AppPasswordImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'name': instance.name,
+    'createdAt': instance.createdAt.toIso8601String(),
+    'privileged': instance.privileged,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

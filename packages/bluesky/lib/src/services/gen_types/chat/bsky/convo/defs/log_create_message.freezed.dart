@@ -32,7 +32,7 @@ mixin _$LogCreateMessage {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +51,7 @@ abstract class $LogCreateMessageCopyWith<$Res> {
       String rev,
       String convoId,
       @UMessageConverter() UMessage message,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UMessageCopyWith<$Res> get message;
 }
@@ -73,7 +73,7 @@ class _$LogCreateMessageCopyWithImpl<$Res, $Val extends LogCreateMessage>
     Object? rev = null,
     Object? convoId = null,
     Object? message = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -92,10 +92,10 @@ class _$LogCreateMessageCopyWithImpl<$Res, $Val extends LogCreateMessage>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as UMessage,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -121,7 +121,7 @@ abstract class _$$LogCreateMessageImplCopyWith<$Res>
       String rev,
       String convoId,
       @UMessageConverter() UMessage message,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UMessageCopyWith<$Res> get message;
@@ -142,7 +142,7 @@ class __$$LogCreateMessageImplCopyWithImpl<$Res>
     Object? rev = null,
     Object? convoId = null,
     Object? message = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LogCreateMessageImpl(
       $type: null == $type
@@ -161,10 +161,10 @@ class __$$LogCreateMessageImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as UMessage,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -178,8 +178,7 @@ class _$LogCreateMessageImpl implements _LogCreateMessage {
       required this.rev,
       required this.convoId,
       @UMessageConverter() required this.message,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$LogCreateMessageImpl.fromJson(Map<String, dynamic> json) =>
@@ -200,15 +199,17 @@ class _$LogCreateMessageImpl implements _LogCreateMessage {
   final UMessage message;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -254,7 +255,7 @@ abstract class _LogCreateMessage implements LogCreateMessage {
           required final String rev,
           required final String convoId,
           @UMessageConverter() required final UMessage message,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LogCreateMessageImpl;
 
   factory _LogCreateMessage.fromJson(Map<String, dynamic> json) =
@@ -278,7 +279,7 @@ abstract class _LogCreateMessage implements LogCreateMessage {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LogCreateMessageImplCopyWith<_$LogCreateMessageImpl> get copyWith =>

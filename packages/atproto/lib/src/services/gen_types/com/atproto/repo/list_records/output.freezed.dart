@@ -26,7 +26,7 @@ mixin _$ListRecordsOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $ListRecordsOutputCopyWith<$Res> {
   $Res call(
       {String? cursor,
       @RecordConverter() List<Record> records,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -61,7 +61,7 @@ class _$ListRecordsOutputCopyWithImpl<$Res, $Val extends ListRecordsOutput>
   $Res call({
     Object? cursor = freezed,
     Object? records = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -72,10 +72,10 @@ class _$ListRecordsOutputCopyWithImpl<$Res, $Val extends ListRecordsOutput>
           ? _value.records
           : records // ignore: cast_nullable_to_non_nullable
               as List<Record>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -91,7 +91,7 @@ abstract class _$$ListRecordsOutputImplCopyWith<$Res>
   $Res call(
       {String? cursor,
       @RecordConverter() List<Record> records,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -107,7 +107,7 @@ class __$$ListRecordsOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? records = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ListRecordsOutputImpl(
       cursor: freezed == cursor
@@ -118,10 +118,10 @@ class __$$ListRecordsOutputImplCopyWithImpl<$Res>
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
               as List<Record>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -133,8 +133,7 @@ class _$ListRecordsOutputImpl implements _ListRecordsOutput {
   const _$ListRecordsOutputImpl(
       {this.cursor,
       @RecordConverter() required final List<Record> records,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _records = records,
         _$unknown = $unknown;
 
@@ -153,15 +152,17 @@ class _$ListRecordsOutputImpl implements _ListRecordsOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -206,7 +207,7 @@ abstract class _ListRecordsOutput implements ListRecordsOutput {
   const factory _ListRecordsOutput(
           {final String? cursor,
           @RecordConverter() required final List<Record> records,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListRecordsOutputImpl;
 
   factory _ListRecordsOutput.fromJson(Map<String, dynamic> json) =
@@ -221,7 +222,7 @@ abstract class _ListRecordsOutput implements ListRecordsOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListRecordsOutputImplCopyWith<_$ListRecordsOutputImpl> get copyWith =>

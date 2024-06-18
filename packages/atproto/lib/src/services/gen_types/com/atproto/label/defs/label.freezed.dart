@@ -55,7 +55,7 @@ mixin _$Label {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -78,7 +78,7 @@ abstract class $LabelCopyWith<$Res> {
       DateTime cts,
       DateTime? exp,
       List<int>? sig,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
     Object? cts = null,
     Object? exp = freezed,
     Object? sig = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -147,10 +147,10 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
           ? _value.sig
           : sig // ignore: cast_nullable_to_non_nullable
               as List<int>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -173,7 +173,7 @@ abstract class _$$LabelImplCopyWith<$Res> implements $LabelCopyWith<$Res> {
       DateTime cts,
       DateTime? exp,
       List<int>? sig,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -197,7 +197,7 @@ class __$$LabelImplCopyWithImpl<$Res>
     Object? cts = null,
     Object? exp = freezed,
     Object? sig = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LabelImpl(
       $type: null == $type
@@ -240,10 +240,10 @@ class __$$LabelImplCopyWithImpl<$Res>
           ? _value._sig
           : sig // ignore: cast_nullable_to_non_nullable
               as List<int>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -263,8 +263,7 @@ class _$LabelImpl implements _Label {
       required this.cts,
       this.exp,
       final List<int>? sig,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _sig = sig,
         _$unknown = $unknown;
 
@@ -326,15 +325,17 @@ class _$LabelImpl implements _Label {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -402,7 +403,7 @@ abstract class _Label implements Label {
           required final DateTime cts,
           final DateTime? exp,
           final List<int>? sig,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LabelImpl;
 
   factory _Label.fromJson(Map<String, dynamic> json) = _$LabelImpl.fromJson;
@@ -454,7 +455,7 @@ abstract class _Label implements Label {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelImplCopyWith<_$LabelImpl> get copyWith =>

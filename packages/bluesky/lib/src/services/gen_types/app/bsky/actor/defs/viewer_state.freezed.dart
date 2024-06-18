@@ -42,7 +42,7 @@ mixin _$ViewerState {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -66,7 +66,7 @@ abstract class $ViewerStateCopyWith<$Res> {
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy,
       @KnownFollowersConverter() KnownFollowers? knownFollowers,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ListViewBasicCopyWith<$Res>? get mutedByList;
   $ListViewBasicCopyWith<$Res>? get blockingByList;
@@ -95,7 +95,7 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
     Object? following = freezed,
     Object? followedBy = freezed,
     Object? knownFollowers = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -134,10 +134,10 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
           ? _value.knownFollowers
           : knownFollowers // ignore: cast_nullable_to_non_nullable
               as KnownFollowers?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -196,7 +196,7 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy,
       @KnownFollowersConverter() KnownFollowers? knownFollowers,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ListViewBasicCopyWith<$Res>? get mutedByList;
@@ -226,7 +226,7 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
     Object? following = freezed,
     Object? followedBy = freezed,
     Object? knownFollowers = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ViewerStateImpl(
       $type: null == $type
@@ -265,10 +265,10 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
           ? _value.knownFollowers
           : knownFollowers // ignore: cast_nullable_to_non_nullable
               as KnownFollowers?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -287,8 +287,7 @@ class _$ViewerStateImpl implements _ViewerState {
       @AtUriConverter() this.following,
       @AtUriConverter() this.followedBy,
       @KnownFollowersConverter() this.knownFollowers,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ViewerStateImpl.fromJson(Map<String, dynamic> json) =>
@@ -326,15 +325,17 @@ class _$ViewerStateImpl implements _ViewerState {
   final KnownFollowers? knownFollowers;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -406,7 +407,7 @@ abstract class _ViewerState implements ViewerState {
           @AtUriConverter() final AtUri? following,
           @AtUriConverter() final AtUri? followedBy,
           @KnownFollowersConverter() final KnownFollowers? knownFollowers,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ViewerStateImpl;
 
   factory _ViewerState.fromJson(Map<String, dynamic> json) =
@@ -445,7 +446,7 @@ abstract class _ViewerState implements ViewerState {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ViewerStateImplCopyWith<_$ViewerStateImpl> get copyWith =>

@@ -24,7 +24,7 @@ mixin _$MuteConvoInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +40,7 @@ abstract class $MuteConvoInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String convoId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -57,17 +57,17 @@ class _$MuteConvoInputCopyWithImpl<$Res, $Val extends MuteConvoInput>
   @override
   $Res call({
     Object? convoId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       convoId: null == convoId
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -82,7 +82,7 @@ abstract class _$$MuteConvoInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String convoId,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -97,17 +97,17 @@ class __$$MuteConvoInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? convoId = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$MuteConvoInputImpl(
       convoId: null == convoId
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -118,8 +118,7 @@ class __$$MuteConvoInputImplCopyWithImpl<$Res>
 class _$MuteConvoInputImpl implements _MuteConvoInput {
   const _$MuteConvoInputImpl(
       {required this.convoId,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$MuteConvoInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -129,15 +128,17 @@ class _$MuteConvoInputImpl implements _MuteConvoInput {
   final String convoId;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -177,7 +178,7 @@ class _$MuteConvoInputImpl implements _MuteConvoInput {
 abstract class _MuteConvoInput implements MuteConvoInput {
   const factory _MuteConvoInput(
           {required final String convoId,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$MuteConvoInputImpl;
 
   factory _MuteConvoInput.fromJson(Map<String, dynamic> json) =
@@ -189,7 +190,7 @@ abstract class _MuteConvoInput implements MuteConvoInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$MuteConvoInputImplCopyWith<_$MuteConvoInputImpl> get copyWith =>

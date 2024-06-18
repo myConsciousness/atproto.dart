@@ -28,7 +28,7 @@ mixin _$GetListOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $GetListOutputCopyWith<$Res> {
       {String? cursor,
       @ListViewConverter() ListView list,
       @ListItemViewConverter() List<ListItemView> items,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ListViewCopyWith<$Res> get list;
 }
@@ -67,7 +67,7 @@ class _$GetListOutputCopyWithImpl<$Res, $Val extends GetListOutput>
     Object? cursor = freezed,
     Object? list = null,
     Object? items = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -82,10 +82,10 @@ class _$GetListOutputCopyWithImpl<$Res, $Val extends GetListOutput>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ListItemView>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -110,7 +110,7 @@ abstract class _$$GetListOutputImplCopyWith<$Res>
       {String? cursor,
       @ListViewConverter() ListView list,
       @ListItemViewConverter() List<ListItemView> items,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ListViewCopyWith<$Res> get list;
@@ -130,7 +130,7 @@ class __$$GetListOutputImplCopyWithImpl<$Res>
     Object? cursor = freezed,
     Object? list = null,
     Object? items = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetListOutputImpl(
       cursor: freezed == cursor
@@ -145,10 +145,10 @@ class __$$GetListOutputImplCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ListItemView>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -161,8 +161,7 @@ class _$GetListOutputImpl implements _GetListOutput {
       {this.cursor,
       @ListViewConverter() required this.list,
       @ListItemViewConverter() required final List<ListItemView> items,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _items = items,
         _$unknown = $unknown;
 
@@ -184,15 +183,17 @@ class _$GetListOutputImpl implements _GetListOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -239,7 +240,7 @@ abstract class _GetListOutput implements GetListOutput {
           {final String? cursor,
           @ListViewConverter() required final ListView list,
           @ListItemViewConverter() required final List<ListItemView> items,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetListOutputImpl;
 
   factory _GetListOutput.fromJson(Map<String, dynamic> json) =
@@ -257,7 +258,7 @@ abstract class _GetListOutput implements GetListOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetListOutputImplCopyWith<_$GetListOutputImpl> get copyWith =>

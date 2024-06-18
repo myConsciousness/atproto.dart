@@ -36,28 +36,35 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'seq': instance.seq,
-      'tooBig': instance.tooBig,
-      'repo': instance.repo,
-      'commit': instance.commit,
-      'rev': instance.rev,
-      'since': instance.since,
-      'blocks': instance.blocks,
-      'ops': instance.ops.map(const RepoOpConverter().toJson).toList(),
-      'blobs': instance.blobs,
-      'time': instance.time.toIso8601String(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'seq': instance.seq,
+    'tooBig': instance.tooBig,
+    'repo': instance.repo,
+    'commit': instance.commit,
+    'rev': instance.rev,
+    'since': instance.since,
+    'blocks': instance.blocks,
+    'ops': instance.ops.map(const RepoOpConverter().toJson).toList(),
+    'blobs': instance.blobs,
+    'time': instance.time.toIso8601String(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

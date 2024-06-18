@@ -17,18 +17,25 @@ _$MentionRuleImpl _$$MentionRuleImplFromJson(Map json) => $checkedCreate(
               (v) => v as String? ?? appBskyFeedThreadgateMentionRule),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$MentionRuleImplToJson(_$MentionRuleImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$MentionRuleImplToJson(_$MentionRuleImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

@@ -26,7 +26,7 @@ mixin _$CreateInviteCodeInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $CreateInviteCodeInputCopyWith<$Res> {
   $Res call(
       {int useCount,
       String? forAccount,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$CreateInviteCodeInputCopyWithImpl<$Res,
   $Res call({
     Object? useCount = null,
     Object? forAccount = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       useCount: null == useCount
@@ -73,10 +73,10 @@ class _$CreateInviteCodeInputCopyWithImpl<$Res,
           ? _value.forAccount
           : forAccount // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -93,7 +93,7 @@ abstract class _$$CreateInviteCodeInputImplCopyWith<$Res>
   $Res call(
       {int useCount,
       String? forAccount,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$CreateInviteCodeInputImplCopyWithImpl<$Res>
   $Res call({
     Object? useCount = null,
     Object? forAccount = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$CreateInviteCodeInputImpl(
       useCount: null == useCount
@@ -121,10 +121,10 @@ class __$$CreateInviteCodeInputImplCopyWithImpl<$Res>
           ? _value.forAccount
           : forAccount // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -136,8 +136,7 @@ class _$CreateInviteCodeInputImpl implements _CreateInviteCodeInput {
   const _$CreateInviteCodeInputImpl(
       {required this.useCount,
       this.forAccount,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$CreateInviteCodeInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -149,15 +148,17 @@ class _$CreateInviteCodeInputImpl implements _CreateInviteCodeInput {
   final String? forAccount;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -201,7 +202,7 @@ abstract class _CreateInviteCodeInput implements CreateInviteCodeInput {
   const factory _CreateInviteCodeInput(
           {required final int useCount,
           final String? forAccount,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$CreateInviteCodeInputImpl;
 
   factory _CreateInviteCodeInput.fromJson(Map<String, dynamic> json) =
@@ -215,7 +216,7 @@ abstract class _CreateInviteCodeInput implements CreateInviteCodeInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CreateInviteCodeInputImplCopyWith<_$CreateInviteCodeInputImpl>

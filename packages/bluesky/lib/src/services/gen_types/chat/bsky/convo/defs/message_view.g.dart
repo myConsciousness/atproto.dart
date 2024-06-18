@@ -35,11 +35,9 @@ _$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
           sentAt: $checkedConvert('sentAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
@@ -67,7 +65,7 @@ Map<String, dynamic> _$$MessageViewImplToJson(_$MessageViewImpl instance) {
           instance.embed, const UEmbedConverter().toJson));
   val['sender'] = const MessageViewSenderConverter().toJson(instance.sender);
   val['sentAt'] = instance.sentAt.toIso8601String();
-  val[r'$unknown'] = instance.$unknown;
+  writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
 

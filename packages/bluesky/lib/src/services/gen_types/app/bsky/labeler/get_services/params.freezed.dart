@@ -25,7 +25,7 @@ mixin _$GetServicesParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $GetServicesParamsCopyWith<$Res> {
   $Res call(
       {List<String> dids,
       bool? detailed,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$GetServicesParamsCopyWithImpl<$Res, $Val extends GetServicesParams>
   $Res call({
     Object? dids = null,
     Object? detailed = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       dids: null == dids
@@ -71,10 +71,10 @@ class _$GetServicesParamsCopyWithImpl<$Res, $Val extends GetServicesParams>
           ? _value.detailed
           : detailed // ignore: cast_nullable_to_non_nullable
               as bool?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -90,7 +90,7 @@ abstract class _$$GetServicesParamsImplCopyWith<$Res>
   $Res call(
       {List<String> dids,
       bool? detailed,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class __$$GetServicesParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? dids = null,
     Object? detailed = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetServicesParamsImpl(
       dids: null == dids
@@ -117,10 +117,10 @@ class __$$GetServicesParamsImplCopyWithImpl<$Res>
           ? _value.detailed
           : detailed // ignore: cast_nullable_to_non_nullable
               as bool?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -132,8 +132,7 @@ class _$GetServicesParamsImpl implements _GetServicesParams {
   const _$GetServicesParamsImpl(
       {required final List<String> dids,
       this.detailed,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _dids = dids,
         _$unknown = $unknown;
 
@@ -152,15 +151,17 @@ class _$GetServicesParamsImpl implements _GetServicesParams {
   final bool? detailed;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -206,7 +207,7 @@ abstract class _GetServicesParams implements GetServicesParams {
   const factory _GetServicesParams(
           {required final List<String> dids,
           final bool? detailed,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetServicesParamsImpl;
 
   factory _GetServicesParams.fromJson(Map<String, dynamic> json) =
@@ -220,7 +221,7 @@ abstract class _GetServicesParams implements GetServicesParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetServicesParamsImplCopyWith<_$GetServicesParamsImpl> get copyWith =>

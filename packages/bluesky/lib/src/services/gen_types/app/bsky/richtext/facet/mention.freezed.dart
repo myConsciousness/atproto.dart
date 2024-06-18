@@ -29,7 +29,7 @@ mixin _$FacetMention {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $FacetMentionCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String did,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -64,7 +64,7 @@ class _$FacetMentionCopyWithImpl<$Res, $Val extends FacetMention>
   $Res call({
     Object? $type = null,
     Object? did = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -75,10 +75,10 @@ class _$FacetMentionCopyWithImpl<$Res, $Val extends FacetMention>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -94,7 +94,7 @@ abstract class _$$FacetMentionImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String did,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$FacetMentionImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? did = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$FacetMentionImpl(
       $type: null == $type
@@ -121,10 +121,10 @@ class __$$FacetMentionImplCopyWithImpl<$Res>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -136,8 +136,7 @@ class _$FacetMentionImpl implements _FacetMention {
   const _$FacetMentionImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacetMention,
       required this.did,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$FacetMentionImpl.fromJson(Map<String, dynamic> json) =>
@@ -153,15 +152,17 @@ class _$FacetMentionImpl implements _FacetMention {
   final String did;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -202,7 +203,7 @@ abstract class _FacetMention implements FacetMention {
   const factory _FacetMention(
           {@JsonKey(name: r'$type') final String $type,
           required final String did,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$FacetMentionImpl;
 
   factory _FacetMention.fromJson(Map<String, dynamic> json) =
@@ -221,7 +222,7 @@ abstract class _FacetMention implements FacetMention {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FacetMentionImplCopyWith<_$FacetMentionImpl> get copyWith =>

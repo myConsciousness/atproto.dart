@@ -158,8 +158,8 @@ final class LexGenObject {
       buffer.writeln(property.build(type));
     }
     buffer.writeln('    /// Contains unknown objects not defined in Lexicon.');
-    buffer.writeln("    @Default({}) @JsonKey(name: r'\$unknown') "
-        "Map<String, dynamic> \$unknown,");
+    buffer.writeln("    @JsonKey(name: r'\$unknown') "
+        "Map<String, dynamic>? \$unknown,");
     buffer.writeln('  }) = _$name;');
     buffer.writeln();
     buffer.writeln('  factory $name.fromJson(Map<String, dynamic> json) =>');
@@ -201,7 +201,8 @@ final class LexGenObject {
     buffer.writeln('extension \$${name}Extension on $name {');
     buffer.writeln('  /// Returns true if this object has unknown objects,');
     buffer.writeln('  /// otherwise false.');
-    buffer.writeln('  bool get hasUnknown => \$unknown.isNotEmpty;');
+    buffer.writeln(
+        '  bool get hasUnknown => \$unknown != null && \$unknown!.isNotEmpty;');
     buffer.writeln();
     buffer
         .writeln('  /// Returns true if this object has not unknown objects,');
@@ -227,37 +228,39 @@ final class LexGenObject {
     buffer.writeln('  @override');
     buffer.writeln('  $name fromJson(Map<String, dynamic> json) {');
     buffer.writeln();
-    buffer.writeln(
-        "    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{r'\$unknown': <String, dynamic>{}};");
+    buffer.writeln("    final props = <String, dynamic>{};");
     buffer.writeln('    for (final key in json.keys) {');
     buffer.writeln('      if (_kLexCompatibleProperties.contains(key)) {');
-    buffer.writeln(
-        '        lexCompatiblePropertiesWithUnknown[key] = json[key];');
+    buffer.writeln('        props[key] = json[key];');
     buffer.writeln('      } else {');
-    buffer.writeln(
-        "        lexCompatiblePropertiesWithUnknown[r'\$unknown'][key] = json[key];");
+    buffer.writeln("        if (props.containsKey(r'\$unknown')) {");
+    buffer.writeln("          props[r'\$unknown'][key] = json[key];");
+    buffer.writeln('        } else {');
+    buffer.writeln("          props[r'\$unknown'] = <String, dynamic>{};");
+    buffer.writeln("          props[r'\$unknown'][key] = json[key];");
+    buffer.writeln('        }');
     buffer.writeln('      }');
     buffer.writeln('    }');
     buffer.writeln();
-    buffer.writeln(
-        '    return $name.fromJson(lexCompatiblePropertiesWithUnknown);');
+    buffer.writeln('    return $name.fromJson(props);');
     buffer.writeln('  }');
     buffer.writeln();
     buffer.writeln('  @override');
     buffer.writeln('  Map<String, dynamic> toJson($name object) {');
-    buffer.writeln("    if (object.\$unknown.isEmpty) {");
+    buffer.writeln("    if (object.hasNotUnknown) {");
     buffer.writeln('      return object.toJson();');
     buffer.writeln('    }');
     buffer.writeln();
     buffer.writeln('    final json = object.toJson();');
     buffer.writeln();
-    buffer.writeln('    final lexCompatibleProperties = <String, dynamic>{};');
+    buffer.writeln('    final props = <String, dynamic>{};');
     buffer.writeln('    for (final key in json.keys) {');
-    buffer.writeln('      lexCompatibleProperties[key] = json[key];');
+    buffer.writeln("      if (key == r'\$unknown') continue;");
+    buffer.writeln('      props[key] = json[key];');
     buffer.writeln('    }');
     buffer.writeln();
     buffer.writeln('    return <String, dynamic>{');
-    buffer.writeln('      ...lexCompatibleProperties,');
+    buffer.writeln('      ...props,');
     buffer.writeln("      ...json[r'\$unknown'],");
     buffer.writeln('    };');
     buffer.writeln('  }');

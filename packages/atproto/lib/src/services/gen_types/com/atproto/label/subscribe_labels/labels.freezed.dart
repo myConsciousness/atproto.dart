@@ -31,7 +31,7 @@ mixin _$Labels {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $LabelsCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       int seq,
       @LabelConverter() List<Label> labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$LabelsCopyWithImpl<$Res, $Val extends Labels>
     Object? $type = null,
     Object? seq = null,
     Object? labels = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -81,10 +81,10 @@ class _$LabelsCopyWithImpl<$Res, $Val extends Labels>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -100,7 +100,7 @@ abstract class _$$LabelsImplCopyWith<$Res> implements $LabelsCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       int seq,
       @LabelConverter() List<Label> labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class __$$LabelsImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? seq = null,
     Object? labels = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LabelsImpl(
       $type: null == $type
@@ -132,10 +132,10 @@ class __$$LabelsImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -149,8 +149,7 @@ class _$LabelsImpl implements _Labels {
       this.$type = comAtprotoLabelSubscribeLabelsLabels,
       required this.seq,
       @LabelConverter() required final List<Label> labels,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _labels = labels,
         _$unknown = $unknown;
 
@@ -175,15 +174,17 @@ class _$LabelsImpl implements _Labels {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -230,7 +231,7 @@ abstract class _Labels implements Labels {
           {@JsonKey(name: r'$type') final String $type,
           required final int seq,
           @LabelConverter() required final List<Label> labels,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LabelsImpl;
 
   factory _Labels.fromJson(Map<String, dynamic> json) = _$LabelsImpl.fromJson;
@@ -251,7 +252,7 @@ abstract class _Labels implements Labels {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelsImplCopyWith<_$LabelsImpl> get copyWith =>

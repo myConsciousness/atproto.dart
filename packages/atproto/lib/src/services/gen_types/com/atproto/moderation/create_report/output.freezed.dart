@@ -31,7 +31,7 @@ mixin _$CreateReportOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +52,7 @@ abstract class $CreateReportOutputCopyWith<$Res> {
       @USubjectConverter() USubject subject,
       String reportedBy,
       DateTime createdAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UReasonTypeCopyWith<$Res> get reasonType;
   $USubjectCopyWith<$Res> get subject;
@@ -77,7 +77,7 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
     Object? subject = null,
     Object? reportedBy = null,
     Object? createdAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -104,10 +104,10 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -143,7 +143,7 @@ abstract class _$$CreateReportOutputImplCopyWith<$Res>
       @USubjectConverter() USubject subject,
       String reportedBy,
       DateTime createdAt,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UReasonTypeCopyWith<$Res> get reasonType;
@@ -168,7 +168,7 @@ class __$$CreateReportOutputImplCopyWithImpl<$Res>
     Object? subject = null,
     Object? reportedBy = null,
     Object? createdAt = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$CreateReportOutputImpl(
       id: null == id
@@ -195,10 +195,10 @@ class __$$CreateReportOutputImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -214,8 +214,7 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
       @USubjectConverter() required this.subject,
       required this.reportedBy,
       required this.createdAt,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$CreateReportOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -237,15 +236,17 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
   final DateTime createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -298,7 +299,7 @@ abstract class _CreateReportOutput implements CreateReportOutput {
           @USubjectConverter() required final USubject subject,
           required final String reportedBy,
           required final DateTime createdAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$CreateReportOutputImpl;
 
   factory _CreateReportOutput.fromJson(Map<String, dynamic> json) =
@@ -322,7 +323,7 @@ abstract class _CreateReportOutput implements CreateReportOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CreateReportOutputImplCopyWith<_$CreateReportOutputImpl> get copyWith =>

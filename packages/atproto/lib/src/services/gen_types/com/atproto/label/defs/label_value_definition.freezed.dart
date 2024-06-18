@@ -49,7 +49,7 @@ mixin _$LabelValueDefinition {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,7 +72,7 @@ abstract class $LabelValueDefinitionCopyWith<$Res> {
       bool adultOnly,
       @LabelValueDefinitionStringsConverter()
       List<LabelValueDefinitionStrings> locales,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $USeverityCopyWith<$Res> get severity;
   $UBlurCopyWith<$Res> get blurs;
@@ -100,7 +100,7 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
     Object? defaultSetting = freezed,
     Object? adultOnly = null,
     Object? locales = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -131,10 +131,10 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
           ? _value.locales
           : locales // ignore: cast_nullable_to_non_nullable
               as List<LabelValueDefinitionStrings>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -184,7 +184,7 @@ abstract class _$$LabelValueDefinitionImplCopyWith<$Res>
       bool adultOnly,
       @LabelValueDefinitionStringsConverter()
       List<LabelValueDefinitionStrings> locales,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $USeverityCopyWith<$Res> get severity;
@@ -212,7 +212,7 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
     Object? defaultSetting = freezed,
     Object? adultOnly = null,
     Object? locales = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LabelValueDefinitionImpl(
       $type: null == $type
@@ -243,10 +243,10 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
           ? _value._locales
           : locales // ignore: cast_nullable_to_non_nullable
               as List<LabelValueDefinitionStrings>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -265,8 +265,7 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
       this.adultOnly = false,
       @LabelValueDefinitionStringsConverter()
       required final List<LabelValueDefinitionStrings> locales,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _locales = locales,
         _$unknown = $unknown;
 
@@ -313,15 +312,17 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -387,7 +388,7 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
           final bool adultOnly,
           @LabelValueDefinitionStringsConverter()
           required final List<LabelValueDefinitionStrings> locales,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LabelValueDefinitionImpl;
 
   factory _LabelValueDefinition.fromJson(Map<String, dynamic> json) =
@@ -430,7 +431,7 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelValueDefinitionImplCopyWith<_$LabelValueDefinitionImpl>

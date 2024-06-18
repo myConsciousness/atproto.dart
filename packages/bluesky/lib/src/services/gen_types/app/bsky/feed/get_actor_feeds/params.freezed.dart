@@ -26,7 +26,7 @@ mixin _$GetActorFeedsParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +44,7 @@ abstract class $GetActorFeedsParamsCopyWith<$Res> {
       {String actor,
       int? limit,
       String? cursor,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$GetActorFeedsParamsCopyWithImpl<$Res, $Val extends GetActorFeedsParams>
     Object? actor = null,
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       actor: null == actor
@@ -78,10 +78,10 @@ class _$GetActorFeedsParamsCopyWithImpl<$Res, $Val extends GetActorFeedsParams>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -98,7 +98,7 @@ abstract class _$$GetActorFeedsParamsImplCopyWith<$Res>
       {String actor,
       int? limit,
       String? cursor,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -115,7 +115,7 @@ class __$$GetActorFeedsParamsImplCopyWithImpl<$Res>
     Object? actor = null,
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetActorFeedsParamsImpl(
       actor: null == actor
@@ -130,10 +130,10 @@ class __$$GetActorFeedsParamsImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -146,8 +146,7 @@ class _$GetActorFeedsParamsImpl implements _GetActorFeedsParams {
       {required this.actor,
       this.limit,
       this.cursor,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetActorFeedsParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -161,15 +160,17 @@ class _$GetActorFeedsParamsImpl implements _GetActorFeedsParams {
   final String? cursor;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -213,7 +214,7 @@ abstract class _GetActorFeedsParams implements GetActorFeedsParams {
           {required final String actor,
           final int? limit,
           final String? cursor,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetActorFeedsParamsImpl;
 
   factory _GetActorFeedsParams.fromJson(Map<String, dynamic> json) =
@@ -229,7 +230,7 @@ abstract class _GetActorFeedsParams implements GetActorFeedsParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetActorFeedsParamsImplCopyWith<_$GetActorFeedsParamsImpl> get copyWith =>

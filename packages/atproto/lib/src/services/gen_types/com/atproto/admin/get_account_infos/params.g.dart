@@ -18,19 +18,26 @@ _$GetAccountInfosParamsImpl _$$GetAccountInfosParamsImplFromJson(Map json) =>
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$GetAccountInfosParamsImplToJson(
-        _$GetAccountInfosParamsImpl instance) =>
-    <String, dynamic>{
-      'dids': instance.dids,
-      r'$unknown': instance.$unknown,
-    };
+    _$GetAccountInfosParamsImpl instance) {
+  final val = <String, dynamic>{
+    'dids': instance.dids,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

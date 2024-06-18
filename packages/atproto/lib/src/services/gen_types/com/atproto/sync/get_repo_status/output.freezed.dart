@@ -32,7 +32,7 @@ mixin _$GetRepoStatusOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +51,7 @@ abstract class $GetRepoStatusOutputCopyWith<$Res> {
       bool active,
       @UStatusConverter() UStatus? status,
       String? rev,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UStatusCopyWith<$Res>? get status;
 }
@@ -73,7 +73,7 @@ class _$GetRepoStatusOutputCopyWithImpl<$Res, $Val extends GetRepoStatusOutput>
     Object? active = null,
     Object? status = freezed,
     Object? rev = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -92,10 +92,10 @@ class _$GetRepoStatusOutputCopyWithImpl<$Res, $Val extends GetRepoStatusOutput>
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -125,7 +125,7 @@ abstract class _$$GetRepoStatusOutputImplCopyWith<$Res>
       bool active,
       @UStatusConverter() UStatus? status,
       String? rev,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UStatusCopyWith<$Res>? get status;
@@ -146,7 +146,7 @@ class __$$GetRepoStatusOutputImplCopyWithImpl<$Res>
     Object? active = null,
     Object? status = freezed,
     Object? rev = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetRepoStatusOutputImpl(
       did: null == did
@@ -165,10 +165,10 @@ class __$$GetRepoStatusOutputImplCopyWithImpl<$Res>
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -182,8 +182,7 @@ class _$GetRepoStatusOutputImpl implements _GetRepoStatusOutput {
       required this.active,
       @UStatusConverter() this.status,
       this.rev,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetRepoStatusOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -204,15 +203,17 @@ class _$GetRepoStatusOutputImpl implements _GetRepoStatusOutput {
   final String? rev;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -258,7 +259,7 @@ abstract class _GetRepoStatusOutput implements GetRepoStatusOutput {
           required final bool active,
           @UStatusConverter() final UStatus? status,
           final String? rev,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetRepoStatusOutputImpl;
 
   factory _GetRepoStatusOutput.fromJson(Map<String, dynamic> json) =
@@ -281,7 +282,7 @@ abstract class _GetRepoStatusOutput implements GetRepoStatusOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetRepoStatusOutputImplCopyWith<_$GetRepoStatusOutputImpl> get copyWith =>

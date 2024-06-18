@@ -24,20 +24,27 @@ _$BlockedAuthorImpl _$$BlockedAuthorImplFromJson(Map json) => $checkedCreate(
                       .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$BlockedAuthorImplToJson(_$BlockedAuthorImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'did': instance.did,
-      'viewer': const ViewerStateConverter().toJson(instance.viewer),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$BlockedAuthorImplToJson(_$BlockedAuthorImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'did': instance.did,
+    'viewer': const ViewerStateConverter().toJson(instance.viewer),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

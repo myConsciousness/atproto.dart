@@ -18,20 +18,27 @@ _$ResetPasswordInputImpl _$$ResetPasswordInputImplFromJson(Map json) =>
           password: $checkedConvert('password', (v) => v as String),
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$ResetPasswordInputImplToJson(
-        _$ResetPasswordInputImpl instance) =>
-    <String, dynamic>{
-      'token': instance.token,
-      'password': instance.password,
-      r'$unknown': instance.$unknown,
-    };
+    _$ResetPasswordInputImpl instance) {
+  final val = <String, dynamic>{
+    'token': instance.token,
+    'password': instance.password,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

@@ -29,7 +29,7 @@ mixin _$GetMessageContextParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $GetMessageContextParamsCopyWith<$Res> {
       String messageId,
       int? before,
       int? after,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -69,7 +69,7 @@ class _$GetMessageContextParamsCopyWithImpl<$Res,
     Object? messageId = null,
     Object? before = freezed,
     Object? after = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       convoId: freezed == convoId
@@ -88,10 +88,10 @@ class _$GetMessageContextParamsCopyWithImpl<$Res,
           ? _value.after
           : after // ignore: cast_nullable_to_non_nullable
               as int?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -110,7 +110,7 @@ abstract class _$$GetMessageContextParamsImplCopyWith<$Res>
       String messageId,
       int? before,
       int? after,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -130,7 +130,7 @@ class __$$GetMessageContextParamsImplCopyWithImpl<$Res>
     Object? messageId = null,
     Object? before = freezed,
     Object? after = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetMessageContextParamsImpl(
       convoId: freezed == convoId
@@ -149,10 +149,10 @@ class __$$GetMessageContextParamsImplCopyWithImpl<$Res>
           ? _value.after
           : after // ignore: cast_nullable_to_non_nullable
               as int?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -166,8 +166,7 @@ class _$GetMessageContextParamsImpl implements _GetMessageContextParams {
       required this.messageId,
       this.before,
       this.after,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$GetMessageContextParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -184,15 +183,17 @@ class _$GetMessageContextParamsImpl implements _GetMessageContextParams {
   final int? after;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -239,7 +240,7 @@ abstract class _GetMessageContextParams implements GetMessageContextParams {
           required final String messageId,
           final int? before,
           final int? after,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetMessageContextParamsImpl;
 
   factory _GetMessageContextParams.fromJson(Map<String, dynamic> json) =
@@ -259,7 +260,7 @@ abstract class _GetMessageContextParams implements GetMessageContextParams {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetMessageContextParamsImplCopyWith<_$GetMessageContextParamsImpl>

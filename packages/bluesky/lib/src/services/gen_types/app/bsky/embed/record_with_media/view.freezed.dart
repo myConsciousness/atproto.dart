@@ -32,7 +32,7 @@ mixin _$RecordWithMediaView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $RecordWithMediaViewCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @RecordViewConverter() RecordView record,
       @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $RecordViewCopyWith<$Res> get record;
   $URecordWithMediaMediaCopyWith<$Res> get media;
@@ -72,7 +72,7 @@ class _$RecordWithMediaViewCopyWithImpl<$Res, $Val extends RecordWithMediaView>
     Object? $type = null,
     Object? record = null,
     Object? media = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -87,10 +87,10 @@ class _$RecordWithMediaViewCopyWithImpl<$Res, $Val extends RecordWithMediaView>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as URecordWithMediaMedia,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -123,7 +123,7 @@ abstract class _$$RecordWithMediaViewImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @RecordViewConverter() RecordView record,
       @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $RecordViewCopyWith<$Res> get record;
@@ -145,7 +145,7 @@ class __$$RecordWithMediaViewImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? record = null,
     Object? media = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$RecordWithMediaViewImpl(
       $type: null == $type
@@ -160,10 +160,10 @@ class __$$RecordWithMediaViewImplCopyWithImpl<$Res>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as URecordWithMediaMedia,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -176,8 +176,7 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordWithMediaView,
       @RecordViewConverter() required this.record,
       @URecordWithMediaMediaConverter() required this.media,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$RecordWithMediaViewImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,15 +196,17 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
   final URecordWithMediaMedia media;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -250,7 +251,7 @@ abstract class _RecordWithMediaView implements RecordWithMediaView {
           @RecordViewConverter() required final RecordView record,
           @URecordWithMediaMediaConverter()
           required final URecordWithMediaMedia media,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RecordWithMediaViewImpl;
 
   factory _RecordWithMediaView.fromJson(Map<String, dynamic> json) =
@@ -273,7 +274,7 @@ abstract class _RecordWithMediaView implements RecordWithMediaView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordWithMediaViewImplCopyWith<_$RecordWithMediaViewImpl> get copyWith =>

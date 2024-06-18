@@ -37,7 +37,7 @@ mixin _$Relationship {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,7 +56,7 @@ abstract class $RelationshipCopyWith<$Res> {
       String did,
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
     Object? did = null,
     Object? following = freezed,
     Object? followedBy = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -95,10 +95,10 @@ class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -116,7 +116,7 @@ abstract class _$$RelationshipImplCopyWith<$Res>
       String did,
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -134,7 +134,7 @@ class __$$RelationshipImplCopyWithImpl<$Res>
     Object? did = null,
     Object? following = freezed,
     Object? followedBy = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$RelationshipImpl(
       $type: null == $type
@@ -153,10 +153,10 @@ class __$$RelationshipImplCopyWithImpl<$Res>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -170,8 +170,7 @@ class _$RelationshipImpl implements _Relationship {
       required this.did,
       @AtUriConverter() this.following,
       @AtUriConverter() this.followedBy,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$RelationshipImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,15 +196,17 @@ class _$RelationshipImpl implements _Relationship {
   final AtUri? followedBy;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -252,7 +253,7 @@ abstract class _Relationship implements Relationship {
           required final String did,
           @AtUriConverter() final AtUri? following,
           @AtUriConverter() final AtUri? followedBy,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RelationshipImpl;
 
   factory _Relationship.fromJson(Map<String, dynamic> json) =
@@ -281,7 +282,7 @@ abstract class _Relationship implements Relationship {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RelationshipImplCopyWith<_$RelationshipImpl> get copyWith =>

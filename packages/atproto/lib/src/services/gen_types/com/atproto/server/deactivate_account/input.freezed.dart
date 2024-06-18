@@ -26,7 +26,7 @@ mixin _$DeactivateAccountInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $DeactivateAccountInputCopyWith<$Res> {
   @useResult
   $Res call(
       {DateTime? deleteAfter,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -60,17 +60,17 @@ class _$DeactivateAccountInputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? deleteAfter = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       deleteAfter: freezed == deleteAfter
           ? _value.deleteAfter
           : deleteAfter // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -86,7 +86,7 @@ abstract class _$$DeactivateAccountInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {DateTime? deleteAfter,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -103,17 +103,17 @@ class __$$DeactivateAccountInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? deleteAfter = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$DeactivateAccountInputImpl(
       deleteAfter: freezed == deleteAfter
           ? _value.deleteAfter
           : deleteAfter // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -124,8 +124,7 @@ class __$$DeactivateAccountInputImplCopyWithImpl<$Res>
 class _$DeactivateAccountInputImpl implements _DeactivateAccountInput {
   const _$DeactivateAccountInputImpl(
       {this.deleteAfter,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$DeactivateAccountInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -136,15 +135,17 @@ class _$DeactivateAccountInputImpl implements _DeactivateAccountInput {
   final DateTime? deleteAfter;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -185,7 +186,7 @@ class _$DeactivateAccountInputImpl implements _DeactivateAccountInput {
 abstract class _DeactivateAccountInput implements DeactivateAccountInput {
   const factory _DeactivateAccountInput(
           {final DateTime? deleteAfter,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$DeactivateAccountInputImpl;
 
   factory _DeactivateAccountInput.fromJson(Map<String, dynamic> json) =
@@ -199,7 +200,7 @@ abstract class _DeactivateAccountInput implements DeactivateAccountInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$DeactivateAccountInputImplCopyWith<_$DeactivateAccountInputImpl>

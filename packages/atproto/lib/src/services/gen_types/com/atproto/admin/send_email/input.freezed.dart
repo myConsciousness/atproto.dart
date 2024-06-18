@@ -30,7 +30,7 @@ mixin _$SendEmailInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $SendEmailInputCopyWith<$Res> {
       String? subject,
       String senderDid,
       String? comment,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ class _$SendEmailInputCopyWithImpl<$Res, $Val extends SendEmailInput>
     Object? subject = freezed,
     Object? senderDid = null,
     Object? comment = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       recipientDid: null == recipientDid
@@ -94,10 +94,10 @@ class _$SendEmailInputCopyWithImpl<$Res, $Val extends SendEmailInput>
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -116,7 +116,7 @@ abstract class _$$SendEmailInputImplCopyWith<$Res>
       String? subject,
       String senderDid,
       String? comment,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -135,7 +135,7 @@ class __$$SendEmailInputImplCopyWithImpl<$Res>
     Object? subject = freezed,
     Object? senderDid = null,
     Object? comment = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SendEmailInputImpl(
       recipientDid: null == recipientDid
@@ -158,10 +158,10 @@ class __$$SendEmailInputImplCopyWithImpl<$Res>
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -176,8 +176,7 @@ class _$SendEmailInputImpl implements _SendEmailInput {
       this.subject,
       required this.senderDid,
       this.comment,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$SendEmailInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,15 +196,17 @@ class _$SendEmailInputImpl implements _SendEmailInput {
   final String? comment;
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -255,7 +256,7 @@ abstract class _SendEmailInput implements SendEmailInput {
           final String? subject,
           required final String senderDid,
           final String? comment,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SendEmailInputImpl;
 
   factory _SendEmailInput.fromJson(Map<String, dynamic> json) =
@@ -277,7 +278,7 @@ abstract class _SendEmailInput implements SendEmailInput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SendEmailInputImplCopyWith<_$SendEmailInputImpl> get copyWith =>

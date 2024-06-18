@@ -26,7 +26,7 @@ mixin _$SendMessageBatchOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $SendMessageBatchOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@MessageViewConverter() List<MessageView> items,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -60,17 +60,17 @@ class _$SendMessageBatchOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? items = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<MessageView>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -86,7 +86,7 @@ abstract class _$$SendMessageBatchOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@MessageViewConverter() List<MessageView> items,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -103,17 +103,17 @@ class __$$SendMessageBatchOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? items = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SendMessageBatchOutputImpl(
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<MessageView>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -124,8 +124,7 @@ class __$$SendMessageBatchOutputImplCopyWithImpl<$Res>
 class _$SendMessageBatchOutputImpl implements _SendMessageBatchOutput {
   const _$SendMessageBatchOutputImpl(
       {@MessageViewConverter() required final List<MessageView> items,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _items = items,
         _$unknown = $unknown;
 
@@ -142,15 +141,17 @@ class _$SendMessageBatchOutputImpl implements _SendMessageBatchOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -192,7 +193,7 @@ class _$SendMessageBatchOutputImpl implements _SendMessageBatchOutput {
 abstract class _SendMessageBatchOutput implements SendMessageBatchOutput {
   const factory _SendMessageBatchOutput(
           {@MessageViewConverter() required final List<MessageView> items,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SendMessageBatchOutputImpl;
 
   factory _SendMessageBatchOutput.fromJson(Map<String, dynamic> json) =
@@ -205,7 +206,7 @@ abstract class _SendMessageBatchOutput implements SendMessageBatchOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SendMessageBatchOutputImplCopyWith<_$SendMessageBatchOutputImpl>

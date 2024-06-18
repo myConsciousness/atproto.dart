@@ -17,18 +17,24 @@ _$GetTaggedSuggestionsParamsImpl _$$GetTaggedSuggestionsParamsImplFromJson(
         final val = _$GetTaggedSuggestionsParamsImpl(
           $unknown: $checkedConvert(
               r'$unknown',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$GetTaggedSuggestionsParamsImplToJson(
-        _$GetTaggedSuggestionsParamsImpl instance) =>
-    <String, dynamic>{
-      r'$unknown': instance.$unknown,
-    };
+    _$GetTaggedSuggestionsParamsImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$unknown', instance.$unknown);
+  return val;
+}

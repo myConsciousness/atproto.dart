@@ -39,7 +39,7 @@ mixin _$LabelerView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +62,7 @@ abstract class $LabelerViewCopyWith<$Res> {
       @LabelerViewerStateConverter() LabelerViewerState viewer,
       DateTime indexedAt,
       @LabelConverter() List<Label>? labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileViewCopyWith<$Res> get creator;
   $LabelerViewerStateCopyWith<$Res> get viewer;
@@ -89,7 +89,7 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
     Object? viewer = null,
     Object? indexedAt = null,
     Object? labels = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -124,10 +124,10 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -165,7 +165,7 @@ abstract class _$$LabelerViewImplCopyWith<$Res>
       @LabelerViewerStateConverter() LabelerViewerState viewer,
       DateTime indexedAt,
       @LabelConverter() List<Label>? labels,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ProfileViewCopyWith<$Res> get creator;
@@ -192,7 +192,7 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
     Object? viewer = null,
     Object? indexedAt = null,
     Object? labels = freezed,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LabelerViewImpl(
       $type: null == $type
@@ -227,10 +227,10 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -248,8 +248,7 @@ class _$LabelerViewImpl implements _LabelerView {
       @LabelerViewerStateConverter() this.viewer = const LabelerViewerState(),
       required this.indexedAt,
       @LabelConverter() final List<Label>? labels,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _labels = labels,
         _$unknown = $unknown;
 
@@ -291,15 +290,17 @@ class _$LabelerViewImpl implements _LabelerView {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -363,7 +364,7 @@ abstract class _LabelerView implements LabelerView {
           @LabelerViewerStateConverter() final LabelerViewerState viewer,
           required final DateTime indexedAt,
           @LabelConverter() final List<Label>? labels,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LabelerViewImpl;
 
   factory _LabelerView.fromJson(Map<String, dynamic> json) =
@@ -398,7 +399,7 @@ abstract class _LabelerView implements LabelerView {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelerViewImplCopyWith<_$LabelerViewImpl> get copyWith =>

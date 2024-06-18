@@ -26,7 +26,7 @@ mixin _$GetTaggedSuggestionsOutput {
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $GetTaggedSuggestionsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@SuggestionConverter() List<Suggestion> suggestions,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -61,17 +61,17 @@ class _$GetTaggedSuggestionsOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? suggestions = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       suggestions: null == suggestions
           ? _value.suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<Suggestion>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$GetTaggedSuggestionsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@SuggestionConverter() List<Suggestion> suggestions,
-      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -104,17 +104,17 @@ class __$$GetTaggedSuggestionsOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? suggestions = null,
-    Object? $unknown = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$GetTaggedSuggestionsOutputImpl(
       suggestions: null == suggestions
           ? _value._suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<Suggestion>,
-      $unknown: null == $unknown
+      $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -125,8 +125,7 @@ class __$$GetTaggedSuggestionsOutputImplCopyWithImpl<$Res>
 class _$GetTaggedSuggestionsOutputImpl implements _GetTaggedSuggestionsOutput {
   const _$GetTaggedSuggestionsOutputImpl(
       {@SuggestionConverter() required final List<Suggestion> suggestions,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown = const {}})
+      @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _suggestions = suggestions,
         _$unknown = $unknown;
 
@@ -144,15 +143,17 @@ class _$GetTaggedSuggestionsOutputImpl implements _GetTaggedSuggestionsOutput {
   }
 
   /// Contains unknown objects not defined in Lexicon.
-  final Map<String, dynamic> _$unknown;
+  final Map<String, dynamic>? _$unknown;
 
   /// Contains unknown objects not defined in Lexicon.
   @override
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown {
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
     if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_$unknown);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -196,7 +197,7 @@ abstract class _GetTaggedSuggestionsOutput
     implements GetTaggedSuggestionsOutput {
   const factory _GetTaggedSuggestionsOutput(
           {@SuggestionConverter() required final List<Suggestion> suggestions,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetTaggedSuggestionsOutputImpl;
 
   factory _GetTaggedSuggestionsOutput.fromJson(Map<String, dynamic> json) =
@@ -209,7 +210,7 @@ abstract class _GetTaggedSuggestionsOutput
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
-  Map<String, dynamic> get $unknown;
+  Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetTaggedSuggestionsOutputImplCopyWith<_$GetTaggedSuggestionsOutputImpl>
