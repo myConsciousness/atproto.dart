@@ -26,85 +26,6 @@ final class IdentityService {
 
   final ATProtoServiceContext _ctx;
 
-  /// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
-  Future<XRPCResponse<EmptyData>> updateHandle({
-    required String handle,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoIdentityUpdateHandle,
-        headers: $headers,
-        body: {
-          'handle': handle,
-        },
-        client: $client,
-      );
-
-  /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
-  Future<XRPCResponse<EmptyData>> submitPlcOperation({
-    required Map<String, dynamic> operation,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoIdentitySubmitPlcOperation,
-        headers: $headers,
-        body: {
-          'operation': operation,
-        },
-        client: $client,
-      );
-
-  /// Resolves a handle (domain name) to a DID.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
-  Future<XRPCResponse<ResolveHandleOutput>> resolveHandle({
-    required String handle,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ResolveHandleOutput>(
-        ns.comAtprotoIdentityResolveHandle,
-        headers: $headers,
-        parameters: {
-          'handle': handle,
-        },
-        to: const ResolveHandleOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Signs a PLC operation to update some value(s) in the requesting DID's document.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
-  Future<XRPCResponse<SignPlcOperationOutput>> signPlcOperation({
-    String? token,
-    List<String>? rotationKeys,
-    List<String>? alsoKnownAs,
-    Map<String, dynamic>? verificationMethods,
-    Map<String, dynamic>? services,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<SignPlcOperationOutput>(
-        ns.comAtprotoIdentitySignPlcOperation,
-        headers: $headers,
-        body: {
-          if (token != null) 'token': token,
-          if (rotationKeys != null) 'rotationKeys': rotationKeys,
-          if (alsoKnownAs != null) 'alsoKnownAs': alsoKnownAs,
-          if (verificationMethods != null)
-            'verificationMethods': verificationMethods,
-          if (services != null) 'services': services,
-        },
-        to: const SignPlcOperationOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Describe the credentials that should be included in the DID doc of an account that is migrating to this service.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
@@ -130,6 +51,85 @@ final class IdentityService {
       await _ctx.post<EmptyData>(
         ns.comAtprotoIdentityRequestPlcOperationSignature,
         headers: $headers,
+        client: $client,
+      );
+
+  /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
+  Future<XRPCResponse<EmptyData>> submitPlcOperation({
+    required Map<String, dynamic> operation,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoIdentitySubmitPlcOperation,
+        headers: $headers,
+        body: {
+          'operation': operation.toJson(),
+        },
+        client: $client,
+      );
+
+  /// Resolves a handle (domain name) to a DID.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
+  Future<XRPCResponse<ResolveHandleOutput>> resolveHandle({
+    required String handle,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ResolveHandleOutput>(
+        ns.comAtprotoIdentityResolveHandle,
+        headers: $headers,
+        parameters: {
+          'handle': handle,
+        },
+        to: const ResolveHandleOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
+  Future<XRPCResponse<EmptyData>> updateHandle({
+    required String handle,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoIdentityUpdateHandle,
+        headers: $headers,
+        body: {
+          'handle': handle,
+        },
+        client: $client,
+      );
+
+  /// Signs a PLC operation to update some value(s) in the requesting DID's document.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
+  Future<XRPCResponse<SignPlcOperationOutput>> signPlcOperation({
+    String? token,
+    List<String>? rotationKeys,
+    List<String>? alsoKnownAs,
+    Map<String, dynamic>? verificationMethods,
+    Map<String, dynamic>? services,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<SignPlcOperationOutput>(
+        ns.comAtprotoIdentitySignPlcOperation,
+        headers: $headers,
+        body: {
+          if (token != null) 'token': token,
+          if (rotationKeys != null) 'rotationKeys': rotationKeys,
+          if (alsoKnownAs != null) 'alsoKnownAs': alsoKnownAs,
+          if (verificationMethods != null)
+            'verificationMethods': verificationMethods.toJson(),
+          if (services != null) 'services': services.toJson(),
+        },
+        to: const SignPlcOperationOutputConverter().fromJson,
         client: $client,
       );
 }

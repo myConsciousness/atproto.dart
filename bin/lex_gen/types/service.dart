@@ -579,6 +579,8 @@ final class Payload {
     } else if (arg.type.name == 'DateTime') {
       buffer
           .write("'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}),");
+    } else if (!arg.isPrimitive) {
+      buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck.toJson(),");
     } else {
       buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck,");
     }

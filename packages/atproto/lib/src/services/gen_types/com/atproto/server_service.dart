@@ -37,90 +37,55 @@ final class ServerService {
 
   final ATProtoServiceContext _ctx;
 
-  /// Update an account's email.
+  /// Create an invite code.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/updateEmail
-  Future<XRPCResponse<EmptyData>> updateEmail({
-    required String email,
-    bool? emailAuthFactor,
-    String? token,
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCode
+  Future<XRPCResponse<CreateInviteCodeOutput>> createInviteCode({
+    required int useCount,
+    String? forAccount,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoServerUpdateEmail,
+      await _ctx.post<CreateInviteCodeOutput>(
+        ns.comAtprotoServerCreateInviteCode,
         headers: $headers,
         body: {
-          'email': email,
-          if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
-          if (token != null) 'token': token,
+          'useCount': useCount,
+          if (forAccount != null) 'forAccount': forAccount,
         },
+        to: const CreateInviteCodeOutputConverter().fromJson,
         client: $client,
       );
 
-  /// Get all invite codes for the current account. Requires auth.
+  /// Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/getAccountInviteCodes
-  Future<XRPCResponse<GetAccountInviteCodesOutput>> getAccountInviteCodes({
-    bool? includeUsed,
-    bool? createAvailable,
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/reserveSigningKey
+  Future<XRPCResponse<ReserveSigningKeyOutput>> reserveSigningKey({
+    String? did,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<ReserveSigningKeyOutput>(
+        ns.comAtprotoServerReserveSigningKey,
+        headers: $headers,
+        body: {
+          if (did != null) 'did': did,
+        },
+        to: const ReserveSigningKeyOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get information about the current auth session. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession
+  Future<XRPCResponse<GetSessionOutput>> getSession({
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetAccountInviteCodesOutput>(
-        ns.comAtprotoServerGetAccountInviteCodes,
+      await _ctx.get<GetSessionOutput>(
+        ns.comAtprotoServerGetSession,
         headers: $headers,
-        parameters: {
-          if (includeUsed != null) 'includeUsed': includeUsed.toString(),
-          if (createAvailable != null)
-            'createAvailable': createAvailable.toString(),
-        },
-        to: const GetAccountInviteCodesOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/confirmEmail
-  Future<XRPCResponse<EmptyData>> confirmEmail({
-    required String email,
-    required String token,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoServerConfirmEmail,
-        headers: $headers,
-        body: {
-          'email': email,
-          'token': token,
-        },
-        client: $client,
-      );
-
-  /// Request an email with a code to confirm ownership of email.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailConfirmation
-  Future<XRPCResponse<EmptyData>> requestEmailConfirmation({
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoServerRequestEmailConfirmation,
-        headers: $headers,
-        client: $client,
-      );
-
-  /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/activateAccount
-  Future<XRPCResponse<EmptyData>> activateAccount({
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoServerActivateAccount,
-        headers: $headers,
+        to: const GetSessionOutputConverter().fromJson,
         client: $client,
       );
 
@@ -163,6 +128,28 @@ final class ServerService {
         client: $client,
       );
 
+  /// Create an authentication session.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession
+  Future<XRPCResponse<CreateSessionOutput>> createSession({
+    required String identifier,
+    required String password,
+    String? authFactorToken,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<CreateSessionOutput>(
+        ns.comAtprotoServerCreateSession,
+        headers: $headers,
+        body: {
+          'identifier': identifier,
+          'password': password,
+          if (authFactorToken != null) 'authFactorToken': authFactorToken,
+        },
+        to: const CreateSessionOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Revoke an App Password by name.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/revokeAppPassword
@@ -180,21 +167,31 @@ final class ServerService {
         client: $client,
       );
 
-  /// Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
+  /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/reserveSigningKey
-  Future<XRPCResponse<ReserveSigningKeyOutput>> reserveSigningKey({
-    String? did,
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer
+  Future<XRPCResponse<DescribeServerOutput>> describeServer({
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<DescribeServerOutput>(
+        ns.comAtprotoServerDescribeServer,
+        headers: $headers,
+        to: const DescribeServerOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
+  Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
-      await _ctx.post<ReserveSigningKeyOutput>(
-        ns.comAtprotoServerReserveSigningKey,
+      await _ctx.post<RefreshSessionOutput>(
+        ns.comAtprotoServerRefreshSession,
         headers: $headers,
-        body: {
-          if (did != null) 'did': did,
-        },
-        to: const ReserveSigningKeyOutputConverter().fromJson,
+        to: const RefreshSessionOutputConverter().fromJson,
         client: $client,
       );
 
@@ -226,9 +223,83 @@ final class ServerService {
           if (verificationPhone != null) 'verificationPhone': verificationPhone,
           if (password != null) 'password': password,
           if (recoveryKey != null) 'recoveryKey': recoveryKey,
-          if (plcOp != null) 'plcOp': plcOp,
+          if (plcOp != null) 'plcOp': plcOp.toJson(),
         },
         to: const CreateAccountOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Create an App Password.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAppPassword
+  Future<XRPCResponse<AppPassword>> createAppPassword({
+    required String name,
+    bool? privileged,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<AppPassword>(
+        ns.comAtprotoServerCreateAppPassword,
+        headers: $headers,
+        body: {
+          'name': name,
+          if (privileged != null) 'privileged': privileged,
+        },
+        to: const AppPasswordConverter().fromJson,
+        client: $client,
+      );
+
+  /// Delete the current session. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
+  Future<XRPCResponse<EmptyData>> deleteSession({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoServerDeleteSession,
+        headers: $headers,
+        client: $client,
+      );
+
+  /// Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
+  Future<XRPCResponse<CheckAccountStatusOutput>> checkAccountStatus({
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<CheckAccountStatusOutput>(
+        ns.comAtprotoServerCheckAccountStatus,
+        headers: $headers,
+        to: const CheckAccountStatusOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Request an email with a code to confirm ownership of email.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailConfirmation
+  Future<XRPCResponse<EmptyData>> requestEmailConfirmation({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoServerRequestEmailConfirmation,
+        headers: $headers,
+        client: $client,
+      );
+
+  /// List all App Passwords.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords
+  Future<XRPCResponse<ListAppPasswordsOutput>> listAppPasswords({
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ListAppPasswordsOutput>(
+        ns.comAtprotoServerListAppPasswords,
+        headers: $headers,
+        to: const ListAppPasswordsOutputConverter().fromJson,
         client: $client,
       );
 
@@ -254,108 +325,6 @@ final class ServerService {
         client: $client,
       );
 
-  /// Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
-  Future<XRPCResponse<CheckAccountStatusOutput>> checkAccountStatus({
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<CheckAccountStatusOutput>(
-        ns.comAtprotoServerCheckAccountStatus,
-        headers: $headers,
-        to: const CheckAccountStatusOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Delete the current session. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
-  Future<XRPCResponse<EmptyData>> deleteSession({
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoServerDeleteSession,
-        headers: $headers,
-        client: $client,
-      );
-
-  /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
-  Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<RefreshSessionOutput>(
-        ns.comAtprotoServerRefreshSession,
-        headers: $headers,
-        to: const RefreshSessionOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Initiate a user account deletion via email.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestAccountDelete
-  Future<XRPCResponse<EmptyData>> requestAccountDelete({
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoServerRequestAccountDelete,
-        headers: $headers,
-        client: $client,
-      );
-
-  /// Create an invite code.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCode
-  Future<XRPCResponse<CreateInviteCodeOutput>> createInviteCode({
-    required int useCount,
-    String? forAccount,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<CreateInviteCodeOutput>(
-        ns.comAtprotoServerCreateInviteCode,
-        headers: $headers,
-        body: {
-          'useCount': useCount,
-          if (forAccount != null) 'forAccount': forAccount,
-        },
-        to: const CreateInviteCodeOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// List all App Passwords.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords
-  Future<XRPCResponse<ListAppPasswordsOutput>> listAppPasswords({
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ListAppPasswordsOutput>(
-        ns.comAtprotoServerListAppPasswords,
-        headers: $headers,
-        to: const ListAppPasswordsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer
-  Future<XRPCResponse<DescribeServerOutput>> describeServer({
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<DescribeServerOutput>(
-        ns.comAtprotoServerDescribeServer,
-        headers: $headers,
-        to: const DescribeServerOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Reset a user account password using a token.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/resetPassword
@@ -375,20 +344,6 @@ final class ServerService {
         client: $client,
       );
 
-  /// Get information about the current auth session. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession
-  Future<XRPCResponse<GetSessionOutput>> getSession({
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetSessionOutput>(
-        ns.comAtprotoServerGetSession,
-        headers: $headers,
-        to: const GetSessionOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Request a token in order to update email.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailUpdate
@@ -400,48 +355,6 @@ final class ServerService {
         ns.comAtprotoServerRequestEmailUpdate,
         headers: $headers,
         to: const RequestEmailUpdateOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Create an App Password.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAppPassword
-  Future<XRPCResponse<AppPassword>> createAppPassword({
-    required String name,
-    bool? privileged,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<AppPassword>(
-        ns.comAtprotoServerCreateAppPassword,
-        headers: $headers,
-        body: {
-          'name': name,
-          if (privileged != null) 'privileged': privileged,
-        },
-        to: const AppPasswordConverter().fromJson,
-        client: $client,
-      );
-
-  /// Create an authentication session.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession
-  Future<XRPCResponse<CreateSessionOutput>> createSession({
-    required String identifier,
-    required String password,
-    String? authFactorToken,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<CreateSessionOutput>(
-        ns.comAtprotoServerCreateSession,
-        headers: $headers,
-        body: {
-          'identifier': identifier,
-          'password': password,
-          if (authFactorToken != null) 'authFactorToken': authFactorToken,
-        },
-        to: const CreateSessionOutputConverter().fromJson,
         client: $client,
       );
 
@@ -463,6 +376,72 @@ final class ServerService {
         client: $client,
       );
 
+  /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/activateAccount
+  Future<XRPCResponse<EmptyData>> activateAccount({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoServerActivateAccount,
+        headers: $headers,
+        client: $client,
+      );
+
+  /// Initiate a user account deletion via email.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestAccountDelete
+  Future<XRPCResponse<EmptyData>> requestAccountDelete({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoServerRequestAccountDelete,
+        headers: $headers,
+        client: $client,
+      );
+
+  /// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/confirmEmail
+  Future<XRPCResponse<EmptyData>> confirmEmail({
+    required String email,
+    required String token,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoServerConfirmEmail,
+        headers: $headers,
+        body: {
+          'email': email,
+          'token': token,
+        },
+        client: $client,
+      );
+
+  /// Update an account's email.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/updateEmail
+  Future<XRPCResponse<EmptyData>> updateEmail({
+    required String email,
+    bool? emailAuthFactor,
+    String? token,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoServerUpdateEmail,
+        headers: $headers,
+        body: {
+          'email': email,
+          if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
+          if (token != null) 'token': token,
+        },
+        client: $client,
+      );
+
   /// Initiate a user account password reset via email.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestPasswordReset
@@ -477,6 +456,27 @@ final class ServerService {
         body: {
           'email': email,
         },
+        client: $client,
+      );
+
+  /// Get all invite codes for the current account. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/getAccountInviteCodes
+  Future<XRPCResponse<GetAccountInviteCodesOutput>> getAccountInviteCodes({
+    bool? includeUsed,
+    bool? createAvailable,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetAccountInviteCodesOutput>(
+        ns.comAtprotoServerGetAccountInviteCodes,
+        headers: $headers,
+        parameters: {
+          if (includeUsed != null) 'includeUsed': includeUsed.toString(),
+          if (createAvailable != null)
+            'createAvailable': createAvailable.toString(),
+        },
+        to: const GetAccountInviteCodesOutputConverter().fromJson,
         client: $client,
       );
 }

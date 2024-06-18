@@ -10,8 +10,6 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/preferences.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/union_preference.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view_basic.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view_detailed.dart';
@@ -38,3 +36,5 @@ export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/muted_words_p
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/hidden_posts_pref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/labelers_pref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/labeler_pref_item.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/preferences.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/union_preference.dart';

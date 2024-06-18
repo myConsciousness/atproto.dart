@@ -40,7 +40,7 @@ final class ModerationService {
         ns.comAtprotoModerationCreateReport,
         headers: $headers,
         body: {
-          'reasonType': reasonType,
+          'reasonType': reasonType.toJson(),
           if (reason != null) 'reason': reason,
           'subject': subject.toJson(),
         },

@@ -26,23 +26,6 @@ final class NotificationService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Notify server that the requesting account has seen notifications. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
-  Future<XRPCResponse<EmptyData>> updateSeen({
-    required DateTime seenAt,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyNotificationUpdateSeen,
-        headers: $headers,
-        body: {
-          'seenAt': _ctx.toUtcIso8601String(seenAt),
-        },
-        client: $client,
-      );
-
   /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush
@@ -85,6 +68,23 @@ final class NotificationService {
           if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
         to: const ListNotificationsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Notify server that the requesting account has seen notifications. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
+  Future<XRPCResponse<EmptyData>> updateSeen({
+    required DateTime seenAt,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyNotificationUpdateSeen,
+        headers: $headers,
+        body: {
+          'seenAt': _ctx.toUtcIso8601String(seenAt),
+        },
         client: $client,
       );
 

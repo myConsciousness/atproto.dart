@@ -27,31 +27,6 @@ final class LabelerService {
 
   final BlueskyServiceContext _ctx;
 
-  /// A declaration of the existence of labeler service.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/service
-  Future<XRPCResponse<StrongRef>> service({
-    required LabelerPolicies policies,
-    UServiceLabel? labels,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyLabelerService,
-        record: {
-          r'$type': 'app.bsky.labeler.service',
-          'policies': policies,
-          if (labels != null) 'labels': labels.toJson(),
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
-
   /// Get information about a list of labeler services.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/getServices
@@ -70,5 +45,30 @@ final class LabelerService {
         },
         to: const GetServicesOutputConverter().fromJson,
         client: $client,
+      );
+
+  /// A declaration of the existence of labeler service.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/service
+  Future<XRPCResponse<StrongRef>> service({
+    required LabelerPolicies policies,
+    UServiceLabel? labels,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyLabelerService,
+        record: {
+          r'$type': 'app.bsky.labeler.service',
+          'policies': policies.toJson(),
+          if (labels != null) 'labels': labels.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
       );
 }

@@ -32,24 +32,6 @@ final class ActorService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
-  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
-    required String actor,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ProfileViewDetailed>(
-        ns.appBskyActorGetProfile,
-        headers: $headers,
-        parameters: {
-          'actor': actor,
-        },
-        to: const ProfileViewDetailedConverter().fromJson,
-        client: $client,
-      );
-
   /// Find actors (profiles) matching search criteria. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
@@ -96,21 +78,21 @@ final class ActorService {
         client: $client,
       );
 
-  /// Get detailed profile views of multiple actors.
+  /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
-  Future<XRPCResponse<GetProfilesOutput>> getProfiles({
-    required List<String> actors,
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
+  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
+    required String actor,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetProfilesOutput>(
-        ns.appBskyActorGetProfiles,
+      await _ctx.get<ProfileViewDetailed>(
+        ns.appBskyActorGetProfile,
         headers: $headers,
         parameters: {
-          'actors': actors,
+          'actor': actor,
         },
-        to: const GetProfilesOutputConverter().fromJson,
+        to: const ProfileViewDetailedConverter().fromJson,
         client: $client,
       );
 
@@ -178,6 +160,24 @@ final class ActorService {
         },
         $headers: $headers,
         $client: $client,
+      );
+
+  /// Get detailed profile views of multiple actors.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
+  Future<XRPCResponse<GetProfilesOutput>> getProfiles({
+    required List<String> actors,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetProfilesOutput>(
+        ns.appBskyActorGetProfiles,
+        headers: $headers,
+        parameters: {
+          'actors': actors,
+        },
+        to: const GetProfilesOutputConverter().fromJson,
+        client: $client,
       );
 
   /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.

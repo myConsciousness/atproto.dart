@@ -53,35 +53,55 @@ final class ConvoService {
         client: $client,
       );
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog
-  Future<XRPCResponse<GetLogOutput>> getLog({
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers
+  Future<XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers({
+    required List<String> members,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetConvoForMembersOutput>(
+        ns.chatBskyConvoGetConvoForMembers,
+        headers: $headers,
+        parameters: {
+          'members': members,
+        },
+        to: const GetConvoForMembersOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteMessageForSelf
+  Future<XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
+    required String convoId,
+    required String messageId,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<DeletedMessageView>(
+        ns.chatBskyConvoDeleteMessageForSelf,
+        headers: $headers,
+        body: {
+          'convoId': convoId,
+          'messageId': messageId,
+        },
+        to: const DeletedMessageViewConverter().fromJson,
+        client: $client,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos
+  Future<XRPCResponse<ListConvosOutput>> listConvos({
+    int? limit,
     String? cursor,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetLogOutput>(
-        ns.chatBskyConvoGetLog,
+      await _ctx.get<ListConvosOutput>(
+        ns.chatBskyConvoListConvos,
         headers: $headers,
         parameters: {
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
         },
-        to: const GetLogOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo
-  Future<XRPCResponse<LeaveConvoOutput>> leaveConvo({
-    required String convoId,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<LeaveConvoOutput>(
-        ns.chatBskyConvoLeaveConvo,
-        headers: $headers,
-        body: {
-          'convoId': convoId,
-        },
-        to: const LeaveConvoOutputConverter().fromJson,
+        to: const ListConvosOutputConverter().fromJson,
         client: $client,
       );
 
@@ -105,71 +125,37 @@ final class ConvoService {
         client: $client,
       );
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers
-  Future<XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers({
-    required List<String> members,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetConvoForMembersOutput>(
-        ns.chatBskyConvoGetConvoForMembers,
-        headers: $headers,
-        parameters: {
-          'members': members,
-        },
-        to: const GetConvoForMembersOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
-  Future<XRPCResponse<UnmuteConvoOutput>> unmuteConvo({
-    required String convoId,
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch
+  Future<XRPCResponse<SendMessageBatchOutput>> sendMessageBatch({
+    required List<BatchItem> items,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
-      await _ctx.post<UnmuteConvoOutput>(
-        ns.chatBskyConvoUnmuteConvo,
+      await _ctx.post<SendMessageBatchOutput>(
+        ns.chatBskyConvoSendMessageBatch,
         headers: $headers,
         body: {
-          'convoId': convoId,
+          'items': items.map((e) => e.toJson()).toList(),
         },
-        to: const UnmuteConvoOutputConverter().fromJson,
+        to: const SendMessageBatchOutputConverter().fromJson,
         client: $client,
       );
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos
-  Future<XRPCResponse<ListConvosOutput>> listConvos({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ListConvosOutput>(
-        ns.chatBskyConvoListConvos,
-        headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-        },
-        to: const ListConvosOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteMessageForSelf
-  Future<XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage
+  Future<XRPCResponse<MessageView>> sendMessage({
     required String convoId,
-    required String messageId,
+    required MessageInput message,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
-      await _ctx.post<DeletedMessageView>(
-        ns.chatBskyConvoDeleteMessageForSelf,
+      await _ctx.post<MessageView>(
+        ns.chatBskyConvoSendMessage,
         headers: $headers,
         body: {
           'convoId': convoId,
-          'messageId': messageId,
+          'message': message.toJson(),
         },
-        to: const DeletedMessageViewConverter().fromJson,
+        to: const MessageViewConverter().fromJson,
         client: $client,
       );
 
@@ -186,22 +172,6 @@ final class ConvoService {
           'convoId': convoId,
         },
         to: const GetConvoOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch
-  Future<XRPCResponse<SendMessageBatchOutput>> sendMessageBatch({
-    required List<BatchItem> items,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<SendMessageBatchOutput>(
-        ns.chatBskyConvoSendMessageBatch,
-        headers: $headers,
-        body: {
-          'items': items.map((e) => e.toJson()).toList(),
-        },
-        to: const SendMessageBatchOutputConverter().fromJson,
         client: $client,
       );
 
@@ -223,21 +193,51 @@ final class ConvoService {
         client: $client,
       );
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage
-  Future<XRPCResponse<MessageView>> sendMessage({
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog
+  Future<XRPCResponse<GetLogOutput>> getLog({
+    String? cursor,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetLogOutput>(
+        ns.chatBskyConvoGetLog,
+        headers: $headers,
+        parameters: {
+          if (cursor != null) 'cursor': cursor,
+        },
+        to: const GetLogOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
+  Future<XRPCResponse<UnmuteConvoOutput>> unmuteConvo({
     required String convoId,
-    required MessageInput message,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
-      await _ctx.post<MessageView>(
-        ns.chatBskyConvoSendMessage,
+      await _ctx.post<UnmuteConvoOutput>(
+        ns.chatBskyConvoUnmuteConvo,
         headers: $headers,
         body: {
           'convoId': convoId,
-          'message': message,
         },
-        to: const MessageViewConverter().fromJson,
+        to: const UnmuteConvoOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo
+  Future<XRPCResponse<LeaveConvoOutput>> leaveConvo({
+    required String convoId,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<LeaveConvoOutput>(
+        ns.chatBskyConvoLeaveConvo,
+        headers: $headers,
+        body: {
+          'convoId': convoId,
+        },
+        to: const LeaveConvoOutputConverter().fromJson,
         client: $client,
       );
 }
