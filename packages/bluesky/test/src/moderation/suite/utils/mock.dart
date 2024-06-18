@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/services/entities/actor_basic.dart';

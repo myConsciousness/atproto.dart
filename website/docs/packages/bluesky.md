@@ -20,7 +20,7 @@ If you are having trouble implementing **RichText** in the Bluesky API, check ou
 
 - ✅ **Zero Dependency**
 - ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
-- ✅ Supports **[All Major Endpoints](../supported_api.md#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
+- ✅ Supports **[All Endpoints](https://atprotodart.com/docs/supported_api#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) and [`chat.bsky.*`]((https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky) )
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
 - ✅ Supports **Powerful Moderation API**
@@ -136,6 +136,14 @@ See **[Session Management](#session-management)** for more details about authent
 | **[notification](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/notification.html)** | [NotificationService](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService-class.html) | [`app.bsky.notification.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/notification)   |
 | **[graph](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/graph.html)**               | [GraphService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)               | [`app.bsky.graph.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/graph)                 |
 | **[unspecced](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/unspecced.html)**       | [UnspeccedService](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService-class.html)       | [`app.bsky.unspecced.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/unspecced)         |
+
+Also chat features:
+
+| Property                                                                                                | Class                                                                                                       | Lexicon                                                                                                       |
+| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **[actor](https://pub.dev/documentation/bluesky/latest/bluesky_chat/BlueskyChat/actor.html)**           | [ActorService](https://pub.dev/documentation/bluesky/latest/bluesky_chat/ActorService-class.html)           | [`chat.bsky.actor.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky/actor)           |
+| **[convo](https://pub.dev/documentation/bluesky/latest/bluesky_chat/BlueskyChat/convo.html)**           | [ConvoService](https://pub.dev/documentation/bluesky/latest/bluesky_chat/ConvoService-class.html)           | [`chat.bsky.convo.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky/convo)           |
+| **[moderation](https://pub.dev/documentation/bluesky/latest/bluesky_chat/BlueskyChat/moderation.html)** | [ModerationService](https://pub.dev/documentation/bluesky/latest/bluesky_chat/ModerationService-class.html) | [`chat.bsky.moderation.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky/moderation) |
 
 Once an instance of the **[Bluesky](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky-class.html)** object has been created, service endpoints can be used by accessing the `property` corresponding to each service as follows.
 

@@ -8,8 +8,10 @@ import 'dart:io';
 
 // 📦 Package imports:
 import 'package:actions_toolkit_dart/core.dart' as core;
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/cardyb.dart' as cardyb;
+import 'package:bluesky/core.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:http/http.dart' as http;
 
@@ -33,7 +35,7 @@ Future<void> post() async {
 
   final createdPost = await bluesky.feed.post(
     text: text.value,
-    facets: facets.map(bsky.Facet.fromJson).toList(),
+    facets: facets.map(Facet.fromJson).toList(),
     embed: await _getEmbed(bluesky),
     languageTags: _langs,
     labels: _labels,
@@ -45,14 +47,14 @@ Future<void> post() async {
   core.info(message: 'uri = [${createdPost.data.uri}]');
 }
 
-Future<bsky.Embed?> _getEmbed(final bsky.Bluesky bluesky) async {
+Future<Embed?> _getEmbed(final Bluesky bluesky) async {
   try {
     final uploadedMedia = await _uploadMedia(bluesky);
     if (uploadedMedia != null) {
-      return bsky.Embed.images(
-        data: bsky.EmbedImages(
+      return Embed.images(
+        data: EmbedImages(
           images: [
-            bsky.Image(
+            Image(
               alt: core.getInput(
                 name: 'media-alt',
                 options: core.InputOptions(trimWhitespace: true),
@@ -74,9 +76,9 @@ Future<bsky.Embed?> _getEmbed(final bsky.Bluesky bluesky) async {
       preview.data.image,
     );
 
-    return bsky.Embed.external(
-      data: bsky.EmbedExternal(
-        external: bsky.EmbedExternalThumbnail(
+    return Embed.external(
+      data: EmbedExternal(
+        external: EmbedExternalThumbnail(
           uri: preview.data.url,
           title: preview.data.title,
           description: preview.data.description,
@@ -89,11 +91,11 @@ Future<bsky.Embed?> _getEmbed(final bsky.Bluesky bluesky) async {
   }
 }
 
-Future<bsky.Session> _getSession(
+Future<Session> _getSession(
   final String service,
-  final bsky.RetryConfig retryConfig,
+  final RetryConfig retryConfig,
 ) async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     service: service,
     identifier: core.getInput(
       name: 'identifier',
@@ -115,15 +117,15 @@ Future<bsky.Session> _getSession(
   return session.data;
 }
 
-Future<bsky.Bluesky> get _bluesky async {
+Future<Bluesky> get _bluesky async {
   final service = _service;
   final retryCount = core.getInput(name: 'retry-count');
 
-  final retryConfig = bsky.RetryConfig(
+  final retryConfig = RetryConfig(
     maxAttempts: retryCount.isEmpty ? 5 : int.parse(retryCount),
   );
 
-  return bsky.Bluesky.fromSession(
+  return Bluesky.fromSession(
     await _getSession(service, retryConfig),
     service: service,
     retryConfig: retryConfig,
@@ -136,10 +138,10 @@ String get _service {
     options: core.InputOptions(trimWhitespace: true),
   );
 
-  return service.isEmpty ? 'bsky.social' : service;
+  return service.isEmpty ? 'social' : service;
 }
 
-Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
+Future<BlobData?> _uploadMedia(final Bluesky bluesky) async {
   final mediaPath = core.getInput(
     name: 'media',
     options: core.InputOptions(trimWhitespace: true),
@@ -149,15 +151,15 @@ Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
     return null;
   }
 
-  final uploaded = await bluesky.repo.uploadBlob(
+  final uploaded = await bluesky.atproto.repo.uploadBlob(
     File(mediaPath).readAsBytesSync(),
   );
 
   return uploaded.data;
 }
 
-Future<bsky.BlobData?> _uploadLinkPreview(
-  final bsky.Bluesky bluesky,
+Future<BlobData?> _uploadLinkPreview(
+  final Bluesky bluesky,
   final String previewImage,
 ) async {
   if (previewImage.isEmpty) {
@@ -167,7 +169,7 @@ Future<bsky.BlobData?> _uploadLinkPreview(
   final image = await http.get(Uri.parse(previewImage));
   if (image.statusCode != 200) return null;
 
-  final uploaded = await bluesky.repo.uploadBlob(image.bodyBytes);
+  final uploaded = await bluesky.atproto.repo.uploadBlob(image.bodyBytes);
 
   return uploaded.data;
 }
@@ -185,7 +187,7 @@ List<String>? get _langs {
   return langs.split(',');
 }
 
-bsky.Labels? get _labels {
+Labels? get _labels {
   final labels = core.getInput(
     name: 'labels',
     options: core.InputOptions(trimWhitespace: true),
@@ -195,9 +197,9 @@ bsky.Labels? get _labels {
     return null;
   }
 
-  return bsky.Labels.selfLabels(
-    data: bsky.SelfLabels(
-      values: labels.split(',').map((e) => bsky.SelfLabel(value: e)).toList(),
+  return Labels.selfLabels(
+    data: SelfLabels(
+      values: labels.split(',').map((e) => SelfLabel(value: e)).toList(),
     ),
   );
 }

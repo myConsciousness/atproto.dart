@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto/core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:

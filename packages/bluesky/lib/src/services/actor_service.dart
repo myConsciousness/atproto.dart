@@ -106,8 +106,8 @@ final class ActorService {
   Future<core.XRPCResponse<atp.StrongRef>> profile({
     String? displayName,
     String? description,
-    atp.Blob? avatar,
-    atp.Blob? banner,
+    core.Blob? avatar,
+    core.Blob? banner,
     atp.Labels? labels,
   }) async =>
       await _ctx.atproto.repo.putRecord(

@@ -5,7 +5,6 @@
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
-import 'package:bluesky/bluesky.dart';
 
 final class BlueskyChatServiceContext extends core.ServiceContext {
   BlueskyChatServiceContext({
@@ -23,25 +22,4 @@ final class BlueskyChatServiceContext extends core.ServiceContext {
 
   /// The client of AT Protocol.
   final atp.ATProto atproto;
-
-  Future<core.XRPCResponse<T>> findRecord<T>(
-    final core.AtUri uri, [
-    core.ResponseDataBuilder<T>? to,
-  ]) async {
-    final record = await atproto.repo.getRecord(uri: uri);
-
-    return core.XRPCResponse(
-      headers: record.headers,
-      status: record.status,
-      request: record.request,
-      rateLimit: record.rateLimit,
-      data: to != null ? to.call(record.data.value) : record.data.value as T,
-    );
-  }
-
-  AtUri self(final String methodId) => core.AtUri.make(
-        'alice',
-        methodId,
-        'self',
-      );
 }

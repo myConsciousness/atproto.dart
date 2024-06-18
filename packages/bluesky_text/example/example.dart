@@ -5,6 +5,7 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/core.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 
 Future<void> main() async {
@@ -47,8 +48,8 @@ Future<void> main() async {
   }
 }
 
-Future<bsky.Session> get _session async {
-  final session = await bsky.createSession(
+Future<Session> get _session async {
+  final session = await createSession(
     service: 'SERVICE_NAME', //! The default is `bsky.social`
     identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',

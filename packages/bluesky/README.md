@@ -55,7 +55,7 @@ The library is **cross-platform** and is **already used in many applications**. 
 
 - ✅ **Zero Dependency**
 - ✅ Supports **Powerful Built-In Retry** using **[Exponential BackOff And Jitter](https://aws.amazon.com/jp/blogs/architecture/exponential-backoff-and-jitter/)**
-- ✅ Supports **[All Major Endpoints](https://atprotodart.com/docs/supported_api#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky)
+- ✅ Supports **[All Endpoints](https://atprotodart.com/docs/supported_api#bluesky)** for [`app.bsky.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) and [`chat.bsky.*`]((https://github.com/bluesky-social/atproto/tree/main/lexicons/chat/bsky) )
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
 - ✅ Supports **Powerful Moderation API**
@@ -89,6 +89,10 @@ See **[official documents](https://atprotodart.com/docs/supported_api)** from fo
   - **[app.bsky.notification.*](https://atprotodart.com/docs/supported_api#notification-service)**
   - **[app.bsky.graph.*](https://atprotodart.com/docs/supported_api#graph-service)**
   - **[app.bsky.unspecced.*](https://atprotodart.com/docs/supported_api#unspecced-service)**
+  - **[chat.bsky.*](https://atprotodart.com/docs/supported_api#bluesky_chat)**
+  - **[chat.bsky.actor.*](https://atprotodart.com/docs/supported_api#actor-service-1)**
+  - **[chat.bsky.convo.*](https://atprotodart.com/docs/supported_api#convo-service)**
+  - **[chat.bsky.moderation.*](https://atprotodart.com/docs/supported_api#moderation-service)**
 
 ## 1.4. More Tips 🏄
 
