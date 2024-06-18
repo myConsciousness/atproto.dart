@@ -1,4 +1,4 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
+// Copyright 2024 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
@@ -10,7 +10,7 @@ import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/notification/get_unread_count/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/notification/register_push/known_platform.dart';
-import 'suite/service_suite.dart';
+import '../../service_suite.dart';
 
 void main() {
   testNotification<ListNotificationsOutput>(

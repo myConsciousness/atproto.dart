@@ -10,7 +10,7 @@ import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/labeler/defs/labeler_policies.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/labeler/get_services/output.dart';
-import 'suite/service_suite.dart';
+import '../../service_suite.dart';
 
 void main() {
   testLabeler<GetServicesOutput>(

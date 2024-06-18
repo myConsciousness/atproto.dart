@@ -1,4 +1,4 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
+// Copyright 2024 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
@@ -29,7 +29,7 @@ import 'package:bluesky/src/services/gen_types/app/bsky/feed/post/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/repost/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/search_posts/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed_service.dart';
-import 'suite/service_suite.dart';
+import '../../service_suite.dart';
 
 void main() {
   testFeed<StrongRef>(

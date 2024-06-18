@@ -1,4 +1,4 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
+// Copyright 2024 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
@@ -9,7 +9,7 @@ import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_suggestion
 import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_tagged_suggestions/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_actors_skeleton/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_posts_skeleton/output.dart';
-import 'suite/service_suite.dart';
+import '../../service_suite.dart';
 
 void main() {
   testUnspecced<GetPopularFeedGeneratorsOutput>(
