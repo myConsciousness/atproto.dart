@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.21
+
+- Bump `atproto_core`.
+
 ## v0.0.20
 
 - Bump `atproto_core`.

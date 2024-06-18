@@ -13,7 +13,7 @@ final class MockValues {
 
   core.NSID get collection => core.NSID.create(
         'test.atproto.com',
-        'fake',
+        'com.bsky.dummy.defs',
       );
 
   String get email => 'info@shinyakato.dev';

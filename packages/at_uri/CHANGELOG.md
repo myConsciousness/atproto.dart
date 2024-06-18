@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.0
+
+- Change the type `.collection` property from `String` to `NSID`. You need to do `.collection.toString()` when you want a string of collection. ([#1551](https://github.com/myConsciousness/atproto.dart/issues/1551))
+
 ## v0.3.2
 
 - Merge AT URI regex. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))

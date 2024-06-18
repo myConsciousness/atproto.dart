@@ -6,45 +6,45 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../../ids.g.dart' as ids;
+import '../../nsids.g.dart' as ns;
 
 /// AT URI extension for Bluesky services.
 extension AtUriExtension on core.AtUri {
   /// Returns true if this [collection] is actor profile, otherwise false.
-  bool get isActorProfile => collection == ids.appBskyActorProfile;
+  bool get isActorProfile => collection == ns.appBskyActorProfile;
 
   /// Returns true if this [collection] is feed post, otherwise false.
-  bool get isFeedPost => collection == ids.appBskyFeedPost;
+  bool get isFeedPost => collection == ns.appBskyFeedPost;
 
   /// Returns true if this [collection] is feed repost, otherwise false.
-  bool get isFeedRepost => collection == ids.appBskyFeedRepost;
+  bool get isFeedRepost => collection == ns.appBskyFeedRepost;
 
   /// Returns true if this [collection] is feed like, otherwise false.
-  bool get isFeedLike => collection == ids.appBskyFeedLike;
+  bool get isFeedLike => collection == ns.appBskyFeedLike;
 
   /// Returns true if this [collection] is feed generator, otherwise false.
-  bool get isFeedGenerator => collection == ids.appBskyFeedGenerator;
+  bool get isFeedGenerator => collection == ns.appBskyFeedGenerator;
 
   /// Returns true if this [collection] is feed threadgate, otherwise false.
-  bool get isFeedThreadgate => collection == ids.appBskyFeedThreadgate;
+  bool get isFeedThreadgate => collection == ns.appBskyFeedThreadgate;
 
   /// Returns true if this [collection] is graph follow, otherwise false.
-  bool get isGraphFollow => collection == ids.appBskyGraphFollow;
+  bool get isGraphFollow => collection == ns.appBskyGraphFollow;
 
   /// Returns true if this [collection] is graph block, otherwise false.
-  bool get isGraphBlock => collection == ids.appBskyGraphBlock;
+  bool get isGraphBlock => collection == ns.appBskyGraphBlock;
 
   /// Returns true if this [collection] is graph list, otherwise false.
-  bool get isGraphList => collection == ids.appBskyGraphList;
+  bool get isGraphList => collection == ns.appBskyGraphList;
 
   /// Returns true if this [collection] is graph block list, otherwise false.
-  bool get isGraphBlockList => collection == ids.appBskyGraphListblock;
+  bool get isGraphBlockList => collection == ns.appBskyGraphListblock;
 
   /// Returns true if this [collection] is graph block, otherwise false.
-  bool get isGraphListItem => collection == ids.appBskyGraphListitem;
+  bool get isGraphListItem => collection == ns.appBskyGraphListitem;
 
   /// Returns true if this [collection] is labeler service, otherwise false.
-  bool get isLabelerService => collection == ids.appBskyLabelerService;
+  bool get isLabelerService => collection == ns.appBskyLabelerService;
 
   /// Returns true if this [collection] is not actor profile, otherwise false.
   bool get isNotActorProfile => !isActorProfile;
