@@ -2,16 +2,19 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'package:bluesky/core.dart';
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/bluesky_chat.dart';
 import 'package:bluesky/moderation.dart';
 
 /// https://atprotodart.com/docs/packages/bluesky
 Future<void> main() async {
   try {
-    final bsky = Bluesky.fromSession(
-      //! First you need to establish session with ATP server.
-      await _session,
+    //! First you need to establish session with ATP server.
+    final session = await _session;
 
+    final bsky = Bluesky.fromSession(
+      session,
       //! The default is `bsky.social`, or resolve dynamically based on session
       service: 'SERVICE_NAME',
 
@@ -35,6 +38,17 @@ Future<void> main() async {
       //! The default timeout is 30 seconds.
       timeout: Duration(seconds: 20),
     );
+
+    //! Chat features
+    final chat = BlueskyChat.fromSession(session);
+    final convos = await chat.convo.listConvos();
+
+    for (final convo in convos.data.convos) {
+      await chat.convo.sendMessage(
+        convoId: convo.id,
+        message: MessageInput(text: 'Hello?'),
+      );
+    }
 
     //! Moderation Stuffs
     final preferences = await bsky.actor.getPreferences();

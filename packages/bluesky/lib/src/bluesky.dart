@@ -19,7 +19,7 @@ import 'services/unspecced_service.dart';
 sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky.fromSession(
-    final atp.Session session, {
+    final core.Session session, {
     final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,

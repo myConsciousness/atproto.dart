@@ -7,10 +7,10 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'services/actor_service.dart';
-import 'services/convo_service.dart';
-import 'services/moderation_service.dart';
 import 'services/service_context.dart';
+import 'services/types/chat/bsky/actor_service.dart';
+import 'services/types/chat/bsky/convo_service.dart';
+import 'services/types/chat/bsky/moderation_service.dart';
 
 const _kBskyChatProxyHeaders = <String, String>{
   'atproto-proxy': 'did:web:api.bsky.chat#bsky_chat'
@@ -20,7 +20,7 @@ const _kBskyChatProxyHeaders = <String, String>{
 sealed class BlueskyChat {
   /// Returns the new instance of [BlueskyChat].
   factory BlueskyChat.fromSession(
-    final atp.Session session, {
+    final core.Session session, {
     final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,

@@ -30,11 +30,12 @@
 <!-- TOC -->
 
 - [1. Guide 🌎](#1-guide-)
-  - [1.1. Supported Endpoints 👀](#11-supported-endpoints-)
-  - [1.2. Contribution 🏆](#12-contribution-)
-  - [1.3. Support ❤️](#13-support-️)
-  - [1.4. License 🔑](#14-license-)
-  - [1.5. More Information 🧐](#15-more-information-)
+  - [1.1. Migration](#11-migration)
+  - [1.2. Supported Endpoints 👀](#12-supported-endpoints-)
+  - [1.3. Contribution 🏆](#13-contribution-)
+  - [1.4. Support ❤️](#14-support-️)
+  - [1.5. License 🔑](#15-license-)
+  - [1.6. More Information 🧐](#16-more-information-)
 
 <!-- /TOC -->
 
@@ -46,7 +47,15 @@ You can also use **_[bluesky](https://pub.dev/packages/bluesky_chat/)_** package
 
 **_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
-## 1.1. Supported Endpoints 👀
+## 1.1. Migration
+
+**This package has been integrated into the [bluesky](https://pub.dev/packages/bluesky) package.**
+
+So, this package is **no longer maintained** and additional functionality will be added in the [bluesky](https://pub.dev/packages/bluesky) package.
+
+**Please use the [bluesky](https://pub.dev/packages/bluesky) package instead.**
+
+## 1.2. Supported Endpoints 👀
 
 See **[official documents](https://atprotodart.com/docs/supported_api)** from following links.
 
@@ -55,7 +64,7 @@ See **[official documents](https://atprotodart.com/docs/supported_api)** from fo
   - **[chat.bsky.convo.*](https://atprotodart.com/docs/supported_api#convo-service)**
   - **[chat.bsky.moderation.*](https://atprotodart.com/docs/supported_api#moderation-service)**
 
-## 1.2. Contribution 🏆
+## 1.3. Contribution 🏆
 
 If you would like to contribute to **bluesky_chat**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
 
@@ -76,7 +85,7 @@ Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.3. Support ❤️
+## 1.4. Support ❤️
 
 The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky_chat).
 
@@ -102,7 +111,7 @@ You can also show on your repository that your app is made with **bluesky_chat**
 [![Powered by bluesky_chat](https://img.shields.io/badge/Powered%20by-bluesky_chat-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
 ```
 
-## 1.4. License 🔑
+## 1.5. License 🔑
 
 All resources of **bluesky_chat** is provided under the `BSD-3` license.
 
@@ -115,7 +124,7 @@ modification, are permitted provided the conditions.
 > **Note**</br>
 > License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
 
-## 1.5. More Information 🧐
+## 1.6. More Information 🧐
 
 **bluesky** was designed and implemented by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
 

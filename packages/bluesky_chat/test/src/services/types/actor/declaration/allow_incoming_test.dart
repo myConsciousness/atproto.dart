@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky_chat/src/services/types/actor/declaration/allow_incoming.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/actor/declaration/allow_incoming.dart';
 
 void main() {
   test('.name', () {

@@ -8,10 +8,10 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // 🌎 Project imports:
-import 'package:bluesky_chat/src/services/actor_service.dart';
-import 'package:bluesky_chat/src/services/convo_service.dart';
-import 'package:bluesky_chat/src/services/moderation_service.dart';
 import 'package:bluesky_chat/src/services/service_context.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/actor_service.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo_service.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/moderation_service.dart';
 
 const _runner = _ServiceRunner();
 

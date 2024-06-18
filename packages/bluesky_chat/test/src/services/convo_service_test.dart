@@ -4,20 +4,20 @@
 
 // 🌎 Project imports:
 import 'package:bluesky_chat/src/ids.g.dart';
-import 'package:bluesky_chat/src/services/types/convo/defs/deleted_message_view.dart';
-import 'package:bluesky_chat/src/services/types/convo/defs/message_input.dart';
-import 'package:bluesky_chat/src/services/types/convo/defs/message_view.dart';
-import 'package:bluesky_chat/src/services/types/convo/getConvo/output.dart';
-import 'package:bluesky_chat/src/services/types/convo/getConvoForMembers/output.dart';
-import 'package:bluesky_chat/src/services/types/convo/getLog/output.dart';
-import 'package:bluesky_chat/src/services/types/convo/getMessages/output.dart';
-import 'package:bluesky_chat/src/services/types/convo/leaveConvo/output.dart';
-import 'package:bluesky_chat/src/services/types/convo/listConvos/output.dart';
-import 'package:bluesky_chat/src/services/types/convo/muteConvo/output.dart';
-import 'package:bluesky_chat/src/services/types/convo/sendMessageBatch/batch_item.dart';
-import 'package:bluesky_chat/src/services/types/convo/sendMessageBatch/output.dart';
-import 'package:bluesky_chat/src/services/types/convo/unmuteConvo/output.dart';
-import 'package:bluesky_chat/src/services/types/convo/updateRead/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/defs/deleted_message_view.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/defs/message_input.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/defs/message_view.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/getConvo/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/getConvoForMembers/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/getLog/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/getMessages/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/leaveConvo/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/listConvos/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/muteConvo/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/sendMessageBatch/batch_item.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/sendMessageBatch/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/unmuteConvo/output.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo/updateRead/output.dart';
 import 'suite/service_suite.dart';
 
 void main() {

@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'package:atproto/atproto.dart';
+import 'package:atproto/core.dart';
 
 /// https://atprotodart.com/docs/packages/atproto
 Future<void> main() async {

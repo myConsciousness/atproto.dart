@@ -3,11 +3,16 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto/core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/src/ids.g.dart';
+import 'package:bluesky/src/services/entities/actor.dart';
+import 'package:bluesky/src/services/entities/actor_viewer.dart';
+import 'package:bluesky/src/services/entities/list_view.dart';
+import 'package:bluesky/src/services/entities/list_viewer.dart';
+import 'package:bluesky/src/services/entities/lists.dart';
 
 void main() {
   group('.moderatedLists', () {

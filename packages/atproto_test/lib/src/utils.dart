@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-const _serviceResources = 'test/src/services/suite/data';
+const _serviceResources = 'test/src/services/suite';
 
 String getServiceResourcePath(final String lexiconId) =>
     '$_serviceResources/${_getPathFromLexiconId(lexiconId)}.json';

@@ -155,7 +155,7 @@ final class GraphService {
     required String name,
     String? description,
     List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
+    core.Blob? avatar,
     atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -363,7 +363,7 @@ extension GraphServiceExtension on GraphService {
             .toList(),
       );
 
-  Future<core.XRPCResponse<atp.EmptyData>> listitemInBulk(
+  Future<core.XRPCResponse<core.EmptyData>> listitemInBulk(
     final List<ListItemParam> params,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
@@ -382,7 +382,7 @@ extension GraphServiceExtension on GraphService {
             .toList(),
       );
 
-  Future<core.XRPCResponse<atp.EmptyData>> listInBulk(
+  Future<core.XRPCResponse<core.EmptyData>> listInBulk(
     final List<ListParam> params,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
@@ -410,7 +410,7 @@ extension GraphServiceExtension on GraphService {
     required String name,
     String? description,
     List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
+    core.Blob? avatar,
     atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -430,7 +430,7 @@ extension GraphServiceExtension on GraphService {
     required String name,
     String? description,
     List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
+    core.Blob? avatar,
     atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,

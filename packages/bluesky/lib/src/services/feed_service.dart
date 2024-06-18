@@ -273,7 +273,7 @@ final class FeedService {
     required String displayName,
     String? description,
     List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
+    core.Blob? avatar,
     bool? acceptsInteractions,
     atp.Labels? labels,
     DateTime? createdAt,
