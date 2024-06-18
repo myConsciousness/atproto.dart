@@ -1321,7 +1321,7 @@ RepoOp _buildCreateRepoOp(
       cid: 'aaaa',
       path: 'xxxxxx',
       $unknown: {
-        'uri': AtUri.parse(uri),
+        'uri': uri,
         'record': record,
       },
     );
@@ -1335,7 +1335,7 @@ RepoOp _buildUpdateRepoOp(
       cid: 'aaaa',
       path: 'xxxxxx',
       $unknown: {
-        'uri': AtUri.parse(uri),
+        'uri': uri,
         'record': record,
       },
     );
@@ -1348,6 +1348,6 @@ RepoOp _buildDeleteRepoOp(
       cid: 'aaaa',
       path: 'xxxxxx',
       $unknown: {
-        'uri': AtUri.parse(uri),
+        'uri': uri,
       },
     );
