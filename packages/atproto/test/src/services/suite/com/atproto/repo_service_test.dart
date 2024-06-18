@@ -64,7 +64,7 @@ void main() {
   testRepo<UploadBlobOutput>(
     (m, s) => s.uploadBlob(
       bytes: File(
-        'test/src/services/suite/data/com/atproto/repo/dash.png',
+        'test/src/services/suite/com/atproto/repo/dash.png',
       ).readAsBytesSync(),
     ),
     id: comAtprotoRepoUploadBlob,
