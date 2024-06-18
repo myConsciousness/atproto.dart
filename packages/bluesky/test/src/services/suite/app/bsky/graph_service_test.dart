@@ -25,7 +25,6 @@ import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_suggested_foll
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/list/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/listitem/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph_service.dart';
-
 import 'service_suite.dart';
 
 void main() {

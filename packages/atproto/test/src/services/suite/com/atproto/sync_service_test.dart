@@ -16,10 +16,10 @@ import 'package:atproto/src/services/gen_types/com/atproto/sync/get_repo_status/
 import 'package:atproto/src/services/gen_types/com/atproto/sync/list_blobs/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/sync/list_repos/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/union_subscribe_repos_message.dart';
+import 'service_suite.dart';
 import 'sync/get_blocks.dart';
 import 'sync/get_record.dart';
 import 'sync/get_repo.dart';
-import 'service_suite.dart';
 
 void main() {
   testSyncSubscription<USubscribeReposMessage>(
