@@ -2,6 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:nsid/nsid.dart';
+
 final _atUriRegex = RegExp(
   // ignore: lines_longer_than_80_chars
   // proto-    --did--------------   --name-------------   --path----   --query--   --hash--
@@ -52,7 +55,7 @@ sealed class AtUri {
   String get hostname;
 
   /// Returns the collection.
-  String get collection;
+  NSID get collection;
 
   /// Returns the rkey.
   String get rkey;
@@ -100,8 +103,8 @@ final class ParsedAtUri implements AtUri {
   String get hostname => _host;
 
   @override
-  String get collection =>
-      (pathname.split('/')..removeWhere((s) => s.isEmpty)).first;
+  NSID get collection =>
+      NSID.parse((pathname.split('/')..removeWhere((s) => s.isEmpty)).first);
 
   @override
   String get rkey =>
@@ -172,8 +175,8 @@ final class UnparsedAtUri implements AtUri {
   }
 
   @override
-  String get collection =>
-      (pathname.split('/')..removeWhere((s) => s.isEmpty)).first;
+  NSID get collection =>
+      NSID((pathname.split('/')..removeWhere((s) => s.isEmpty)).first);
 
   @override
   String get rkey =>

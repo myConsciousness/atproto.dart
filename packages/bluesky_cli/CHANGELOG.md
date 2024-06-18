@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.6
+
+- Bump `at_uri`. ([#1551](https://github.com/myConsciousness/atproto.dart/issues/1551))
+
 ## v0.4.5
 
 - Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))

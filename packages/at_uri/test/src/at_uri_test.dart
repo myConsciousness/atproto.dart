@@ -373,12 +373,12 @@ void main() {
   test('handles ATP-specific parsing', () {
     final parsedUri = AtUri.parse('at://foo.com/com.example.foo/123');
 
-    expect(parsedUri.collection, 'com.example.foo');
+    expect(parsedUri.collection.toString(), 'com.example.foo');
     expect(parsedUri.rkey, '123');
 
     final unparsedUri = AtUri('at://foo.com/com.example.foo/123');
 
-    expect(unparsedUri.collection, 'com.example.foo');
+    expect(unparsedUri.collection.toString(), 'com.example.foo');
     expect(unparsedUri.rkey, '123');
   });
 
