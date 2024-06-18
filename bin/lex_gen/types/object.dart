@@ -179,17 +179,21 @@ final class LexGenObject {
           .writeln('/// Returns true if [object] is [$name], otherwise false.');
       buffer.writeln('bool is$name(final Map<String, dynamic>? object) {');
       buffer.writeln('  if (object == null) return false;');
-      buffer.writeln("  if (object[r'\$type'] == null) return false;");
-      buffer.writeln();
       if (namespace!.contains('#')) {
         if (isSubscriptionRelated) {
           final name = namespace!.split('#').last;
 
+          buffer.writeln("  if (object['t'] == null) return false;");
+          buffer.writeln();
           buffer.writeln("  return object['t'] == '#$name';");
         } else {
+          buffer.writeln("  if (object[r'\$type'] == null) return false;");
+          buffer.writeln();
           buffer.writeln("  return object[r'\$type'] == '$namespace';");
         }
       } else {
+        buffer.writeln("  if (object[r'\$type'] == null) return false;");
+        buffer.writeln();
         buffer.writeln("  return object[r'\$type'] == '$namespace#main'"
             " || object[r'\$type'] == '$namespace';");
       }

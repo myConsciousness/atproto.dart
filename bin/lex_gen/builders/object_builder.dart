@@ -241,6 +241,7 @@ final class LexGenObjectBuilder {
           entry.key,
           entry.value.toJson(),
           requiredProperties,
+          const [],
           ObjectType.params,
         ),
       );
@@ -257,6 +258,7 @@ final class LexGenObjectBuilder {
 
     final properties = <LexGenObjectProperty>[];
     final requiredProperties = object.requiredProperties ?? const [];
+    final nullableProperties = object.nullableProperties ?? const [];
 
     for (final entry in object.properties!.entries) {
       if (isDeprecated(entry.value.toJson()['description'])) {
@@ -268,6 +270,7 @@ final class LexGenObjectBuilder {
           entry.key,
           entry.value.toJson(),
           requiredProperties,
+          nullableProperties,
           objectType,
         ),
       );
@@ -280,6 +283,7 @@ final class LexGenObjectBuilder {
     final String name,
     final Map<String, dynamic> value,
     final List<String> requiredProperties,
+    final List<String> nullableProperties,
     final ObjectType objectType,
   ) {
     final property = value;
@@ -310,6 +314,7 @@ final class LexGenObjectBuilder {
       name,
       dataType.name ?? '',
       requiredProperties,
+      nullableProperties,
     );
 
     return LexGenObjectProperty(
@@ -345,6 +350,7 @@ final class LexGenObjectBuilder {
     final String propertyName,
     final String typeName,
     final List<String> requiredProperties,
+    final List<String> nullableProperties,
   ) {
     if (propertyName == 'repo') {
       if (objectType == ObjectType.object ||
@@ -362,6 +368,7 @@ final class LexGenObjectBuilder {
       }
     }
 
-    return requiredProperties.contains(propertyName);
+    return requiredProperties.contains(propertyName) &&
+        !nullableProperties.contains(propertyName);
   }
 }

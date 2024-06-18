@@ -42,7 +42,7 @@ mixin _$Commit {
   String get rev => throw _privateConstructorUsedError;
 
   /// The rev of the last emitted commit from this repo (if any).
-  String get since => throw _privateConstructorUsedError;
+  String? get since => throw _privateConstructorUsedError;
 
   /// CAR file containing relevant blocks, as a diff since the previous repo state.
   List<int> get blocks => throw _privateConstructorUsedError;
@@ -74,7 +74,7 @@ abstract class $CommitCopyWith<$Res> {
       String repo,
       String commit,
       String rev,
-      String since,
+      String? since,
       List<int> blocks,
       @RepoOpConverter() List<RepoOp> ops,
       List<String> blobs,
@@ -101,7 +101,7 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
     Object? repo = null,
     Object? commit = null,
     Object? rev = null,
-    Object? since = null,
+    Object? since = freezed,
     Object? blocks = null,
     Object? ops = null,
     Object? blobs = null,
@@ -133,10 +133,10 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
-      since: null == since
+      since: freezed == since
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       blocks: null == blocks
           ? _value.blocks
           : blocks // ignore: cast_nullable_to_non_nullable
@@ -175,7 +175,7 @@ abstract class _$$CommitImplCopyWith<$Res> implements $CommitCopyWith<$Res> {
       String repo,
       String commit,
       String rev,
-      String since,
+      String? since,
       List<int> blocks,
       @RepoOpConverter() List<RepoOp> ops,
       List<String> blobs,
@@ -200,7 +200,7 @@ class __$$CommitImplCopyWithImpl<$Res>
     Object? repo = null,
     Object? commit = null,
     Object? rev = null,
-    Object? since = null,
+    Object? since = freezed,
     Object? blocks = null,
     Object? ops = null,
     Object? blobs = null,
@@ -232,10 +232,10 @@ class __$$CommitImplCopyWithImpl<$Res>
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
-      since: null == since
+      since: freezed == since
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       blocks: null == blocks
           ? _value._blocks
           : blocks // ignore: cast_nullable_to_non_nullable
@@ -271,7 +271,7 @@ class _$CommitImpl implements _Commit {
       required this.repo,
       required this.commit,
       required this.rev,
-      required this.since,
+      this.since,
       required final List<int> blocks,
       @RepoOpConverter() required final List<RepoOp> ops,
       required final List<String> blobs,
@@ -314,7 +314,7 @@ class _$CommitImpl implements _Commit {
 
   /// The rev of the last emitted commit from this repo (if any).
   @override
-  final String since;
+  final String? since;
 
   /// CAR file containing relevant blocks, as a diff since the previous repo state.
   final List<int> _blocks;
@@ -425,7 +425,7 @@ abstract class _Commit implements Commit {
           required final String repo,
           required final String commit,
           required final String rev,
-          required final String since,
+          final String? since,
           required final List<int> blocks,
           @RepoOpConverter() required final List<RepoOp> ops,
           required final List<String> blobs,
@@ -465,7 +465,7 @@ abstract class _Commit implements Commit {
   @override
 
   /// The rev of the last emitted commit from this repo (if any).
-  String get since;
+  String? get since;
   @override
 
   /// CAR file containing relevant blocks, as a diff since the previous repo state.

@@ -54,7 +54,7 @@ class Account with _$Account {
 /// Returns true if [object] is [Account], otherwise false.
 bool isAccount(final Map<String, dynamic>? object) {
   if (object == null) return false;
-  if (object[r'$type'] == null) return false;
+  if (object['t'] == null) return false;
 
   return object['t'] == '#account';
 }

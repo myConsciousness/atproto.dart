@@ -37,7 +37,7 @@ class RepoOp with _$RepoOp {
     required String path,
 
     /// For creates and updates, the new record CID. For deletions, null.
-    required String cid,
+    String? cid,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

@@ -30,7 +30,7 @@ mixin _$RepoOp {
   String get path => throw _privateConstructorUsedError;
 
   /// For creates and updates, the new record CID. For deletions, null.
-  String get cid => throw _privateConstructorUsedError;
+  String? get cid => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -50,7 +50,7 @@ abstract class $RepoOpCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @UActionConverter() UAction action,
       String path,
-      String cid,
+      String? cid,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UActionCopyWith<$Res> get action;
@@ -72,7 +72,7 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
     Object? $type = null,
     Object? action = null,
     Object? path = null,
-    Object? cid = null,
+    Object? cid = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -88,10 +88,10 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
-      cid: null == cid
+      cid: freezed == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ abstract class _$$RepoOpImplCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @UActionConverter() UAction action,
       String path,
-      String cid,
+      String? cid,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
@@ -140,7 +140,7 @@ class __$$RepoOpImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? action = null,
     Object? path = null,
-    Object? cid = null,
+    Object? cid = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$RepoOpImpl(
@@ -156,10 +156,10 @@ class __$$RepoOpImplCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String,
-      cid: null == cid
+      cid: freezed == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -176,7 +176,7 @@ class _$RepoOpImpl implements _RepoOp {
       {@JsonKey(name: r'$type') this.$type = comAtprotoSyncSubscribeReposRepoOp,
       @UActionConverter() required this.action,
       required this.path,
-      required this.cid,
+      this.cid,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -197,7 +197,7 @@ class _$RepoOpImpl implements _RepoOp {
 
   /// For creates and updates, the new record CID. For deletions, null.
   @override
-  final String cid;
+  final String? cid;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -254,7 +254,7 @@ abstract class _RepoOp implements RepoOp {
           {@JsonKey(name: r'$type') final String $type,
           @UActionConverter() required final UAction action,
           required final String path,
-          required final String cid,
+          final String? cid,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RepoOpImpl;
 
@@ -275,7 +275,7 @@ abstract class _RepoOp implements RepoOp {
   @override
 
   /// For creates and updates, the new record CID. For deletions, null.
-  String get cid;
+  String? get cid;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

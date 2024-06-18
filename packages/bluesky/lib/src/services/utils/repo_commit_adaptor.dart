@@ -149,10 +149,11 @@ final class RepoCommitAdaptor {
     final Commit data,
     final RepoOp op,
   ) async {
-    final record = op.getRecord(data.blocks);
+    final record = op.record;
     if (record == null) return;
 
-    final uri = op.getUri(data.repo);
+    final uri = op.uri;
+    if (uri == null) return;
 
     if (uri.isFeedPost && _isFeedPost(record)) {
       await _onCreatePost?.call(
@@ -161,7 +162,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -173,7 +174,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -185,7 +186,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -197,7 +198,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -209,7 +210,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -219,7 +220,7 @@ final class RepoCommitAdaptor {
         RepoCommitCreate<FollowRecord>(
           record: const FollowRecordConverter().fromJson(record),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -231,7 +232,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -243,7 +244,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -255,7 +256,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -267,7 +268,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -279,7 +280,7 @@ final class RepoCommitAdaptor {
             record,
           ),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -289,7 +290,7 @@ final class RepoCommitAdaptor {
         RepoCommitCreate<Map<String, dynamic>>(
           record: record,
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
         ),
@@ -302,17 +303,18 @@ final class RepoCommitAdaptor {
     final Commit data,
     final RepoOp op,
   ) async {
-    final record = op.getRecord(data.blocks);
+    final record = op.record;
     if (record == null) return;
 
-    final uri = op.getUri(data.repo);
+    final uri = op.uri;
+    if (uri == null) return;
 
     if (uri.isActorProfile && _isActorProfile(record)) {
       await _onUpdateProfile?.call(
         RepoCommitUpdate<ProfileRecord>(
           record: const ProfileRecordConverter().fromJson(record),
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
           createdAt: data.time,
@@ -323,7 +325,7 @@ final class RepoCommitAdaptor {
         RepoCommitUpdate<Map<String, dynamic>>(
           record: record,
           uri: uri,
-          cid: op.cid,
+          cid: op.cid!,
           author: data.repo,
           cursor: data.seq,
           createdAt: data.time,
@@ -337,7 +339,8 @@ final class RepoCommitAdaptor {
     final Commit data,
     final RepoOp op,
   ) async {
-    final uri = op.getUri(data.repo);
+    final uri = op.uri;
+    if (uri == null) return;
 
     if (uri.isFeedPost) {
       await _onDeletePost?.call(

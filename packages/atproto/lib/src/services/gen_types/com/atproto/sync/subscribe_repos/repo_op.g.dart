@@ -18,7 +18,7 @@ _$RepoOpImpl _$$RepoOpImplFromJson(Map json) => $checkedCreate(
           action: $checkedConvert(
               'action', (v) => const UActionConverter().fromJson(v as String)),
           path: $checkedConvert('path', (v) => v as String),
-          cid: $checkedConvert('cid', (v) => v as String),
+          cid: $checkedConvert('cid', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -34,7 +34,6 @@ Map<String, dynamic> _$$RepoOpImplToJson(_$RepoOpImpl instance) {
     r'$type': instance.$type,
     'action': const UActionConverter().toJson(instance.action),
     'path': instance.path,
-    'cid': instance.cid,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -43,6 +42,7 @@ Map<String, dynamic> _$$RepoOpImplToJson(_$RepoOpImpl instance) {
     }
   }
 
+  writeNotNull('cid', instance.cid);
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

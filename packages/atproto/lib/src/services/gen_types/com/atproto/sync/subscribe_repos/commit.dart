@@ -50,7 +50,7 @@ class Commit with _$Commit {
     required String rev,
 
     /// The rev of the last emitted commit from this repo (if any).
-    required String since,
+    String? since,
 
     /// CAR file containing relevant blocks, as a diff since the previous repo state.
     required List<int> blocks,
@@ -70,7 +70,7 @@ class Commit with _$Commit {
 /// Returns true if [object] is [Commit], otherwise false.
 bool isCommit(final Map<String, dynamic>? object) {
   if (object == null) return false;
-  if (object[r'$type'] == null) return false;
+  if (object['t'] == null) return false;
 
   return object['t'] == '#commit';
 }

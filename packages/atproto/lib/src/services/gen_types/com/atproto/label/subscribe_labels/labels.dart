@@ -44,7 +44,7 @@ class Labels with _$Labels {
 /// Returns true if [object] is [Labels], otherwise false.
 bool isLabels(final Map<String, dynamic>? object) {
   if (object == null) return false;
-  if (object[r'$type'] == null) return false;
+  if (object['t'] == null) return false;
 
   return object['t'] == '#labels';
 }

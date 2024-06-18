@@ -16,7 +16,7 @@ import '../cid_links.dart';
 Map<String, dynamic> subscribeReposAdaptor(final dynamic data) {
   final cborData = core.cbor.decode([0x82] + data) as List;
 
-  if (!isCommit(cborData.first)) {
+  if (!isCommit(Map<String, dynamic>.from(cborData.first))) {
     return <String, dynamic>{...cborData[0], ...cborData[1]};
   }
 
@@ -25,11 +25,13 @@ Map<String, dynamic> subscribeReposAdaptor(final dynamic data) {
       ? core.decodeCar(Uint8List.fromList(json['blocks']))
       : const <core.CID, List<int>>{};
 
+  json['commit'] = core.CID.fromList(json['commit']).toString();
+
   for (final op in json['ops']) {
     op['uri'] = 'at://${json['repo']}/${op['path']}';
 
     if (op['cid'] == null || op['cid'] == 22) {
-      op['cid'] = '';
+      op['cid'] = null; // on delete
 
       continue;
     }
@@ -46,5 +48,5 @@ Map<String, dynamic> subscribeReposAdaptor(final dynamic data) {
     }
   }
 
-  return json;
+  return jsonDecode(jsonEncode(json));
 }

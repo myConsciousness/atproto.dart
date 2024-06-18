@@ -20,7 +20,7 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
           repo: $checkedConvert('repo', (v) => v as String),
           commit: $checkedConvert('commit', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
-          since: $checkedConvert('since', (v) => v as String),
+          since: $checkedConvert('since', (v) => v as String?),
           blocks: $checkedConvert(
               'blocks',
               (v) =>
@@ -52,11 +52,6 @@ Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) {
     'repo': instance.repo,
     'commit': instance.commit,
     'rev': instance.rev,
-    'since': instance.since,
-    'blocks': instance.blocks,
-    'ops': instance.ops.map(const RepoOpConverter().toJson).toList(),
-    'blobs': instance.blobs,
-    'time': instance.time.toIso8601String(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -65,6 +60,11 @@ Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) {
     }
   }
 
+  writeNotNull('since', instance.since);
+  val['blocks'] = instance.blocks;
+  val['ops'] = instance.ops.map(const RepoOpConverter().toJson).toList();
+  val['blobs'] = instance.blobs;
+  val['time'] = instance.time.toIso8601String();
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

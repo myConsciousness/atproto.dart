@@ -50,7 +50,7 @@ class Identity with _$Identity {
 /// Returns true if [object] is [Identity], otherwise false.
 bool isIdentity(final Map<String, dynamic>? object) {
   if (object == null) return false;
-  if (object[r'$type'] == null) return false;
+  if (object['t'] == null) return false;
 
   return object['t'] == '#identity';
 }

@@ -44,7 +44,7 @@ class Info with _$Info {
 /// Returns true if [object] is [Info], otherwise false.
 bool isInfo(final Map<String, dynamic>? object) {
   if (object == null) return false;
-  if (object[r'$type'] == null) return false;
+  if (object['t'] == null) return false;
 
   return object['t'] == '#info';
 }
