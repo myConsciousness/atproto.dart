@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../../ids.g.dart' as ids;
+import '../../nsids.g.dart' as ns;
 import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
 import '../entities/notification.dart';
@@ -84,5 +84,5 @@ bool _isCustomFeedLike(
     return false;
   }
 
-  return reasonSubject.collection == ids.appBskyFeedGenerator;
+  return reasonSubject.collection == ns.appBskyFeedGenerator;
 }
