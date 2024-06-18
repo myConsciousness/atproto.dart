@@ -10,7 +10,7 @@ import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
 import '../const.dart';
-import '../sessions/session.dart';
+import '../types/session.dart';
 import 'challenge.dart';
 import 'retry_config.dart';
 import 'retry_policy.dart';

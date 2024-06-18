@@ -5,7 +5,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:bluesky/bluesky.dart';
-import 'package:bluesky/core.dart';
+import 'package:bluesky/atproto.dart';
 import 'package:bluesky/moderation.dart' as mod;
 
 Future<void> main(List<String> args) async {

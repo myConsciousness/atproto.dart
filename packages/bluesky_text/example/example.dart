@@ -4,6 +4,7 @@
 
 // ignore_for_file: lines_longer_than_80_chars
 
+import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/core.dart';
 import 'package:bluesky_text/bluesky_text.dart';

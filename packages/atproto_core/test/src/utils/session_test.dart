@@ -6,8 +6,8 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/sessions/auth_scope.dart';
-import 'package:atproto_core/src/sessions/session.dart';
+import 'package:atproto_core/src/types/session.dart';
+import 'package:atproto_core/src/utils/auth_scope.dart';
 
 const _token =
 // ignore: lines_longer_than_80_chars

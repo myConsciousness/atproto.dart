@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:atproto_core/src/clients/service_context.dart';
-import 'package:atproto_core/src/sessions/session.dart';
+import 'package:atproto_core/src/types/session.dart';
 
 void main() {
   group('.headers', () {

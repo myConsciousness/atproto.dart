@@ -16,7 +16,7 @@ _$SessionImpl _$$SessionImplFromJson(Map json) => $checkedCreate(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String?),
-          isEmailConfirmed:
+          emailConfirmed:
               $checkedConvert('emailConfirmed', (v) => v as bool? ?? false),
           emailAuthFactor:
               $checkedConvert('emailAuthFactor', (v) => v as bool? ?? false),
@@ -32,7 +32,6 @@ _$SessionImpl _$$SessionImplFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
-      fieldKeyMap: const {'isEmailConfirmed': 'emailConfirmed'},
     );
 
 Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) {
@@ -48,7 +47,7 @@ Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) {
   }
 
   writeNotNull('email', instance.email);
-  val['emailConfirmed'] = instance.isEmailConfirmed;
+  val['emailConfirmed'] = instance.emailConfirmed;
   val['emailAuthFactor'] = instance.emailAuthFactor;
   val['accessJwt'] = instance.accessJwt;
   val['refreshJwt'] = instance.refreshJwt;

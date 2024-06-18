@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/sessions/auth_scope.dart';
+import 'package:atproto_core/src/utils/auth_scope.dart';
 
 void main() {
   test('.name', () {
