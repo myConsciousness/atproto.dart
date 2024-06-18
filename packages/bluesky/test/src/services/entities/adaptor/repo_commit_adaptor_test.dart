@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_sync_subscribe_repos.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
@@ -11,18 +11,18 @@ import 'package:test/test.dart';
 import 'package:bluesky/src/services/entities/adaptor/repo_commit_create.dart';
 import 'package:bluesky/src/services/entities/adaptor/repo_commit_delete.dart';
 import 'package:bluesky/src/services/entities/adaptor/repo_commit_update.dart';
-import 'package:bluesky/src/services/entities/block_list_record.dart';
-import 'package:bluesky/src/services/entities/block_record.dart';
-import 'package:bluesky/src/services/entities/follow_record.dart';
-import 'package:bluesky/src/services/entities/generator_record.dart';
-import 'package:bluesky/src/services/entities/labeler_service_record.dart';
-import 'package:bluesky/src/services/entities/like_record.dart';
-import 'package:bluesky/src/services/entities/list_item_record.dart';
-import 'package:bluesky/src/services/entities/list_record.dart';
-import 'package:bluesky/src/services/entities/post_record.dart';
-import 'package:bluesky/src/services/entities/profile_record.dart';
-import 'package:bluesky/src/services/entities/repost_record.dart';
-import 'package:bluesky/src/services/entities/threadgate_record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/profile/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/generator/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/like/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/post/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/repost/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/threadgate/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/block/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/follow/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/list/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/listblock/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/listitem/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/labeler/service/record.dart';
 import 'package:bluesky/src/services/utils/repo_commit_adaptor.dart';
 
 void main() {
@@ -464,7 +464,7 @@ void main() {
       final adaptor = RepoCommitAdaptor(
         onCreateListItem: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<ListItemRecord>());
+          expect(data.record, isA<ListitemRecord>());
 
           result = true;
         },
@@ -517,7 +517,7 @@ void main() {
       final adaptor = RepoCommitAdaptor(
         onCreateBlockList: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<BlockListRecord>());
+          expect(data.record, isA<ListblockRecord>());
 
           result = true;
         },
@@ -569,7 +569,7 @@ void main() {
       final adaptor = RepoCommitAdaptor(
         onCreateLabelerService: (data) {
           expect(data, isA<RepoCommitCreate>());
-          expect(data.record, isA<LabelerServiceRecord>());
+          expect(data.record, isA<ServiceRecord>());
 
           result = true;
         },
@@ -1302,11 +1302,14 @@ Commit _buildSubscribedRepoCommit(
 ) =>
     Commit(
       ops: [op],
-      did: 'aaaaaaa',
-      cursor: 1234,
+      repo: 'aaaaaaa',
+      seq: 1234,
       rev: 'xxxxxxx',
-      isTooBig: false,
-      createdAt: DateTime.now(),
+      commit: 'aaaa',
+      blobs: const [],
+      blocks: const [],
+      tooBig: false,
+      time: DateTime.now(),
     );
 
 RepoOp _buildCreateRepoOp(
@@ -1314,10 +1317,13 @@ RepoOp _buildCreateRepoOp(
   final Map<String, dynamic> record,
 ) =>
     RepoOp(
-      action: RepoAction.create,
-      uri: AtUri.parse(uri),
+      action: KnownAction.create.toUnion(),
       cid: 'aaaa',
-      record: record,
+      path: 'xxxxxx',
+      $unknown: {
+        'uri': AtUri.parse(uri),
+        'record': record,
+      },
     );
 
 RepoOp _buildUpdateRepoOp(
@@ -1325,16 +1331,23 @@ RepoOp _buildUpdateRepoOp(
   final Map<String, dynamic> record,
 ) =>
     RepoOp(
-      action: RepoAction.update,
-      uri: AtUri.parse(uri),
+      action: KnownAction.update.toUnion(),
       cid: 'aaaa',
-      record: record,
+      path: 'xxxxxx',
+      $unknown: {
+        'uri': AtUri.parse(uri),
+        'record': record,
+      },
     );
 
 RepoOp _buildDeleteRepoOp(
   final String uri,
 ) =>
     RepoOp(
-      action: RepoAction.delete,
-      uri: AtUri.parse(uri),
+      action: KnownAction.delete.toUnion(),
+      cid: 'aaaa',
+      path: 'xxxxxx',
+      $unknown: {
+        'uri': AtUri.parse(uri),
+      },
     );

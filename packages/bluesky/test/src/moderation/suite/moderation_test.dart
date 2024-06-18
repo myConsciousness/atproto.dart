@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -16,7 +16,7 @@ import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
 import 'package:bluesky/src/moderation/utils.dart';
-import 'package:bluesky/src/services/entities/post_record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/post/record.dart';
 import 'utils/mock.dart';
 import 'utils/result_flag.dart';
 import 'utils/runner.dart';
@@ -35,8 +35,8 @@ void main() {
               Label(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -74,8 +74,8 @@ void main() {
               Label(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -113,8 +113,8 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -154,8 +154,8 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -256,14 +256,14 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: '!hide',
-                createdAt: DateTime.now().toUtc(),
+                val: '!hide',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -292,14 +292,14 @@ void main() {
             .getUI(ModerationBehaviorContext.contentList)
             .filters
             .first
-            .whenOrNull(label: (data) => data.label.value),
+            .whenOrNull(label: (data) => data.label.val),
         '!hide',
       );
       expect(
         actual
             .getUI(ModerationBehaviorContext.contentList)
             .filters[1]
-            .whenOrNull(label: (data) => data.label.value),
+            .whenOrNull(label: (data) => data.label.val),
         'porn',
       );
       expect(
@@ -307,7 +307,7 @@ void main() {
             .getUI(ModerationBehaviorContext.contentList)
             .blurs
             .first
-            .whenOrNull(label: (data) => data.label.value),
+            .whenOrNull(label: (data) => data.label.val),
         '!hide',
       );
       expect(
@@ -315,7 +315,7 @@ void main() {
             .getUI(ModerationBehaviorContext.contentMedia)
             .blurs
             .first
-            .whenOrNull(label: (data) => data.label.value),
+            .whenOrNull(label: (data) => data.label.val),
         'porn',
       );
     });
@@ -336,8 +336,8 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -432,8 +432,8 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: '!hide',
-                createdAt: DateTime.now().toUtc(),
+                val: '!hide',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -531,14 +531,14 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'BadLabel',
-                createdAt: DateTime.now().toUtc(),
+                val: 'BadLabel',
+                cts: DateTime.now().toUtc(),
               ),
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'bad/label',
-                createdAt: DateTime.now().toUtc(),
+                val: 'bad/label',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -639,8 +639,8 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'default-hide',
-                createdAt: DateTime.now().toUtc(),
+                val: 'default-hide',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -750,8 +750,8 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'default-warn',
-                createdAt: DateTime.now().toUtc(),
+                val: 'default-warn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -860,8 +860,8 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'default-ignore',
-                createdAt: DateTime.now().toUtc(),
+                val: 'default-ignore',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -966,8 +966,8 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'adult',
-                createdAt: DateTime.now().toUtc(),
+                val: 'adult',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),
@@ -1070,8 +1070,8 @@ void main() {
               Label(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.post/fake',
-                value: 'porn',
-                createdAt: DateTime.now().toUtc(),
+                val: 'porn',
+                cts: DateTime.now().toUtc(),
               ),
             ],
           ),

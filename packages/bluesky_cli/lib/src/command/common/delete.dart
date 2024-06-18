@@ -29,7 +29,7 @@ class DeleteCommand extends DeleteRecordCommand {
   final String invocation = 'bsky delete [uri]';
 
   @override
-  xrpc.NSID get collection => xrpc.NSID.parse(uri.collection);
+  xrpc.NSID get collection => uri.collection;
 
   @override
   AtUri get uri => AtUri.parse(argResults!['uri']);

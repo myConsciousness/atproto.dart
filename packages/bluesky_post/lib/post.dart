@@ -8,8 +8,14 @@ import 'dart:io';
 
 // 📦 Package imports:
 import 'package:actions_toolkit_dart/core.dart' as core;
+import 'package:bluesky/app_bsky_embed_external.dart';
+import 'package:bluesky/app_bsky_embed_images.dart';
+import 'package:bluesky/app_bsky_feed_post.dart';
+import 'package:bluesky/app_bsky_richtext_facet.dart';
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/cardyb.dart' as cardyb;
+import 'package:bluesky/com_atproto_label_defs.dart';
+import 'package:bluesky/com_atproto_repo_upload_blob.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:http/http.dart' as http;
 
@@ -33,9 +39,9 @@ Future<void> post() async {
 
   final createdPost = await bluesky.feed.post(
     text: text.value,
-    facets: facets.map(bsky.Facet.fromJson).toList(),
+    facets: facets.map(Facet.fromJson).toList(),
     embed: await _getEmbed(bluesky),
-    languageTags: _langs,
+    langs: _langs,
     labels: _labels,
     tags: _tags,
   );
@@ -45,14 +51,14 @@ Future<void> post() async {
   core.info(message: 'uri = [${createdPost.data.uri}]');
 }
 
-Future<bsky.Embed?> _getEmbed(final bsky.Bluesky bluesky) async {
+Future<UPostEmbed?> _getEmbed(final bsky.Bluesky bluesky) async {
   try {
     final uploadedMedia = await _uploadMedia(bluesky);
     if (uploadedMedia != null) {
-      return bsky.Embed.images(
-        data: bsky.EmbedImages(
+      return UPostEmbed.images(
+        data: Images(
           images: [
-            bsky.Image(
+            ImagesImage(
               alt: core.getInput(
                 name: 'media-alt',
                 options: core.InputOptions(trimWhitespace: true),
@@ -74,13 +80,13 @@ Future<bsky.Embed?> _getEmbed(final bsky.Bluesky bluesky) async {
       preview.data.image,
     );
 
-    return bsky.Embed.external(
-      data: bsky.EmbedExternal(
-        external: bsky.EmbedExternalThumbnail(
+    return UPostEmbed.external(
+      data: External(
+        external: ExternalExternal(
           uri: preview.data.url,
           title: preview.data.title,
           description: preview.data.description,
-          blob: uploadedPreview?.blob,
+          thumb: uploadedPreview?.blob,
         ),
       ),
     );
@@ -139,7 +145,7 @@ String get _service {
   return service.isEmpty ? 'bsky.social' : service;
 }
 
-Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
+Future<UploadBlobOutput?> _uploadMedia(final bsky.Bluesky bluesky) async {
   final mediaPath = core.getInput(
     name: 'media',
     options: core.InputOptions(trimWhitespace: true),
@@ -150,13 +156,13 @@ Future<bsky.BlobData?> _uploadMedia(final bsky.Bluesky bluesky) async {
   }
 
   final uploaded = await bluesky.repo.uploadBlob(
-    File(mediaPath).readAsBytesSync(),
+    bytes: File(mediaPath).readAsBytesSync(),
   );
 
   return uploaded.data;
 }
 
-Future<bsky.BlobData?> _uploadLinkPreview(
+Future<UploadBlobOutput?> _uploadLinkPreview(
   final bsky.Bluesky bluesky,
   final String previewImage,
 ) async {
@@ -167,7 +173,7 @@ Future<bsky.BlobData?> _uploadLinkPreview(
   final image = await http.get(Uri.parse(previewImage));
   if (image.statusCode != 200) return null;
 
-  final uploaded = await bluesky.repo.uploadBlob(image.bodyBytes);
+  final uploaded = await bluesky.repo.uploadBlob(bytes: image.bodyBytes);
 
   return uploaded.data;
 }
@@ -185,7 +191,7 @@ List<String>? get _langs {
   return langs.split(',');
 }
 
-bsky.Labels? get _labels {
+UPostLabel? get _labels {
   final labels = core.getInput(
     name: 'labels',
     options: core.InputOptions(trimWhitespace: true),
@@ -195,9 +201,9 @@ bsky.Labels? get _labels {
     return null;
   }
 
-  return bsky.Labels.selfLabels(
-    data: bsky.SelfLabels(
-      values: labels.split(',').map((e) => bsky.SelfLabel(value: e)).toList(),
+  return UPostLabel.selfLabels(
+    data: SelfLabels(
+      values: labels.split(',').map((e) => SelfLabel(val: e)).toList(),
     ),
   );
 }

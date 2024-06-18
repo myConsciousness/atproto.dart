@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -18,7 +18,7 @@ final class ActorService {
   final BlueskyChatServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
-  Future<core.XRPCResponse<atp.StrongRef>> declaration({
+  Future<core.XRPCResponse<StrongRef>> declaration({
     required DeclarationAllowIncoming allowIncoming,
   }) async =>
       await _ctx.atproto.repo.createRecord(
