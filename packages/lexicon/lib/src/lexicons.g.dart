@@ -8931,6 +8931,199 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
   }
 };
 
+/// `tools.ozone.team.deleteMember`
+const toolsOzoneTeamDeleteMember = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.deleteMember",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Delete a member from ozone team. Requires admin role.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did"],
+          "properties": {
+            "did": {"type": "string", "format": "did"}
+          }
+        }
+      },
+      "errors": [
+        {
+          "name": "MemberNotFound",
+          "description": "The member being deleted does not exist"
+        },
+        {
+          "name": "CannotDeleteSelf",
+          "description": "You can not delete yourself from the team"
+        }
+      ]
+    }
+  }
+};
+
+/// `tools.ozone.team.updateMember`
+const toolsOzoneTeamUpdateMember = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.updateMember",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Update a member in the ozone service. Requires admin role.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "disabled": {"type": "boolean"},
+            "role": {
+              "type": "string",
+              "knownValues": [
+                "tools.ozone.team.defs#roleAdmin",
+                "tools.ozone.team.defs#roleModerator",
+                "tools.ozone.team.defs#roleTriage"
+              ]
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.team.defs#member"}
+      },
+      "errors": [
+        {
+          "name": "MemberNotFound",
+          "description": "The member being updated does not exist in the team"
+        }
+      ]
+    }
+  }
+};
+
+/// `tools.ozone.team.listMembers`
+const toolsOzoneTeamListMembers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.listMembers",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "List all members with access to the ozone service.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["members"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "members": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "tools.ozone.team.defs#member"}
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.team.defs`
+const toolsOzoneTeamDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.defs",
+  "defs": {
+    "member": {
+      "type": "object",
+      "required": ["did", "role"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "disabled": {"type": "boolean"},
+        "profile": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewDetailed"
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+        "lastUpdatedBy": {"type": "string"},
+        "role": {
+          "type": "string",
+          "knownValues": ["#roleAdmin", "#roleModerator", "#roleTriage"]
+        }
+      }
+    },
+    "roleAdmin": {
+      "type": "token",
+      "description":
+          "Admin role. Highest level of access, can perform all actions."
+    },
+    "roleModerator": {
+      "type": "token",
+      "description": "Moderator role. Can perform most actions."
+    },
+    "roleTriage": {
+      "type": "token",
+      "description":
+          "Triage role. Mostly intended for monitoring and escalating issues."
+    }
+  }
+};
+
+/// `tools.ozone.team.addMember`
+const toolsOzoneTeamAddMember = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.addMember",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Add a member to the ozone team. Requires admin role.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "role"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "role": {
+              "type": "string",
+              "knownValues": [
+                "tools.ozone.team.defs#roleAdmin",
+                "tools.ozone.team.defs#roleModerator",
+                "tools.ozone.team.defs#roleTriage"
+              ]
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.team.defs#member"}
+      },
+      "errors": [
+        {
+          "name": "MemberAlreadyExists",
+          "description": "Member already exists in the team."
+        }
+      ]
+    }
+  }
+};
+
 /// `tools.ozone.server.getConfig`
 const toolsOzoneServerGetConfig = <String, dynamic>{
   "lexicon": 1,
@@ -9341,6 +9534,11 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneModerationDefs,
   toolsOzoneModerationGetEvent,
   toolsOzoneModerationQueryStatuses,
+  toolsOzoneTeamDeleteMember,
+  toolsOzoneTeamUpdateMember,
+  toolsOzoneTeamListMembers,
+  toolsOzoneTeamDefs,
+  toolsOzoneTeamAddMember,
   toolsOzoneServerGetConfig,
   toolsOzoneCommunicationCreateTemplate,
   toolsOzoneCommunicationDeleteTemplate,
