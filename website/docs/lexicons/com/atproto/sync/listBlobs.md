@@ -7,7 +7,7 @@ description: com.atproto.sync.listBlobs
 
 ## #main
 
-List blob CIDso for an account, since some repo revision. Does not require auth; implemented by PDS.
+List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.
 
 ### Parameters
 
