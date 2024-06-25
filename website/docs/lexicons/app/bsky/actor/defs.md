@@ -16,6 +16,7 @@ description: app.bsky.actor.defs
 | **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ## #profileView
 
@@ -28,6 +29,7 @@ description: app.bsky.actor.defs
 | **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 
@@ -45,7 +47,9 @@ description: app.bsky.actor.defs
 | **followsCount** | integer | - | ❌ | - |
 | **postsCount** | integer | - | ❌ | - |
 | **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |
+| **joinedViaStarterPack** | [app.bsky.graph.defs#starterPackViewBasic](../../../../lexicons/app/bsky/graph/defs.md#starterpackviewbasic) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 
@@ -55,6 +59,7 @@ description: app.bsky.actor.defs
 | --- | --- | --- | :---: | --- |
 | **lists** | integer | - | ❌ | - |
 | **feedgens** | integer | - | ❌ | - |
+| **starterPacks** | integer | - | ❌ | - |
 | **labeler** | boolean | - | ❌ | - |
 | **chat** | [#profileAssociatedChat](#profileassociatedchat) | - | ❌ | - |
 

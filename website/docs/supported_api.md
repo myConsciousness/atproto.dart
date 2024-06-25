@@ -152,9 +152,12 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.graph.muteActorList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/muteActorList.html)** | [Reference](lexicons/app/bsky/graph/muteActorList.md) | ✅ | ❌ |
 | **[app.bsky.graph.getMutes](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getMutes.html)** | [Reference](lexicons/app/bsky/graph/getMutes.md) | ✅ | ✅ |
 | **[app.bsky.graph.getListMutes](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getListMutes.html)** | [Reference](lexicons/app/bsky/graph/getListMutes.md) | ✅ | ✅ |
+| **[app.bsky.graph.getActorStarterPacks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getActorStarterPacks.html)** | [Reference](lexicons/app/bsky/graph/getActorStarterPacks.md) | ❌ | ✅ |
 | **[app.bsky.graph.listblock](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/listblock.html)** | [Reference](lexicons/app/bsky/graph/listblock.md) | ✅ | ❌ |
 | **[app.bsky.graph.getSuggestedFollowsByActor](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getSuggestedFollowsByActor.html)** | [Reference](lexicons/app/bsky/graph/getSuggestedFollowsByActor.md) | ✅ | ❌ |
+| **[app.bsky.graph.getStarterPack](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getStarterPack.html)** | [Reference](lexicons/app/bsky/graph/getStarterPack.md) | ❌ | ❌ |
 | **[app.bsky.graph.getRelationships](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getRelationships.html)** | [Reference](lexicons/app/bsky/graph/getRelationships.md) | ✅ | ❌ |
+| **[app.bsky.graph.getStarterPacks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getStarterPacks.html)** | [Reference](lexicons/app/bsky/graph/getStarterPacks.md) | ❌ | ❌ |
 | **[app.bsky.graph.listitem](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/listitem.html)** | [Reference](lexicons/app/bsky/graph/listitem.md) | ✅ | ❌ |
 | **[app.bsky.graph.getFollowers](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getFollowers.html)** | [Reference](lexicons/app/bsky/graph/getFollowers.md) | ✅ | ✅ |
 | **[app.bsky.graph.muteActor](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/muteActor.html)** | [Reference](lexicons/app/bsky/graph/muteActor.md) | ✅ | ❌ |
@@ -164,6 +167,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.graph.unmuteThread](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/unmuteThread.html)** | [Reference](lexicons/app/bsky/graph/unmuteThread.md) | ❌ | ❌ |
 | **[app.bsky.graph.block](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/block.html)** | [Reference](lexicons/app/bsky/graph/block.md) | ✅ | ❌ |
 | **[app.bsky.graph.list](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/list.html)** | [Reference](lexicons/app/bsky/graph/list.md) | ✅ | ❌ |
+| **[app.bsky.graph.starterpack](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/starterpack.html)** | [Reference](lexicons/app/bsky/graph/starterpack.md) | ❌ | ❌ |
 | **[app.bsky.graph.getList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getList.html)** | [Reference](lexicons/app/bsky/graph/getList.md) | ✅ | ✅ |
 | **[app.bsky.graph.getLists](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getLists.html)** | [Reference](lexicons/app/bsky/graph/getLists.md) | ✅ | ✅ |
 | **[app.bsky.graph.getListBlocks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getListBlocks.html)** | [Reference](lexicons/app/bsky/graph/getListBlocks.md) | ✅ | ✅ |

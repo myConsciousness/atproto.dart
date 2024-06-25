@@ -14,6 +14,7 @@ description: app.bsky.graph.defs
 | **name** | string | - | ✅ | - |
 | **purpose** | [#listPurpose](#listpurpose) | - | ✅ | - |
 | **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **listItemCount** | integer | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#listViewerState](#listviewerstate) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
@@ -30,6 +31,7 @@ description: app.bsky.graph.defs
 | **description** | string | - | ❌ | - |
 | **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
 | **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **listItemCount** | integer | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#listViewerState](#listviewerstate) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
@@ -41,11 +43,41 @@ description: app.bsky.graph.defs
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **subject** | [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
 
+## #starterPackView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+| **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
+| **record** | unknown | - | ✅ | - |
+| **creator** | [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
+| **list** | [#listViewBasic](#listviewbasic) | - | ❌ | - |
+| **listItemsSample** | array of [#listItemView](#listitemview) | - | ❌ | - |
+| **feeds** | array of [app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview) | - | ❌ | - |
+| **joinedWeekCount** | integer | - | ❌ | - |
+| **joinedAllTimeCount** | integer | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
+| **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
+## #starterPackViewBasic
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+| **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
+| **record** | unknown | - | ✅ | - |
+| **creator** | [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
+| **listItemCount** | integer | - | ❌ | - |
+| **joinedWeekCount** | integer | - | ❌ | - |
+| **joinedAllTimeCount** | integer | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
+| **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
 ## #listPurpose
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **listPurpose** | string | [app.bsky.graph.defs#modlist](../../../../lexicons/app/bsky/graph/defs.md#modlist)<br/>[app.bsky.graph.defs#curatelist](../../../../lexicons/app/bsky/graph/defs.md#curatelist) | ❌ | - |
+| **listPurpose** | string | [app.bsky.graph.defs#modlist](../../../../lexicons/app/bsky/graph/defs.md#modlist)<br/>[app.bsky.graph.defs#curatelist](../../../../lexicons/app/bsky/graph/defs.md#curatelist)<br/>[app.bsky.graph.defs#referencelist](../../../../lexicons/app/bsky/graph/defs.md#referencelist) | ❌ | - |
 
 ## #modlist
 
@@ -54,6 +86,10 @@ description: app.bsky.graph.defs
 ## #curatelist
 
 **TOKEN**: A list of actors used for curation purposes such as list feeds or interaction gating.
+
+## #referencelist
+
+**TOKEN**: A list of actors used for only for reference purposes such as within a starter pack.
 
 ## #listViewerState
 

@@ -373,11 +373,24 @@ const appBskyGraphDefsModlist = 'app.bsky.graph.defs#modlist';
 /// `app.bsky.graph.defs#notFoundActor`
 const appBskyGraphDefsNotFoundActor = 'app.bsky.graph.defs#notFoundActor';
 
+/// `app.bsky.graph.defs#referencelist`
+const appBskyGraphDefsReferencelist = 'app.bsky.graph.defs#referencelist';
+
 /// `app.bsky.graph.defs#relationship`
 const appBskyGraphDefsRelationship = 'app.bsky.graph.defs#relationship';
 
+/// `app.bsky.graph.defs#starterPackView`
+const appBskyGraphDefsStarterPackView = 'app.bsky.graph.defs#starterPackView';
+
+/// `app.bsky.graph.defs#starterPackViewBasic`
+const appBskyGraphDefsStarterPackViewBasic =
+    'app.bsky.graph.defs#starterPackViewBasic';
+
 /// `app.bsky.graph.follow`
 const appBskyGraphFollow = 'app.bsky.graph.follow';
+
+/// `app.bsky.graph.getActorStarterPacks`
+const appBskyGraphGetActorStarterPacks = 'app.bsky.graph.getActorStarterPacks';
 
 /// `app.bsky.graph.getBlocks`
 const appBskyGraphGetBlocks = 'app.bsky.graph.getBlocks';
@@ -409,6 +422,12 @@ const appBskyGraphGetMutes = 'app.bsky.graph.getMutes';
 /// `app.bsky.graph.getRelationships`
 const appBskyGraphGetRelationships = 'app.bsky.graph.getRelationships';
 
+/// `app.bsky.graph.getStarterPack`
+const appBskyGraphGetStarterPack = 'app.bsky.graph.getStarterPack';
+
+/// `app.bsky.graph.getStarterPacks`
+const appBskyGraphGetStarterPacks = 'app.bsky.graph.getStarterPacks';
+
 /// `app.bsky.graph.getSuggestedFollowsByActor`
 const appBskyGraphGetSuggestedFollowsByActor =
     'app.bsky.graph.getSuggestedFollowsByActor';
@@ -430,6 +449,12 @@ const appBskyGraphMuteActorList = 'app.bsky.graph.muteActorList';
 
 /// `app.bsky.graph.muteThread`
 const appBskyGraphMuteThread = 'app.bsky.graph.muteThread';
+
+/// `app.bsky.graph.starterpack`
+const appBskyGraphStarterpack = 'app.bsky.graph.starterpack';
+
+/// `app.bsky.graph.starterpack#feedItem`
+const appBskyGraphStarterpackFeedItem = 'app.bsky.graph.starterpack#feedItem';
 
 /// `app.bsky.graph.unmuteActor`
 const appBskyGraphUnmuteActor = 'app.bsky.graph.unmuteActor';
