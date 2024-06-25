@@ -39,6 +39,7 @@ class ListViewBasic with _$ListViewBasic {
     required String name,
     @UListPurposeConverter() required UListPurpose purpose,
     String? avatar,
+    @Default(0) int listItemCount,
     @LabelConverter() List<Label>? labels,
     @ListViewerStateConverter()
     @Default(ListViewerState())
@@ -78,6 +79,7 @@ const _kLexCompatibleProperties = <String>[
   'name',
   'purpose',
   'avatar',
+  'listItemCount',
   'labels',
   'viewer',
   'indexedAt',

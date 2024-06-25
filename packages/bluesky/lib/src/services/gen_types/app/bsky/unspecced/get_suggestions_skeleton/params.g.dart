@@ -16,7 +16,7 @@ _$GetSuggestionsSkeletonParamsImpl _$$GetSuggestionsSkeletonParamsImplFromJson(
       ($checkedConvert) {
         final val = _$GetSuggestionsSkeletonParamsImpl(
           viewer: $checkedConvert('viewer', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

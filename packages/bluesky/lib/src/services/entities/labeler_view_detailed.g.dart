@@ -23,8 +23,7 @@ _$LabelerViewDetailedImpl _$$LabelerViewDetailedImplFromJson(Map json) =>
               'policies',
               (v) => LabelerPolicies.fromJson(
                   Map<String, Object?>.from(v as Map))),
-          likeCount:
-              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
+          likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)

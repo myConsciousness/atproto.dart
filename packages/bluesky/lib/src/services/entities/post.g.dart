@@ -26,12 +26,9 @@ _$PostImpl _$$PostImplFromJson(Map json) => $checkedCreate(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, EmbedView>(
                   v, embedViewConverter.fromJson)),
-          replyCount:
-              $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
-          repostCount:
-              $checkedConvert('repostCount', (v) => (v as num?)?.toInt() ?? 0),
-          likeCount:
-              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
+          replyCount: $checkedConvert('replyCount', (v) => v as int? ?? 0),
+          repostCount: $checkedConvert('repostCount', (v) => v as int? ?? 0),
+          likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null

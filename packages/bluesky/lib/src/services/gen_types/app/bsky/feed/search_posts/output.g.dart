@@ -15,7 +15,7 @@ _$SearchPostsOutputImpl _$$SearchPostsOutputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$SearchPostsOutputImpl(
           cursor: $checkedConvert('cursor', (v) => v as String?),
-          hitsTotal: $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt()),
+          hitsTotal: $checkedConvert('hitsTotal', (v) => v as int?),
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)

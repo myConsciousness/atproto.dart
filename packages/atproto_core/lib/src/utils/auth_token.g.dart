@@ -17,9 +17,9 @@ _$AuthTokenImpl _$$AuthTokenImplFromJson(Map json) => $checkedCreate(
               'scope', (v) => $enumDecode(_$AuthScopeEnumMap, v)),
           subject: $checkedConvert('sub', (v) => v as String),
           expiresAt: $checkedConvert(
-              'exp', (v) => dateTimeConverter.fromJson((v as num).toInt())),
+              'exp', (v) => dateTimeConverter.fromJson(v as int)),
           issuedAt: $checkedConvert(
-              'iat', (v) => dateTimeConverter.fromJson((v as num).toInt())),
+              'iat', (v) => dateTimeConverter.fromJson(v as int)),
         );
         return val;
       },

@@ -20,8 +20,7 @@ _$SkeletonPostsByQueryImpl _$$SkeletonPostsByQueryImplFromJson(Map json) =>
                   .map((e) => SkeletonPost.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
-          hitsTotal:
-              $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt() ?? 0),
+          hitsTotal: $checkedConvert('hitsTotal', (v) => v as int? ?? 0),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;

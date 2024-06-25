@@ -14,7 +14,7 @@ _$GetListBlocksParamsImpl _$$GetListBlocksParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$GetListBlocksParamsImpl(
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

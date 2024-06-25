@@ -27,6 +27,8 @@ final class ObjectContext {
   final Set<NSID> mainDocIds;
   final Set<NSID> subscriptionUnionRefs;
 
+  NSID get subject => NSID('$docId#$defName');
+
   String? get namespace {
     if (def is! ULexUserTypeObject &&
         def is! ULexUserTypeArray &&

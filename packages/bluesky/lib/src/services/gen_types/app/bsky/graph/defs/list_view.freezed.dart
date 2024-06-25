@@ -37,6 +37,7 @@ mixin _$ListView {
   @FacetConverter()
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  int get listItemCount => throw _privateConstructorUsedError;
   @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
   @ListViewerStateConverter()
@@ -68,6 +69,7 @@ abstract class $ListViewCopyWith<$Res> {
       String? description,
       @FacetConverter() List<Facet>? descriptionFacets,
       String? avatar,
+      int listItemCount,
       @LabelConverter() List<Label>? labels,
       @ListViewerStateConverter() ListViewerState viewer,
       DateTime indexedAt,
@@ -100,6 +102,7 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? listItemCount = null,
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
@@ -142,6 +145,10 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      listItemCount: null == listItemCount
+          ? _value.listItemCount
+          : listItemCount // ignore: cast_nullable_to_non_nullable
+              as int,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -204,6 +211,7 @@ abstract class _$$ListViewImplCopyWith<$Res>
       String? description,
       @FacetConverter() List<Facet>? descriptionFacets,
       String? avatar,
+      int listItemCount,
       @LabelConverter() List<Label>? labels,
       @ListViewerStateConverter() ListViewerState viewer,
       DateTime indexedAt,
@@ -237,6 +245,7 @@ class __$$ListViewImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? listItemCount = null,
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
@@ -279,6 +288,10 @@ class __$$ListViewImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      listItemCount: null == listItemCount
+          ? _value.listItemCount
+          : listItemCount // ignore: cast_nullable_to_non_nullable
+              as int,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -313,6 +326,7 @@ class _$ListViewImpl implements _ListView {
       this.description,
       @FacetConverter() final List<Facet>? descriptionFacets,
       this.avatar,
+      this.listItemCount = 0,
       @LabelConverter() final List<Label>? labels,
       @ListViewerStateConverter() this.viewer = const ListViewerState(),
       required this.indexedAt,
@@ -359,6 +373,9 @@ class _$ListViewImpl implements _ListView {
 
   @override
   final String? avatar;
+  @override
+  @JsonKey()
+  final int listItemCount;
   final List<Label>? _labels;
   @override
   @LabelConverter()
@@ -393,7 +410,7 @@ class _$ListViewImpl implements _ListView {
 
   @override
   String toString() {
-    return 'ListView(\$type: ${$type}, uri: $uri, cid: $cid, creator: $creator, name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt, \$unknown: ${$unknown})';
+    return 'ListView(\$type: ${$type}, uri: $uri, cid: $cid, creator: $creator, name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, listItemCount: $listItemCount, labels: $labels, viewer: $viewer, indexedAt: $indexedAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -412,6 +429,8 @@ class _$ListViewImpl implements _ListView {
             const DeepCollectionEquality()
                 .equals(other._descriptionFacets, _descriptionFacets) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.listItemCount, listItemCount) ||
+                other.listItemCount == listItemCount) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             (identical(other.indexedAt, indexedAt) ||
@@ -432,6 +451,7 @@ class _$ListViewImpl implements _ListView {
       description,
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
+      listItemCount,
       const DeepCollectionEquality().hash(_labels),
       viewer,
       indexedAt,
@@ -462,6 +482,7 @@ abstract class _ListView implements ListView {
           final String? description,
           @FacetConverter() final List<Facet>? descriptionFacets,
           final String? avatar,
+          final int listItemCount,
           @LabelConverter() final List<Label>? labels,
           @ListViewerStateConverter() final ListViewerState viewer,
           required final DateTime indexedAt,
@@ -498,6 +519,8 @@ abstract class _ListView implements ListView {
   List<Facet>? get descriptionFacets;
   @override
   String? get avatar;
+  @override
+  int get listItemCount;
   @override
   @LabelConverter()
   List<Label>? get labels;

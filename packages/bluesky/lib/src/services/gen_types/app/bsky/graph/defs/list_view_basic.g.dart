@@ -22,6 +22,8 @@ _$ListViewBasicImpl _$$ListViewBasicImplFromJson(Map json) => $checkedCreate(
           purpose: $checkedConvert('purpose',
               (v) => const UListPurposeConverter().fromJson(v as String)),
           avatar: $checkedConvert('avatar', (v) => v as String?),
+          listItemCount:
+              $checkedConvert('listItemCount', (v) => v as int? ?? 0),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -62,6 +64,7 @@ Map<String, dynamic> _$$ListViewBasicImplToJson(_$ListViewBasicImpl instance) {
   }
 
   writeNotNull('avatar', instance.avatar);
+  val['listItemCount'] = instance.listItemCount;
   writeNotNull(
       'labels', instance.labels?.map(const LabelConverter().toJson).toList());
   val['viewer'] = const ListViewerStateConverter().toJson(instance.viewer);

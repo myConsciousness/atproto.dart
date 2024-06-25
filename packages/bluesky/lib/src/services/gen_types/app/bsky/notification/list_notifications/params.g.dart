@@ -15,7 +15,7 @@ _$ListNotificationsParamsImpl _$$ListNotificationsParamsImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$ListNotificationsParamsImpl(
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           seenAt: $checkedConvert(
               'seenAt', (v) => v == null ? null : DateTime.parse(v as String)),

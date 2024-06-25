@@ -38,7 +38,7 @@ class Notification with _$Notification {
     required String cid,
     @ProfileViewConverter() required ProfileView author,
 
-    /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
+    /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.
     @UReasonConverter() required UReason reason,
     @AtUriConverter() AtUri? reasonSubject,
     required Map<String, dynamic> record,

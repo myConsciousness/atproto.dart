@@ -25,8 +25,8 @@ _$SavedFeedsPrefImpl _$$SavedFeedsPrefImplFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>)
                   .map((e) => const AtUriConverter().fromJson(e as String))
                   .toList()),
-          timelineIndex: $checkedConvert(
-              'timelineIndex', (v) => (v as num?)?.toInt() ?? 0),
+          timelineIndex:
+              $checkedConvert('timelineIndex', (v) => v as int? ?? 0),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(

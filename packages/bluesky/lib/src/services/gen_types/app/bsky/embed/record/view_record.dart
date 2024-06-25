@@ -19,7 +19,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import '../../../../app/bsky/embed/record/union_record_embed.dart';
-import '../../../../app/bsky/feed/post/record.dart';
+import '../../feed/post/record.dart';
 
 part 'view_record.freezed.dart';
 part 'view_record.g.dart';

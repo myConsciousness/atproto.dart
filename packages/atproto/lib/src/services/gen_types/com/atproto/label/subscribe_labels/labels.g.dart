@@ -15,7 +15,7 @@ _$LabelsImpl _$$LabelsImplFromJson(Map json) => $checkedCreate(
         final val = _$LabelsImpl(
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? comAtprotoLabelSubscribeLabelsLabels),
-          seq: $checkedConvert('seq', (v) => (v as num).toInt()),
+          seq: $checkedConvert('seq', (v) => v as int),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>)

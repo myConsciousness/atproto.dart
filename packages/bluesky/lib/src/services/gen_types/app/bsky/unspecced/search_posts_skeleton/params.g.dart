@@ -30,7 +30,7 @@ _$SearchPostsSkeletonParamsImpl _$$SearchPostsSkeletonParamsImplFromJson(
           tag: $checkedConvert('tag',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           viewer: $checkedConvert('viewer', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

@@ -11,6 +11,7 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -43,6 +44,8 @@ class ProfileRecord with _$ProfileRecord {
 
     /// Self-label values, specific to the Bluesky application, on the overall account.
     @UProfileLabelConverter() UProfileLabel? labels,
+    @StrongRefConverter() StrongRef? joinedViaStarterPack,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -78,6 +81,8 @@ const _kLexCompatibleProperties = <String>[
   'avatar',
   'banner',
   'labels',
+  'joinedViaStarterPack',
+  'createdAt',
 ];
 
 final class ProfileRecordConverter

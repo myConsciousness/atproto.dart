@@ -16,7 +16,7 @@ _$SearchActorsParamsImpl _$$SearchActorsParamsImplFromJson(Map json) =>
         final val = _$SearchActorsParamsImpl(
           term: $checkedConvert('term', (v) => v as String?),
           q: $checkedConvert('q', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

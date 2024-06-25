@@ -23,6 +23,10 @@ enum KnownListPurpose {
   /// A list of actors used for curation purposes such as list feeds or interaction gating.
   @JsonValue('app.bsky.graph.defs#curatelist')
   curatelist('app.bsky.graph.defs#curatelist'),
+
+  /// A list of actors used for only for reference purposes such as within a starter pack.
+  @JsonValue('app.bsky.graph.defs#referencelist')
+  referencelist('app.bsky.graph.defs#referencelist'),
   ;
 
   /// JSON value based on lexicon.
@@ -59,6 +63,12 @@ extension $KnownListPurposeExtension on KnownListPurpose {
 
   /// Returns true if this value is not [curatelist], otherwise false.
   bool get isNotCuratelist => !isCuratelist;
+
+  /// Returns true if this value is [referencelist], otherwise false.
+  bool get isReferencelist => this == KnownListPurpose.referencelist;
+
+  /// Returns true if this value is not [referencelist], otherwise false.
+  bool get isNotReferencelist => !isReferencelist;
 }
 
 /// This is an union object to improve safety and convenience of objects

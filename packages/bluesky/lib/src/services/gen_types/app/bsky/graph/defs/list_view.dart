@@ -42,6 +42,7 @@ class ListView with _$ListView {
     String? description,
     @FacetConverter() List<Facet>? descriptionFacets,
     String? avatar,
+    @Default(0) int listItemCount,
     @LabelConverter() List<Label>? labels,
     @ListViewerStateConverter()
     @Default(ListViewerState())
@@ -84,6 +85,7 @@ const _kLexCompatibleProperties = <String>[
   'description',
   'descriptionFacets',
   'avatar',
+  'listItemCount',
   'labels',
   'viewer',
   'indexedAt',

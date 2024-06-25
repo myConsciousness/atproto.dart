@@ -14,7 +14,7 @@ _$CreateReportOutputImpl _$$CreateReportOutputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$CreateReportOutputImpl(
-          id: $checkedConvert('id', (v) => (v as num).toInt()),
+          id: $checkedConvert('id', (v) => v as int),
           reasonType: $checkedConvert('reasonType',
               (v) => const UReasonTypeConverter().fromJson(v as String)),
           reason: $checkedConvert('reason', (v) => v as String?),

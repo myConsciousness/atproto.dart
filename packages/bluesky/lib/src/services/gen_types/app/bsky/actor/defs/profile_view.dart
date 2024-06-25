@@ -40,6 +40,7 @@ class ProfileView with _$ProfileView {
     @Default(ProfileAssociated())
     ProfileAssociated associated,
     DateTime? indexedAt,
+    DateTime? createdAt,
     @ViewerStateConverter() @Default(ViewerState()) ViewerState viewer,
     @LabelConverter() List<Label>? labels,
 
@@ -78,6 +79,7 @@ const _kLexCompatibleProperties = <String>[
   'avatar',
   'associated',
   'indexedAt',
+  'createdAt',
   'viewer',
   'labels',
 ];

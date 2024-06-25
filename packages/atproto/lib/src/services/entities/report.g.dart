@@ -13,7 +13,7 @@ _$ReportImpl _$$ReportImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ReportImpl(
-          id: $checkedConvert('id', (v) => (v as num).toInt()),
+          id: $checkedConvert('id', (v) => v as int),
           reasonType: $checkedConvert('reasonType',
               (v) => $enumDecode(_$ModerationReasonTypeEnumMap, v)),
           subject: $checkedConvert(

@@ -15,7 +15,7 @@ _$GetSuggestedFeedsParamsImpl _$$GetSuggestedFeedsParamsImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$GetSuggestedFeedsParamsImpl(
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

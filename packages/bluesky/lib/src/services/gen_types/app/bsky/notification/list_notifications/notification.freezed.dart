@@ -31,7 +31,7 @@ mixin _$Notification {
   @ProfileViewConverter()
   ProfileView get author => throw _privateConstructorUsedError;
 
-  /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
+  /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.
   @UReasonConverter()
   UReason get reason => throw _privateConstructorUsedError;
   @AtUriConverter()
@@ -303,7 +303,7 @@ class _$NotificationImpl implements _Notification {
   @ProfileViewConverter()
   final ProfileView author;
 
-  /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
+  /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.
   @override
   @UReasonConverter()
   final UReason reason;
@@ -437,7 +437,7 @@ abstract class _Notification implements Notification {
   ProfileView get author;
   @override
 
-  /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
+  /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.
   @UReasonConverter()
   UReason get reason;
   @override

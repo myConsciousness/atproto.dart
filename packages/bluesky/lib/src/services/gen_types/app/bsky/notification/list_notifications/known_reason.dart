@@ -28,6 +28,8 @@ enum KnownReason {
   reply('reply'),
   @JsonValue('quote')
   quote('quote'),
+  @JsonValue('starterpack-joined')
+  starterpackJoined('starterpack-joined'),
   ;
 
   /// JSON value based on lexicon.
@@ -88,6 +90,12 @@ extension $KnownReasonExtension on KnownReason {
 
   /// Returns true if this value is not [quote], otherwise false.
   bool get isNotQuote => !isQuote;
+
+  /// Returns true if this value is [starterpackJoined], otherwise false.
+  bool get isStarterpackJoined => this == KnownReason.starterpackJoined;
+
+  /// Returns true if this value is not [starterpackJoined], otherwise false.
+  bool get isNotStarterpackJoined => !isStarterpackJoined;
 }
 
 /// This is an union object to improve safety and convenience of objects

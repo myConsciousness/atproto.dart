@@ -16,7 +16,7 @@ _$SearchActorsSkeletonOutputImpl _$$SearchActorsSkeletonOutputImplFromJson(
       ($checkedConvert) {
         final val = _$SearchActorsSkeletonOutputImpl(
           cursor: $checkedConvert('cursor', (v) => v as String?),
-          hitsTotal: $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt()),
+          hitsTotal: $checkedConvert('hitsTotal', (v) => v as int?),
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)

@@ -14,7 +14,7 @@ _$ListConvosParamsImpl _$$ListConvosParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ListConvosParamsImpl(
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

@@ -21,6 +21,7 @@ import '../../../service_context.dart';
 import '../../app/bsky/graph/block/record.dart';
 import '../../app/bsky/graph/defs/known_list_purpose.dart';
 import '../../app/bsky/graph/follow/record.dart';
+import '../../app/bsky/graph/get_actor_starter_packs/output.dart';
 import '../../app/bsky/graph/get_blocks/output.dart';
 import '../../app/bsky/graph/get_followers/output.dart';
 import '../../app/bsky/graph/get_follows/output.dart';
@@ -31,11 +32,15 @@ import '../../app/bsky/graph/get_list_mutes/output.dart';
 import '../../app/bsky/graph/get_lists/output.dart';
 import '../../app/bsky/graph/get_mutes/output.dart';
 import '../../app/bsky/graph/get_relationships/output.dart';
+import '../../app/bsky/graph/get_starter_pack/output.dart';
+import '../../app/bsky/graph/get_starter_packs/output.dart';
 import '../../app/bsky/graph/get_suggested_follows_by_actor/output.dart';
 import '../../app/bsky/graph/list/record.dart';
 import '../../app/bsky/graph/list/union_list_label.dart';
 import '../../app/bsky/graph/listblock/record.dart';
 import '../../app/bsky/graph/listitem/record.dart';
+import '../../app/bsky/graph/starterpack/feed_item.dart';
+import '../../app/bsky/graph/starterpack/record.dart';
 import '../../app/bsky/richtext/facet/main.dart';
 
 /// Contains `app.bsky.graph.*` endpoints.
@@ -138,6 +143,28 @@ final class GraphService {
         client: $client,
       );
 
+  /// Get a list of starter packs created by the actor.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getActorStarterPacks
+  Future<XRPCResponse<GetActorStarterPacksOutput>> getActorStarterPacks({
+    required String actor,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetActorStarterPacksOutput>(
+        ns.appBskyGraphGetActorStarterPacks,
+        headers: $headers,
+        parameters: {
+          'actor': actor,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+        },
+        to: const GetActorStarterPacksOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Record representing a block relationship against an entire an entire list of accounts (actors).
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
@@ -180,6 +207,24 @@ final class GraphService {
             client: $client,
           );
 
+  /// Gets a view of a starter pack.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPack
+  Future<XRPCResponse<GetStarterPackOutput>> getStarterPack({
+    required AtUri starterPack,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetStarterPackOutput>(
+        ns.appBskyGraphGetStarterPack,
+        headers: $headers,
+        parameters: {
+          'starterPack': starterPack.toString(),
+        },
+        to: const GetStarterPackOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
@@ -197,6 +242,24 @@ final class GraphService {
           if (others != null) 'others': others,
         },
         to: const GetRelationshipsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get views for a list of starter packs.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPacks
+  Future<XRPCResponse<GetStarterPacksOutput>> getStarterPacks({
+    required List<AtUri> uris,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetStarterPacksOutput>(
+        ns.appBskyGraphGetStarterPacks,
+        headers: $headers,
+        parameters: {
+          'uris': uris.map((e) => e.toString()).toList(),
+        },
+        to: const GetStarterPacksOutputConverter().fromJson,
         client: $client,
       );
 
@@ -394,6 +457,39 @@ final class GraphService {
                 descriptionFacets.map((e) => e.toJson()).toList(),
           if (avatar != null) 'avatar': avatar.toJson(),
           if (labels != null) 'labels': labels.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Record defining a starter pack of actors and feeds for new users.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/starterpack
+  Future<XRPCResponse<StrongRef>> starterpack({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    required AtUri list,
+    List<FeedItem>? feeds,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphStarterpack,
+        record: {
+          r'$type': 'app.bsky.graph.starterpack',
+          'name': name,
+          if (description != null) 'description': description,
+          if (descriptionFacets != null)
+            'descriptionFacets':
+                descriptionFacets.map((e) => e.toJson()).toList(),
+          'list': list.toString(),
+          if (feeds != null) 'feeds': feeds.map((e) => e.toJson()).toList(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
@@ -619,6 +715,36 @@ extension GraphServiceExtension on GraphService {
                         e.descriptionFacets!.map((e) => e.toJson()).toList(),
                   if (e.avatar != null) 'avatar': e.avatar!.toJson(),
                   if (e.labels != null) 'labels': e.labels!.toJson(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...?e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [StarterpackRecord] records.
+  Future<XRPCResponse<EmptyData>> starterpackInBulk(
+    final List<StarterpackRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyGraphStarterpack,
+                value: {
+                  'name': e.name,
+                  if (e.description != null) 'description': e.description!,
+                  if (e.descriptionFacets != null)
+                    'descriptionFacets':
+                        e.descriptionFacets!.map((e) => e.toJson()).toList(),
+                  'list': e.list.toString(),
+                  if (e.feeds != null)
+                    'feeds': e.feeds!.map((e) => e.toJson()).toList(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...?e.$unknown,
                 },

@@ -16,7 +16,7 @@ _$GetKnownFollowersParamsImpl _$$GetKnownFollowersParamsImplFromJson(
       ($checkedConvert) {
         final val = _$GetKnownFollowersParamsImpl(
           actor: $checkedConvert('actor', (v) => v as String),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

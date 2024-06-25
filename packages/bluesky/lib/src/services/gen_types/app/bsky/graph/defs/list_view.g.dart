@@ -33,6 +33,8 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
+          listItemCount:
+              $checkedConvert('listItemCount', (v) => v as int? ?? 0),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -77,6 +79,7 @@ Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) {
   writeNotNull('descriptionFacets',
       instance.descriptionFacets?.map(const FacetConverter().toJson).toList());
   writeNotNull('avatar', instance.avatar);
+  val['listItemCount'] = instance.listItemCount;
   writeNotNull(
       'labels', instance.labels?.map(const LabelConverter().toJson).toList());
   val['viewer'] = const ListViewerStateConverter().toJson(instance.viewer);

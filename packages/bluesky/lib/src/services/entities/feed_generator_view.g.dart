@@ -31,8 +31,7 @@ _$FeedGeneratorViewImpl _$$FeedGeneratorViewImplFromJson(Map json) =>
                       Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
-          likeCount:
-              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
+          likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
           acceptsInteractions: $checkedConvert(
               'acceptsInteractions', (v) => v as bool? ?? false),
           labels: $checkedConvert(

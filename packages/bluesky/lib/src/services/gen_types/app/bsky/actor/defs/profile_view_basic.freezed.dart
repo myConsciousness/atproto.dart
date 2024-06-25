@@ -35,6 +35,7 @@ mixin _$ProfileViewBasic {
   ViewerState get viewer => throw _privateConstructorUsedError;
   @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -61,6 +62,7 @@ abstract class $ProfileViewBasicCopyWith<$Res> {
       @ProfileAssociatedConverter() ProfileAssociated associated,
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileAssociatedCopyWith<$Res> get associated;
@@ -88,6 +90,7 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
     Object? associated = null,
     Object? viewer = null,
     Object? labels = freezed,
+    Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -123,6 +126,10 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -164,6 +171,7 @@ abstract class _$$ProfileViewBasicImplCopyWith<$Res>
       @ProfileAssociatedConverter() ProfileAssociated associated,
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
@@ -191,6 +199,7 @@ class __$$ProfileViewBasicImplCopyWithImpl<$Res>
     Object? associated = null,
     Object? viewer = null,
     Object? labels = freezed,
+    Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$ProfileViewBasicImpl(
@@ -226,6 +235,10 @@ class __$$ProfileViewBasicImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -247,6 +260,7 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
       @ProfileAssociatedConverter() this.associated = const ProfileAssociated(),
       @ViewerStateConverter() this.viewer = const ViewerState(),
       @LabelConverter() final List<Label>? labels,
+      this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _labels = labels,
         _$unknown = $unknown;
@@ -287,6 +301,9 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
     return EqualUnmodifiableListView(value);
   }
 
+  @override
+  final DateTime? createdAt;
+
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
 
@@ -303,7 +320,7 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
 
   @override
   String toString() {
-    return 'ProfileViewBasic(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, \$unknown: ${$unknown})';
+    return 'ProfileViewBasic(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -321,6 +338,8 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
                 other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
@@ -336,6 +355,7 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
       associated,
       viewer,
       const DeepCollectionEquality().hash(_labels),
+      createdAt,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -363,6 +383,7 @@ abstract class _ProfileViewBasic implements ProfileViewBasic {
           @ProfileAssociatedConverter() final ProfileAssociated associated,
           @ViewerStateConverter() final ViewerState viewer,
           @LabelConverter() final List<Label>? labels,
+          final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ProfileViewBasicImpl;
 
@@ -393,6 +414,8 @@ abstract class _ProfileViewBasic implements ProfileViewBasic {
   @override
   @LabelConverter()
   List<Label>? get labels;
+  @override
+  DateTime? get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

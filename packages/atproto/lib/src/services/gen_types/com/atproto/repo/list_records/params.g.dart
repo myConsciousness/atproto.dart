@@ -17,7 +17,7 @@ _$ListRecordsParamsImpl _$$ListRecordsParamsImplFromJson(Map json) =>
           repo: $checkedConvert('repo', (v) => v as String?),
           collection: $checkedConvert(
               'collection', (v) => const NSIDConverter().fromJson(v as String)),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           rkeyStart: $checkedConvert('rkeyStart', (v) => v as String?),
           rkeyEnd: $checkedConvert('rkeyEnd', (v) => v as String?),

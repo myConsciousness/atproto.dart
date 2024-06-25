@@ -27,6 +27,7 @@ mixin _$ProfileAssociated {
   String get $type => throw _privateConstructorUsedError;
   int get lists => throw _privateConstructorUsedError;
   int get feedgens => throw _privateConstructorUsedError;
+  int get starterPacks => throw _privateConstructorUsedError;
   bool get labeler => throw _privateConstructorUsedError;
   @ProfileAssociatedChatConverter()
   ProfileAssociatedChat? get chat => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $ProfileAssociatedCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       int lists,
       int feedgens,
+      int starterPacks,
       bool labeler,
       @ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -74,6 +76,7 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
     Object? $type = null,
     Object? lists = null,
     Object? feedgens = null,
+    Object? starterPacks = null,
     Object? labeler = null,
     Object? chat = freezed,
     Object? $unknown = freezed,
@@ -90,6 +93,10 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
       feedgens: null == feedgens
           ? _value.feedgens
           : feedgens // ignore: cast_nullable_to_non_nullable
+              as int,
+      starterPacks: null == starterPacks
+          ? _value.starterPacks
+          : starterPacks // ignore: cast_nullable_to_non_nullable
               as int,
       labeler: null == labeler
           ? _value.labeler
@@ -131,6 +138,7 @@ abstract class _$$ProfileAssociatedImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       int lists,
       int feedgens,
+      int starterPacks,
       bool labeler,
       @ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -153,6 +161,7 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? lists = null,
     Object? feedgens = null,
+    Object? starterPacks = null,
     Object? labeler = null,
     Object? chat = freezed,
     Object? $unknown = freezed,
@@ -169,6 +178,10 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
       feedgens: null == feedgens
           ? _value.feedgens
           : feedgens // ignore: cast_nullable_to_non_nullable
+              as int,
+      starterPacks: null == starterPacks
+          ? _value.starterPacks
+          : starterPacks // ignore: cast_nullable_to_non_nullable
               as int,
       labeler: null == labeler
           ? _value.labeler
@@ -194,6 +207,7 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsProfileAssociated,
       this.lists = 0,
       this.feedgens = 0,
+      this.starterPacks = 0,
       this.labeler = false,
       @ProfileAssociatedChatConverter() this.chat,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -214,6 +228,9 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
   @override
   @JsonKey()
   final int feedgens;
+  @override
+  @JsonKey()
+  final int starterPacks;
   @override
   @JsonKey()
   final bool labeler;
@@ -237,7 +254,7 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
 
   @override
   String toString() {
-    return 'ProfileAssociated(\$type: ${$type}, lists: $lists, feedgens: $feedgens, labeler: $labeler, chat: $chat, \$unknown: ${$unknown})';
+    return 'ProfileAssociated(\$type: ${$type}, lists: $lists, feedgens: $feedgens, starterPacks: $starterPacks, labeler: $labeler, chat: $chat, \$unknown: ${$unknown})';
   }
 
   @override
@@ -249,6 +266,8 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
             (identical(other.lists, lists) || other.lists == lists) &&
             (identical(other.feedgens, feedgens) ||
                 other.feedgens == feedgens) &&
+            (identical(other.starterPacks, starterPacks) ||
+                other.starterPacks == starterPacks) &&
             (identical(other.labeler, labeler) || other.labeler == labeler) &&
             (identical(other.chat, chat) || other.chat == chat) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
@@ -256,8 +275,15 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, lists, feedgens, labeler,
-      chat, const DeepCollectionEquality().hash(_$unknown));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      lists,
+      feedgens,
+      starterPacks,
+      labeler,
+      chat,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -279,6 +305,7 @@ abstract class _ProfileAssociated implements ProfileAssociated {
           {@JsonKey(name: r'$type') final String $type,
           final int lists,
           final int feedgens,
+          final int starterPacks,
           final bool labeler,
           @ProfileAssociatedChatConverter() final ProfileAssociatedChat? chat,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -298,6 +325,8 @@ abstract class _ProfileAssociated implements ProfileAssociated {
   int get lists;
   @override
   int get feedgens;
+  @override
+  int get starterPacks;
   @override
   bool get labeler;
   @override

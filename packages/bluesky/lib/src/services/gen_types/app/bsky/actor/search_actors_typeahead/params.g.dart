@@ -17,7 +17,7 @@ _$SearchActorsTypeaheadParamsImpl _$$SearchActorsTypeaheadParamsImplFromJson(
         final val = _$SearchActorsTypeaheadParamsImpl(
           term: $checkedConvert('term', (v) => v as String?),
           q: $checkedConvert('q', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(

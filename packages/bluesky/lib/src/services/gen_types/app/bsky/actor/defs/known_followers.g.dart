@@ -15,7 +15,7 @@ _$KnownFollowersImpl _$$KnownFollowersImplFromJson(Map json) => $checkedCreate(
         final val = _$KnownFollowersImpl(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsKnownFollowers),
-          count: $checkedConvert('count', (v) => (v as num).toInt()),
+          count: $checkedConvert('count', (v) => v as int),
           followers: $checkedConvert(
               'followers',
               (v) => (v as List<dynamic>)

@@ -41,6 +41,9 @@ mixin _$ProfileRecord {
   /// Self-label values, specific to the Bluesky application, on the overall account.
   @UProfileLabelConverter()
   UProfileLabel? get labels => throw _privateConstructorUsedError;
+  @StrongRefConverter()
+  StrongRef? get joinedViaStarterPack => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -65,11 +68,14 @@ abstract class $ProfileRecordCopyWith<$Res> {
       @BlobConverter() Blob? avatar,
       @BlobConverter() Blob? banner,
       @UProfileLabelConverter() UProfileLabel? labels,
+      @StrongRefConverter() StrongRef? joinedViaStarterPack,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $BlobCopyWith<$Res>? get avatar;
   $BlobCopyWith<$Res>? get banner;
   $UProfileLabelCopyWith<$Res>? get labels;
+  $StrongRefCopyWith<$Res>? get joinedViaStarterPack;
 }
 
 /// @nodoc
@@ -91,6 +97,8 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
     Object? avatar = freezed,
     Object? banner = freezed,
     Object? labels = freezed,
+    Object? joinedViaStarterPack = freezed,
+    Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -118,6 +126,14 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UProfileLabel?,
+      joinedViaStarterPack: freezed == joinedViaStarterPack
+          ? _value.joinedViaStarterPack
+          : joinedViaStarterPack // ignore: cast_nullable_to_non_nullable
+              as StrongRef?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -160,6 +176,18 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res>? get joinedViaStarterPack {
+    if (_value.joinedViaStarterPack == null) {
+      return null;
+    }
+
+    return $StrongRefCopyWith<$Res>(_value.joinedViaStarterPack!, (value) {
+      return _then(_value.copyWith(joinedViaStarterPack: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -177,6 +205,8 @@ abstract class _$$ProfileRecordImplCopyWith<$Res>
       @BlobConverter() Blob? avatar,
       @BlobConverter() Blob? banner,
       @UProfileLabelConverter() UProfileLabel? labels,
+      @StrongRefConverter() StrongRef? joinedViaStarterPack,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
@@ -185,6 +215,8 @@ abstract class _$$ProfileRecordImplCopyWith<$Res>
   $BlobCopyWith<$Res>? get banner;
   @override
   $UProfileLabelCopyWith<$Res>? get labels;
+  @override
+  $StrongRefCopyWith<$Res>? get joinedViaStarterPack;
 }
 
 /// @nodoc
@@ -204,6 +236,8 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? banner = freezed,
     Object? labels = freezed,
+    Object? joinedViaStarterPack = freezed,
+    Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$ProfileRecordImpl(
@@ -231,6 +265,14 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UProfileLabel?,
+      joinedViaStarterPack: freezed == joinedViaStarterPack
+          ? _value.joinedViaStarterPack
+          : joinedViaStarterPack // ignore: cast_nullable_to_non_nullable
+              as StrongRef?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -250,6 +292,8 @@ class _$ProfileRecordImpl implements _ProfileRecord {
       @BlobConverter() this.avatar,
       @BlobConverter() this.banner,
       @UProfileLabelConverter() this.labels,
+      @StrongRefConverter() this.joinedViaStarterPack,
+      this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -283,6 +327,11 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   @override
   @UProfileLabelConverter()
   final UProfileLabel? labels;
+  @override
+  @StrongRefConverter()
+  final StrongRef? joinedViaStarterPack;
+  @override
+  final DateTime? createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -300,7 +349,7 @@ class _$ProfileRecordImpl implements _ProfileRecord {
 
   @override
   String toString() {
-    return 'ProfileRecord(\$type: ${$type}, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, \$unknown: ${$unknown})';
+    return 'ProfileRecord(\$type: ${$type}, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, joinedViaStarterPack: $joinedViaStarterPack, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -316,13 +365,26 @@ class _$ProfileRecordImpl implements _ProfileRecord {
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.banner, banner) || other.banner == banner) &&
             (identical(other.labels, labels) || other.labels == labels) &&
+            (identical(other.joinedViaStarterPack, joinedViaStarterPack) ||
+                other.joinedViaStarterPack == joinedViaStarterPack) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, displayName, description,
-      avatar, banner, labels, const DeepCollectionEquality().hash(_$unknown));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      displayName,
+      description,
+      avatar,
+      banner,
+      labels,
+      joinedViaStarterPack,
+      createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -346,6 +408,8 @@ abstract class _ProfileRecord implements ProfileRecord {
           @BlobConverter() final Blob? avatar,
           @BlobConverter() final Blob? banner,
           @UProfileLabelConverter() final UProfileLabel? labels,
+          @StrongRefConverter() final StrongRef? joinedViaStarterPack,
+          final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ProfileRecordImpl;
 
@@ -380,6 +444,11 @@ abstract class _ProfileRecord implements ProfileRecord {
   /// Self-label values, specific to the Bluesky application, on the overall account.
   @UProfileLabelConverter()
   UProfileLabel? get labels;
+  @override
+  @StrongRefConverter()
+  StrongRef? get joinedViaStarterPack;
+  @override
+  DateTime? get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

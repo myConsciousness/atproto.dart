@@ -17,7 +17,7 @@ _$GetRepostedByParamsImpl _$$GetRepostedByParamsImplFromJson(Map json) =>
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

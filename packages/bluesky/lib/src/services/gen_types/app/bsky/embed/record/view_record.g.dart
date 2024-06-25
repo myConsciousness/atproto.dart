@@ -33,12 +33,9 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
                   ?.map((e) => const LabelConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
-          replyCount:
-              $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
-          repostCount:
-              $checkedConvert('repostCount', (v) => (v as num?)?.toInt() ?? 0),
-          likeCount:
-              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
+          replyCount: $checkedConvert('replyCount', (v) => v as int? ?? 0),
+          repostCount: $checkedConvert('repostCount', (v) => v as int? ?? 0),
+          likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
           embeds: $checkedConvert(
               'embeds',
               (v) => (v as List<dynamic>?)

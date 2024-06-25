@@ -13,9 +13,9 @@ _$LexiconDocImpl _$$LexiconDocImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LexiconDocImpl(
-          lexicon: $checkedConvert('lexicon', (v) => (v as num).toInt()),
+          lexicon: $checkedConvert('lexicon', (v) => v as int),
           id: $checkedConvert('id', (v) => nsidConverter.fromJson(v as String)),
-          revision: $checkedConvert('revision', (v) => (v as num?)?.toInt()),
+          revision: $checkedConvert('revision', (v) => v as int?),
           description: $checkedConvert('description', (v) => v as String?),
           defs: $checkedConvert(
               'defs',

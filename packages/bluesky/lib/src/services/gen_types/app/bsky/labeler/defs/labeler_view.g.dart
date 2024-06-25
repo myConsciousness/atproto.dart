@@ -22,8 +22,7 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
               'creator',
               (v) => const ProfileViewConverter()
                   .fromJson(v as Map<String, dynamic>)),
-          likeCount:
-              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
+          likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null

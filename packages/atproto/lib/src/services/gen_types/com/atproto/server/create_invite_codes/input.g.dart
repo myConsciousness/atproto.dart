@@ -14,8 +14,8 @@ _$CreateInviteCodesInputImpl _$$CreateInviteCodesInputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$CreateInviteCodesInputImpl(
-          codeCount: $checkedConvert('codeCount', (v) => (v as num).toInt()),
-          useCount: $checkedConvert('useCount', (v) => (v as num).toInt()),
+          codeCount: $checkedConvert('codeCount', (v) => v as int),
+          useCount: $checkedConvert('useCount', (v) => v as int),
           forAccounts: $checkedConvert('forAccounts',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           $unknown: $checkedConvert(

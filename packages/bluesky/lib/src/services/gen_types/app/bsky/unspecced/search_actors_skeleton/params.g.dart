@@ -18,7 +18,7 @@ _$SearchActorsSkeletonParamsImpl _$$SearchActorsSkeletonParamsImplFromJson(
           q: $checkedConvert('q', (v) => v as String),
           viewer: $checkedConvert('viewer', (v) => v as String?),
           typeahead: $checkedConvert('typeahead', (v) => v as bool?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

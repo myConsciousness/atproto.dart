@@ -42,6 +42,7 @@ class ProfileViewBasic with _$ProfileViewBasic {
     ProfileAssociated associated,
     @ViewerStateConverter() @Default(ViewerState()) ViewerState viewer,
     @LabelConverter() List<Label>? labels,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -78,6 +79,7 @@ const _kLexCompatibleProperties = <String>[
   'associated',
   'viewer',
   'labels',
+  'createdAt',
 ];
 
 final class ProfileViewBasicConverter

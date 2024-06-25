@@ -27,8 +27,7 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
                       UConvoMessageView>(
                   v, unionConvoMessageViewConverter.fromJson)),
           muted: $checkedConvert('muted', (v) => v as bool),
-          unreadCount:
-              $checkedConvert('unreadCount', (v) => (v as num).toInt()),
+          unreadCount: $checkedConvert('unreadCount', (v) => v as int),
         );
         return val;
       },

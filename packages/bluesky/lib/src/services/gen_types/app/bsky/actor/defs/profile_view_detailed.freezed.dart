@@ -36,7 +36,11 @@ mixin _$ProfileViewDetailed {
   int get postsCount => throw _privateConstructorUsedError;
   @ProfileAssociatedConverter()
   ProfileAssociated get associated => throw _privateConstructorUsedError;
+  @StarterPackViewBasicConverter()
+  StarterPackViewBasic? get joinedViaStarterPack =>
+      throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   @ViewerStateConverter()
   ViewerState get viewer => throw _privateConstructorUsedError;
   @LabelConverter()
@@ -70,12 +74,16 @@ abstract class $ProfileViewDetailedCopyWith<$Res> {
       int followsCount,
       int postsCount,
       @ProfileAssociatedConverter() ProfileAssociated associated,
+      @StarterPackViewBasicConverter()
+      StarterPackViewBasic? joinedViaStarterPack,
       DateTime? indexedAt,
+      DateTime? createdAt,
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileAssociatedCopyWith<$Res> get associated;
+  $StarterPackViewBasicCopyWith<$Res>? get joinedViaStarterPack;
   $ViewerStateCopyWith<$Res> get viewer;
 }
 
@@ -103,7 +111,9 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
     Object? followsCount = null,
     Object? postsCount = null,
     Object? associated = null,
+    Object? joinedViaStarterPack = freezed,
     Object? indexedAt = freezed,
+    Object? createdAt = freezed,
     Object? viewer = null,
     Object? labels = freezed,
     Object? $unknown = freezed,
@@ -153,9 +163,17 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
           ? _value.associated
           : associated // ignore: cast_nullable_to_non_nullable
               as ProfileAssociated,
+      joinedViaStarterPack: freezed == joinedViaStarterPack
+          ? _value.joinedViaStarterPack
+          : joinedViaStarterPack // ignore: cast_nullable_to_non_nullable
+              as StarterPackViewBasic?,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       viewer: null == viewer
           ? _value.viewer
@@ -177,6 +195,19 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
   $ProfileAssociatedCopyWith<$Res> get associated {
     return $ProfileAssociatedCopyWith<$Res>(_value.associated, (value) {
       return _then(_value.copyWith(associated: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StarterPackViewBasicCopyWith<$Res>? get joinedViaStarterPack {
+    if (_value.joinedViaStarterPack == null) {
+      return null;
+    }
+
+    return $StarterPackViewBasicCopyWith<$Res>(_value.joinedViaStarterPack!,
+        (value) {
+      return _then(_value.copyWith(joinedViaStarterPack: value) as $Val);
     });
   }
 
@@ -209,13 +240,18 @@ abstract class _$$ProfileViewDetailedImplCopyWith<$Res>
       int followsCount,
       int postsCount,
       @ProfileAssociatedConverter() ProfileAssociated associated,
+      @StarterPackViewBasicConverter()
+      StarterPackViewBasic? joinedViaStarterPack,
       DateTime? indexedAt,
+      DateTime? createdAt,
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $ProfileAssociatedCopyWith<$Res> get associated;
+  @override
+  $StarterPackViewBasicCopyWith<$Res>? get joinedViaStarterPack;
   @override
   $ViewerStateCopyWith<$Res> get viewer;
 }
@@ -242,7 +278,9 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
     Object? followsCount = null,
     Object? postsCount = null,
     Object? associated = null,
+    Object? joinedViaStarterPack = freezed,
     Object? indexedAt = freezed,
+    Object? createdAt = freezed,
     Object? viewer = null,
     Object? labels = freezed,
     Object? $unknown = freezed,
@@ -292,9 +330,17 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
           ? _value.associated
           : associated // ignore: cast_nullable_to_non_nullable
               as ProfileAssociated,
+      joinedViaStarterPack: freezed == joinedViaStarterPack
+          ? _value.joinedViaStarterPack
+          : joinedViaStarterPack // ignore: cast_nullable_to_non_nullable
+              as StarterPackViewBasic?,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       viewer: null == viewer
           ? _value.viewer
@@ -329,7 +375,9 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
       this.followsCount = 0,
       this.postsCount = 0,
       @ProfileAssociatedConverter() this.associated = const ProfileAssociated(),
+      @StarterPackViewBasicConverter() this.joinedViaStarterPack,
       this.indexedAt,
+      this.createdAt,
       @ViewerStateConverter() this.viewer = const ViewerState(),
       @LabelConverter() final List<Label>? labels,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -371,7 +419,12 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
   @ProfileAssociatedConverter()
   final ProfileAssociated associated;
   @override
+  @StarterPackViewBasicConverter()
+  final StarterPackViewBasic? joinedViaStarterPack;
+  @override
   final DateTime? indexedAt;
+  @override
+  final DateTime? createdAt;
   @override
   @JsonKey()
   @ViewerStateConverter()
@@ -403,7 +456,7 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
 
   @override
   String toString() {
-    return 'ProfileViewDetailed(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followersCount: $followersCount, followsCount: $followsCount, postsCount: $postsCount, associated: $associated, indexedAt: $indexedAt, viewer: $viewer, labels: $labels, \$unknown: ${$unknown})';
+    return 'ProfileViewDetailed(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followersCount: $followersCount, followsCount: $followsCount, postsCount: $postsCount, associated: $associated, joinedViaStarterPack: $joinedViaStarterPack, indexedAt: $indexedAt, createdAt: $createdAt, viewer: $viewer, labels: $labels, \$unknown: ${$unknown})';
   }
 
   @override
@@ -428,8 +481,12 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
                 other.postsCount == postsCount) &&
             (identical(other.associated, associated) ||
                 other.associated == associated) &&
+            (identical(other.joinedViaStarterPack, joinedViaStarterPack) ||
+                other.joinedViaStarterPack == joinedViaStarterPack) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
@@ -450,7 +507,9 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
       followsCount,
       postsCount,
       associated,
+      joinedViaStarterPack,
       indexedAt,
+      createdAt,
       viewer,
       const DeepCollectionEquality().hash(_labels),
       const DeepCollectionEquality().hash(_$unknown));
@@ -483,7 +542,10 @@ abstract class _ProfileViewDetailed implements ProfileViewDetailed {
           final int followsCount,
           final int postsCount,
           @ProfileAssociatedConverter() final ProfileAssociated associated,
+          @StarterPackViewBasicConverter()
+          final StarterPackViewBasic? joinedViaStarterPack,
           final DateTime? indexedAt,
+          final DateTime? createdAt,
           @ViewerStateConverter() final ViewerState viewer,
           @LabelConverter() final List<Label>? labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -521,7 +583,12 @@ abstract class _ProfileViewDetailed implements ProfileViewDetailed {
   @ProfileAssociatedConverter()
   ProfileAssociated get associated;
   @override
+  @StarterPackViewBasicConverter()
+  StarterPackViewBasic? get joinedViaStarterPack;
+  @override
   DateTime? get indexedAt;
+  @override
+  DateTime? get createdAt;
   @override
   @ViewerStateConverter()
   ViewerState get viewer;

@@ -14,7 +14,7 @@ _$GetListsParamsImpl _$$GetListsParamsImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$GetListsParamsImpl(
           actor: $checkedConvert('actor', (v) => v as String),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

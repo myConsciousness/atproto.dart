@@ -26,8 +26,7 @@ _$SavedFeedsPreferenceImpl _$$SavedFeedsPreferenceImplFromJson(Map json) =>
               (v) => (v as List<dynamic>)
                   .map((e) => const AtUriConverter().fromJson(e as String))
                   .toList()),
-          timelineIndex:
-              $checkedConvert('timelineIndex', (v) => (v as num?)?.toInt()),
+          timelineIndex: $checkedConvert('timelineIndex', (v) => v as int?),
         );
         return val;
       },

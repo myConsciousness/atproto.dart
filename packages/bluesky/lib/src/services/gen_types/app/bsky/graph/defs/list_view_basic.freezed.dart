@@ -32,6 +32,7 @@ mixin _$ListViewBasic {
   @UListPurposeConverter()
   UListPurpose get purpose => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  int get listItemCount => throw _privateConstructorUsedError;
   @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
   @ListViewerStateConverter()
@@ -61,6 +62,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
       String name,
       @UListPurposeConverter() UListPurpose purpose,
       String? avatar,
+      int listItemCount,
       @LabelConverter() List<Label>? labels,
       @ListViewerStateConverter() ListViewerState viewer,
       DateTime? indexedAt,
@@ -89,6 +91,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
     Object? name = null,
     Object? purpose = null,
     Object? avatar = freezed,
+    Object? listItemCount = null,
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = freezed,
@@ -119,6 +122,10 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      listItemCount: null == listItemCount
+          ? _value.listItemCount
+          : listItemCount // ignore: cast_nullable_to_non_nullable
+              as int,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -170,6 +177,7 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
       String name,
       @UListPurposeConverter() UListPurpose purpose,
       String? avatar,
+      int listItemCount,
       @LabelConverter() List<Label>? labels,
       @ListViewerStateConverter() ListViewerState viewer,
       DateTime? indexedAt,
@@ -198,6 +206,7 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
     Object? name = null,
     Object? purpose = null,
     Object? avatar = freezed,
+    Object? listItemCount = null,
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = freezed,
@@ -228,6 +237,10 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      listItemCount: null == listItemCount
+          ? _value.listItemCount
+          : listItemCount // ignore: cast_nullable_to_non_nullable
+              as int,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -259,6 +272,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
       required this.name,
       @UListPurposeConverter() required this.purpose,
       this.avatar,
+      this.listItemCount = 0,
       @LabelConverter() final List<Label>? labels,
       @ListViewerStateConverter() this.viewer = const ListViewerState(),
       this.indexedAt,
@@ -287,6 +301,9 @@ class _$ListViewBasicImpl implements _ListViewBasic {
   final UListPurpose purpose;
   @override
   final String? avatar;
+  @override
+  @JsonKey()
+  final int listItemCount;
   final List<Label>? _labels;
   @override
   @LabelConverter()
@@ -321,7 +338,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
 
   @override
   String toString() {
-    return 'ListViewBasic(\$type: ${$type}, uri: $uri, cid: $cid, name: $name, purpose: $purpose, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt, \$unknown: ${$unknown})';
+    return 'ListViewBasic(\$type: ${$type}, uri: $uri, cid: $cid, name: $name, purpose: $purpose, avatar: $avatar, listItemCount: $listItemCount, labels: $labels, viewer: $viewer, indexedAt: $indexedAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -335,6 +352,8 @@ class _$ListViewBasicImpl implements _ListViewBasic {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.listItemCount, listItemCount) ||
+                other.listItemCount == listItemCount) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             (identical(other.indexedAt, indexedAt) ||
@@ -352,6 +371,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
       name,
       purpose,
       avatar,
+      listItemCount,
       const DeepCollectionEquality().hash(_labels),
       viewer,
       indexedAt,
@@ -379,6 +399,7 @@ abstract class _ListViewBasic implements ListViewBasic {
           required final String name,
           @UListPurposeConverter() required final UListPurpose purpose,
           final String? avatar,
+          final int listItemCount,
           @LabelConverter() final List<Label>? labels,
           @ListViewerStateConverter() final ListViewerState viewer,
           final DateTime? indexedAt,
@@ -407,6 +428,8 @@ abstract class _ListViewBasic implements ListViewBasic {
   UListPurpose get purpose;
   @override
   String? get avatar;
+  @override
+  int get listItemCount;
   @override
   @LabelConverter()
   List<Label>? get labels;

@@ -18,6 +18,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_associated.dart';
 import '../../../../app/bsky/actor/defs/viewer_state.dart';
+import '../../../../app/bsky/graph/defs/starter_pack_view_basic.dart';
 
 part 'profile_view_detailed.freezed.dart';
 part 'profile_view_detailed.g.dart';
@@ -45,7 +46,9 @@ class ProfileViewDetailed with _$ProfileViewDetailed {
     @ProfileAssociatedConverter()
     @Default(ProfileAssociated())
     ProfileAssociated associated,
+    @StarterPackViewBasicConverter() StarterPackViewBasic? joinedViaStarterPack,
     DateTime? indexedAt,
+    DateTime? createdAt,
     @ViewerStateConverter() @Default(ViewerState()) ViewerState viewer,
     @LabelConverter() List<Label>? labels,
 
@@ -87,7 +90,9 @@ const _kLexCompatibleProperties = <String>[
   'followsCount',
   'postsCount',
   'associated',
+  'joinedViaStarterPack',
   'indexedAt',
+  'createdAt',
   'viewer',
   'labels',
 ];

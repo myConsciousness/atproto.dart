@@ -15,7 +15,7 @@ _$AccountImpl _$$AccountImplFromJson(Map json) => $checkedCreate(
         final val = _$AccountImpl(
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? comAtprotoSyncSubscribeReposAccount),
-          seq: $checkedConvert('seq', (v) => (v as num).toInt()),
+          seq: $checkedConvert('seq', (v) => v as int),
           did: $checkedConvert('did', (v) => v as String),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
           active: $checkedConvert('active', (v) => v as bool),

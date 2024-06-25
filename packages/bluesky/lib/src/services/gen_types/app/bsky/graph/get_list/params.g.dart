@@ -15,7 +15,7 @@ _$GetListParamsImpl _$$GetListParamsImplFromJson(Map json) => $checkedCreate(
         final val = _$GetListParamsImpl(
           list: $checkedConvert(
               'list', (v) => const AtUriConverter().fromJson(v as String)),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

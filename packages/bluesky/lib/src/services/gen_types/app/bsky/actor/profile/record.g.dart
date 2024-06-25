@@ -30,6 +30,12 @@ _$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
               (v) =>
                   _$JsonConverterFromJson<Map<String, dynamic>, UProfileLabel>(
                       v, const UProfileLabelConverter().fromJson)),
+          joinedViaStarterPack: $checkedConvert(
+              'joinedViaStarterPack',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, StrongRef>(
+                  v, const StrongRefConverter().fromJson)),
+          createdAt: $checkedConvert('createdAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -65,6 +71,11 @@ Map<String, dynamic> _$$ProfileRecordImplToJson(_$ProfileRecordImpl instance) {
       'labels',
       _$JsonConverterToJson<Map<String, dynamic>, UProfileLabel>(
           instance.labels, const UProfileLabelConverter().toJson));
+  writeNotNull(
+      'joinedViaStarterPack',
+      _$JsonConverterToJson<Map<String, dynamic>, StrongRef>(
+          instance.joinedViaStarterPack, const StrongRefConverter().toJson));
+  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

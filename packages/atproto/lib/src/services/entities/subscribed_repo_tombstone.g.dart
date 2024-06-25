@@ -14,7 +14,7 @@ _$TombstoneImpl _$$TombstoneImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$TombstoneImpl(
           did: $checkedConvert('did', (v) => v as String),
-          cursor: $checkedConvert('seq', (v) => (v as num).toInt()),
+          cursor: $checkedConvert('seq', (v) => v as int),
           createdAt:
               $checkedConvert('time', (v) => DateTime.parse(v as String)),
         );

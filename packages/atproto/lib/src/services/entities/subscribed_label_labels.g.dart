@@ -14,7 +14,7 @@ _$SubscribedLabelLabelsImpl _$$SubscribedLabelLabelsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$SubscribedLabelLabelsImpl(
-          sequence: $checkedConvert('seq', (v) => (v as num).toInt()),
+          sequence: $checkedConvert('seq', (v) => v as int),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>)

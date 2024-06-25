@@ -113,6 +113,12 @@ const _kBsky = Package(
   domains: ['app.bsky', 'chat.bsky'],
   recordConfigs: [
     RecordConfig(
+      subject: NSID('app.bsky.feed.post'),
+      binds: [
+        NSID('app.bsky.embed.record#viewRecord'),
+      ],
+    ),
+    RecordConfig(
       subject: NSID('app.bsky.actor.profile'),
       disableInBulk: true,
     ),
@@ -128,6 +134,13 @@ const _kBsky = Package(
     RecordConfig(
       subject: NSID('app.bsky.labeler.service'),
       disableInBulk: true,
+    ),
+    RecordConfig(
+      subject: NSID('app.bsky.graph.starterpack'),
+      binds: [
+        NSID('app.bsky.graph.defs#starterPackView'),
+        NSID('app.bsky.graph.defs#starterPackViewBasic'),
+      ],
     ),
     RecordConfig(
       subject: NSID('chat.bsky.actor.declaration'),
@@ -226,6 +239,18 @@ final class Package {
     return null;
   }
 
+  RecordConfig? getBindableRecordConfig(final NSID subject) {
+    if (recordConfigs == null) return null;
+
+    for (final config in recordConfigs!) {
+      if (config.isBindSubject(subject)) {
+        return config;
+      }
+    }
+
+    return null;
+  }
+
   ObjectAdaptor? getObjectAdaptor(final NSID subject) {
     if (adaptors == null) return null;
 
@@ -256,11 +281,25 @@ final class RecordConfig {
     required this.subject,
     this.disableInBulk = false,
     this.rkey,
+    this.binds,
   });
 
   final NSID subject;
   final bool disableInBulk;
   final String? rkey;
+  final List<NSID>? binds;
+
+  bool isBindSubject(final NSID subject) {
+    if (binds == null || binds!.isEmpty) return false;
+
+    for (final bind in binds!) {
+      if (bind == subject) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
 
 final class LexGenContext {

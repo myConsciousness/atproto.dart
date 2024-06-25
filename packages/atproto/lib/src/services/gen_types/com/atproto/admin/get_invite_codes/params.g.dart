@@ -18,7 +18,7 @@ _$GetInviteCodesParamsImpl _$$GetInviteCodesParamsImplFromJson(Map json) =>
               'sort',
               (v) => _$JsonConverterFromJson<String, USort>(
                   v, const USortConverter().fromJson)),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => v as int?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

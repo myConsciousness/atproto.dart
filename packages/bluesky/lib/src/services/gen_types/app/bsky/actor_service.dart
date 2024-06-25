@@ -142,6 +142,8 @@ final class ActorService {
     Blob? avatar,
     Blob? banner,
     UProfileLabel? labels,
+    StrongRef? joinedViaStarterPack,
+    DateTime? createdAt,
     Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
@@ -156,6 +158,9 @@ final class ActorService {
           if (avatar != null) 'avatar': avatar.toJson(),
           if (banner != null) 'banner': banner.toJson(),
           if (labels != null) 'labels': labels.toJson(),
+          if (joinedViaStarterPack != null)
+            'joinedViaStarterPack': joinedViaStarterPack.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
         $headers: $headers,

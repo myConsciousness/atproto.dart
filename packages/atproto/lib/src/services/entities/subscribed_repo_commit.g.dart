@@ -20,7 +20,7 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
                       RepoOp.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           did: $checkedConvert('repo', (v) => v as String),
-          cursor: $checkedConvert('seq', (v) => (v as num).toInt()),
+          cursor: $checkedConvert('seq', (v) => v as int),
           rev: $checkedConvert('rev', (v) => v as String),
           since: $checkedConvert('since', (v) => v as String?),
           isTooBig: $checkedConvert('tooBig', (v) => v as bool? ?? false),

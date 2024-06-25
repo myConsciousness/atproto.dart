@@ -13,7 +13,7 @@ _$LabelImpl _$$LabelImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LabelImpl(
-          ver: $checkedConvert('ver', (v) => (v as num?)?.toInt()),
+          ver: $checkedConvert('ver', (v) => v as int?),
           src: $checkedConvert('src', (v) => v as String),
           uri: $checkedConvert('uri', (v) => v as String),
           cid: $checkedConvert('cid', (v) => v as String?),
@@ -22,11 +22,8 @@ _$LabelImpl _$$LabelImplFromJson(Map json) => $checkedCreate(
           createdAt: $checkedConvert('cts', (v) => DateTime.parse(v as String)),
           exp: $checkedConvert(
               'exp', (v) => v == null ? null : DateTime.parse(v as String)),
-          sig: $checkedConvert(
-              'sig',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => (e as num).toInt())
-                  .toList()),
+          sig: $checkedConvert('sig',
+              (v) => (v as List<dynamic>?)?.map((e) => e as int).toList()),
         );
         return val;
       },

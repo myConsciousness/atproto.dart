@@ -35,7 +35,7 @@ final class SyncService {
 
   final ATProtoServiceContext _ctx;
 
-  /// List blob CIDso for an account, since some repo revision. Does not require auth; implemented by PDS.
+  /// List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listBlobs
   Future<XRPCResponse<ListBlobsOutput>> listBlobs({

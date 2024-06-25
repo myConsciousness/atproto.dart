@@ -28,6 +28,8 @@ _$ProfileViewImpl _$$ProfileViewImplFromJson(Map json) => $checkedCreate(
                       .fromJson(v as Map<String, dynamic>)),
           indexedAt: $checkedConvert('indexedAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt: $checkedConvert('createdAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
@@ -69,6 +71,7 @@ Map<String, dynamic> _$$ProfileViewImplToJson(_$ProfileViewImpl instance) {
   val['associated'] =
       const ProfileAssociatedConverter().toJson(instance.associated);
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
+  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   val['viewer'] = const ViewerStateConverter().toJson(instance.viewer);
   writeNotNull(
       'labels', instance.labels?.map(const LabelConverter().toJson).toList());

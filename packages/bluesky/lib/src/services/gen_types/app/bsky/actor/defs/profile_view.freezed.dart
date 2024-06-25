@@ -33,6 +33,7 @@ mixin _$ProfileView {
   @ProfileAssociatedConverter()
   ProfileAssociated get associated => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   @ViewerStateConverter()
   ViewerState get viewer => throw _privateConstructorUsedError;
   @LabelConverter()
@@ -63,6 +64,7 @@ abstract class $ProfileViewCopyWith<$Res> {
       String? avatar,
       @ProfileAssociatedConverter() ProfileAssociated associated,
       DateTime? indexedAt,
+      DateTime? createdAt,
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -92,6 +94,7 @@ class _$ProfileViewCopyWithImpl<$Res, $Val extends ProfileView>
     Object? avatar = freezed,
     Object? associated = null,
     Object? indexedAt = freezed,
+    Object? createdAt = freezed,
     Object? viewer = null,
     Object? labels = freezed,
     Object? $unknown = freezed,
@@ -128,6 +131,10 @@ class _$ProfileViewCopyWithImpl<$Res, $Val extends ProfileView>
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       viewer: null == viewer
           ? _value.viewer
@@ -178,6 +185,7 @@ abstract class _$$ProfileViewImplCopyWith<$Res>
       String? avatar,
       @ProfileAssociatedConverter() ProfileAssociated associated,
       DateTime? indexedAt,
+      DateTime? createdAt,
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -207,6 +215,7 @@ class __$$ProfileViewImplCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? associated = null,
     Object? indexedAt = freezed,
+    Object? createdAt = freezed,
     Object? viewer = null,
     Object? labels = freezed,
     Object? $unknown = freezed,
@@ -244,6 +253,10 @@ class __$$ProfileViewImplCopyWithImpl<$Res>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -273,6 +286,7 @@ class _$ProfileViewImpl implements _ProfileView {
       this.avatar,
       @ProfileAssociatedConverter() this.associated = const ProfileAssociated(),
       this.indexedAt,
+      this.createdAt,
       @ViewerStateConverter() this.viewer = const ViewerState(),
       @LabelConverter() final List<Label>? labels,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -305,6 +319,8 @@ class _$ProfileViewImpl implements _ProfileView {
   @override
   final DateTime? indexedAt;
   @override
+  final DateTime? createdAt;
+  @override
   @JsonKey()
   @ViewerStateConverter()
   final ViewerState viewer;
@@ -335,7 +351,7 @@ class _$ProfileViewImpl implements _ProfileView {
 
   @override
   String toString() {
-    return 'ProfileView(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, indexedAt: $indexedAt, viewer: $viewer, labels: $labels, \$unknown: ${$unknown})';
+    return 'ProfileView(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, indexedAt: $indexedAt, createdAt: $createdAt, viewer: $viewer, labels: $labels, \$unknown: ${$unknown})';
   }
 
   @override
@@ -355,6 +371,8 @@ class _$ProfileViewImpl implements _ProfileView {
                 other.associated == associated) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
@@ -372,6 +390,7 @@ class _$ProfileViewImpl implements _ProfileView {
       avatar,
       associated,
       indexedAt,
+      createdAt,
       viewer,
       const DeepCollectionEquality().hash(_labels),
       const DeepCollectionEquality().hash(_$unknown));
@@ -400,6 +419,7 @@ abstract class _ProfileView implements ProfileView {
           final String? avatar,
           @ProfileAssociatedConverter() final ProfileAssociated associated,
           final DateTime? indexedAt,
+          final DateTime? createdAt,
           @ViewerStateConverter() final ViewerState viewer,
           @LabelConverter() final List<Label>? labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -430,6 +450,8 @@ abstract class _ProfileView implements ProfileView {
   ProfileAssociated get associated;
   @override
   DateTime? get indexedAt;
+  @override
+  DateTime? get createdAt;
   @override
   @ViewerStateConverter()
   ViewerState get viewer;

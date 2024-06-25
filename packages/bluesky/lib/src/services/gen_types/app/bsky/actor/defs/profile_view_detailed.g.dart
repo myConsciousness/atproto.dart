@@ -22,19 +22,24 @@ _$ProfileViewDetailedImpl _$$ProfileViewDetailedImplFromJson(Map json) =>
           description: $checkedConvert('description', (v) => v as String?),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           banner: $checkedConvert('banner', (v) => v as String?),
-          followersCount: $checkedConvert(
-              'followersCount', (v) => (v as num?)?.toInt() ?? 0),
-          followsCount:
-              $checkedConvert('followsCount', (v) => (v as num?)?.toInt() ?? 0),
-          postsCount:
-              $checkedConvert('postsCount', (v) => (v as num?)?.toInt() ?? 0),
+          followersCount:
+              $checkedConvert('followersCount', (v) => v as int? ?? 0),
+          followsCount: $checkedConvert('followsCount', (v) => v as int? ?? 0),
+          postsCount: $checkedConvert('postsCount', (v) => v as int? ?? 0),
           associated: $checkedConvert(
               'associated',
               (v) => v == null
                   ? const ProfileAssociated()
                   : const ProfileAssociatedConverter()
                       .fromJson(v as Map<String, dynamic>)),
+          joinedViaStarterPack: $checkedConvert(
+              'joinedViaStarterPack',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      StarterPackViewBasic>(
+                  v, const StarterPackViewBasicConverter().fromJson)),
           indexedAt: $checkedConvert('indexedAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
           viewer: $checkedConvert(
               'viewer',
@@ -81,10 +86,28 @@ Map<String, dynamic> _$$ProfileViewDetailedImplToJson(
   val['postsCount'] = instance.postsCount;
   val['associated'] =
       const ProfileAssociatedConverter().toJson(instance.associated);
+  writeNotNull(
+      'joinedViaStarterPack',
+      _$JsonConverterToJson<Map<String, dynamic>, StarterPackViewBasic>(
+          instance.joinedViaStarterPack,
+          const StarterPackViewBasicConverter().toJson));
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
+  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   val['viewer'] = const ViewerStateConverter().toJson(instance.viewer);
   writeNotNull(
       'labels', instance.labels?.map(const LabelConverter().toJson).toList());
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
