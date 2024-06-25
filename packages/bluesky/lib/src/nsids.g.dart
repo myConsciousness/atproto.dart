@@ -195,6 +195,10 @@ const appBskyGraphBlock = NSID(ids.appBskyGraphBlock);
 /// `app.bsky.graph.follow`
 const appBskyGraphFollow = NSID(ids.appBskyGraphFollow);
 
+/// `app.bsky.graph.getActorStarterPacks`
+const appBskyGraphGetActorStarterPacks =
+    NSID(ids.appBskyGraphGetActorStarterPacks);
+
 /// `app.bsky.graph.getBlocks`
 const appBskyGraphGetBlocks = NSID(ids.appBskyGraphGetBlocks);
 
@@ -225,6 +229,12 @@ const appBskyGraphGetMutes = NSID(ids.appBskyGraphGetMutes);
 /// `app.bsky.graph.getRelationships`
 const appBskyGraphGetRelationships = NSID(ids.appBskyGraphGetRelationships);
 
+/// `app.bsky.graph.getStarterPack`
+const appBskyGraphGetStarterPack = NSID(ids.appBskyGraphGetStarterPack);
+
+/// `app.bsky.graph.getStarterPacks`
+const appBskyGraphGetStarterPacks = NSID(ids.appBskyGraphGetStarterPacks);
+
 /// `app.bsky.graph.getSuggestedFollowsByActor`
 const appBskyGraphGetSuggestedFollowsByActor =
     NSID(ids.appBskyGraphGetSuggestedFollowsByActor);
@@ -246,6 +256,13 @@ const appBskyGraphMuteActorList = NSID(ids.appBskyGraphMuteActorList);
 
 /// `app.bsky.graph.muteThread`
 const appBskyGraphMuteThread = NSID(ids.appBskyGraphMuteThread);
+
+/// `app.bsky.graph.starterpack`
+const appBskyGraphStarterpack = NSID(ids.appBskyGraphStarterpack);
+
+/// `app.bsky.graph.starterpack#feedItem`
+const appBskyGraphStarterpackFeedItem =
+    NSID(ids.appBskyGraphStarterpackFeedItem);
 
 /// `app.bsky.graph.unmuteActor`
 const appBskyGraphUnmuteActor = NSID(ids.appBskyGraphUnmuteActor);

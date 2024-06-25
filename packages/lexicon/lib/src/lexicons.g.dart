@@ -828,7 +828,7 @@ const comAtprotoSyncListBlobs = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "List blob CIDso for an account, since some repo revision. Does not require auth; implemented by PDS.",
+          "List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.",
       "parameters": {
         "type": "params",
         "required": ["did"],
@@ -4017,7 +4017,8 @@ const appBskyActorDefs = <String, dynamic>{
         "labels": {
           "type": "array",
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
-        }
+        },
+        "createdAt": {"type": "string", "format": "datetime"}
       }
     },
     "profileView": {
@@ -4035,6 +4036,7 @@ const appBskyActorDefs = <String, dynamic>{
         "avatar": {"type": "string", "format": "uri"},
         "associated": {"type": "ref", "ref": "#profileAssociated"},
         "indexedAt": {"type": "string", "format": "datetime"},
+        "createdAt": {"type": "string", "format": "datetime"},
         "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
           "type": "array",
@@ -4060,7 +4062,12 @@ const appBskyActorDefs = <String, dynamic>{
         "followsCount": {"type": "integer"},
         "postsCount": {"type": "integer"},
         "associated": {"type": "ref", "ref": "#profileAssociated"},
+        "joinedViaStarterPack": {
+          "type": "ref",
+          "ref": "app.bsky.graph.defs#starterPackViewBasic"
+        },
         "indexedAt": {"type": "string", "format": "datetime"},
+        "createdAt": {"type": "string", "format": "datetime"},
         "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
           "type": "array",
@@ -4073,6 +4080,7 @@ const appBskyActorDefs = <String, dynamic>{
       "properties": {
         "lists": {"type": "integer"},
         "feedgens": {"type": "integer"},
+        "starterPacks": {"type": "integer"},
         "labeler": {"type": "boolean"},
         "chat": {"type": "ref", "ref": "#profileAssociatedChat"}
       }
@@ -4477,7 +4485,12 @@ const appBskyActorProfile = <String, dynamic>{
             "description":
                 "Self-label values, specific to the Bluesky application, on the overall account.",
             "refs": ["com.atproto.label.defs#selfLabels"]
-          }
+          },
+          "joinedViaStarterPack": {
+            "type": "ref",
+            "ref": "com.atproto.repo.strongRef"
+          },
+          "createdAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -4635,14 +4648,15 @@ const appBskyNotificationListNotifications = <String, dynamic>{
         "reason": {
           "type": "string",
           "description":
-              "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.",
+              "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.",
           "knownValues": [
             "like",
             "repost",
             "follow",
             "mention",
             "reply",
-            "quote"
+            "quote",
+            "starterpack-joined"
           ]
         },
         "reasonSubject": {"type": "string", "format": "at-uri"},
@@ -4872,6 +4886,49 @@ const appBskyGraphGetListMutes = <String, dynamic>{
   }
 };
 
+/// `app.bsky.graph.getActorStarterPacks`
+const appBskyGraphGetActorStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getActorStarterPacks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of starter packs created by the actor.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {"type": "string", "format": "at-identifier"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#starterPackViewBasic"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.graph.listblock`
 const appBskyGraphListblock = <String, dynamic>{
   "lexicon": 1,
@@ -4923,6 +4980,42 @@ const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
             "suggestions": {
               "type": "array",
               "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.graph.getStarterPack`
+const appBskyGraphGetStarterPack = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getStarterPack",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Gets a view of a starter pack.",
+      "parameters": {
+        "type": "params",
+        "required": ["starterPack"],
+        "properties": {
+          "starterPack": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) of the starter pack record."
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPack"],
+          "properties": {
+            "starterPack": {
+              "type": "ref",
+              "ref": "app.bsky.graph.defs#starterPackView"
             }
           }
         }
@@ -5002,6 +5095,7 @@ const appBskyGraphDefs = <String, dynamic>{
         "name": {"type": "string", "minLength": 1, "maxLength": 64},
         "purpose": {"type": "ref", "ref": "#listPurpose"},
         "avatar": {"type": "string", "format": "uri"},
+        "listItemCount": {"type": "integer", "minimum": 0},
         "labels": {
           "type": "array",
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
@@ -5029,6 +5123,7 @@ const appBskyGraphDefs = <String, dynamic>{
           "items": {"type": "ref", "ref": "app.bsky.richtext.facet"}
         },
         "avatar": {"type": "string", "format": "uri"},
+        "listItemCount": {"type": "integer", "minimum": 0},
         "labels": {
           "type": "array",
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
@@ -5045,11 +5140,64 @@ const appBskyGraphDefs = <String, dynamic>{
         "subject": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
       }
     },
+    "starterPackView": {
+      "type": "object",
+      "required": ["uri", "cid", "record", "creator", "indexedAt"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "record": {"type": "unknown"},
+        "creator": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewBasic"
+        },
+        "list": {"type": "ref", "ref": "#listViewBasic"},
+        "listItemsSample": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#listItemView"},
+          "maxLength": 12
+        },
+        "feeds": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "app.bsky.feed.defs#generatorView"},
+          "maxLength": 3
+        },
+        "joinedWeekCount": {"type": "integer", "minimum": 0},
+        "joinedAllTimeCount": {"type": "integer", "minimum": 0},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
+        },
+        "indexedAt": {"type": "string", "format": "datetime"}
+      }
+    },
+    "starterPackViewBasic": {
+      "type": "object",
+      "required": ["uri", "cid", "record", "creator", "indexedAt"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "record": {"type": "unknown"},
+        "creator": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewBasic"
+        },
+        "listItemCount": {"type": "integer", "minimum": 0},
+        "joinedWeekCount": {"type": "integer", "minimum": 0},
+        "joinedAllTimeCount": {"type": "integer", "minimum": 0},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
+        },
+        "indexedAt": {"type": "string", "format": "datetime"}
+      }
+    },
     "listPurpose": {
       "type": "string",
       "knownValues": [
         "app.bsky.graph.defs#modlist",
-        "app.bsky.graph.defs#curatelist"
+        "app.bsky.graph.defs#curatelist",
+        "app.bsky.graph.defs#referencelist"
       ]
     },
     "modlist": {
@@ -5061,6 +5209,11 @@ const appBskyGraphDefs = <String, dynamic>{
       "type": "token",
       "description":
           "A list of actors used for curation purposes such as list feeds or interaction gating."
+    },
+    "referencelist": {
+      "type": "token",
+      "description":
+          "A list of actors used for only for reference purposes such as within a starter pack."
     },
     "listViewerState": {
       "type": "object",
@@ -5096,6 +5249,45 @@ const appBskyGraphDefs = <String, dynamic>{
           "format": "at-uri",
           "description":
               "if the actor is followed by this DID, contains the AT-URI of the follow record"
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.graph.getStarterPacks`
+const appBskyGraphGetStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getStarterPacks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get views for a list of starter packs.",
+      "parameters": {
+        "type": "params",
+        "required": ["uris"],
+        "properties": {
+          "uris": {
+            "type": "array",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#starterPackViewBasic"
+              }
+            }
+          }
         }
       }
     }
@@ -5385,6 +5577,60 @@ const appBskyGraphList = <String, dynamic>{
           },
           "createdAt": {"type": "string", "format": "datetime"}
         }
+      }
+    }
+  }
+};
+
+/// `app.bsky.graph.starterpack`
+const appBskyGraphStarterpack = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.starterpack",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record defining a starter pack of actors and feeds for new users.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["name", "list", "createdAt"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Display name for starter pack; can not be empty.",
+            "minLength": 1,
+            "maxLength": 500,
+            "maxGraphemes": 50
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300
+          },
+          "descriptionFacets": {
+            "type": "array",
+            "items": {"type": "ref", "ref": "app.bsky.richtext.facet"}
+          },
+          "list": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) to the list record."
+          },
+          "feeds": {
+            "type": "array",
+            "items": {"type": "ref", "ref": "#feedItem"},
+            "maxLength": 3
+          },
+          "createdAt": {"type": "string", "format": "datetime"}
+        }
+      }
+    },
+    "feedItem": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"}
       }
     }
   }
@@ -8151,6 +8397,199 @@ const toolsOzoneCommunicationCreateTemplate = <String, dynamic>{
   }
 };
 
+/// `tools.ozone.team.updateMember`
+const toolsOzoneTeamUpdateMember = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.updateMember",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Update a member in the ozone service. Requires admin role.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "disabled": {"type": "boolean"},
+            "role": {
+              "type": "string",
+              "knownValues": [
+                "tools.ozone.team.defs#roleAdmin",
+                "tools.ozone.team.defs#roleModerator",
+                "tools.ozone.team.defs#roleTriage"
+              ]
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.team.defs#member"}
+      },
+      "errors": [
+        {
+          "name": "MemberNotFound",
+          "description": "The member being updated does not exist in the team"
+        }
+      ]
+    }
+  }
+};
+
+/// `tools.ozone.team.deleteMember`
+const toolsOzoneTeamDeleteMember = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.deleteMember",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Delete a member from ozone team. Requires admin role.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did"],
+          "properties": {
+            "did": {"type": "string", "format": "did"}
+          }
+        }
+      },
+      "errors": [
+        {
+          "name": "MemberNotFound",
+          "description": "The member being deleted does not exist"
+        },
+        {
+          "name": "CannotDeleteSelf",
+          "description": "You can not delete yourself from the team"
+        }
+      ]
+    }
+  }
+};
+
+/// `tools.ozone.team.defs`
+const toolsOzoneTeamDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.defs",
+  "defs": {
+    "member": {
+      "type": "object",
+      "required": ["did", "role"],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "disabled": {"type": "boolean"},
+        "profile": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewDetailed"
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"},
+        "lastUpdatedBy": {"type": "string"},
+        "role": {
+          "type": "string",
+          "knownValues": ["#roleAdmin", "#roleModerator", "#roleTriage"]
+        }
+      }
+    },
+    "roleAdmin": {
+      "type": "token",
+      "description":
+          "Admin role. Highest level of access, can perform all actions."
+    },
+    "roleModerator": {
+      "type": "token",
+      "description": "Moderator role. Can perform most actions."
+    },
+    "roleTriage": {
+      "type": "token",
+      "description":
+          "Triage role. Mostly intended for monitoring and escalating issues."
+    }
+  }
+};
+
+/// `tools.ozone.team.listMembers`
+const toolsOzoneTeamListMembers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.listMembers",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "List all members with access to the ozone service.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["members"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "members": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "tools.ozone.team.defs#member"}
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.team.addMember`
+const toolsOzoneTeamAddMember = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.team.addMember",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Add a member to the ozone team. Requires admin role.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "role"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "role": {
+              "type": "string",
+              "knownValues": [
+                "tools.ozone.team.defs#roleAdmin",
+                "tools.ozone.team.defs#roleModerator",
+                "tools.ozone.team.defs#roleTriage"
+              ]
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.team.defs#member"}
+      },
+      "errors": [
+        {
+          "name": "MemberAlreadyExists",
+          "description": "Member already exists in the team."
+        }
+      ]
+    }
+  }
+};
+
 /// `tools.ozone.moderation.getEvent`
 const toolsOzoneModerationGetEvent = <String, dynamic>{
   "lexicon": 1,
@@ -9268,10 +9707,13 @@ const lexicons = <Map<String, dynamic>>[
   appBskyGraphMuteActorList,
   appBskyGraphGetMutes,
   appBskyGraphGetListMutes,
+  appBskyGraphGetActorStarterPacks,
   appBskyGraphListblock,
   appBskyGraphGetSuggestedFollowsByActor,
+  appBskyGraphGetStarterPack,
   appBskyGraphGetRelationships,
   appBskyGraphDefs,
+  appBskyGraphGetStarterPacks,
   appBskyGraphListitem,
   appBskyGraphGetFollowers,
   appBskyGraphMuteActor,
@@ -9281,6 +9723,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyGraphUnmuteThread,
   appBskyGraphBlock,
   appBskyGraphList,
+  appBskyGraphStarterpack,
   appBskyGraphGetList,
   appBskyGraphGetLists,
   appBskyGraphGetListBlocks,
@@ -9338,6 +9781,11 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneCommunicationListTemplates,
   toolsOzoneCommunicationDefs,
   toolsOzoneCommunicationCreateTemplate,
+  toolsOzoneTeamUpdateMember,
+  toolsOzoneTeamDeleteMember,
+  toolsOzoneTeamDefs,
+  toolsOzoneTeamListMembers,
+  toolsOzoneTeamAddMember,
   toolsOzoneModerationGetEvent,
   toolsOzoneModerationEmitEvent,
   toolsOzoneModerationGetRecord,

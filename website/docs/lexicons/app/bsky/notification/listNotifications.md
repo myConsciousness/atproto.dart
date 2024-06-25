@@ -34,7 +34,7 @@ Enumerate notifications for the requesting account. Requires auth.
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
 | **author** | [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
-| **reason** | string | like<br/>repost<br/>follow<br/>mention<br/>reply<br/>quote | ✅ | Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'. |
+| **reason** | string | like<br/>repost<br/>follow<br/>mention<br/>reply<br/>quote<br/>starterpack-joined | ✅ | Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'. |
 | **reasonSubject** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **record** | unknown | - | ✅ | - |
 | **isRead** | boolean | - | ✅ | - |
