@@ -106,6 +106,20 @@ const _kAtproto = Package(
     ObjectAdaptor(subject: NSID('com.atproto.sync.subscribeRepos')),
     ObjectAdaptor(subject: NSID('com.atproto.label.subscribeLabels')),
   ],
+  functions: [
+    FunctionEndpoint(
+      subject: NSID('com.atproto.server.createSession'),
+      dataType: 'Session',
+    ),
+    FunctionEndpoint(
+      subject: NSID('com.atproto.server.refreshSession'),
+      dataType: 'Session',
+    ),
+    FunctionEndpoint(
+      subject: NSID('com.atproto.server.deleteSession'),
+      dataType: 'Session',
+    ),
+  ],
 );
 
 const _kBsky = Package(
@@ -163,6 +177,7 @@ final class Package {
     this.base = false,
     this.recordConfigs,
     this.adaptors,
+    this.functions,
   });
 
   final String name;
@@ -171,12 +186,25 @@ final class Package {
 
   final List<RecordConfig>? recordConfigs;
   final List<ObjectAdaptor>? adaptors;
+  final List<FunctionEndpoint>? functions;
 
   bool get isBase => base;
 
   bool isSupportedDoc(final LexiconDoc doc) {
     for (final domain in domains) {
       if (doc.id.toString().startsWith(domain)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  bool isFunction(final NSID subject) {
+    if (functions == null) return false;
+
+    for (final function in functions!) {
+      if (function.subject == subject) {
         return true;
       }
     }
@@ -352,6 +380,16 @@ final class ObjectAdaptor {
   final String? functionName;
 
   final DefOverride? override;
+}
+
+final class FunctionEndpoint {
+  const FunctionEndpoint({
+    required this.subject,
+    this.dataType,
+  });
+
+  final NSID subject;
+  final String? dataType;
 }
 
 final class DefOverride {
