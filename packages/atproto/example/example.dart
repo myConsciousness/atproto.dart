@@ -18,7 +18,7 @@ Future<void> main() async {
     print(session);
 
     final atproto = ATProto.fromSession(
-      session.data,
+      Session.fromJson(session.data.toJson()),
 
       //! The default is `bsky.social`, or resolve dynamically based on session
       service: 'SERVICE_NAME',
