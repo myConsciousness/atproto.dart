@@ -107,18 +107,9 @@ const _kAtproto = Package(
     ObjectAdaptor(subject: NSID('com.atproto.label.subscribeLabels')),
   ],
   functions: [
-    FunctionEndpoint(
-      subject: NSID('com.atproto.server.createSession'),
-      dataType: 'Session',
-    ),
-    FunctionEndpoint(
-      subject: NSID('com.atproto.server.refreshSession'),
-      dataType: 'Session',
-    ),
-    FunctionEndpoint(
-      subject: NSID('com.atproto.server.deleteSession'),
-      dataType: 'Session',
-    ),
+    NSID('com.atproto.server.createSession'),
+    NSID('com.atproto.server.refreshSession'),
+    NSID('com.atproto.server.deleteSession')
   ],
 );
 
@@ -186,7 +177,7 @@ final class Package {
 
   final List<RecordConfig>? recordConfigs;
   final List<ObjectAdaptor>? adaptors;
-  final List<FunctionEndpoint>? functions;
+  final List<NSID>? functions;
 
   bool get isBase => base;
 
@@ -204,7 +195,7 @@ final class Package {
     if (functions == null) return false;
 
     for (final function in functions!) {
-      if (function.subject == subject) {
+      if (function == subject) {
         return true;
       }
     }
@@ -380,16 +371,6 @@ final class ObjectAdaptor {
   final String? functionName;
 
   final DefOverride? override;
-}
-
-final class FunctionEndpoint {
-  const FunctionEndpoint({
-    required this.subject,
-    this.dataType,
-  });
-
-  final NSID subject;
-  final String? dataType;
 }
 
 final class DefOverride {

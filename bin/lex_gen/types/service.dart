@@ -93,10 +93,22 @@ final class LexService {
     }.map((e) => e.split('/').map(toLowerCamelCase).join('/')).toSet();
   }
 
+  List<LexServiceEndpoint> _getFunctionEndpoints() {
+    final functions = <LexServiceEndpoint>[];
+    for (final endpoint in endpoints) {
+      if (ctx.package.isFunction(NSID('${ctx.name}.${endpoint.name}'))) {
+        functions.add(endpoint);
+      }
+    }
+
+    return functions;
+  }
+
   @override
   String toString() {
     final inBulkRecords = _getInBulkRecords();
     final adaptors = _getAdaptors();
+    final functions = _getFunctionEndpoints();
 
     final buffer = StringBuffer();
     buffer.writeln(getFileHeader('Lex Generator'));
@@ -107,6 +119,10 @@ final class LexService {
     }
     buffer.writeln("import '../../../service_context.dart';");
     buffer.writeln();
+    if (functions.isNotEmpty) {
+      buffer.writeln(_getFunctions(functions));
+      buffer.writeln();
+    }
     buffer.writeln('/// Contains `$namespace.*` endpoints.');
     buffer.writeln('final class $name {');
     buffer.writeln('  $name(this._ctx);');
@@ -121,8 +137,10 @@ final class LexService {
     }
     buffer.writeln();
     for (final endpoint in endpoints) {
-      buffer.writeln(endpoint.build(ctx));
-      buffer.writeln();
+      if (!ctx.package.isFunction(NSID('${ctx.name}.${endpoint.name}'))) {
+        buffer.writeln(endpoint.build(ctx));
+        buffer.writeln();
+      }
     }
     buffer.writeln('}');
 
@@ -135,6 +153,38 @@ final class LexService {
       }
       buffer.writeln('}');
     }
+
+    return buffer.toString();
+  }
+
+  String _getFunctions(final List<LexServiceEndpoint> endpoints) {
+    final buffer = StringBuffer();
+
+    for (final endpoint in endpoints) {
+      buffer.writeln(endpoint.buildFunction(ctx));
+      buffer.writeln();
+    }
+
+    buffer.writeln('final class _\$Fn {');
+    buffer.writeln('_\$Fn({');
+    buffer.writeln('  Protocol? protocol,');
+    buffer.writeln('  String? service,');
+    buffer.writeln('  RetryConfig? retryConfig,');
+    buffer.writeln('  PostClient? client,');
+    buffer.writeln('}) : _ctx = ServiceContext(');
+    buffer.writeln('        protocol: protocol,');
+    buffer.writeln('        service: service,');
+    buffer.writeln('        retryConfig: retryConfig,');
+    buffer.writeln('        mockedPostClient: client,');
+    buffer.writeln('      );');
+    buffer.writeln();
+    buffer.writeln('final ServiceContext _ctx;');
+    buffer.writeln();
+    for (final endpoint in endpoints) {
+      buffer.writeln(endpoint.build(ctx));
+      buffer.writeln();
+    }
+    buffer.writeln('}');
 
     return buffer.toString();
   }
@@ -190,12 +240,30 @@ final class LexServiceEndpoint {
     if (method == LexServiceEndpointMethod.get) {
       buffer.write(_getGetEndpoint(ctx));
     } else if (method == LexServiceEndpointMethod.post) {
-      buffer.write(_getPostEndpoint());
+      buffer.write(_getPostEndpoint(ctx));
     } else if (method == LexServiceEndpointMethod.record) {
       buffer.write(_getRecordEndpoint(ctx));
     } else if (method == LexServiceEndpointMethod.stream) {
       buffer.write(_getSubscriptionEndpoint(ctx));
     }
+
+    return buffer.toString();
+  }
+
+  String buildFunction(final ServiceContext ctx) {
+    final buffer = StringBuffer();
+
+    if (description != null) {
+      buffer.writeln('  /// $description');
+      buffer.writeln('  ///');
+    }
+    buffer.writeln('  /// $referencePath');
+    if (description != null &&
+        description!.toLowerCase().contains('deprecated')) {
+      buffer.writeln("  @Deprecated('$description')");
+    }
+
+    buffer.write(_getPostFunctionEndpoint(ctx));
 
     return buffer.toString();
   }
@@ -245,7 +313,7 @@ final class LexServiceEndpoint {
     return buffer.toString();
   }
 
-  String _getPostEndpoint() {
+  String _getPostEndpoint(final ServiceContext ctx) {
     final buffer = StringBuffer();
 
     if (type.isIpldCar) {
@@ -289,6 +357,44 @@ final class LexServiceEndpoint {
     }
     buffer.writeln('        client: \$client,');
     buffer.writeln('      );');
+
+    return buffer.toString();
+  }
+
+  String _getPostFunctionEndpoint(final ServiceContext ctx) {
+    final buffer = StringBuffer();
+
+    buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+
+    if (args.isEmpty) {
+      buffer.writeln('    Protocol? \$protocol,');
+      buffer.writeln('    String? \$service,');
+      buffer.writeln('    RetryConfig? \$retryConfig,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    PostClient? \$client,');
+      buffer.writeln('  }) async =>');
+    } else {
+      for (final arg in args) {
+        buffer.writeln('    ${arg.toString()},');
+      }
+      buffer.writeln('    Protocol? \$protocol,');
+      buffer.writeln('    String? \$service,');
+      buffer.writeln('    RetryConfig? \$retryConfig,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    PostClient? \$client,');
+      buffer.writeln('  }) async =>');
+    }
+    buffer.writeln('await _\$Fn(');
+    buffer.writeln('  protocol: \$protocol,');
+    buffer.writeln('  service: \$service,');
+    buffer.writeln('  retryConfig: \$retryConfig,');
+    buffer.writeln(').$name(');
+    for (final arg in args) {
+      buffer.writeln('  ${arg.name}: ${arg.name},');
+    }
+    buffer.writeln('  \$headers: \$headers,');
+    buffer.writeln('  \$client: \$client,');
+    buffer.writeln(');');
 
     return buffer.toString();
   }

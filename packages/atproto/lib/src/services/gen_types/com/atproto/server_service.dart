@@ -31,6 +31,134 @@ import '../../com/atproto/server/refresh_session/output.dart';
 import '../../com/atproto/server/request_email_update/output.dart';
 import '../../com/atproto/server/reserve_signing_key/output.dart';
 
+/// Create an authentication session.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession
+Future<XRPCResponse<CreateSessionOutput>> createSession({
+  required String identifier,
+  required String password,
+  String? authFactorToken,
+  Protocol? $protocol,
+  String? $service,
+  RetryConfig? $retryConfig,
+  Map<String, String>? $headers,
+  PostClient? $client,
+}) async =>
+    await _$Fn(
+      protocol: $protocol,
+      service: $service,
+      retryConfig: $retryConfig,
+    ).createSession(
+      identifier: identifier,
+      password: password,
+      authFactorToken: authFactorToken,
+      $headers: $headers,
+      $client: $client,
+    );
+
+/// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
+Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
+  Protocol? $protocol,
+  String? $service,
+  RetryConfig? $retryConfig,
+  Map<String, String>? $headers,
+  PostClient? $client,
+}) async =>
+    await _$Fn(
+      protocol: $protocol,
+      service: $service,
+      retryConfig: $retryConfig,
+    ).refreshSession(
+      $headers: $headers,
+      $client: $client,
+    );
+
+/// Delete the current session. Requires auth.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
+Future<XRPCResponse<EmptyData>> deleteSession({
+  Protocol? $protocol,
+  String? $service,
+  RetryConfig? $retryConfig,
+  Map<String, String>? $headers,
+  PostClient? $client,
+}) async =>
+    await _$Fn(
+      protocol: $protocol,
+      service: $service,
+      retryConfig: $retryConfig,
+    ).deleteSession(
+      $headers: $headers,
+      $client: $client,
+    );
+
+final class _$Fn {
+  _$Fn({
+    Protocol? protocol,
+    String? service,
+    RetryConfig? retryConfig,
+    PostClient? client,
+  }) : _ctx = ServiceContext(
+          protocol: protocol,
+          service: service,
+          retryConfig: retryConfig,
+          mockedPostClient: client,
+        );
+
+  final ServiceContext _ctx;
+
+  /// Create an authentication session.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession
+  Future<XRPCResponse<CreateSessionOutput>> createSession({
+    required String identifier,
+    required String password,
+    String? authFactorToken,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<CreateSessionOutput>(
+        ns.comAtprotoServerCreateSession,
+        headers: $headers,
+        body: {
+          'identifier': identifier,
+          'password': password,
+          if (authFactorToken != null) 'authFactorToken': authFactorToken,
+        },
+        to: const CreateSessionOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
+  Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<RefreshSessionOutput>(
+        ns.comAtprotoServerRefreshSession,
+        headers: $headers,
+        to: const RefreshSessionOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Delete the current session. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
+  Future<XRPCResponse<EmptyData>> deleteSession({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoServerDeleteSession,
+        headers: $headers,
+        client: $client,
+      );
+}
+
 /// Contains `com.atproto.server.*` endpoints.
 final class ServerService {
   ServerService(this._ctx);
@@ -128,28 +256,6 @@ final class ServerService {
         client: $client,
       );
 
-  /// Create an authentication session.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession
-  Future<XRPCResponse<CreateSessionOutput>> createSession({
-    required String identifier,
-    required String password,
-    String? authFactorToken,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<CreateSessionOutput>(
-        ns.comAtprotoServerCreateSession,
-        headers: $headers,
-        body: {
-          'identifier': identifier,
-          'password': password,
-          if (authFactorToken != null) 'authFactorToken': authFactorToken,
-        },
-        to: const CreateSessionOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Revoke an App Password by name.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/revokeAppPassword
@@ -178,20 +284,6 @@ final class ServerService {
         ns.comAtprotoServerDescribeServer,
         headers: $headers,
         to: const DescribeServerOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
-  Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<RefreshSessionOutput>(
-        ns.comAtprotoServerRefreshSession,
-        headers: $headers,
-        to: const RefreshSessionOutputConverter().fromJson,
         client: $client,
       );
 
@@ -246,19 +338,6 @@ final class ServerService {
           if (privileged != null) 'privileged': privileged,
         },
         to: const AppPasswordConverter().fromJson,
-        client: $client,
-      );
-
-  /// Delete the current session. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
-  Future<XRPCResponse<EmptyData>> deleteSession({
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoServerDeleteSession,
-        headers: $headers,
         client: $client,
       );
 

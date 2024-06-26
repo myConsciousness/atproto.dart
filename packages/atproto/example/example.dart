@@ -10,7 +10,7 @@ Future<void> main() async {
   try {
     //! First you need to establish session with ATP server.
     final session = await createSession(
-      service: 'SERVICE_NAME', //! The default is `bsky.social`
+      $service: 'SERVICE_NAME', //! The default is `bsky.social`
       identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
       password: 'YOUR_PASSWORD',
     );
