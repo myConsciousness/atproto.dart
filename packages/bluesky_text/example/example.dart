@@ -52,7 +52,7 @@ Future<void> main() async {
 
 Future<Session> get _session async {
   final session = await createSession(
-    service: 'SERVICE_NAME', //! The default is `bsky.social`
+    $service: 'SERVICE_NAME', //! The default is `bsky.social`
     identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );

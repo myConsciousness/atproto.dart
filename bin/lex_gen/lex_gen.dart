@@ -10,9 +10,9 @@ import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
-import 'lex_services_gen.dart';
-import 'lex_types_gen.dart';
 import 'rules/utils.dart';
+import 'lex_types_gen.dart';
+import 'lex_services_gen.dart';
 
 const _kAtproto = Package(
   name: 'atproto',
@@ -107,9 +107,15 @@ const _kAtproto = Package(
     ObjectAdaptor(subject: NSID('com.atproto.label.subscribeLabels')),
   ],
   functions: [
-    NSID('com.atproto.server.createSession'),
-    NSID('com.atproto.server.refreshSession'),
-    NSID('com.atproto.server.deleteSession')
+    FunctionEndpoint(
+      subject: NSID('com.atproto.server.createSession'),
+      output: Variant(name: 'Session'),
+    ),
+    FunctionEndpoint(
+      subject: NSID('com.atproto.server.refreshSession'),
+      output: Variant(name: 'Session'),
+    ),
+    FunctionEndpoint(subject: NSID('com.atproto.server.deleteSession')),
   ],
 );
 
@@ -177,7 +183,7 @@ final class Package {
 
   final List<RecordConfig>? recordConfigs;
   final List<ObjectAdaptor>? adaptors;
-  final List<NSID>? functions;
+  final List<FunctionEndpoint>? functions;
 
   bool get isBase => base;
 
@@ -195,12 +201,24 @@ final class Package {
     if (functions == null) return false;
 
     for (final function in functions!) {
-      if (function == subject) {
+      if (function.subject == subject) {
         return true;
       }
     }
 
     return false;
+  }
+
+  FunctionEndpoint? getFunction(final NSID subject) {
+    if (functions == null) return null;
+
+    for (final function in functions!) {
+      if (function.subject == subject) {
+        return function;
+      }
+    }
+
+    return null;
   }
 
   /// Returns supported lexicon docs based on [domains].
@@ -371,6 +389,26 @@ final class ObjectAdaptor {
   final String? functionName;
 
   final DefOverride? override;
+}
+
+final class FunctionEndpoint {
+  const FunctionEndpoint({
+    required this.subject,
+    this.output,
+  });
+
+  final NSID subject;
+  final Variant? output;
+}
+
+final class Variant {
+  const Variant({
+    required this.name,
+    this.importPath,
+  });
+
+  final String name;
+  final String? importPath;
 }
 
 final class DefOverride {
