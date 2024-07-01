@@ -13,6 +13,7 @@ const _excludePackages = [
   'bluesky_post',
   'bluesky_cards',
   'bluesky_chat',
+  'did_plc',
 ];
 
 void main(List<String> args) {

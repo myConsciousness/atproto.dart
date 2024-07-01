@@ -15,29 +15,6 @@ import 'challenge.dart';
 import 'retry_config.dart';
 import 'retry_policy.dart';
 
-/// Returns PDS endpoint like `porcini.us-east.host.bsky.network` dynamically
-/// based on [session].
-String? _getPdsEndpoint(final Session? session) {
-  if (session == null) return null;
-  if (session.didDoc == null) return null;
-
-  try {
-    final services =
-        session.didDoc?['service'] ?? const <Map<String, dynamic>>[];
-    for (final service in services) {
-      if (service['serviceEndpoint'] != null &&
-          service['id'] == '#atproto_pds' &&
-          service['type'] == 'AtprotoPersonalDataServer') {
-        return Uri.parse(service['serviceEndpoint']).host;
-      }
-    }
-  } catch (_) {
-    return null;
-  }
-
-  return null;
-}
-
 base class ServiceContext {
   ServiceContext({
     Map<String, String>? headers,
@@ -51,7 +28,7 @@ base class ServiceContext {
     final xrpc.PostClient? mockedPostClient,
   })  : _headers = headers,
         _protocol = protocol ?? defaultProtocol,
-        service = service ?? _getPdsEndpoint(session) ?? defaultService,
+        service = service ?? session?.atprotoPdsEndpoint ?? defaultService,
         relayService = relayService ?? defaultRelayService,
         _challenge = Challenge(RetryPolicy(retryConfig)),
         _timeout = timeout ?? defaultTimeout,

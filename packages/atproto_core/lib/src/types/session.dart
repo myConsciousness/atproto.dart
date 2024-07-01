@@ -58,4 +58,25 @@ extension SessionExtension on Session {
 
   /// Returns decoded [refreshJwt].
   AuthToken get refreshToken => decodeJwt(refreshJwt);
+
+  /// Returns PDS endpoint like `porcini.us-east.host.bsky.network` dynamically
+  /// based on this [Session].
+  String? get atprotoPdsEndpoint {
+    if (didDoc == null) return null;
+
+    try {
+      final services = didDoc?['service'] ?? const <Map<String, dynamic>>[];
+      for (final service in services) {
+        if (service['serviceEndpoint'] != null &&
+            service['id'] == '#atproto_pds' &&
+            service['type'] == 'AtprotoPersonalDataServer') {
+          return Uri.parse(service['serviceEndpoint']).host;
+        }
+      }
+    } catch (_) {
+      return null;
+    }
+
+    return null;
+  }
 }

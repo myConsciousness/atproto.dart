@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.12.5
+
+- Expose `.atprotoPdsEndpoint` from as an extension of `Session`. You can get specific pds endpoint based on did document.
+
 ## v0.12.4
 
 - Expose `.accessToken` and `.refreshToken` as an extension from `Session`.
