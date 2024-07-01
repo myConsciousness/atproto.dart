@@ -41,6 +41,7 @@ export 'package:atproto_core/atproto_core.dart'
         PostClient,
         Session,
         $SessionCopyWith,
+        SessionExtension,
         AuthToken,
         $AuthTokenCopyWith,
         decodeJwt,

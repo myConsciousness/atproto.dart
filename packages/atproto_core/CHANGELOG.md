@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.10.4
+
+- Expose `.atprotoPdsEndpoint` from as an extension of `Session`. You can get specific pds endpoint based on did document.
+
 ## v0.10.3
 
 - Change the type `.collection` property from `String` to `NSID` on `AtUri`. You need to do `.collection.toString()` when you want a string of collection. ([#1551](https://github.com/myConsciousness/atproto.dart/issues/1551))
