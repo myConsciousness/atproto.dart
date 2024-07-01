@@ -57,5 +57,5 @@ Future<Session> get _session async {
     password: 'YOUR_PASSWORD',
   );
 
-  return session.data;
+  return Session.fromJson(session.data.toJson());
 }

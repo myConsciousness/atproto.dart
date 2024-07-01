@@ -12,8 +12,8 @@ import 'package:bluesky/app_bsky_embed_external.dart';
 import 'package:bluesky/app_bsky_embed_images.dart';
 import 'package:bluesky/app_bsky_feed_post.dart';
 import 'package:bluesky/app_bsky_richtext_facet.dart';
-import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/atproto.dart';
+import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/cardyb.dart' as cardyb;
 import 'package:bluesky/com_atproto_label_defs.dart';
 import 'package:bluesky/com_atproto_repo_upload_blob.dart';
@@ -102,7 +102,7 @@ Future<Session> _getSession(
   final RetryConfig retryConfig,
 ) async {
   final session = await createSession(
-    service: service,
+    $service: service,
     identifier: core.getInput(
       name: 'identifier',
       options: core.InputOptions(
@@ -117,10 +117,10 @@ Future<Session> _getSession(
         trimWhitespace: true,
       ),
     ),
-    retryConfig: retryConfig,
+    $retryConfig: retryConfig,
   );
 
-  return session.data;
+  return Session.fromJson(session.data.toJson());
 }
 
 Future<Bluesky> get _bluesky async {

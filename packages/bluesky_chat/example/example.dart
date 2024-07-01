@@ -12,7 +12,7 @@ Future<void> main(List<String> args) async {
     password: io.Platform.environment['BLUESKY_PASSWORD']!,
   );
 
-  final chat = BlueskyChat.fromSession(session.data);
+  final chat = BlueskyChat.fromSession(Session.fromJson(session.data.toJson()));
 
   final ref = await chat.actor.declaration(
     allowIncoming: DeclarationAllowIncoming.following,
