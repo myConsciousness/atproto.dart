@@ -89,6 +89,7 @@ See **[official documents](https://atprotodart.com/docs/supported_api)** from fo
   - **[app.bsky.notification.*](https://atprotodart.com/docs/supported_api#notification-service)**
   - **[app.bsky.graph.*](https://atprotodart.com/docs/supported_api#graph-service)**
   - **[app.bsky.unspecced.*](https://atprotodart.com/docs/supported_api#unspecced-service)**
+- **[chat.bsky.*](https://atprotodart.com/docs/supported_api#bluesky)**
   - **[chat.bsky.*](https://atprotodart.com/docs/supported_api#bluesky_chat)**
   - **[chat.bsky.actor.*](https://atprotodart.com/docs/supported_api#actor-service-1)**
   - **[chat.bsky.convo.*](https://atprotodart.com/docs/supported_api#convo-service)**

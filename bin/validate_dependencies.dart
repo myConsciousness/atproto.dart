@@ -12,6 +12,7 @@ const _excludePackages = [
   'atproto_test',
   'bluesky_post',
   'bluesky_cards',
+  'bluesky_chat',
 ];
 
 void main(List<String> args) {

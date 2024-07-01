@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.8
+
+- Expose `.accessToken` and `.refreshToken` as an extension from `Session`.
+
 ## v0.16.7
 
 - Change the type `.collection` property from `String` to `NSID` on `AtUri`. You need to do `.collection.toString()` when you want a string of collection. ([#1551](https://github.com/myConsciousness/atproto.dart/issues/1551))
