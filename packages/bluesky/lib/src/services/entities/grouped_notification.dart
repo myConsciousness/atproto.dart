@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../constants/grouped_notification_reason.dart';
+import '../gen_types/app/bsky/actor/defs/profile_view.dart';
 import 'actor.dart';
 
 part 'grouped_notification.freezed.dart';
@@ -34,7 +35,7 @@ class GroupedNotification with _$GroupedNotification {
     ///
     /// This list is set in chronological order, with the author of the
     /// most recent notification at the top.
-    required List<Actor> authors,
+    required List<ProfileView> authors,
 
     /// Specifies the reason for the notification.
     required GroupedNotificationReason reason,

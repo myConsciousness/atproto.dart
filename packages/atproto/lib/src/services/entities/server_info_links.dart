@@ -11,6 +11,7 @@ part 'server_info_links.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeserver/#links
 @freezed
+@Deprecated('Use Links')
 class ServerInfoLinks with _$ServerInfoLinks {
   @jsonSerializable
   const factory ServerInfoLinks({

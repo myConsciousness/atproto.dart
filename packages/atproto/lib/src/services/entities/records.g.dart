@@ -17,7 +17,7 @@ _$RecordsImpl _$$RecordsImplFromJson(Map json) => $checkedCreate(
               'records',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      Record.fromJson(Map<String, Object?>.from(e as Map)))
+                      Record.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );

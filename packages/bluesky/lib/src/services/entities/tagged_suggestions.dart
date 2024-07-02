@@ -16,6 +16,7 @@ part 'tagged_suggestions.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
 @freezed
+@Deprecated('Use GetTaggedSuggestionsOutput')
 class TaggedSuggestions with _$TaggedSuggestions {
   @jsonSerializable
   const factory TaggedSuggestions({

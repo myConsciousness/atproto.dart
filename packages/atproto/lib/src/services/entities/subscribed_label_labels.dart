@@ -7,13 +7,14 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'label.dart';
+import '../gen_types/com/atproto/label/defs/label.dart';
 
 part 'subscribed_label_labels.freezed.dart';
 part 'subscribed_label_labels.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#labels
 @freezed
+@Deprecated('Use Labels')
 class SubscribedLabelLabels with _$SubscribedLabelLabels {
   @jsonSerializable
   const factory SubscribedLabelLabels({

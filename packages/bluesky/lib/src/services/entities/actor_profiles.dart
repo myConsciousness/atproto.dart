@@ -13,6 +13,7 @@ part 'actor_profiles.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getprofiles/#output
 @freezed
+@Deprecated('Use GetProfilesOutput')
 class ActorProfiles with _$ActorProfiles {
   const factory ActorProfiles({
     required List<ActorProfile> profiles,

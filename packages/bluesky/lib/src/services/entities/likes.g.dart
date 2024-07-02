@@ -17,7 +17,7 @@ _$LikesImpl _$$LikesImplFromJson(Map json) => $checkedCreate(
               'likes',
               (v) => (v as List<dynamic>)
                   .map(
-                      (e) => Like.fromJson(Map<String, Object?>.from(e as Map)))
+                      (e) => Like.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),

@@ -9,13 +9,14 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'like.dart';
+import '../gen_types/app/bsky/feed/get_likes/like.dart';
 
 part 'likes.freezed.dart';
 part 'likes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getlikes/#output
 @freezed
+@Deprecated('Use GetLikesOutput')
 class Likes with _$Likes {
   const factory Likes({
     required List<Like> likes,

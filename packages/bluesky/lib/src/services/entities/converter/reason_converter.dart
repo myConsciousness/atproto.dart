@@ -2,14 +2,16 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../gen_types/app/bsky/feed/defs/reason_repost.dart';
 import '../reason.dart';
-import '../reason_repost.dart';
 
 const reasonConverter = _ReasonConverter();
 

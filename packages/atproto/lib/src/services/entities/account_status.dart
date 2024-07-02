@@ -10,6 +10,7 @@ part 'account_status.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus/#output
 @freezed
+@Deprecated('Use CheckAccountStatusOutput')
 class AccountStatus with _$AccountStatus {
   const factory AccountStatus({
     required bool activated,

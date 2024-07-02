@@ -15,6 +15,7 @@ part 'followers.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getfollowers/#output
 @freezed
+@Deprecated('Use GetFollowersOutput')
 class Followers with _$Followers {
   const factory Followers({
     required Actor subject,

@@ -2,16 +2,18 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../gen_types/app/bsky/richtext/facet/link.dart';
+import '../../gen_types/app/bsky/richtext/facet/mention.dart';
+import '../../gen_types/app/bsky/richtext/facet/tag.dart';
 import '../facet_feature.dart';
-import '../facet_link.dart';
-import '../facet_mention.dart';
-import '../facet_tag.dart';
 
 const facetFeatureConverter = _FacetFeatureConverter();
 

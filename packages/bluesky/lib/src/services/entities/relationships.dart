@@ -16,6 +16,7 @@ part 'relationships.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
 @freezed
+@Deprecated('Use GetRelationshipsOutput')
 class Relationships with _$Relationships {
   const factory Relationships({
     @relationshipConverter required List<Relationship> relationships,

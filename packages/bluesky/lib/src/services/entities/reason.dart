@@ -8,12 +8,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'reason_repost.dart';
+import '../gen_types/app/bsky/feed/defs/reason_repost.dart';
 
 part 'reason.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
+@Deprecated('Use UReason')
 class Reason with _$Reason {
   factory Reason.repost({
     required ReasonRepost data,

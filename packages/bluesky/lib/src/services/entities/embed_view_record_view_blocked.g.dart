@@ -23,7 +23,7 @@ _$EmbedViewRecordViewBlockedImpl _$$EmbedViewRecordViewBlockedImplFromJson(
           author: $checkedConvert(
               'author',
               (v) =>
-                  BlockedAuthor.fromJson(Map<String, Object?>.from(v as Map))),
+                  BlockedAuthor.fromJson(Map<String, dynamic>.from(v as Map))),
         );
         return val;
       },

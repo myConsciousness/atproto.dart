@@ -19,6 +19,7 @@ part 'feed_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
+@Deprecated('Use FeedViewPost')
 class FeedView with _$FeedView {
   @jsonSerializable
   const factory FeedView({

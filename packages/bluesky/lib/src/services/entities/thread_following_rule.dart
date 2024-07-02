@@ -16,6 +16,7 @@ part 'thread_following_rule.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#followingrule
 @freezed
+@Deprecated('Use FollowingRule')
 class ThreadFollowingRule with _$ThreadFollowingRule {
   @jsonSerializable
   const factory ThreadFollowingRule({

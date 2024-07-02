@@ -10,6 +10,7 @@ part 'email_update.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestemailupdate/#output
 @freezed
+@Deprecated('Use RequestEmailUpdateOutput')
 class EmailUpdate with _$EmailUpdate {
   const factory EmailUpdate({
     @JsonKey(name: 'tokenRequired') required bool isTokenRequired,

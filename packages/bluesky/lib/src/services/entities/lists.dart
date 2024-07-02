@@ -9,13 +9,15 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'list_view.dart';
+import '../gen_types/app/bsky/graph/defs/known_list_purpose.dart';
+import '../gen_types/app/bsky/graph/defs/list_view.dart';
 
 part 'lists.freezed.dart';
 part 'lists.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlists/#output
 @freezed
+@Deprecated('Use GetListsOutput')
 class Lists with _$Lists {
   // ignore: unused_element
   const Lists._();
@@ -29,10 +31,13 @@ class Lists with _$Lists {
   factory Lists.fromJson(Map<String, Object?> json) => _$ListsFromJson(json);
 
   /// Returns only moderated lists.
-  List<ListView> get moderatedLists =>
-      lists.where((element) => element.isModerated).toList();
+  List<ListView> get moderatedLists => lists
+      .where((element) => element.purpose.knownValueOrNull?.isModlist ?? false)
+      .toList();
 
   /// Returns only curated lists.
-  List<ListView> get curatedLists =>
-      lists.where((element) => element.isCurated).toList();
+  List<ListView> get curatedLists => lists
+      .where(
+          (element) => element.purpose.knownValueOrNull?.isCuratelist ?? false)
+      .toList();
 }

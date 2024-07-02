@@ -19,7 +19,7 @@ _$SubscribedLabelLabelsImpl _$$SubscribedLabelLabelsImplFromJson(Map json) =>
               'labels',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      Label.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
         );
         return val;

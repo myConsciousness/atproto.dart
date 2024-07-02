@@ -5,15 +5,15 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../gen_types/app/bsky/richtext/facet/main.dart';
 import 'actor.dart';
 import 'defaults.dart';
-import 'facet.dart';
 import 'feed_generator_viewer.dart';
 
 part 'feed_generator_view.freezed.dart';
@@ -21,6 +21,7 @@ part 'feed_generator_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#generatorview
 @freezed
+@Deprecated('Use GeneratorView')
 class FeedGeneratorView with _$FeedGeneratorView {
   @jsonSerializable
   const factory FeedGeneratorView({

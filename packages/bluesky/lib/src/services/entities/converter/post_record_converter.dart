@@ -10,7 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../post_record.dart';
+import '../../gen_types/app/bsky/feed/post/record.dart';
 
 const postRecordConverter = _PostRecordConverter();
 

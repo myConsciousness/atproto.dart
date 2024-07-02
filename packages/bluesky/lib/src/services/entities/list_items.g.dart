@@ -14,7 +14,7 @@ _$ListItemsImpl _$$ListItemsImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$ListItemsImpl(
           list: $checkedConvert('list',
-              (v) => ListView.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => ListView.fromJson(Map<String, dynamic>.from(v as Map))),
           items: $checkedConvert(
               'items',
               (v) => (v as List<dynamic>)

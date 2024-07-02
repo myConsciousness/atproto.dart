@@ -16,6 +16,7 @@ part 'feed_interaction.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#interaction
 @freezed
+@Deprecated('Use Interaction')
 class FeedInteraction with _$FeedInteraction {
   @jsonSerializable
   const factory FeedInteraction({

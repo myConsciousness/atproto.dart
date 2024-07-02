@@ -5,27 +5,28 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../com_atproto_repo_strong_ref.dart';
 import '../../ids.g.dart';
+import '../gen_types/app/bsky/feed/defs/threadgate_view.dart';
+import '../gen_types/app/bsky/feed/post/record.dart';
 import 'actor_basic.dart';
 import 'converter/embed_view_converter.dart';
 import 'converter/post_record_converter.dart';
 import 'defaults.dart';
 import 'embed_view.dart';
-import 'post_record.dart';
 import 'post_viewer.dart';
-import 'threadgate_view.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
+@Deprecated('Use PostView')
 class Post with _$Post {
   // ignore: unused_element
   const Post._();

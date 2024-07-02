@@ -17,7 +17,7 @@ _$ReposImpl _$$ReposImplFromJson(Map json) => $checkedCreate(
               'repos',
               (v) => (v as List<dynamic>)
                   .map(
-                      (e) => Repo.fromJson(Map<String, Object?>.from(e as Map)))
+                      (e) => Repo.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );

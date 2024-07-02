@@ -13,6 +13,7 @@ part 'current_session.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession#output
 @freezed
+@Deprecated('Use GetSessionOutput')
 class CurrentSession with _$CurrentSession {
   @jsonSerializable
   const factory CurrentSession({

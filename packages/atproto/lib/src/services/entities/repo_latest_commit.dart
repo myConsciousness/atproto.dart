@@ -12,6 +12,7 @@ part 'repo_latest_commit.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getlatestcommit/#output
 @freezed
+@Deprecated('Use GetLatestCommitOutput')
 class RepoLatestCommit with _$RepoLatestCommit {
   const factory RepoLatestCommit({
     required String cid,

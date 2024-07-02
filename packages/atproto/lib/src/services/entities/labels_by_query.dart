@@ -9,13 +9,14 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'label.dart';
+import '../gen_types/com/atproto/label/defs/label.dart';
 
 part 'labels_by_query.freezed.dart';
 part 'labels_by_query.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels#output
 @freezed
+@Deprecated('Use QueryLabelsOutput')
 class LabelsByQuery with _$LabelsByQuery {
   @jsonSerializable
   const factory LabelsByQuery({

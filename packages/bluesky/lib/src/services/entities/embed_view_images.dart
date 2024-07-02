@@ -17,6 +17,7 @@ part 'embed_view_images.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#view
 @freezed
+@Deprecated('Use ImagesView')
 class EmbedViewImages with _$EmbedViewImages {
   const factory EmbedViewImages({
     @typeKey @Default(appBskyEmbedImagesView) String type,

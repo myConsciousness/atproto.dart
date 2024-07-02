@@ -17,6 +17,7 @@ part 'subscribed_label.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribelabels/#output
 @freezed
+@Deprecated('Use USubscribeLabelsMessage')
 class SubscribedLabel with _$SubscribedLabel {
   const factory SubscribedLabel.labels({
     required SubscribedLabelLabels data,

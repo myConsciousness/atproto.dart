@@ -8,14 +8,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../gen_types/com/atproto/sync/subscribe_repos/account.dart';
+import '../gen_types/com/atproto/sync/subscribe_repos/commit.dart';
+import '../gen_types/com/atproto/sync/subscribe_repos/identity.dart';
+import '../gen_types/com/atproto/sync/subscribe_repos/info.dart';
 import 'converter/subscribed_repo_converter.dart';
-import 'subscribed_repo_account.dart';
-import 'subscribed_repo_commit.dart';
-import 'subscribed_repo_handle.dart';
-import 'subscribed_repo_identity.dart';
-import 'subscribed_repo_info.dart';
-import 'subscribed_repo_migrate.dart';
-import 'subscribed_repo_tombstone.dart';
 
 part 'subscribed_repo.freezed.dart';
 part 'subscribed_repo.g.dart';
@@ -34,18 +31,6 @@ class SubscribedRepo with _$SubscribedRepo {
   const factory SubscribedRepo.account({
     required Account data,
   }) = USubscribedRepoAccount;
-
-  const factory SubscribedRepo.handle({
-    required Handle data,
-  }) = USubscribedRepoHandle;
-
-  const factory SubscribedRepo.migrate({
-    required Migrate data,
-  }) = USubscribedRepoMigrate;
-
-  const factory SubscribedRepo.tombstone({
-    required Tombstone data,
-  }) = USubscribedRepoTombstone;
 
   const factory SubscribedRepo.info({
     required Info data,

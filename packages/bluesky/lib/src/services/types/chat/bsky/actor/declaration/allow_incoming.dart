@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+@Deprecated('Use KnownDeclarationAllowIncoming or UDeclarationAllowIncoming')
 enum DeclarationAllowIncoming {
   all,
   none,

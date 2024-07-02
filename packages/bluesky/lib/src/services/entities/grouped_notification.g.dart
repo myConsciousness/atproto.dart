@@ -23,7 +23,7 @@ _$GroupedNotificationImpl _$$GroupedNotificationImplFromJson(Map json) =>
               'authors',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      Actor.fromJson(Map<String, Object?>.from(e as Map)))
+                      ProfileView.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           reason: $checkedConvert('reason',
               (v) => $enumDecode(_$GroupedNotificationReasonEnumMap, v)),

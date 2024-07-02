@@ -17,7 +17,7 @@ _$NotificationsImpl _$$NotificationsImplFromJson(Map json) => $checkedCreate(
               'notifications',
               (v) => (v as List<dynamic>)
                   .map((e) => Notification.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                      Map<String, dynamic>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           seenAt: $checkedConvert(

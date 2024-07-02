@@ -17,6 +17,7 @@ part 'embed_external.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#main
 @freezed
+@Deprecated('Use External')
 class EmbedExternal with _$EmbedExternal {
   const factory EmbedExternal({
     @typeKey @Default(appBskyEmbedExternal) String type,

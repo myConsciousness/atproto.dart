@@ -16,6 +16,7 @@ part 'feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getauthorfeed/#output
 @freezed
+@Deprecated('Use GetAuthorFeedOutput')
 class Feed with _$Feed {
   @jsonSerializable
   const factory Feed({

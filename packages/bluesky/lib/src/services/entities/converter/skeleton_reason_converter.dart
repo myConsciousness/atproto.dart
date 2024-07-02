@@ -8,8 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../gen_types/app/bsky/feed/defs/skeleton_reason_repost.dart';
 import '../skeleton_reason.dart';
-import '../skeleton_reason_repost.dart';
 
 const skeletonReasonConverter = _SkeletonReasonConverter();
 

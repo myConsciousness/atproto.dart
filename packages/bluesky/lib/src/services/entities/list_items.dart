@@ -8,14 +8,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../gen_types/app/bsky/graph/defs/list_view.dart';
 import 'list_item.dart';
-import 'list_view.dart';
 
 part 'list_items.freezed.dart';
 part 'list_items.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlist/#output
 @freezed
+@Deprecated('Use GetListOutput')
 class ListItems with _$ListItems {
   const factory ListItems({
     required ListView list,

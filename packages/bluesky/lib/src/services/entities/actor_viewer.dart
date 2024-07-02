@@ -9,13 +9,14 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'list_view_basic.dart';
+import '../gen_types/app/bsky/graph/defs/list_view_basic.dart';
 
 part 'actor_viewer.freezed.dart';
 part 'actor_viewer.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#viewerstate
 @freezed
+@Deprecated('Use ViewerState')
 class ActorViewer with _$ActorViewer {
   // ignore: unused_element
   const ActorViewer._();

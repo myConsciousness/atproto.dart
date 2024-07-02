@@ -6,16 +6,16 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../gen_types/app/bsky/actor/defs/hidden_posts_pref.dart';
+import '../gen_types/app/bsky/actor/defs/labelers_pref.dart';
+import '../gen_types/app/bsky/actor/defs/muted_words_pref.dart';
+import '../gen_types/app/bsky/actor/defs/saved_feeds_pref_v2.dart';
 import 'adult_content_preference.dart';
 import 'content_label_preference.dart';
 import 'converter/preference_converter.dart';
 import 'feed_view_preference.dart';
-import 'hidden_posts_pref.dart';
 import 'interests_preference.dart';
-import 'labelers_pref.dart';
-import 'muted_words_pref.dart';
 import 'personal_details_preference.dart';
-import 'saved_feeds_pref_v2.dart';
 import 'saved_feeds_preference.dart';
 import 'thread_view_preference.dart';
 
@@ -23,6 +23,7 @@ part 'preference.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#preferences
 @freezed
+@Deprecated('Use UPreference')
 class Preference with _$Preference {
   const Preference._();
 

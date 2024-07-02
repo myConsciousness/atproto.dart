@@ -8,14 +8,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'facet_link.dart';
-import 'facet_mention.dart';
-import 'facet_tag.dart';
+import '../gen_types/app/bsky/richtext/facet/link.dart';
+import '../gen_types/app/bsky/richtext/facet/mention.dart';
+import '../gen_types/app/bsky/richtext/facet/tag.dart';
 
 part 'facet_feature.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
+@Deprecated('Use UFacetFeature')
 class FacetFeature with _$FacetFeature {
   const factory FacetFeature.mention({
     required FacetMention data,

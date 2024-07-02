@@ -17,6 +17,7 @@ part 'create_action.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#create
 @freezed
+@Deprecated('Use Create')
 class CreateAction with _$CreateAction {
   @jsonSerializable
   const factory CreateAction({

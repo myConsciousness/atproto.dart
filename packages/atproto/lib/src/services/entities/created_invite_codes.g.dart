@@ -18,7 +18,7 @@ _$CreatedInviteCodesImpl _$$CreatedInviteCodesImplFromJson(Map json) =>
               'codes',
               (v) => (v as List<dynamic>)
                   .map((e) => AccountCodes.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                      Map<String, dynamic>.from(e as Map)))
                   .toList()),
         );
         return val;

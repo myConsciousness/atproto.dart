@@ -17,6 +17,7 @@ part 'embed_view_external.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#view
 @freezed
+@Deprecated('Use ExternalView')
 class EmbedViewExternal with _$EmbedViewExternal {
   const factory EmbedViewExternal({
     @typeKey @Default(appBskyEmbedExternalView) String type,

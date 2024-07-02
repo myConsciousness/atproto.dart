@@ -15,6 +15,7 @@ part 'feed_generator_viewer.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#generatorviewerstate
 @freezed
+@Deprecated('Use GeneratorViewerState')
 class FeedGeneratorViewer with _$FeedGeneratorViewer {
   @jsonSerializable
   const factory FeedGeneratorViewer({

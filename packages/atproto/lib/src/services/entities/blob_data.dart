@@ -12,6 +12,7 @@ part 'blob_data.freezed.dart';
 part 'blob_data.g.dart';
 
 @freezed
+@Deprecated('Use UploadBlobOutput')
 class BlobData with _$BlobData {
   const factory BlobData({
     required Blob blob,

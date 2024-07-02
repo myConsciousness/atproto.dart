@@ -28,7 +28,7 @@ _$EmbedViewRecordViewRecordImpl _$$EmbedViewRecordViewRecordImplFromJson(
               'labels',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      Label.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           replyCount:
               $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),

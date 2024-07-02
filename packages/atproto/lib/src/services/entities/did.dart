@@ -10,6 +10,7 @@ part 'did.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#output
 @freezed
+@Deprecated('Use ResolveHandleOutput')
 class DID with _$DID {
   const factory DID({
     required String did,

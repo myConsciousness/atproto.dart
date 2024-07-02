@@ -13,6 +13,7 @@ part 'actors_typeahead.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchactorstypeahead/#output
 @freezed
+@Deprecated('Use SearchActorsTypeaheadOutput')
 class ActorsTypeahead with _$ActorsTypeahead {
   const factory ActorsTypeahead({
     required List<ActorBasic> actors,

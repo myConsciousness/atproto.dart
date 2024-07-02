@@ -17,7 +17,7 @@ _$InviteCodesImpl _$$InviteCodesImplFromJson(Map json) => $checkedCreate(
               'codes',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      InviteCode.fromJson(Map<String, Object?>.from(e as Map)))
+                      InviteCode.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
         );
         return val;

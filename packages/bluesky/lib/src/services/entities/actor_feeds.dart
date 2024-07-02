@@ -16,6 +16,7 @@ part 'actor_feeds.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getactorfeeds/#output
 @freezed
+@Deprecated('Use GetActorFeedsOutput')
 class ActorFeeds with _$ActorFeeds {
   @jsonSerializable
   const factory ActorFeeds({

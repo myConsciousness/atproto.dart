@@ -15,6 +15,7 @@ part 'suggestions_skeleton.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/suggestionsskeleton/#output
 @freezed
+@Deprecated('Use GetSuggestionsSkeletonOutput')
 class SuggestionsSkeleton with _$SuggestionsSkeleton {
   const factory SuggestionsSkeleton({
     required List<SkeletonActor> actors,

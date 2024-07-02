@@ -22,7 +22,7 @@ _$ActorBasicImpl _$$ActorBasicImplFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : ProfileAssociated.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                      Map<String, dynamic>.from(v as Map))),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
@@ -32,7 +32,7 @@ _$ActorBasicImpl _$$ActorBasicImplFromJson(Map json) => $checkedCreate(
               'labels',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      Label.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
         );
         return val;

@@ -13,6 +13,7 @@ part 'embed_external_thumbnail.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#viewexternal
 @freezed
+@Deprecated('Use ExternalViewExternal')
 class EmbedExternalThumbnail with _$EmbedExternalThumbnail {
   @jsonSerializable
   const factory EmbedExternalThumbnail({

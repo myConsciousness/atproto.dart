@@ -6,13 +6,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'repo.dart';
+import '../gen_types/com/atproto/sync/list_repos/repo.dart';
 
 part 'repos.freezed.dart';
 part 'repos.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listrepos/#output
 @freezed
+@Deprecated('Use ListReposOutput')
 class Repos with _$Repos {
   const factory Repos({
     required List<Repo> repos,

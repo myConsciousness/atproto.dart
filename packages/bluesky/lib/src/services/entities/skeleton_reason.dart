@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'skeleton_reason_repost.dart';
+import '../gen_types/app/bsky/feed/defs/skeleton_reason_repost.dart';
 
 part 'skeleton_reason.freezed.dart';
 

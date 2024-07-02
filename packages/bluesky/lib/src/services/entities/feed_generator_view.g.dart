@@ -28,7 +28,7 @@ _$FeedGeneratorViewImpl _$$FeedGeneratorViewImplFromJson(Map json) =>
               'descriptionFacets',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                      Facet.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           likeCount:
@@ -39,7 +39,7 @@ _$FeedGeneratorViewImpl _$$FeedGeneratorViewImplFromJson(Map json) =>
               'labels',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      Label.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           viewer: $checkedConvert(
               'viewer',

@@ -16,6 +16,7 @@ part 'thread_view_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#threadviewpref
 @freezed
+@Deprecated('Use ThreadViewPref')
 class ThreadViewPreference with _$ThreadViewPreference {
   @jsonSerializable
   const factory ThreadViewPreference({
