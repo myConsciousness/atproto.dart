@@ -34,7 +34,6 @@ jobs:
           - packages/did_plc
           - packages/atproto
           - packages/bluesky
-          - packages/bluesky_chat
           - packages/bluesky_text
 
     steps:
