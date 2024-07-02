@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.12.7
+
+- Fixed a bug that prevented `RepoService.deleteRecord` from working.
+
 ## v0.12.6
 
 - Bump `atproto_core`.
