@@ -7,7 +7,7 @@ environment:
 
 dependencies:
   test: ^1.21.0
-  atproto_core: ^1.0.0-0.0.dev
+  atproto_core: ^0.10.4
   http: ^1.2.1
   universal_io: ^2.2.2
 
