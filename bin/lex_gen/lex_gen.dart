@@ -19,90 +19,6 @@ const _kAtproto = Package(
   domains: ['com.atproto'],
   base: true,
   adaptors: [
-    ObjectAdaptor(
-      subject: NSID('com.atproto.sync.getBlocks'),
-      override: DefOverride(
-        defs: {
-          'block': {
-            'type': 'object',
-            'required': ['cid', 'value'],
-            'properties': {
-              'cid': {'type': 'string', 'format': 'cid-link'},
-              'value': {'type': 'string', 'format': 'cid-link'},
-            }
-          },
-        },
-        outputSchema: {
-          'encoding': 'application/json',
-          'schema': {
-            'type': 'object',
-            'required': ['blocks'],
-            'properties': {
-              'blocks': {
-                'type': 'array',
-                'items': {
-                  'type': 'ref',
-                  'ref': '#block',
-                }
-              },
-            }
-          }
-        },
-      ),
-    ),
-    ObjectAdaptor(
-      subject: NSID('com.atproto.sync.getRecord'),
-      override: DefOverride(
-        defs: {
-          'record': {
-            'type': 'object',
-            'required': ['cid', 'value'],
-            'properties': {
-              'cid': {'type': 'string', 'format': 'cid-link'},
-              'value': {'type': 'unknown'},
-            }
-          },
-        },
-        outputSchema: {
-          'encoding': 'application/json',
-          'schema': {
-            'type': 'ref',
-            'ref': '#record',
-          }
-        },
-      ),
-    ),
-    ObjectAdaptor(
-      subject: NSID('com.atproto.sync.getRepo'),
-      override: DefOverride(
-        defs: {
-          'record': {
-            'type': 'object',
-            'required': ['cid', 'value'],
-            'properties': {
-              'cid': {'type': 'string', 'format': 'cid-link'},
-              'value': {'type': 'unknown'},
-            }
-          },
-        },
-        outputSchema: {
-          'encoding': 'application/json',
-          'schema': {
-            'type': 'object',
-            'required': ['repo'],
-            'properties': {
-              'repo': {
-                'type': 'array',
-                'items': {
-                  'type': 'ref',
-                  'ref': '#record',
-                }
-              },
-            }
-          }
-        },
-      ),
-    ),
     ObjectAdaptor(subject: NSID('com.atproto.sync.subscribeRepos')),
     ObjectAdaptor(subject: NSID('com.atproto.label.subscribeLabels')),
   ],
@@ -370,17 +286,7 @@ final class ObjectAdaptor {
   final String? resourcePath;
   final String? functionName;
 
-  final DefOverride? override;
-}
-
-final class DefOverride {
-  const DefOverride({
-    this.defs,
-    this.outputSchema,
-  });
-
-  final Map<String, Map<String, dynamic>>? defs;
-  final Map<String, dynamic>? outputSchema;
+  final Map<String, dynamic>? override;
 }
 
 final class LexGen {

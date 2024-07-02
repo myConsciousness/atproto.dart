@@ -273,11 +273,7 @@ final class LexServiceEndpoint {
 
     final adaptor = ctx.package.getObjectAdaptor(docId);
 
-    if (type.isIpldCar) {
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> \$$name({');
-    } else {
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-    }
+    buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
 
     if (args.isEmpty) {
       buffer.writeln('    Map<String, String>? \$headers,');
@@ -301,7 +297,7 @@ final class LexServiceEndpoint {
       }
       buffer.writeln('    },');
     }
-    if (adaptor != null && !type.isIpldCar) {
+    if (adaptor != null) {
       buffer.writeln('        adaptor: ${name}Adaptor,');
     }
     if (type.converter != null) {

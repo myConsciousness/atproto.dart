@@ -18,9 +18,6 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../adaptors/com/atproto/sync/get_blocks/get_blocks_adaptor.dart';
-import '../../../adaptors/com/atproto/sync/get_record/get_record_adaptor.dart';
-import '../../../adaptors/com/atproto/sync/get_repo/get_repo_adaptor.dart';
 import '../../../adaptors/com/atproto/sync/subscribe_repos/subscribe_repos_adaptor.dart';
 import '../../../service_context.dart';
 import '../../com/atproto/sync/get_latest_commit/output.dart';
@@ -77,7 +74,7 @@ final class SyncService {
   /// Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlocks
-  Future<XRPCResponse<Uint8List>> $getBlocks({
+  Future<XRPCResponse<Uint8List>> getBlocks({
     required String did,
     required List<String> cids,
     Map<String, String>? $headers,
@@ -134,7 +131,7 @@ final class SyncService {
   /// Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRecord
-  Future<XRPCResponse<Uint8List>> $getRecord({
+  Future<XRPCResponse<Uint8List>> getRecord({
     required String did,
     required NSID collection,
     required String rkey,
@@ -209,7 +206,7 @@ final class SyncService {
   /// Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepo
-  Future<XRPCResponse<Uint8List>> $getRepo({
+  Future<XRPCResponse<Uint8List>> getRepo({
     required String did,
     String? since,
     Map<String, String>? $headers,
