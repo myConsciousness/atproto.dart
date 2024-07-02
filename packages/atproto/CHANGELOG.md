@@ -7,6 +7,10 @@
 - All `knownValues` are now implemented as union types of `Enum` and `String`.
 - Useful extensions have been added for union type objects.
 
+## v0.12.6
+
+- Bump `atproto_core`.
+
 ## v0.12.5
 
 - Expose `.atprotoPdsEndpoint` from as an extension of `Session`. You can get specific pds endpoint based on did document.
