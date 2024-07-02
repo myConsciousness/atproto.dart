@@ -7,6 +7,7 @@
 import 'package:bluesky/app_bsky_richtext_facet.dart';
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/atproto.dart';
+import 'package:bluesky/com_atproto_server_create_session.dart';
 import 'package:bluesky/core.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 
@@ -57,5 +58,5 @@ Future<Session> get _session async {
     password: 'YOUR_PASSWORD',
   );
 
-  return Session.fromJson(session.data.toJson());
+  return session.data.toSession();
 }
