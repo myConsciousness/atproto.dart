@@ -1,6 +1,8 @@
 # Release Note
 
-## 1.0.0-0.0.dev
+## 1.0.0-preview.0
+
+> Note: This release has breaking changes.
 
 - Expose automatically generated objects based on Lexicon definitions.
 - All previous entities have been deprecated.
