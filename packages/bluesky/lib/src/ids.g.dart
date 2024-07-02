@@ -16,6 +16,13 @@ const appBskyActorDefs = 'app.bsky.actor.defs';
 /// `app.bsky.actor.defs#adultContentPref`
 const appBskyActorDefsAdultContentPref = 'app.bsky.actor.defs#adultContentPref';
 
+/// `app.bsky.actor.defs#bskyAppProgressGuide`
+const appBskyActorDefsBskyAppProgressGuide =
+    'app.bsky.actor.defs#bskyAppProgressGuide';
+
+/// `app.bsky.actor.defs#bskyAppStatePref`
+const appBskyActorDefsBskyAppStatePref = 'app.bsky.actor.defs#bskyAppStatePref';
+
 /// `app.bsky.actor.defs#contentLabelPref`
 const appBskyActorDefsContentLabelPref = 'app.bsky.actor.defs#contentLabelPref';
 
