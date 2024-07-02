@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.10.5
+
+- Expose `NsidConverter`.
+- Add `client` parameter for `.get` and `.post` on `ServiceContext`.
+
 ## v0.10.4
 
 - Expose `.atprotoPdsEndpoint` from as an extension of `Session`. You can get specific pds endpoint based on did document.

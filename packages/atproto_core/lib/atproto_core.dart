@@ -23,6 +23,7 @@ export 'package:atproto_core/src/utils/blob_converter.dart';
 export 'package:atproto_core/src/types/blob.dart';
 export 'package:atproto_core/src/types/blob_ref.dart';
 export 'package:atproto_core/src/utils/at_uri_converter.dart';
+export 'package:atproto_core/src/utils/nsid_converter.dart';
 export 'package:atproto_core/src/progress_status.dart'
     show ProgressStatus, ProgressStatusEvent;
 export 'package:cbor/simple.dart' show cbor;
