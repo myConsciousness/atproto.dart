@@ -28,13 +28,13 @@ void main() {
   );
 
   testSync<Uint8List>(
-    (m, s) => s.$getRepo(did: m.did),
+    (m, s) => s.getRepo(did: m.did),
     id: comAtprotoSyncGetRepo,
     bytes: getRepoBytes,
   );
 
   testSync<Uint8List>(
-    (m, s) => s.$getBlocks(did: m.did, cids: [m.cid]),
+    (m, s) => s.getBlocks(did: m.did, cids: [m.cid]),
     id: comAtprotoSyncGetBlocks,
     bytes: getBlocksBytes,
   );
@@ -45,7 +45,7 @@ void main() {
   );
 
   testSync<Uint8List>(
-    (m, s) => s.$getRecord(
+    (m, s) => s.getRecord(
       did: m.uri.hostname,
       collection: m.uri.collection,
       rkey: m.uri.rkey,
