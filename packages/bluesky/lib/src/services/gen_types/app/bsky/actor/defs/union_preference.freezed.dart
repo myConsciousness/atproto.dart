@@ -29,6 +29,7 @@ mixin _$UPreference {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +45,7 @@ mixin _$UPreference {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +61,7 @@ mixin _$UPreference {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -79,6 +82,8 @@ mixin _$UPreference {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -95,6 +100,7 @@ mixin _$UPreference {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -110,6 +116,7 @@ mixin _$UPreference {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -221,6 +228,7 @@ class _$UPreferenceAdultContentPrefImpl implements UPreferenceAdultContentPref {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return adultContentPref(data);
@@ -239,6 +247,7 @@ class _$UPreferenceAdultContentPrefImpl implements UPreferenceAdultContentPref {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return adultContentPref?.call(data);
@@ -257,6 +266,7 @@ class _$UPreferenceAdultContentPrefImpl implements UPreferenceAdultContentPref {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -283,6 +293,8 @@ class _$UPreferenceAdultContentPrefImpl implements UPreferenceAdultContentPref {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return adultContentPref(this);
@@ -302,6 +314,7 @@ class _$UPreferenceAdultContentPrefImpl implements UPreferenceAdultContentPref {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return adultContentPref?.call(this);
@@ -320,6 +333,7 @@ class _$UPreferenceAdultContentPrefImpl implements UPreferenceAdultContentPref {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -429,6 +443,7 @@ class _$UPreferenceContentLabelPrefImpl implements UPreferenceContentLabelPref {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return contentLabelPref(data);
@@ -447,6 +462,7 @@ class _$UPreferenceContentLabelPrefImpl implements UPreferenceContentLabelPref {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return contentLabelPref?.call(data);
@@ -465,6 +481,7 @@ class _$UPreferenceContentLabelPrefImpl implements UPreferenceContentLabelPref {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -491,6 +508,8 @@ class _$UPreferenceContentLabelPrefImpl implements UPreferenceContentLabelPref {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return contentLabelPref(this);
@@ -510,6 +529,7 @@ class _$UPreferenceContentLabelPrefImpl implements UPreferenceContentLabelPref {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return contentLabelPref?.call(this);
@@ -528,6 +548,7 @@ class _$UPreferenceContentLabelPrefImpl implements UPreferenceContentLabelPref {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -637,6 +658,7 @@ class _$UPreferenceSavedFeedsPrefImpl implements UPreferenceSavedFeedsPref {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return savedFeedsPref(data);
@@ -655,6 +677,7 @@ class _$UPreferenceSavedFeedsPrefImpl implements UPreferenceSavedFeedsPref {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return savedFeedsPref?.call(data);
@@ -673,6 +696,7 @@ class _$UPreferenceSavedFeedsPrefImpl implements UPreferenceSavedFeedsPref {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -699,6 +723,8 @@ class _$UPreferenceSavedFeedsPrefImpl implements UPreferenceSavedFeedsPref {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return savedFeedsPref(this);
@@ -718,6 +744,7 @@ class _$UPreferenceSavedFeedsPrefImpl implements UPreferenceSavedFeedsPref {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return savedFeedsPref?.call(this);
@@ -736,6 +763,7 @@ class _$UPreferenceSavedFeedsPrefImpl implements UPreferenceSavedFeedsPref {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -844,6 +872,7 @@ class _$UPreferenceSavedFeedsPrefV2Impl implements UPreferenceSavedFeedsPrefV2 {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return savedFeedsPrefV2(data);
@@ -862,6 +891,7 @@ class _$UPreferenceSavedFeedsPrefV2Impl implements UPreferenceSavedFeedsPrefV2 {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return savedFeedsPrefV2?.call(data);
@@ -880,6 +910,7 @@ class _$UPreferenceSavedFeedsPrefV2Impl implements UPreferenceSavedFeedsPrefV2 {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -906,6 +937,8 @@ class _$UPreferenceSavedFeedsPrefV2Impl implements UPreferenceSavedFeedsPrefV2 {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return savedFeedsPrefV2(this);
@@ -925,6 +958,7 @@ class _$UPreferenceSavedFeedsPrefV2Impl implements UPreferenceSavedFeedsPrefV2 {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return savedFeedsPrefV2?.call(this);
@@ -943,6 +977,7 @@ class _$UPreferenceSavedFeedsPrefV2Impl implements UPreferenceSavedFeedsPrefV2 {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1055,6 +1090,7 @@ class _$UPreferencePersonalDetailsPrefImpl
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return personalDetailsPref(data);
@@ -1073,6 +1109,7 @@ class _$UPreferencePersonalDetailsPrefImpl
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return personalDetailsPref?.call(data);
@@ -1091,6 +1128,7 @@ class _$UPreferencePersonalDetailsPrefImpl
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1117,6 +1155,8 @@ class _$UPreferencePersonalDetailsPrefImpl
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return personalDetailsPref(this);
@@ -1136,6 +1176,7 @@ class _$UPreferencePersonalDetailsPrefImpl
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return personalDetailsPref?.call(this);
@@ -1154,6 +1195,7 @@ class _$UPreferencePersonalDetailsPrefImpl
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1264,6 +1306,7 @@ class _$UPreferenceFeedViewPrefImpl implements UPreferenceFeedViewPref {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return feedViewPref(data);
@@ -1282,6 +1325,7 @@ class _$UPreferenceFeedViewPrefImpl implements UPreferenceFeedViewPref {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return feedViewPref?.call(data);
@@ -1300,6 +1344,7 @@ class _$UPreferenceFeedViewPrefImpl implements UPreferenceFeedViewPref {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1326,6 +1371,8 @@ class _$UPreferenceFeedViewPrefImpl implements UPreferenceFeedViewPref {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return feedViewPref(this);
@@ -1345,6 +1392,7 @@ class _$UPreferenceFeedViewPrefImpl implements UPreferenceFeedViewPref {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return feedViewPref?.call(this);
@@ -1363,6 +1411,7 @@ class _$UPreferenceFeedViewPrefImpl implements UPreferenceFeedViewPref {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1471,6 +1520,7 @@ class _$UPreferenceThreadViewPrefImpl implements UPreferenceThreadViewPref {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return threadViewPref(data);
@@ -1489,6 +1539,7 @@ class _$UPreferenceThreadViewPrefImpl implements UPreferenceThreadViewPref {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return threadViewPref?.call(data);
@@ -1507,6 +1558,7 @@ class _$UPreferenceThreadViewPrefImpl implements UPreferenceThreadViewPref {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1533,6 +1585,8 @@ class _$UPreferenceThreadViewPrefImpl implements UPreferenceThreadViewPref {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return threadViewPref(this);
@@ -1552,6 +1606,7 @@ class _$UPreferenceThreadViewPrefImpl implements UPreferenceThreadViewPref {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return threadViewPref?.call(this);
@@ -1570,6 +1625,7 @@ class _$UPreferenceThreadViewPrefImpl implements UPreferenceThreadViewPref {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1678,6 +1734,7 @@ class _$UPreferenceInterestsPrefImpl implements UPreferenceInterestsPref {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return interestsPref(data);
@@ -1696,6 +1753,7 @@ class _$UPreferenceInterestsPrefImpl implements UPreferenceInterestsPref {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return interestsPref?.call(data);
@@ -1714,6 +1772,7 @@ class _$UPreferenceInterestsPrefImpl implements UPreferenceInterestsPref {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1740,6 +1799,8 @@ class _$UPreferenceInterestsPrefImpl implements UPreferenceInterestsPref {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return interestsPref(this);
@@ -1759,6 +1820,7 @@ class _$UPreferenceInterestsPrefImpl implements UPreferenceInterestsPref {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return interestsPref?.call(this);
@@ -1777,6 +1839,7 @@ class _$UPreferenceInterestsPrefImpl implements UPreferenceInterestsPref {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1885,6 +1948,7 @@ class _$UPreferenceMutedWordsPrefImpl implements UPreferenceMutedWordsPref {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return mutedWordsPref(data);
@@ -1903,6 +1967,7 @@ class _$UPreferenceMutedWordsPrefImpl implements UPreferenceMutedWordsPref {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return mutedWordsPref?.call(data);
@@ -1921,6 +1986,7 @@ class _$UPreferenceMutedWordsPrefImpl implements UPreferenceMutedWordsPref {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1947,6 +2013,8 @@ class _$UPreferenceMutedWordsPrefImpl implements UPreferenceMutedWordsPref {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return mutedWordsPref(this);
@@ -1966,6 +2034,7 @@ class _$UPreferenceMutedWordsPrefImpl implements UPreferenceMutedWordsPref {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return mutedWordsPref?.call(this);
@@ -1984,6 +2053,7 @@ class _$UPreferenceMutedWordsPrefImpl implements UPreferenceMutedWordsPref {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2092,6 +2162,7 @@ class _$UPreferenceHiddenPostsPrefImpl implements UPreferenceHiddenPostsPref {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return hiddenPostsPref(data);
@@ -2110,6 +2181,7 @@ class _$UPreferenceHiddenPostsPrefImpl implements UPreferenceHiddenPostsPref {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return hiddenPostsPref?.call(data);
@@ -2128,6 +2200,7 @@ class _$UPreferenceHiddenPostsPrefImpl implements UPreferenceHiddenPostsPref {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2154,6 +2227,8 @@ class _$UPreferenceHiddenPostsPrefImpl implements UPreferenceHiddenPostsPref {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return hiddenPostsPref(this);
@@ -2173,6 +2248,7 @@ class _$UPreferenceHiddenPostsPrefImpl implements UPreferenceHiddenPostsPref {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return hiddenPostsPref?.call(this);
@@ -2191,6 +2267,7 @@ class _$UPreferenceHiddenPostsPrefImpl implements UPreferenceHiddenPostsPref {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2209,6 +2286,221 @@ abstract class UPreferenceHiddenPostsPref implements UPreference {
   HiddenPostsPref get data;
   @JsonKey(ignore: true)
   _$$UPreferenceHiddenPostsPrefImplCopyWith<_$UPreferenceHiddenPostsPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPreferenceBskyAppStatePrefImplCopyWith<$Res> {
+  factory _$$UPreferenceBskyAppStatePrefImplCopyWith(
+          _$UPreferenceBskyAppStatePrefImpl value,
+          $Res Function(_$UPreferenceBskyAppStatePrefImpl) then) =
+      __$$UPreferenceBskyAppStatePrefImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BskyAppStatePref data});
+
+  $BskyAppStatePrefCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPreferenceBskyAppStatePrefImplCopyWithImpl<$Res>
+    extends _$UPreferenceCopyWithImpl<$Res, _$UPreferenceBskyAppStatePrefImpl>
+    implements _$$UPreferenceBskyAppStatePrefImplCopyWith<$Res> {
+  __$$UPreferenceBskyAppStatePrefImplCopyWithImpl(
+      _$UPreferenceBskyAppStatePrefImpl _value,
+      $Res Function(_$UPreferenceBskyAppStatePrefImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPreferenceBskyAppStatePrefImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as BskyAppStatePref,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BskyAppStatePrefCopyWith<$Res> get data {
+    return $BskyAppStatePrefCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPreferenceBskyAppStatePrefImpl implements UPreferenceBskyAppStatePref {
+  const _$UPreferenceBskyAppStatePrefImpl({required this.data});
+
+  @override
+  final BskyAppStatePref data;
+
+  @override
+  String toString() {
+    return 'UPreference.bskyAppStatePref(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPreferenceBskyAppStatePrefImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceBskyAppStatePrefImplCopyWith<_$UPreferenceBskyAppStatePrefImpl>
+      get copyWith => __$$UPreferenceBskyAppStatePrefImplCopyWithImpl<
+          _$UPreferenceBskyAppStatePrefImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPref data) adultContentPref,
+    required TResult Function(ContentLabelPref data) contentLabelPref,
+    required TResult Function(SavedFeedsPref data) savedFeedsPref,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsPrefV2,
+    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
+    required TResult Function(FeedViewPref data) feedViewPref,
+    required TResult Function(ThreadViewPref data) threadViewPref,
+    required TResult Function(InterestsPref data) interestsPref,
+    required TResult Function(MutedWordsPref data) mutedWordsPref,
+    required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return bskyAppStatePref(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPref data)? adultContentPref,
+    TResult? Function(ContentLabelPref data)? contentLabelPref,
+    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
+    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(FeedViewPref data)? feedViewPref,
+    TResult? Function(ThreadViewPref data)? threadViewPref,
+    TResult? Function(InterestsPref data)? interestsPref,
+    TResult? Function(MutedWordsPref data)? mutedWordsPref,
+    TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return bskyAppStatePref?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPref data)? adultContentPref,
+    TResult Function(ContentLabelPref data)? contentLabelPref,
+    TResult Function(SavedFeedsPref data)? savedFeedsPref,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsPrefV2,
+    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(FeedViewPref data)? feedViewPref,
+    TResult Function(ThreadViewPref data)? threadViewPref,
+    TResult Function(InterestsPref data)? interestsPref,
+    TResult Function(MutedWordsPref data)? mutedWordsPref,
+    TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (bskyAppStatePref != null) {
+      return bskyAppStatePref(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContentPref value)
+        adultContentPref,
+    required TResult Function(UPreferenceContentLabelPref value)
+        contentLabelPref,
+    required TResult Function(UPreferenceSavedFeedsPref value) savedFeedsPref,
+    required TResult Function(UPreferenceSavedFeedsPrefV2 value)
+        savedFeedsPrefV2,
+    required TResult Function(UPreferencePersonalDetailsPref value)
+        personalDetailsPref,
+    required TResult Function(UPreferenceFeedViewPref value) feedViewPref,
+    required TResult Function(UPreferenceThreadViewPref value) threadViewPref,
+    required TResult Function(UPreferenceInterestsPref value) interestsPref,
+    required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
+    required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return bskyAppStatePref(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContentPref value)? adultContentPref,
+    TResult? Function(UPreferenceContentLabelPref value)? contentLabelPref,
+    TResult? Function(UPreferenceSavedFeedsPref value)? savedFeedsPref,
+    TResult? Function(UPreferenceSavedFeedsPrefV2 value)? savedFeedsPrefV2,
+    TResult? Function(UPreferencePersonalDetailsPref value)?
+        personalDetailsPref,
+    TResult? Function(UPreferenceFeedViewPref value)? feedViewPref,
+    TResult? Function(UPreferenceThreadViewPref value)? threadViewPref,
+    TResult? Function(UPreferenceInterestsPref value)? interestsPref,
+    TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
+    TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return bskyAppStatePref?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContentPref value)? adultContentPref,
+    TResult Function(UPreferenceContentLabelPref value)? contentLabelPref,
+    TResult Function(UPreferenceSavedFeedsPref value)? savedFeedsPref,
+    TResult Function(UPreferenceSavedFeedsPrefV2 value)? savedFeedsPrefV2,
+    TResult Function(UPreferencePersonalDetailsPref value)? personalDetailsPref,
+    TResult Function(UPreferenceFeedViewPref value)? feedViewPref,
+    TResult Function(UPreferenceThreadViewPref value)? threadViewPref,
+    TResult Function(UPreferenceInterestsPref value)? interestsPref,
+    TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
+    TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (bskyAppStatePref != null) {
+      return bskyAppStatePref(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferenceBskyAppStatePref implements UPreference {
+  const factory UPreferenceBskyAppStatePref(
+          {required final BskyAppStatePref data}) =
+      _$UPreferenceBskyAppStatePrefImpl;
+
+  @override
+  BskyAppStatePref get data;
+  @JsonKey(ignore: true)
+  _$$UPreferenceBskyAppStatePrefImplCopyWith<_$UPreferenceBskyAppStatePrefImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -2294,6 +2586,7 @@ class _$UPreferenceUnknownImpl implements UPreferenceUnknown {
     required TResult Function(InterestsPref data) interestsPref,
     required TResult Function(MutedWordsPref data) mutedWordsPref,
     required TResult Function(HiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(BskyAppStatePref data) bskyAppStatePref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -2312,6 +2605,7 @@ class _$UPreferenceUnknownImpl implements UPreferenceUnknown {
     TResult? Function(InterestsPref data)? interestsPref,
     TResult? Function(MutedWordsPref data)? mutedWordsPref,
     TResult? Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -2330,6 +2624,7 @@ class _$UPreferenceUnknownImpl implements UPreferenceUnknown {
     TResult Function(InterestsPref data)? interestsPref,
     TResult Function(MutedWordsPref data)? mutedWordsPref,
     TResult Function(HiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(BskyAppStatePref data)? bskyAppStatePref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2356,6 +2651,8 @@ class _$UPreferenceUnknownImpl implements UPreferenceUnknown {
     required TResult Function(UPreferenceInterestsPref value) interestsPref,
     required TResult Function(UPreferenceMutedWordsPref value) mutedWordsPref,
     required TResult Function(UPreferenceHiddenPostsPref value) hiddenPostsPref,
+    required TResult Function(UPreferenceBskyAppStatePref value)
+        bskyAppStatePref,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return unknown(this);
@@ -2375,6 +2672,7 @@ class _$UPreferenceUnknownImpl implements UPreferenceUnknown {
     TResult? Function(UPreferenceInterestsPref value)? interestsPref,
     TResult? Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult? Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult? Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -2393,6 +2691,7 @@ class _$UPreferenceUnknownImpl implements UPreferenceUnknown {
     TResult Function(UPreferenceInterestsPref value)? interestsPref,
     TResult Function(UPreferenceMutedWordsPref value)? mutedWordsPref,
     TResult Function(UPreferenceHiddenPostsPref value)? hiddenPostsPref,
+    TResult Function(UPreferenceBskyAppStatePref value)? bskyAppStatePref,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {

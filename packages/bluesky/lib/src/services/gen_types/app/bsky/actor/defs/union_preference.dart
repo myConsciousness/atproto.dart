@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../app/bsky/actor/defs/adult_content_pref.dart';
+import '../../../../app/bsky/actor/defs/bsky_app_state_pref.dart';
 import '../../../../app/bsky/actor/defs/content_label_pref.dart';
 import '../../../../app/bsky/actor/defs/feed_view_pref.dart';
 import '../../../../app/bsky/actor/defs/hidden_posts_pref.dart';
@@ -68,6 +69,10 @@ class UPreference with _$UPreference {
   const factory UPreference.hiddenPostsPref({
     required HiddenPostsPref data,
   }) = UPreferenceHiddenPostsPref;
+
+  const factory UPreference.bskyAppStatePref({
+    required BskyAppStatePref data,
+  }) = UPreferenceBskyAppStatePref;
 
   const factory UPreference.unknown({
     required Map<String, dynamic> data,
@@ -131,6 +136,11 @@ final class UPreferenceConverter
           data: const HiddenPostsPrefConverter().fromJson(json),
         );
       }
+      if (isBskyAppStatePref(json)) {
+        return UPreference.bskyAppStatePref(
+          data: const BskyAppStatePrefConverter().fromJson(json),
+        );
+      }
 
       return UPreference.unknown(data: json);
     } catch (_) {
@@ -150,6 +160,7 @@ final class UPreferenceConverter
         interestsPref: const InterestsPrefConverter().toJson,
         mutedWordsPref: const MutedWordsPrefConverter().toJson,
         hiddenPostsPref: const HiddenPostsPrefConverter().toJson,
+        bskyAppStatePref: const BskyAppStatePrefConverter().toJson,
         unknown: (data) => data,
       );
 }
@@ -217,6 +228,12 @@ extension $UPreferenceExtension on UPreference {
 
   /// Returns true if this data is not [HiddenPostsPref], otherwise false.
   bool get isNotHiddenPostsPref => !isHiddenPostsPref;
+
+  /// Returns true if this data is [BskyAppStatePref], otherwise false.
+  bool get isBskyAppStatePref => this is UPreferenceBskyAppStatePref;
+
+  /// Returns true if this data is not [BskyAppStatePref], otherwise false.
+  bool get isNotBskyAppStatePref => !isBskyAppStatePref;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UPreferenceUnknown;
@@ -313,6 +330,15 @@ extension $UPreferenceExtension on UPreference {
   /// Returns [HiddenPostsPref] if this data is [HiddenPostsPref], otherwise null.
   HiddenPostsPref? get hiddenPostsPrefOrNull =>
       isHiddenPostsPref ? hiddenPostsPref : null;
+
+  /// Returns this data as [BskyAppStatePref].
+  ///
+  /// Make sure to check if this object is [BskyAppStatePref] with [isBskyAppStatePref].
+  BskyAppStatePref get bskyAppStatePref => this.data as BskyAppStatePref;
+
+  /// Returns [BskyAppStatePref] if this data is [BskyAppStatePref], otherwise null.
+  BskyAppStatePref? get bskyAppStatePrefOrNull =>
+      isBskyAppStatePref ? bskyAppStatePref : null;
 
   /// Returns this data as JSON object.
   ///
