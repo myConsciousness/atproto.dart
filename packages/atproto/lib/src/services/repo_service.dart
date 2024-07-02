@@ -104,7 +104,7 @@ final class RepoService {
         ns.comAtprotoRepoDeleteRecord,
         body: {
           'repo': _ctx.session?.did,
-          'collection': uri.toString(),
+          'collection': uri.collection.toString(),
           'rkey': uri.rkey,
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
