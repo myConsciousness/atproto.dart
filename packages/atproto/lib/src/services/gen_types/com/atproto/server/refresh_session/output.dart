@@ -11,6 +11,7 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -43,6 +44,9 @@ class RefreshSessionOutput with _$RefreshSessionOutput {
 }
 
 extension $RefreshSessionOutputExtension on RefreshSessionOutput {
+  /// Returns this object as [Session].
+  Session toSession() => Session.fromJson(toJson());
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

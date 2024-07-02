@@ -85,6 +85,7 @@ final class LexGenObject {
 
     final adaptor =
         ctx.package.getObjectAdaptor(NSID('${ctx.docId}#${ctx.defName}'));
+    final variant = ctx.package.getVariant(ctx.docId, type);
 
     final importPaths = <String?>{};
     for (final property in properties) {
@@ -104,6 +105,9 @@ final class LexGenObject {
           ctx.docId.toString().split('.').map(utils.toLowerCamelCase).join('/');
 
       importPaths.add('../../../../../adaptors/$path/${fileName}_adaptor.dart');
+    }
+    if (variant != null) {
+      importPaths.add(variant.importPath);
     }
 
     final buffer = StringBuffer();
@@ -203,6 +207,11 @@ final class LexGenObject {
     // Extension
     buffer.writeln();
     buffer.writeln('extension \$${name}Extension on $name {');
+    if (variant != null) {
+      final name = variant.name;
+      buffer.writeln('  /// Returns this object as [$name].');
+      buffer.writeln('  $name to$name() => $name.fromJson(toJson());');
+    }
     buffer.writeln('  /// Returns true if this object has unknown objects,');
     buffer.writeln('  /// otherwise false.');
     buffer.writeln(

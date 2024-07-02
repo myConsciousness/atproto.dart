@@ -11,6 +11,7 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import 'rules/utils.dart';
+import 'rules/object_type.dart';
 import 'lex_types_gen.dart';
 import 'lex_services_gen.dart';
 
@@ -26,6 +27,16 @@ const _kAtproto = Package(
     NSID('com.atproto.server.createSession'),
     NSID('com.atproto.server.refreshSession'),
     NSID('com.atproto.server.deleteSession'),
+  ],
+  variants: [
+    Variant(
+      name: 'Session',
+      importPath: 'package:atproto_core/atproto_core.dart',
+      subjects: [
+        NSID('com.atproto.server.createSession'),
+        NSID('com.atproto.server.refreshSession'),
+      ],
+    ),
   ],
 );
 
@@ -85,6 +96,7 @@ final class Package {
     this.recordConfigs,
     this.adaptors,
     this.functions,
+    this.variants,
   });
 
   final String name;
@@ -94,6 +106,7 @@ final class Package {
   final List<RecordConfig>? recordConfigs;
   final List<ObjectAdaptor>? adaptors;
   final List<NSID>? functions;
+  final List<Variant>? variants;
 
   bool get isBase => base;
 
@@ -209,6 +222,35 @@ final class Package {
 
     return false;
   }
+
+  Variant? getVariant(
+    final NSID subject,
+    final ObjectType type,
+  ) {
+    if (variants == null) return null;
+    for (final variant in variants!) {
+      if (variant.subjects.contains(subject) && variant.type == type) {
+        return variant;
+      }
+    }
+
+    return null;
+  }
+}
+
+final class Variant {
+  const Variant({
+    required this.name,
+    required this.importPath,
+    required this.subjects,
+    this.type = ObjectType.output,
+  });
+
+  final String name;
+  final String importPath;
+  final List<NSID> subjects;
+
+  final ObjectType type;
 }
 
 final class RecordConfig {

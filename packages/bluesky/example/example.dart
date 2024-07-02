@@ -5,6 +5,7 @@
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
+import 'package:bluesky/com_atproto_server_create_session.dart';
 import 'package:bluesky/core.dart';
 import 'package:bluesky/moderation.dart';
 
@@ -131,5 +132,5 @@ Future<Session> get _session async {
     password: 'YOUR_PASSWORD',
   );
 
-  return Session.fromJson(session.data.toJson());
+  return session.data.toSession();
 }

@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_server_create_session.dart';
 import 'package:atproto/core.dart';
 
 /// https://atprotodart.com/docs/packages/atproto
@@ -18,7 +19,7 @@ Future<void> main() async {
     print(session);
 
     final atproto = ATProto.fromSession(
-      Session.fromJson(session.data.toJson()),
+      session.data.toSession(),
 
       //! The default is `bsky.social`, or resolve dynamically based on session
       service: 'SERVICE_NAME',
