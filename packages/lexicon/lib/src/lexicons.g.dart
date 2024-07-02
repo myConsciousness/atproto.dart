@@ -4144,7 +4144,8 @@ const appBskyActorDefs = <String, dynamic>{
           "#threadViewPref",
           "#interestsPref",
           "#mutedWordsPref",
-          "#hiddenPostsPref"
+          "#hiddenPostsPref",
+          "#bskyAppStatePref"
         ]
       }
     },
@@ -4343,6 +4344,30 @@ const appBskyActorDefs = <String, dynamic>{
       "required": ["did"],
       "properties": {
         "did": {"type": "string", "format": "did"}
+      }
+    },
+    "bskyAppStatePref": {
+      "type": "object",
+      "description":
+          "A grab bag of state that's specific to the bsky.app program. Third-party apps shouldn't use this.",
+      "properties": {
+        "activeProgressGuide": {"type": "ref", "ref": "#bskyAppProgressGuide"},
+        "queuedNudges": {
+          "type": "array",
+          "description":
+              "An array of tokens which identify nudges (modals, popups, tours, highlight dots) that should be shown to the user.",
+          "items": {"type": "string", "maxLength": 100},
+          "maxLength": 1000
+        }
+      }
+    },
+    "bskyAppProgressGuide": {
+      "type": "object",
+      "description":
+          "If set, an active progress guide. Once completed, can be set to undefined. Should have unspecced fields tracking progress.",
+      "required": ["guide"],
+      "properties": {
+        "guide": {"type": "string", "maxLength": 100}
       }
     }
   }
