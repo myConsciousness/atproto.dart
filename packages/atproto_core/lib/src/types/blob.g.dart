@@ -15,7 +15,7 @@ _$BlobImpl _$$BlobImplFromJson(Map json) => $checkedCreate(
         final val = _$BlobImpl(
           type: $checkedConvert(r'$type', (v) => v as String? ?? 'blob'),
           mimeType: $checkedConvert('mimeType', (v) => v as String),
-          size: $checkedConvert('size', (v) => v as int),
+          size: $checkedConvert('size', (v) => (v as num).toInt()),
           ref: $checkedConvert('ref',
               (v) => BlobRef.fromJson(Map<String, Object?>.from(v as Map))),
         );

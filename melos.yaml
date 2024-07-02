@@ -55,11 +55,11 @@ scripts:
       cd packages/atproto
       dart format .
       dart run import_sorter:main
-      dart run build_runner build
+      dart run build_runner build --delete-conflicting-outputs
       cd ../bluesky
       dart format .
       dart run import_sorter:main
-      dart run build_runner build
+      dart run build_runner build --delete-conflicting-outputs
     description: Run `dart run build_runner build` in all packages.
 
   publish_all:
