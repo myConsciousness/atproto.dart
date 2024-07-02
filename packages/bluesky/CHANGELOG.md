@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.10
+
+- Bump `atproto_core`.
+
 ## v0.16.9
 
 - Expose `.atprotoPdsEndpoint` from as an extension of `Session`. You can get specific pds endpoint based on did document.

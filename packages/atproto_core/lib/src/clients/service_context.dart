@@ -69,6 +69,7 @@ base class ServiceContext {
     final Map<String, dynamic>? parameters,
     final xrpc.ResponseDataBuilder<T>? to,
     final xrpc.ResponseDataAdaptor? adaptor,
+    final xrpc.GetClient? client,
   }) async =>
       await _challenge.execute(
         () async => await xrpc.query(
@@ -80,7 +81,7 @@ base class ServiceContext {
           to: to,
           adaptor: adaptor,
           timeout: _timeout,
-          getClient: _mockedGetClient,
+          getClient: client ?? _mockedGetClient,
         ),
       );
 
@@ -90,6 +91,7 @@ base class ServiceContext {
     final Map<String, dynamic>? parameters,
     final dynamic body,
     final xrpc.ResponseDataBuilder<T>? to,
+    final xrpc.PostClient? client,
   }) async =>
       await _challenge.execute(
         () async => await xrpc.procedure(
@@ -101,7 +103,7 @@ base class ServiceContext {
           body: body,
           to: to,
           timeout: _timeout,
-          postClient: _mockedPostClient,
+          postClient: client ?? _mockedPostClient,
         ),
       );
 
