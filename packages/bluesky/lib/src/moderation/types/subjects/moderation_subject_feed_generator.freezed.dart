@@ -16,37 +16,40 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ModerationSubjectFeedGenerator {
-  FeedGeneratorView get data => throw _privateConstructorUsedError;
+  GeneratorView get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FeedGeneratorView data) generatorView,
+    required TResult Function(GeneratorView data) generatorView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FeedGeneratorView data)? generatorView,
+    TResult? Function(GeneratorView data)? generatorView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FeedGeneratorView data)? generatorView,
+    TResult Function(GeneratorView data)? generatorView,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectFeedGenerator value)
+    required TResult Function(
+            UModerationSubjectFeedGeneratorGeneratorView value)
         generatorView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectFeedGenerator value)? generatorView,
+    TResult? Function(UModerationSubjectFeedGeneratorGeneratorView value)?
+        generatorView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectFeedGenerator value)? generatorView,
+    TResult Function(UModerationSubjectFeedGeneratorGeneratorView value)?
+        generatorView,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,9 +67,9 @@ abstract class $ModerationSubjectFeedGeneratorCopyWith<$Res> {
       _$ModerationSubjectFeedGeneratorCopyWithImpl<$Res,
           ModerationSubjectFeedGenerator>;
   @useResult
-  $Res call({FeedGeneratorView data});
+  $Res call({GeneratorView data});
 
-  $FeedGeneratorViewCopyWith<$Res> get data;
+  $GeneratorViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -89,42 +92,44 @@ class _$ModerationSubjectFeedGeneratorCopyWithImpl<$Res,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as FeedGeneratorView,
+              as GeneratorView,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedGeneratorViewCopyWith<$Res> get data {
-    return $FeedGeneratorViewCopyWith<$Res>(_value.data, (value) {
+  $GeneratorViewCopyWith<$Res> get data {
+    return $GeneratorViewCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectFeedGeneratorImplCopyWith<$Res>
+abstract class _$$UModerationSubjectFeedGeneratorGeneratorViewImplCopyWith<$Res>
     implements $ModerationSubjectFeedGeneratorCopyWith<$Res> {
-  factory _$$UModerationSubjectFeedGeneratorImplCopyWith(
-          _$UModerationSubjectFeedGeneratorImpl value,
-          $Res Function(_$UModerationSubjectFeedGeneratorImpl) then) =
-      __$$UModerationSubjectFeedGeneratorImplCopyWithImpl<$Res>;
+  factory _$$UModerationSubjectFeedGeneratorGeneratorViewImplCopyWith(
+          _$UModerationSubjectFeedGeneratorGeneratorViewImpl value,
+          $Res Function(_$UModerationSubjectFeedGeneratorGeneratorViewImpl)
+              then) =
+      __$$UModerationSubjectFeedGeneratorGeneratorViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FeedGeneratorView data});
+  $Res call({GeneratorView data});
 
   @override
-  $FeedGeneratorViewCopyWith<$Res> get data;
+  $GeneratorViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$UModerationSubjectFeedGeneratorImplCopyWithImpl<$Res>
+class __$$UModerationSubjectFeedGeneratorGeneratorViewImplCopyWithImpl<$Res>
     extends _$ModerationSubjectFeedGeneratorCopyWithImpl<$Res,
-        _$UModerationSubjectFeedGeneratorImpl>
-    implements _$$UModerationSubjectFeedGeneratorImplCopyWith<$Res> {
-  __$$UModerationSubjectFeedGeneratorImplCopyWithImpl(
-      _$UModerationSubjectFeedGeneratorImpl _value,
-      $Res Function(_$UModerationSubjectFeedGeneratorImpl) _then)
+        _$UModerationSubjectFeedGeneratorGeneratorViewImpl>
+    implements
+        _$$UModerationSubjectFeedGeneratorGeneratorViewImplCopyWith<$Res> {
+  __$$UModerationSubjectFeedGeneratorGeneratorViewImplCopyWithImpl(
+      _$UModerationSubjectFeedGeneratorGeneratorViewImpl _value,
+      $Res Function(_$UModerationSubjectFeedGeneratorGeneratorViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -132,23 +137,24 @@ class __$$UModerationSubjectFeedGeneratorImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationSubjectFeedGeneratorImpl(
+    return _then(_$UModerationSubjectFeedGeneratorGeneratorViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as FeedGeneratorView,
+              as GeneratorView,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UModerationSubjectFeedGeneratorImpl
-    implements UModerationSubjectFeedGenerator {
-  const _$UModerationSubjectFeedGeneratorImpl({required this.data});
+class _$UModerationSubjectFeedGeneratorGeneratorViewImpl
+    implements UModerationSubjectFeedGeneratorGeneratorView {
+  const _$UModerationSubjectFeedGeneratorGeneratorViewImpl(
+      {required this.data});
 
   @override
-  final FeedGeneratorView data;
+  final GeneratorView data;
 
   @override
   String toString() {
@@ -159,7 +165,7 @@ class _$UModerationSubjectFeedGeneratorImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectFeedGeneratorImpl &&
+            other is _$UModerationSubjectFeedGeneratorGeneratorViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -169,15 +175,17 @@ class _$UModerationSubjectFeedGeneratorImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationSubjectFeedGeneratorImplCopyWith<
-          _$UModerationSubjectFeedGeneratorImpl>
-      get copyWith => __$$UModerationSubjectFeedGeneratorImplCopyWithImpl<
-          _$UModerationSubjectFeedGeneratorImpl>(this, _$identity);
+  _$$UModerationSubjectFeedGeneratorGeneratorViewImplCopyWith<
+          _$UModerationSubjectFeedGeneratorGeneratorViewImpl>
+      get copyWith =>
+          __$$UModerationSubjectFeedGeneratorGeneratorViewImplCopyWithImpl<
+                  _$UModerationSubjectFeedGeneratorGeneratorViewImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FeedGeneratorView data) generatorView,
+    required TResult Function(GeneratorView data) generatorView,
   }) {
     return generatorView(data);
   }
@@ -185,7 +193,7 @@ class _$UModerationSubjectFeedGeneratorImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FeedGeneratorView data)? generatorView,
+    TResult? Function(GeneratorView data)? generatorView,
   }) {
     return generatorView?.call(data);
   }
@@ -193,7 +201,7 @@ class _$UModerationSubjectFeedGeneratorImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FeedGeneratorView data)? generatorView,
+    TResult Function(GeneratorView data)? generatorView,
     required TResult orElse(),
   }) {
     if (generatorView != null) {
@@ -205,7 +213,8 @@ class _$UModerationSubjectFeedGeneratorImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectFeedGenerator value)
+    required TResult Function(
+            UModerationSubjectFeedGeneratorGeneratorView value)
         generatorView,
   }) {
     return generatorView(this);
@@ -214,7 +223,8 @@ class _$UModerationSubjectFeedGeneratorImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectFeedGenerator value)? generatorView,
+    TResult? Function(UModerationSubjectFeedGeneratorGeneratorView value)?
+        generatorView,
   }) {
     return generatorView?.call(this);
   }
@@ -222,7 +232,8 @@ class _$UModerationSubjectFeedGeneratorImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectFeedGenerator value)? generatorView,
+    TResult Function(UModerationSubjectFeedGeneratorGeneratorView value)?
+        generatorView,
     required TResult orElse(),
   }) {
     if (generatorView != null) {
@@ -232,17 +243,17 @@ class _$UModerationSubjectFeedGeneratorImpl
   }
 }
 
-abstract class UModerationSubjectFeedGenerator
+abstract class UModerationSubjectFeedGeneratorGeneratorView
     implements ModerationSubjectFeedGenerator {
-  const factory UModerationSubjectFeedGenerator(
-          {required final FeedGeneratorView data}) =
-      _$UModerationSubjectFeedGeneratorImpl;
+  const factory UModerationSubjectFeedGeneratorGeneratorView(
+          {required final GeneratorView data}) =
+      _$UModerationSubjectFeedGeneratorGeneratorViewImpl;
 
   @override
-  FeedGeneratorView get data;
+  GeneratorView get data;
   @override
   @JsonKey(ignore: true)
-  _$$UModerationSubjectFeedGeneratorImplCopyWith<
-          _$UModerationSubjectFeedGeneratorImpl>
+  _$$UModerationSubjectFeedGeneratorGeneratorViewImplCopyWith<
+          _$UModerationSubjectFeedGeneratorGeneratorViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

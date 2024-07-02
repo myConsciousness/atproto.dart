@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -12,7 +12,7 @@ import 'package:bluesky/src/services/types/chat/bsky/actor/declaration/allow_inc
 import 'service_suite.dart';
 
 void main() {
-  testActor<atp.StrongRef>(
+  testActor<StrongRef>(
     (m, s) => s.declaration(
       allowIncoming: DeclarationAllowIncoming.following,
     ),

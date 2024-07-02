@@ -4,8 +4,10 @@
 
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:bluesky/atproto.dart';
+import 'package:bluesky/app_bsky_richtext_facet.dart';
 import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/atproto.dart';
+import 'package:bluesky/com_atproto_server_create_session.dart';
 import 'package:bluesky/core.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 
@@ -44,17 +46,17 @@ Future<void> main() async {
 
     await bluesky.feed.post(
       text: text.value,
-      facets: facets.map(bsky.Facet.fromJson).toList(),
+      facets: facets.map(Facet.fromJson).toList(),
     );
   }
 }
 
 Future<Session> get _session async {
   final session = await createSession(
-    service: 'SERVICE_NAME', //! The default is `bsky.social`
+    $service: 'SERVICE_NAME', //! The default is `bsky.social`
     identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
-  return session.data;
+  return session.data.toSession();
 }

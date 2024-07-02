@@ -2,22 +2,24 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../gen_types/app/bsky/actor/defs/hidden_posts_pref.dart';
+import '../../gen_types/app/bsky/actor/defs/labelers_pref.dart';
+import '../../gen_types/app/bsky/actor/defs/muted_words_pref.dart';
+import '../../gen_types/app/bsky/actor/defs/saved_feeds_pref_v2.dart';
 import '../adult_content_preference.dart';
 import '../content_label_preference.dart';
 import '../feed_view_preference.dart';
-import '../hidden_posts_pref.dart';
 import '../interests_preference.dart';
-import '../labelers_pref.dart';
-import '../muted_words_pref.dart';
 import '../personal_details_preference.dart';
 import '../preference.dart';
-import '../saved_feeds_pref_v2.dart';
 import '../saved_feeds_preference.dart';
 import '../thread_view_preference.dart';
 

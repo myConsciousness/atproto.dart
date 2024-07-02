@@ -6,6 +6,7 @@
 
 /* SNIPPET START */
 
+import 'package:bluesky/app_bsky_richtext_facet.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky_text/bluesky_text.dart';

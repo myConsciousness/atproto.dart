@@ -18,8 +18,8 @@ _$LexPrimitiveArrayImpl _$$LexPrimitiveArrayImplFromJson(Map json) =>
           description: $checkedConvert('description', (v) => v as String?),
           items: $checkedConvert('items',
               (v) => lexPrimitiveConverter.fromJson(v as Map<String, dynamic>)),
-          minLength: $checkedConvert('minLength', (v) => v as int?),
-          maxLength: $checkedConvert('maxLength', (v) => v as int?),
+          minLength: $checkedConvert('minLength', (v) => (v as num?)?.toInt()),
+          maxLength: $checkedConvert('maxLength', (v) => (v as num?)?.toInt()),
         );
         return val;
       },

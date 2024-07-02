@@ -19,7 +19,7 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
               'members',
               (v) => (v as List<dynamic>)
                   .map((e) => ProfileViewBasic.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                      Map<String, dynamic>.from(e as Map)))
                   .toList()),
           lastMessage: $checkedConvert(
               'lastMessage',

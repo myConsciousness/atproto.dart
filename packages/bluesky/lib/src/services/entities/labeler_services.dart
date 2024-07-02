@@ -16,6 +16,7 @@ part 'labeler_services.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs/#labelerpolicies
 @freezed
+@Deprecated('Use GetServicesOutput')
 class LabelerServices with _$LabelerServices {
   @jsonSerializable
   const factory LabelerServices({

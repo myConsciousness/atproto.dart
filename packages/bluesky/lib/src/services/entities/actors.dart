@@ -15,6 +15,7 @@ part 'actors.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors#output
 @freezed
+@Deprecated('Use SearchActorsOutput')
 class Actors with _$Actors {
   const factory Actors({
     required List<Actor> actors,

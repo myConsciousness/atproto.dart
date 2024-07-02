@@ -5,6 +5,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+@Deprecated('Use KnownLabelValue or ULabelValue')
 enum LabelValue {
   @JsonValue('!hide')
   hide('!hide'),

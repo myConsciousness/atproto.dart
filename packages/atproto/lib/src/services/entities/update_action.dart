@@ -15,6 +15,7 @@ part 'update_action.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#update
 @freezed
+@Deprecated('Use Update')
 class UpdateAction with _$UpdateAction {
   @jsonSerializable
   const factory UpdateAction({

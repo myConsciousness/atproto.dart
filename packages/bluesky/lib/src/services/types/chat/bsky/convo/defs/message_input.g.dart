@@ -18,7 +18,7 @@ _$MessageInputImpl _$$MessageInputImplFromJson(Map json) => $checkedCreate(
               'facets',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                      Facet.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           embed: $checkedConvert(
               'embed',

@@ -5,7 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -17,6 +17,7 @@ part 'embed_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
+@Deprecated('Use Record')
 class EmbedRecord with _$EmbedRecord {
   const factory EmbedRecord({
     @typeKey @Default(appBskyEmbedRecord) String type,
