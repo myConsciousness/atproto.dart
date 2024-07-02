@@ -97,7 +97,7 @@ The subject's followers whom you also follow
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref) | - | ❌ | - |
+| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref)<br/>[#bskyAppStatePref](#bskyappstatepref) | - | ❌ | - |
 
 ## #adultContentPref
 
@@ -204,3 +204,20 @@ A word that the account owner has muted.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+
+## #bskyAppStatePref
+
+A grab bag of state that's specific to the bsky.app program. Third-party apps shouldn't use this.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **activeProgressGuide** | [#bskyAppProgressGuide](#bskyappprogressguide) | - | ❌ | - |
+| **queuedNudges** | array of string | - | ❌ | An array of tokens which identify nudges (modals, popups, tours, highlight dots) that should be shown to the user. |
+
+## #bskyAppProgressGuide
+
+If set, an active progress guide. Once completed, can be set to undefined. Should have unspecced fields tracking progress.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **guide** | string | - | ✅ | - |
