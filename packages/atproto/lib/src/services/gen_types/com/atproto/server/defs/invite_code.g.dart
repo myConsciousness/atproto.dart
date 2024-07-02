@@ -16,7 +16,7 @@ _$InviteCodeImpl _$$InviteCodeImplFromJson(Map json) => $checkedCreate(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoServerDefsInviteCode),
           code: $checkedConvert('code', (v) => v as String),
-          available: $checkedConvert('available', (v) => v as int),
+          available: $checkedConvert('available', (v) => (v as num).toInt()),
           disabled: $checkedConvert('disabled', (v) => v as bool),
           forAccount: $checkedConvert('forAccount', (v) => v as String),
           createdBy: $checkedConvert('createdBy', (v) => v as String),

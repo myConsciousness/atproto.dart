@@ -14,7 +14,7 @@ _$GetUnreadCountOutputImpl _$$GetUnreadCountOutputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$GetUnreadCountOutputImpl(
-          count: $checkedConvert('count', (v) => v as int),
+          count: $checkedConvert('count', (v) => (v as num).toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(

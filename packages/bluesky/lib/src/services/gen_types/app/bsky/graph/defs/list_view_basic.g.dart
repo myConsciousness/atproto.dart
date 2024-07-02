@@ -22,8 +22,8 @@ _$ListViewBasicImpl _$$ListViewBasicImplFromJson(Map json) => $checkedCreate(
           purpose: $checkedConvert('purpose',
               (v) => const UListPurposeConverter().fromJson(v as String)),
           avatar: $checkedConvert('avatar', (v) => v as String?),
-          listItemCount:
-              $checkedConvert('listItemCount', (v) => v as int? ?? 0),
+          listItemCount: $checkedConvert(
+              'listItemCount', (v) => (v as num?)?.toInt() ?? 0),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)

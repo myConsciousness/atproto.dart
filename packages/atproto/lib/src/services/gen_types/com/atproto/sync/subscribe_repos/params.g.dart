@@ -14,7 +14,7 @@ _$SubscribeReposParamsImpl _$$SubscribeReposParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$SubscribeReposParamsImpl(
-          cursor: $checkedConvert('cursor', (v) => v as int?),
+          cursor: $checkedConvert('cursor', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(

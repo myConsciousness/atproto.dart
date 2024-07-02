@@ -90,7 +90,6 @@ final class SyncService {
           'did': did,
           'cids': cids,
         },
-        adaptor: getBlocksAdaptor,
         client: $client,
       );
 
@@ -152,7 +151,6 @@ final class SyncService {
           'rkey': rkey,
           if (commit != null) 'commit': commit,
         },
-        adaptor: getRecordAdaptor,
         client: $client,
       );
 
@@ -224,7 +222,6 @@ final class SyncService {
           'did': did,
           if (since != null) 'since': since,
         },
-        adaptor: getRepoAdaptor,
         client: $client,
       );
 

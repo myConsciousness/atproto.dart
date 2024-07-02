@@ -18,7 +18,7 @@ _$QueryLabelsParamsImpl _$$QueryLabelsParamsImplFromJson(Map json) =>
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           sources: $checkedConvert('sources',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
-          limit: $checkedConvert('limit', (v) => v as int?),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

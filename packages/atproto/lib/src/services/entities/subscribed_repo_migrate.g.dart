@@ -15,7 +15,7 @@ _$MigrateImpl _$$MigrateImplFromJson(Map json) => $checkedCreate(
         final val = _$MigrateImpl(
           did: $checkedConvert('did', (v) => v as String),
           migrateTo: $checkedConvert('migrateTo', (v) => v as String?),
-          cursor: $checkedConvert('seq', (v) => v as int),
+          cursor: $checkedConvert('seq', (v) => (v as num).toInt()),
           createdAt:
               $checkedConvert('time', (v) => DateTime.parse(v as String)),
         );

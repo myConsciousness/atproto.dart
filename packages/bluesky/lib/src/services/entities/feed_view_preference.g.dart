@@ -23,8 +23,8 @@ _$FeedViewPreferenceImpl _$$FeedViewPreferenceImplFromJson(Map json) =>
               $checkedConvert('hideReplies', (v) => v as bool? ?? false),
           isHideRepliesByUnfollowed: $checkedConvert(
               'hideRepliesByUnfollowed', (v) => v as bool? ?? false),
-          hideRepliesByLikeCount:
-              $checkedConvert('hideRepliesByLikeCount', (v) => v as int? ?? 0),
+          hideRepliesByLikeCount: $checkedConvert(
+              'hideRepliesByLikeCount', (v) => (v as num?)?.toInt() ?? 0),
           isHideReposts:
               $checkedConvert('hideReposts', (v) => v as bool? ?? false),
           isHideQuotePosts:

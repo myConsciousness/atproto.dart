@@ -30,9 +30,12 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
                   v, const UEmbedConverter().fromJson)),
-          replyCount: $checkedConvert('replyCount', (v) => v as int? ?? 0),
-          repostCount: $checkedConvert('repostCount', (v) => v as int? ?? 0),
-          likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
+          replyCount:
+              $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
+          repostCount:
+              $checkedConvert('repostCount', (v) => (v as num?)?.toInt() ?? 0),
+          likeCount:
+              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           viewer: $checkedConvert(

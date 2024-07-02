@@ -33,8 +33,8 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
-          listItemCount:
-              $checkedConvert('listItemCount', (v) => v as int? ?? 0),
+          listItemCount: $checkedConvert(
+              'listItemCount', (v) => (v as num?)?.toInt() ?? 0),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)

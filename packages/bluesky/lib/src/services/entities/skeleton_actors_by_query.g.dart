@@ -20,7 +20,8 @@ _$SkeletonActorsByQueryImpl _$$SkeletonActorsByQueryImplFromJson(Map json) =>
                   .map((e) => SkeletonActor.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
-          hitsTotal: $checkedConvert('hitsTotal', (v) => v as int? ?? 0),
+          hitsTotal:
+              $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt() ?? 0),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;

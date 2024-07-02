@@ -19,12 +19,15 @@ _$CheckAccountStatusOutputImpl _$$CheckAccountStatusOutputImplFromJson(
           validDid: $checkedConvert('validDid', (v) => v as bool),
           repoCommit: $checkedConvert('repoCommit', (v) => v as String),
           repoRev: $checkedConvert('repoRev', (v) => v as String),
-          repoBlocks: $checkedConvert('repoBlocks', (v) => v as int),
-          indexedRecords: $checkedConvert('indexedRecords', (v) => v as int),
+          repoBlocks: $checkedConvert('repoBlocks', (v) => (v as num).toInt()),
+          indexedRecords:
+              $checkedConvert('indexedRecords', (v) => (v as num).toInt()),
           privateStateValues:
-              $checkedConvert('privateStateValues', (v) => v as int),
-          expectedBlobs: $checkedConvert('expectedBlobs', (v) => v as int),
-          importedBlobs: $checkedConvert('importedBlobs', (v) => v as int),
+              $checkedConvert('privateStateValues', (v) => (v as num).toInt()),
+          expectedBlobs:
+              $checkedConvert('expectedBlobs', (v) => (v as num).toInt()),
+          importedBlobs:
+              $checkedConvert('importedBlobs', (v) => (v as num).toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(

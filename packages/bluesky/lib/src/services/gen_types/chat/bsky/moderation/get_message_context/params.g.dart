@@ -17,8 +17,8 @@ _$GetMessageContextParamsImpl _$$GetMessageContextParamsImplFromJson(
         final val = _$GetMessageContextParamsImpl(
           convoId: $checkedConvert('convoId', (v) => v as String?),
           messageId: $checkedConvert('messageId', (v) => v as String),
-          before: $checkedConvert('before', (v) => v as int?),
-          after: $checkedConvert('after', (v) => v as int?),
+          before: $checkedConvert('before', (v) => (v as num?)?.toInt()),
+          after: $checkedConvert('after', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(

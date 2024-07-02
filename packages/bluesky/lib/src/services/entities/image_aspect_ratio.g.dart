@@ -14,8 +14,8 @@ _$ImageAspectRatioImpl _$$ImageAspectRatioImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ImageAspectRatioImpl(
-          width: $checkedConvert('width', (v) => v as int),
-          height: $checkedConvert('height', (v) => v as int),
+          width: $checkedConvert('width', (v) => (v as num).toInt()),
+          height: $checkedConvert('height', (v) => (v as num).toInt()),
         );
         return val;
       },

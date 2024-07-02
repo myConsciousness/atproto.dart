@@ -301,7 +301,7 @@ final class LexServiceEndpoint {
       }
       buffer.writeln('    },');
     }
-    if (adaptor != null) {
+    if (adaptor != null && !type.isIpldCar) {
       buffer.writeln('        adaptor: ${name}Adaptor,');
     }
     if (type.converter != null) {

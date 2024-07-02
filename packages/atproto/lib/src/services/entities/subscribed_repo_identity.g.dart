@@ -14,7 +14,7 @@ _$IdentityImpl _$$IdentityImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$IdentityImpl(
           did: $checkedConvert('did', (v) => v as String),
-          seq: $checkedConvert('seq', (v) => v as int),
+          seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
         );
         return val;

@@ -32,7 +32,8 @@ _$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
-          likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
+          likeCount:
+              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
           acceptsInteractions: $checkedConvert(
               'acceptsInteractions', (v) => v as bool? ?? false),
           labels: $checkedConvert(

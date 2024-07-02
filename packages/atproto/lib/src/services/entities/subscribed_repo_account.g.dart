@@ -13,7 +13,7 @@ _$AccountImpl _$$AccountImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$AccountImpl(
-          seq: $checkedConvert('seq', (v) => v as int),
+          seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           did: $checkedConvert('did', (v) => v as String),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
           active: $checkedConvert('active', (v) => v as bool),

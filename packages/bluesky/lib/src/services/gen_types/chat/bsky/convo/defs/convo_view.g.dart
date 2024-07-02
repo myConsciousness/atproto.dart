@@ -29,7 +29,8 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
                   _$JsonConverterFromJson<Map<String, dynamic>, ULastMessage>(
                       v, const ULastMessageConverter().fromJson)),
           muted: $checkedConvert('muted', (v) => v as bool),
-          unreadCount: $checkedConvert('unreadCount', (v) => v as int),
+          unreadCount:
+              $checkedConvert('unreadCount', (v) => (v as num).toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(

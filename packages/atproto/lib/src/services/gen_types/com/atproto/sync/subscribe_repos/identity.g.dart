@@ -15,7 +15,7 @@ _$IdentityImpl _$$IdentityImplFromJson(Map json) => $checkedCreate(
         final val = _$IdentityImpl(
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? comAtprotoSyncSubscribeReposIdentity),
-          seq: $checkedConvert('seq', (v) => v as int),
+          seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           did: $checkedConvert('did', (v) => v as String),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
           handle: $checkedConvert('handle', (v) => v as String?),

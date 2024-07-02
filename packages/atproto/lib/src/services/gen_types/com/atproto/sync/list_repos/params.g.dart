@@ -14,7 +14,7 @@ _$ListReposParamsImpl _$$ListReposParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ListReposParamsImpl(
-          limit: $checkedConvert('limit', (v) => v as int?),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

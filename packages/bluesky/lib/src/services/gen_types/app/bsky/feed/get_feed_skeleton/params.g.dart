@@ -16,7 +16,7 @@ _$GetFeedSkeletonParamsImpl _$$GetFeedSkeletonParamsImplFromJson(Map json) =>
         final val = _$GetFeedSkeletonParamsImpl(
           feed: $checkedConvert(
               'feed', (v) => const AtUriConverter().fromJson(v as String)),
-          limit: $checkedConvert('limit', (v) => v as int?),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',

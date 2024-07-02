@@ -15,14 +15,16 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
         final val = _$CommitImpl(
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? comAtprotoSyncSubscribeReposCommit),
-          seq: $checkedConvert('seq', (v) => v as int),
+          seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           tooBig: $checkedConvert('tooBig', (v) => v as bool),
           repo: $checkedConvert('repo', (v) => v as String),
           commit: $checkedConvert('commit', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
           since: $checkedConvert('since', (v) => v as String?),
-          blocks: $checkedConvert('blocks',
-              (v) => (v as List<dynamic>).map((e) => e as int).toList()),
+          blocks: $checkedConvert(
+              'blocks',
+              (v) =>
+                  (v as List<dynamic>).map((e) => (e as num).toInt()).toList()),
           ops: $checkedConvert(
               'ops',
               (v) => (v as List<dynamic>)

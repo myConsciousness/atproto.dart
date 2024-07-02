@@ -16,7 +16,7 @@ _$SearchPostsSkeletonOutputImpl _$$SearchPostsSkeletonOutputImplFromJson(
       ($checkedConvert) {
         final val = _$SearchPostsSkeletonOutputImpl(
           cursor: $checkedConvert('cursor', (v) => v as String?),
-          hitsTotal: $checkedConvert('hitsTotal', (v) => v as int?),
+          hitsTotal: $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt()),
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)

@@ -16,8 +16,9 @@ _$GetPostThreadParamsImpl _$$GetPostThreadParamsImplFromJson(Map json) =>
         final val = _$GetPostThreadParamsImpl(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
-          depth: $checkedConvert('depth', (v) => v as int?),
-          parentHeight: $checkedConvert('parentHeight', (v) => v as int?),
+          depth: $checkedConvert('depth', (v) => (v as num?)?.toInt()),
+          parentHeight:
+              $checkedConvert('parentHeight', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(

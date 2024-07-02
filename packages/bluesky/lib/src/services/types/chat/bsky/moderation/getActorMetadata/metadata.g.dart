@@ -13,11 +13,13 @@ _$MetadataImpl _$$MetadataImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$MetadataImpl(
-          messagesSent: $checkedConvert('messagesSent', (v) => v as int),
+          messagesSent:
+              $checkedConvert('messagesSent', (v) => (v as num).toInt()),
           messagesReceived:
-              $checkedConvert('messagesReceived', (v) => v as int),
-          convos: $checkedConvert('convos', (v) => v as int),
-          convosStarted: $checkedConvert('convosStarted', (v) => v as int),
+              $checkedConvert('messagesReceived', (v) => (v as num).toInt()),
+          convos: $checkedConvert('convos', (v) => (v as num).toInt()),
+          convosStarted:
+              $checkedConvert('convosStarted', (v) => (v as num).toInt()),
         );
         return val;
       },

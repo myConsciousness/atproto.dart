@@ -14,7 +14,7 @@ _$SubscribeLabelsParamsImpl _$$SubscribeLabelsParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$SubscribeLabelsParamsImpl(
-          cursor: $checkedConvert('cursor', (v) => v as int?),
+          cursor: $checkedConvert('cursor', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(

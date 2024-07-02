@@ -30,9 +30,12 @@ _$EmbedViewRecordViewRecordImpl _$$EmbedViewRecordViewRecordImplFromJson(
                   ?.map((e) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
-          replyCount: $checkedConvert('replyCount', (v) => v as int? ?? 0),
-          repostCount: $checkedConvert('repostCount', (v) => v as int? ?? 0),
-          likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
+          replyCount:
+              $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
+          repostCount:
+              $checkedConvert('repostCount', (v) => (v as num?)?.toInt() ?? 0),
+          likeCount:
+              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
           embeds: $checkedConvert(
               'embeds',
               (v) => (v as List<dynamic>?)

@@ -27,12 +27,12 @@ _$StarterPackViewBasicImpl _$$StarterPackViewBasicImplFromJson(Map json) =>
               'creator',
               (v) => const ProfileViewBasicConverter()
                   .fromJson(v as Map<String, dynamic>)),
-          listItemCount:
-              $checkedConvert('listItemCount', (v) => v as int? ?? 0),
-          joinedWeekCount:
-              $checkedConvert('joinedWeekCount', (v) => v as int? ?? 0),
-          joinedAllTimeCount:
-              $checkedConvert('joinedAllTimeCount', (v) => v as int? ?? 0),
+          listItemCount: $checkedConvert(
+              'listItemCount', (v) => (v as num?)?.toInt() ?? 0),
+          joinedWeekCount: $checkedConvert(
+              'joinedWeekCount', (v) => (v as num?)?.toInt() ?? 0),
+          joinedAllTimeCount: $checkedConvert(
+              'joinedAllTimeCount', (v) => (v as num?)?.toInt() ?? 0),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)

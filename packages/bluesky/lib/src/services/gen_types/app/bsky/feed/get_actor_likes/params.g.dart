@@ -15,7 +15,7 @@ _$GetActorLikesParamsImpl _$$GetActorLikesParamsImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$GetActorLikesParamsImpl(
           actor: $checkedConvert('actor', (v) => v as String),
-          limit: $checkedConvert('limit', (v) => v as int?),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
