@@ -66,6 +66,30 @@ bool isStarterPackView(final Map<String, dynamic>? object) {
 }
 
 extension $StarterPackViewExtension on StarterPackView {
+  /// Returns true if [list] is not null, otherwise false.
+  bool get hasList => list != null;
+
+  /// Returns true if [list] is null, otherwise false.
+  bool get hasNotList => !hasList;
+
+  /// Returns true if [listItemsSample] is not null, otherwise false.
+  bool get hasListItemsSample => listItemsSample != null;
+
+  /// Returns true if [listItemsSample] is null, otherwise false.
+  bool get hasNotListItemsSample => !hasListItemsSample;
+
+  /// Returns true if [feeds] is not null, otherwise false.
+  bool get hasFeeds => feeds != null;
+
+  /// Returns true if [feeds] is null, otherwise false.
+  bool get hasNotFeeds => !hasFeeds;
+
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

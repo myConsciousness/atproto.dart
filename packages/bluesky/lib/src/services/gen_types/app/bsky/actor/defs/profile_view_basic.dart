@@ -61,6 +61,30 @@ bool isProfileViewBasic(final Map<String, dynamic>? object) {
 }
 
 extension $ProfileViewBasicExtension on ProfileViewBasic {
+  /// Returns true if [displayName] is not null, otherwise false.
+  bool get hasDisplayName => displayName != null;
+
+  /// Returns true if [displayName] is null, otherwise false.
+  bool get hasNotDisplayName => !hasDisplayName;
+
+  /// Returns true if [avatar] is not null, otherwise false.
+  bool get hasAvatar => avatar != null;
+
+  /// Returns true if [avatar] is null, otherwise false.
+  bool get hasNotAvatar => !hasAvatar;
+
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
+  /// Returns true if [createdAt] is not null, otherwise false.
+  bool get hasCreatedAt => createdAt != null;
+
+  /// Returns true if [createdAt] is null, otherwise false.
+  bool get hasNotCreatedAt => !hasCreatedAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

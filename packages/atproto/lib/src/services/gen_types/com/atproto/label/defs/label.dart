@@ -74,6 +74,30 @@ bool isLabel(final Map<String, dynamic>? object) {
 }
 
 extension $LabelExtension on Label {
+  /// Returns true if [cid] is not null, otherwise false.
+  bool get hasCid => cid != null;
+
+  /// Returns true if [cid] is null, otherwise false.
+  bool get hasNotCid => !hasCid;
+
+  /// Returns true or false from [neg].
+  bool get isNeg => neg;
+
+  /// Returns negated true or false from [neg].
+  bool get isNotNeg => !isNeg;
+
+  /// Returns true if [exp] is not null, otherwise false.
+  bool get hasExp => exp != null;
+
+  /// Returns true if [exp] is null, otherwise false.
+  bool get hasNotExp => !hasExp;
+
+  /// Returns true if [sig] is not null, otherwise false.
+  bool get hasSig => sig != null;
+
+  /// Returns true if [sig] is null, otherwise false.
+  bool get hasNotSig => !hasSig;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

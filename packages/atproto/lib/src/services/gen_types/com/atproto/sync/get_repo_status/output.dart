@@ -42,6 +42,18 @@ class GetRepoStatusOutput with _$GetRepoStatusOutput {
 }
 
 extension $GetRepoStatusOutputExtension on GetRepoStatusOutput {
+  /// Returns true if [status] is not null, otherwise false.
+  bool get hasStatus => status != null;
+
+  /// Returns true if [status] is null, otherwise false.
+  bool get hasNotStatus => !hasStatus;
+
+  /// Returns true if [rev] is not null, otherwise false.
+  bool get hasRev => rev != null;
+
+  /// Returns true if [rev] is null, otherwise false.
+  bool get hasNotRev => !hasRev;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

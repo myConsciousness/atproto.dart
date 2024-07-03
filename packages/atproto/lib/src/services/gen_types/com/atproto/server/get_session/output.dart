@@ -27,10 +27,10 @@ class GetSessionOutput with _$GetSessionOutput {
     required String handle,
     required String did,
     String? email,
-    bool? emailConfirmed,
-    bool? emailAuthFactor,
+    @Default(false) bool emailConfirmed,
+    @Default(false) bool emailAuthFactor,
     Map<String, dynamic>? didDoc,
-    bool? active,
+    @Default(false) bool active,
 
     /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
     @UStatusConverter() UStatus? status,
@@ -44,6 +44,42 @@ class GetSessionOutput with _$GetSessionOutput {
 }
 
 extension $GetSessionOutputExtension on GetSessionOutput {
+  /// Returns true if [email] is not null, otherwise false.
+  bool get hasEmail => email != null;
+
+  /// Returns true if [email] is null, otherwise false.
+  bool get hasNotEmail => !hasEmail;
+
+  /// Returns true or false from [emailConfirmed].
+  bool get isEmailConfirmed => emailConfirmed;
+
+  /// Returns negated true or false from [emailConfirmed].
+  bool get isNotEmailConfirmed => !isEmailConfirmed;
+
+  /// Returns true or false from [emailAuthFactor].
+  bool get isEmailAuthFactor => emailAuthFactor;
+
+  /// Returns negated true or false from [emailAuthFactor].
+  bool get isNotEmailAuthFactor => !isEmailAuthFactor;
+
+  /// Returns true if [didDoc] is not null, otherwise false.
+  bool get hasDidDoc => didDoc != null;
+
+  /// Returns true if [didDoc] is null, otherwise false.
+  bool get hasNotDidDoc => !hasDidDoc;
+
+  /// Returns true or false from [active].
+  bool get isActive => active;
+
+  /// Returns negated true or false from [active].
+  bool get isNotActive => !isActive;
+
+  /// Returns true if [status] is not null, otherwise false.
+  bool get hasStatus => status != null;
+
+  /// Returns true if [status] is null, otherwise false.
+  bool get hasNotStatus => !hasStatus;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

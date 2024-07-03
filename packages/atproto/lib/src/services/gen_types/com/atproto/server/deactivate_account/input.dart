@@ -33,6 +33,12 @@ class DeactivateAccountInput with _$DeactivateAccountInput {
 }
 
 extension $DeactivateAccountInputExtension on DeactivateAccountInput {
+  /// Returns true if [deleteAfter] is not null, otherwise false.
+  bool get hasDeleteAfter => deleteAfter != null;
+
+  /// Returns true if [deleteAfter] is null, otherwise false.
+  bool get hasNotDeleteAfter => !hasDeleteAfter;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

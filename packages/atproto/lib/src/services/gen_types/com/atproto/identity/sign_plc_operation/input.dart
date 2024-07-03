@@ -37,6 +37,36 @@ class SignPlcOperationInput with _$SignPlcOperationInput {
 }
 
 extension $SignPlcOperationInputExtension on SignPlcOperationInput {
+  /// Returns true if [token] is not null, otherwise false.
+  bool get hasToken => token != null;
+
+  /// Returns true if [token] is null, otherwise false.
+  bool get hasNotToken => !hasToken;
+
+  /// Returns true if [rotationKeys] is not null, otherwise false.
+  bool get hasRotationKeys => rotationKeys != null;
+
+  /// Returns true if [rotationKeys] is null, otherwise false.
+  bool get hasNotRotationKeys => !hasRotationKeys;
+
+  /// Returns true if [alsoKnownAs] is not null, otherwise false.
+  bool get hasAlsoKnownAs => alsoKnownAs != null;
+
+  /// Returns true if [alsoKnownAs] is null, otherwise false.
+  bool get hasNotAlsoKnownAs => !hasAlsoKnownAs;
+
+  /// Returns true if [verificationMethods] is not null, otherwise false.
+  bool get hasVerificationMethods => verificationMethods != null;
+
+  /// Returns true if [verificationMethods] is null, otherwise false.
+  bool get hasNotVerificationMethods => !hasVerificationMethods;
+
+  /// Returns true if [services] is not null, otherwise false.
+  bool get hasServices => services != null;
+
+  /// Returns true if [services] is null, otherwise false.
+  bool get hasNotServices => !hasServices;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

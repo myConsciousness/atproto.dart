@@ -65,6 +65,18 @@ bool isRecordViewRecord(final Map<String, dynamic>? object) {
 }
 
 extension $RecordViewRecordExtension on RecordViewRecord {
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
+  /// Returns true if [embeds] is not null, otherwise false.
+  bool get hasEmbeds => embeds != null;
+
+  /// Returns true if [embeds] is null, otherwise false.
+  bool get hasNotEmbeds => !hasEmbeds;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

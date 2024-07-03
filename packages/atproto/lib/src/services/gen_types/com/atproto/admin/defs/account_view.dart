@@ -60,6 +60,54 @@ bool isAccountView(final Map<String, dynamic>? object) {
 }
 
 extension $AccountViewExtension on AccountView {
+  /// Returns true if [email] is not null, otherwise false.
+  bool get hasEmail => email != null;
+
+  /// Returns true if [email] is null, otherwise false.
+  bool get hasNotEmail => !hasEmail;
+
+  /// Returns true if [relatedRecords] is not null, otherwise false.
+  bool get hasRelatedRecords => relatedRecords != null;
+
+  /// Returns true if [relatedRecords] is null, otherwise false.
+  bool get hasNotRelatedRecords => !hasRelatedRecords;
+
+  /// Returns true if [invitedBy] is not null, otherwise false.
+  bool get hasInvitedBy => invitedBy != null;
+
+  /// Returns true if [invitedBy] is null, otherwise false.
+  bool get hasNotInvitedBy => !hasInvitedBy;
+
+  /// Returns true if [invites] is not null, otherwise false.
+  bool get hasInvites => invites != null;
+
+  /// Returns true if [invites] is null, otherwise false.
+  bool get hasNotInvites => !hasInvites;
+
+  /// Returns true or false from [invitesDisabled].
+  bool get isInvitesDisabled => invitesDisabled;
+
+  /// Returns negated true or false from [invitesDisabled].
+  bool get isNotInvitesDisabled => !isInvitesDisabled;
+
+  /// Returns true if [emailConfirmedAt] is not null, otherwise false.
+  bool get hasEmailConfirmedAt => emailConfirmedAt != null;
+
+  /// Returns true if [emailConfirmedAt] is null, otherwise false.
+  bool get hasNotEmailConfirmedAt => !hasEmailConfirmedAt;
+
+  /// Returns true if [inviteNote] is not null, otherwise false.
+  bool get hasInviteNote => inviteNote != null;
+
+  /// Returns true if [inviteNote] is null, otherwise false.
+  bool get hasNotInviteNote => !hasInviteNote;
+
+  /// Returns true if [deactivatedAt] is not null, otherwise false.
+  bool get hasDeactivatedAt => deactivatedAt != null;
+
+  /// Returns true if [deactivatedAt] is null, otherwise false.
+  bool get hasNotDeactivatedAt => !hasDeactivatedAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

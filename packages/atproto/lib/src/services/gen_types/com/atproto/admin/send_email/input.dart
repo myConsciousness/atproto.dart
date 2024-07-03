@@ -38,6 +38,18 @@ class SendEmailInput with _$SendEmailInput {
 }
 
 extension $SendEmailInputExtension on SendEmailInput {
+  /// Returns true if [subject] is not null, otherwise false.
+  bool get hasSubject => subject != null;
+
+  /// Returns true if [subject] is null, otherwise false.
+  bool get hasNotSubject => !hasSubject;
+
+  /// Returns true if [comment] is not null, otherwise false.
+  bool get hasComment => comment != null;
+
+  /// Returns true if [comment] is null, otherwise false.
+  bool get hasNotComment => !hasComment;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

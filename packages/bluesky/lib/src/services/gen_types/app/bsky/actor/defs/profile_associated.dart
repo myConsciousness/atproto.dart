@@ -54,6 +54,18 @@ bool isProfileAssociated(final Map<String, dynamic>? object) {
 }
 
 extension $ProfileAssociatedExtension on ProfileAssociated {
+  /// Returns true or false from [labeler].
+  bool get isLabeler => labeler;
+
+  /// Returns negated true or false from [labeler].
+  bool get isNotLabeler => !isLabeler;
+
+  /// Returns true if [chat] is not null, otherwise false.
+  bool get hasChat => chat != null;
+
+  /// Returns true if [chat] is null, otherwise false.
+  bool get hasNotChat => !hasChat;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

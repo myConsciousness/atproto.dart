@@ -40,6 +40,18 @@ class GetPostThreadParams with _$GetPostThreadParams {
 }
 
 extension $GetPostThreadParamsExtension on GetPostThreadParams {
+  /// Returns true if [depth] is not null, otherwise false.
+  bool get hasDepth => depth != null;
+
+  /// Returns true if [depth] is null, otherwise false.
+  bool get hasNotDepth => !hasDepth;
+
+  /// Returns true if [parentHeight] is not null, otherwise false.
+  bool get hasParentHeight => parentHeight != null;
+
+  /// Returns true if [parentHeight] is null, otherwise false.
+  bool get hasNotParentHeight => !hasParentHeight;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

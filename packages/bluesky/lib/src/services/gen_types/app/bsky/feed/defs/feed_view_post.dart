@@ -55,6 +55,24 @@ bool isFeedViewPost(final Map<String, dynamic>? object) {
 }
 
 extension $FeedViewPostExtension on FeedViewPost {
+  /// Returns true if [reply] is not null, otherwise false.
+  bool get hasReply => reply != null;
+
+  /// Returns true if [reply] is null, otherwise false.
+  bool get hasNotReply => !hasReply;
+
+  /// Returns true if [reason] is not null, otherwise false.
+  bool get hasReason => reason != null;
+
+  /// Returns true if [reason] is null, otherwise false.
+  bool get hasNotReason => !hasReason;
+
+  /// Returns true if [feedContext] is not null, otherwise false.
+  bool get hasFeedContext => feedContext != null;
+
+  /// Returns true if [feedContext] is null, otherwise false.
+  bool get hasNotFeedContext => !hasFeedContext;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

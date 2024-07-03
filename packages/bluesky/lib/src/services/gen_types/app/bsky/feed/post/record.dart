@@ -72,6 +72,48 @@ bool isPostRecord(final Map<String, dynamic>? object) {
 }
 
 extension $PostRecordExtension on PostRecord {
+  /// Returns true if [facets] is not null, otherwise false.
+  bool get hasFacets => facets != null;
+
+  /// Returns true if [facets] is null, otherwise false.
+  bool get hasNotFacets => !hasFacets;
+
+  /// Returns true if [reply] is not null, otherwise false.
+  bool get hasReply => reply != null;
+
+  /// Returns true if [reply] is null, otherwise false.
+  bool get hasNotReply => !hasReply;
+
+  /// Returns true if [embed] is not null, otherwise false.
+  bool get hasEmbed => embed != null;
+
+  /// Returns true if [embed] is null, otherwise false.
+  bool get hasNotEmbed => !hasEmbed;
+
+  /// Returns true if [langs] is not null, otherwise false.
+  bool get hasLangs => langs != null;
+
+  /// Returns true if [langs] is null, otherwise false.
+  bool get hasNotLangs => !hasLangs;
+
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
+  /// Returns true if [tags] is not null, otherwise false.
+  bool get hasTags => tags != null;
+
+  /// Returns true if [tags] is null, otherwise false.
+  bool get hasNotTags => !hasTags;
+
+  /// Returns true if [createdAt] is not null, otherwise false.
+  bool get hasCreatedAt => createdAt != null;
+
+  /// Returns true if [createdAt] is null, otherwise false.
+  bool get hasNotCreatedAt => !hasCreatedAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

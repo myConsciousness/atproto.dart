@@ -53,6 +53,12 @@ bool isCreate(final Map<String, dynamic>? object) {
 }
 
 extension $CreateExtension on Create {
+  /// Returns true if [rkey] is not null, otherwise false.
+  bool get hasRkey => rkey != null;
+
+  /// Returns true if [rkey] is null, otherwise false.
+  bool get hasNotRkey => !hasRkey;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

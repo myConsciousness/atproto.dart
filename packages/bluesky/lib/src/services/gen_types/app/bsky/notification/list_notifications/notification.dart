@@ -64,6 +64,18 @@ bool isNotification(final Map<String, dynamic>? object) {
 }
 
 extension $NotificationExtension on Notification {
+  /// Returns true if [reasonSubject] is not null, otherwise false.
+  bool get hasReasonSubject => reasonSubject != null;
+
+  /// Returns true if [reasonSubject] is null, otherwise false.
+  bool get hasNotReasonSubject => !hasReasonSubject;
+
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

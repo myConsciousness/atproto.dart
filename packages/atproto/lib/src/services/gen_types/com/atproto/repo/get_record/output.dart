@@ -35,6 +35,12 @@ class GetRecordOutput with _$GetRecordOutput {
 }
 
 extension $GetRecordOutputExtension on GetRecordOutput {
+  /// Returns true if [cid] is not null, otherwise false.
+  bool get hasCid => cid != null;
+
+  /// Returns true if [cid] is null, otherwise false.
+  bool get hasNotCid => !hasCid;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

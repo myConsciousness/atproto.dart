@@ -36,6 +36,12 @@ class GetRelationshipsOutput with _$GetRelationshipsOutput {
 }
 
 extension $GetRelationshipsOutputExtension on GetRelationshipsOutput {
+  /// Returns true if [actor] is not null, otherwise false.
+  bool get hasActor => actor != null;
+
+  /// Returns true if [actor] is null, otherwise false.
+  bool get hasNotActor => !hasActor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

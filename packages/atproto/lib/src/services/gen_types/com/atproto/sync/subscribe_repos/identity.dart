@@ -56,6 +56,12 @@ bool isIdentity(final Map<String, dynamic>? object) {
 }
 
 extension $IdentityExtension on Identity {
+  /// Returns true if [handle] is not null, otherwise false.
+  bool get hasHandle => handle != null;
+
+  /// Returns true if [handle] is null, otherwise false.
+  bool get hasNotHandle => !hasHandle;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

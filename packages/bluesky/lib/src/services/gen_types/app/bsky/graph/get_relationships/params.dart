@@ -36,6 +36,12 @@ class GetRelationshipsParams with _$GetRelationshipsParams {
 }
 
 extension $GetRelationshipsParamsExtension on GetRelationshipsParams {
+  /// Returns true if [others] is not null, otherwise false.
+  bool get hasOthers => others != null;
+
+  /// Returns true if [others] is null, otherwise false.
+  bool get hasNotOthers => !hasOthers;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

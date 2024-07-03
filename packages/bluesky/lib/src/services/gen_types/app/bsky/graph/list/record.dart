@@ -62,6 +62,36 @@ bool isListRecord(final Map<String, dynamic>? object) {
 }
 
 extension $ListRecordExtension on ListRecord {
+  /// Returns true if [description] is not null, otherwise false.
+  bool get hasDescription => description != null;
+
+  /// Returns true if [description] is null, otherwise false.
+  bool get hasNotDescription => !hasDescription;
+
+  /// Returns true if [descriptionFacets] is not null, otherwise false.
+  bool get hasDescriptionFacets => descriptionFacets != null;
+
+  /// Returns true if [descriptionFacets] is null, otherwise false.
+  bool get hasNotDescriptionFacets => !hasDescriptionFacets;
+
+  /// Returns true if [avatar] is not null, otherwise false.
+  bool get hasAvatar => avatar != null;
+
+  /// Returns true if [avatar] is null, otherwise false.
+  bool get hasNotAvatar => !hasAvatar;
+
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
+  /// Returns true if [createdAt] is not null, otherwise false.
+  bool get hasCreatedAt => createdAt != null;
+
+  /// Returns true if [createdAt] is null, otherwise false.
+  bool get hasNotCreatedAt => !hasCreatedAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

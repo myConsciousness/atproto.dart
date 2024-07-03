@@ -55,6 +55,12 @@ bool isContentLabelPref(final Map<String, dynamic>? object) {
 }
 
 extension $ContentLabelPrefExtension on ContentLabelPref {
+  /// Returns true if [labelerDid] is not null, otherwise false.
+  bool get hasLabelerDid => labelerDid != null;
+
+  /// Returns true if [labelerDid] is null, otherwise false.
+  bool get hasNotLabelerDid => !hasLabelerDid;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

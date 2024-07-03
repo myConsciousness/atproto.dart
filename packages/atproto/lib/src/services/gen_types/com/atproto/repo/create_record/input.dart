@@ -49,6 +49,30 @@ class CreateRecordInput with _$CreateRecordInput {
 }
 
 extension $CreateRecordInputExtension on CreateRecordInput {
+  /// Returns true if [repo] is not null, otherwise false.
+  bool get hasRepo => repo != null;
+
+  /// Returns true if [repo] is null, otherwise false.
+  bool get hasNotRepo => !hasRepo;
+
+  /// Returns true if [rkey] is not null, otherwise false.
+  bool get hasRkey => rkey != null;
+
+  /// Returns true if [rkey] is null, otherwise false.
+  bool get hasNotRkey => !hasRkey;
+
+  /// Returns true or false from [validate].
+  bool get isValidate => validate ?? false;
+
+  /// Returns negated true or false from [validate].
+  bool get isNotValidate => !isValidate;
+
+  /// Returns true if [swapCommit] is not null, otherwise false.
+  bool get hasSwapCommit => swapCommit != null;
+
+  /// Returns true if [swapCommit] is null, otherwise false.
+  bool get hasNotSwapCommit => !hasSwapCommit;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

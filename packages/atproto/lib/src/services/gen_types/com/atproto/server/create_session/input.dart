@@ -35,6 +35,12 @@ class CreateSessionInput with _$CreateSessionInput {
 }
 
 extension $CreateSessionInputExtension on CreateSessionInput {
+  /// Returns true if [authFactorToken] is not null, otherwise false.
+  bool get hasAuthFactorToken => authFactorToken != null;
+
+  /// Returns true if [authFactorToken] is null, otherwise false.
+  bool get hasNotAuthFactorToken => !hasAuthFactorToken;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

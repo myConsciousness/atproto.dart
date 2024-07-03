@@ -24,10 +24,11 @@ _$CreateSessionOutputImpl _$$CreateSessionOutputImplFromJson(Map json) =>
                     (k, e) => MapEntry(k as String, e),
                   )),
           email: $checkedConvert('email', (v) => v as String?),
-          emailConfirmed: $checkedConvert('emailConfirmed', (v) => v as bool?),
+          emailConfirmed:
+              $checkedConvert('emailConfirmed', (v) => v as bool? ?? false),
           emailAuthFactor:
-              $checkedConvert('emailAuthFactor', (v) => v as bool?),
-          active: $checkedConvert('active', (v) => v as bool?),
+              $checkedConvert('emailAuthFactor', (v) => v as bool? ?? false),
+          active: $checkedConvert('active', (v) => v as bool? ?? false),
           status: $checkedConvert(
               'status',
               (v) => _$JsonConverterFromJson<String, UStatus>(
@@ -59,9 +60,9 @@ Map<String, dynamic> _$$CreateSessionOutputImplToJson(
 
   writeNotNull('didDoc', instance.didDoc);
   writeNotNull('email', instance.email);
-  writeNotNull('emailConfirmed', instance.emailConfirmed);
-  writeNotNull('emailAuthFactor', instance.emailAuthFactor);
-  writeNotNull('active', instance.active);
+  val['emailConfirmed'] = instance.emailConfirmed;
+  val['emailAuthFactor'] = instance.emailAuthFactor;
+  val['active'] = instance.active;
   writeNotNull(
       'status',
       _$JsonConverterToJson<String, UStatus>(

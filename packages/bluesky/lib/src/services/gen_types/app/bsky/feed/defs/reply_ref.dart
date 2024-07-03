@@ -54,6 +54,12 @@ bool isReplyRef(final Map<String, dynamic>? object) {
 }
 
 extension $ReplyRefExtension on ReplyRef {
+  /// Returns true if [grandparentAuthor] is not null, otherwise false.
+  bool get hasGrandparentAuthor => grandparentAuthor != null;
+
+  /// Returns true if [grandparentAuthor] is null, otherwise false.
+  bool get hasNotGrandparentAuthor => !hasGrandparentAuthor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

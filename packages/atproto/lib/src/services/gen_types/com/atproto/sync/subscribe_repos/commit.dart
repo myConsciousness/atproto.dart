@@ -76,6 +76,12 @@ bool isCommit(final Map<String, dynamic>? object) {
 }
 
 extension $CommitExtension on Commit {
+  /// Returns true if [since] is not null, otherwise false.
+  bool get hasSince => since != null;
+
+  /// Returns true if [since] is null, otherwise false.
+  bool get hasNotSince => !hasSince;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

@@ -40,6 +40,12 @@ class CreateAccountOutput with _$CreateAccountOutput {
 }
 
 extension $CreateAccountOutputExtension on CreateAccountOutput {
+  /// Returns true if [didDoc] is not null, otherwise false.
+  bool get hasDidDoc => didDoc != null;
+
+  /// Returns true if [didDoc] is null, otherwise false.
+  bool get hasNotDidDoc => !hasDidDoc;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

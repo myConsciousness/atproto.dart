@@ -36,6 +36,12 @@ class CreateAppPasswordInput with _$CreateAppPasswordInput {
 }
 
 extension $CreateAppPasswordInputExtension on CreateAppPasswordInput {
+  /// Returns true or false from [privileged].
+  bool get isPrivileged => privileged ?? false;
+
+  /// Returns negated true or false from [privileged].
+  bool get isNotPrivileged => !isPrivileged;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

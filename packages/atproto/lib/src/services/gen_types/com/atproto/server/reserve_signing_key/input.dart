@@ -33,6 +33,12 @@ class ReserveSigningKeyInput with _$ReserveSigningKeyInput {
 }
 
 extension $ReserveSigningKeyInputExtension on ReserveSigningKeyInput {
+  /// Returns true if [did] is not null, otherwise false.
+  bool get hasDid => did != null;
+
+  /// Returns true if [did] is null, otherwise false.
+  bool get hasNotDid => !hasDid;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

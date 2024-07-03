@@ -52,6 +52,12 @@ bool isRepoBlobRef(final Map<String, dynamic>? object) {
 }
 
 extension $RepoBlobRefExtension on RepoBlobRef {
+  /// Returns true if [recordUri] is not null, otherwise false.
+  bool get hasRecordUri => recordUri != null;
+
+  /// Returns true if [recordUri] is null, otherwise false.
+  bool get hasNotRecordUri => !hasRecordUri;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

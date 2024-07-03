@@ -38,6 +38,30 @@ class SearchActorsParams with _$SearchActorsParams {
 }
 
 extension $SearchActorsParamsExtension on SearchActorsParams {
+  /// Returns true if [term] is not null, otherwise false.
+  bool get hasTerm => term != null;
+
+  /// Returns true if [term] is null, otherwise false.
+  bool get hasNotTerm => !hasTerm;
+
+  /// Returns true if [q] is not null, otherwise false.
+  bool get hasQ => q != null;
+
+  /// Returns true if [q] is null, otherwise false.
+  bool get hasNotQ => !hasQ;
+
+  /// Returns true if [limit] is not null, otherwise false.
+  bool get hasLimit => limit != null;
+
+  /// Returns true if [limit] is null, otherwise false.
+  bool get hasNotLimit => !hasLimit;
+
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

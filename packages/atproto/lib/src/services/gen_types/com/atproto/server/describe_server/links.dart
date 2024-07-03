@@ -49,6 +49,18 @@ bool isLinks(final Map<String, dynamic>? object) {
 }
 
 extension $LinksExtension on Links {
+  /// Returns true if [privacyPolicy] is not null, otherwise false.
+  bool get hasPrivacyPolicy => privacyPolicy != null;
+
+  /// Returns true if [privacyPolicy] is null, otherwise false.
+  bool get hasNotPrivacyPolicy => !hasPrivacyPolicy;
+
+  /// Returns true if [termsOfService] is not null, otherwise false.
+  bool get hasTermsOfService => termsOfService != null;
+
+  /// Returns true if [termsOfService] is null, otherwise false.
+  bool get hasNotTermsOfService => !hasTermsOfService;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

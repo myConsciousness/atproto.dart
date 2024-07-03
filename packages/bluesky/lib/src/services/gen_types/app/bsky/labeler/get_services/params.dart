@@ -33,6 +33,12 @@ class GetServicesParams with _$GetServicesParams {
 }
 
 extension $GetServicesParamsExtension on GetServicesParams {
+  /// Returns true or false from [detailed].
+  bool get isDetailed => detailed ?? false;
+
+  /// Returns negated true or false from [detailed].
+  bool get isNotDetailed => !isDetailed;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

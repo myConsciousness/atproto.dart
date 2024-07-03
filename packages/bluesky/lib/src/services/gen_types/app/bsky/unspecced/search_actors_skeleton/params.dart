@@ -43,6 +43,30 @@ class SearchActorsSkeletonParams with _$SearchActorsSkeletonParams {
 }
 
 extension $SearchActorsSkeletonParamsExtension on SearchActorsSkeletonParams {
+  /// Returns true if [viewer] is not null, otherwise false.
+  bool get hasViewer => viewer != null;
+
+  /// Returns true if [viewer] is null, otherwise false.
+  bool get hasNotViewer => !hasViewer;
+
+  /// Returns true or false from [typeahead].
+  bool get isTypeahead => typeahead ?? false;
+
+  /// Returns negated true or false from [typeahead].
+  bool get isNotTypeahead => !isTypeahead;
+
+  /// Returns true if [limit] is not null, otherwise false.
+  bool get hasLimit => limit != null;
+
+  /// Returns true if [limit] is null, otherwise false.
+  bool get hasNotLimit => !hasLimit;
+
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

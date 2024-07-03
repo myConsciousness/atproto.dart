@@ -212,6 +212,32 @@ final class LexGenObject {
       buffer.writeln('  /// Returns this object as [$name].');
       buffer.writeln('  $name to$name() => $name.fromJson(toJson());');
     }
+    for (final property in properties) {
+      if (property.isRequired) continue;
+
+      final name = property.name;
+      final fnName = utils.toFirstUpper(name);
+
+      if (property.type.name == 'bool') {
+        final nullCheck = property.defaultValue == null ? '?? false' : '';
+
+        buffer.writeln('  /// Returns true or false from [$name].');
+        buffer.writeln('  bool get is$fnName => $name$nullCheck;');
+        buffer.writeln();
+        buffer.writeln('  /// Returns negated true or false from [$name].');
+        buffer.writeln('  bool get isNot$fnName => !is$fnName;');
+      } else {
+        if (property.defaultValue != null) continue;
+
+        buffer.writeln(
+            '  /// Returns true if [$name] is not null, otherwise false.');
+        buffer.writeln('  bool get has$fnName => $name != null;');
+        buffer.writeln();
+        buffer
+            .writeln('  /// Returns true if [$name] is null, otherwise false.');
+        buffer.writeln('  bool get hasNot$fnName => !has$fnName;');
+      }
+    }
     buffer.writeln('  /// Returns true if this object has unknown objects,');
     buffer.writeln('  /// otherwise false.');
     buffer.writeln(

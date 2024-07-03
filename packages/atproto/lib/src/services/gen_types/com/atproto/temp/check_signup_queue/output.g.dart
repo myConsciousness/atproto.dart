@@ -16,9 +16,9 @@ _$CheckSignupQueueOutputImpl _$$CheckSignupQueueOutputImplFromJson(Map json) =>
         final val = _$CheckSignupQueueOutputImpl(
           activated: $checkedConvert('activated', (v) => v as bool),
           placeInQueue:
-              $checkedConvert('placeInQueue', (v) => (v as num?)?.toInt()),
-          estimatedTimeMs:
-              $checkedConvert('estimatedTimeMs', (v) => (v as num?)?.toInt()),
+              $checkedConvert('placeInQueue', (v) => (v as num?)?.toInt() ?? 0),
+          estimatedTimeMs: $checkedConvert(
+              'estimatedTimeMs', (v) => (v as num?)?.toInt() ?? 0),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -33,6 +33,8 @@ Map<String, dynamic> _$$CheckSignupQueueOutputImplToJson(
     _$CheckSignupQueueOutputImpl instance) {
   final val = <String, dynamic>{
     'activated': instance.activated,
+    'placeInQueue': instance.placeInQueue,
+    'estimatedTimeMs': instance.estimatedTimeMs,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -41,8 +43,6 @@ Map<String, dynamic> _$$CheckSignupQueueOutputImplToJson(
     }
   }
 
-  writeNotNull('placeInQueue', instance.placeInQueue);
-  writeNotNull('estimatedTimeMs', instance.estimatedTimeMs);
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

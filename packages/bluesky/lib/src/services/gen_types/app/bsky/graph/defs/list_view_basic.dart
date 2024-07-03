@@ -63,6 +63,24 @@ bool isListViewBasic(final Map<String, dynamic>? object) {
 }
 
 extension $ListViewBasicExtension on ListViewBasic {
+  /// Returns true if [avatar] is not null, otherwise false.
+  bool get hasAvatar => avatar != null;
+
+  /// Returns true if [avatar] is null, otherwise false.
+  bool get hasNotAvatar => !hasAvatar;
+
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
+  /// Returns true if [indexedAt] is not null, otherwise false.
+  bool get hasIndexedAt => indexedAt != null;
+
+  /// Returns true if [indexedAt] is null, otherwise false.
+  bool get hasNotIndexedAt => !hasIndexedAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

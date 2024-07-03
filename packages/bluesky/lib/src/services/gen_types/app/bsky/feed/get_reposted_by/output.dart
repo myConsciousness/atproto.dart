@@ -39,6 +39,18 @@ class GetRepostedByOutput with _$GetRepostedByOutput {
 }
 
 extension $GetRepostedByOutputExtension on GetRepostedByOutput {
+  /// Returns true if [cid] is not null, otherwise false.
+  bool get hasCid => cid != null;
+
+  /// Returns true if [cid] is null, otherwise false.
+  bool get hasNotCid => !hasCid;
+
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

@@ -36,6 +36,12 @@ class GetSuggestedFeedsOutput with _$GetSuggestedFeedsOutput {
 }
 
 extension $GetSuggestedFeedsOutputExtension on GetSuggestedFeedsOutput {
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

@@ -40,6 +40,24 @@ class GetAuthorFeedParams with _$GetAuthorFeedParams {
 }
 
 extension $GetAuthorFeedParamsExtension on GetAuthorFeedParams {
+  /// Returns true if [limit] is not null, otherwise false.
+  bool get hasLimit => limit != null;
+
+  /// Returns true if [limit] is null, otherwise false.
+  bool get hasNotLimit => !hasLimit;
+
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
+  /// Returns true if [filter] is not null, otherwise false.
+  bool get hasFilter => filter != null;
+
+  /// Returns true if [filter] is null, otherwise false.
+  bool get hasNotFilter => !hasFilter;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

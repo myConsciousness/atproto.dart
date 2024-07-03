@@ -36,6 +36,24 @@ class GetMessageContextParams with _$GetMessageContextParams {
 }
 
 extension $GetMessageContextParamsExtension on GetMessageContextParams {
+  /// Returns true if [convoId] is not null, otherwise false.
+  bool get hasConvoId => convoId != null;
+
+  /// Returns true if [convoId] is null, otherwise false.
+  bool get hasNotConvoId => !hasConvoId;
+
+  /// Returns true if [before] is not null, otherwise false.
+  bool get hasBefore => before != null;
+
+  /// Returns true if [before] is null, otherwise false.
+  bool get hasNotBefore => !hasBefore;
+
+  /// Returns true if [after] is not null, otherwise false.
+  bool get hasAfter => after != null;
+
+  /// Returns true if [after] is null, otherwise false.
+  bool get hasNotAfter => !hasAfter;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

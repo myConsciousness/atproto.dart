@@ -35,6 +35,12 @@ class DisableAccountInvitesInput with _$DisableAccountInvitesInput {
 }
 
 extension $DisableAccountInvitesInputExtension on DisableAccountInvitesInput {
+  /// Returns true if [note] is not null, otherwise false.
+  bool get hasNote => note != null;
+
+  /// Returns true if [note] is null, otherwise false.
+  bool get hasNotNote => !hasNote;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

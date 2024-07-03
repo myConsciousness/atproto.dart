@@ -69,6 +69,54 @@ bool isProfileViewDetailed(final Map<String, dynamic>? object) {
 }
 
 extension $ProfileViewDetailedExtension on ProfileViewDetailed {
+  /// Returns true if [displayName] is not null, otherwise false.
+  bool get hasDisplayName => displayName != null;
+
+  /// Returns true if [displayName] is null, otherwise false.
+  bool get hasNotDisplayName => !hasDisplayName;
+
+  /// Returns true if [description] is not null, otherwise false.
+  bool get hasDescription => description != null;
+
+  /// Returns true if [description] is null, otherwise false.
+  bool get hasNotDescription => !hasDescription;
+
+  /// Returns true if [avatar] is not null, otherwise false.
+  bool get hasAvatar => avatar != null;
+
+  /// Returns true if [avatar] is null, otherwise false.
+  bool get hasNotAvatar => !hasAvatar;
+
+  /// Returns true if [banner] is not null, otherwise false.
+  bool get hasBanner => banner != null;
+
+  /// Returns true if [banner] is null, otherwise false.
+  bool get hasNotBanner => !hasBanner;
+
+  /// Returns true if [joinedViaStarterPack] is not null, otherwise false.
+  bool get hasJoinedViaStarterPack => joinedViaStarterPack != null;
+
+  /// Returns true if [joinedViaStarterPack] is null, otherwise false.
+  bool get hasNotJoinedViaStarterPack => !hasJoinedViaStarterPack;
+
+  /// Returns true if [indexedAt] is not null, otherwise false.
+  bool get hasIndexedAt => indexedAt != null;
+
+  /// Returns true if [indexedAt] is null, otherwise false.
+  bool get hasNotIndexedAt => !hasIndexedAt;
+
+  /// Returns true if [createdAt] is not null, otherwise false.
+  bool get hasCreatedAt => createdAt != null;
+
+  /// Returns true if [createdAt] is null, otherwise false.
+  bool get hasNotCreatedAt => !hasCreatedAt;
+
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

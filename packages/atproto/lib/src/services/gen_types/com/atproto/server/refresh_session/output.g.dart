@@ -23,7 +23,7 @@ _$RefreshSessionOutputImpl _$$RefreshSessionOutputImplFromJson(Map json) =>
               (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
                   )),
-          active: $checkedConvert('active', (v) => v as bool?),
+          active: $checkedConvert('active', (v) => v as bool? ?? false),
           status: $checkedConvert(
               'status',
               (v) => _$JsonConverterFromJson<String, UStatus>(
@@ -54,7 +54,7 @@ Map<String, dynamic> _$$RefreshSessionOutputImplToJson(
   }
 
   writeNotNull('didDoc', instance.didDoc);
-  writeNotNull('active', instance.active);
+  val['active'] = instance.active;
   writeNotNull(
       'status',
       _$JsonConverterToJson<String, UStatus>(

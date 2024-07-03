@@ -63,6 +63,12 @@ bool isLabelerViewDetailed(final Map<String, dynamic>? object) {
 }
 
 extension $LabelerViewDetailedExtension on LabelerViewDetailed {
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

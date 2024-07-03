@@ -53,6 +53,24 @@ bool isInteraction(final Map<String, dynamic>? object) {
 }
 
 extension $InteractionExtension on Interaction {
+  /// Returns true if [item] is not null, otherwise false.
+  bool get hasItem => item != null;
+
+  /// Returns true if [item] is null, otherwise false.
+  bool get hasNotItem => !hasItem;
+
+  /// Returns true if [event] is not null, otherwise false.
+  bool get hasEvent => event != null;
+
+  /// Returns true if [event] is null, otherwise false.
+  bool get hasNotEvent => !hasEvent;
+
+  /// Returns true if [feedContext] is not null, otherwise false.
+  bool get hasFeedContext => feedContext != null;
+
+  /// Returns true if [feedContext] is null, otherwise false.
+  bool get hasNotFeedContext => !hasFeedContext;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

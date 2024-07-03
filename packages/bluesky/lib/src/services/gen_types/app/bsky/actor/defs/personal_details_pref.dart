@@ -51,6 +51,12 @@ bool isPersonalDetailsPref(final Map<String, dynamic>? object) {
 }
 
 extension $PersonalDetailsPrefExtension on PersonalDetailsPref {
+  /// Returns true if [birthDate] is not null, otherwise false.
+  bool get hasBirthDate => birthDate != null;
+
+  /// Returns true if [birthDate] is null, otherwise false.
+  bool get hasNotBirthDate => !hasBirthDate;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

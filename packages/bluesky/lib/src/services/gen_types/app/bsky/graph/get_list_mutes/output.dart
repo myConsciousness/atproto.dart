@@ -36,6 +36,12 @@ class GetListMutesOutput with _$GetListMutesOutput {
 }
 
 extension $GetListMutesOutputExtension on GetListMutesOutput {
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

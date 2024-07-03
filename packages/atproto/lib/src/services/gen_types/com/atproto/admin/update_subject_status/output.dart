@@ -37,6 +37,12 @@ class UpdateSubjectStatusOutput with _$UpdateSubjectStatusOutput {
 }
 
 extension $UpdateSubjectStatusOutputExtension on UpdateSubjectStatusOutput {
+  /// Returns true if [takedown] is not null, otherwise false.
+  bool get hasTakedown => takedown != null;
+
+  /// Returns true if [takedown] is null, otherwise false.
+  bool get hasNotTakedown => !hasTakedown;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

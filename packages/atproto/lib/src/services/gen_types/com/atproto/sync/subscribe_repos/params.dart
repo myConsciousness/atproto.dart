@@ -33,6 +33,12 @@ class SubscribeReposParams with _$SubscribeReposParams {
 }
 
 extension $SubscribeReposParamsExtension on SubscribeReposParams {
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

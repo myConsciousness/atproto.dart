@@ -52,6 +52,30 @@ class PutRecordInput with _$PutRecordInput {
 }
 
 extension $PutRecordInputExtension on PutRecordInput {
+  /// Returns true if [repo] is not null, otherwise false.
+  bool get hasRepo => repo != null;
+
+  /// Returns true if [repo] is null, otherwise false.
+  bool get hasNotRepo => !hasRepo;
+
+  /// Returns true or false from [validate].
+  bool get isValidate => validate ?? false;
+
+  /// Returns negated true or false from [validate].
+  bool get isNotValidate => !isValidate;
+
+  /// Returns true if [swapRecord] is not null, otherwise false.
+  bool get hasSwapRecord => swapRecord != null;
+
+  /// Returns true if [swapRecord] is null, otherwise false.
+  bool get hasNotSwapRecord => !hasSwapRecord;
+
+  /// Returns true if [swapCommit] is not null, otherwise false.
+  bool get hasSwapCommit => swapCommit != null;
+
+  /// Returns true if [swapCommit] is null, otherwise false.
+  bool get hasNotSwapCommit => !hasSwapCommit;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

@@ -21,21 +21,21 @@ DescribeServerOutput _$DescribeServerOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DescribeServerOutput {
   /// If true, an invite code must be supplied to create an account on this instance.
-  bool? get inviteCodeRequired => throw _privateConstructorUsedError;
+  bool get inviteCodeRequired => throw _privateConstructorUsedError;
 
   /// If true, a phone verification token must be supplied to create an account on this instance.
-  bool? get phoneVerificationRequired => throw _privateConstructorUsedError;
+  bool get phoneVerificationRequired => throw _privateConstructorUsedError;
 
   /// List of domain suffixes that can be used in account handles.
   List<String> get availableUserDomains => throw _privateConstructorUsedError;
 
   /// URLs of service policy documents.
   @LinksConverter()
-  Links? get links => throw _privateConstructorUsedError;
+  Links get links => throw _privateConstructorUsedError;
 
   /// Contact information
   @ContactConverter()
-  Contact? get contact => throw _privateConstructorUsedError;
+  Contact get contact => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -55,16 +55,16 @@ abstract class $DescribeServerOutputCopyWith<$Res> {
       _$DescribeServerOutputCopyWithImpl<$Res, DescribeServerOutput>;
   @useResult
   $Res call(
-      {bool? inviteCodeRequired,
-      bool? phoneVerificationRequired,
+      {bool inviteCodeRequired,
+      bool phoneVerificationRequired,
       List<String> availableUserDomains,
-      @LinksConverter() Links? links,
-      @ContactConverter() Contact? contact,
+      @LinksConverter() Links links,
+      @ContactConverter() Contact contact,
       String did,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $LinksCopyWith<$Res>? get links;
-  $ContactCopyWith<$Res>? get contact;
+  $LinksCopyWith<$Res> get links;
+  $ContactCopyWith<$Res> get contact;
 }
 
 /// @nodoc
@@ -81,35 +81,35 @@ class _$DescribeServerOutputCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? inviteCodeRequired = freezed,
-    Object? phoneVerificationRequired = freezed,
+    Object? inviteCodeRequired = null,
+    Object? phoneVerificationRequired = null,
     Object? availableUserDomains = null,
-    Object? links = freezed,
-    Object? contact = freezed,
+    Object? links = null,
+    Object? contact = null,
     Object? did = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      inviteCodeRequired: freezed == inviteCodeRequired
+      inviteCodeRequired: null == inviteCodeRequired
           ? _value.inviteCodeRequired
           : inviteCodeRequired // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      phoneVerificationRequired: freezed == phoneVerificationRequired
+              as bool,
+      phoneVerificationRequired: null == phoneVerificationRequired
           ? _value.phoneVerificationRequired
           : phoneVerificationRequired // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       availableUserDomains: null == availableUserDomains
           ? _value.availableUserDomains
           : availableUserDomains // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      links: freezed == links
+      links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Links?,
-      contact: freezed == contact
+              as Links,
+      contact: null == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
-              as Contact?,
+              as Contact,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -123,24 +123,16 @@ class _$DescribeServerOutputCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $LinksCopyWith<$Res>? get links {
-    if (_value.links == null) {
-      return null;
-    }
-
-    return $LinksCopyWith<$Res>(_value.links!, (value) {
+  $LinksCopyWith<$Res> get links {
+    return $LinksCopyWith<$Res>(_value.links, (value) {
       return _then(_value.copyWith(links: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ContactCopyWith<$Res>? get contact {
-    if (_value.contact == null) {
-      return null;
-    }
-
-    return $ContactCopyWith<$Res>(_value.contact!, (value) {
+  $ContactCopyWith<$Res> get contact {
+    return $ContactCopyWith<$Res>(_value.contact, (value) {
       return _then(_value.copyWith(contact: value) as $Val);
     });
   }
@@ -155,18 +147,18 @@ abstract class _$$DescribeServerOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? inviteCodeRequired,
-      bool? phoneVerificationRequired,
+      {bool inviteCodeRequired,
+      bool phoneVerificationRequired,
       List<String> availableUserDomains,
-      @LinksConverter() Links? links,
-      @ContactConverter() Contact? contact,
+      @LinksConverter() Links links,
+      @ContactConverter() Contact contact,
       String did,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $LinksCopyWith<$Res>? get links;
+  $LinksCopyWith<$Res> get links;
   @override
-  $ContactCopyWith<$Res>? get contact;
+  $ContactCopyWith<$Res> get contact;
 }
 
 /// @nodoc
@@ -180,35 +172,35 @@ class __$$DescribeServerOutputImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? inviteCodeRequired = freezed,
-    Object? phoneVerificationRequired = freezed,
+    Object? inviteCodeRequired = null,
+    Object? phoneVerificationRequired = null,
     Object? availableUserDomains = null,
-    Object? links = freezed,
-    Object? contact = freezed,
+    Object? links = null,
+    Object? contact = null,
     Object? did = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$DescribeServerOutputImpl(
-      inviteCodeRequired: freezed == inviteCodeRequired
+      inviteCodeRequired: null == inviteCodeRequired
           ? _value.inviteCodeRequired
           : inviteCodeRequired // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      phoneVerificationRequired: freezed == phoneVerificationRequired
+              as bool,
+      phoneVerificationRequired: null == phoneVerificationRequired
           ? _value.phoneVerificationRequired
           : phoneVerificationRequired // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       availableUserDomains: null == availableUserDomains
           ? _value._availableUserDomains
           : availableUserDomains // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      links: freezed == links
+      links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Links?,
-      contact: freezed == contact
+              as Links,
+      contact: null == contact
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
-              as Contact?,
+              as Contact,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -226,11 +218,11 @@ class __$$DescribeServerOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$DescribeServerOutputImpl implements _DescribeServerOutput {
   const _$DescribeServerOutputImpl(
-      {this.inviteCodeRequired,
-      this.phoneVerificationRequired,
+      {this.inviteCodeRequired = false,
+      this.phoneVerificationRequired = false,
       required final List<String> availableUserDomains,
-      @LinksConverter() this.links,
-      @ContactConverter() this.contact,
+      @LinksConverter() this.links = const Links(),
+      @ContactConverter() this.contact = const Contact(),
       required this.did,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _availableUserDomains = availableUserDomains,
@@ -241,11 +233,13 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
 
   /// If true, an invite code must be supplied to create an account on this instance.
   @override
-  final bool? inviteCodeRequired;
+  @JsonKey()
+  final bool inviteCodeRequired;
 
   /// If true, a phone verification token must be supplied to create an account on this instance.
   @override
-  final bool? phoneVerificationRequired;
+  @JsonKey()
+  final bool phoneVerificationRequired;
 
   /// List of domain suffixes that can be used in account handles.
   final List<String> _availableUserDomains;
@@ -261,13 +255,15 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
 
   /// URLs of service policy documents.
   @override
+  @JsonKey()
   @LinksConverter()
-  final Links? links;
+  final Links links;
 
   /// Contact information
   @override
+  @JsonKey()
   @ContactConverter()
-  final Contact? contact;
+  final Contact contact;
   @override
   final String did;
 
@@ -338,11 +334,11 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
 
 abstract class _DescribeServerOutput implements DescribeServerOutput {
   const factory _DescribeServerOutput(
-          {final bool? inviteCodeRequired,
-          final bool? phoneVerificationRequired,
+          {final bool inviteCodeRequired,
+          final bool phoneVerificationRequired,
           required final List<String> availableUserDomains,
-          @LinksConverter() final Links? links,
-          @ContactConverter() final Contact? contact,
+          @LinksConverter() final Links links,
+          @ContactConverter() final Contact contact,
           required final String did,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$DescribeServerOutputImpl;
@@ -353,11 +349,11 @@ abstract class _DescribeServerOutput implements DescribeServerOutput {
   @override
 
   /// If true, an invite code must be supplied to create an account on this instance.
-  bool? get inviteCodeRequired;
+  bool get inviteCodeRequired;
   @override
 
   /// If true, a phone verification token must be supplied to create an account on this instance.
-  bool? get phoneVerificationRequired;
+  bool get phoneVerificationRequired;
   @override
 
   /// List of domain suffixes that can be used in account handles.
@@ -366,12 +362,12 @@ abstract class _DescribeServerOutput implements DescribeServerOutput {
 
   /// URLs of service policy documents.
   @LinksConverter()
-  Links? get links;
+  Links get links;
   @override
 
   /// Contact information
   @ContactConverter()
-  Contact? get contact;
+  Contact get contact;
   @override
   String get did;
   @override

@@ -33,6 +33,12 @@ class CreateInviteCodeInput with _$CreateInviteCodeInput {
 }
 
 extension $CreateInviteCodeInputExtension on CreateInviteCodeInput {
+  /// Returns true if [forAccount] is not null, otherwise false.
+  bool get hasForAccount => forAccount != null;
+
+  /// Returns true if [forAccount] is null, otherwise false.
+  bool get hasNotForAccount => !hasForAccount;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

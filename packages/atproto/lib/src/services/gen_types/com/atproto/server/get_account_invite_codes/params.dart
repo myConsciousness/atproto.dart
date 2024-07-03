@@ -35,6 +35,18 @@ class GetAccountInviteCodesParams with _$GetAccountInviteCodesParams {
 }
 
 extension $GetAccountInviteCodesParamsExtension on GetAccountInviteCodesParams {
+  /// Returns true or false from [includeUsed].
+  bool get isIncludeUsed => includeUsed ?? false;
+
+  /// Returns negated true or false from [includeUsed].
+  bool get isNotIncludeUsed => !isIncludeUsed;
+
+  /// Returns true or false from [createAvailable].
+  bool get isCreateAvailable => createAvailable ?? false;
+
+  /// Returns negated true or false from [createAvailable].
+  bool get isNotCreateAvailable => !isCreateAvailable;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

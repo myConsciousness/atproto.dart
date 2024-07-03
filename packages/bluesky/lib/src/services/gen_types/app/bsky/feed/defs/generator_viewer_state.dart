@@ -50,6 +50,12 @@ bool isGeneratorViewerState(final Map<String, dynamic>? object) {
 }
 
 extension $GeneratorViewerStateExtension on GeneratorViewerState {
+  /// Returns true if [like] is not null, otherwise false.
+  bool get hasLike => like != null;
+
+  /// Returns true if [like] is null, otherwise false.
+  bool get hasNotLike => !hasLike;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

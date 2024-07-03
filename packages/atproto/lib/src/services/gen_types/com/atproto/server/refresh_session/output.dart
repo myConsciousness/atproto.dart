@@ -30,7 +30,7 @@ class RefreshSessionOutput with _$RefreshSessionOutput {
     required String handle,
     required String did,
     Map<String, dynamic>? didDoc,
-    bool? active,
+    @Default(false) bool active,
 
     /// Hosting status of the account. If not specified, then assume 'active'.
     @UStatusConverter() UStatus? status,
@@ -46,6 +46,24 @@ class RefreshSessionOutput with _$RefreshSessionOutput {
 extension $RefreshSessionOutputExtension on RefreshSessionOutput {
   /// Returns this object as [Session].
   Session toSession() => Session.fromJson(toJson());
+
+  /// Returns true if [didDoc] is not null, otherwise false.
+  bool get hasDidDoc => didDoc != null;
+
+  /// Returns true if [didDoc] is null, otherwise false.
+  bool get hasNotDidDoc => !hasDidDoc;
+
+  /// Returns true or false from [active].
+  bool get isActive => active;
+
+  /// Returns negated true or false from [active].
+  bool get isNotActive => !isActive;
+
+  /// Returns true if [status] is not null, otherwise false.
+  bool get hasStatus => status != null;
+
+  /// Returns true if [status] is null, otherwise false.
+  bool get hasNotStatus => !hasStatus;
 
   /// Returns true if this object has unknown objects,
   /// otherwise false.

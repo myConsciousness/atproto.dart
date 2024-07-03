@@ -49,6 +49,12 @@ bool isContact(final Map<String, dynamic>? object) {
 }
 
 extension $ContactExtension on Contact {
+  /// Returns true if [email] is not null, otherwise false.
+  bool get hasEmail => email != null;
+
+  /// Returns true if [email] is null, otherwise false.
+  bool get hasNotEmail => !hasEmail;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

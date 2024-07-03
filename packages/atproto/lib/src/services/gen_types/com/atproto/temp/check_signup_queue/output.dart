@@ -22,8 +22,8 @@ class CheckSignupQueueOutput with _$CheckSignupQueueOutput {
   @JsonSerializable(includeIfNull: false)
   const factory CheckSignupQueueOutput({
     required bool activated,
-    int? placeInQueue,
-    int? estimatedTimeMs,
+    @Default(0) int placeInQueue,
+    @Default(0) int estimatedTimeMs,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

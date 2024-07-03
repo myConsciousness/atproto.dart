@@ -55,6 +55,18 @@ bool isBskyAppStatePref(final Map<String, dynamic>? object) {
 }
 
 extension $BskyAppStatePrefExtension on BskyAppStatePref {
+  /// Returns true if [activeProgressGuide] is not null, otherwise false.
+  bool get hasActiveProgressGuide => activeProgressGuide != null;
+
+  /// Returns true if [activeProgressGuide] is null, otherwise false.
+  bool get hasNotActiveProgressGuide => !hasActiveProgressGuide;
+
+  /// Returns true if [queuedNudges] is not null, otherwise false.
+  bool get hasQueuedNudges => queuedNudges != null;
+
+  /// Returns true if [queuedNudges] is null, otherwise false.
+  bool get hasNotQueuedNudges => !hasQueuedNudges;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

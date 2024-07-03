@@ -55,6 +55,30 @@ bool isThreadgateView(final Map<String, dynamic>? object) {
 }
 
 extension $ThreadgateViewExtension on ThreadgateView {
+  /// Returns true if [uri] is not null, otherwise false.
+  bool get hasUri => uri != null;
+
+  /// Returns true if [uri] is null, otherwise false.
+  bool get hasNotUri => !hasUri;
+
+  /// Returns true if [cid] is not null, otherwise false.
+  bool get hasCid => cid != null;
+
+  /// Returns true if [cid] is null, otherwise false.
+  bool get hasNotCid => !hasCid;
+
+  /// Returns true if [record] is not null, otherwise false.
+  bool get hasRecord => record != null;
+
+  /// Returns true if [record] is null, otherwise false.
+  bool get hasNotRecord => !hasRecord;
+
+  /// Returns true if [lists] is not null, otherwise false.
+  bool get hasLists => lists != null;
+
+  /// Returns true if [lists] is null, otherwise false.
+  bool get hasNotLists => !hasLists;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

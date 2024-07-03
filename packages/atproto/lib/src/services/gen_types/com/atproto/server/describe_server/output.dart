@@ -26,19 +26,19 @@ class DescribeServerOutput with _$DescribeServerOutput {
   @JsonSerializable(includeIfNull: false)
   const factory DescribeServerOutput({
     /// If true, an invite code must be supplied to create an account on this instance.
-    bool? inviteCodeRequired,
+    @Default(false) bool inviteCodeRequired,
 
     /// If true, a phone verification token must be supplied to create an account on this instance.
-    bool? phoneVerificationRequired,
+    @Default(false) bool phoneVerificationRequired,
 
     /// List of domain suffixes that can be used in account handles.
     required List<String> availableUserDomains,
 
     /// URLs of service policy documents.
-    @LinksConverter() Links? links,
+    @LinksConverter() @Default(Links()) Links links,
 
     /// Contact information
-    @ContactConverter() Contact? contact,
+    @ContactConverter() @Default(Contact()) Contact contact,
     required String did,
 
     /// Contains unknown objects not defined in Lexicon.
@@ -50,6 +50,18 @@ class DescribeServerOutput with _$DescribeServerOutput {
 }
 
 extension $DescribeServerOutputExtension on DescribeServerOutput {
+  /// Returns true or false from [inviteCodeRequired].
+  bool get isInviteCodeRequired => inviteCodeRequired;
+
+  /// Returns negated true or false from [inviteCodeRequired].
+  bool get isNotInviteCodeRequired => !isInviteCodeRequired;
+
+  /// Returns true or false from [phoneVerificationRequired].
+  bool get isPhoneVerificationRequired => phoneVerificationRequired;
+
+  /// Returns negated true or false from [phoneVerificationRequired].
+  bool get isNotPhoneVerificationRequired => !isPhoneVerificationRequired;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

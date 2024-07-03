@@ -55,6 +55,18 @@ bool isMessageInput(final Map<String, dynamic>? object) {
 }
 
 extension $MessageInputExtension on MessageInput {
+  /// Returns true if [facets] is not null, otherwise false.
+  bool get hasFacets => facets != null;
+
+  /// Returns true if [facets] is null, otherwise false.
+  bool get hasNotFacets => !hasFacets;
+
+  /// Returns true if [embed] is not null, otherwise false.
+  bool get hasEmbed => embed != null;
+
+  /// Returns true if [embed] is null, otherwise false.
+  bool get hasNotEmbed => !hasEmbed;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

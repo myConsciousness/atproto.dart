@@ -52,6 +52,12 @@ bool isAppPassword(final Map<String, dynamic>? object) {
 }
 
 extension $AppPasswordExtension on AppPassword {
+  /// Returns true or false from [privileged].
+  bool get isPrivileged => privileged;
+
+  /// Returns negated true or false from [privileged].
+  bool get isNotPrivileged => !isPrivileged;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

@@ -38,6 +38,24 @@ class QueryLabelsParams with _$QueryLabelsParams {
 }
 
 extension $QueryLabelsParamsExtension on QueryLabelsParams {
+  /// Returns true if [sources] is not null, otherwise false.
+  bool get hasSources => sources != null;
+
+  /// Returns true if [sources] is null, otherwise false.
+  bool get hasNotSources => !hasSources;
+
+  /// Returns true if [limit] is not null, otherwise false.
+  bool get hasLimit => limit != null;
+
+  /// Returns true if [limit] is null, otherwise false.
+  bool get hasNotLimit => !hasLimit;
+
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

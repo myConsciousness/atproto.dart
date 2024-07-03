@@ -33,6 +33,12 @@ class DescribeRepoParams with _$DescribeRepoParams {
 }
 
 extension $DescribeRepoParamsExtension on DescribeRepoParams {
+  /// Returns true if [repo] is not null, otherwise false.
+  bool get hasRepo => repo != null;
+
+  /// Returns true if [repo] is null, otherwise false.
+  bool get hasNotRepo => !hasRepo;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

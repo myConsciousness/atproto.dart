@@ -15,19 +15,22 @@ _$DescribeServerOutputImpl _$$DescribeServerOutputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$DescribeServerOutputImpl(
           inviteCodeRequired:
-              $checkedConvert('inviteCodeRequired', (v) => v as bool?),
-          phoneVerificationRequired:
-              $checkedConvert('phoneVerificationRequired', (v) => v as bool?),
+              $checkedConvert('inviteCodeRequired', (v) => v as bool? ?? false),
+          phoneVerificationRequired: $checkedConvert(
+              'phoneVerificationRequired', (v) => v as bool? ?? false),
           availableUserDomains: $checkedConvert('availableUserDomains',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           links: $checkedConvert(
               'links',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Links>(
-                  v, const LinksConverter().fromJson)),
+              (v) => v == null
+                  ? const Links()
+                  : const LinksConverter().fromJson(v as Map<String, dynamic>)),
           contact: $checkedConvert(
               'contact',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Contact>(
-                  v, const ContactConverter().fromJson)),
+              (v) => v == null
+                  ? const Contact()
+                  : const ContactConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           did: $checkedConvert('did', (v) => v as String),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -41,7 +44,14 @@ _$DescribeServerOutputImpl _$$DescribeServerOutputImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$DescribeServerOutputImplToJson(
     _$DescribeServerOutputImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'inviteCodeRequired': instance.inviteCodeRequired,
+    'phoneVerificationRequired': instance.phoneVerificationRequired,
+    'availableUserDomains': instance.availableUserDomains,
+    'links': const LinksConverter().toJson(instance.links),
+    'contact': const ContactConverter().toJson(instance.contact),
+    'did': instance.did,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -49,30 +59,6 @@ Map<String, dynamic> _$$DescribeServerOutputImplToJson(
     }
   }
 
-  writeNotNull('inviteCodeRequired', instance.inviteCodeRequired);
-  writeNotNull('phoneVerificationRequired', instance.phoneVerificationRequired);
-  val['availableUserDomains'] = instance.availableUserDomains;
-  writeNotNull(
-      'links',
-      _$JsonConverterToJson<Map<String, dynamic>, Links>(
-          instance.links, const LinksConverter().toJson));
-  writeNotNull(
-      'contact',
-      _$JsonConverterToJson<Map<String, dynamic>, Contact>(
-          instance.contact, const ContactConverter().toJson));
-  val['did'] = instance.did;
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);

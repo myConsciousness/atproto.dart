@@ -33,6 +33,18 @@ class DisableInviteCodesInput with _$DisableInviteCodesInput {
 }
 
 extension $DisableInviteCodesInputExtension on DisableInviteCodesInput {
+  /// Returns true if [codes] is not null, otherwise false.
+  bool get hasCodes => codes != null;
+
+  /// Returns true if [codes] is null, otherwise false.
+  bool get hasNotCodes => !hasCodes;
+
+  /// Returns true if [accounts] is not null, otherwise false.
+  bool get hasAccounts => accounts != null;
+
+  /// Returns true if [accounts] is null, otherwise false.
+  bool get hasNotAccounts => !hasAccounts;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

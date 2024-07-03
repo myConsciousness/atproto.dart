@@ -38,6 +38,18 @@ class GetSubjectStatusOutput with _$GetSubjectStatusOutput {
 }
 
 extension $GetSubjectStatusOutputExtension on GetSubjectStatusOutput {
+  /// Returns true if [takedown] is not null, otherwise false.
+  bool get hasTakedown => takedown != null;
+
+  /// Returns true if [takedown] is null, otherwise false.
+  bool get hasNotTakedown => !hasTakedown;
+
+  /// Returns true if [deactivated] is not null, otherwise false.
+  bool get hasDeactivated => deactivated != null;
+
+  /// Returns true if [deactivated] is null, otherwise false.
+  bool get hasNotDeactivated => !hasDeactivated;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

@@ -53,6 +53,12 @@ bool isImagesImage(final Map<String, dynamic>? object) {
 }
 
 extension $ImagesImageExtension on ImagesImage {
+  /// Returns true if [aspectRatio] is not null, otherwise false.
+  bool get hasAspectRatio => aspectRatio != null;
+
+  /// Returns true if [aspectRatio] is null, otherwise false.
+  bool get hasNotAspectRatio => !hasAspectRatio;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

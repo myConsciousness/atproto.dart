@@ -74,6 +74,18 @@ bool isLabelValueDefinition(final Map<String, dynamic>? object) {
 }
 
 extension $LabelValueDefinitionExtension on LabelValueDefinition {
+  /// Returns true if [defaultSetting] is not null, otherwise false.
+  bool get hasDefaultSetting => defaultSetting != null;
+
+  /// Returns true if [defaultSetting] is null, otherwise false.
+  bool get hasNotDefaultSetting => !hasDefaultSetting;
+
+  /// Returns true or false from [adultOnly].
+  bool get isAdultOnly => adultOnly;
+
+  /// Returns negated true or false from [adultOnly].
+  bool get isNotAdultOnly => !isAdultOnly;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

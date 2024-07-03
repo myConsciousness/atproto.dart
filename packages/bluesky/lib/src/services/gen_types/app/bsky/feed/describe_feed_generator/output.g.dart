@@ -24,8 +24,9 @@ _$DescribeFeedGeneratorOutputImpl _$$DescribeFeedGeneratorOutputImplFromJson(
                   .toList()),
           links: $checkedConvert(
               'links',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Links>(
-                  v, const LinksConverter().fromJson)),
+              (v) => v == null
+                  ? const Links()
+                  : const LinksConverter().fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -41,6 +42,7 @@ Map<String, dynamic> _$$DescribeFeedGeneratorOutputImplToJson(
   final val = <String, dynamic>{
     'did': instance.did,
     'feeds': instance.feeds.map(const FeedConverter().toJson).toList(),
+    'links': const LinksConverter().toJson(instance.links),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -49,22 +51,6 @@ Map<String, dynamic> _$$DescribeFeedGeneratorOutputImplToJson(
     }
   }
 
-  writeNotNull(
-      'links',
-      _$JsonConverterToJson<Map<String, dynamic>, Links>(
-          instance.links, const LinksConverter().toJson));
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);

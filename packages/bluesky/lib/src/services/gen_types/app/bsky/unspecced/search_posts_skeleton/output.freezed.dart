@@ -24,7 +24,7 @@ mixin _$SearchPostsSkeletonOutput {
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  int? get hitsTotal => throw _privateConstructorUsedError;
+  int get hitsTotal => throw _privateConstructorUsedError;
   @SkeletonSearchPostConverter()
   List<SkeletonSearchPost> get posts => throw _privateConstructorUsedError;
 
@@ -46,7 +46,7 @@ abstract class $SearchPostsSkeletonOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      int? hitsTotal,
+      int hitsTotal,
       @SkeletonSearchPostConverter() List<SkeletonSearchPost> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -66,7 +66,7 @@ class _$SearchPostsSkeletonOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? hitsTotal = freezed,
+    Object? hitsTotal = null,
     Object? posts = null,
     Object? $unknown = freezed,
   }) {
@@ -75,10 +75,10 @@ class _$SearchPostsSkeletonOutputCopyWithImpl<$Res,
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitsTotal: freezed == hitsTotal
+      hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -102,7 +102,7 @@ abstract class _$$SearchPostsSkeletonOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      int? hitsTotal,
+      int hitsTotal,
       @SkeletonSearchPostConverter() List<SkeletonSearchPost> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -121,7 +121,7 @@ class __$$SearchPostsSkeletonOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? hitsTotal = freezed,
+    Object? hitsTotal = null,
     Object? posts = null,
     Object? $unknown = freezed,
   }) {
@@ -130,10 +130,10 @@ class __$$SearchPostsSkeletonOutputImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitsTotal: freezed == hitsTotal
+      hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -152,7 +152,7 @@ class __$$SearchPostsSkeletonOutputImplCopyWithImpl<$Res>
 class _$SearchPostsSkeletonOutputImpl implements _SearchPostsSkeletonOutput {
   const _$SearchPostsSkeletonOutputImpl(
       {this.cursor,
-      this.hitsTotal,
+      this.hitsTotal = 0,
       @SkeletonSearchPostConverter()
       required final List<SkeletonSearchPost> posts,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -167,7 +167,8 @@ class _$SearchPostsSkeletonOutputImpl implements _SearchPostsSkeletonOutput {
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   @override
-  final int? hitsTotal;
+  @JsonKey()
+  final int hitsTotal;
   final List<SkeletonSearchPost> _posts;
   @override
   @SkeletonSearchPostConverter()
@@ -235,7 +236,7 @@ class _$SearchPostsSkeletonOutputImpl implements _SearchPostsSkeletonOutput {
 abstract class _SearchPostsSkeletonOutput implements SearchPostsSkeletonOutput {
   const factory _SearchPostsSkeletonOutput(
           {final String? cursor,
-          final int? hitsTotal,
+          final int hitsTotal,
           @SkeletonSearchPostConverter()
           required final List<SkeletonSearchPost> posts,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -249,7 +250,7 @@ abstract class _SearchPostsSkeletonOutput implements SearchPostsSkeletonOutput {
   @override
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  int? get hitsTotal;
+  int get hitsTotal;
   @override
   @SkeletonSearchPostConverter()
   List<SkeletonSearchPost> get posts;

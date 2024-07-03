@@ -67,6 +67,18 @@ bool isPostView(final Map<String, dynamic>? object) {
 }
 
 extension $PostViewExtension on PostView {
+  /// Returns true if [embed] is not null, otherwise false.
+  bool get hasEmbed => embed != null;
+
+  /// Returns true if [embed] is null, otherwise false.
+  bool get hasNotEmbed => !hasEmbed;
+
+  /// Returns true if [labels] is not null, otherwise false.
+  bool get hasLabels => labels != null;
+
+  /// Returns true if [labels] is null, otherwise false.
+  bool get hasNotLabels => !hasLabels;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

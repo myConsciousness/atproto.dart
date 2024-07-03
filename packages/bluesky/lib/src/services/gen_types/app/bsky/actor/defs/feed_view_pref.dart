@@ -66,6 +66,30 @@ bool isFeedViewPref(final Map<String, dynamic>? object) {
 }
 
 extension $FeedViewPrefExtension on FeedViewPref {
+  /// Returns true or false from [hideReplies].
+  bool get isHideReplies => hideReplies;
+
+  /// Returns negated true or false from [hideReplies].
+  bool get isNotHideReplies => !isHideReplies;
+
+  /// Returns true or false from [hideRepliesByUnfollowed].
+  bool get isHideRepliesByUnfollowed => hideRepliesByUnfollowed;
+
+  /// Returns negated true or false from [hideRepliesByUnfollowed].
+  bool get isNotHideRepliesByUnfollowed => !isHideRepliesByUnfollowed;
+
+  /// Returns true or false from [hideReposts].
+  bool get isHideReposts => hideReposts;
+
+  /// Returns negated true or false from [hideReposts].
+  bool get isNotHideReposts => !isHideReposts;
+
+  /// Returns true or false from [hideQuotePosts].
+  bool get isHideQuotePosts => hideQuotePosts;
+
+  /// Returns negated true or false from [hideQuotePosts].
+  bool get isNotHideQuotePosts => !isHideQuotePosts;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

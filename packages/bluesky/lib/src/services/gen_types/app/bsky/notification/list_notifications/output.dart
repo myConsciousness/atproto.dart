@@ -37,6 +37,18 @@ class ListNotificationsOutput with _$ListNotificationsOutput {
 }
 
 extension $ListNotificationsOutputExtension on ListNotificationsOutput {
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
+  /// Returns true if [seenAt] is not null, otherwise false.
+  bool get hasSeenAt => seenAt != null;
+
+  /// Returns true if [seenAt] is null, otherwise false.
+  bool get hasNotSeenAt => !hasSeenAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

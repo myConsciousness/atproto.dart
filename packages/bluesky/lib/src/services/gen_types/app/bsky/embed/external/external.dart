@@ -53,6 +53,12 @@ bool isExternalExternal(final Map<String, dynamic>? object) {
 }
 
 extension $ExternalExternalExtension on ExternalExternal {
+  /// Returns true if [thumb] is not null, otherwise false.
+  bool get hasThumb => thumb != null;
+
+  /// Returns true if [thumb] is null, otherwise false.
+  bool get hasNotThumb => !hasThumb;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

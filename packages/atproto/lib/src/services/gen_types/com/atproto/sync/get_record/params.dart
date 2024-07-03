@@ -43,6 +43,12 @@ class GetRecordParams with _$GetRecordParams {
 }
 
 extension $GetRecordParamsExtension on GetRecordParams {
+  /// Returns true if [commit] is not null, otherwise false.
+  bool get hasCommit => commit != null;
+
+  /// Returns true if [commit] is null, otherwise false.
+  bool get hasNotCommit => !hasCommit;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

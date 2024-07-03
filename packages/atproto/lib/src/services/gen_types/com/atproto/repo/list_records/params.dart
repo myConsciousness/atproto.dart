@@ -54,6 +54,42 @@ class ListRecordsParams with _$ListRecordsParams {
 }
 
 extension $ListRecordsParamsExtension on ListRecordsParams {
+  /// Returns true if [repo] is not null, otherwise false.
+  bool get hasRepo => repo != null;
+
+  /// Returns true if [repo] is null, otherwise false.
+  bool get hasNotRepo => !hasRepo;
+
+  /// Returns true if [limit] is not null, otherwise false.
+  bool get hasLimit => limit != null;
+
+  /// Returns true if [limit] is null, otherwise false.
+  bool get hasNotLimit => !hasLimit;
+
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
+  /// Returns true if [rkeyStart] is not null, otherwise false.
+  bool get hasRkeyStart => rkeyStart != null;
+
+  /// Returns true if [rkeyStart] is null, otherwise false.
+  bool get hasNotRkeyStart => !hasRkeyStart;
+
+  /// Returns true if [rkeyEnd] is not null, otherwise false.
+  bool get hasRkeyEnd => rkeyEnd != null;
+
+  /// Returns true if [rkeyEnd] is null, otherwise false.
+  bool get hasNotRkeyEnd => !hasRkeyEnd;
+
+  /// Returns true or false from [reverse].
+  bool get isReverse => reverse ?? false;
+
+  /// Returns negated true or false from [reverse].
+  bool get isNotReverse => !isReverse;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

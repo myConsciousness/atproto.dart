@@ -56,6 +56,12 @@ bool isLabelerPolicies(final Map<String, dynamic>? object) {
 }
 
 extension $LabelerPoliciesExtension on LabelerPolicies {
+  /// Returns true if [labelValueDefinitions] is not null, otherwise false.
+  bool get hasLabelValueDefinitions => labelValueDefinitions != null;
+
+  /// Returns true if [labelValueDefinitions] is null, otherwise false.
+  bool get hasNotLabelValueDefinitions => !hasLabelValueDefinitions;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

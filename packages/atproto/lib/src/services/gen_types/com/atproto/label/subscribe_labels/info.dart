@@ -50,6 +50,12 @@ bool isInfo(final Map<String, dynamic>? object) {
 }
 
 extension $InfoExtension on Info {
+  /// Returns true if [message] is not null, otherwise false.
+  bool get hasMessage => message != null;
+
+  /// Returns true if [message] is null, otherwise false.
+  bool get hasNotMessage => !hasMessage;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

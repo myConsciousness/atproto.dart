@@ -58,6 +58,18 @@ bool isRelationship(final Map<String, dynamic>? object) {
 }
 
 extension $RelationshipExtension on Relationship {
+  /// Returns true if [following] is not null, otherwise false.
+  bool get hasFollowing => following != null;
+
+  /// Returns true if [following] is null, otherwise false.
+  bool get hasNotFollowing => !hasFollowing;
+
+  /// Returns true if [followedBy] is not null, otherwise false.
+  bool get hasFollowedBy => followedBy != null;
+
+  /// Returns true if [followedBy] is null, otherwise false.
+  bool get hasNotFollowedBy => !hasFollowedBy;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

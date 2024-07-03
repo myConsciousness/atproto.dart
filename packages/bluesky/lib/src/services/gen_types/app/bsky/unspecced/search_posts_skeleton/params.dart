@@ -70,6 +70,78 @@ class SearchPostsSkeletonParams with _$SearchPostsSkeletonParams {
 }
 
 extension $SearchPostsSkeletonParamsExtension on SearchPostsSkeletonParams {
+  /// Returns true if [sort] is not null, otherwise false.
+  bool get hasSort => sort != null;
+
+  /// Returns true if [sort] is null, otherwise false.
+  bool get hasNotSort => !hasSort;
+
+  /// Returns true if [since] is not null, otherwise false.
+  bool get hasSince => since != null;
+
+  /// Returns true if [since] is null, otherwise false.
+  bool get hasNotSince => !hasSince;
+
+  /// Returns true if [until] is not null, otherwise false.
+  bool get hasUntil => until != null;
+
+  /// Returns true if [until] is null, otherwise false.
+  bool get hasNotUntil => !hasUntil;
+
+  /// Returns true if [mentions] is not null, otherwise false.
+  bool get hasMentions => mentions != null;
+
+  /// Returns true if [mentions] is null, otherwise false.
+  bool get hasNotMentions => !hasMentions;
+
+  /// Returns true if [author] is not null, otherwise false.
+  bool get hasAuthor => author != null;
+
+  /// Returns true if [author] is null, otherwise false.
+  bool get hasNotAuthor => !hasAuthor;
+
+  /// Returns true if [lang] is not null, otherwise false.
+  bool get hasLang => lang != null;
+
+  /// Returns true if [lang] is null, otherwise false.
+  bool get hasNotLang => !hasLang;
+
+  /// Returns true if [domain] is not null, otherwise false.
+  bool get hasDomain => domain != null;
+
+  /// Returns true if [domain] is null, otherwise false.
+  bool get hasNotDomain => !hasDomain;
+
+  /// Returns true if [url] is not null, otherwise false.
+  bool get hasUrl => url != null;
+
+  /// Returns true if [url] is null, otherwise false.
+  bool get hasNotUrl => !hasUrl;
+
+  /// Returns true if [tag] is not null, otherwise false.
+  bool get hasTag => tag != null;
+
+  /// Returns true if [tag] is null, otherwise false.
+  bool get hasNotTag => !hasTag;
+
+  /// Returns true if [viewer] is not null, otherwise false.
+  bool get hasViewer => viewer != null;
+
+  /// Returns true if [viewer] is null, otherwise false.
+  bool get hasNotViewer => !hasViewer;
+
+  /// Returns true if [limit] is not null, otherwise false.
+  bool get hasLimit => limit != null;
+
+  /// Returns true if [limit] is null, otherwise false.
+  bool get hasNotLimit => !hasLimit;
+
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

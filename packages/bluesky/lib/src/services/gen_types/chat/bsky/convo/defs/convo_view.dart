@@ -54,6 +54,12 @@ bool isConvoView(final Map<String, dynamic>? object) {
 }
 
 extension $ConvoViewExtension on ConvoView {
+  /// Returns true if [lastMessage] is not null, otherwise false.
+  bool get hasLastMessage => lastMessage != null;
+
+  /// Returns true if [lastMessage] is null, otherwise false.
+  bool get hasNotLastMessage => !hasLastMessage;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

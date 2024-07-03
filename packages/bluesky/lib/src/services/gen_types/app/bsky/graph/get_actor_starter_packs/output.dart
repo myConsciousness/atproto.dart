@@ -37,6 +37,12 @@ class GetActorStarterPacksOutput with _$GetActorStarterPacksOutput {
 }
 
 extension $GetActorStarterPacksOutputExtension on GetActorStarterPacksOutput {
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

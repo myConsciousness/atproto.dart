@@ -53,6 +53,30 @@ bool isViewerState(final Map<String, dynamic>? object) {
 }
 
 extension $ViewerStateExtension on ViewerState {
+  /// Returns true if [repost] is not null, otherwise false.
+  bool get hasRepost => repost != null;
+
+  /// Returns true if [repost] is null, otherwise false.
+  bool get hasNotRepost => !hasRepost;
+
+  /// Returns true if [like] is not null, otherwise false.
+  bool get hasLike => like != null;
+
+  /// Returns true if [like] is null, otherwise false.
+  bool get hasNotLike => !hasLike;
+
+  /// Returns true or false from [threadMuted].
+  bool get isThreadMuted => threadMuted;
+
+  /// Returns negated true or false from [threadMuted].
+  bool get isNotThreadMuted => !isThreadMuted;
+
+  /// Returns true or false from [replyDisabled].
+  bool get isReplyDisabled => replyDisabled;
+
+  /// Returns negated true or false from [replyDisabled].
+  bool get isNotReplyDisabled => !isReplyDisabled;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

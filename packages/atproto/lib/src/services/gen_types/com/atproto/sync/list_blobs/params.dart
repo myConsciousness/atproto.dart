@@ -38,6 +38,24 @@ class ListBlobsParams with _$ListBlobsParams {
 }
 
 extension $ListBlobsParamsExtension on ListBlobsParams {
+  /// Returns true if [since] is not null, otherwise false.
+  bool get hasSince => since != null;
+
+  /// Returns true if [since] is null, otherwise false.
+  bool get hasNotSince => !hasSince;
+
+  /// Returns true if [limit] is not null, otherwise false.
+  bool get hasLimit => limit != null;
+
+  /// Returns true if [limit] is null, otherwise false.
+  bool get hasNotLimit => !hasLimit;
+
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

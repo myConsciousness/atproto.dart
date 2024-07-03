@@ -32,6 +32,12 @@ class GetUnreadCountParams with _$GetUnreadCountParams {
 }
 
 extension $GetUnreadCountParamsExtension on GetUnreadCountParams {
+  /// Returns true if [seenAt] is not null, otherwise false.
+  bool get hasSeenAt => seenAt != null;
+
+  /// Returns true if [seenAt] is null, otherwise false.
+  bool get hasNotSeenAt => !hasSeenAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

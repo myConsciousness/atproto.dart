@@ -41,6 +41,12 @@ class CreateReportInput with _$CreateReportInput {
 }
 
 extension $CreateReportInputExtension on CreateReportInput {
+  /// Returns true if [reason] is not null, otherwise false.
+  bool get hasReason => reason != null;
+
+  /// Returns true if [reason] is null, otherwise false.
+  bool get hasNotReason => !hasReason;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

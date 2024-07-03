@@ -24,7 +24,7 @@ mixin _$SearchActorsSkeletonOutput {
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  int? get hitsTotal => throw _privateConstructorUsedError;
+  int get hitsTotal => throw _privateConstructorUsedError;
   @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors => throw _privateConstructorUsedError;
 
@@ -47,7 +47,7 @@ abstract class $SearchActorsSkeletonOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      int? hitsTotal,
+      int hitsTotal,
       @SkeletonSearchActorConverter() List<SkeletonSearchActor> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -67,7 +67,7 @@ class _$SearchActorsSkeletonOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? hitsTotal = freezed,
+    Object? hitsTotal = null,
     Object? actors = null,
     Object? $unknown = freezed,
   }) {
@@ -76,10 +76,10 @@ class _$SearchActorsSkeletonOutputCopyWithImpl<$Res,
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitsTotal: freezed == hitsTotal
+      hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
@@ -103,7 +103,7 @@ abstract class _$$SearchActorsSkeletonOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      int? hitsTotal,
+      int hitsTotal,
       @SkeletonSearchActorConverter() List<SkeletonSearchActor> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -122,7 +122,7 @@ class __$$SearchActorsSkeletonOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? hitsTotal = freezed,
+    Object? hitsTotal = null,
     Object? actors = null,
     Object? $unknown = freezed,
   }) {
@@ -131,10 +131,10 @@ class __$$SearchActorsSkeletonOutputImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitsTotal: freezed == hitsTotal
+      hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
@@ -153,7 +153,7 @@ class __$$SearchActorsSkeletonOutputImplCopyWithImpl<$Res>
 class _$SearchActorsSkeletonOutputImpl implements _SearchActorsSkeletonOutput {
   const _$SearchActorsSkeletonOutputImpl(
       {this.cursor,
-      this.hitsTotal,
+      this.hitsTotal = 0,
       @SkeletonSearchActorConverter()
       required final List<SkeletonSearchActor> actors,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -169,7 +169,8 @@ class _$SearchActorsSkeletonOutputImpl implements _SearchActorsSkeletonOutput {
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   @override
-  final int? hitsTotal;
+  @JsonKey()
+  final int hitsTotal;
   final List<SkeletonSearchActor> _actors;
   @override
   @SkeletonSearchActorConverter()
@@ -238,7 +239,7 @@ abstract class _SearchActorsSkeletonOutput
     implements SearchActorsSkeletonOutput {
   const factory _SearchActorsSkeletonOutput(
           {final String? cursor,
-          final int? hitsTotal,
+          final int hitsTotal,
           @SkeletonSearchActorConverter()
           required final List<SkeletonSearchActor> actors,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -252,7 +253,7 @@ abstract class _SearchActorsSkeletonOutput
   @override
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  int? get hitsTotal;
+  int get hitsTotal;
   @override
   @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors;

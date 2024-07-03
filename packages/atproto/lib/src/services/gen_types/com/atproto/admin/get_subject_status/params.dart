@@ -35,6 +35,24 @@ class GetSubjectStatusParams with _$GetSubjectStatusParams {
 }
 
 extension $GetSubjectStatusParamsExtension on GetSubjectStatusParams {
+  /// Returns true if [did] is not null, otherwise false.
+  bool get hasDid => did != null;
+
+  /// Returns true if [did] is null, otherwise false.
+  bool get hasNotDid => !hasDid;
+
+  /// Returns true if [uri] is not null, otherwise false.
+  bool get hasUri => uri != null;
+
+  /// Returns true if [uri] is null, otherwise false.
+  bool get hasNotUri => !hasUri;
+
+  /// Returns true if [blob] is not null, otherwise false.
+  bool get hasBlob => blob != null;
+
+  /// Returns true if [blob] is null, otherwise false.
+  bool get hasNotBlob => !hasBlob;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

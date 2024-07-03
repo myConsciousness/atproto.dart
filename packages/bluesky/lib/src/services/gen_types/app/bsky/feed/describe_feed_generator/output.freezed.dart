@@ -25,7 +25,7 @@ mixin _$DescribeFeedGeneratorOutput {
   @FeedConverter()
   List<Feed> get feeds => throw _privateConstructorUsedError;
   @LinksConverter()
-  Links? get links => throw _privateConstructorUsedError;
+  Links get links => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -48,10 +48,10 @@ abstract class $DescribeFeedGeneratorOutputCopyWith<$Res> {
   $Res call(
       {String did,
       @FeedConverter() List<Feed> feeds,
-      @LinksConverter() Links? links,
+      @LinksConverter() Links links,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $LinksCopyWith<$Res>? get links;
+  $LinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$DescribeFeedGeneratorOutputCopyWithImpl<$Res,
   $Res call({
     Object? did = null,
     Object? feeds = null,
-    Object? links = freezed,
+    Object? links = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -82,10 +82,10 @@ class _$DescribeFeedGeneratorOutputCopyWithImpl<$Res,
           ? _value.feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<Feed>,
-      links: freezed == links
+      links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Links?,
+              as Links,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -95,12 +95,8 @@ class _$DescribeFeedGeneratorOutputCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $LinksCopyWith<$Res>? get links {
-    if (_value.links == null) {
-      return null;
-    }
-
-    return $LinksCopyWith<$Res>(_value.links!, (value) {
+  $LinksCopyWith<$Res> get links {
+    return $LinksCopyWith<$Res>(_value.links, (value) {
       return _then(_value.copyWith(links: value) as $Val);
     });
   }
@@ -118,11 +114,11 @@ abstract class _$$DescribeFeedGeneratorOutputImplCopyWith<$Res>
   $Res call(
       {String did,
       @FeedConverter() List<Feed> feeds,
-      @LinksConverter() Links? links,
+      @LinksConverter() Links links,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $LinksCopyWith<$Res>? get links;
+  $LinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -140,7 +136,7 @@ class __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
     Object? feeds = null,
-    Object? links = freezed,
+    Object? links = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$DescribeFeedGeneratorOutputImpl(
@@ -152,10 +148,10 @@ class __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<Feed>,
-      links: freezed == links
+      links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Links?,
+              as Links,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -172,7 +168,7 @@ class _$DescribeFeedGeneratorOutputImpl
   const _$DescribeFeedGeneratorOutputImpl(
       {required this.did,
       @FeedConverter() required final List<Feed> feeds,
-      @LinksConverter() this.links,
+      @LinksConverter() this.links = const Links(),
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _feeds = feeds,
         _$unknown = $unknown;
@@ -193,8 +189,9 @@ class _$DescribeFeedGeneratorOutputImpl
   }
 
   @override
+  @JsonKey()
   @LinksConverter()
-  final Links? links;
+  final Links links;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -255,7 +252,7 @@ abstract class _DescribeFeedGeneratorOutput
   const factory _DescribeFeedGeneratorOutput(
           {required final String did,
           @FeedConverter() required final List<Feed> feeds,
-          @LinksConverter() final Links? links,
+          @LinksConverter() final Links links,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$DescribeFeedGeneratorOutputImpl;
 
@@ -269,7 +266,7 @@ abstract class _DescribeFeedGeneratorOutput
   List<Feed> get feeds;
   @override
   @LinksConverter()
-  Links? get links;
+  Links get links;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

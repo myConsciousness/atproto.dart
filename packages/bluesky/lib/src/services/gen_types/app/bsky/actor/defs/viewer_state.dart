@@ -59,6 +59,54 @@ bool isViewerState(final Map<String, dynamic>? object) {
 }
 
 extension $ViewerStateExtension on ViewerState {
+  /// Returns true or false from [muted].
+  bool get isMuted => muted;
+
+  /// Returns negated true or false from [muted].
+  bool get isNotMuted => !isMuted;
+
+  /// Returns true if [mutedByList] is not null, otherwise false.
+  bool get hasMutedByList => mutedByList != null;
+
+  /// Returns true if [mutedByList] is null, otherwise false.
+  bool get hasNotMutedByList => !hasMutedByList;
+
+  /// Returns true or false from [blockedBy].
+  bool get isBlockedBy => blockedBy;
+
+  /// Returns negated true or false from [blockedBy].
+  bool get isNotBlockedBy => !isBlockedBy;
+
+  /// Returns true if [blocking] is not null, otherwise false.
+  bool get hasBlocking => blocking != null;
+
+  /// Returns true if [blocking] is null, otherwise false.
+  bool get hasNotBlocking => !hasBlocking;
+
+  /// Returns true if [blockingByList] is not null, otherwise false.
+  bool get hasBlockingByList => blockingByList != null;
+
+  /// Returns true if [blockingByList] is null, otherwise false.
+  bool get hasNotBlockingByList => !hasBlockingByList;
+
+  /// Returns true if [following] is not null, otherwise false.
+  bool get hasFollowing => following != null;
+
+  /// Returns true if [following] is null, otherwise false.
+  bool get hasNotFollowing => !hasFollowing;
+
+  /// Returns true if [followedBy] is not null, otherwise false.
+  bool get hasFollowedBy => followedBy != null;
+
+  /// Returns true if [followedBy] is null, otherwise false.
+  bool get hasNotFollowedBy => !hasFollowedBy;
+
+  /// Returns true if [knownFollowers] is not null, otherwise false.
+  bool get hasKnownFollowers => knownFollowers != null;
+
+  /// Returns true if [knownFollowers] is null, otherwise false.
+  bool get hasNotKnownFollowers => !hasKnownFollowers;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

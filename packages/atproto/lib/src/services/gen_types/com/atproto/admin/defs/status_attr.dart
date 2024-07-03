@@ -50,6 +50,12 @@ bool isStatusAttr(final Map<String, dynamic>? object) {
 }
 
 extension $StatusAttrExtension on StatusAttr {
+  /// Returns true if [ref] is not null, otherwise false.
+  bool get hasRef => ref != null;
+
+  /// Returns true if [ref] is null, otherwise false.
+  bool get hasNotRef => !hasRef;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

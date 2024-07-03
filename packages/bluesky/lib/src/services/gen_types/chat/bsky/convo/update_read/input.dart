@@ -33,6 +33,12 @@ class UpdateReadInput with _$UpdateReadInput {
 }
 
 extension $UpdateReadInputExtension on UpdateReadInput {
+  /// Returns true if [messageId] is not null, otherwise false.
+  bool get hasMessageId => messageId != null;
+
+  /// Returns true if [messageId] is null, otherwise false.
+  bool get hasNotMessageId => !hasMessageId;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

@@ -54,6 +54,18 @@ bool isThreadViewPost(final Map<String, dynamic>? object) {
 }
 
 extension $ThreadViewPostExtension on ThreadViewPost {
+  /// Returns true if [parent] is not null, otherwise false.
+  bool get hasParent => parent != null;
+
+  /// Returns true if [parent] is null, otherwise false.
+  bool get hasNotParent => !hasParent;
+
+  /// Returns true if [replies] is not null, otherwise false.
+  bool get hasReplies => replies != null;
+
+  /// Returns true if [replies] is null, otherwise false.
+  bool get hasNotReplies => !hasReplies;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

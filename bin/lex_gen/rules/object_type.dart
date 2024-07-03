@@ -14,6 +14,8 @@ enum ObjectType {
 extension ObjectTypeExtension on ObjectType {
   bool get isParams => this == ObjectType.params;
   bool get isInput => this == ObjectType.input;
+  bool get isOutput => this == ObjectType.output;
+  bool get isObject => this == ObjectType.object;
   bool get isRecord => this == ObjectType.record;
 
   bool get isArgSubject {

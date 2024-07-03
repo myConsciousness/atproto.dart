@@ -297,9 +297,7 @@ String? getDefaultValue(
   final String? ref,
   final ObjectType objectType,
 ) {
-  if (objectType == ObjectType.params ||
-      objectType == ObjectType.input ||
-      objectType == ObjectType.output) {
+  if (objectType == ObjectType.params || objectType == ObjectType.input) {
     return null;
   }
 

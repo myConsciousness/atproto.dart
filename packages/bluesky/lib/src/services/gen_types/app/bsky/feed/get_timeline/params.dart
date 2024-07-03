@@ -35,6 +35,24 @@ class GetTimelineParams with _$GetTimelineParams {
 }
 
 extension $GetTimelineParamsExtension on GetTimelineParams {
+  /// Returns true if [algorithm] is not null, otherwise false.
+  bool get hasAlgorithm => algorithm != null;
+
+  /// Returns true if [algorithm] is null, otherwise false.
+  bool get hasNotAlgorithm => !hasAlgorithm;
+
+  /// Returns true if [limit] is not null, otherwise false.
+  bool get hasLimit => limit != null;
+
+  /// Returns true if [limit] is null, otherwise false.
+  bool get hasNotLimit => !hasLimit;
+
+  /// Returns true if [cursor] is not null, otherwise false.
+  bool get hasCursor => cursor != null;
+
+  /// Returns true if [cursor] is null, otherwise false.
+  bool get hasNotCursor => !hasCursor;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

@@ -50,6 +50,54 @@ class CreateAccountInput with _$CreateAccountInput {
 }
 
 extension $CreateAccountInputExtension on CreateAccountInput {
+  /// Returns true if [email] is not null, otherwise false.
+  bool get hasEmail => email != null;
+
+  /// Returns true if [email] is null, otherwise false.
+  bool get hasNotEmail => !hasEmail;
+
+  /// Returns true if [did] is not null, otherwise false.
+  bool get hasDid => did != null;
+
+  /// Returns true if [did] is null, otherwise false.
+  bool get hasNotDid => !hasDid;
+
+  /// Returns true if [inviteCode] is not null, otherwise false.
+  bool get hasInviteCode => inviteCode != null;
+
+  /// Returns true if [inviteCode] is null, otherwise false.
+  bool get hasNotInviteCode => !hasInviteCode;
+
+  /// Returns true if [verificationCode] is not null, otherwise false.
+  bool get hasVerificationCode => verificationCode != null;
+
+  /// Returns true if [verificationCode] is null, otherwise false.
+  bool get hasNotVerificationCode => !hasVerificationCode;
+
+  /// Returns true if [verificationPhone] is not null, otherwise false.
+  bool get hasVerificationPhone => verificationPhone != null;
+
+  /// Returns true if [verificationPhone] is null, otherwise false.
+  bool get hasNotVerificationPhone => !hasVerificationPhone;
+
+  /// Returns true if [password] is not null, otherwise false.
+  bool get hasPassword => password != null;
+
+  /// Returns true if [password] is null, otherwise false.
+  bool get hasNotPassword => !hasPassword;
+
+  /// Returns true if [recoveryKey] is not null, otherwise false.
+  bool get hasRecoveryKey => recoveryKey != null;
+
+  /// Returns true if [recoveryKey] is null, otherwise false.
+  bool get hasNotRecoveryKey => !hasRecoveryKey;
+
+  /// Returns true if [plcOp] is not null, otherwise false.
+  bool get hasPlcOp => plcOp != null;
+
+  /// Returns true if [plcOp] is null, otherwise false.
+  bool get hasNotPlcOp => !hasPlcOp;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

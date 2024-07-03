@@ -60,6 +60,30 @@ bool isStarterpackRecord(final Map<String, dynamic>? object) {
 }
 
 extension $StarterpackRecordExtension on StarterpackRecord {
+  /// Returns true if [description] is not null, otherwise false.
+  bool get hasDescription => description != null;
+
+  /// Returns true if [description] is null, otherwise false.
+  bool get hasNotDescription => !hasDescription;
+
+  /// Returns true if [descriptionFacets] is not null, otherwise false.
+  bool get hasDescriptionFacets => descriptionFacets != null;
+
+  /// Returns true if [descriptionFacets] is null, otherwise false.
+  bool get hasNotDescriptionFacets => !hasDescriptionFacets;
+
+  /// Returns true if [feeds] is not null, otherwise false.
+  bool get hasFeeds => feeds != null;
+
+  /// Returns true if [feeds] is null, otherwise false.
+  bool get hasNotFeeds => !hasFeeds;
+
+  /// Returns true if [createdAt] is not null, otherwise false.
+  bool get hasCreatedAt => createdAt != null;
+
+  /// Returns true if [createdAt] is null, otherwise false.
+  bool get hasNotCreatedAt => !hasCreatedAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

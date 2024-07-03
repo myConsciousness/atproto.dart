@@ -36,6 +36,18 @@ class UpdateEmailInput with _$UpdateEmailInput {
 }
 
 extension $UpdateEmailInputExtension on UpdateEmailInput {
+  /// Returns true or false from [emailAuthFactor].
+  bool get isEmailAuthFactor => emailAuthFactor ?? false;
+
+  /// Returns negated true or false from [emailAuthFactor].
+  bool get isNotEmailAuthFactor => !isEmailAuthFactor;
+
+  /// Returns true if [token] is not null, otherwise false.
+  bool get hasToken => token != null;
+
+  /// Returns true if [token] is null, otherwise false.
+  bool get hasNotToken => !hasToken;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

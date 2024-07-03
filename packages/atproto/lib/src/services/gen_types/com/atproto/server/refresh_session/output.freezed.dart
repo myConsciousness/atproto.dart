@@ -25,7 +25,7 @@ mixin _$RefreshSessionOutput {
   String get handle => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
-  bool? get active => throw _privateConstructorUsedError;
+  bool get active => throw _privateConstructorUsedError;
 
   /// Hosting status of the account. If not specified, then assume 'active'.
   @UStatusConverter()
@@ -53,7 +53,7 @@ abstract class $RefreshSessionOutputCopyWith<$Res> {
       String handle,
       String did,
       Map<String, dynamic>? didDoc,
-      bool? active,
+      bool active,
       @UStatusConverter() UStatus? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -79,7 +79,7 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
     Object? handle = null,
     Object? did = null,
     Object? didDoc = freezed,
-    Object? active = freezed,
+    Object? active = null,
     Object? status = freezed,
     Object? $unknown = freezed,
   }) {
@@ -104,10 +104,10 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
           ? _value.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      active: freezed == active
+      active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -146,7 +146,7 @@ abstract class _$$RefreshSessionOutputImplCopyWith<$Res>
       String handle,
       String did,
       Map<String, dynamic>? didDoc,
-      bool? active,
+      bool active,
       @UStatusConverter() UStatus? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -170,7 +170,7 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
     Object? handle = null,
     Object? did = null,
     Object? didDoc = freezed,
-    Object? active = freezed,
+    Object? active = null,
     Object? status = freezed,
     Object? $unknown = freezed,
   }) {
@@ -195,10 +195,10 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
           ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      active: freezed == active
+      active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -221,7 +221,7 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
       required this.handle,
       required this.did,
       final Map<String, dynamic>? didDoc,
-      this.active,
+      this.active = false,
       @UStatusConverter() this.status,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _didDoc = didDoc,
@@ -249,7 +249,8 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
   }
 
   @override
-  final bool? active;
+  @JsonKey()
+  final bool active;
 
   /// Hosting status of the account. If not specified, then assume 'active'.
   @override
@@ -328,7 +329,7 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
           required final String handle,
           required final String did,
           final Map<String, dynamic>? didDoc,
-          final bool? active,
+          final bool active,
           @UStatusConverter() final UStatus? status,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RefreshSessionOutputImpl;
@@ -347,7 +348,7 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
   @override
   Map<String, dynamic>? get didDoc;
   @override
-  bool? get active;
+  bool get active;
   @override
 
   /// Hosting status of the account. If not specified, then assume 'active'.

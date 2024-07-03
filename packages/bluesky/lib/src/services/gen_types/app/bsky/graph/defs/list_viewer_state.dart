@@ -51,6 +51,18 @@ bool isListViewerState(final Map<String, dynamic>? object) {
 }
 
 extension $ListViewerStateExtension on ListViewerState {
+  /// Returns true or false from [muted].
+  bool get isMuted => muted;
+
+  /// Returns negated true or false from [muted].
+  bool get isNotMuted => !isMuted;
+
+  /// Returns true if [blocked] is not null, otherwise false.
+  bool get hasBlocked => blocked != null;
+
+  /// Returns true if [blocked] is null, otherwise false.
+  bool get hasNotBlocked => !hasBlocked;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

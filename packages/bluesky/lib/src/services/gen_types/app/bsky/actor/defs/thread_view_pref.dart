@@ -55,6 +55,18 @@ bool isThreadViewPref(final Map<String, dynamic>? object) {
 }
 
 extension $ThreadViewPrefExtension on ThreadViewPref {
+  /// Returns true if [sort] is not null, otherwise false.
+  bool get hasSort => sort != null;
+
+  /// Returns true if [sort] is null, otherwise false.
+  bool get hasNotSort => !hasSort;
+
+  /// Returns true or false from [prioritizeFollowedUsers].
+  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers;
+
+  /// Returns negated true or false from [prioritizeFollowedUsers].
+  bool get isNotPrioritizeFollowedUsers => !isPrioritizeFollowedUsers;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

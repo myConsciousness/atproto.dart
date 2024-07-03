@@ -60,6 +60,12 @@ bool isAccount(final Map<String, dynamic>? object) {
 }
 
 extension $AccountExtension on Account {
+  /// Returns true if [status] is not null, otherwise false.
+  bool get hasStatus => status != null;
+
+  /// Returns true if [status] is null, otherwise false.
+  bool get hasNotStatus => !hasStatus;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

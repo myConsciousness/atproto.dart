@@ -55,6 +55,18 @@ bool isSkeletonFeedPost(final Map<String, dynamic>? object) {
 }
 
 extension $SkeletonFeedPostExtension on SkeletonFeedPost {
+  /// Returns true if [reason] is not null, otherwise false.
+  bool get hasReason => reason != null;
+
+  /// Returns true if [reason] is null, otherwise false.
+  bool get hasNotReason => !hasReason;
+
+  /// Returns true if [feedContext] is not null, otherwise false.
+  bool get hasFeedContext => feedContext != null;
+
+  /// Returns true if [feedContext] is null, otherwise false.
+  bool get hasNotFeedContext => !hasFeedContext;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;
