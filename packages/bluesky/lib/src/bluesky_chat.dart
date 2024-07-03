@@ -7,10 +7,10 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import 'services/gen_types/chat/bsky/actor_service.dart';
+import 'services/gen_types/chat/bsky/convo_service.dart';
+import 'services/gen_types/chat/bsky/moderation_service.dart';
 import 'services/service_context.dart';
-import 'services/types/chat/bsky/actor_service.dart';
-import 'services/types/chat/bsky/convo_service.dart';
-import 'services/types/chat/bsky/moderation_service.dart';
 
 const _kBskyChatProxyHeaders = <String, String>{
   'atproto-proxy': 'did:web:api.bsky.chat#bsky_chat'

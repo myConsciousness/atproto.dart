@@ -5,6 +5,7 @@
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
+import 'package:bluesky/chat_bsky_convo_defs.dart';
 import 'package:bluesky/com_atproto_server_create_session.dart';
 import 'package:bluesky/core.dart';
 import 'package:bluesky/moderation.dart';
