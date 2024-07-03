@@ -117,7 +117,7 @@ extension $QueryEventsParamsExtension on QueryEventsParams {
   bool get hasNotLimit => !hasLimit;
 
   /// Returns negated true or false from [hasComment].
-  bool get hasNotComment => !HasComment;
+  bool get hasNotComment => !hasComment;
 
   /// Returns true if [comment] is not null, otherwise false.
   bool get hasComment => comment != null;

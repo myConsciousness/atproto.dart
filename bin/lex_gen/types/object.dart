@@ -231,7 +231,7 @@ final class LexGenObject {
               ? 'isNot${fnName.substring(2)}'
               : 'hasNot${fnName.substring(3)}';
 
-          buffer.writeln('  bool get $negatedFnName => !$fnName;');
+          buffer.writeln('  bool get $negatedFnName => !$name;');
 
           continue;
         }
