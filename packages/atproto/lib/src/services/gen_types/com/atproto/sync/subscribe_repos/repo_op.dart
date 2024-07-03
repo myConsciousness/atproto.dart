@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../com/atproto/sync/subscribe_repos/known_action.dart';
+import '../../../../com/atproto/sync/subscribe_repos/known_repo_op_action.dart';
 
 part 'repo_op.freezed.dart';
 part 'repo_op.g.dart';
@@ -33,7 +33,7 @@ class RepoOp with _$RepoOp {
     @Default(comAtprotoSyncSubscribeReposRepoOp)
     @JsonKey(name: r'$type')
     String $type,
-    @UActionConverter() required UAction action,
+    @URepoOpActionConverter() required URepoOpAction action,
     required String path,
 
     /// For creates and updates, the new record CID. For deletions, null.

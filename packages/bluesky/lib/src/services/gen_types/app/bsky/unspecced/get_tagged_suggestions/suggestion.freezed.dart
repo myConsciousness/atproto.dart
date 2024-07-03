@@ -26,8 +26,8 @@ mixin _$Suggestion {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
   String get tag => throw _privateConstructorUsedError;
-  @USubjectTypeConverter()
-  USubjectType get subjectType => throw _privateConstructorUsedError;
+  @USuggestionSubjectTypeConverter()
+  USuggestionSubjectType get subjectType => throw _privateConstructorUsedError;
   String get subject => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -49,11 +49,11 @@ abstract class $SuggestionCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String tag,
-      @USubjectTypeConverter() USubjectType subjectType,
+      @USuggestionSubjectTypeConverter() USuggestionSubjectType subjectType,
       String subject,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $USubjectTypeCopyWith<$Res> get subjectType;
+  $USuggestionSubjectTypeCopyWith<$Res> get subjectType;
 }
 
 /// @nodoc
@@ -87,7 +87,7 @@ class _$SuggestionCopyWithImpl<$Res, $Val extends Suggestion>
       subjectType: null == subjectType
           ? _value.subjectType
           : subjectType // ignore: cast_nullable_to_non_nullable
-              as USubjectType,
+              as USuggestionSubjectType,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -101,8 +101,8 @@ class _$SuggestionCopyWithImpl<$Res, $Val extends Suggestion>
 
   @override
   @pragma('vm:prefer-inline')
-  $USubjectTypeCopyWith<$Res> get subjectType {
-    return $USubjectTypeCopyWith<$Res>(_value.subjectType, (value) {
+  $USuggestionSubjectTypeCopyWith<$Res> get subjectType {
+    return $USuggestionSubjectTypeCopyWith<$Res>(_value.subjectType, (value) {
       return _then(_value.copyWith(subjectType: value) as $Val);
     });
   }
@@ -119,12 +119,12 @@ abstract class _$$SuggestionImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String tag,
-      @USubjectTypeConverter() USubjectType subjectType,
+      @USuggestionSubjectTypeConverter() USuggestionSubjectType subjectType,
       String subject,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $USubjectTypeCopyWith<$Res> get subjectType;
+  $USuggestionSubjectTypeCopyWith<$Res> get subjectType;
 }
 
 /// @nodoc
@@ -156,7 +156,7 @@ class __$$SuggestionImplCopyWithImpl<$Res>
       subjectType: null == subjectType
           ? _value.subjectType
           : subjectType // ignore: cast_nullable_to_non_nullable
-              as USubjectType,
+              as USuggestionSubjectType,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class _$SuggestionImpl implements _Suggestion {
       {@JsonKey(name: r'$type')
       this.$type = appBskyUnspeccedGetTaggedSuggestionsSuggestion,
       required this.tag,
-      @USubjectTypeConverter() required this.subjectType,
+      @USuggestionSubjectTypeConverter() required this.subjectType,
       required this.subject,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -194,8 +194,8 @@ class _$SuggestionImpl implements _Suggestion {
   @override
   final String tag;
   @override
-  @USubjectTypeConverter()
-  final USubjectType subjectType;
+  @USuggestionSubjectTypeConverter()
+  final USuggestionSubjectType subjectType;
   @override
   final String subject;
 
@@ -254,7 +254,8 @@ abstract class _Suggestion implements Suggestion {
   const factory _Suggestion(
           {@JsonKey(name: r'$type') final String $type,
           required final String tag,
-          @USubjectTypeConverter() required final USubjectType subjectType,
+          @USuggestionSubjectTypeConverter()
+          required final USuggestionSubjectType subjectType,
           required final String subject,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SuggestionImpl;
@@ -272,8 +273,8 @@ abstract class _Suggestion implements Suggestion {
   @override
   String get tag;
   @override
-  @USubjectTypeConverter()
-  USubjectType get subjectType;
+  @USuggestionSubjectTypeConverter()
+  USuggestionSubjectType get subjectType;
   @override
   String get subject;
   @override

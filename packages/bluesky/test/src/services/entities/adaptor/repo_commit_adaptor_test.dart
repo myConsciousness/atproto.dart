@@ -1317,7 +1317,7 @@ RepoOp _buildCreateRepoOp(
   final Map<String, dynamic> record,
 ) =>
     RepoOp(
-      action: KnownAction.create.toUnion(),
+      action: KnownRepoOpAction.create.toUnion(),
       cid: 'aaaa',
       path: 'xxxxxx',
       $unknown: {
@@ -1331,7 +1331,7 @@ RepoOp _buildUpdateRepoOp(
   final Map<String, dynamic> record,
 ) =>
     RepoOp(
-      action: KnownAction.update.toUnion(),
+      action: KnownRepoOpAction.update.toUnion(),
       cid: 'aaaa',
       path: 'xxxxxx',
       $unknown: {
@@ -1344,7 +1344,7 @@ RepoOp _buildDeleteRepoOp(
   final String uri,
 ) =>
     RepoOp(
-      action: KnownAction.delete.toUnion(),
+      action: KnownRepoOpAction.delete.toUnion(),
       cid: 'aaaa',
       path: 'xxxxxx',
       $unknown: {

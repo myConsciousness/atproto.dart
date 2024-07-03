@@ -13,24 +13,24 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_action.freezed.dart';
+part 'known_saved_feed_type.freezed.dart';
 
-enum KnownAction {
-  @JsonValue('create')
-  create('create'),
-  @JsonValue('update')
-  update('update'),
-  @JsonValue('delete')
-  delete('delete'),
+enum KnownSavedFeedType {
+  @JsonValue('feed')
+  feed('feed'),
+  @JsonValue('list')
+  list('list'),
+  @JsonValue('timeline')
+  timeline('timeline'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownAction(this.value);
+  const KnownSavedFeedType(this.value);
 
-  /// Returns [KnownAction] associated with [value], otherwise null.
-  static KnownAction? valueOf(final String? value) {
+  /// Returns [KnownSavedFeedType] associated with [value], otherwise null.
+  static KnownSavedFeedType? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,27 +43,27 @@ enum KnownAction {
   }
 }
 
-extension $KnownActionExtension on KnownAction {
-  /// Returns this value as [UAction].
-  UAction toUnion() => UAction.knownValue(data: this);
+extension $KnownSavedFeedTypeExtension on KnownSavedFeedType {
+  /// Returns this value as [USavedFeedType].
+  USavedFeedType toUnion() => USavedFeedType.knownValue(data: this);
 
-  /// Returns true if this value is [create], otherwise false.
-  bool get isCreate => this == KnownAction.create;
+  /// Returns true if this value is [feed], otherwise false.
+  bool get isFeed => this == KnownSavedFeedType.feed;
 
-  /// Returns true if this value is not [create], otherwise false.
-  bool get isNotCreate => !isCreate;
+  /// Returns true if this value is not [feed], otherwise false.
+  bool get isNotFeed => !isFeed;
 
-  /// Returns true if this value is [update], otherwise false.
-  bool get isUpdate => this == KnownAction.update;
+  /// Returns true if this value is [list], otherwise false.
+  bool get isList => this == KnownSavedFeedType.list;
 
-  /// Returns true if this value is not [update], otherwise false.
-  bool get isNotUpdate => !isUpdate;
+  /// Returns true if this value is not [list], otherwise false.
+  bool get isNotList => !isList;
 
-  /// Returns true if this value is [delete], otherwise false.
-  bool get isDelete => this == KnownAction.delete;
+  /// Returns true if this value is [timeline], otherwise false.
+  bool get isTimeline => this == KnownSavedFeedType.timeline;
 
-  /// Returns true if this value is not [delete], otherwise false.
-  bool get isNotDelete => !isDelete;
+  /// Returns true if this value is not [timeline], otherwise false.
+  bool get isNotTimeline => !isTimeline;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -83,59 +83,60 @@ extension $KnownActionExtension on KnownAction {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownAction
+///   knownValue: (data) => data, // => KnownSavedFeedType
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownAction or null
+///   print(object.knownValue); // => KnownSavedFeedType or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UAction with _$UAction {
-  const factory UAction.knownValue({
-    required KnownAction data,
-  }) = UActionKnownValue;
+class USavedFeedType with _$USavedFeedType {
+  const factory USavedFeedType.knownValue({
+    required KnownSavedFeedType data,
+  }) = USavedFeedTypeKnownValue;
 
-  const factory UAction.unknownValue({
+  const factory USavedFeedType.unknownValue({
     required String data,
-  }) = UActionUnknownValue;
+  }) = USavedFeedTypeUnknownValue;
 }
 
-final class UActionConverter implements JsonConverter<UAction, String> {
-  const UActionConverter();
+final class USavedFeedTypeConverter
+    implements JsonConverter<USavedFeedType, String> {
+  const USavedFeedTypeConverter();
 
   @override
-  UAction fromJson(String json) {
-    final knownValue = KnownAction.valueOf(json);
+  USavedFeedType fromJson(String json) {
+    final knownValue = KnownSavedFeedType.valueOf(json);
 
     return knownValue != null
-        ? UAction.knownValue(data: knownValue)
-        : UAction.unknownValue(data: json);
+        ? USavedFeedType.knownValue(data: knownValue)
+        : USavedFeedType.unknownValue(data: json);
   }
 
   @override
-  String toJson(UAction object) => object.when(
+  String toJson(USavedFeedType object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UActionExtension on UAction {
+extension $USavedFeedTypeExtension on USavedFeedType {
   /// Returns string value.
-  String toJson() => const UActionConverter().toJson(this);
+  String toJson() => const USavedFeedTypeConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UActionKnownValue;
+  bool get isKnownValue => this is USavedFeedTypeKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UActionUnknownValue;
+  bool get isUnknownValue => this is USavedFeedTypeUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -143,10 +144,10 @@ extension $UActionExtension on UAction {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownAction get knownValue => this.data as KnownAction;
+  KnownSavedFeedType get knownValue => this.data as KnownSavedFeedType;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownAction? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownSavedFeedType? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

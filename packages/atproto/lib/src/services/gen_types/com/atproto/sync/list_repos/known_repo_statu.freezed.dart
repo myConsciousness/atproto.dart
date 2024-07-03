@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_severity.dart';
+part of 'known_repo_statu.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,58 +15,59 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$USeverity {
+mixin _$URepoStatu {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownSeverity data) knownValue,
+    required TResult Function(KnownRepoStatu data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownSeverity data)? knownValue,
+    TResult? Function(KnownRepoStatu data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownSeverity data)? knownValue,
+    TResult Function(KnownRepoStatu data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(USeverityKnownValue value) knownValue,
-    required TResult Function(USeverityUnknownValue value) unknownValue,
+    required TResult Function(URepoStatuKnownValue value) knownValue,
+    required TResult Function(URepoStatuUnknownValue value) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USeverityKnownValue value)? knownValue,
-    TResult? Function(USeverityUnknownValue value)? unknownValue,
+    TResult? Function(URepoStatuKnownValue value)? knownValue,
+    TResult? Function(URepoStatuUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(USeverityKnownValue value)? knownValue,
-    TResult Function(USeverityUnknownValue value)? unknownValue,
+    TResult Function(URepoStatuKnownValue value)? knownValue,
+    TResult Function(URepoStatuUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $USeverityCopyWith<$Res> {
-  factory $USeverityCopyWith(USeverity value, $Res Function(USeverity) then) =
-      _$USeverityCopyWithImpl<$Res, USeverity>;
+abstract class $URepoStatuCopyWith<$Res> {
+  factory $URepoStatuCopyWith(
+          URepoStatu value, $Res Function(URepoStatu) then) =
+      _$URepoStatuCopyWithImpl<$Res, URepoStatu>;
 }
 
 /// @nodoc
-class _$USeverityCopyWithImpl<$Res, $Val extends USeverity>
-    implements $USeverityCopyWith<$Res> {
-  _$USeverityCopyWithImpl(this._value, this._then);
+class _$URepoStatuCopyWithImpl<$Res, $Val extends URepoStatu>
+    implements $URepoStatuCopyWith<$Res> {
+  _$URepoStatuCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,20 +76,20 @@ class _$USeverityCopyWithImpl<$Res, $Val extends USeverity>
 }
 
 /// @nodoc
-abstract class _$$USeverityKnownValueImplCopyWith<$Res> {
-  factory _$$USeverityKnownValueImplCopyWith(_$USeverityKnownValueImpl value,
-          $Res Function(_$USeverityKnownValueImpl) then) =
-      __$$USeverityKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$URepoStatuKnownValueImplCopyWith<$Res> {
+  factory _$$URepoStatuKnownValueImplCopyWith(_$URepoStatuKnownValueImpl value,
+          $Res Function(_$URepoStatuKnownValueImpl) then) =
+      __$$URepoStatuKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownSeverity data});
+  $Res call({KnownRepoStatu data});
 }
 
 /// @nodoc
-class __$$USeverityKnownValueImplCopyWithImpl<$Res>
-    extends _$USeverityCopyWithImpl<$Res, _$USeverityKnownValueImpl>
-    implements _$$USeverityKnownValueImplCopyWith<$Res> {
-  __$$USeverityKnownValueImplCopyWithImpl(_$USeverityKnownValueImpl _value,
-      $Res Function(_$USeverityKnownValueImpl) _then)
+class __$$URepoStatuKnownValueImplCopyWithImpl<$Res>
+    extends _$URepoStatuCopyWithImpl<$Res, _$URepoStatuKnownValueImpl>
+    implements _$$URepoStatuKnownValueImplCopyWith<$Res> {
+  __$$URepoStatuKnownValueImplCopyWithImpl(_$URepoStatuKnownValueImpl _value,
+      $Res Function(_$URepoStatuKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,33 +97,33 @@ class __$$USeverityKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USeverityKnownValueImpl(
+    return _then(_$URepoStatuKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownSeverity,
+              as KnownRepoStatu,
     ));
   }
 }
 
 /// @nodoc
 
-class _$USeverityKnownValueImpl implements USeverityKnownValue {
-  const _$USeverityKnownValueImpl({required this.data});
+class _$URepoStatuKnownValueImpl implements URepoStatuKnownValue {
+  const _$URepoStatuKnownValueImpl({required this.data});
 
   @override
-  final KnownSeverity data;
+  final KnownRepoStatu data;
 
   @override
   String toString() {
-    return 'USeverity.knownValue(data: $data)';
+    return 'URepoStatu.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USeverityKnownValueImpl &&
+            other is _$URepoStatuKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -132,14 +133,15 @@ class _$USeverityKnownValueImpl implements USeverityKnownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USeverityKnownValueImplCopyWith<_$USeverityKnownValueImpl> get copyWith =>
-      __$$USeverityKnownValueImplCopyWithImpl<_$USeverityKnownValueImpl>(
-          this, _$identity);
+  _$$URepoStatuKnownValueImplCopyWith<_$URepoStatuKnownValueImpl>
+      get copyWith =>
+          __$$URepoStatuKnownValueImplCopyWithImpl<_$URepoStatuKnownValueImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownSeverity data) knownValue,
+    required TResult Function(KnownRepoStatu data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -148,7 +150,7 @@ class _$USeverityKnownValueImpl implements USeverityKnownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownSeverity data)? knownValue,
+    TResult? Function(KnownRepoStatu data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -157,7 +159,7 @@ class _$USeverityKnownValueImpl implements USeverityKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownSeverity data)? knownValue,
+    TResult Function(KnownRepoStatu data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -170,8 +172,8 @@ class _$USeverityKnownValueImpl implements USeverityKnownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(USeverityKnownValue value) knownValue,
-    required TResult Function(USeverityUnknownValue value) unknownValue,
+    required TResult Function(URepoStatuKnownValue value) knownValue,
+    required TResult Function(URepoStatuUnknownValue value) unknownValue,
   }) {
     return knownValue(this);
   }
@@ -179,8 +181,8 @@ class _$USeverityKnownValueImpl implements USeverityKnownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USeverityKnownValue value)? knownValue,
-    TResult? Function(USeverityUnknownValue value)? unknownValue,
+    TResult? Function(URepoStatuKnownValue value)? knownValue,
+    TResult? Function(URepoStatuUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -188,8 +190,8 @@ class _$USeverityKnownValueImpl implements USeverityKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(USeverityKnownValue value)? knownValue,
-    TResult Function(USeverityUnknownValue value)? unknownValue,
+    TResult Function(URepoStatuKnownValue value)? knownValue,
+    TResult Function(URepoStatuUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -199,33 +201,34 @@ class _$USeverityKnownValueImpl implements USeverityKnownValue {
   }
 }
 
-abstract class USeverityKnownValue implements USeverity {
-  const factory USeverityKnownValue({required final KnownSeverity data}) =
-      _$USeverityKnownValueImpl;
+abstract class URepoStatuKnownValue implements URepoStatu {
+  const factory URepoStatuKnownValue({required final KnownRepoStatu data}) =
+      _$URepoStatuKnownValueImpl;
 
   @override
-  KnownSeverity get data;
+  KnownRepoStatu get data;
   @JsonKey(ignore: true)
-  _$$USeverityKnownValueImplCopyWith<_$USeverityKnownValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$URepoStatuKnownValueImplCopyWith<_$URepoStatuKnownValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USeverityUnknownValueImplCopyWith<$Res> {
-  factory _$$USeverityUnknownValueImplCopyWith(
-          _$USeverityUnknownValueImpl value,
-          $Res Function(_$USeverityUnknownValueImpl) then) =
-      __$$USeverityUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$URepoStatuUnknownValueImplCopyWith<$Res> {
+  factory _$$URepoStatuUnknownValueImplCopyWith(
+          _$URepoStatuUnknownValueImpl value,
+          $Res Function(_$URepoStatuUnknownValueImpl) then) =
+      __$$URepoStatuUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$USeverityUnknownValueImplCopyWithImpl<$Res>
-    extends _$USeverityCopyWithImpl<$Res, _$USeverityUnknownValueImpl>
-    implements _$$USeverityUnknownValueImplCopyWith<$Res> {
-  __$$USeverityUnknownValueImplCopyWithImpl(_$USeverityUnknownValueImpl _value,
-      $Res Function(_$USeverityUnknownValueImpl) _then)
+class __$$URepoStatuUnknownValueImplCopyWithImpl<$Res>
+    extends _$URepoStatuCopyWithImpl<$Res, _$URepoStatuUnknownValueImpl>
+    implements _$$URepoStatuUnknownValueImplCopyWith<$Res> {
+  __$$URepoStatuUnknownValueImplCopyWithImpl(
+      _$URepoStatuUnknownValueImpl _value,
+      $Res Function(_$URepoStatuUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -233,7 +236,7 @@ class __$$USeverityUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USeverityUnknownValueImpl(
+    return _then(_$URepoStatuUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -244,22 +247,22 @@ class __$$USeverityUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$USeverityUnknownValueImpl implements USeverityUnknownValue {
-  const _$USeverityUnknownValueImpl({required this.data});
+class _$URepoStatuUnknownValueImpl implements URepoStatuUnknownValue {
+  const _$URepoStatuUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'USeverity.unknownValue(data: $data)';
+    return 'URepoStatu.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USeverityUnknownValueImpl &&
+            other is _$URepoStatuUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -269,14 +272,14 @@ class _$USeverityUnknownValueImpl implements USeverityUnknownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USeverityUnknownValueImplCopyWith<_$USeverityUnknownValueImpl>
-      get copyWith => __$$USeverityUnknownValueImplCopyWithImpl<
-          _$USeverityUnknownValueImpl>(this, _$identity);
+  _$$URepoStatuUnknownValueImplCopyWith<_$URepoStatuUnknownValueImpl>
+      get copyWith => __$$URepoStatuUnknownValueImplCopyWithImpl<
+          _$URepoStatuUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownSeverity data) knownValue,
+    required TResult Function(KnownRepoStatu data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -285,7 +288,7 @@ class _$USeverityUnknownValueImpl implements USeverityUnknownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownSeverity data)? knownValue,
+    TResult? Function(KnownRepoStatu data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -294,7 +297,7 @@ class _$USeverityUnknownValueImpl implements USeverityUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownSeverity data)? knownValue,
+    TResult Function(KnownRepoStatu data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -307,8 +310,8 @@ class _$USeverityUnknownValueImpl implements USeverityUnknownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(USeverityKnownValue value) knownValue,
-    required TResult Function(USeverityUnknownValue value) unknownValue,
+    required TResult Function(URepoStatuKnownValue value) knownValue,
+    required TResult Function(URepoStatuUnknownValue value) unknownValue,
   }) {
     return unknownValue(this);
   }
@@ -316,8 +319,8 @@ class _$USeverityUnknownValueImpl implements USeverityUnknownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USeverityKnownValue value)? knownValue,
-    TResult? Function(USeverityUnknownValue value)? unknownValue,
+    TResult? Function(URepoStatuKnownValue value)? knownValue,
+    TResult? Function(URepoStatuUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -325,8 +328,8 @@ class _$USeverityUnknownValueImpl implements USeverityUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(USeverityKnownValue value)? knownValue,
-    TResult Function(USeverityUnknownValue value)? unknownValue,
+    TResult Function(URepoStatuKnownValue value)? knownValue,
+    TResult Function(URepoStatuUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -336,13 +339,13 @@ class _$USeverityUnknownValueImpl implements USeverityUnknownValue {
   }
 }
 
-abstract class USeverityUnknownValue implements USeverity {
-  const factory USeverityUnknownValue({required final String data}) =
-      _$USeverityUnknownValueImpl;
+abstract class URepoStatuUnknownValue implements URepoStatu {
+  const factory URepoStatuUnknownValue({required final String data}) =
+      _$URepoStatuUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$USeverityUnknownValueImplCopyWith<_$USeverityUnknownValueImpl>
+  _$$URepoStatuUnknownValueImplCopyWith<_$URepoStatuUnknownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

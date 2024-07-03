@@ -29,8 +29,9 @@ mixin _$ContentLabelPref {
   /// Which labeler does this preference apply to? If undefined, applies globally.
   String? get labelerDid => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
-  @UVisibilityConverter()
-  UVisibility get visibility => throw _privateConstructorUsedError;
+  @UContentLabelPrefVisibilityConverter()
+  UContentLabelPrefVisibility get visibility =>
+      throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -52,10 +53,11 @@ abstract class $ContentLabelPrefCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String? labelerDid,
       String label,
-      @UVisibilityConverter() UVisibility visibility,
+      @UContentLabelPrefVisibilityConverter()
+      UContentLabelPrefVisibility visibility,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UVisibilityCopyWith<$Res> get visibility;
+  $UContentLabelPrefVisibilityCopyWith<$Res> get visibility;
 }
 
 /// @nodoc
@@ -93,7 +95,7 @@ class _$ContentLabelPrefCopyWithImpl<$Res, $Val extends ContentLabelPref>
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as UVisibility,
+              as UContentLabelPrefVisibility,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -103,8 +105,9 @@ class _$ContentLabelPrefCopyWithImpl<$Res, $Val extends ContentLabelPref>
 
   @override
   @pragma('vm:prefer-inline')
-  $UVisibilityCopyWith<$Res> get visibility {
-    return $UVisibilityCopyWith<$Res>(_value.visibility, (value) {
+  $UContentLabelPrefVisibilityCopyWith<$Res> get visibility {
+    return $UContentLabelPrefVisibilityCopyWith<$Res>(_value.visibility,
+        (value) {
       return _then(_value.copyWith(visibility: value) as $Val);
     });
   }
@@ -122,11 +125,12 @@ abstract class _$$ContentLabelPrefImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String? labelerDid,
       String label,
-      @UVisibilityConverter() UVisibility visibility,
+      @UContentLabelPrefVisibilityConverter()
+      UContentLabelPrefVisibility visibility,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UVisibilityCopyWith<$Res> get visibility;
+  $UContentLabelPrefVisibilityCopyWith<$Res> get visibility;
 }
 
 /// @nodoc
@@ -162,7 +166,7 @@ class __$$ContentLabelPrefImplCopyWithImpl<$Res>
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as UVisibility,
+              as UContentLabelPrefVisibility,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -179,7 +183,7 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsContentLabelPref,
       this.labelerDid,
       required this.label,
-      @UVisibilityConverter() required this.visibility,
+      @UContentLabelPrefVisibilityConverter() required this.visibility,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -199,8 +203,8 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
   @override
   final String label;
   @override
-  @UVisibilityConverter()
-  final UVisibility visibility;
+  @UContentLabelPrefVisibilityConverter()
+  final UContentLabelPrefVisibility visibility;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -260,7 +264,8 @@ abstract class _ContentLabelPref implements ContentLabelPref {
           {@JsonKey(name: r'$type') final String $type,
           final String? labelerDid,
           required final String label,
-          @UVisibilityConverter() required final UVisibility visibility,
+          @UContentLabelPrefVisibilityConverter()
+          required final UContentLabelPrefVisibility visibility,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ContentLabelPrefImpl;
 
@@ -281,8 +286,8 @@ abstract class _ContentLabelPref implements ContentLabelPref {
   @override
   String get label;
   @override
-  @UVisibilityConverter()
-  UVisibility get visibility;
+  @UContentLabelPrefVisibilityConverter()
+  UContentLabelPrefVisibility get visibility;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

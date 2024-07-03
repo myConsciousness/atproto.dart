@@ -13,4 +13,4 @@
 export 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/params.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/output.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/notification.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/known_reason.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/known_notification_reason.dart';

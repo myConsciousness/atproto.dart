@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/actor/defs/known_allow_incoming.dart';
+import '../../../../app/bsky/actor/defs/known_profile_associated_chat_allow_incoming.dart';
 
 part 'profile_associated_chat.freezed.dart';
 part 'profile_associated_chat.g.dart';
@@ -31,7 +31,8 @@ class ProfileAssociatedChat with _$ProfileAssociatedChat {
     @Default(appBskyActorDefsProfileAssociatedChat)
     @JsonKey(name: r'$type')
     String $type,
-    @UAllowIncomingConverter() required UAllowIncoming allowIncoming,
+    @UProfileAssociatedChatAllowIncomingConverter()
+    required UProfileAssociatedChatAllowIncoming allowIncoming,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

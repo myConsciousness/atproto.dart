@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_reason.freezed.dart';
+part 'known_notification_reason.freezed.dart';
 
-enum KnownReason {
+enum KnownNotificationReason {
   @JsonValue('like')
   like('like'),
   @JsonValue('repost')
@@ -35,10 +35,10 @@ enum KnownReason {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownReason(this.value);
+  const KnownNotificationReason(this.value);
 
-  /// Returns [KnownReason] associated with [value], otherwise null.
-  static KnownReason? valueOf(final String? value) {
+  /// Returns [KnownNotificationReason] associated with [value], otherwise null.
+  static KnownNotificationReason? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -51,48 +51,49 @@ enum KnownReason {
   }
 }
 
-extension $KnownReasonExtension on KnownReason {
-  /// Returns this value as [UReason].
-  UReason toUnion() => UReason.knownValue(data: this);
+extension $KnownNotificationReasonExtension on KnownNotificationReason {
+  /// Returns this value as [UNotificationReason].
+  UNotificationReason toUnion() => UNotificationReason.knownValue(data: this);
 
   /// Returns true if this value is [like], otherwise false.
-  bool get isLike => this == KnownReason.like;
+  bool get isLike => this == KnownNotificationReason.like;
 
   /// Returns true if this value is not [like], otherwise false.
   bool get isNotLike => !isLike;
 
   /// Returns true if this value is [repost], otherwise false.
-  bool get isRepost => this == KnownReason.repost;
+  bool get isRepost => this == KnownNotificationReason.repost;
 
   /// Returns true if this value is not [repost], otherwise false.
   bool get isNotRepost => !isRepost;
 
   /// Returns true if this value is [follow], otherwise false.
-  bool get isFollow => this == KnownReason.follow;
+  bool get isFollow => this == KnownNotificationReason.follow;
 
   /// Returns true if this value is not [follow], otherwise false.
   bool get isNotFollow => !isFollow;
 
   /// Returns true if this value is [mention], otherwise false.
-  bool get isMention => this == KnownReason.mention;
+  bool get isMention => this == KnownNotificationReason.mention;
 
   /// Returns true if this value is not [mention], otherwise false.
   bool get isNotMention => !isMention;
 
   /// Returns true if this value is [reply], otherwise false.
-  bool get isReply => this == KnownReason.reply;
+  bool get isReply => this == KnownNotificationReason.reply;
 
   /// Returns true if this value is not [reply], otherwise false.
   bool get isNotReply => !isReply;
 
   /// Returns true if this value is [quote], otherwise false.
-  bool get isQuote => this == KnownReason.quote;
+  bool get isQuote => this == KnownNotificationReason.quote;
 
   /// Returns true if this value is not [quote], otherwise false.
   bool get isNotQuote => !isQuote;
 
   /// Returns true if this value is [starterpackJoined], otherwise false.
-  bool get isStarterpackJoined => this == KnownReason.starterpackJoined;
+  bool get isStarterpackJoined =>
+      this == KnownNotificationReason.starterpackJoined;
 
   /// Returns true if this value is not [starterpackJoined], otherwise false.
   bool get isNotStarterpackJoined => !isStarterpackJoined;
@@ -115,59 +116,60 @@ extension $KnownReasonExtension on KnownReason {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownReason
+///   knownValue: (data) => data, // => KnownNotificationReason
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownReason or null
+///   print(object.knownValue); // => KnownNotificationReason or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UReason with _$UReason {
-  const factory UReason.knownValue({
-    required KnownReason data,
-  }) = UReasonKnownValue;
+class UNotificationReason with _$UNotificationReason {
+  const factory UNotificationReason.knownValue({
+    required KnownNotificationReason data,
+  }) = UNotificationReasonKnownValue;
 
-  const factory UReason.unknownValue({
+  const factory UNotificationReason.unknownValue({
     required String data,
-  }) = UReasonUnknownValue;
+  }) = UNotificationReasonUnknownValue;
 }
 
-final class UReasonConverter implements JsonConverter<UReason, String> {
-  const UReasonConverter();
+final class UNotificationReasonConverter
+    implements JsonConverter<UNotificationReason, String> {
+  const UNotificationReasonConverter();
 
   @override
-  UReason fromJson(String json) {
-    final knownValue = KnownReason.valueOf(json);
+  UNotificationReason fromJson(String json) {
+    final knownValue = KnownNotificationReason.valueOf(json);
 
     return knownValue != null
-        ? UReason.knownValue(data: knownValue)
-        : UReason.unknownValue(data: json);
+        ? UNotificationReason.knownValue(data: knownValue)
+        : UNotificationReason.unknownValue(data: json);
   }
 
   @override
-  String toJson(UReason object) => object.when(
+  String toJson(UNotificationReason object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UReasonExtension on UReason {
+extension $UNotificationReasonExtension on UNotificationReason {
   /// Returns string value.
-  String toJson() => const UReasonConverter().toJson(this);
+  String toJson() => const UNotificationReasonConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UReasonKnownValue;
+  bool get isKnownValue => this is UNotificationReasonKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UReasonUnknownValue;
+  bool get isUnknownValue => this is UNotificationReasonUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -175,10 +177,12 @@ extension $UReasonExtension on UReason {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownReason get knownValue => this.data as KnownReason;
+  KnownNotificationReason get knownValue =>
+      this.data as KnownNotificationReason;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownReason? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownNotificationReason? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

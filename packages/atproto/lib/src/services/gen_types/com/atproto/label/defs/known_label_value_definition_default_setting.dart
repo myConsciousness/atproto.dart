@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_default_setting.freezed.dart';
+part 'known_label_value_definition_default_setting.freezed.dart';
 
-enum KnownDefaultSetting {
+enum KnownLabelValueDefinitionDefaultSetting {
   @JsonValue('ignore')
   ignore('ignore'),
   @JsonValue('warn')
@@ -27,10 +27,10 @@ enum KnownDefaultSetting {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownDefaultSetting(this.value);
+  const KnownLabelValueDefinitionDefaultSetting(this.value);
 
-  /// Returns [KnownDefaultSetting] associated with [value], otherwise null.
-  static KnownDefaultSetting? valueOf(final String? value) {
+  /// Returns [KnownLabelValueDefinitionDefaultSetting] associated with [value], otherwise null.
+  static KnownLabelValueDefinitionDefaultSetting? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,24 +43,26 @@ enum KnownDefaultSetting {
   }
 }
 
-extension $KnownDefaultSettingExtension on KnownDefaultSetting {
-  /// Returns this value as [UDefaultSetting].
-  UDefaultSetting toUnion() => UDefaultSetting.knownValue(data: this);
+extension $KnownLabelValueDefinitionDefaultSettingExtension
+    on KnownLabelValueDefinitionDefaultSetting {
+  /// Returns this value as [ULabelValueDefinitionDefaultSetting].
+  ULabelValueDefinitionDefaultSetting toUnion() =>
+      ULabelValueDefinitionDefaultSetting.knownValue(data: this);
 
   /// Returns true if this value is [ignore], otherwise false.
-  bool get isIgnore => this == KnownDefaultSetting.ignore;
+  bool get isIgnore => this == KnownLabelValueDefinitionDefaultSetting.ignore;
 
   /// Returns true if this value is not [ignore], otherwise false.
   bool get isNotIgnore => !isIgnore;
 
   /// Returns true if this value is [warn], otherwise false.
-  bool get isWarn => this == KnownDefaultSetting.warn;
+  bool get isWarn => this == KnownLabelValueDefinitionDefaultSetting.warn;
 
   /// Returns true if this value is not [warn], otherwise false.
   bool get isNotWarn => !isWarn;
 
   /// Returns true if this value is [hide], otherwise false.
-  bool get isHide => this == KnownDefaultSetting.hide;
+  bool get isHide => this == KnownLabelValueDefinitionDefaultSetting.hide;
 
   /// Returns true if this value is not [hide], otherwise false.
   bool get isNotHide => !isHide;
@@ -83,60 +85,65 @@ extension $KnownDefaultSettingExtension on KnownDefaultSetting {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownDefaultSetting
+///   knownValue: (data) => data, // => KnownLabelValueDefinitionDefaultSetting
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownDefaultSetting or null
+///   print(object.knownValue); // => KnownLabelValueDefinitionDefaultSetting or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UDefaultSetting with _$UDefaultSetting {
-  const factory UDefaultSetting.knownValue({
-    required KnownDefaultSetting data,
-  }) = UDefaultSettingKnownValue;
+class ULabelValueDefinitionDefaultSetting
+    with _$ULabelValueDefinitionDefaultSetting {
+  const factory ULabelValueDefinitionDefaultSetting.knownValue({
+    required KnownLabelValueDefinitionDefaultSetting data,
+  }) = ULabelValueDefinitionDefaultSettingKnownValue;
 
-  const factory UDefaultSetting.unknownValue({
+  const factory ULabelValueDefinitionDefaultSetting.unknownValue({
     required String data,
-  }) = UDefaultSettingUnknownValue;
+  }) = ULabelValueDefinitionDefaultSettingUnknownValue;
 }
 
-final class UDefaultSettingConverter
-    implements JsonConverter<UDefaultSetting, String> {
-  const UDefaultSettingConverter();
+final class ULabelValueDefinitionDefaultSettingConverter
+    implements JsonConverter<ULabelValueDefinitionDefaultSetting, String> {
+  const ULabelValueDefinitionDefaultSettingConverter();
 
   @override
-  UDefaultSetting fromJson(String json) {
-    final knownValue = KnownDefaultSetting.valueOf(json);
+  ULabelValueDefinitionDefaultSetting fromJson(String json) {
+    final knownValue = KnownLabelValueDefinitionDefaultSetting.valueOf(json);
 
     return knownValue != null
-        ? UDefaultSetting.knownValue(data: knownValue)
-        : UDefaultSetting.unknownValue(data: json);
+        ? ULabelValueDefinitionDefaultSetting.knownValue(data: knownValue)
+        : ULabelValueDefinitionDefaultSetting.unknownValue(data: json);
   }
 
   @override
-  String toJson(UDefaultSetting object) => object.when(
+  String toJson(ULabelValueDefinitionDefaultSetting object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UDefaultSettingExtension on UDefaultSetting {
+extension $ULabelValueDefinitionDefaultSettingExtension
+    on ULabelValueDefinitionDefaultSetting {
   /// Returns string value.
-  String toJson() => const UDefaultSettingConverter().toJson(this);
+  String toJson() =>
+      const ULabelValueDefinitionDefaultSettingConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UDefaultSettingKnownValue;
+  bool get isKnownValue =>
+      this is ULabelValueDefinitionDefaultSettingKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UDefaultSettingUnknownValue;
+  bool get isUnknownValue =>
+      this is ULabelValueDefinitionDefaultSettingUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -144,10 +151,12 @@ extension $UDefaultSettingExtension on UDefaultSetting {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownDefaultSetting get knownValue => this.data as KnownDefaultSetting;
+  KnownLabelValueDefinitionDefaultSetting get knownValue =>
+      this.data as KnownLabelValueDefinitionDefaultSetting;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownDefaultSetting? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownLabelValueDefinitionDefaultSetting? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

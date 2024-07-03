@@ -13,24 +13,20 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_type.freezed.dart';
+part 'known_info_name.freezed.dart';
 
-enum KnownType {
-  @JsonValue('feed')
-  feed('feed'),
-  @JsonValue('list')
-  list('list'),
-  @JsonValue('timeline')
-  timeline('timeline'),
+enum KnownInfoName {
+  @JsonValue('OutdatedCursor')
+  outdatedCursor('OutdatedCursor'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownType(this.value);
+  const KnownInfoName(this.value);
 
-  /// Returns [KnownType] associated with [value], otherwise null.
-  static KnownType? valueOf(final String? value) {
+  /// Returns [KnownInfoName] associated with [value], otherwise null.
+  static KnownInfoName? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,27 +39,15 @@ enum KnownType {
   }
 }
 
-extension $KnownTypeExtension on KnownType {
-  /// Returns this value as [UType].
-  UType toUnion() => UType.knownValue(data: this);
+extension $KnownInfoNameExtension on KnownInfoName {
+  /// Returns this value as [UInfoName].
+  UInfoName toUnion() => UInfoName.knownValue(data: this);
 
-  /// Returns true if this value is [feed], otherwise false.
-  bool get isFeed => this == KnownType.feed;
+  /// Returns true if this value is [outdatedCursor], otherwise false.
+  bool get isOutdatedCursor => this == KnownInfoName.outdatedCursor;
 
-  /// Returns true if this value is not [feed], otherwise false.
-  bool get isNotFeed => !isFeed;
-
-  /// Returns true if this value is [list], otherwise false.
-  bool get isList => this == KnownType.list;
-
-  /// Returns true if this value is not [list], otherwise false.
-  bool get isNotList => !isList;
-
-  /// Returns true if this value is [timeline], otherwise false.
-  bool get isTimeline => this == KnownType.timeline;
-
-  /// Returns true if this value is not [timeline], otherwise false.
-  bool get isNotTimeline => !isTimeline;
+  /// Returns true if this value is not [outdatedCursor], otherwise false.
+  bool get isNotOutdatedCursor => !isOutdatedCursor;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -83,59 +67,59 @@ extension $KnownTypeExtension on KnownType {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownType
+///   knownValue: (data) => data, // => KnownInfoName
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownType or null
+///   print(object.knownValue); // => KnownInfoName or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UType with _$UType {
-  const factory UType.knownValue({
-    required KnownType data,
-  }) = UTypeKnownValue;
+class UInfoName with _$UInfoName {
+  const factory UInfoName.knownValue({
+    required KnownInfoName data,
+  }) = UInfoNameKnownValue;
 
-  const factory UType.unknownValue({
+  const factory UInfoName.unknownValue({
     required String data,
-  }) = UTypeUnknownValue;
+  }) = UInfoNameUnknownValue;
 }
 
-final class UTypeConverter implements JsonConverter<UType, String> {
-  const UTypeConverter();
+final class UInfoNameConverter implements JsonConverter<UInfoName, String> {
+  const UInfoNameConverter();
 
   @override
-  UType fromJson(String json) {
-    final knownValue = KnownType.valueOf(json);
+  UInfoName fromJson(String json) {
+    final knownValue = KnownInfoName.valueOf(json);
 
     return knownValue != null
-        ? UType.knownValue(data: knownValue)
-        : UType.unknownValue(data: json);
+        ? UInfoName.knownValue(data: knownValue)
+        : UInfoName.unknownValue(data: json);
   }
 
   @override
-  String toJson(UType object) => object.when(
+  String toJson(UInfoName object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UTypeExtension on UType {
+extension $UInfoNameExtension on UInfoName {
   /// Returns string value.
-  String toJson() => const UTypeConverter().toJson(this);
+  String toJson() => const UInfoNameConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UTypeKnownValue;
+  bool get isKnownValue => this is UInfoNameKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UTypeUnknownValue;
+  bool get isUnknownValue => this is UInfoNameUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -143,10 +127,10 @@ extension $UTypeExtension on UType {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownType get knownValue => this.data as KnownType;
+  KnownInfoName get knownValue => this.data as KnownInfoName;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownType? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownInfoName? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

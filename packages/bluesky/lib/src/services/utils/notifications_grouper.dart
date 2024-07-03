@@ -11,16 +11,16 @@ import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
 import '../entities/grouped_notifications.dart';
 import '../gen_types/app/bsky/actor/defs/profile_view.dart';
-import '../gen_types/app/bsky/notification/list_notifications/known_reason.dart';
+import '../gen_types/app/bsky/notification/list_notifications/known_notification_reason.dart';
 import '../gen_types/app/bsky/notification/list_notifications/notification.dart';
 import '../gen_types/app/bsky/notification/list_notifications/output.dart';
 import 'group_by.dart';
 import 'notification_reason_filter.dart';
 
-const _groupableReasons = <KnownReason>[
-  KnownReason.like,
-  KnownReason.repost,
-  KnownReason.follow,
+const _groupableReasons = <KnownNotificationReason>[
+  KnownNotificationReason.like,
+  KnownNotificationReason.repost,
+  KnownNotificationReason.follow,
 ];
 
 sealed class NotificationsGrouper {
@@ -105,7 +105,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     );
   }
 
-  bool _isGroupable(final KnownReason? reason) {
+  bool _isGroupable(final KnownNotificationReason? reason) {
     return _groupableReasons.contains(reason);
   }
 

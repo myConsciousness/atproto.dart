@@ -25,8 +25,8 @@ mixin _$RepoOp {
   /// `com.atproto.sync.subscribeRepos#repoOp`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
-  @UActionConverter()
-  UAction get action => throw _privateConstructorUsedError;
+  @URepoOpActionConverter()
+  URepoOpAction get action => throw _privateConstructorUsedError;
   String get path => throw _privateConstructorUsedError;
 
   /// For creates and updates, the new record CID. For deletions, null.
@@ -48,12 +48,12 @@ abstract class $RepoOpCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @UActionConverter() UAction action,
+      @URepoOpActionConverter() URepoOpAction action,
       String path,
       String? cid,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UActionCopyWith<$Res> get action;
+  $URepoOpActionCopyWith<$Res> get action;
 }
 
 /// @nodoc
@@ -83,7 +83,7 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
-              as UAction,
+              as URepoOpAction,
       path: null == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
@@ -101,8 +101,8 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
 
   @override
   @pragma('vm:prefer-inline')
-  $UActionCopyWith<$Res> get action {
-    return $UActionCopyWith<$Res>(_value.action, (value) {
+  $URepoOpActionCopyWith<$Res> get action {
+    return $URepoOpActionCopyWith<$Res>(_value.action, (value) {
       return _then(_value.copyWith(action: value) as $Val);
     });
   }
@@ -117,13 +117,13 @@ abstract class _$$RepoOpImplCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @UActionConverter() UAction action,
+      @URepoOpActionConverter() URepoOpAction action,
       String path,
       String? cid,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UActionCopyWith<$Res> get action;
+  $URepoOpActionCopyWith<$Res> get action;
 }
 
 /// @nodoc
@@ -151,7 +151,7 @@ class __$$RepoOpImplCopyWithImpl<$Res>
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
-              as UAction,
+              as URepoOpAction,
       path: null == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
@@ -174,7 +174,7 @@ class __$$RepoOpImplCopyWithImpl<$Res>
 class _$RepoOpImpl implements _RepoOp {
   const _$RepoOpImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoSyncSubscribeReposRepoOp,
-      @UActionConverter() required this.action,
+      @URepoOpActionConverter() required this.action,
       required this.path,
       this.cid,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -190,8 +190,8 @@ class _$RepoOpImpl implements _RepoOp {
   @JsonKey(name: r'$type')
   final String $type;
   @override
-  @UActionConverter()
-  final UAction action;
+  @URepoOpActionConverter()
+  final URepoOpAction action;
   @override
   final String path;
 
@@ -252,7 +252,7 @@ class _$RepoOpImpl implements _RepoOp {
 abstract class _RepoOp implements RepoOp {
   const factory _RepoOp(
           {@JsonKey(name: r'$type') final String $type,
-          @UActionConverter() required final UAction action,
+          @URepoOpActionConverter() required final URepoOpAction action,
           required final String path,
           final String? cid,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -268,8 +268,8 @@ abstract class _RepoOp implements RepoOp {
   @JsonKey(name: r'$type')
   String get $type;
   @override
-  @UActionConverter()
-  UAction get action;
+  @URepoOpActionConverter()
+  URepoOpAction get action;
   @override
   String get path;
   @override

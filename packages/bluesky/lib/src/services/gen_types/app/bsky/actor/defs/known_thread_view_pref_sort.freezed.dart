@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_default_setting.dart';
+part of 'known_thread_view_pref_sort.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,59 +15,60 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UDefaultSetting {
+mixin _$UThreadViewPrefSort {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownDefaultSetting data) knownValue,
+    required TResult Function(KnownThreadViewPrefSort data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownDefaultSetting data)? knownValue,
+    TResult? Function(KnownThreadViewPrefSort data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownDefaultSetting data)? knownValue,
+    TResult Function(KnownThreadViewPrefSort data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UDefaultSettingKnownValue value) knownValue,
-    required TResult Function(UDefaultSettingUnknownValue value) unknownValue,
+    required TResult Function(UThreadViewPrefSortKnownValue value) knownValue,
+    required TResult Function(UThreadViewPrefSortUnknownValue value)
+        unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UDefaultSettingKnownValue value)? knownValue,
-    TResult? Function(UDefaultSettingUnknownValue value)? unknownValue,
+    TResult? Function(UThreadViewPrefSortKnownValue value)? knownValue,
+    TResult? Function(UThreadViewPrefSortUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UDefaultSettingKnownValue value)? knownValue,
-    TResult Function(UDefaultSettingUnknownValue value)? unknownValue,
+    TResult Function(UThreadViewPrefSortKnownValue value)? knownValue,
+    TResult Function(UThreadViewPrefSortUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UDefaultSettingCopyWith<$Res> {
-  factory $UDefaultSettingCopyWith(
-          UDefaultSetting value, $Res Function(UDefaultSetting) then) =
-      _$UDefaultSettingCopyWithImpl<$Res, UDefaultSetting>;
+abstract class $UThreadViewPrefSortCopyWith<$Res> {
+  factory $UThreadViewPrefSortCopyWith(
+          UThreadViewPrefSort value, $Res Function(UThreadViewPrefSort) then) =
+      _$UThreadViewPrefSortCopyWithImpl<$Res, UThreadViewPrefSort>;
 }
 
 /// @nodoc
-class _$UDefaultSettingCopyWithImpl<$Res, $Val extends UDefaultSetting>
-    implements $UDefaultSettingCopyWith<$Res> {
-  _$UDefaultSettingCopyWithImpl(this._value, this._then);
+class _$UThreadViewPrefSortCopyWithImpl<$Res, $Val extends UThreadViewPrefSort>
+    implements $UThreadViewPrefSortCopyWith<$Res> {
+  _$UThreadViewPrefSortCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,22 +77,23 @@ class _$UDefaultSettingCopyWithImpl<$Res, $Val extends UDefaultSetting>
 }
 
 /// @nodoc
-abstract class _$$UDefaultSettingKnownValueImplCopyWith<$Res> {
-  factory _$$UDefaultSettingKnownValueImplCopyWith(
-          _$UDefaultSettingKnownValueImpl value,
-          $Res Function(_$UDefaultSettingKnownValueImpl) then) =
-      __$$UDefaultSettingKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$UThreadViewPrefSortKnownValueImplCopyWith<$Res> {
+  factory _$$UThreadViewPrefSortKnownValueImplCopyWith(
+          _$UThreadViewPrefSortKnownValueImpl value,
+          $Res Function(_$UThreadViewPrefSortKnownValueImpl) then) =
+      __$$UThreadViewPrefSortKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownDefaultSetting data});
+  $Res call({KnownThreadViewPrefSort data});
 }
 
 /// @nodoc
-class __$$UDefaultSettingKnownValueImplCopyWithImpl<$Res>
-    extends _$UDefaultSettingCopyWithImpl<$Res, _$UDefaultSettingKnownValueImpl>
-    implements _$$UDefaultSettingKnownValueImplCopyWith<$Res> {
-  __$$UDefaultSettingKnownValueImplCopyWithImpl(
-      _$UDefaultSettingKnownValueImpl _value,
-      $Res Function(_$UDefaultSettingKnownValueImpl) _then)
+class __$$UThreadViewPrefSortKnownValueImplCopyWithImpl<$Res>
+    extends _$UThreadViewPrefSortCopyWithImpl<$Res,
+        _$UThreadViewPrefSortKnownValueImpl>
+    implements _$$UThreadViewPrefSortKnownValueImplCopyWith<$Res> {
+  __$$UThreadViewPrefSortKnownValueImplCopyWithImpl(
+      _$UThreadViewPrefSortKnownValueImpl _value,
+      $Res Function(_$UThreadViewPrefSortKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,33 +101,34 @@ class __$$UDefaultSettingKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UDefaultSettingKnownValueImpl(
+    return _then(_$UThreadViewPrefSortKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownDefaultSetting,
+              as KnownThreadViewPrefSort,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UDefaultSettingKnownValueImpl implements UDefaultSettingKnownValue {
-  const _$UDefaultSettingKnownValueImpl({required this.data});
+class _$UThreadViewPrefSortKnownValueImpl
+    implements UThreadViewPrefSortKnownValue {
+  const _$UThreadViewPrefSortKnownValueImpl({required this.data});
 
   @override
-  final KnownDefaultSetting data;
+  final KnownThreadViewPrefSort data;
 
   @override
   String toString() {
-    return 'UDefaultSetting.knownValue(data: $data)';
+    return 'UThreadViewPrefSort.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UDefaultSettingKnownValueImpl &&
+            other is _$UThreadViewPrefSortKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -135,14 +138,15 @@ class _$UDefaultSettingKnownValueImpl implements UDefaultSettingKnownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UDefaultSettingKnownValueImplCopyWith<_$UDefaultSettingKnownValueImpl>
-      get copyWith => __$$UDefaultSettingKnownValueImplCopyWithImpl<
-          _$UDefaultSettingKnownValueImpl>(this, _$identity);
+  _$$UThreadViewPrefSortKnownValueImplCopyWith<
+          _$UThreadViewPrefSortKnownValueImpl>
+      get copyWith => __$$UThreadViewPrefSortKnownValueImplCopyWithImpl<
+          _$UThreadViewPrefSortKnownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownDefaultSetting data) knownValue,
+    required TResult Function(KnownThreadViewPrefSort data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -151,7 +155,7 @@ class _$UDefaultSettingKnownValueImpl implements UDefaultSettingKnownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownDefaultSetting data)? knownValue,
+    TResult? Function(KnownThreadViewPrefSort data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -160,7 +164,7 @@ class _$UDefaultSettingKnownValueImpl implements UDefaultSettingKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownDefaultSetting data)? knownValue,
+    TResult Function(KnownThreadViewPrefSort data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -173,8 +177,9 @@ class _$UDefaultSettingKnownValueImpl implements UDefaultSettingKnownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UDefaultSettingKnownValue value) knownValue,
-    required TResult Function(UDefaultSettingUnknownValue value) unknownValue,
+    required TResult Function(UThreadViewPrefSortKnownValue value) knownValue,
+    required TResult Function(UThreadViewPrefSortUnknownValue value)
+        unknownValue,
   }) {
     return knownValue(this);
   }
@@ -182,8 +187,8 @@ class _$UDefaultSettingKnownValueImpl implements UDefaultSettingKnownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UDefaultSettingKnownValue value)? knownValue,
-    TResult? Function(UDefaultSettingUnknownValue value)? unknownValue,
+    TResult? Function(UThreadViewPrefSortKnownValue value)? knownValue,
+    TResult? Function(UThreadViewPrefSortUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -191,8 +196,8 @@ class _$UDefaultSettingKnownValueImpl implements UDefaultSettingKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UDefaultSettingKnownValue value)? knownValue,
-    TResult Function(UDefaultSettingUnknownValue value)? unknownValue,
+    TResult Function(UThreadViewPrefSortKnownValue value)? knownValue,
+    TResult Function(UThreadViewPrefSortUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -202,36 +207,37 @@ class _$UDefaultSettingKnownValueImpl implements UDefaultSettingKnownValue {
   }
 }
 
-abstract class UDefaultSettingKnownValue implements UDefaultSetting {
-  const factory UDefaultSettingKnownValue(
-          {required final KnownDefaultSetting data}) =
-      _$UDefaultSettingKnownValueImpl;
+abstract class UThreadViewPrefSortKnownValue implements UThreadViewPrefSort {
+  const factory UThreadViewPrefSortKnownValue(
+          {required final KnownThreadViewPrefSort data}) =
+      _$UThreadViewPrefSortKnownValueImpl;
 
   @override
-  KnownDefaultSetting get data;
+  KnownThreadViewPrefSort get data;
   @JsonKey(ignore: true)
-  _$$UDefaultSettingKnownValueImplCopyWith<_$UDefaultSettingKnownValueImpl>
+  _$$UThreadViewPrefSortKnownValueImplCopyWith<
+          _$UThreadViewPrefSortKnownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UDefaultSettingUnknownValueImplCopyWith<$Res> {
-  factory _$$UDefaultSettingUnknownValueImplCopyWith(
-          _$UDefaultSettingUnknownValueImpl value,
-          $Res Function(_$UDefaultSettingUnknownValueImpl) then) =
-      __$$UDefaultSettingUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$UThreadViewPrefSortUnknownValueImplCopyWith<$Res> {
+  factory _$$UThreadViewPrefSortUnknownValueImplCopyWith(
+          _$UThreadViewPrefSortUnknownValueImpl value,
+          $Res Function(_$UThreadViewPrefSortUnknownValueImpl) then) =
+      __$$UThreadViewPrefSortUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$UDefaultSettingUnknownValueImplCopyWithImpl<$Res>
-    extends _$UDefaultSettingCopyWithImpl<$Res,
-        _$UDefaultSettingUnknownValueImpl>
-    implements _$$UDefaultSettingUnknownValueImplCopyWith<$Res> {
-  __$$UDefaultSettingUnknownValueImplCopyWithImpl(
-      _$UDefaultSettingUnknownValueImpl _value,
-      $Res Function(_$UDefaultSettingUnknownValueImpl) _then)
+class __$$UThreadViewPrefSortUnknownValueImplCopyWithImpl<$Res>
+    extends _$UThreadViewPrefSortCopyWithImpl<$Res,
+        _$UThreadViewPrefSortUnknownValueImpl>
+    implements _$$UThreadViewPrefSortUnknownValueImplCopyWith<$Res> {
+  __$$UThreadViewPrefSortUnknownValueImplCopyWithImpl(
+      _$UThreadViewPrefSortUnknownValueImpl _value,
+      $Res Function(_$UThreadViewPrefSortUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -239,7 +245,7 @@ class __$$UDefaultSettingUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UDefaultSettingUnknownValueImpl(
+    return _then(_$UThreadViewPrefSortUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -250,22 +256,23 @@ class __$$UDefaultSettingUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UDefaultSettingUnknownValueImpl implements UDefaultSettingUnknownValue {
-  const _$UDefaultSettingUnknownValueImpl({required this.data});
+class _$UThreadViewPrefSortUnknownValueImpl
+    implements UThreadViewPrefSortUnknownValue {
+  const _$UThreadViewPrefSortUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'UDefaultSetting.unknownValue(data: $data)';
+    return 'UThreadViewPrefSort.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UDefaultSettingUnknownValueImpl &&
+            other is _$UThreadViewPrefSortUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -275,14 +282,15 @@ class _$UDefaultSettingUnknownValueImpl implements UDefaultSettingUnknownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UDefaultSettingUnknownValueImplCopyWith<_$UDefaultSettingUnknownValueImpl>
-      get copyWith => __$$UDefaultSettingUnknownValueImplCopyWithImpl<
-          _$UDefaultSettingUnknownValueImpl>(this, _$identity);
+  _$$UThreadViewPrefSortUnknownValueImplCopyWith<
+          _$UThreadViewPrefSortUnknownValueImpl>
+      get copyWith => __$$UThreadViewPrefSortUnknownValueImplCopyWithImpl<
+          _$UThreadViewPrefSortUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownDefaultSetting data) knownValue,
+    required TResult Function(KnownThreadViewPrefSort data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -291,7 +299,7 @@ class _$UDefaultSettingUnknownValueImpl implements UDefaultSettingUnknownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownDefaultSetting data)? knownValue,
+    TResult? Function(KnownThreadViewPrefSort data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -300,7 +308,7 @@ class _$UDefaultSettingUnknownValueImpl implements UDefaultSettingUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownDefaultSetting data)? knownValue,
+    TResult Function(KnownThreadViewPrefSort data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -313,8 +321,9 @@ class _$UDefaultSettingUnknownValueImpl implements UDefaultSettingUnknownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UDefaultSettingKnownValue value) knownValue,
-    required TResult Function(UDefaultSettingUnknownValue value) unknownValue,
+    required TResult Function(UThreadViewPrefSortKnownValue value) knownValue,
+    required TResult Function(UThreadViewPrefSortUnknownValue value)
+        unknownValue,
   }) {
     return unknownValue(this);
   }
@@ -322,8 +331,8 @@ class _$UDefaultSettingUnknownValueImpl implements UDefaultSettingUnknownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UDefaultSettingKnownValue value)? knownValue,
-    TResult? Function(UDefaultSettingUnknownValue value)? unknownValue,
+    TResult? Function(UThreadViewPrefSortKnownValue value)? knownValue,
+    TResult? Function(UThreadViewPrefSortUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -331,8 +340,8 @@ class _$UDefaultSettingUnknownValueImpl implements UDefaultSettingUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UDefaultSettingKnownValue value)? knownValue,
-    TResult Function(UDefaultSettingUnknownValue value)? unknownValue,
+    TResult Function(UThreadViewPrefSortKnownValue value)? knownValue,
+    TResult Function(UThreadViewPrefSortUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -342,13 +351,14 @@ class _$UDefaultSettingUnknownValueImpl implements UDefaultSettingUnknownValue {
   }
 }
 
-abstract class UDefaultSettingUnknownValue implements UDefaultSetting {
-  const factory UDefaultSettingUnknownValue({required final String data}) =
-      _$UDefaultSettingUnknownValueImpl;
+abstract class UThreadViewPrefSortUnknownValue implements UThreadViewPrefSort {
+  const factory UThreadViewPrefSortUnknownValue({required final String data}) =
+      _$UThreadViewPrefSortUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$UDefaultSettingUnknownValueImplCopyWith<_$UDefaultSettingUnknownValueImpl>
+  _$$UThreadViewPrefSortUnknownValueImplCopyWith<
+          _$UThreadViewPrefSortUnknownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

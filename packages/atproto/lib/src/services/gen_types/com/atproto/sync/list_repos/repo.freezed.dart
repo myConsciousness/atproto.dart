@@ -33,8 +33,8 @@ mixin _$Repo {
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @UStatusConverter()
-  UStatus? get status => throw _privateConstructorUsedError;
+  @URepoStatuConverter()
+  URepoStatu? get status => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -56,10 +56,10 @@ abstract class $RepoCopyWith<$Res> {
       String head,
       String rev,
       bool active,
-      @UStatusConverter() UStatus? status,
+      @URepoStatuConverter() URepoStatu? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UStatusCopyWith<$Res>? get status;
+  $URepoStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -107,7 +107,7 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatus?,
+              as URepoStatu?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -117,12 +117,12 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
 
   @override
   @pragma('vm:prefer-inline')
-  $UStatusCopyWith<$Res>? get status {
+  $URepoStatuCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $UStatusCopyWith<$Res>(_value.status!, (value) {
+    return $URepoStatuCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -141,11 +141,11 @@ abstract class _$$RepoImplCopyWith<$Res> implements $RepoCopyWith<$Res> {
       String head,
       String rev,
       bool active,
-      @UStatusConverter() UStatus? status,
+      @URepoStatuConverter() URepoStatu? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UStatusCopyWith<$Res>? get status;
+  $URepoStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -190,7 +190,7 @@ class __$$RepoImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatus?,
+              as URepoStatu?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -209,7 +209,7 @@ class _$RepoImpl implements _Repo {
       required this.head,
       required this.rev,
       this.active = false,
-      @UStatusConverter() this.status,
+      @URepoStatuConverter() this.status,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -236,8 +236,8 @@ class _$RepoImpl implements _Repo {
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @override
-  @UStatusConverter()
-  final UStatus? status;
+  @URepoStatuConverter()
+  final URepoStatu? status;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -298,7 +298,7 @@ abstract class _Repo implements Repo {
           required final String head,
           required final String rev,
           final bool active,
-          @UStatusConverter() final UStatus? status,
+          @URepoStatuConverter() final URepoStatu? status,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RepoImpl;
 
@@ -324,8 +324,8 @@ abstract class _Repo implements Repo {
   @override
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @UStatusConverter()
-  UStatus? get status;
+  @URepoStatuConverter()
+  URepoStatu? get status;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

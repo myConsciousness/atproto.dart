@@ -129,13 +129,13 @@ final class RepoCommitAdaptor {
       if (op.action.isUnknownValue) continue;
 
       switch (op.action.knownValue) {
-        case KnownAction.create:
+        case KnownRepoOpAction.create:
           await _onCreate(data, op);
           break;
-        case KnownAction.update:
+        case KnownRepoOpAction.update:
           await _onUpdate(data, op);
           break;
-        case KnownAction.delete:
+        case KnownRepoOpAction.delete:
           await _onDelete(data, op);
           break;
       }

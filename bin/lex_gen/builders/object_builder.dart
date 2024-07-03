@@ -344,6 +344,8 @@ final class LexGenObjectBuilder {
       defName = ctx.defName != 'main'
           ? ctx.docId.toString().split('.').last + toFirstUpper(ctx.defName)
           : ctx.docId.toString().split('.').last;
+    } else {
+      defName = ctx.defName != 'main' ? ctx.defName : null;
     }
 
     return LexKnownValuesBuilder(

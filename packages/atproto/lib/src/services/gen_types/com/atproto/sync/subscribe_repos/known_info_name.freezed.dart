@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_name.dart';
+part of 'known_info_name.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,58 +15,58 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UName {
+mixin _$UInfoName {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownName data) knownValue,
+    required TResult Function(KnownInfoName data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownName data)? knownValue,
+    TResult? Function(KnownInfoName data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownName data)? knownValue,
+    TResult Function(KnownInfoName data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UNameKnownValue value) knownValue,
-    required TResult Function(UNameUnknownValue value) unknownValue,
+    required TResult Function(UInfoNameKnownValue value) knownValue,
+    required TResult Function(UInfoNameUnknownValue value) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UNameKnownValue value)? knownValue,
-    TResult? Function(UNameUnknownValue value)? unknownValue,
+    TResult? Function(UInfoNameKnownValue value)? knownValue,
+    TResult? Function(UInfoNameUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UNameKnownValue value)? knownValue,
-    TResult Function(UNameUnknownValue value)? unknownValue,
+    TResult Function(UInfoNameKnownValue value)? knownValue,
+    TResult Function(UInfoNameUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UNameCopyWith<$Res> {
-  factory $UNameCopyWith(UName value, $Res Function(UName) then) =
-      _$UNameCopyWithImpl<$Res, UName>;
+abstract class $UInfoNameCopyWith<$Res> {
+  factory $UInfoNameCopyWith(UInfoName value, $Res Function(UInfoName) then) =
+      _$UInfoNameCopyWithImpl<$Res, UInfoName>;
 }
 
 /// @nodoc
-class _$UNameCopyWithImpl<$Res, $Val extends UName>
-    implements $UNameCopyWith<$Res> {
-  _$UNameCopyWithImpl(this._value, this._then);
+class _$UInfoNameCopyWithImpl<$Res, $Val extends UInfoName>
+    implements $UInfoNameCopyWith<$Res> {
+  _$UInfoNameCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,20 +75,20 @@ class _$UNameCopyWithImpl<$Res, $Val extends UName>
 }
 
 /// @nodoc
-abstract class _$$UNameKnownValueImplCopyWith<$Res> {
-  factory _$$UNameKnownValueImplCopyWith(_$UNameKnownValueImpl value,
-          $Res Function(_$UNameKnownValueImpl) then) =
-      __$$UNameKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$UInfoNameKnownValueImplCopyWith<$Res> {
+  factory _$$UInfoNameKnownValueImplCopyWith(_$UInfoNameKnownValueImpl value,
+          $Res Function(_$UInfoNameKnownValueImpl) then) =
+      __$$UInfoNameKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownName data});
+  $Res call({KnownInfoName data});
 }
 
 /// @nodoc
-class __$$UNameKnownValueImplCopyWithImpl<$Res>
-    extends _$UNameCopyWithImpl<$Res, _$UNameKnownValueImpl>
-    implements _$$UNameKnownValueImplCopyWith<$Res> {
-  __$$UNameKnownValueImplCopyWithImpl(
-      _$UNameKnownValueImpl _value, $Res Function(_$UNameKnownValueImpl) _then)
+class __$$UInfoNameKnownValueImplCopyWithImpl<$Res>
+    extends _$UInfoNameCopyWithImpl<$Res, _$UInfoNameKnownValueImpl>
+    implements _$$UInfoNameKnownValueImplCopyWith<$Res> {
+  __$$UInfoNameKnownValueImplCopyWithImpl(_$UInfoNameKnownValueImpl _value,
+      $Res Function(_$UInfoNameKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,33 +96,33 @@ class __$$UNameKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UNameKnownValueImpl(
+    return _then(_$UInfoNameKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownName,
+              as KnownInfoName,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UNameKnownValueImpl implements UNameKnownValue {
-  const _$UNameKnownValueImpl({required this.data});
+class _$UInfoNameKnownValueImpl implements UInfoNameKnownValue {
+  const _$UInfoNameKnownValueImpl({required this.data});
 
   @override
-  final KnownName data;
+  final KnownInfoName data;
 
   @override
   String toString() {
-    return 'UName.knownValue(data: $data)';
+    return 'UInfoName.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UNameKnownValueImpl &&
+            other is _$UInfoNameKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -132,14 +132,14 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UNameKnownValueImplCopyWith<_$UNameKnownValueImpl> get copyWith =>
-      __$$UNameKnownValueImplCopyWithImpl<_$UNameKnownValueImpl>(
+  _$$UInfoNameKnownValueImplCopyWith<_$UInfoNameKnownValueImpl> get copyWith =>
+      __$$UInfoNameKnownValueImplCopyWithImpl<_$UInfoNameKnownValueImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownName data) knownValue,
+    required TResult Function(KnownInfoName data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -148,7 +148,7 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownName data)? knownValue,
+    TResult? Function(KnownInfoName data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -157,7 +157,7 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownName data)? knownValue,
+    TResult Function(KnownInfoName data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -170,8 +170,8 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UNameKnownValue value) knownValue,
-    required TResult Function(UNameUnknownValue value) unknownValue,
+    required TResult Function(UInfoNameKnownValue value) knownValue,
+    required TResult Function(UInfoNameUnknownValue value) unknownValue,
   }) {
     return knownValue(this);
   }
@@ -179,8 +179,8 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UNameKnownValue value)? knownValue,
-    TResult? Function(UNameUnknownValue value)? unknownValue,
+    TResult? Function(UInfoNameKnownValue value)? knownValue,
+    TResult? Function(UInfoNameUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -188,8 +188,8 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UNameKnownValue value)? knownValue,
-    TResult Function(UNameUnknownValue value)? unknownValue,
+    TResult Function(UInfoNameKnownValue value)? knownValue,
+    TResult Function(UInfoNameUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -199,32 +199,33 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   }
 }
 
-abstract class UNameKnownValue implements UName {
-  const factory UNameKnownValue({required final KnownName data}) =
-      _$UNameKnownValueImpl;
+abstract class UInfoNameKnownValue implements UInfoName {
+  const factory UInfoNameKnownValue({required final KnownInfoName data}) =
+      _$UInfoNameKnownValueImpl;
 
   @override
-  KnownName get data;
+  KnownInfoName get data;
   @JsonKey(ignore: true)
-  _$$UNameKnownValueImplCopyWith<_$UNameKnownValueImpl> get copyWith =>
+  _$$UInfoNameKnownValueImplCopyWith<_$UInfoNameKnownValueImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UNameUnknownValueImplCopyWith<$Res> {
-  factory _$$UNameUnknownValueImplCopyWith(_$UNameUnknownValueImpl value,
-          $Res Function(_$UNameUnknownValueImpl) then) =
-      __$$UNameUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$UInfoNameUnknownValueImplCopyWith<$Res> {
+  factory _$$UInfoNameUnknownValueImplCopyWith(
+          _$UInfoNameUnknownValueImpl value,
+          $Res Function(_$UInfoNameUnknownValueImpl) then) =
+      __$$UInfoNameUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$UNameUnknownValueImplCopyWithImpl<$Res>
-    extends _$UNameCopyWithImpl<$Res, _$UNameUnknownValueImpl>
-    implements _$$UNameUnknownValueImplCopyWith<$Res> {
-  __$$UNameUnknownValueImplCopyWithImpl(_$UNameUnknownValueImpl _value,
-      $Res Function(_$UNameUnknownValueImpl) _then)
+class __$$UInfoNameUnknownValueImplCopyWithImpl<$Res>
+    extends _$UInfoNameCopyWithImpl<$Res, _$UInfoNameUnknownValueImpl>
+    implements _$$UInfoNameUnknownValueImplCopyWith<$Res> {
+  __$$UInfoNameUnknownValueImplCopyWithImpl(_$UInfoNameUnknownValueImpl _value,
+      $Res Function(_$UInfoNameUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -232,7 +233,7 @@ class __$$UNameUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UNameUnknownValueImpl(
+    return _then(_$UInfoNameUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -243,22 +244,22 @@ class __$$UNameUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UNameUnknownValueImpl implements UNameUnknownValue {
-  const _$UNameUnknownValueImpl({required this.data});
+class _$UInfoNameUnknownValueImpl implements UInfoNameUnknownValue {
+  const _$UInfoNameUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'UName.unknownValue(data: $data)';
+    return 'UInfoName.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UNameUnknownValueImpl &&
+            other is _$UInfoNameUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -268,14 +269,14 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UNameUnknownValueImplCopyWith<_$UNameUnknownValueImpl> get copyWith =>
-      __$$UNameUnknownValueImplCopyWithImpl<_$UNameUnknownValueImpl>(
-          this, _$identity);
+  _$$UInfoNameUnknownValueImplCopyWith<_$UInfoNameUnknownValueImpl>
+      get copyWith => __$$UInfoNameUnknownValueImplCopyWithImpl<
+          _$UInfoNameUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownName data) knownValue,
+    required TResult Function(KnownInfoName data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -284,7 +285,7 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownName data)? knownValue,
+    TResult? Function(KnownInfoName data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -293,7 +294,7 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownName data)? knownValue,
+    TResult Function(KnownInfoName data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -306,8 +307,8 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UNameKnownValue value) knownValue,
-    required TResult Function(UNameUnknownValue value) unknownValue,
+    required TResult Function(UInfoNameKnownValue value) knownValue,
+    required TResult Function(UInfoNameUnknownValue value) unknownValue,
   }) {
     return unknownValue(this);
   }
@@ -315,8 +316,8 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UNameKnownValue value)? knownValue,
-    TResult? Function(UNameUnknownValue value)? unknownValue,
+    TResult? Function(UInfoNameKnownValue value)? knownValue,
+    TResult? Function(UInfoNameUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -324,8 +325,8 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UNameKnownValue value)? knownValue,
-    TResult Function(UNameUnknownValue value)? unknownValue,
+    TResult Function(UInfoNameKnownValue value)? knownValue,
+    TResult Function(UInfoNameUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -335,13 +336,13 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   }
 }
 
-abstract class UNameUnknownValue implements UName {
-  const factory UNameUnknownValue({required final String data}) =
-      _$UNameUnknownValueImpl;
+abstract class UInfoNameUnknownValue implements UInfoName {
+  const factory UInfoNameUnknownValue({required final String data}) =
+      _$UInfoNameUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$UNameUnknownValueImplCopyWith<_$UNameUnknownValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UInfoNameUnknownValueImplCopyWith<_$UInfoNameUnknownValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

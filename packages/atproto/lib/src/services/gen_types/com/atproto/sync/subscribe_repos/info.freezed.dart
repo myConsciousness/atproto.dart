@@ -25,8 +25,8 @@ mixin _$Info {
   /// `com.atproto.sync.subscribeRepos#info`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
-  @UNameConverter()
-  UName get name => throw _privateConstructorUsedError;
+  @UInfoNameConverter()
+  UInfoName get name => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,11 +45,11 @@ abstract class $InfoCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @UNameConverter() UName name,
+      @UInfoNameConverter() UInfoName name,
       String? message,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UNameCopyWith<$Res> get name;
+  $UInfoNameCopyWith<$Res> get name;
 }
 
 /// @nodoc
@@ -78,7 +78,7 @@ class _$InfoCopyWithImpl<$Res, $Val extends Info>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as UName,
+              as UInfoName,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -92,8 +92,8 @@ class _$InfoCopyWithImpl<$Res, $Val extends Info>
 
   @override
   @pragma('vm:prefer-inline')
-  $UNameCopyWith<$Res> get name {
-    return $UNameCopyWith<$Res>(_value.name, (value) {
+  $UInfoNameCopyWith<$Res> get name {
+    return $UInfoNameCopyWith<$Res>(_value.name, (value) {
       return _then(_value.copyWith(name: value) as $Val);
     });
   }
@@ -108,12 +108,12 @@ abstract class _$$InfoImplCopyWith<$Res> implements $InfoCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @UNameConverter() UName name,
+      @UInfoNameConverter() UInfoName name,
       String? message,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UNameCopyWith<$Res> get name;
+  $UInfoNameCopyWith<$Res> get name;
 }
 
 /// @nodoc
@@ -139,7 +139,7 @@ class __$$InfoImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as UName,
+              as UInfoName,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ class __$$InfoImplCopyWithImpl<$Res>
 class _$InfoImpl implements _Info {
   const _$InfoImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoSyncSubscribeReposInfo,
-      @UNameConverter() required this.name,
+      @UInfoNameConverter() required this.name,
       this.message,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -173,8 +173,8 @@ class _$InfoImpl implements _Info {
   @JsonKey(name: r'$type')
   final String $type;
   @override
-  @UNameConverter()
-  final UName name;
+  @UInfoNameConverter()
+  final UInfoName name;
   @override
   final String? message;
 
@@ -230,7 +230,7 @@ class _$InfoImpl implements _Info {
 abstract class _Info implements Info {
   const factory _Info(
           {@JsonKey(name: r'$type') final String $type,
-          @UNameConverter() required final UName name,
+          @UInfoNameConverter() required final UInfoName name,
           final String? message,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$InfoImpl;
@@ -245,8 +245,8 @@ abstract class _Info implements Info {
   @JsonKey(name: r'$type')
   String get $type;
   @override
-  @UNameConverter()
-  UName get name;
+  @UInfoNameConverter()
+  UInfoName get name;
   @override
   String? get message;
   @override

@@ -13,26 +13,24 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_sort.freezed.dart';
+part 'known_repo_op_action.freezed.dart';
 
-enum KnownSort {
-  @JsonValue('oldest')
-  oldest('oldest'),
-  @JsonValue('newest')
-  newest('newest'),
-  @JsonValue('most-likes')
-  mostLikes('most-likes'),
-  @JsonValue('random')
-  random('random'),
+enum KnownRepoOpAction {
+  @JsonValue('create')
+  create('create'),
+  @JsonValue('update')
+  update('update'),
+  @JsonValue('delete')
+  delete('delete'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownSort(this.value);
+  const KnownRepoOpAction(this.value);
 
-  /// Returns [KnownSort] associated with [value], otherwise null.
-  static KnownSort? valueOf(final String? value) {
+  /// Returns [KnownRepoOpAction] associated with [value], otherwise null.
+  static KnownRepoOpAction? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -45,33 +43,27 @@ enum KnownSort {
   }
 }
 
-extension $KnownSortExtension on KnownSort {
-  /// Returns this value as [USort].
-  USort toUnion() => USort.knownValue(data: this);
+extension $KnownRepoOpActionExtension on KnownRepoOpAction {
+  /// Returns this value as [URepoOpAction].
+  URepoOpAction toUnion() => URepoOpAction.knownValue(data: this);
 
-  /// Returns true if this value is [oldest], otherwise false.
-  bool get isOldest => this == KnownSort.oldest;
+  /// Returns true if this value is [create], otherwise false.
+  bool get isCreate => this == KnownRepoOpAction.create;
 
-  /// Returns true if this value is not [oldest], otherwise false.
-  bool get isNotOldest => !isOldest;
+  /// Returns true if this value is not [create], otherwise false.
+  bool get isNotCreate => !isCreate;
 
-  /// Returns true if this value is [newest], otherwise false.
-  bool get isNewest => this == KnownSort.newest;
+  /// Returns true if this value is [update], otherwise false.
+  bool get isUpdate => this == KnownRepoOpAction.update;
 
-  /// Returns true if this value is not [newest], otherwise false.
-  bool get isNotNewest => !isNewest;
+  /// Returns true if this value is not [update], otherwise false.
+  bool get isNotUpdate => !isUpdate;
 
-  /// Returns true if this value is [mostLikes], otherwise false.
-  bool get isMostLikes => this == KnownSort.mostLikes;
+  /// Returns true if this value is [delete], otherwise false.
+  bool get isDelete => this == KnownRepoOpAction.delete;
 
-  /// Returns true if this value is not [mostLikes], otherwise false.
-  bool get isNotMostLikes => !isMostLikes;
-
-  /// Returns true if this value is [random], otherwise false.
-  bool get isRandom => this == KnownSort.random;
-
-  /// Returns true if this value is not [random], otherwise false.
-  bool get isNotRandom => !isRandom;
+  /// Returns true if this value is not [delete], otherwise false.
+  bool get isNotDelete => !isDelete;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -91,59 +83,60 @@ extension $KnownSortExtension on KnownSort {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownSort
+///   knownValue: (data) => data, // => KnownRepoOpAction
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownSort or null
+///   print(object.knownValue); // => KnownRepoOpAction or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class USort with _$USort {
-  const factory USort.knownValue({
-    required KnownSort data,
-  }) = USortKnownValue;
+class URepoOpAction with _$URepoOpAction {
+  const factory URepoOpAction.knownValue({
+    required KnownRepoOpAction data,
+  }) = URepoOpActionKnownValue;
 
-  const factory USort.unknownValue({
+  const factory URepoOpAction.unknownValue({
     required String data,
-  }) = USortUnknownValue;
+  }) = URepoOpActionUnknownValue;
 }
 
-final class USortConverter implements JsonConverter<USort, String> {
-  const USortConverter();
+final class URepoOpActionConverter
+    implements JsonConverter<URepoOpAction, String> {
+  const URepoOpActionConverter();
 
   @override
-  USort fromJson(String json) {
-    final knownValue = KnownSort.valueOf(json);
+  URepoOpAction fromJson(String json) {
+    final knownValue = KnownRepoOpAction.valueOf(json);
 
     return knownValue != null
-        ? USort.knownValue(data: knownValue)
-        : USort.unknownValue(data: json);
+        ? URepoOpAction.knownValue(data: knownValue)
+        : URepoOpAction.unknownValue(data: json);
   }
 
   @override
-  String toJson(USort object) => object.when(
+  String toJson(URepoOpAction object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $USortExtension on USort {
+extension $URepoOpActionExtension on URepoOpAction {
   /// Returns string value.
-  String toJson() => const USortConverter().toJson(this);
+  String toJson() => const URepoOpActionConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is USortKnownValue;
+  bool get isKnownValue => this is URepoOpActionKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is USortUnknownValue;
+  bool get isUnknownValue => this is URepoOpActionUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -151,10 +144,10 @@ extension $USortExtension on USort {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownSort get knownValue => this.data as KnownSort;
+  KnownRepoOpAction get knownValue => this.data as KnownRepoOpAction;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownSort? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownRepoOpAction? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

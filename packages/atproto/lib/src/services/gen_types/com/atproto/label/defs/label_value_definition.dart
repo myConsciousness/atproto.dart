@@ -15,9 +15,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../com/atproto/label/defs/known_blur.dart';
-import '../../../../com/atproto/label/defs/known_default_setting.dart';
-import '../../../../com/atproto/label/defs/known_severity.dart';
+import '../../../../com/atproto/label/defs/known_label_value_definition_blur.dart';
+import '../../../../com/atproto/label/defs/known_label_value_definition_default_setting.dart';
+import '../../../../com/atproto/label/defs/known_label_value_definition_severity.dart';
 import '../../../../com/atproto/label/defs/label_value_definition_strings.dart';
 
 part 'label_value_definition.freezed.dart';
@@ -41,13 +41,16 @@ class LabelValueDefinition with _$LabelValueDefinition {
     required String identifier,
 
     /// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
-    @USeverityConverter() required USeverity severity,
+    @ULabelValueDefinitionSeverityConverter()
+    required ULabelValueDefinitionSeverity severity,
 
     /// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
-    @UBlurConverter() required UBlur blurs,
+    @ULabelValueDefinitionBlurConverter()
+    required ULabelValueDefinitionBlur blurs,
 
     /// The default setting for this label.
-    @UDefaultSettingConverter() UDefaultSetting? defaultSetting,
+    @ULabelValueDefinitionDefaultSettingConverter()
+    ULabelValueDefinitionDefaultSetting? defaultSetting,
 
     /// Does the user need to have adult content enabled in order to configure this label?
     @Default(false) bool adultOnly,

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_event.dart';
+part of 'known_repo_op_action.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,58 +15,59 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UEvent {
+mixin _$URepoOpAction {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownEvent data) knownValue,
+    required TResult Function(KnownRepoOpAction data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownEvent data)? knownValue,
+    TResult? Function(KnownRepoOpAction data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownEvent data)? knownValue,
+    TResult Function(KnownRepoOpAction data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventKnownValue value) knownValue,
-    required TResult Function(UEventUnknownValue value) unknownValue,
+    required TResult Function(URepoOpActionKnownValue value) knownValue,
+    required TResult Function(URepoOpActionUnknownValue value) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventKnownValue value)? knownValue,
-    TResult? Function(UEventUnknownValue value)? unknownValue,
+    TResult? Function(URepoOpActionKnownValue value)? knownValue,
+    TResult? Function(URepoOpActionUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventKnownValue value)? knownValue,
-    TResult Function(UEventUnknownValue value)? unknownValue,
+    TResult Function(URepoOpActionKnownValue value)? knownValue,
+    TResult Function(URepoOpActionUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UEventCopyWith<$Res> {
-  factory $UEventCopyWith(UEvent value, $Res Function(UEvent) then) =
-      _$UEventCopyWithImpl<$Res, UEvent>;
+abstract class $URepoOpActionCopyWith<$Res> {
+  factory $URepoOpActionCopyWith(
+          URepoOpAction value, $Res Function(URepoOpAction) then) =
+      _$URepoOpActionCopyWithImpl<$Res, URepoOpAction>;
 }
 
 /// @nodoc
-class _$UEventCopyWithImpl<$Res, $Val extends UEvent>
-    implements $UEventCopyWith<$Res> {
-  _$UEventCopyWithImpl(this._value, this._then);
+class _$URepoOpActionCopyWithImpl<$Res, $Val extends URepoOpAction>
+    implements $URepoOpActionCopyWith<$Res> {
+  _$URepoOpActionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,20 +76,22 @@ class _$UEventCopyWithImpl<$Res, $Val extends UEvent>
 }
 
 /// @nodoc
-abstract class _$$UEventKnownValueImplCopyWith<$Res> {
-  factory _$$UEventKnownValueImplCopyWith(_$UEventKnownValueImpl value,
-          $Res Function(_$UEventKnownValueImpl) then) =
-      __$$UEventKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$URepoOpActionKnownValueImplCopyWith<$Res> {
+  factory _$$URepoOpActionKnownValueImplCopyWith(
+          _$URepoOpActionKnownValueImpl value,
+          $Res Function(_$URepoOpActionKnownValueImpl) then) =
+      __$$URepoOpActionKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownEvent data});
+  $Res call({KnownRepoOpAction data});
 }
 
 /// @nodoc
-class __$$UEventKnownValueImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventKnownValueImpl>
-    implements _$$UEventKnownValueImplCopyWith<$Res> {
-  __$$UEventKnownValueImplCopyWithImpl(_$UEventKnownValueImpl _value,
-      $Res Function(_$UEventKnownValueImpl) _then)
+class __$$URepoOpActionKnownValueImplCopyWithImpl<$Res>
+    extends _$URepoOpActionCopyWithImpl<$Res, _$URepoOpActionKnownValueImpl>
+    implements _$$URepoOpActionKnownValueImplCopyWith<$Res> {
+  __$$URepoOpActionKnownValueImplCopyWithImpl(
+      _$URepoOpActionKnownValueImpl _value,
+      $Res Function(_$URepoOpActionKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,33 +99,33 @@ class __$$UEventKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventKnownValueImpl(
+    return _then(_$URepoOpActionKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownEvent,
+              as KnownRepoOpAction,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UEventKnownValueImpl implements UEventKnownValue {
-  const _$UEventKnownValueImpl({required this.data});
+class _$URepoOpActionKnownValueImpl implements URepoOpActionKnownValue {
+  const _$URepoOpActionKnownValueImpl({required this.data});
 
   @override
-  final KnownEvent data;
+  final KnownRepoOpAction data;
 
   @override
   String toString() {
-    return 'UEvent.knownValue(data: $data)';
+    return 'URepoOpAction.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventKnownValueImpl &&
+            other is _$URepoOpActionKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -132,14 +135,14 @@ class _$UEventKnownValueImpl implements UEventKnownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventKnownValueImplCopyWith<_$UEventKnownValueImpl> get copyWith =>
-      __$$UEventKnownValueImplCopyWithImpl<_$UEventKnownValueImpl>(
-          this, _$identity);
+  _$$URepoOpActionKnownValueImplCopyWith<_$URepoOpActionKnownValueImpl>
+      get copyWith => __$$URepoOpActionKnownValueImplCopyWithImpl<
+          _$URepoOpActionKnownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownEvent data) knownValue,
+    required TResult Function(KnownRepoOpAction data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -148,7 +151,7 @@ class _$UEventKnownValueImpl implements UEventKnownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownEvent data)? knownValue,
+    TResult? Function(KnownRepoOpAction data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -157,7 +160,7 @@ class _$UEventKnownValueImpl implements UEventKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownEvent data)? knownValue,
+    TResult Function(KnownRepoOpAction data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -170,8 +173,8 @@ class _$UEventKnownValueImpl implements UEventKnownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventKnownValue value) knownValue,
-    required TResult Function(UEventUnknownValue value) unknownValue,
+    required TResult Function(URepoOpActionKnownValue value) knownValue,
+    required TResult Function(URepoOpActionUnknownValue value) unknownValue,
   }) {
     return knownValue(this);
   }
@@ -179,8 +182,8 @@ class _$UEventKnownValueImpl implements UEventKnownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventKnownValue value)? knownValue,
-    TResult? Function(UEventUnknownValue value)? unknownValue,
+    TResult? Function(URepoOpActionKnownValue value)? knownValue,
+    TResult? Function(URepoOpActionUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -188,8 +191,8 @@ class _$UEventKnownValueImpl implements UEventKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventKnownValue value)? knownValue,
-    TResult Function(UEventUnknownValue value)? unknownValue,
+    TResult Function(URepoOpActionKnownValue value)? knownValue,
+    TResult Function(URepoOpActionUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -199,32 +202,34 @@ class _$UEventKnownValueImpl implements UEventKnownValue {
   }
 }
 
-abstract class UEventKnownValue implements UEvent {
-  const factory UEventKnownValue({required final KnownEvent data}) =
-      _$UEventKnownValueImpl;
+abstract class URepoOpActionKnownValue implements URepoOpAction {
+  const factory URepoOpActionKnownValue(
+      {required final KnownRepoOpAction data}) = _$URepoOpActionKnownValueImpl;
 
   @override
-  KnownEvent get data;
+  KnownRepoOpAction get data;
   @JsonKey(ignore: true)
-  _$$UEventKnownValueImplCopyWith<_$UEventKnownValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$URepoOpActionKnownValueImplCopyWith<_$URepoOpActionKnownValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventUnknownValueImplCopyWith<$Res> {
-  factory _$$UEventUnknownValueImplCopyWith(_$UEventUnknownValueImpl value,
-          $Res Function(_$UEventUnknownValueImpl) then) =
-      __$$UEventUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$URepoOpActionUnknownValueImplCopyWith<$Res> {
+  factory _$$URepoOpActionUnknownValueImplCopyWith(
+          _$URepoOpActionUnknownValueImpl value,
+          $Res Function(_$URepoOpActionUnknownValueImpl) then) =
+      __$$URepoOpActionUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$UEventUnknownValueImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventUnknownValueImpl>
-    implements _$$UEventUnknownValueImplCopyWith<$Res> {
-  __$$UEventUnknownValueImplCopyWithImpl(_$UEventUnknownValueImpl _value,
-      $Res Function(_$UEventUnknownValueImpl) _then)
+class __$$URepoOpActionUnknownValueImplCopyWithImpl<$Res>
+    extends _$URepoOpActionCopyWithImpl<$Res, _$URepoOpActionUnknownValueImpl>
+    implements _$$URepoOpActionUnknownValueImplCopyWith<$Res> {
+  __$$URepoOpActionUnknownValueImplCopyWithImpl(
+      _$URepoOpActionUnknownValueImpl _value,
+      $Res Function(_$URepoOpActionUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -232,7 +237,7 @@ class __$$UEventUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventUnknownValueImpl(
+    return _then(_$URepoOpActionUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -243,22 +248,22 @@ class __$$UEventUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventUnknownValueImpl implements UEventUnknownValue {
-  const _$UEventUnknownValueImpl({required this.data});
+class _$URepoOpActionUnknownValueImpl implements URepoOpActionUnknownValue {
+  const _$URepoOpActionUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'UEvent.unknownValue(data: $data)';
+    return 'URepoOpAction.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventUnknownValueImpl &&
+            other is _$URepoOpActionUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -268,14 +273,14 @@ class _$UEventUnknownValueImpl implements UEventUnknownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventUnknownValueImplCopyWith<_$UEventUnknownValueImpl> get copyWith =>
-      __$$UEventUnknownValueImplCopyWithImpl<_$UEventUnknownValueImpl>(
-          this, _$identity);
+  _$$URepoOpActionUnknownValueImplCopyWith<_$URepoOpActionUnknownValueImpl>
+      get copyWith => __$$URepoOpActionUnknownValueImplCopyWithImpl<
+          _$URepoOpActionUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownEvent data) knownValue,
+    required TResult Function(KnownRepoOpAction data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -284,7 +289,7 @@ class _$UEventUnknownValueImpl implements UEventUnknownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownEvent data)? knownValue,
+    TResult? Function(KnownRepoOpAction data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -293,7 +298,7 @@ class _$UEventUnknownValueImpl implements UEventUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownEvent data)? knownValue,
+    TResult Function(KnownRepoOpAction data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -306,8 +311,8 @@ class _$UEventUnknownValueImpl implements UEventUnknownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventKnownValue value) knownValue,
-    required TResult Function(UEventUnknownValue value) unknownValue,
+    required TResult Function(URepoOpActionKnownValue value) knownValue,
+    required TResult Function(URepoOpActionUnknownValue value) unknownValue,
   }) {
     return unknownValue(this);
   }
@@ -315,8 +320,8 @@ class _$UEventUnknownValueImpl implements UEventUnknownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventKnownValue value)? knownValue,
-    TResult? Function(UEventUnknownValue value)? unknownValue,
+    TResult? Function(URepoOpActionKnownValue value)? knownValue,
+    TResult? Function(URepoOpActionUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -324,8 +329,8 @@ class _$UEventUnknownValueImpl implements UEventUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventKnownValue value)? knownValue,
-    TResult Function(UEventUnknownValue value)? unknownValue,
+    TResult Function(URepoOpActionKnownValue value)? knownValue,
+    TResult Function(URepoOpActionUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -335,13 +340,13 @@ class _$UEventUnknownValueImpl implements UEventUnknownValue {
   }
 }
 
-abstract class UEventUnknownValue implements UEvent {
-  const factory UEventUnknownValue({required final String data}) =
-      _$UEventUnknownValueImpl;
+abstract class URepoOpActionUnknownValue implements URepoOpAction {
+  const factory URepoOpActionUnknownValue({required final String data}) =
+      _$URepoOpActionUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$UEventUnknownValueImplCopyWith<_$UEventUnknownValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$URepoOpActionUnknownValueImplCopyWith<_$URepoOpActionUnknownValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -13,26 +13,20 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_status.freezed.dart';
+part 'known_info_name.freezed.dart';
 
-enum KnownStatus {
-  @JsonValue('takendown')
-  takendown('takendown'),
-  @JsonValue('suspended')
-  suspended('suspended'),
-  @JsonValue('deleted')
-  deleted('deleted'),
-  @JsonValue('deactivated')
-  deactivated('deactivated'),
+enum KnownInfoName {
+  @JsonValue('OutdatedCursor')
+  outdatedCursor('OutdatedCursor'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownStatus(this.value);
+  const KnownInfoName(this.value);
 
-  /// Returns [KnownStatus] associated with [value], otherwise null.
-  static KnownStatus? valueOf(final String? value) {
+  /// Returns [KnownInfoName] associated with [value], otherwise null.
+  static KnownInfoName? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -45,33 +39,15 @@ enum KnownStatus {
   }
 }
 
-extension $KnownStatusExtension on KnownStatus {
-  /// Returns this value as [UStatus].
-  UStatus toUnion() => UStatus.knownValue(data: this);
+extension $KnownInfoNameExtension on KnownInfoName {
+  /// Returns this value as [UInfoName].
+  UInfoName toUnion() => UInfoName.knownValue(data: this);
 
-  /// Returns true if this value is [takendown], otherwise false.
-  bool get isTakendown => this == KnownStatus.takendown;
+  /// Returns true if this value is [outdatedCursor], otherwise false.
+  bool get isOutdatedCursor => this == KnownInfoName.outdatedCursor;
 
-  /// Returns true if this value is not [takendown], otherwise false.
-  bool get isNotTakendown => !isTakendown;
-
-  /// Returns true if this value is [suspended], otherwise false.
-  bool get isSuspended => this == KnownStatus.suspended;
-
-  /// Returns true if this value is not [suspended], otherwise false.
-  bool get isNotSuspended => !isSuspended;
-
-  /// Returns true if this value is [deleted], otherwise false.
-  bool get isDeleted => this == KnownStatus.deleted;
-
-  /// Returns true if this value is not [deleted], otherwise false.
-  bool get isNotDeleted => !isDeleted;
-
-  /// Returns true if this value is [deactivated], otherwise false.
-  bool get isDeactivated => this == KnownStatus.deactivated;
-
-  /// Returns true if this value is not [deactivated], otherwise false.
-  bool get isNotDeactivated => !isDeactivated;
+  /// Returns true if this value is not [outdatedCursor], otherwise false.
+  bool get isNotOutdatedCursor => !isOutdatedCursor;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -91,59 +67,59 @@ extension $KnownStatusExtension on KnownStatus {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownStatus
+///   knownValue: (data) => data, // => KnownInfoName
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownStatus or null
+///   print(object.knownValue); // => KnownInfoName or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UStatus with _$UStatus {
-  const factory UStatus.knownValue({
-    required KnownStatus data,
-  }) = UStatusKnownValue;
+class UInfoName with _$UInfoName {
+  const factory UInfoName.knownValue({
+    required KnownInfoName data,
+  }) = UInfoNameKnownValue;
 
-  const factory UStatus.unknownValue({
+  const factory UInfoName.unknownValue({
     required String data,
-  }) = UStatusUnknownValue;
+  }) = UInfoNameUnknownValue;
 }
 
-final class UStatusConverter implements JsonConverter<UStatus, String> {
-  const UStatusConverter();
+final class UInfoNameConverter implements JsonConverter<UInfoName, String> {
+  const UInfoNameConverter();
 
   @override
-  UStatus fromJson(String json) {
-    final knownValue = KnownStatus.valueOf(json);
+  UInfoName fromJson(String json) {
+    final knownValue = KnownInfoName.valueOf(json);
 
     return knownValue != null
-        ? UStatus.knownValue(data: knownValue)
-        : UStatus.unknownValue(data: json);
+        ? UInfoName.knownValue(data: knownValue)
+        : UInfoName.unknownValue(data: json);
   }
 
   @override
-  String toJson(UStatus object) => object.when(
+  String toJson(UInfoName object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UStatusExtension on UStatus {
+extension $UInfoNameExtension on UInfoName {
   /// Returns string value.
-  String toJson() => const UStatusConverter().toJson(this);
+  String toJson() => const UInfoNameConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UStatusKnownValue;
+  bool get isKnownValue => this is UInfoNameKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UStatusUnknownValue;
+  bool get isUnknownValue => this is UInfoNameUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -151,10 +127,10 @@ extension $UStatusExtension on UStatus {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownStatus get knownValue => this.data as KnownStatus;
+  KnownInfoName get knownValue => this.data as KnownInfoName;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownStatus? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownInfoName? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

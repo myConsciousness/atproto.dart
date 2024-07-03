@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import '../services/gen_types/app/bsky/actor/defs/content_label_pref.dart';
-import '../services/gen_types/app/bsky/actor/defs/known_visibility.dart';
+import '../services/gen_types/app/bsky/actor/defs/known_content_label_pref_visibility.dart';
 import '../services/gen_types/app/bsky/actor/defs/labelers_pref.dart';
 import '../services/gen_types/app/bsky/actor/defs/muted_word.dart';
 import '../services/gen_types/app/bsky/actor/defs/preferences.dart';
@@ -227,12 +227,12 @@ extension PreferencesExtension on Preferences {
   }
 
   LabelPreference _getModerationLabelPreference(
-    final UVisibility visibility,
+    final UContentLabelPrefVisibility visibility,
   ) {
     if (visibility.isUnknownValue) return LabelPreference.warn;
 
     final knownVisibility = visibility.knownValue;
-    if (knownVisibility == KnownVisibility.show) {
+    if (knownVisibility == KnownContentLabelPrefVisibility.show) {
       return LabelPreference.ignore;
     }
 

@@ -13,24 +13,24 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_allow_incoming.freezed.dart';
+part 'known_label_value_definition_severity.freezed.dart';
 
-enum KnownAllowIncoming {
-  @JsonValue('all')
-  all('all'),
+enum KnownLabelValueDefinitionSeverity {
+  @JsonValue('inform')
+  inform('inform'),
+  @JsonValue('alert')
+  alert('alert'),
   @JsonValue('none')
   none('none'),
-  @JsonValue('following')
-  following('following'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownAllowIncoming(this.value);
+  const KnownLabelValueDefinitionSeverity(this.value);
 
-  /// Returns [KnownAllowIncoming] associated with [value], otherwise null.
-  static KnownAllowIncoming? valueOf(final String? value) {
+  /// Returns [KnownLabelValueDefinitionSeverity] associated with [value], otherwise null.
+  static KnownLabelValueDefinitionSeverity? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,27 +43,29 @@ enum KnownAllowIncoming {
   }
 }
 
-extension $KnownAllowIncomingExtension on KnownAllowIncoming {
-  /// Returns this value as [UAllowIncoming].
-  UAllowIncoming toUnion() => UAllowIncoming.knownValue(data: this);
+extension $KnownLabelValueDefinitionSeverityExtension
+    on KnownLabelValueDefinitionSeverity {
+  /// Returns this value as [ULabelValueDefinitionSeverity].
+  ULabelValueDefinitionSeverity toUnion() =>
+      ULabelValueDefinitionSeverity.knownValue(data: this);
 
-  /// Returns true if this value is [all], otherwise false.
-  bool get isAll => this == KnownAllowIncoming.all;
+  /// Returns true if this value is [inform], otherwise false.
+  bool get isInform => this == KnownLabelValueDefinitionSeverity.inform;
 
-  /// Returns true if this value is not [all], otherwise false.
-  bool get isNotAll => !isAll;
+  /// Returns true if this value is not [inform], otherwise false.
+  bool get isNotInform => !isInform;
+
+  /// Returns true if this value is [alert], otherwise false.
+  bool get isAlert => this == KnownLabelValueDefinitionSeverity.alert;
+
+  /// Returns true if this value is not [alert], otherwise false.
+  bool get isNotAlert => !isAlert;
 
   /// Returns true if this value is [none], otherwise false.
-  bool get isNone => this == KnownAllowIncoming.none;
+  bool get isNone => this == KnownLabelValueDefinitionSeverity.none;
 
   /// Returns true if this value is not [none], otherwise false.
   bool get isNotNone => !isNone;
-
-  /// Returns true if this value is [following], otherwise false.
-  bool get isFollowing => this == KnownAllowIncoming.following;
-
-  /// Returns true if this value is not [following], otherwise false.
-  bool get isNotFollowing => !isFollowing;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -83,60 +85,62 @@ extension $KnownAllowIncomingExtension on KnownAllowIncoming {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownAllowIncoming
+///   knownValue: (data) => data, // => KnownLabelValueDefinitionSeverity
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownAllowIncoming or null
+///   print(object.knownValue); // => KnownLabelValueDefinitionSeverity or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UAllowIncoming with _$UAllowIncoming {
-  const factory UAllowIncoming.knownValue({
-    required KnownAllowIncoming data,
-  }) = UAllowIncomingKnownValue;
+class ULabelValueDefinitionSeverity with _$ULabelValueDefinitionSeverity {
+  const factory ULabelValueDefinitionSeverity.knownValue({
+    required KnownLabelValueDefinitionSeverity data,
+  }) = ULabelValueDefinitionSeverityKnownValue;
 
-  const factory UAllowIncoming.unknownValue({
+  const factory ULabelValueDefinitionSeverity.unknownValue({
     required String data,
-  }) = UAllowIncomingUnknownValue;
+  }) = ULabelValueDefinitionSeverityUnknownValue;
 }
 
-final class UAllowIncomingConverter
-    implements JsonConverter<UAllowIncoming, String> {
-  const UAllowIncomingConverter();
+final class ULabelValueDefinitionSeverityConverter
+    implements JsonConverter<ULabelValueDefinitionSeverity, String> {
+  const ULabelValueDefinitionSeverityConverter();
 
   @override
-  UAllowIncoming fromJson(String json) {
-    final knownValue = KnownAllowIncoming.valueOf(json);
+  ULabelValueDefinitionSeverity fromJson(String json) {
+    final knownValue = KnownLabelValueDefinitionSeverity.valueOf(json);
 
     return knownValue != null
-        ? UAllowIncoming.knownValue(data: knownValue)
-        : UAllowIncoming.unknownValue(data: json);
+        ? ULabelValueDefinitionSeverity.knownValue(data: knownValue)
+        : ULabelValueDefinitionSeverity.unknownValue(data: json);
   }
 
   @override
-  String toJson(UAllowIncoming object) => object.when(
+  String toJson(ULabelValueDefinitionSeverity object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UAllowIncomingExtension on UAllowIncoming {
+extension $ULabelValueDefinitionSeverityExtension
+    on ULabelValueDefinitionSeverity {
   /// Returns string value.
-  String toJson() => const UAllowIncomingConverter().toJson(this);
+  String toJson() =>
+      const ULabelValueDefinitionSeverityConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UAllowIncomingKnownValue;
+  bool get isKnownValue => this is ULabelValueDefinitionSeverityKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UAllowIncomingUnknownValue;
+  bool get isUnknownValue => this is ULabelValueDefinitionSeverityUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -144,10 +148,12 @@ extension $UAllowIncomingExtension on UAllowIncoming {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownAllowIncoming get knownValue => this.data as KnownAllowIncoming;
+  KnownLabelValueDefinitionSeverity get knownValue =>
+      this.data as KnownLabelValueDefinitionSeverity;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownAllowIncoming? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownLabelValueDefinitionSeverity? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

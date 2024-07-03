@@ -27,8 +27,8 @@ mixin _$ThreadViewPref {
   String get $type => throw _privateConstructorUsedError;
 
   /// Sorting mode for threads.
-  @USortConverter()
-  USort? get sort => throw _privateConstructorUsedError;
+  @UThreadViewPrefSortConverter()
+  UThreadViewPrefSort? get sort => throw _privateConstructorUsedError;
 
   /// Show followed users at the top of all replies.
   bool get prioritizeFollowedUsers => throw _privateConstructorUsedError;
@@ -51,11 +51,11 @@ abstract class $ThreadViewPrefCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @USortConverter() USort? sort,
+      @UThreadViewPrefSortConverter() UThreadViewPrefSort? sort,
       bool prioritizeFollowedUsers,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $USortCopyWith<$Res>? get sort;
+  $UThreadViewPrefSortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -84,7 +84,7 @@ class _$ThreadViewPrefCopyWithImpl<$Res, $Val extends ThreadViewPref>
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as USort?,
+              as UThreadViewPrefSort?,
       prioritizeFollowedUsers: null == prioritizeFollowedUsers
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
@@ -98,12 +98,12 @@ class _$ThreadViewPrefCopyWithImpl<$Res, $Val extends ThreadViewPref>
 
   @override
   @pragma('vm:prefer-inline')
-  $USortCopyWith<$Res>? get sort {
+  $UThreadViewPrefSortCopyWith<$Res>? get sort {
     if (_value.sort == null) {
       return null;
     }
 
-    return $USortCopyWith<$Res>(_value.sort!, (value) {
+    return $UThreadViewPrefSortCopyWith<$Res>(_value.sort!, (value) {
       return _then(_value.copyWith(sort: value) as $Val);
     });
   }
@@ -119,12 +119,12 @@ abstract class _$$ThreadViewPrefImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @USortConverter() USort? sort,
+      @UThreadViewPrefSortConverter() UThreadViewPrefSort? sort,
       bool prioritizeFollowedUsers,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $USortCopyWith<$Res>? get sort;
+  $UThreadViewPrefSortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -151,7 +151,7 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as USort?,
+              as UThreadViewPrefSort?,
       prioritizeFollowedUsers: null == prioritizeFollowedUsers
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
@@ -170,7 +170,7 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
 class _$ThreadViewPrefImpl implements _ThreadViewPref {
   const _$ThreadViewPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsThreadViewPref,
-      @USortConverter() this.sort,
+      @UThreadViewPrefSortConverter() this.sort,
       this.prioritizeFollowedUsers = false,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -187,8 +187,8 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 
   /// Sorting mode for threads.
   @override
-  @USortConverter()
-  final USort? sort;
+  @UThreadViewPrefSortConverter()
+  final UThreadViewPrefSort? sort;
 
   /// Show followed users at the top of all replies.
   @override
@@ -250,7 +250,7 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 abstract class _ThreadViewPref implements ThreadViewPref {
   const factory _ThreadViewPref(
           {@JsonKey(name: r'$type') final String $type,
-          @USortConverter() final USort? sort,
+          @UThreadViewPrefSortConverter() final UThreadViewPrefSort? sort,
           final bool prioritizeFollowedUsers,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ThreadViewPrefImpl;
@@ -268,8 +268,8 @@ abstract class _ThreadViewPref implements ThreadViewPref {
   @override
 
   /// Sorting mode for threads.
-  @USortConverter()
-  USort? get sort;
+  @UThreadViewPrefSortConverter()
+  UThreadViewPrefSort? get sort;
   @override
 
   /// Show followed users at the top of all replies.

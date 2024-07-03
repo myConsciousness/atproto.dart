@@ -14,4 +14,4 @@ export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_label
 export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/params.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/labels.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/info.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/known_name.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/known_info_name.dart';

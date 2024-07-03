@@ -32,8 +32,8 @@ mixin _$Notification {
   ProfileView get author => throw _privateConstructorUsedError;
 
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.
-  @UReasonConverter()
-  UReason get reason => throw _privateConstructorUsedError;
+  @UNotificationReasonConverter()
+  UNotificationReason get reason => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
@@ -63,7 +63,7 @@ abstract class $NotificationCopyWith<$Res> {
       @AtUriConverter() AtUri uri,
       String cid,
       @ProfileViewConverter() ProfileView author,
-      @UReasonConverter() UReason reason,
+      @UNotificationReasonConverter() UNotificationReason reason,
       @AtUriConverter() AtUri? reasonSubject,
       Map<String, dynamic> record,
       bool isRead,
@@ -72,7 +72,7 @@ abstract class $NotificationCopyWith<$Res> {
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $ProfileViewCopyWith<$Res> get author;
-  $UReasonCopyWith<$Res> get reason;
+  $UNotificationReasonCopyWith<$Res> get reason;
 }
 
 /// @nodoc
@@ -120,7 +120,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as UReason,
+              as UNotificationReason,
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
@@ -158,8 +158,8 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
 
   @override
   @pragma('vm:prefer-inline')
-  $UReasonCopyWith<$Res> get reason {
-    return $UReasonCopyWith<$Res>(_value.reason, (value) {
+  $UNotificationReasonCopyWith<$Res> get reason {
+    return $UNotificationReasonCopyWith<$Res>(_value.reason, (value) {
       return _then(_value.copyWith(reason: value) as $Val);
     });
   }
@@ -178,7 +178,7 @@ abstract class _$$NotificationImplCopyWith<$Res>
       @AtUriConverter() AtUri uri,
       String cid,
       @ProfileViewConverter() ProfileView author,
-      @UReasonConverter() UReason reason,
+      @UNotificationReasonConverter() UNotificationReason reason,
       @AtUriConverter() AtUri? reasonSubject,
       Map<String, dynamic> record,
       bool isRead,
@@ -189,7 +189,7 @@ abstract class _$$NotificationImplCopyWith<$Res>
   @override
   $ProfileViewCopyWith<$Res> get author;
   @override
-  $UReasonCopyWith<$Res> get reason;
+  $UNotificationReasonCopyWith<$Res> get reason;
 }
 
 /// @nodoc
@@ -235,7 +235,7 @@ class __$$NotificationImplCopyWithImpl<$Res>
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as UReason,
+              as UNotificationReason,
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
@@ -274,7 +274,7 @@ class _$NotificationImpl implements _Notification {
       @AtUriConverter() required this.uri,
       required this.cid,
       @ProfileViewConverter() required this.author,
-      @UReasonConverter() required this.reason,
+      @UNotificationReasonConverter() required this.reason,
       @AtUriConverter() this.reasonSubject,
       required final Map<String, dynamic> record,
       required this.isRead,
@@ -305,8 +305,8 @@ class _$NotificationImpl implements _Notification {
 
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.
   @override
-  @UReasonConverter()
-  final UReason reason;
+  @UNotificationReasonConverter()
+  final UNotificationReason reason;
   @override
   @AtUriConverter()
   final AtUri? reasonSubject;
@@ -404,18 +404,18 @@ class _$NotificationImpl implements _Notification {
 
 abstract class _Notification implements Notification {
   const factory _Notification(
-          {@JsonKey(name: r'$type') final String $type,
-          @AtUriConverter() required final AtUri uri,
-          required final String cid,
-          @ProfileViewConverter() required final ProfileView author,
-          @UReasonConverter() required final UReason reason,
-          @AtUriConverter() final AtUri? reasonSubject,
-          required final Map<String, dynamic> record,
-          required final bool isRead,
-          required final DateTime indexedAt,
-          @LabelConverter() final List<Label>? labels,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
-      _$NotificationImpl;
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
+      required final String cid,
+      @ProfileViewConverter() required final ProfileView author,
+      @UNotificationReasonConverter() required final UNotificationReason reason,
+      @AtUriConverter() final AtUri? reasonSubject,
+      required final Map<String, dynamic> record,
+      required final bool isRead,
+      required final DateTime indexedAt,
+      @LabelConverter() final List<Label>? labels,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic>? $unknown}) = _$NotificationImpl;
 
   factory _Notification.fromJson(Map<String, dynamic> json) =
       _$NotificationImpl.fromJson;
@@ -438,8 +438,8 @@ abstract class _Notification implements Notification {
   @override
 
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.
-  @UReasonConverter()
-  UReason get reason;
+  @UNotificationReasonConverter()
+  UNotificationReason get reason;
   @override
   @AtUriConverter()
   AtUri? get reasonSubject;

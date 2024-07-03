@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_name.dart';
+part of 'known_saved_feed_type.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,58 +15,59 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UName {
+mixin _$USavedFeedType {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownName data) knownValue,
+    required TResult Function(KnownSavedFeedType data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownName data)? knownValue,
+    TResult? Function(KnownSavedFeedType data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownName data)? knownValue,
+    TResult Function(KnownSavedFeedType data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UNameKnownValue value) knownValue,
-    required TResult Function(UNameUnknownValue value) unknownValue,
+    required TResult Function(USavedFeedTypeKnownValue value) knownValue,
+    required TResult Function(USavedFeedTypeUnknownValue value) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UNameKnownValue value)? knownValue,
-    TResult? Function(UNameUnknownValue value)? unknownValue,
+    TResult? Function(USavedFeedTypeKnownValue value)? knownValue,
+    TResult? Function(USavedFeedTypeUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UNameKnownValue value)? knownValue,
-    TResult Function(UNameUnknownValue value)? unknownValue,
+    TResult Function(USavedFeedTypeKnownValue value)? knownValue,
+    TResult Function(USavedFeedTypeUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UNameCopyWith<$Res> {
-  factory $UNameCopyWith(UName value, $Res Function(UName) then) =
-      _$UNameCopyWithImpl<$Res, UName>;
+abstract class $USavedFeedTypeCopyWith<$Res> {
+  factory $USavedFeedTypeCopyWith(
+          USavedFeedType value, $Res Function(USavedFeedType) then) =
+      _$USavedFeedTypeCopyWithImpl<$Res, USavedFeedType>;
 }
 
 /// @nodoc
-class _$UNameCopyWithImpl<$Res, $Val extends UName>
-    implements $UNameCopyWith<$Res> {
-  _$UNameCopyWithImpl(this._value, this._then);
+class _$USavedFeedTypeCopyWithImpl<$Res, $Val extends USavedFeedType>
+    implements $USavedFeedTypeCopyWith<$Res> {
+  _$USavedFeedTypeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,20 +76,22 @@ class _$UNameCopyWithImpl<$Res, $Val extends UName>
 }
 
 /// @nodoc
-abstract class _$$UNameKnownValueImplCopyWith<$Res> {
-  factory _$$UNameKnownValueImplCopyWith(_$UNameKnownValueImpl value,
-          $Res Function(_$UNameKnownValueImpl) then) =
-      __$$UNameKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$USavedFeedTypeKnownValueImplCopyWith<$Res> {
+  factory _$$USavedFeedTypeKnownValueImplCopyWith(
+          _$USavedFeedTypeKnownValueImpl value,
+          $Res Function(_$USavedFeedTypeKnownValueImpl) then) =
+      __$$USavedFeedTypeKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownName data});
+  $Res call({KnownSavedFeedType data});
 }
 
 /// @nodoc
-class __$$UNameKnownValueImplCopyWithImpl<$Res>
-    extends _$UNameCopyWithImpl<$Res, _$UNameKnownValueImpl>
-    implements _$$UNameKnownValueImplCopyWith<$Res> {
-  __$$UNameKnownValueImplCopyWithImpl(
-      _$UNameKnownValueImpl _value, $Res Function(_$UNameKnownValueImpl) _then)
+class __$$USavedFeedTypeKnownValueImplCopyWithImpl<$Res>
+    extends _$USavedFeedTypeCopyWithImpl<$Res, _$USavedFeedTypeKnownValueImpl>
+    implements _$$USavedFeedTypeKnownValueImplCopyWith<$Res> {
+  __$$USavedFeedTypeKnownValueImplCopyWithImpl(
+      _$USavedFeedTypeKnownValueImpl _value,
+      $Res Function(_$USavedFeedTypeKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,33 +99,33 @@ class __$$UNameKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UNameKnownValueImpl(
+    return _then(_$USavedFeedTypeKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownName,
+              as KnownSavedFeedType,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UNameKnownValueImpl implements UNameKnownValue {
-  const _$UNameKnownValueImpl({required this.data});
+class _$USavedFeedTypeKnownValueImpl implements USavedFeedTypeKnownValue {
+  const _$USavedFeedTypeKnownValueImpl({required this.data});
 
   @override
-  final KnownName data;
+  final KnownSavedFeedType data;
 
   @override
   String toString() {
-    return 'UName.knownValue(data: $data)';
+    return 'USavedFeedType.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UNameKnownValueImpl &&
+            other is _$USavedFeedTypeKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -132,14 +135,14 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UNameKnownValueImplCopyWith<_$UNameKnownValueImpl> get copyWith =>
-      __$$UNameKnownValueImplCopyWithImpl<_$UNameKnownValueImpl>(
-          this, _$identity);
+  _$$USavedFeedTypeKnownValueImplCopyWith<_$USavedFeedTypeKnownValueImpl>
+      get copyWith => __$$USavedFeedTypeKnownValueImplCopyWithImpl<
+          _$USavedFeedTypeKnownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownName data) knownValue,
+    required TResult Function(KnownSavedFeedType data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -148,7 +151,7 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownName data)? knownValue,
+    TResult? Function(KnownSavedFeedType data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -157,7 +160,7 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownName data)? knownValue,
+    TResult Function(KnownSavedFeedType data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -170,8 +173,8 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UNameKnownValue value) knownValue,
-    required TResult Function(UNameUnknownValue value) unknownValue,
+    required TResult Function(USavedFeedTypeKnownValue value) knownValue,
+    required TResult Function(USavedFeedTypeUnknownValue value) unknownValue,
   }) {
     return knownValue(this);
   }
@@ -179,8 +182,8 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UNameKnownValue value)? knownValue,
-    TResult? Function(UNameUnknownValue value)? unknownValue,
+    TResult? Function(USavedFeedTypeKnownValue value)? knownValue,
+    TResult? Function(USavedFeedTypeUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -188,8 +191,8 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UNameKnownValue value)? knownValue,
-    TResult Function(UNameUnknownValue value)? unknownValue,
+    TResult Function(USavedFeedTypeKnownValue value)? knownValue,
+    TResult Function(USavedFeedTypeUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -199,32 +202,35 @@ class _$UNameKnownValueImpl implements UNameKnownValue {
   }
 }
 
-abstract class UNameKnownValue implements UName {
-  const factory UNameKnownValue({required final KnownName data}) =
-      _$UNameKnownValueImpl;
+abstract class USavedFeedTypeKnownValue implements USavedFeedType {
+  const factory USavedFeedTypeKnownValue(
+          {required final KnownSavedFeedType data}) =
+      _$USavedFeedTypeKnownValueImpl;
 
   @override
-  KnownName get data;
+  KnownSavedFeedType get data;
   @JsonKey(ignore: true)
-  _$$UNameKnownValueImplCopyWith<_$UNameKnownValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USavedFeedTypeKnownValueImplCopyWith<_$USavedFeedTypeKnownValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UNameUnknownValueImplCopyWith<$Res> {
-  factory _$$UNameUnknownValueImplCopyWith(_$UNameUnknownValueImpl value,
-          $Res Function(_$UNameUnknownValueImpl) then) =
-      __$$UNameUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$USavedFeedTypeUnknownValueImplCopyWith<$Res> {
+  factory _$$USavedFeedTypeUnknownValueImplCopyWith(
+          _$USavedFeedTypeUnknownValueImpl value,
+          $Res Function(_$USavedFeedTypeUnknownValueImpl) then) =
+      __$$USavedFeedTypeUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$UNameUnknownValueImplCopyWithImpl<$Res>
-    extends _$UNameCopyWithImpl<$Res, _$UNameUnknownValueImpl>
-    implements _$$UNameUnknownValueImplCopyWith<$Res> {
-  __$$UNameUnknownValueImplCopyWithImpl(_$UNameUnknownValueImpl _value,
-      $Res Function(_$UNameUnknownValueImpl) _then)
+class __$$USavedFeedTypeUnknownValueImplCopyWithImpl<$Res>
+    extends _$USavedFeedTypeCopyWithImpl<$Res, _$USavedFeedTypeUnknownValueImpl>
+    implements _$$USavedFeedTypeUnknownValueImplCopyWith<$Res> {
+  __$$USavedFeedTypeUnknownValueImplCopyWithImpl(
+      _$USavedFeedTypeUnknownValueImpl _value,
+      $Res Function(_$USavedFeedTypeUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -232,7 +238,7 @@ class __$$UNameUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UNameUnknownValueImpl(
+    return _then(_$USavedFeedTypeUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -243,22 +249,22 @@ class __$$UNameUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UNameUnknownValueImpl implements UNameUnknownValue {
-  const _$UNameUnknownValueImpl({required this.data});
+class _$USavedFeedTypeUnknownValueImpl implements USavedFeedTypeUnknownValue {
+  const _$USavedFeedTypeUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'UName.unknownValue(data: $data)';
+    return 'USavedFeedType.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UNameUnknownValueImpl &&
+            other is _$USavedFeedTypeUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -268,14 +274,14 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UNameUnknownValueImplCopyWith<_$UNameUnknownValueImpl> get copyWith =>
-      __$$UNameUnknownValueImplCopyWithImpl<_$UNameUnknownValueImpl>(
-          this, _$identity);
+  _$$USavedFeedTypeUnknownValueImplCopyWith<_$USavedFeedTypeUnknownValueImpl>
+      get copyWith => __$$USavedFeedTypeUnknownValueImplCopyWithImpl<
+          _$USavedFeedTypeUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownName data) knownValue,
+    required TResult Function(KnownSavedFeedType data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -284,7 +290,7 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownName data)? knownValue,
+    TResult? Function(KnownSavedFeedType data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -293,7 +299,7 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownName data)? knownValue,
+    TResult Function(KnownSavedFeedType data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -306,8 +312,8 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UNameKnownValue value) knownValue,
-    required TResult Function(UNameUnknownValue value) unknownValue,
+    required TResult Function(USavedFeedTypeKnownValue value) knownValue,
+    required TResult Function(USavedFeedTypeUnknownValue value) unknownValue,
   }) {
     return unknownValue(this);
   }
@@ -315,8 +321,8 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UNameKnownValue value)? knownValue,
-    TResult? Function(UNameUnknownValue value)? unknownValue,
+    TResult? Function(USavedFeedTypeKnownValue value)? knownValue,
+    TResult? Function(USavedFeedTypeUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -324,8 +330,8 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UNameKnownValue value)? knownValue,
-    TResult Function(UNameUnknownValue value)? unknownValue,
+    TResult Function(USavedFeedTypeKnownValue value)? knownValue,
+    TResult Function(USavedFeedTypeUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -335,13 +341,13 @@ class _$UNameUnknownValueImpl implements UNameUnknownValue {
   }
 }
 
-abstract class UNameUnknownValue implements UName {
-  const factory UNameUnknownValue({required final String data}) =
-      _$UNameUnknownValueImpl;
+abstract class USavedFeedTypeUnknownValue implements USavedFeedType {
+  const factory USavedFeedTypeUnknownValue({required final String data}) =
+      _$USavedFeedTypeUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$UNameUnknownValueImplCopyWith<_$UNameUnknownValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USavedFeedTypeUnknownValueImplCopyWith<_$USavedFeedTypeUnknownValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

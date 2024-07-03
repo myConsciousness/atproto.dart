@@ -16,7 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/feed/defs/known_event.dart';
+import '../../../../app/bsky/feed/defs/known_interaction_event.dart';
 
 part 'interaction.freezed.dart';
 part 'interaction.g.dart';
@@ -31,7 +31,7 @@ class Interaction with _$Interaction {
     /// `app.bsky.feed.defs#interaction`
     @Default(appBskyFeedDefsInteraction) @JsonKey(name: r'$type') String $type,
     @AtUriConverter() AtUri? item,
-    @UEventConverter() UEvent? event,
+    @UInteractionEventConverter() UInteractionEvent? event,
 
     /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
     String? feedContext,

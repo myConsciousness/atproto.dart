@@ -30,16 +30,18 @@ mixin _$LabelValueDefinition {
   String get identifier => throw _privateConstructorUsedError;
 
   /// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
-  @USeverityConverter()
-  USeverity get severity => throw _privateConstructorUsedError;
+  @ULabelValueDefinitionSeverityConverter()
+  ULabelValueDefinitionSeverity get severity =>
+      throw _privateConstructorUsedError;
 
   /// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
-  @UBlurConverter()
-  UBlur get blurs => throw _privateConstructorUsedError;
+  @ULabelValueDefinitionBlurConverter()
+  ULabelValueDefinitionBlur get blurs => throw _privateConstructorUsedError;
 
   /// The default setting for this label.
-  @UDefaultSettingConverter()
-  UDefaultSetting? get defaultSetting => throw _privateConstructorUsedError;
+  @ULabelValueDefinitionDefaultSettingConverter()
+  ULabelValueDefinitionDefaultSetting? get defaultSetting =>
+      throw _privateConstructorUsedError;
 
   /// Does the user need to have adult content enabled in order to configure this label?
   bool get adultOnly => throw _privateConstructorUsedError;
@@ -66,17 +68,19 @@ abstract class $LabelValueDefinitionCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String identifier,
-      @USeverityConverter() USeverity severity,
-      @UBlurConverter() UBlur blurs,
-      @UDefaultSettingConverter() UDefaultSetting? defaultSetting,
+      @ULabelValueDefinitionSeverityConverter()
+      ULabelValueDefinitionSeverity severity,
+      @ULabelValueDefinitionBlurConverter() ULabelValueDefinitionBlur blurs,
+      @ULabelValueDefinitionDefaultSettingConverter()
+      ULabelValueDefinitionDefaultSetting? defaultSetting,
       bool adultOnly,
       @LabelValueDefinitionStringsConverter()
       List<LabelValueDefinitionStrings> locales,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $USeverityCopyWith<$Res> get severity;
-  $UBlurCopyWith<$Res> get blurs;
-  $UDefaultSettingCopyWith<$Res>? get defaultSetting;
+  $ULabelValueDefinitionSeverityCopyWith<$Res> get severity;
+  $ULabelValueDefinitionBlurCopyWith<$Res> get blurs;
+  $ULabelValueDefinitionDefaultSettingCopyWith<$Res>? get defaultSetting;
 }
 
 /// @nodoc
@@ -114,15 +118,15 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
       severity: null == severity
           ? _value.severity
           : severity // ignore: cast_nullable_to_non_nullable
-              as USeverity,
+              as ULabelValueDefinitionSeverity,
       blurs: null == blurs
           ? _value.blurs
           : blurs // ignore: cast_nullable_to_non_nullable
-              as UBlur,
+              as ULabelValueDefinitionBlur,
       defaultSetting: freezed == defaultSetting
           ? _value.defaultSetting
           : defaultSetting // ignore: cast_nullable_to_non_nullable
-              as UDefaultSetting?,
+              as ULabelValueDefinitionDefaultSetting?,
       adultOnly: null == adultOnly
           ? _value.adultOnly
           : adultOnly // ignore: cast_nullable_to_non_nullable
@@ -140,28 +144,30 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $USeverityCopyWith<$Res> get severity {
-    return $USeverityCopyWith<$Res>(_value.severity, (value) {
+  $ULabelValueDefinitionSeverityCopyWith<$Res> get severity {
+    return $ULabelValueDefinitionSeverityCopyWith<$Res>(_value.severity,
+        (value) {
       return _then(_value.copyWith(severity: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UBlurCopyWith<$Res> get blurs {
-    return $UBlurCopyWith<$Res>(_value.blurs, (value) {
+  $ULabelValueDefinitionBlurCopyWith<$Res> get blurs {
+    return $ULabelValueDefinitionBlurCopyWith<$Res>(_value.blurs, (value) {
       return _then(_value.copyWith(blurs: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UDefaultSettingCopyWith<$Res>? get defaultSetting {
+  $ULabelValueDefinitionDefaultSettingCopyWith<$Res>? get defaultSetting {
     if (_value.defaultSetting == null) {
       return null;
     }
 
-    return $UDefaultSettingCopyWith<$Res>(_value.defaultSetting!, (value) {
+    return $ULabelValueDefinitionDefaultSettingCopyWith<$Res>(
+        _value.defaultSetting!, (value) {
       return _then(_value.copyWith(defaultSetting: value) as $Val);
     });
   }
@@ -178,20 +184,22 @@ abstract class _$$LabelValueDefinitionImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String identifier,
-      @USeverityConverter() USeverity severity,
-      @UBlurConverter() UBlur blurs,
-      @UDefaultSettingConverter() UDefaultSetting? defaultSetting,
+      @ULabelValueDefinitionSeverityConverter()
+      ULabelValueDefinitionSeverity severity,
+      @ULabelValueDefinitionBlurConverter() ULabelValueDefinitionBlur blurs,
+      @ULabelValueDefinitionDefaultSettingConverter()
+      ULabelValueDefinitionDefaultSetting? defaultSetting,
       bool adultOnly,
       @LabelValueDefinitionStringsConverter()
       List<LabelValueDefinitionStrings> locales,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $USeverityCopyWith<$Res> get severity;
+  $ULabelValueDefinitionSeverityCopyWith<$Res> get severity;
   @override
-  $UBlurCopyWith<$Res> get blurs;
+  $ULabelValueDefinitionBlurCopyWith<$Res> get blurs;
   @override
-  $UDefaultSettingCopyWith<$Res>? get defaultSetting;
+  $ULabelValueDefinitionDefaultSettingCopyWith<$Res>? get defaultSetting;
 }
 
 /// @nodoc
@@ -226,15 +234,15 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
       severity: null == severity
           ? _value.severity
           : severity // ignore: cast_nullable_to_non_nullable
-              as USeverity,
+              as ULabelValueDefinitionSeverity,
       blurs: null == blurs
           ? _value.blurs
           : blurs // ignore: cast_nullable_to_non_nullable
-              as UBlur,
+              as ULabelValueDefinitionBlur,
       defaultSetting: freezed == defaultSetting
           ? _value.defaultSetting
           : defaultSetting // ignore: cast_nullable_to_non_nullable
-              as UDefaultSetting?,
+              as ULabelValueDefinitionDefaultSetting?,
       adultOnly: null == adultOnly
           ? _value.adultOnly
           : adultOnly // ignore: cast_nullable_to_non_nullable
@@ -259,9 +267,9 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
       {@JsonKey(name: r'$type')
       this.$type = comAtprotoLabelDefsLabelValueDefinition,
       required this.identifier,
-      @USeverityConverter() required this.severity,
-      @UBlurConverter() required this.blurs,
-      @UDefaultSettingConverter() this.defaultSetting,
+      @ULabelValueDefinitionSeverityConverter() required this.severity,
+      @ULabelValueDefinitionBlurConverter() required this.blurs,
+      @ULabelValueDefinitionDefaultSettingConverter() this.defaultSetting,
       this.adultOnly = false,
       @LabelValueDefinitionStringsConverter()
       required final List<LabelValueDefinitionStrings> locales,
@@ -285,18 +293,18 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
 
   /// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
   @override
-  @USeverityConverter()
-  final USeverity severity;
+  @ULabelValueDefinitionSeverityConverter()
+  final ULabelValueDefinitionSeverity severity;
 
   /// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
   @override
-  @UBlurConverter()
-  final UBlur blurs;
+  @ULabelValueDefinitionBlurConverter()
+  final ULabelValueDefinitionBlur blurs;
 
   /// The default setting for this label.
   @override
-  @UDefaultSettingConverter()
-  final UDefaultSetting? defaultSetting;
+  @ULabelValueDefinitionDefaultSettingConverter()
+  final ULabelValueDefinitionDefaultSetting? defaultSetting;
 
   /// Does the user need to have adult content enabled in order to configure this label?
   @override
@@ -382,9 +390,12 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
   const factory _LabelValueDefinition(
           {@JsonKey(name: r'$type') final String $type,
           required final String identifier,
-          @USeverityConverter() required final USeverity severity,
-          @UBlurConverter() required final UBlur blurs,
-          @UDefaultSettingConverter() final UDefaultSetting? defaultSetting,
+          @ULabelValueDefinitionSeverityConverter()
+          required final ULabelValueDefinitionSeverity severity,
+          @ULabelValueDefinitionBlurConverter()
+          required final ULabelValueDefinitionBlur blurs,
+          @ULabelValueDefinitionDefaultSettingConverter()
+          final ULabelValueDefinitionDefaultSetting? defaultSetting,
           final bool adultOnly,
           @LabelValueDefinitionStringsConverter()
           required final List<LabelValueDefinitionStrings> locales,
@@ -408,18 +419,18 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
   @override
 
   /// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
-  @USeverityConverter()
-  USeverity get severity;
+  @ULabelValueDefinitionSeverityConverter()
+  ULabelValueDefinitionSeverity get severity;
   @override
 
   /// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
-  @UBlurConverter()
-  UBlur get blurs;
+  @ULabelValueDefinitionBlurConverter()
+  ULabelValueDefinitionBlur get blurs;
   @override
 
   /// The default setting for this label.
-  @UDefaultSettingConverter()
-  UDefaultSetting? get defaultSetting;
+  @ULabelValueDefinitionDefaultSettingConverter()
+  ULabelValueDefinitionDefaultSetting? get defaultSetting;
   @override
 
   /// Does the user need to have adult content enabled in order to configure this label?

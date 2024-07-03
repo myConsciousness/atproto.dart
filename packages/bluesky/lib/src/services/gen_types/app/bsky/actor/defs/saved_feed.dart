@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/actor/defs/known_type.dart';
+import '../../../../app/bsky/actor/defs/known_saved_feed_type.dart';
 
 part 'saved_feed.freezed.dart';
 part 'saved_feed.g.dart';
@@ -30,7 +30,7 @@ class SavedFeed with _$SavedFeed {
     /// `app.bsky.actor.defs#savedFeed`
     @Default(appBskyActorDefsSavedFeed) @JsonKey(name: r'$type') String $type,
     required String id,
-    @UTypeConverter() required UType type,
+    @USavedFeedTypeConverter() required USavedFeedType type,
     required String value,
     required bool pinned,
 

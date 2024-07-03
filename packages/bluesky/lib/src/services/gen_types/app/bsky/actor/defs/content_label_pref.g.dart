@@ -18,8 +18,10 @@ _$ContentLabelPrefImpl _$$ContentLabelPrefImplFromJson(Map json) =>
               (v) => v as String? ?? appBskyActorDefsContentLabelPref),
           labelerDid: $checkedConvert('labelerDid', (v) => v as String?),
           label: $checkedConvert('label', (v) => v as String),
-          visibility: $checkedConvert('visibility',
-              (v) => const UVisibilityConverter().fromJson(v as String)),
+          visibility: $checkedConvert(
+              'visibility',
+              (v) => const UContentLabelPrefVisibilityConverter()
+                  .fromJson(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -44,7 +46,8 @@ Map<String, dynamic> _$$ContentLabelPrefImplToJson(
 
   writeNotNull('labelerDid', instance.labelerDid);
   val['label'] = instance.label;
-  val['visibility'] = const UVisibilityConverter().toJson(instance.visibility);
+  val['visibility'] =
+      const UContentLabelPrefVisibilityConverter().toJson(instance.visibility);
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

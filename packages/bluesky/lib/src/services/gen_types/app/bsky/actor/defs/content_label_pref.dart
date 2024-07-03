@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/actor/defs/known_visibility.dart';
+import '../../../../app/bsky/actor/defs/known_content_label_pref_visibility.dart';
 
 part 'content_label_pref.freezed.dart';
 part 'content_label_pref.g.dart';
@@ -35,7 +35,8 @@ class ContentLabelPref with _$ContentLabelPref {
     /// Which labeler does this preference apply to? If undefined, applies globally.
     String? labelerDid,
     required String label,
-    @UVisibilityConverter() required UVisibility visibility,
+    @UContentLabelPrefVisibilityConverter()
+    required UContentLabelPrefVisibility visibility,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

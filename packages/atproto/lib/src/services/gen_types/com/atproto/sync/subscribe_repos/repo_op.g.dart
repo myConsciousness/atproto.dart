@@ -15,8 +15,8 @@ _$RepoOpImpl _$$RepoOpImplFromJson(Map json) => $checkedCreate(
         final val = _$RepoOpImpl(
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? comAtprotoSyncSubscribeReposRepoOp),
-          action: $checkedConvert(
-              'action', (v) => const UActionConverter().fromJson(v as String)),
+          action: $checkedConvert('action',
+              (v) => const URepoOpActionConverter().fromJson(v as String)),
           path: $checkedConvert('path', (v) => v as String),
           cid: $checkedConvert('cid', (v) => v as String?),
           $unknown: $checkedConvert(
@@ -32,7 +32,7 @@ _$RepoOpImpl _$$RepoOpImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$RepoOpImplToJson(_$RepoOpImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.$type,
-    'action': const UActionConverter().toJson(instance.action),
+    'action': const URepoOpActionConverter().toJson(instance.action),
     'path': instance.path,
   };
 

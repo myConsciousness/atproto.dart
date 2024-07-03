@@ -15,8 +15,8 @@ export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/commit.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/identity.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/account.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_status.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_account_statu.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/info.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_name.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_info_name.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/repo_op.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_action.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_repo_op_action.dart';

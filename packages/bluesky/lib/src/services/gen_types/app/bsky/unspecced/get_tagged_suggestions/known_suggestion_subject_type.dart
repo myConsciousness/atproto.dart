@@ -13,24 +13,22 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_severity.freezed.dart';
+part 'known_suggestion_subject_type.freezed.dart';
 
-enum KnownSeverity {
-  @JsonValue('inform')
-  inform('inform'),
-  @JsonValue('alert')
-  alert('alert'),
-  @JsonValue('none')
-  none('none'),
+enum KnownSuggestionSubjectType {
+  @JsonValue('actor')
+  actor('actor'),
+  @JsonValue('feed')
+  feed('feed'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownSeverity(this.value);
+  const KnownSuggestionSubjectType(this.value);
 
-  /// Returns [KnownSeverity] associated with [value], otherwise null.
-  static KnownSeverity? valueOf(final String? value) {
+  /// Returns [KnownSuggestionSubjectType] associated with [value], otherwise null.
+  static KnownSuggestionSubjectType? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,27 +41,22 @@ enum KnownSeverity {
   }
 }
 
-extension $KnownSeverityExtension on KnownSeverity {
-  /// Returns this value as [USeverity].
-  USeverity toUnion() => USeverity.knownValue(data: this);
+extension $KnownSuggestionSubjectTypeExtension on KnownSuggestionSubjectType {
+  /// Returns this value as [USuggestionSubjectType].
+  USuggestionSubjectType toUnion() =>
+      USuggestionSubjectType.knownValue(data: this);
 
-  /// Returns true if this value is [inform], otherwise false.
-  bool get isInform => this == KnownSeverity.inform;
+  /// Returns true if this value is [actor], otherwise false.
+  bool get isActor => this == KnownSuggestionSubjectType.actor;
 
-  /// Returns true if this value is not [inform], otherwise false.
-  bool get isNotInform => !isInform;
+  /// Returns true if this value is not [actor], otherwise false.
+  bool get isNotActor => !isActor;
 
-  /// Returns true if this value is [alert], otherwise false.
-  bool get isAlert => this == KnownSeverity.alert;
+  /// Returns true if this value is [feed], otherwise false.
+  bool get isFeed => this == KnownSuggestionSubjectType.feed;
 
-  /// Returns true if this value is not [alert], otherwise false.
-  bool get isNotAlert => !isAlert;
-
-  /// Returns true if this value is [none], otherwise false.
-  bool get isNone => this == KnownSeverity.none;
-
-  /// Returns true if this value is not [none], otherwise false.
-  bool get isNotNone => !isNone;
+  /// Returns true if this value is not [feed], otherwise false.
+  bool get isNotFeed => !isFeed;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -83,59 +76,60 @@ extension $KnownSeverityExtension on KnownSeverity {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownSeverity
+///   knownValue: (data) => data, // => KnownSuggestionSubjectType
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownSeverity or null
+///   print(object.knownValue); // => KnownSuggestionSubjectType or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class USeverity with _$USeverity {
-  const factory USeverity.knownValue({
-    required KnownSeverity data,
-  }) = USeverityKnownValue;
+class USuggestionSubjectType with _$USuggestionSubjectType {
+  const factory USuggestionSubjectType.knownValue({
+    required KnownSuggestionSubjectType data,
+  }) = USuggestionSubjectTypeKnownValue;
 
-  const factory USeverity.unknownValue({
+  const factory USuggestionSubjectType.unknownValue({
     required String data,
-  }) = USeverityUnknownValue;
+  }) = USuggestionSubjectTypeUnknownValue;
 }
 
-final class USeverityConverter implements JsonConverter<USeverity, String> {
-  const USeverityConverter();
+final class USuggestionSubjectTypeConverter
+    implements JsonConverter<USuggestionSubjectType, String> {
+  const USuggestionSubjectTypeConverter();
 
   @override
-  USeverity fromJson(String json) {
-    final knownValue = KnownSeverity.valueOf(json);
+  USuggestionSubjectType fromJson(String json) {
+    final knownValue = KnownSuggestionSubjectType.valueOf(json);
 
     return knownValue != null
-        ? USeverity.knownValue(data: knownValue)
-        : USeverity.unknownValue(data: json);
+        ? USuggestionSubjectType.knownValue(data: knownValue)
+        : USuggestionSubjectType.unknownValue(data: json);
   }
 
   @override
-  String toJson(USeverity object) => object.when(
+  String toJson(USuggestionSubjectType object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $USeverityExtension on USeverity {
+extension $USuggestionSubjectTypeExtension on USuggestionSubjectType {
   /// Returns string value.
-  String toJson() => const USeverityConverter().toJson(this);
+  String toJson() => const USuggestionSubjectTypeConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is USeverityKnownValue;
+  bool get isKnownValue => this is USuggestionSubjectTypeKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is USeverityUnknownValue;
+  bool get isUnknownValue => this is USuggestionSubjectTypeUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -143,10 +137,12 @@ extension $USeverityExtension on USeverity {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownSeverity get knownValue => this.data as KnownSeverity;
+  KnownSuggestionSubjectType get knownValue =>
+      this.data as KnownSuggestionSubjectType;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownSeverity? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownSuggestionSubjectType? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

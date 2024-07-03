@@ -13,22 +13,24 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_subject_type.freezed.dart';
+part 'known_repo_statu.freezed.dart';
 
-enum KnownSubjectType {
-  @JsonValue('actor')
-  actor('actor'),
-  @JsonValue('feed')
-  feed('feed'),
+enum KnownRepoStatu {
+  @JsonValue('takendown')
+  takendown('takendown'),
+  @JsonValue('suspended')
+  suspended('suspended'),
+  @JsonValue('deactivated')
+  deactivated('deactivated'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownSubjectType(this.value);
+  const KnownRepoStatu(this.value);
 
-  /// Returns [KnownSubjectType] associated with [value], otherwise null.
-  static KnownSubjectType? valueOf(final String? value) {
+  /// Returns [KnownRepoStatu] associated with [value], otherwise null.
+  static KnownRepoStatu? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -41,21 +43,27 @@ enum KnownSubjectType {
   }
 }
 
-extension $KnownSubjectTypeExtension on KnownSubjectType {
-  /// Returns this value as [USubjectType].
-  USubjectType toUnion() => USubjectType.knownValue(data: this);
+extension $KnownRepoStatuExtension on KnownRepoStatu {
+  /// Returns this value as [URepoStatu].
+  URepoStatu toUnion() => URepoStatu.knownValue(data: this);
 
-  /// Returns true if this value is [actor], otherwise false.
-  bool get isActor => this == KnownSubjectType.actor;
+  /// Returns true if this value is [takendown], otherwise false.
+  bool get isTakendown => this == KnownRepoStatu.takendown;
 
-  /// Returns true if this value is not [actor], otherwise false.
-  bool get isNotActor => !isActor;
+  /// Returns true if this value is not [takendown], otherwise false.
+  bool get isNotTakendown => !isTakendown;
 
-  /// Returns true if this value is [feed], otherwise false.
-  bool get isFeed => this == KnownSubjectType.feed;
+  /// Returns true if this value is [suspended], otherwise false.
+  bool get isSuspended => this == KnownRepoStatu.suspended;
 
-  /// Returns true if this value is not [feed], otherwise false.
-  bool get isNotFeed => !isFeed;
+  /// Returns true if this value is not [suspended], otherwise false.
+  bool get isNotSuspended => !isSuspended;
+
+  /// Returns true if this value is [deactivated], otherwise false.
+  bool get isDeactivated => this == KnownRepoStatu.deactivated;
+
+  /// Returns true if this value is not [deactivated], otherwise false.
+  bool get isNotDeactivated => !isDeactivated;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -75,60 +83,59 @@ extension $KnownSubjectTypeExtension on KnownSubjectType {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownSubjectType
+///   knownValue: (data) => data, // => KnownRepoStatu
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownSubjectType or null
+///   print(object.knownValue); // => KnownRepoStatu or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class USubjectType with _$USubjectType {
-  const factory USubjectType.knownValue({
-    required KnownSubjectType data,
-  }) = USubjectTypeKnownValue;
+class URepoStatu with _$URepoStatu {
+  const factory URepoStatu.knownValue({
+    required KnownRepoStatu data,
+  }) = URepoStatuKnownValue;
 
-  const factory USubjectType.unknownValue({
+  const factory URepoStatu.unknownValue({
     required String data,
-  }) = USubjectTypeUnknownValue;
+  }) = URepoStatuUnknownValue;
 }
 
-final class USubjectTypeConverter
-    implements JsonConverter<USubjectType, String> {
-  const USubjectTypeConverter();
+final class URepoStatuConverter implements JsonConverter<URepoStatu, String> {
+  const URepoStatuConverter();
 
   @override
-  USubjectType fromJson(String json) {
-    final knownValue = KnownSubjectType.valueOf(json);
+  URepoStatu fromJson(String json) {
+    final knownValue = KnownRepoStatu.valueOf(json);
 
     return knownValue != null
-        ? USubjectType.knownValue(data: knownValue)
-        : USubjectType.unknownValue(data: json);
+        ? URepoStatu.knownValue(data: knownValue)
+        : URepoStatu.unknownValue(data: json);
   }
 
   @override
-  String toJson(USubjectType object) => object.when(
+  String toJson(URepoStatu object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $USubjectTypeExtension on USubjectType {
+extension $URepoStatuExtension on URepoStatu {
   /// Returns string value.
-  String toJson() => const USubjectTypeConverter().toJson(this);
+  String toJson() => const URepoStatuConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is USubjectTypeKnownValue;
+  bool get isKnownValue => this is URepoStatuKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is USubjectTypeUnknownValue;
+  bool get isUnknownValue => this is URepoStatuUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -136,10 +143,10 @@ extension $USubjectTypeExtension on USubjectType {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownSubjectType get knownValue => this.data as KnownSubjectType;
+  KnownRepoStatu get knownValue => this.data as KnownRepoStatu;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownSubjectType? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownRepoStatu? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

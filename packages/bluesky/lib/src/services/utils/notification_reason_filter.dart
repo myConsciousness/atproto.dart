@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../../nsids.g.dart' as ns;
 import '../constants/grouped_notification_reason.dart';
-import '../gen_types/app/bsky/notification/list_notifications/known_reason.dart';
+import '../gen_types/app/bsky/notification/list_notifications/known_notification_reason.dart';
 import '../gen_types/app/bsky/notification/list_notifications/notification.dart';
 import '../gen_types/app/bsky/notification/list_notifications/output.dart';
 
@@ -79,7 +79,7 @@ bool _test(
 
 /// Returns true if this [reason] is a custom feed like, otherwise false.
 bool _isCustomFeedLike(
-  final UReason reason,
+  final UNotificationReason reason,
   final core.AtUri? reasonSubject,
 ) {
   if (reason.knownValueOrNull?.isNotLike ?? false || reasonSubject == null) {

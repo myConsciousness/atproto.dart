@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/unspecced/get_tagged_suggestions/known_subject_type.dart';
+import '../../../../app/bsky/unspecced/get_tagged_suggestions/known_suggestion_subject_type.dart';
 
 part 'suggestion.freezed.dart';
 part 'suggestion.g.dart';
@@ -32,7 +32,8 @@ class Suggestion with _$Suggestion {
     @JsonKey(name: r'$type')
     String $type,
     required String tag,
-    @USubjectTypeConverter() required USubjectType subjectType,
+    @USuggestionSubjectTypeConverter()
+    required USuggestionSubjectType subjectType,
     required String subject,
 
     /// Contains unknown objects not defined in Lexicon.

@@ -17,14 +17,21 @@ _$LabelValueDefinitionImpl _$$LabelValueDefinitionImplFromJson(Map json) =>
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? comAtprotoLabelDefsLabelValueDefinition),
           identifier: $checkedConvert('identifier', (v) => v as String),
-          severity: $checkedConvert('severity',
-              (v) => const USeverityConverter().fromJson(v as String)),
+          severity: $checkedConvert(
+              'severity',
+              (v) => const ULabelValueDefinitionSeverityConverter()
+                  .fromJson(v as String)),
           blurs: $checkedConvert(
-              'blurs', (v) => const UBlurConverter().fromJson(v as String)),
+              'blurs',
+              (v) => const ULabelValueDefinitionBlurConverter()
+                  .fromJson(v as String)),
           defaultSetting: $checkedConvert(
               'defaultSetting',
-              (v) => _$JsonConverterFromJson<String, UDefaultSetting>(
-                  v, const UDefaultSettingConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String,
+                      ULabelValueDefinitionDefaultSetting>(
+                  v,
+                  const ULabelValueDefinitionDefaultSettingConverter()
+                      .fromJson)),
           adultOnly: $checkedConvert('adultOnly', (v) => v as bool? ?? false),
           locales: $checkedConvert(
               'locales',
@@ -47,8 +54,9 @@ Map<String, dynamic> _$$LabelValueDefinitionImplToJson(
   final val = <String, dynamic>{
     r'$type': instance.$type,
     'identifier': instance.identifier,
-    'severity': const USeverityConverter().toJson(instance.severity),
-    'blurs': const UBlurConverter().toJson(instance.blurs),
+    'severity': const ULabelValueDefinitionSeverityConverter()
+        .toJson(instance.severity),
+    'blurs': const ULabelValueDefinitionBlurConverter().toJson(instance.blurs),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -59,8 +67,9 @@ Map<String, dynamic> _$$LabelValueDefinitionImplToJson(
 
   writeNotNull(
       'defaultSetting',
-      _$JsonConverterToJson<String, UDefaultSetting>(
-          instance.defaultSetting, const UDefaultSettingConverter().toJson));
+      _$JsonConverterToJson<String, ULabelValueDefinitionDefaultSetting>(
+          instance.defaultSetting,
+          const ULabelValueDefinitionDefaultSettingConverter().toJson));
   val['adultOnly'] = instance.adultOnly;
   val['locales'] = instance.locales
       .map(const LabelValueDefinitionStringsConverter().toJson)

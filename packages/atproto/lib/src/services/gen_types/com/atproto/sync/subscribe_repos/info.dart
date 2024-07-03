@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../com/atproto/sync/subscribe_repos/known_name.dart';
+import '../../../../com/atproto/sync/subscribe_repos/known_info_name.dart';
 
 part 'info.freezed.dart';
 part 'info.g.dart';
@@ -31,7 +31,7 @@ class Info with _$Info {
     @Default(comAtprotoSyncSubscribeReposInfo)
     @JsonKey(name: r'$type')
     String $type,
-    @UNameConverter() required UName name,
+    @UInfoNameConverter() required UInfoName name,
     String? message,
 
     /// Contains unknown objects not defined in Lexicon.

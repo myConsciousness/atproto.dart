@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_visibility.freezed.dart';
+part 'known_content_label_pref_visibility.freezed.dart';
 
-enum KnownVisibility {
+enum KnownContentLabelPrefVisibility {
   @JsonValue('ignore')
   ignore('ignore'),
   @JsonValue('show')
@@ -29,10 +29,10 @@ enum KnownVisibility {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownVisibility(this.value);
+  const KnownContentLabelPrefVisibility(this.value);
 
-  /// Returns [KnownVisibility] associated with [value], otherwise null.
-  static KnownVisibility? valueOf(final String? value) {
+  /// Returns [KnownContentLabelPrefVisibility] associated with [value], otherwise null.
+  static KnownContentLabelPrefVisibility? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -45,30 +45,32 @@ enum KnownVisibility {
   }
 }
 
-extension $KnownVisibilityExtension on KnownVisibility {
-  /// Returns this value as [UVisibility].
-  UVisibility toUnion() => UVisibility.knownValue(data: this);
+extension $KnownContentLabelPrefVisibilityExtension
+    on KnownContentLabelPrefVisibility {
+  /// Returns this value as [UContentLabelPrefVisibility].
+  UContentLabelPrefVisibility toUnion() =>
+      UContentLabelPrefVisibility.knownValue(data: this);
 
   /// Returns true if this value is [ignore], otherwise false.
-  bool get isIgnore => this == KnownVisibility.ignore;
+  bool get isIgnore => this == KnownContentLabelPrefVisibility.ignore;
 
   /// Returns true if this value is not [ignore], otherwise false.
   bool get isNotIgnore => !isIgnore;
 
   /// Returns true if this value is [show], otherwise false.
-  bool get isShow => this == KnownVisibility.show;
+  bool get isShow => this == KnownContentLabelPrefVisibility.show;
 
   /// Returns true if this value is not [show], otherwise false.
   bool get isNotShow => !isShow;
 
   /// Returns true if this value is [warn], otherwise false.
-  bool get isWarn => this == KnownVisibility.warn;
+  bool get isWarn => this == KnownContentLabelPrefVisibility.warn;
 
   /// Returns true if this value is not [warn], otherwise false.
   bool get isNotWarn => !isWarn;
 
   /// Returns true if this value is [hide], otherwise false.
-  bool get isHide => this == KnownVisibility.hide;
+  bool get isHide => this == KnownContentLabelPrefVisibility.hide;
 
   /// Returns true if this value is not [hide], otherwise false.
   bool get isNotHide => !isHide;
@@ -91,59 +93,60 @@ extension $KnownVisibilityExtension on KnownVisibility {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownVisibility
+///   knownValue: (data) => data, // => KnownContentLabelPrefVisibility
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownVisibility or null
+///   print(object.knownValue); // => KnownContentLabelPrefVisibility or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UVisibility with _$UVisibility {
-  const factory UVisibility.knownValue({
-    required KnownVisibility data,
-  }) = UVisibilityKnownValue;
+class UContentLabelPrefVisibility with _$UContentLabelPrefVisibility {
+  const factory UContentLabelPrefVisibility.knownValue({
+    required KnownContentLabelPrefVisibility data,
+  }) = UContentLabelPrefVisibilityKnownValue;
 
-  const factory UVisibility.unknownValue({
+  const factory UContentLabelPrefVisibility.unknownValue({
     required String data,
-  }) = UVisibilityUnknownValue;
+  }) = UContentLabelPrefVisibilityUnknownValue;
 }
 
-final class UVisibilityConverter implements JsonConverter<UVisibility, String> {
-  const UVisibilityConverter();
+final class UContentLabelPrefVisibilityConverter
+    implements JsonConverter<UContentLabelPrefVisibility, String> {
+  const UContentLabelPrefVisibilityConverter();
 
   @override
-  UVisibility fromJson(String json) {
-    final knownValue = KnownVisibility.valueOf(json);
+  UContentLabelPrefVisibility fromJson(String json) {
+    final knownValue = KnownContentLabelPrefVisibility.valueOf(json);
 
     return knownValue != null
-        ? UVisibility.knownValue(data: knownValue)
-        : UVisibility.unknownValue(data: json);
+        ? UContentLabelPrefVisibility.knownValue(data: knownValue)
+        : UContentLabelPrefVisibility.unknownValue(data: json);
   }
 
   @override
-  String toJson(UVisibility object) => object.when(
+  String toJson(UContentLabelPrefVisibility object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UVisibilityExtension on UVisibility {
+extension $UContentLabelPrefVisibilityExtension on UContentLabelPrefVisibility {
   /// Returns string value.
-  String toJson() => const UVisibilityConverter().toJson(this);
+  String toJson() => const UContentLabelPrefVisibilityConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UVisibilityKnownValue;
+  bool get isKnownValue => this is UContentLabelPrefVisibilityKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UVisibilityUnknownValue;
+  bool get isUnknownValue => this is UContentLabelPrefVisibilityUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -151,10 +154,12 @@ extension $UVisibilityExtension on UVisibility {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownVisibility get knownValue => this.data as KnownVisibility;
+  KnownContentLabelPrefVisibility get knownValue =>
+      this.data as KnownContentLabelPrefVisibility;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownVisibility? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownContentLabelPrefVisibility? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

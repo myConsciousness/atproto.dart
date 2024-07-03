@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_allow_incoming.dart';
+part of 'known_notification_reason.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,59 +15,60 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UAllowIncoming {
+mixin _$UNotificationReason {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownAllowIncoming data) knownValue,
+    required TResult Function(KnownNotificationReason data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownAllowIncoming data)? knownValue,
+    TResult? Function(KnownNotificationReason data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownAllowIncoming data)? knownValue,
+    TResult Function(KnownNotificationReason data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAllowIncomingKnownValue value) knownValue,
-    required TResult Function(UAllowIncomingUnknownValue value) unknownValue,
+    required TResult Function(UNotificationReasonKnownValue value) knownValue,
+    required TResult Function(UNotificationReasonUnknownValue value)
+        unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAllowIncomingKnownValue value)? knownValue,
-    TResult? Function(UAllowIncomingUnknownValue value)? unknownValue,
+    TResult? Function(UNotificationReasonKnownValue value)? knownValue,
+    TResult? Function(UNotificationReasonUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAllowIncomingKnownValue value)? knownValue,
-    TResult Function(UAllowIncomingUnknownValue value)? unknownValue,
+    TResult Function(UNotificationReasonKnownValue value)? knownValue,
+    TResult Function(UNotificationReasonUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UAllowIncomingCopyWith<$Res> {
-  factory $UAllowIncomingCopyWith(
-          UAllowIncoming value, $Res Function(UAllowIncoming) then) =
-      _$UAllowIncomingCopyWithImpl<$Res, UAllowIncoming>;
+abstract class $UNotificationReasonCopyWith<$Res> {
+  factory $UNotificationReasonCopyWith(
+          UNotificationReason value, $Res Function(UNotificationReason) then) =
+      _$UNotificationReasonCopyWithImpl<$Res, UNotificationReason>;
 }
 
 /// @nodoc
-class _$UAllowIncomingCopyWithImpl<$Res, $Val extends UAllowIncoming>
-    implements $UAllowIncomingCopyWith<$Res> {
-  _$UAllowIncomingCopyWithImpl(this._value, this._then);
+class _$UNotificationReasonCopyWithImpl<$Res, $Val extends UNotificationReason>
+    implements $UNotificationReasonCopyWith<$Res> {
+  _$UNotificationReasonCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,22 +77,23 @@ class _$UAllowIncomingCopyWithImpl<$Res, $Val extends UAllowIncoming>
 }
 
 /// @nodoc
-abstract class _$$UAllowIncomingKnownValueImplCopyWith<$Res> {
-  factory _$$UAllowIncomingKnownValueImplCopyWith(
-          _$UAllowIncomingKnownValueImpl value,
-          $Res Function(_$UAllowIncomingKnownValueImpl) then) =
-      __$$UAllowIncomingKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$UNotificationReasonKnownValueImplCopyWith<$Res> {
+  factory _$$UNotificationReasonKnownValueImplCopyWith(
+          _$UNotificationReasonKnownValueImpl value,
+          $Res Function(_$UNotificationReasonKnownValueImpl) then) =
+      __$$UNotificationReasonKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownAllowIncoming data});
+  $Res call({KnownNotificationReason data});
 }
 
 /// @nodoc
-class __$$UAllowIncomingKnownValueImplCopyWithImpl<$Res>
-    extends _$UAllowIncomingCopyWithImpl<$Res, _$UAllowIncomingKnownValueImpl>
-    implements _$$UAllowIncomingKnownValueImplCopyWith<$Res> {
-  __$$UAllowIncomingKnownValueImplCopyWithImpl(
-      _$UAllowIncomingKnownValueImpl _value,
-      $Res Function(_$UAllowIncomingKnownValueImpl) _then)
+class __$$UNotificationReasonKnownValueImplCopyWithImpl<$Res>
+    extends _$UNotificationReasonCopyWithImpl<$Res,
+        _$UNotificationReasonKnownValueImpl>
+    implements _$$UNotificationReasonKnownValueImplCopyWith<$Res> {
+  __$$UNotificationReasonKnownValueImplCopyWithImpl(
+      _$UNotificationReasonKnownValueImpl _value,
+      $Res Function(_$UNotificationReasonKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,33 +101,34 @@ class __$$UAllowIncomingKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UAllowIncomingKnownValueImpl(
+    return _then(_$UNotificationReasonKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownAllowIncoming,
+              as KnownNotificationReason,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UAllowIncomingKnownValueImpl implements UAllowIncomingKnownValue {
-  const _$UAllowIncomingKnownValueImpl({required this.data});
+class _$UNotificationReasonKnownValueImpl
+    implements UNotificationReasonKnownValue {
+  const _$UNotificationReasonKnownValueImpl({required this.data});
 
   @override
-  final KnownAllowIncoming data;
+  final KnownNotificationReason data;
 
   @override
   String toString() {
-    return 'UAllowIncoming.knownValue(data: $data)';
+    return 'UNotificationReason.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UAllowIncomingKnownValueImpl &&
+            other is _$UNotificationReasonKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -135,14 +138,15 @@ class _$UAllowIncomingKnownValueImpl implements UAllowIncomingKnownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UAllowIncomingKnownValueImplCopyWith<_$UAllowIncomingKnownValueImpl>
-      get copyWith => __$$UAllowIncomingKnownValueImplCopyWithImpl<
-          _$UAllowIncomingKnownValueImpl>(this, _$identity);
+  _$$UNotificationReasonKnownValueImplCopyWith<
+          _$UNotificationReasonKnownValueImpl>
+      get copyWith => __$$UNotificationReasonKnownValueImplCopyWithImpl<
+          _$UNotificationReasonKnownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownAllowIncoming data) knownValue,
+    required TResult Function(KnownNotificationReason data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -151,7 +155,7 @@ class _$UAllowIncomingKnownValueImpl implements UAllowIncomingKnownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownAllowIncoming data)? knownValue,
+    TResult? Function(KnownNotificationReason data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -160,7 +164,7 @@ class _$UAllowIncomingKnownValueImpl implements UAllowIncomingKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownAllowIncoming data)? knownValue,
+    TResult Function(KnownNotificationReason data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -173,8 +177,9 @@ class _$UAllowIncomingKnownValueImpl implements UAllowIncomingKnownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAllowIncomingKnownValue value) knownValue,
-    required TResult Function(UAllowIncomingUnknownValue value) unknownValue,
+    required TResult Function(UNotificationReasonKnownValue value) knownValue,
+    required TResult Function(UNotificationReasonUnknownValue value)
+        unknownValue,
   }) {
     return knownValue(this);
   }
@@ -182,8 +187,8 @@ class _$UAllowIncomingKnownValueImpl implements UAllowIncomingKnownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAllowIncomingKnownValue value)? knownValue,
-    TResult? Function(UAllowIncomingUnknownValue value)? unknownValue,
+    TResult? Function(UNotificationReasonKnownValue value)? knownValue,
+    TResult? Function(UNotificationReasonUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -191,8 +196,8 @@ class _$UAllowIncomingKnownValueImpl implements UAllowIncomingKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAllowIncomingKnownValue value)? knownValue,
-    TResult Function(UAllowIncomingUnknownValue value)? unknownValue,
+    TResult Function(UNotificationReasonKnownValue value)? knownValue,
+    TResult Function(UNotificationReasonUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -202,35 +207,37 @@ class _$UAllowIncomingKnownValueImpl implements UAllowIncomingKnownValue {
   }
 }
 
-abstract class UAllowIncomingKnownValue implements UAllowIncoming {
-  const factory UAllowIncomingKnownValue(
-          {required final KnownAllowIncoming data}) =
-      _$UAllowIncomingKnownValueImpl;
+abstract class UNotificationReasonKnownValue implements UNotificationReason {
+  const factory UNotificationReasonKnownValue(
+          {required final KnownNotificationReason data}) =
+      _$UNotificationReasonKnownValueImpl;
 
   @override
-  KnownAllowIncoming get data;
+  KnownNotificationReason get data;
   @JsonKey(ignore: true)
-  _$$UAllowIncomingKnownValueImplCopyWith<_$UAllowIncomingKnownValueImpl>
+  _$$UNotificationReasonKnownValueImplCopyWith<
+          _$UNotificationReasonKnownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UAllowIncomingUnknownValueImplCopyWith<$Res> {
-  factory _$$UAllowIncomingUnknownValueImplCopyWith(
-          _$UAllowIncomingUnknownValueImpl value,
-          $Res Function(_$UAllowIncomingUnknownValueImpl) then) =
-      __$$UAllowIncomingUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$UNotificationReasonUnknownValueImplCopyWith<$Res> {
+  factory _$$UNotificationReasonUnknownValueImplCopyWith(
+          _$UNotificationReasonUnknownValueImpl value,
+          $Res Function(_$UNotificationReasonUnknownValueImpl) then) =
+      __$$UNotificationReasonUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$UAllowIncomingUnknownValueImplCopyWithImpl<$Res>
-    extends _$UAllowIncomingCopyWithImpl<$Res, _$UAllowIncomingUnknownValueImpl>
-    implements _$$UAllowIncomingUnknownValueImplCopyWith<$Res> {
-  __$$UAllowIncomingUnknownValueImplCopyWithImpl(
-      _$UAllowIncomingUnknownValueImpl _value,
-      $Res Function(_$UAllowIncomingUnknownValueImpl) _then)
+class __$$UNotificationReasonUnknownValueImplCopyWithImpl<$Res>
+    extends _$UNotificationReasonCopyWithImpl<$Res,
+        _$UNotificationReasonUnknownValueImpl>
+    implements _$$UNotificationReasonUnknownValueImplCopyWith<$Res> {
+  __$$UNotificationReasonUnknownValueImplCopyWithImpl(
+      _$UNotificationReasonUnknownValueImpl _value,
+      $Res Function(_$UNotificationReasonUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -238,7 +245,7 @@ class __$$UAllowIncomingUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UAllowIncomingUnknownValueImpl(
+    return _then(_$UNotificationReasonUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -249,22 +256,23 @@ class __$$UAllowIncomingUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UAllowIncomingUnknownValueImpl implements UAllowIncomingUnknownValue {
-  const _$UAllowIncomingUnknownValueImpl({required this.data});
+class _$UNotificationReasonUnknownValueImpl
+    implements UNotificationReasonUnknownValue {
+  const _$UNotificationReasonUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'UAllowIncoming.unknownValue(data: $data)';
+    return 'UNotificationReason.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UAllowIncomingUnknownValueImpl &&
+            other is _$UNotificationReasonUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -274,14 +282,15 @@ class _$UAllowIncomingUnknownValueImpl implements UAllowIncomingUnknownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UAllowIncomingUnknownValueImplCopyWith<_$UAllowIncomingUnknownValueImpl>
-      get copyWith => __$$UAllowIncomingUnknownValueImplCopyWithImpl<
-          _$UAllowIncomingUnknownValueImpl>(this, _$identity);
+  _$$UNotificationReasonUnknownValueImplCopyWith<
+          _$UNotificationReasonUnknownValueImpl>
+      get copyWith => __$$UNotificationReasonUnknownValueImplCopyWithImpl<
+          _$UNotificationReasonUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownAllowIncoming data) knownValue,
+    required TResult Function(KnownNotificationReason data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -290,7 +299,7 @@ class _$UAllowIncomingUnknownValueImpl implements UAllowIncomingUnknownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownAllowIncoming data)? knownValue,
+    TResult? Function(KnownNotificationReason data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -299,7 +308,7 @@ class _$UAllowIncomingUnknownValueImpl implements UAllowIncomingUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownAllowIncoming data)? knownValue,
+    TResult Function(KnownNotificationReason data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -312,8 +321,9 @@ class _$UAllowIncomingUnknownValueImpl implements UAllowIncomingUnknownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAllowIncomingKnownValue value) knownValue,
-    required TResult Function(UAllowIncomingUnknownValue value) unknownValue,
+    required TResult Function(UNotificationReasonKnownValue value) knownValue,
+    required TResult Function(UNotificationReasonUnknownValue value)
+        unknownValue,
   }) {
     return unknownValue(this);
   }
@@ -321,8 +331,8 @@ class _$UAllowIncomingUnknownValueImpl implements UAllowIncomingUnknownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAllowIncomingKnownValue value)? knownValue,
-    TResult? Function(UAllowIncomingUnknownValue value)? unknownValue,
+    TResult? Function(UNotificationReasonKnownValue value)? knownValue,
+    TResult? Function(UNotificationReasonUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -330,8 +340,8 @@ class _$UAllowIncomingUnknownValueImpl implements UAllowIncomingUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAllowIncomingKnownValue value)? knownValue,
-    TResult Function(UAllowIncomingUnknownValue value)? unknownValue,
+    TResult Function(UNotificationReasonKnownValue value)? knownValue,
+    TResult Function(UNotificationReasonUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -341,13 +351,14 @@ class _$UAllowIncomingUnknownValueImpl implements UAllowIncomingUnknownValue {
   }
 }
 
-abstract class UAllowIncomingUnknownValue implements UAllowIncoming {
-  const factory UAllowIncomingUnknownValue({required final String data}) =
-      _$UAllowIncomingUnknownValueImpl;
+abstract class UNotificationReasonUnknownValue implements UNotificationReason {
+  const factory UNotificationReasonUnknownValue({required final String data}) =
+      _$UNotificationReasonUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$UAllowIncomingUnknownValueImplCopyWith<_$UAllowIncomingUnknownValueImpl>
+  _$$UNotificationReasonUnknownValueImplCopyWith<
+          _$UNotificationReasonUnknownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

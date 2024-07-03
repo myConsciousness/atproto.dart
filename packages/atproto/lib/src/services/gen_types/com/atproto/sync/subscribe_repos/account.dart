@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../com/atproto/sync/subscribe_repos/known_status.dart';
+import '../../../../com/atproto/sync/subscribe_repos/known_account_statu.dart';
 
 part 'account.freezed.dart';
 part 'account.g.dart';
@@ -41,7 +41,7 @@ class Account with _$Account {
     required bool active,
 
     /// If active=false, this optional field indicates a reason for why the account is not active.
-    @UStatusConverter() UStatus? status,
+    @UAccountStatuConverter() UAccountStatu? status,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

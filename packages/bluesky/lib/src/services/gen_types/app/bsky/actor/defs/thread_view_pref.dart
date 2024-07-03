@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/actor/defs/known_sort.dart';
+import '../../../../app/bsky/actor/defs/known_thread_view_pref_sort.dart';
 
 part 'thread_view_pref.freezed.dart';
 part 'thread_view_pref.g.dart';
@@ -33,7 +33,7 @@ class ThreadViewPref with _$ThreadViewPref {
     String $type,
 
     /// Sorting mode for threads.
-    @USortConverter() USort? sort,
+    @UThreadViewPrefSortConverter() UThreadViewPrefSort? sort,
 
     /// Show followed users at the top of all replies.
     @Default(false) bool prioritizeFollowedUsers,

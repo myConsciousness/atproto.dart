@@ -9,7 +9,7 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/known_reason.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/known_notification_reason.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/notification.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/output.dart';
 import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
@@ -19,7 +19,7 @@ final _baseNotification = Notification(
   uri: AtUri.parse(
       'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.feed.like/3jukrylmhec26'),
   author: ProfileView(did: 'xxxxxx', handle: 'xxxxxx'),
-  reason: KnownReason.like.toUnion(),
+  reason: KnownNotificationReason.like.toUnion(),
   isRead: false,
   record: {},
   indexedAt: DateTime.now(),
@@ -131,7 +131,7 @@ void main() {
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
-            reason: KnownReason.follow.toUnion(),
+            reason: KnownNotificationReason.follow.toUnion(),
           ),
         ],
       ));
@@ -149,10 +149,10 @@ void main() {
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
-            reason: KnownReason.follow.toUnion(),
+            reason: KnownNotificationReason.follow.toUnion(),
           ),
           _baseNotification.copyWith(
-            reason: KnownReason.mention.toUnion(),
+            reason: KnownNotificationReason.mention.toUnion(),
           ),
         ],
       ));
@@ -171,10 +171,10 @@ void main() {
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
-            reason: KnownReason.follow.toUnion(),
+            reason: KnownNotificationReason.follow.toUnion(),
           ),
           _baseNotification.copyWith(
-            reason: KnownReason.mention.toUnion(),
+            reason: KnownNotificationReason.mention.toUnion(),
           ),
         ],
       ));
@@ -252,7 +252,7 @@ void main() {
             ),
           ),
           _baseNotification.copyWith(
-            reason: KnownReason.follow.toUnion(),
+            reason: KnownNotificationReason.follow.toUnion(),
           ),
         ],
       ));
@@ -280,7 +280,7 @@ void main() {
             ),
           ),
           _baseNotification.copyWith(
-            reason: KnownReason.follow.toUnion(),
+            reason: KnownNotificationReason.follow.toUnion(),
           ),
         ],
       ));

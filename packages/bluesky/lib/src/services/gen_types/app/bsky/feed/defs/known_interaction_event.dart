@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_event.freezed.dart';
+part 'known_interaction_event.freezed.dart';
 
-enum KnownEvent {
+enum KnownInteractionEvent {
   /// Request that less content like the given feed item be shown in the feed
   @JsonValue('app.bsky.feed.defs#requestLess')
   requestLess('app.bsky.feed.defs#requestLess'),
@@ -68,10 +68,10 @@ enum KnownEvent {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownEvent(this.value);
+  const KnownInteractionEvent(this.value);
 
-  /// Returns [KnownEvent] associated with [value], otherwise null.
-  static KnownEvent? valueOf(final String? value) {
+  /// Returns [KnownInteractionEvent] associated with [value], otherwise null.
+  static KnownInteractionEvent? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -84,78 +84,82 @@ enum KnownEvent {
   }
 }
 
-extension $KnownEventExtension on KnownEvent {
-  /// Returns this value as [UEvent].
-  UEvent toUnion() => UEvent.knownValue(data: this);
+extension $KnownInteractionEventExtension on KnownInteractionEvent {
+  /// Returns this value as [UInteractionEvent].
+  UInteractionEvent toUnion() => UInteractionEvent.knownValue(data: this);
 
   /// Returns true if this value is [requestLess], otherwise false.
-  bool get isRequestLess => this == KnownEvent.requestLess;
+  bool get isRequestLess => this == KnownInteractionEvent.requestLess;
 
   /// Returns true if this value is not [requestLess], otherwise false.
   bool get isNotRequestLess => !isRequestLess;
 
   /// Returns true if this value is [requestMore], otherwise false.
-  bool get isRequestMore => this == KnownEvent.requestMore;
+  bool get isRequestMore => this == KnownInteractionEvent.requestMore;
 
   /// Returns true if this value is not [requestMore], otherwise false.
   bool get isNotRequestMore => !isRequestMore;
 
   /// Returns true if this value is [clickthroughItem], otherwise false.
-  bool get isClickthroughItem => this == KnownEvent.clickthroughItem;
+  bool get isClickthroughItem => this == KnownInteractionEvent.clickthroughItem;
 
   /// Returns true if this value is not [clickthroughItem], otherwise false.
   bool get isNotClickthroughItem => !isClickthroughItem;
 
   /// Returns true if this value is [clickthroughAuthor], otherwise false.
-  bool get isClickthroughAuthor => this == KnownEvent.clickthroughAuthor;
+  bool get isClickthroughAuthor =>
+      this == KnownInteractionEvent.clickthroughAuthor;
 
   /// Returns true if this value is not [clickthroughAuthor], otherwise false.
   bool get isNotClickthroughAuthor => !isClickthroughAuthor;
 
   /// Returns true if this value is [clickthroughReposter], otherwise false.
-  bool get isClickthroughReposter => this == KnownEvent.clickthroughReposter;
+  bool get isClickthroughReposter =>
+      this == KnownInteractionEvent.clickthroughReposter;
 
   /// Returns true if this value is not [clickthroughReposter], otherwise false.
   bool get isNotClickthroughReposter => !isClickthroughReposter;
 
   /// Returns true if this value is [clickthroughEmbed], otherwise false.
-  bool get isClickthroughEmbed => this == KnownEvent.clickthroughEmbed;
+  bool get isClickthroughEmbed =>
+      this == KnownInteractionEvent.clickthroughEmbed;
 
   /// Returns true if this value is not [clickthroughEmbed], otherwise false.
   bool get isNotClickthroughEmbed => !isClickthroughEmbed;
 
   /// Returns true if this value is [interactionSeen], otherwise false.
-  bool get isInteractionSeen => this == KnownEvent.interactionSeen;
+  bool get isInteractionSeen => this == KnownInteractionEvent.interactionSeen;
 
   /// Returns true if this value is not [interactionSeen], otherwise false.
   bool get isNotInteractionSeen => !isInteractionSeen;
 
   /// Returns true if this value is [interactionLike], otherwise false.
-  bool get isInteractionLike => this == KnownEvent.interactionLike;
+  bool get isInteractionLike => this == KnownInteractionEvent.interactionLike;
 
   /// Returns true if this value is not [interactionLike], otherwise false.
   bool get isNotInteractionLike => !isInteractionLike;
 
   /// Returns true if this value is [interactionRepost], otherwise false.
-  bool get isInteractionRepost => this == KnownEvent.interactionRepost;
+  bool get isInteractionRepost =>
+      this == KnownInteractionEvent.interactionRepost;
 
   /// Returns true if this value is not [interactionRepost], otherwise false.
   bool get isNotInteractionRepost => !isInteractionRepost;
 
   /// Returns true if this value is [interactionReply], otherwise false.
-  bool get isInteractionReply => this == KnownEvent.interactionReply;
+  bool get isInteractionReply => this == KnownInteractionEvent.interactionReply;
 
   /// Returns true if this value is not [interactionReply], otherwise false.
   bool get isNotInteractionReply => !isInteractionReply;
 
   /// Returns true if this value is [interactionQuote], otherwise false.
-  bool get isInteractionQuote => this == KnownEvent.interactionQuote;
+  bool get isInteractionQuote => this == KnownInteractionEvent.interactionQuote;
 
   /// Returns true if this value is not [interactionQuote], otherwise false.
   bool get isNotInteractionQuote => !isInteractionQuote;
 
   /// Returns true if this value is [interactionShare], otherwise false.
-  bool get isInteractionShare => this == KnownEvent.interactionShare;
+  bool get isInteractionShare => this == KnownInteractionEvent.interactionShare;
 
   /// Returns true if this value is not [interactionShare], otherwise false.
   bool get isNotInteractionShare => !isInteractionShare;
@@ -178,59 +182,60 @@ extension $KnownEventExtension on KnownEvent {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownEvent
+///   knownValue: (data) => data, // => KnownInteractionEvent
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownEvent or null
+///   print(object.knownValue); // => KnownInteractionEvent or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UEvent with _$UEvent {
-  const factory UEvent.knownValue({
-    required KnownEvent data,
-  }) = UEventKnownValue;
+class UInteractionEvent with _$UInteractionEvent {
+  const factory UInteractionEvent.knownValue({
+    required KnownInteractionEvent data,
+  }) = UInteractionEventKnownValue;
 
-  const factory UEvent.unknownValue({
+  const factory UInteractionEvent.unknownValue({
     required String data,
-  }) = UEventUnknownValue;
+  }) = UInteractionEventUnknownValue;
 }
 
-final class UEventConverter implements JsonConverter<UEvent, String> {
-  const UEventConverter();
+final class UInteractionEventConverter
+    implements JsonConverter<UInteractionEvent, String> {
+  const UInteractionEventConverter();
 
   @override
-  UEvent fromJson(String json) {
-    final knownValue = KnownEvent.valueOf(json);
+  UInteractionEvent fromJson(String json) {
+    final knownValue = KnownInteractionEvent.valueOf(json);
 
     return knownValue != null
-        ? UEvent.knownValue(data: knownValue)
-        : UEvent.unknownValue(data: json);
+        ? UInteractionEvent.knownValue(data: knownValue)
+        : UInteractionEvent.unknownValue(data: json);
   }
 
   @override
-  String toJson(UEvent object) => object.when(
+  String toJson(UInteractionEvent object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UEventExtension on UEvent {
+extension $UInteractionEventExtension on UInteractionEvent {
   /// Returns string value.
-  String toJson() => const UEventConverter().toJson(this);
+  String toJson() => const UInteractionEventConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UEventKnownValue;
+  bool get isKnownValue => this is UInteractionEventKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UEventUnknownValue;
+  bool get isUnknownValue => this is UInteractionEventUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -238,10 +243,11 @@ extension $UEventExtension on UEvent {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownEvent get knownValue => this.data as KnownEvent;
+  KnownInteractionEvent get knownValue => this.data as KnownInteractionEvent;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownEvent? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownInteractionEvent? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

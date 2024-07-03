@@ -13,20 +13,24 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_name.freezed.dart';
+part 'known_label_value_definition_blur.freezed.dart';
 
-enum KnownName {
-  @JsonValue('OutdatedCursor')
-  outdatedCursor('OutdatedCursor'),
+enum KnownLabelValueDefinitionBlur {
+  @JsonValue('content')
+  content('content'),
+  @JsonValue('media')
+  media('media'),
+  @JsonValue('none')
+  none('none'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownName(this.value);
+  const KnownLabelValueDefinitionBlur(this.value);
 
-  /// Returns [KnownName] associated with [value], otherwise null.
-  static KnownName? valueOf(final String? value) {
+  /// Returns [KnownLabelValueDefinitionBlur] associated with [value], otherwise null.
+  static KnownLabelValueDefinitionBlur? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -39,15 +43,29 @@ enum KnownName {
   }
 }
 
-extension $KnownNameExtension on KnownName {
-  /// Returns this value as [UName].
-  UName toUnion() => UName.knownValue(data: this);
+extension $KnownLabelValueDefinitionBlurExtension
+    on KnownLabelValueDefinitionBlur {
+  /// Returns this value as [ULabelValueDefinitionBlur].
+  ULabelValueDefinitionBlur toUnion() =>
+      ULabelValueDefinitionBlur.knownValue(data: this);
 
-  /// Returns true if this value is [outdatedCursor], otherwise false.
-  bool get isOutdatedCursor => this == KnownName.outdatedCursor;
+  /// Returns true if this value is [content], otherwise false.
+  bool get isContent => this == KnownLabelValueDefinitionBlur.content;
 
-  /// Returns true if this value is not [outdatedCursor], otherwise false.
-  bool get isNotOutdatedCursor => !isOutdatedCursor;
+  /// Returns true if this value is not [content], otherwise false.
+  bool get isNotContent => !isContent;
+
+  /// Returns true if this value is [media], otherwise false.
+  bool get isMedia => this == KnownLabelValueDefinitionBlur.media;
+
+  /// Returns true if this value is not [media], otherwise false.
+  bool get isNotMedia => !isMedia;
+
+  /// Returns true if this value is [none], otherwise false.
+  bool get isNone => this == KnownLabelValueDefinitionBlur.none;
+
+  /// Returns true if this value is not [none], otherwise false.
+  bool get isNotNone => !isNone;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -67,59 +85,60 @@ extension $KnownNameExtension on KnownName {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownName
+///   knownValue: (data) => data, // => KnownLabelValueDefinitionBlur
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownName or null
+///   print(object.knownValue); // => KnownLabelValueDefinitionBlur or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UName with _$UName {
-  const factory UName.knownValue({
-    required KnownName data,
-  }) = UNameKnownValue;
+class ULabelValueDefinitionBlur with _$ULabelValueDefinitionBlur {
+  const factory ULabelValueDefinitionBlur.knownValue({
+    required KnownLabelValueDefinitionBlur data,
+  }) = ULabelValueDefinitionBlurKnownValue;
 
-  const factory UName.unknownValue({
+  const factory ULabelValueDefinitionBlur.unknownValue({
     required String data,
-  }) = UNameUnknownValue;
+  }) = ULabelValueDefinitionBlurUnknownValue;
 }
 
-final class UNameConverter implements JsonConverter<UName, String> {
-  const UNameConverter();
+final class ULabelValueDefinitionBlurConverter
+    implements JsonConverter<ULabelValueDefinitionBlur, String> {
+  const ULabelValueDefinitionBlurConverter();
 
   @override
-  UName fromJson(String json) {
-    final knownValue = KnownName.valueOf(json);
+  ULabelValueDefinitionBlur fromJson(String json) {
+    final knownValue = KnownLabelValueDefinitionBlur.valueOf(json);
 
     return knownValue != null
-        ? UName.knownValue(data: knownValue)
-        : UName.unknownValue(data: json);
+        ? ULabelValueDefinitionBlur.knownValue(data: knownValue)
+        : ULabelValueDefinitionBlur.unknownValue(data: json);
   }
 
   @override
-  String toJson(UName object) => object.when(
+  String toJson(ULabelValueDefinitionBlur object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UNameExtension on UName {
+extension $ULabelValueDefinitionBlurExtension on ULabelValueDefinitionBlur {
   /// Returns string value.
-  String toJson() => const UNameConverter().toJson(this);
+  String toJson() => const ULabelValueDefinitionBlurConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UNameKnownValue;
+  bool get isKnownValue => this is ULabelValueDefinitionBlurKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UNameUnknownValue;
+  bool get isUnknownValue => this is ULabelValueDefinitionBlurUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -127,10 +146,12 @@ extension $UNameExtension on UName {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownName get knownValue => this.data as KnownName;
+  KnownLabelValueDefinitionBlur get knownValue =>
+      this.data as KnownLabelValueDefinitionBlur;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownName? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownLabelValueDefinitionBlur? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

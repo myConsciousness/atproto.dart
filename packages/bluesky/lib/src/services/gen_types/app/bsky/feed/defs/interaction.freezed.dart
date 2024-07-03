@@ -27,8 +27,8 @@ mixin _$Interaction {
   String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get item => throw _privateConstructorUsedError;
-  @UEventConverter()
-  UEvent? get event => throw _privateConstructorUsedError;
+  @UInteractionEventConverter()
+  UInteractionEvent? get event => throw _privateConstructorUsedError;
 
   /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
   String? get feedContext => throw _privateConstructorUsedError;
@@ -52,11 +52,11 @@ abstract class $InteractionCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? item,
-      @UEventConverter() UEvent? event,
+      @UInteractionEventConverter() UInteractionEvent? event,
       String? feedContext,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UEventCopyWith<$Res>? get event;
+  $UInteractionEventCopyWith<$Res>? get event;
 }
 
 /// @nodoc
@@ -90,7 +90,7 @@ class _$InteractionCopyWithImpl<$Res, $Val extends Interaction>
       event: freezed == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
-              as UEvent?,
+              as UInteractionEvent?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
@@ -104,12 +104,12 @@ class _$InteractionCopyWithImpl<$Res, $Val extends Interaction>
 
   @override
   @pragma('vm:prefer-inline')
-  $UEventCopyWith<$Res>? get event {
+  $UInteractionEventCopyWith<$Res>? get event {
     if (_value.event == null) {
       return null;
     }
 
-    return $UEventCopyWith<$Res>(_value.event!, (value) {
+    return $UInteractionEventCopyWith<$Res>(_value.event!, (value) {
       return _then(_value.copyWith(event: value) as $Val);
     });
   }
@@ -126,12 +126,12 @@ abstract class _$$InteractionImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? item,
-      @UEventConverter() UEvent? event,
+      @UInteractionEventConverter() UInteractionEvent? event,
       String? feedContext,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UEventCopyWith<$Res>? get event;
+  $UInteractionEventCopyWith<$Res>? get event;
 }
 
 /// @nodoc
@@ -163,7 +163,7 @@ class __$$InteractionImplCopyWithImpl<$Res>
       event: freezed == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
-              as UEvent?,
+              as UInteractionEvent?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
@@ -183,7 +183,7 @@ class _$InteractionImpl implements _Interaction {
   const _$InteractionImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsInteraction,
       @AtUriConverter() this.item,
-      @UEventConverter() this.event,
+      @UInteractionEventConverter() this.event,
       this.feedContext,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -201,8 +201,8 @@ class _$InteractionImpl implements _Interaction {
   @AtUriConverter()
   final AtUri? item;
   @override
-  @UEventConverter()
-  final UEvent? event;
+  @UInteractionEventConverter()
+  final UInteractionEvent? event;
 
   /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
   @override
@@ -263,7 +263,7 @@ abstract class _Interaction implements Interaction {
   const factory _Interaction(
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() final AtUri? item,
-          @UEventConverter() final UEvent? event,
+          @UInteractionEventConverter() final UInteractionEvent? event,
           final String? feedContext,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$InteractionImpl;
@@ -282,8 +282,8 @@ abstract class _Interaction implements Interaction {
   @AtUriConverter()
   AtUri? get item;
   @override
-  @UEventConverter()
-  UEvent? get event;
+  @UInteractionEventConverter()
+  UInteractionEvent? get event;
   @override
 
   /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.

@@ -21,8 +21,8 @@ _$InteractionImpl _$$InteractionImplFromJson(Map json) => $checkedCreate(
                   v, const AtUriConverter().fromJson)),
           event: $checkedConvert(
               'event',
-              (v) => _$JsonConverterFromJson<String, UEvent>(
-                  v, const UEventConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, UInteractionEvent>(
+                  v, const UInteractionEventConverter().fromJson)),
           feedContext: $checkedConvert('feedContext', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -51,8 +51,8 @@ Map<String, dynamic> _$$InteractionImplToJson(_$InteractionImpl instance) {
           instance.item, const AtUriConverter().toJson));
   writeNotNull(
       'event',
-      _$JsonConverterToJson<String, UEvent>(
-          instance.event, const UEventConverter().toJson));
+      _$JsonConverterToJson<String, UInteractionEvent>(
+          instance.event, const UInteractionEventConverter().toJson));
   writeNotNull('feedContext', instance.feedContext);
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
