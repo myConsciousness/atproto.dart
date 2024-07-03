@@ -13,24 +13,22 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_status.freezed.dart';
+part 'known_search_posts_sort.freezed.dart';
 
-enum KnownStatus {
-  @JsonValue('takendown')
-  takendown('takendown'),
-  @JsonValue('suspended')
-  suspended('suspended'),
-  @JsonValue('deactivated')
-  deactivated('deactivated'),
+enum KnownSearchPostsSort {
+  @JsonValue('top')
+  top('top'),
+  @JsonValue('latest')
+  latest('latest'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownStatus(this.value);
+  const KnownSearchPostsSort(this.value);
 
-  /// Returns [KnownStatus] associated with [value], otherwise null.
-  static KnownStatus? valueOf(final String? value) {
+  /// Returns [KnownSearchPostsSort] associated with [value], otherwise null.
+  static KnownSearchPostsSort? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,27 +41,21 @@ enum KnownStatus {
   }
 }
 
-extension $KnownStatusExtension on KnownStatus {
-  /// Returns this value as [UStatus].
-  UStatus toUnion() => UStatus.knownValue(data: this);
+extension $KnownSearchPostsSortExtension on KnownSearchPostsSort {
+  /// Returns this value as [USearchPostsSort].
+  USearchPostsSort toUnion() => USearchPostsSort.knownValue(data: this);
 
-  /// Returns true if this value is [takendown], otherwise false.
-  bool get isTakendown => this == KnownStatus.takendown;
+  /// Returns true if this value is [top], otherwise false.
+  bool get isTop => this == KnownSearchPostsSort.top;
 
-  /// Returns true if this value is not [takendown], otherwise false.
-  bool get isNotTakendown => !isTakendown;
+  /// Returns true if this value is not [top], otherwise false.
+  bool get isNotTop => !isTop;
 
-  /// Returns true if this value is [suspended], otherwise false.
-  bool get isSuspended => this == KnownStatus.suspended;
+  /// Returns true if this value is [latest], otherwise false.
+  bool get isLatest => this == KnownSearchPostsSort.latest;
 
-  /// Returns true if this value is not [suspended], otherwise false.
-  bool get isNotSuspended => !isSuspended;
-
-  /// Returns true if this value is [deactivated], otherwise false.
-  bool get isDeactivated => this == KnownStatus.deactivated;
-
-  /// Returns true if this value is not [deactivated], otherwise false.
-  bool get isNotDeactivated => !isDeactivated;
+  /// Returns true if this value is not [latest], otherwise false.
+  bool get isNotLatest => !isLatest;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -83,59 +75,60 @@ extension $KnownStatusExtension on KnownStatus {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownStatus
+///   knownValue: (data) => data, // => KnownSearchPostsSort
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownStatus or null
+///   print(object.knownValue); // => KnownSearchPostsSort or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UStatus with _$UStatus {
-  const factory UStatus.knownValue({
-    required KnownStatus data,
-  }) = UStatusKnownValue;
+class USearchPostsSort with _$USearchPostsSort {
+  const factory USearchPostsSort.knownValue({
+    required KnownSearchPostsSort data,
+  }) = USearchPostsSortKnownValue;
 
-  const factory UStatus.unknownValue({
+  const factory USearchPostsSort.unknownValue({
     required String data,
-  }) = UStatusUnknownValue;
+  }) = USearchPostsSortUnknownValue;
 }
 
-final class UStatusConverter implements JsonConverter<UStatus, String> {
-  const UStatusConverter();
+final class USearchPostsSortConverter
+    implements JsonConverter<USearchPostsSort, String> {
+  const USearchPostsSortConverter();
 
   @override
-  UStatus fromJson(String json) {
-    final knownValue = KnownStatus.valueOf(json);
+  USearchPostsSort fromJson(String json) {
+    final knownValue = KnownSearchPostsSort.valueOf(json);
 
     return knownValue != null
-        ? UStatus.knownValue(data: knownValue)
-        : UStatus.unknownValue(data: json);
+        ? USearchPostsSort.knownValue(data: knownValue)
+        : USearchPostsSort.unknownValue(data: json);
   }
 
   @override
-  String toJson(UStatus object) => object.when(
+  String toJson(USearchPostsSort object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UStatusExtension on UStatus {
+extension $USearchPostsSortExtension on USearchPostsSort {
   /// Returns string value.
-  String toJson() => const UStatusConverter().toJson(this);
+  String toJson() => const USearchPostsSortConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UStatusKnownValue;
+  bool get isKnownValue => this is USearchPostsSortKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UStatusUnknownValue;
+  bool get isUnknownValue => this is USearchPostsSortUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -143,10 +136,11 @@ extension $UStatusExtension on UStatus {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownStatus get knownValue => this.data as KnownStatus;
+  KnownSearchPostsSort get knownValue => this.data as KnownSearchPostsSort;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownStatus? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownSearchPostsSort? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

@@ -13,22 +13,24 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_sort.freezed.dart';
+part 'known_get_repo_status_statu.freezed.dart';
 
-enum KnownSort {
-  @JsonValue('top')
-  top('top'),
-  @JsonValue('latest')
-  latest('latest'),
+enum KnownGetRepoStatusStatu {
+  @JsonValue('takendown')
+  takendown('takendown'),
+  @JsonValue('suspended')
+  suspended('suspended'),
+  @JsonValue('deactivated')
+  deactivated('deactivated'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownSort(this.value);
+  const KnownGetRepoStatusStatu(this.value);
 
-  /// Returns [KnownSort] associated with [value], otherwise null.
-  static KnownSort? valueOf(final String? value) {
+  /// Returns [KnownGetRepoStatusStatu] associated with [value], otherwise null.
+  static KnownGetRepoStatusStatu? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -41,21 +43,27 @@ enum KnownSort {
   }
 }
 
-extension $KnownSortExtension on KnownSort {
-  /// Returns this value as [USort].
-  USort toUnion() => USort.knownValue(data: this);
+extension $KnownGetRepoStatusStatuExtension on KnownGetRepoStatusStatu {
+  /// Returns this value as [UGetRepoStatusStatu].
+  UGetRepoStatusStatu toUnion() => UGetRepoStatusStatu.knownValue(data: this);
 
-  /// Returns true if this value is [top], otherwise false.
-  bool get isTop => this == KnownSort.top;
+  /// Returns true if this value is [takendown], otherwise false.
+  bool get isTakendown => this == KnownGetRepoStatusStatu.takendown;
 
-  /// Returns true if this value is not [top], otherwise false.
-  bool get isNotTop => !isTop;
+  /// Returns true if this value is not [takendown], otherwise false.
+  bool get isNotTakendown => !isTakendown;
 
-  /// Returns true if this value is [latest], otherwise false.
-  bool get isLatest => this == KnownSort.latest;
+  /// Returns true if this value is [suspended], otherwise false.
+  bool get isSuspended => this == KnownGetRepoStatusStatu.suspended;
 
-  /// Returns true if this value is not [latest], otherwise false.
-  bool get isNotLatest => !isLatest;
+  /// Returns true if this value is not [suspended], otherwise false.
+  bool get isNotSuspended => !isSuspended;
+
+  /// Returns true if this value is [deactivated], otherwise false.
+  bool get isDeactivated => this == KnownGetRepoStatusStatu.deactivated;
+
+  /// Returns true if this value is not [deactivated], otherwise false.
+  bool get isNotDeactivated => !isDeactivated;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -75,59 +83,60 @@ extension $KnownSortExtension on KnownSort {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownSort
+///   knownValue: (data) => data, // => KnownGetRepoStatusStatu
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownSort or null
+///   print(object.knownValue); // => KnownGetRepoStatusStatu or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class USort with _$USort {
-  const factory USort.knownValue({
-    required KnownSort data,
-  }) = USortKnownValue;
+class UGetRepoStatusStatu with _$UGetRepoStatusStatu {
+  const factory UGetRepoStatusStatu.knownValue({
+    required KnownGetRepoStatusStatu data,
+  }) = UGetRepoStatusStatuKnownValue;
 
-  const factory USort.unknownValue({
+  const factory UGetRepoStatusStatu.unknownValue({
     required String data,
-  }) = USortUnknownValue;
+  }) = UGetRepoStatusStatuUnknownValue;
 }
 
-final class USortConverter implements JsonConverter<USort, String> {
-  const USortConverter();
+final class UGetRepoStatusStatuConverter
+    implements JsonConverter<UGetRepoStatusStatu, String> {
+  const UGetRepoStatusStatuConverter();
 
   @override
-  USort fromJson(String json) {
-    final knownValue = KnownSort.valueOf(json);
+  UGetRepoStatusStatu fromJson(String json) {
+    final knownValue = KnownGetRepoStatusStatu.valueOf(json);
 
     return knownValue != null
-        ? USort.knownValue(data: knownValue)
-        : USort.unknownValue(data: json);
+        ? UGetRepoStatusStatu.knownValue(data: knownValue)
+        : UGetRepoStatusStatu.unknownValue(data: json);
   }
 
   @override
-  String toJson(USort object) => object.when(
+  String toJson(UGetRepoStatusStatu object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $USortExtension on USort {
+extension $UGetRepoStatusStatuExtension on UGetRepoStatusStatu {
   /// Returns string value.
-  String toJson() => const USortConverter().toJson(this);
+  String toJson() => const UGetRepoStatusStatuConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is USortKnownValue;
+  bool get isKnownValue => this is UGetRepoStatusStatuKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is USortUnknownValue;
+  bool get isUnknownValue => this is UGetRepoStatusStatuUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -135,10 +144,12 @@ extension $USortExtension on USort {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownSort get knownValue => this.data as KnownSort;
+  KnownGetRepoStatusStatu get knownValue =>
+      this.data as KnownGetRepoStatusStatu;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownSort? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownGetRepoStatusStatu? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

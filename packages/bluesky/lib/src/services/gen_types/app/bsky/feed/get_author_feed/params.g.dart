@@ -19,8 +19,8 @@ _$GetAuthorFeedParamsImpl _$$GetAuthorFeedParamsImplFromJson(Map json) =>
           cursor: $checkedConvert('cursor', (v) => v as String?),
           filter: $checkedConvert(
               'filter',
-              (v) => _$JsonConverterFromJson<String, UFilter>(
-                  v, const UFilterConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, UGetAuthorFeedFilter>(
+                  v, const UGetAuthorFeedFilterConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -47,8 +47,8 @@ Map<String, dynamic> _$$GetAuthorFeedParamsImplToJson(
   writeNotNull('cursor', instance.cursor);
   writeNotNull(
       'filter',
-      _$JsonConverterToJson<String, UFilter>(
-          instance.filter, const UFilterConverter().toJson));
+      _$JsonConverterToJson<String, UGetAuthorFeedFilter>(
+          instance.filter, const UGetAuthorFeedFilterConverter().toJson));
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

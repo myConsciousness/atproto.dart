@@ -24,8 +24,8 @@ mixin _$SearchPostsParams {
   String get q => throw _privateConstructorUsedError;
 
   /// Specifies the ranking order of results.
-  @USortConverter()
-  USort? get sort => throw _privateConstructorUsedError;
+  @USearchPostsSortConverter()
+  USearchPostsSort? get sort => throw _privateConstructorUsedError;
 
   /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
   String? get since => throw _privateConstructorUsedError;
@@ -73,7 +73,7 @@ abstract class $SearchPostsParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String q,
-      @USortConverter() USort? sort,
+      @USearchPostsSortConverter() USearchPostsSort? sort,
       String? since,
       String? until,
       String? mentions,
@@ -86,7 +86,7 @@ abstract class $SearchPostsParamsCopyWith<$Res> {
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $USortCopyWith<$Res>? get sort;
+  $USearchPostsSortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -124,7 +124,7 @@ class _$SearchPostsParamsCopyWithImpl<$Res, $Val extends SearchPostsParams>
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as USort?,
+              as USearchPostsSort?,
       since: freezed == since
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
@@ -174,12 +174,12 @@ class _$SearchPostsParamsCopyWithImpl<$Res, $Val extends SearchPostsParams>
 
   @override
   @pragma('vm:prefer-inline')
-  $USortCopyWith<$Res>? get sort {
+  $USearchPostsSortCopyWith<$Res>? get sort {
     if (_value.sort == null) {
       return null;
     }
 
-    return $USortCopyWith<$Res>(_value.sort!, (value) {
+    return $USearchPostsSortCopyWith<$Res>(_value.sort!, (value) {
       return _then(_value.copyWith(sort: value) as $Val);
     });
   }
@@ -195,7 +195,7 @@ abstract class _$$SearchPostsParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String q,
-      @USortConverter() USort? sort,
+      @USearchPostsSortConverter() USearchPostsSort? sort,
       String? since,
       String? until,
       String? mentions,
@@ -209,7 +209,7 @@ abstract class _$$SearchPostsParamsImplCopyWith<$Res>
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $USortCopyWith<$Res>? get sort;
+  $USearchPostsSortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -245,7 +245,7 @@ class __$$SearchPostsParamsImplCopyWithImpl<$Res>
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as USort?,
+              as USearchPostsSort?,
       since: freezed == since
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
@@ -300,7 +300,7 @@ class __$$SearchPostsParamsImplCopyWithImpl<$Res>
 class _$SearchPostsParamsImpl implements _SearchPostsParams {
   const _$SearchPostsParamsImpl(
       {required this.q,
-      @USortConverter() this.sort,
+      @USearchPostsSortConverter() this.sort,
       this.since,
       this.until,
       this.mentions,
@@ -324,8 +324,8 @@ class _$SearchPostsParamsImpl implements _SearchPostsParams {
 
   /// Specifies the ranking order of results.
   @override
-  @USortConverter()
-  final USort? sort;
+  @USearchPostsSortConverter()
+  final USearchPostsSort? sort;
 
   /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
   @override
@@ -451,7 +451,7 @@ class _$SearchPostsParamsImpl implements _SearchPostsParams {
 abstract class _SearchPostsParams implements SearchPostsParams {
   const factory _SearchPostsParams(
           {required final String q,
-          @USortConverter() final USort? sort,
+          @USearchPostsSortConverter() final USearchPostsSort? sort,
           final String? since,
           final String? until,
           final String? mentions,
@@ -475,8 +475,8 @@ abstract class _SearchPostsParams implements SearchPostsParams {
   @override
 
   /// Specifies the ranking order of results.
-  @USortConverter()
-  USort? get sort;
+  @USearchPostsSortConverter()
+  USearchPostsSort? get sort;
   @override
 
   /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).

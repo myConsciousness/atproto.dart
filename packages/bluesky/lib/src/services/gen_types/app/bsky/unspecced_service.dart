@@ -20,7 +20,7 @@ import '../../app/bsky/unspecced/get_popular_feed_generators/output.dart';
 import '../../app/bsky/unspecced/get_suggestions_skeleton/output.dart';
 import '../../app/bsky/unspecced/get_tagged_suggestions/output.dart';
 import '../../app/bsky/unspecced/search_actors_skeleton/output.dart';
-import '../../app/bsky/unspecced/search_posts_skeleton/known_sort.dart';
+import '../../app/bsky/unspecced/search_posts_skeleton/known_search_posts_skeleton_sort.dart';
 import '../../app/bsky/unspecced/search_posts_skeleton/output.dart';
 
 /// Contains `app.bsky.unspecced.*` endpoints.
@@ -34,7 +34,7 @@ final class UnspeccedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
   Future<XRPCResponse<SearchPostsSkeletonOutput>> searchPostsSkeleton({
     required String q,
-    USort? sort,
+    USearchPostsSkeletonSort? sort,
     String? since,
     String? until,
     String? mentions,

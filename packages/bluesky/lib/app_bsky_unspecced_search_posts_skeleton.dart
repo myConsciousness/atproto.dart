@@ -11,5 +11,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_posts_skeleton/params.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_posts_skeleton/known_sort.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_posts_skeleton/known_search_posts_skeleton_sort.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_posts_skeleton/output.dart';

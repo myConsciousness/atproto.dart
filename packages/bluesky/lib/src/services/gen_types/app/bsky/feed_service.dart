@@ -23,7 +23,7 @@ import '../../app/bsky/feed/describe_feed_generator/output.dart';
 import '../../app/bsky/feed/generator/union_generator_label.dart';
 import '../../app/bsky/feed/get_actor_feeds/output.dart';
 import '../../app/bsky/feed/get_actor_likes/output.dart';
-import '../../app/bsky/feed/get_author_feed/known_filter.dart';
+import '../../app/bsky/feed/get_author_feed/known_get_author_feed_filter.dart';
 import '../../app/bsky/feed/get_author_feed/output.dart';
 import '../../app/bsky/feed/get_feed/output.dart';
 import '../../app/bsky/feed/get_feed_generator/output.dart';
@@ -42,7 +42,7 @@ import '../../app/bsky/feed/post/reply_ref.dart';
 import '../../app/bsky/feed/post/union_post_embed.dart';
 import '../../app/bsky/feed/post/union_post_label.dart';
 import '../../app/bsky/feed/repost/record.dart';
-import '../../app/bsky/feed/search_posts/known_sort.dart';
+import '../../app/bsky/feed/search_posts/known_search_posts_sort.dart';
 import '../../app/bsky/feed/search_posts/output.dart';
 import '../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
 import '../../app/bsky/richtext/facet/main.dart';
@@ -255,7 +255,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
   Future<XRPCResponse<SearchPostsOutput>> searchPosts({
     required String q,
-    USort? sort,
+    USearchPostsSort? sort,
     String? since,
     String? until,
     String? mentions,
@@ -350,7 +350,7 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
-    UFilter? filter,
+    UGetAuthorFeedFilter? filter,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>

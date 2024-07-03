@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/feed/get_author_feed/known_filter.dart';
+import '../../../../app/bsky/feed/get_author_feed/known_get_author_feed_filter.dart';
 
 part 'params.freezed.dart';
 part 'params.g.dart';
@@ -29,7 +29,7 @@ class GetAuthorFeedParams with _$GetAuthorFeedParams {
     String? cursor,
 
     /// Combinations of post/repost types to include in response.
-    @UFilterConverter() UFilter? filter,
+    @UGetAuthorFeedFilterConverter() UGetAuthorFeedFilter? filter,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

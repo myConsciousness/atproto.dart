@@ -16,8 +16,8 @@ _$GetInviteCodesParamsImpl _$$GetInviteCodesParamsImplFromJson(Map json) =>
         final val = _$GetInviteCodesParamsImpl(
           sort: $checkedConvert(
               'sort',
-              (v) => _$JsonConverterFromJson<String, USort>(
-                  v, const USortConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, UGetInviteCodesSort>(
+                  v, const UGetInviteCodesSortConverter().fromJson)),
           limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
@@ -42,8 +42,8 @@ Map<String, dynamic> _$$GetInviteCodesParamsImplToJson(
 
   writeNotNull(
       'sort',
-      _$JsonConverterToJson<String, USort>(
-          instance.sort, const USortConverter().toJson));
+      _$JsonConverterToJson<String, UGetInviteCodesSort>(
+          instance.sort, const UGetInviteCodesSortConverter().toJson));
   writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   writeNotNull(r'$unknown', instance.$unknown);

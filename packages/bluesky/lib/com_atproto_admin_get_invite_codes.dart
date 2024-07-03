@@ -11,5 +11,5 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/gen_types/com/atproto/admin/get_invite_codes/params.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/admin/get_invite_codes/known_sort.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/admin/get_invite_codes/known_get_invite_codes_sort.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/admin/get_invite_codes/output.dart';

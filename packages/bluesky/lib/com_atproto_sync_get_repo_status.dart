@@ -12,4 +12,4 @@
 
 export 'package:atproto/src/services/gen_types/com/atproto/sync/get_repo_status/params.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/get_repo_status/output.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/sync/get_repo_status/known_status.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync/get_repo_status/known_get_repo_status_statu.dart';

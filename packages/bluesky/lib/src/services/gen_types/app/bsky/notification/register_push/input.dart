@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/notification/register_push/known_platform.dart';
+import '../../../../app/bsky/notification/register_push/known_register_push_platform.dart';
 
 part 'input.freezed.dart';
 part 'input.g.dart';
@@ -26,7 +26,7 @@ class RegisterPushInput with _$RegisterPushInput {
   const factory RegisterPushInput({
     required String serviceDid,
     required String token,
-    @UPlatformConverter() required UPlatform platform,
+    @URegisterPushPlatformConverter() required URegisterPushPlatform platform,
     required String appId,
 
     /// Contains unknown objects not defined in Lexicon.

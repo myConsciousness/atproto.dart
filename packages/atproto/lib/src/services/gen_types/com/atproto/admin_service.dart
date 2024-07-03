@@ -19,7 +19,7 @@ import '../../../service_context.dart';
 import '../../com/atproto/admin/defs/account_view.dart';
 import '../../com/atproto/admin/defs/status_attr.dart';
 import '../../com/atproto/admin/get_account_infos/output.dart';
-import '../../com/atproto/admin/get_invite_codes/known_sort.dart';
+import '../../com/atproto/admin/get_invite_codes/known_get_invite_codes_sort.dart';
 import '../../com/atproto/admin/get_invite_codes/output.dart';
 import '../../com/atproto/admin/get_subject_status/output.dart';
 import '../../com/atproto/admin/search_accounts/output.dart';
@@ -218,7 +218,7 @@ final class AdminService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getInviteCodes
   Future<XRPCResponse<GetInviteCodesOutput>> getInviteCodes({
-    USort? sort,
+    UGetInviteCodesSort? sort,
     int? limit,
     String? cursor,
     Map<String, String>? $headers,

@@ -20,8 +20,8 @@ GetInviteCodesParams _$GetInviteCodesParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetInviteCodesParams {
-  @USortConverter()
-  USort? get sort => throw _privateConstructorUsedError;
+  @UGetInviteCodesSortConverter()
+  UGetInviteCodesSort? get sort => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
@@ -42,12 +42,12 @@ abstract class $GetInviteCodesParamsCopyWith<$Res> {
       _$GetInviteCodesParamsCopyWithImpl<$Res, GetInviteCodesParams>;
   @useResult
   $Res call(
-      {@USortConverter() USort? sort,
+      {@UGetInviteCodesSortConverter() UGetInviteCodesSort? sort,
       int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $USortCopyWith<$Res>? get sort;
+  $UGetInviteCodesSortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -73,7 +73,7 @@ class _$GetInviteCodesParamsCopyWithImpl<$Res,
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as USort?,
+              as UGetInviteCodesSort?,
       limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -91,12 +91,12 @@ class _$GetInviteCodesParamsCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $USortCopyWith<$Res>? get sort {
+  $UGetInviteCodesSortCopyWith<$Res>? get sort {
     if (_value.sort == null) {
       return null;
     }
 
-    return $USortCopyWith<$Res>(_value.sort!, (value) {
+    return $UGetInviteCodesSortCopyWith<$Res>(_value.sort!, (value) {
       return _then(_value.copyWith(sort: value) as $Val);
     });
   }
@@ -111,13 +111,13 @@ abstract class _$$GetInviteCodesParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@USortConverter() USort? sort,
+      {@UGetInviteCodesSortConverter() UGetInviteCodesSort? sort,
       int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $USortCopyWith<$Res>? get sort;
+  $UGetInviteCodesSortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -140,7 +140,7 @@ class __$$GetInviteCodesParamsImplCopyWithImpl<$Res>
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as USort?,
+              as UGetInviteCodesSort?,
       limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class __$$GetInviteCodesParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetInviteCodesParamsImpl implements _GetInviteCodesParams {
   const _$GetInviteCodesParamsImpl(
-      {@USortConverter() this.sort,
+      {@UGetInviteCodesSortConverter() this.sort,
       this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -172,8 +172,8 @@ class _$GetInviteCodesParamsImpl implements _GetInviteCodesParams {
       _$$GetInviteCodesParamsImplFromJson(json);
 
   @override
-  @USortConverter()
-  final USort? sort;
+  @UGetInviteCodesSortConverter()
+  final UGetInviteCodesSort? sort;
   @override
   final int? limit;
   @override
@@ -232,7 +232,7 @@ class _$GetInviteCodesParamsImpl implements _GetInviteCodesParams {
 
 abstract class _GetInviteCodesParams implements GetInviteCodesParams {
   const factory _GetInviteCodesParams(
-          {@USortConverter() final USort? sort,
+          {@UGetInviteCodesSortConverter() final UGetInviteCodesSort? sort,
           final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -242,8 +242,8 @@ abstract class _GetInviteCodesParams implements GetInviteCodesParams {
       _$GetInviteCodesParamsImpl.fromJson;
 
   @override
-  @USortConverter()
-  USort? get sort;
+  @UGetInviteCodesSortConverter()
+  UGetInviteCodesSort? get sort;
   @override
   int? get limit;
   @override

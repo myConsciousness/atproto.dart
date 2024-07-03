@@ -13,22 +13,24 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_sort.freezed.dart';
+part 'known_register_push_platform.freezed.dart';
 
-enum KnownSort {
-  @JsonValue('top')
-  top('top'),
-  @JsonValue('latest')
-  latest('latest'),
+enum KnownRegisterPushPlatform {
+  @JsonValue('ios')
+  ios('ios'),
+  @JsonValue('android')
+  android('android'),
+  @JsonValue('web')
+  web('web'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownSort(this.value);
+  const KnownRegisterPushPlatform(this.value);
 
-  /// Returns [KnownSort] associated with [value], otherwise null.
-  static KnownSort? valueOf(final String? value) {
+  /// Returns [KnownRegisterPushPlatform] associated with [value], otherwise null.
+  static KnownRegisterPushPlatform? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -41,21 +43,28 @@ enum KnownSort {
   }
 }
 
-extension $KnownSortExtension on KnownSort {
-  /// Returns this value as [USort].
-  USort toUnion() => USort.knownValue(data: this);
+extension $KnownRegisterPushPlatformExtension on KnownRegisterPushPlatform {
+  /// Returns this value as [URegisterPushPlatform].
+  URegisterPushPlatform toUnion() =>
+      URegisterPushPlatform.knownValue(data: this);
 
-  /// Returns true if this value is [top], otherwise false.
-  bool get isTop => this == KnownSort.top;
+  /// Returns true if this value is [ios], otherwise false.
+  bool get isIos => this == KnownRegisterPushPlatform.ios;
 
-  /// Returns true if this value is not [top], otherwise false.
-  bool get isNotTop => !isTop;
+  /// Returns true if this value is not [ios], otherwise false.
+  bool get isNotIos => !isIos;
 
-  /// Returns true if this value is [latest], otherwise false.
-  bool get isLatest => this == KnownSort.latest;
+  /// Returns true if this value is [android], otherwise false.
+  bool get isAndroid => this == KnownRegisterPushPlatform.android;
 
-  /// Returns true if this value is not [latest], otherwise false.
-  bool get isNotLatest => !isLatest;
+  /// Returns true if this value is not [android], otherwise false.
+  bool get isNotAndroid => !isAndroid;
+
+  /// Returns true if this value is [web], otherwise false.
+  bool get isWeb => this == KnownRegisterPushPlatform.web;
+
+  /// Returns true if this value is not [web], otherwise false.
+  bool get isNotWeb => !isWeb;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -75,59 +84,60 @@ extension $KnownSortExtension on KnownSort {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownSort
+///   knownValue: (data) => data, // => KnownRegisterPushPlatform
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownSort or null
+///   print(object.knownValue); // => KnownRegisterPushPlatform or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class USort with _$USort {
-  const factory USort.knownValue({
-    required KnownSort data,
-  }) = USortKnownValue;
+class URegisterPushPlatform with _$URegisterPushPlatform {
+  const factory URegisterPushPlatform.knownValue({
+    required KnownRegisterPushPlatform data,
+  }) = URegisterPushPlatformKnownValue;
 
-  const factory USort.unknownValue({
+  const factory URegisterPushPlatform.unknownValue({
     required String data,
-  }) = USortUnknownValue;
+  }) = URegisterPushPlatformUnknownValue;
 }
 
-final class USortConverter implements JsonConverter<USort, String> {
-  const USortConverter();
+final class URegisterPushPlatformConverter
+    implements JsonConverter<URegisterPushPlatform, String> {
+  const URegisterPushPlatformConverter();
 
   @override
-  USort fromJson(String json) {
-    final knownValue = KnownSort.valueOf(json);
+  URegisterPushPlatform fromJson(String json) {
+    final knownValue = KnownRegisterPushPlatform.valueOf(json);
 
     return knownValue != null
-        ? USort.knownValue(data: knownValue)
-        : USort.unknownValue(data: json);
+        ? URegisterPushPlatform.knownValue(data: knownValue)
+        : URegisterPushPlatform.unknownValue(data: json);
   }
 
   @override
-  String toJson(USort object) => object.when(
+  String toJson(URegisterPushPlatform object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $USortExtension on USort {
+extension $URegisterPushPlatformExtension on URegisterPushPlatform {
   /// Returns string value.
-  String toJson() => const USortConverter().toJson(this);
+  String toJson() => const URegisterPushPlatformConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is USortKnownValue;
+  bool get isKnownValue => this is URegisterPushPlatformKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is USortUnknownValue;
+  bool get isUnknownValue => this is URegisterPushPlatformUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -135,10 +145,12 @@ extension $USortExtension on USort {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownSort get knownValue => this.data as KnownSort;
+  KnownRegisterPushPlatform get knownValue =>
+      this.data as KnownRegisterPushPlatform;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownSort? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownRegisterPushPlatform? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

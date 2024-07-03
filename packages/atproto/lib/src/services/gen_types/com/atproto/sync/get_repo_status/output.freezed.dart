@@ -24,8 +24,8 @@ mixin _$GetRepoStatusOutput {
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @UStatusConverter()
-  UStatus? get status => throw _privateConstructorUsedError;
+  @UGetRepoStatusStatuConverter()
+  UGetRepoStatusStatu? get status => throw _privateConstructorUsedError;
 
   /// Optional field, the current rev of the repo, if active=true
   String? get rev => throw _privateConstructorUsedError;
@@ -49,11 +49,11 @@ abstract class $GetRepoStatusOutputCopyWith<$Res> {
   $Res call(
       {String did,
       bool active,
-      @UStatusConverter() UStatus? status,
+      @UGetRepoStatusStatuConverter() UGetRepoStatusStatu? status,
       String? rev,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UStatusCopyWith<$Res>? get status;
+  $UGetRepoStatusStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -87,7 +87,7 @@ class _$GetRepoStatusOutputCopyWithImpl<$Res, $Val extends GetRepoStatusOutput>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatus?,
+              as UGetRepoStatusStatu?,
       rev: freezed == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -101,12 +101,12 @@ class _$GetRepoStatusOutputCopyWithImpl<$Res, $Val extends GetRepoStatusOutput>
 
   @override
   @pragma('vm:prefer-inline')
-  $UStatusCopyWith<$Res>? get status {
+  $UGetRepoStatusStatuCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $UStatusCopyWith<$Res>(_value.status!, (value) {
+    return $UGetRepoStatusStatuCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -123,12 +123,12 @@ abstract class _$$GetRepoStatusOutputImplCopyWith<$Res>
   $Res call(
       {String did,
       bool active,
-      @UStatusConverter() UStatus? status,
+      @UGetRepoStatusStatuConverter() UGetRepoStatusStatu? status,
       String? rev,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UStatusCopyWith<$Res>? get status;
+  $UGetRepoStatusStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -160,7 +160,7 @@ class __$$GetRepoStatusOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatus?,
+              as UGetRepoStatusStatu?,
       rev: freezed == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -180,7 +180,7 @@ class _$GetRepoStatusOutputImpl implements _GetRepoStatusOutput {
   const _$GetRepoStatusOutputImpl(
       {required this.did,
       required this.active,
-      @UStatusConverter() this.status,
+      @UGetRepoStatusStatuConverter() this.status,
       this.rev,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -195,8 +195,8 @@ class _$GetRepoStatusOutputImpl implements _GetRepoStatusOutput {
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @override
-  @UStatusConverter()
-  final UStatus? status;
+  @UGetRepoStatusStatuConverter()
+  final UGetRepoStatusStatu? status;
 
   /// Optional field, the current rev of the repo, if active=true
   @override
@@ -257,7 +257,7 @@ abstract class _GetRepoStatusOutput implements GetRepoStatusOutput {
   const factory _GetRepoStatusOutput(
           {required final String did,
           required final bool active,
-          @UStatusConverter() final UStatus? status,
+          @UGetRepoStatusStatuConverter() final UGetRepoStatusStatu? status,
           final String? rev,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetRepoStatusOutputImpl;
@@ -272,8 +272,8 @@ abstract class _GetRepoStatusOutput implements GetRepoStatusOutput {
   @override
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @UStatusConverter()
-  UStatus? get status;
+  @UGetRepoStatusStatuConverter()
+  UGetRepoStatusStatu? get status;
   @override
 
   /// Optional field, the current rev of the repo, if active=true

@@ -22,8 +22,8 @@ RegisterPushInput _$RegisterPushInputFromJson(Map<String, dynamic> json) {
 mixin _$RegisterPushInput {
   String get serviceDid => throw _privateConstructorUsedError;
   String get token => throw _privateConstructorUsedError;
-  @UPlatformConverter()
-  UPlatform get platform => throw _privateConstructorUsedError;
+  @URegisterPushPlatformConverter()
+  URegisterPushPlatform get platform => throw _privateConstructorUsedError;
   String get appId => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,11 +45,11 @@ abstract class $RegisterPushInputCopyWith<$Res> {
   $Res call(
       {String serviceDid,
       String token,
-      @UPlatformConverter() UPlatform platform,
+      @URegisterPushPlatformConverter() URegisterPushPlatform platform,
       String appId,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UPlatformCopyWith<$Res> get platform;
+  $URegisterPushPlatformCopyWith<$Res> get platform;
 }
 
 /// @nodoc
@@ -83,7 +83,7 @@ class _$RegisterPushInputCopyWithImpl<$Res, $Val extends RegisterPushInput>
       platform: null == platform
           ? _value.platform
           : platform // ignore: cast_nullable_to_non_nullable
-              as UPlatform,
+              as URegisterPushPlatform,
       appId: null == appId
           ? _value.appId
           : appId // ignore: cast_nullable_to_non_nullable
@@ -97,8 +97,8 @@ class _$RegisterPushInputCopyWithImpl<$Res, $Val extends RegisterPushInput>
 
   @override
   @pragma('vm:prefer-inline')
-  $UPlatformCopyWith<$Res> get platform {
-    return $UPlatformCopyWith<$Res>(_value.platform, (value) {
+  $URegisterPushPlatformCopyWith<$Res> get platform {
+    return $URegisterPushPlatformCopyWith<$Res>(_value.platform, (value) {
       return _then(_value.copyWith(platform: value) as $Val);
     });
   }
@@ -115,12 +115,12 @@ abstract class _$$RegisterPushInputImplCopyWith<$Res>
   $Res call(
       {String serviceDid,
       String token,
-      @UPlatformConverter() UPlatform platform,
+      @URegisterPushPlatformConverter() URegisterPushPlatform platform,
       String appId,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UPlatformCopyWith<$Res> get platform;
+  $URegisterPushPlatformCopyWith<$Res> get platform;
 }
 
 /// @nodoc
@@ -152,7 +152,7 @@ class __$$RegisterPushInputImplCopyWithImpl<$Res>
       platform: null == platform
           ? _value.platform
           : platform // ignore: cast_nullable_to_non_nullable
-              as UPlatform,
+              as URegisterPushPlatform,
       appId: null == appId
           ? _value.appId
           : appId // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ class _$RegisterPushInputImpl implements _RegisterPushInput {
   const _$RegisterPushInputImpl(
       {required this.serviceDid,
       required this.token,
-      @UPlatformConverter() required this.platform,
+      @URegisterPushPlatformConverter() required this.platform,
       required this.appId,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -185,8 +185,8 @@ class _$RegisterPushInputImpl implements _RegisterPushInput {
   @override
   final String token;
   @override
-  @UPlatformConverter()
-  final UPlatform platform;
+  @URegisterPushPlatformConverter()
+  final URegisterPushPlatform platform;
   @override
   final String appId;
 
@@ -247,7 +247,8 @@ abstract class _RegisterPushInput implements RegisterPushInput {
   const factory _RegisterPushInput(
           {required final String serviceDid,
           required final String token,
-          @UPlatformConverter() required final UPlatform platform,
+          @URegisterPushPlatformConverter()
+          required final URegisterPushPlatform platform,
           required final String appId,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RegisterPushInputImpl;
@@ -260,8 +261,8 @@ abstract class _RegisterPushInput implements RegisterPushInput {
   @override
   String get token;
   @override
-  @UPlatformConverter()
-  UPlatform get platform;
+  @URegisterPushPlatformConverter()
+  URegisterPushPlatform get platform;
   @override
   String get appId;
   @override

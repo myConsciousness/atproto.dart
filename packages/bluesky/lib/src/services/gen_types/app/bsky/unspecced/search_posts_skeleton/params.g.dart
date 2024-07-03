@@ -18,8 +18,8 @@ _$SearchPostsSkeletonParamsImpl _$$SearchPostsSkeletonParamsImplFromJson(
           q: $checkedConvert('q', (v) => v as String),
           sort: $checkedConvert(
               'sort',
-              (v) => _$JsonConverterFromJson<String, USort>(
-                  v, const USortConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, USearchPostsSkeletonSort>(
+                  v, const USearchPostsSkeletonSortConverter().fromJson)),
           since: $checkedConvert('since', (v) => v as String?),
           until: $checkedConvert('until', (v) => v as String?),
           mentions: $checkedConvert('mentions', (v) => v as String?),
@@ -56,8 +56,8 @@ Map<String, dynamic> _$$SearchPostsSkeletonParamsImplToJson(
 
   writeNotNull(
       'sort',
-      _$JsonConverterToJson<String, USort>(
-          instance.sort, const USortConverter().toJson));
+      _$JsonConverterToJson<String, USearchPostsSkeletonSort>(
+          instance.sort, const USearchPostsSkeletonSortConverter().toJson));
   writeNotNull('since', instance.since);
   writeNotNull('until', instance.until);
   writeNotNull('mentions', instance.mentions);

@@ -25,8 +25,8 @@ mixin _$GetAuthorFeedParams {
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Combinations of post/repost types to include in response.
-  @UFilterConverter()
-  UFilter? get filter => throw _privateConstructorUsedError;
+  @UGetAuthorFeedFilterConverter()
+  UGetAuthorFeedFilter? get filter => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -48,10 +48,10 @@ abstract class $GetAuthorFeedParamsCopyWith<$Res> {
       {String actor,
       int? limit,
       String? cursor,
-      @UFilterConverter() UFilter? filter,
+      @UGetAuthorFeedFilterConverter() UGetAuthorFeedFilter? filter,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UFilterCopyWith<$Res>? get filter;
+  $UGetAuthorFeedFilterCopyWith<$Res>? get filter;
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ class _$GetAuthorFeedParamsCopyWithImpl<$Res, $Val extends GetAuthorFeedParams>
       filter: freezed == filter
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
-              as UFilter?,
+              as UGetAuthorFeedFilter?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -99,12 +99,12 @@ class _$GetAuthorFeedParamsCopyWithImpl<$Res, $Val extends GetAuthorFeedParams>
 
   @override
   @pragma('vm:prefer-inline')
-  $UFilterCopyWith<$Res>? get filter {
+  $UGetAuthorFeedFilterCopyWith<$Res>? get filter {
     if (_value.filter == null) {
       return null;
     }
 
-    return $UFilterCopyWith<$Res>(_value.filter!, (value) {
+    return $UGetAuthorFeedFilterCopyWith<$Res>(_value.filter!, (value) {
       return _then(_value.copyWith(filter: value) as $Val);
     });
   }
@@ -122,11 +122,11 @@ abstract class _$$GetAuthorFeedParamsImplCopyWith<$Res>
       {String actor,
       int? limit,
       String? cursor,
-      @UFilterConverter() UFilter? filter,
+      @UGetAuthorFeedFilterConverter() UGetAuthorFeedFilter? filter,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UFilterCopyWith<$Res>? get filter;
+  $UGetAuthorFeedFilterCopyWith<$Res>? get filter;
 }
 
 /// @nodoc
@@ -162,7 +162,7 @@ class __$$GetAuthorFeedParamsImplCopyWithImpl<$Res>
       filter: freezed == filter
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
-              as UFilter?,
+              as UGetAuthorFeedFilter?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -179,7 +179,7 @@ class _$GetAuthorFeedParamsImpl implements _GetAuthorFeedParams {
       {required this.actor,
       this.limit,
       this.cursor,
-      @UFilterConverter() this.filter,
+      @UGetAuthorFeedFilterConverter() this.filter,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -195,8 +195,8 @@ class _$GetAuthorFeedParamsImpl implements _GetAuthorFeedParams {
 
   /// Combinations of post/repost types to include in response.
   @override
-  @UFilterConverter()
-  final UFilter? filter;
+  @UGetAuthorFeedFilterConverter()
+  final UGetAuthorFeedFilter? filter;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -254,7 +254,7 @@ abstract class _GetAuthorFeedParams implements GetAuthorFeedParams {
           {required final String actor,
           final int? limit,
           final String? cursor,
-          @UFilterConverter() final UFilter? filter,
+          @UGetAuthorFeedFilterConverter() final UGetAuthorFeedFilter? filter,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetAuthorFeedParamsImpl;
 
@@ -270,8 +270,8 @@ abstract class _GetAuthorFeedParams implements GetAuthorFeedParams {
   @override
 
   /// Combinations of post/repost types to include in response.
-  @UFilterConverter()
-  UFilter? get filter;
+  @UGetAuthorFeedFilterConverter()
+  UGetAuthorFeedFilter? get filter;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

@@ -16,8 +16,10 @@ _$RegisterPushInputImpl _$$RegisterPushInputImplFromJson(Map json) =>
         final val = _$RegisterPushInputImpl(
           serviceDid: $checkedConvert('serviceDid', (v) => v as String),
           token: $checkedConvert('token', (v) => v as String),
-          platform: $checkedConvert('platform',
-              (v) => const UPlatformConverter().fromJson(v as String)),
+          platform: $checkedConvert(
+              'platform',
+              (v) =>
+                  const URegisterPushPlatformConverter().fromJson(v as String)),
           appId: $checkedConvert('appId', (v) => v as String),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -34,7 +36,8 @@ Map<String, dynamic> _$$RegisterPushInputImplToJson(
   final val = <String, dynamic>{
     'serviceDid': instance.serviceDid,
     'token': instance.token,
-    'platform': const UPlatformConverter().toJson(instance.platform),
+    'platform':
+        const URegisterPushPlatformConverter().toJson(instance.platform),
     'appId': instance.appId,
   };
 

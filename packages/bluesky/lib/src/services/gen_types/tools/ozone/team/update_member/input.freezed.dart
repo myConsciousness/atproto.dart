@@ -22,8 +22,8 @@ UpdateMemberInput _$UpdateMemberInputFromJson(Map<String, dynamic> json) {
 mixin _$UpdateMemberInput {
   String get did => throw _privateConstructorUsedError;
   bool? get disabled => throw _privateConstructorUsedError;
-  @URoleConverter()
-  URole? get role => throw _privateConstructorUsedError;
+  @UUpdateMemberRoleConverter()
+  UUpdateMemberRole? get role => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -44,10 +44,10 @@ abstract class $UpdateMemberInputCopyWith<$Res> {
   $Res call(
       {String did,
       bool? disabled,
-      @URoleConverter() URole? role,
+      @UUpdateMemberRoleConverter() UUpdateMemberRole? role,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $URoleCopyWith<$Res>? get role;
+  $UUpdateMemberRoleCopyWith<$Res>? get role;
 }
 
 /// @nodoc
@@ -80,7 +80,7 @@ class _$UpdateMemberInputCopyWithImpl<$Res, $Val extends UpdateMemberInput>
       role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as URole?,
+              as UUpdateMemberRole?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -90,12 +90,12 @@ class _$UpdateMemberInputCopyWithImpl<$Res, $Val extends UpdateMemberInput>
 
   @override
   @pragma('vm:prefer-inline')
-  $URoleCopyWith<$Res>? get role {
+  $UUpdateMemberRoleCopyWith<$Res>? get role {
     if (_value.role == null) {
       return null;
     }
 
-    return $URoleCopyWith<$Res>(_value.role!, (value) {
+    return $UUpdateMemberRoleCopyWith<$Res>(_value.role!, (value) {
       return _then(_value.copyWith(role: value) as $Val);
     });
   }
@@ -112,11 +112,11 @@ abstract class _$$UpdateMemberInputImplCopyWith<$Res>
   $Res call(
       {String did,
       bool? disabled,
-      @URoleConverter() URole? role,
+      @UUpdateMemberRoleConverter() UUpdateMemberRole? role,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $URoleCopyWith<$Res>? get role;
+  $UUpdateMemberRoleCopyWith<$Res>? get role;
 }
 
 /// @nodoc
@@ -147,7 +147,7 @@ class __$$UpdateMemberInputImplCopyWithImpl<$Res>
       role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as URole?,
+              as UUpdateMemberRole?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -163,7 +163,7 @@ class _$UpdateMemberInputImpl implements _UpdateMemberInput {
   const _$UpdateMemberInputImpl(
       {required this.did,
       this.disabled,
-      @URoleConverter() this.role,
+      @UUpdateMemberRoleConverter() this.role,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -175,8 +175,8 @@ class _$UpdateMemberInputImpl implements _UpdateMemberInput {
   @override
   final bool? disabled;
   @override
-  @URoleConverter()
-  final URole? role;
+  @UUpdateMemberRoleConverter()
+  final UUpdateMemberRole? role;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -233,7 +233,7 @@ abstract class _UpdateMemberInput implements UpdateMemberInput {
   const factory _UpdateMemberInput(
           {required final String did,
           final bool? disabled,
-          @URoleConverter() final URole? role,
+          @UUpdateMemberRoleConverter() final UUpdateMemberRole? role,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$UpdateMemberInputImpl;
 
@@ -245,8 +245,8 @@ abstract class _UpdateMemberInput implements UpdateMemberInput {
   @override
   bool? get disabled;
   @override
-  @URoleConverter()
-  URole? get role;
+  @UUpdateMemberRoleConverter()
+  UUpdateMemberRole? get role;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

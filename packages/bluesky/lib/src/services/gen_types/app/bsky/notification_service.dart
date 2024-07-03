@@ -18,7 +18,7 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../app/bsky/notification/get_unread_count/output.dart';
 import '../../app/bsky/notification/list_notifications/output.dart';
-import '../../app/bsky/notification/register_push/known_platform.dart';
+import '../../app/bsky/notification/register_push/known_register_push_platform.dart';
 
 /// Contains `app.bsky.notification.*` endpoints.
 final class NotificationService {
@@ -32,7 +32,7 @@ final class NotificationService {
   Future<XRPCResponse<EmptyData>> registerPush({
     required String serviceDid,
     required String token,
-    required UPlatform platform,
+    required URegisterPushPlatform platform,
     required String appId,
     Map<String, String>? $headers,
     PostClient? $client,

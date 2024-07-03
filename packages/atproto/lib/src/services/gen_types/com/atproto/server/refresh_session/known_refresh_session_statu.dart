@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_status.freezed.dart';
+part 'known_refresh_session_statu.freezed.dart';
 
-enum KnownStatus {
+enum KnownRefreshSessionStatu {
   @JsonValue('takendown')
   takendown('takendown'),
   @JsonValue('suspended')
@@ -27,10 +27,10 @@ enum KnownStatus {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownStatus(this.value);
+  const KnownRefreshSessionStatu(this.value);
 
-  /// Returns [KnownStatus] associated with [value], otherwise null.
-  static KnownStatus? valueOf(final String? value) {
+  /// Returns [KnownRefreshSessionStatu] associated with [value], otherwise null.
+  static KnownRefreshSessionStatu? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,24 +43,24 @@ enum KnownStatus {
   }
 }
 
-extension $KnownStatusExtension on KnownStatus {
-  /// Returns this value as [UStatus].
-  UStatus toUnion() => UStatus.knownValue(data: this);
+extension $KnownRefreshSessionStatuExtension on KnownRefreshSessionStatu {
+  /// Returns this value as [URefreshSessionStatu].
+  URefreshSessionStatu toUnion() => URefreshSessionStatu.knownValue(data: this);
 
   /// Returns true if this value is [takendown], otherwise false.
-  bool get isTakendown => this == KnownStatus.takendown;
+  bool get isTakendown => this == KnownRefreshSessionStatu.takendown;
 
   /// Returns true if this value is not [takendown], otherwise false.
   bool get isNotTakendown => !isTakendown;
 
   /// Returns true if this value is [suspended], otherwise false.
-  bool get isSuspended => this == KnownStatus.suspended;
+  bool get isSuspended => this == KnownRefreshSessionStatu.suspended;
 
   /// Returns true if this value is not [suspended], otherwise false.
   bool get isNotSuspended => !isSuspended;
 
   /// Returns true if this value is [deactivated], otherwise false.
-  bool get isDeactivated => this == KnownStatus.deactivated;
+  bool get isDeactivated => this == KnownRefreshSessionStatu.deactivated;
 
   /// Returns true if this value is not [deactivated], otherwise false.
   bool get isNotDeactivated => !isDeactivated;
@@ -83,59 +83,60 @@ extension $KnownStatusExtension on KnownStatus {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownStatus
+///   knownValue: (data) => data, // => KnownRefreshSessionStatu
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownStatus or null
+///   print(object.knownValue); // => KnownRefreshSessionStatu or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UStatus with _$UStatus {
-  const factory UStatus.knownValue({
-    required KnownStatus data,
-  }) = UStatusKnownValue;
+class URefreshSessionStatu with _$URefreshSessionStatu {
+  const factory URefreshSessionStatu.knownValue({
+    required KnownRefreshSessionStatu data,
+  }) = URefreshSessionStatuKnownValue;
 
-  const factory UStatus.unknownValue({
+  const factory URefreshSessionStatu.unknownValue({
     required String data,
-  }) = UStatusUnknownValue;
+  }) = URefreshSessionStatuUnknownValue;
 }
 
-final class UStatusConverter implements JsonConverter<UStatus, String> {
-  const UStatusConverter();
+final class URefreshSessionStatuConverter
+    implements JsonConverter<URefreshSessionStatu, String> {
+  const URefreshSessionStatuConverter();
 
   @override
-  UStatus fromJson(String json) {
-    final knownValue = KnownStatus.valueOf(json);
+  URefreshSessionStatu fromJson(String json) {
+    final knownValue = KnownRefreshSessionStatu.valueOf(json);
 
     return knownValue != null
-        ? UStatus.knownValue(data: knownValue)
-        : UStatus.unknownValue(data: json);
+        ? URefreshSessionStatu.knownValue(data: knownValue)
+        : URefreshSessionStatu.unknownValue(data: json);
   }
 
   @override
-  String toJson(UStatus object) => object.when(
+  String toJson(URefreshSessionStatu object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UStatusExtension on UStatus {
+extension $URefreshSessionStatuExtension on URefreshSessionStatu {
   /// Returns string value.
-  String toJson() => const UStatusConverter().toJson(this);
+  String toJson() => const URefreshSessionStatuConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UStatusKnownValue;
+  bool get isKnownValue => this is URefreshSessionStatuKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UStatusUnknownValue;
+  bool get isUnknownValue => this is URefreshSessionStatuUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -143,10 +144,12 @@ extension $UStatusExtension on UStatus {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownStatus get knownValue => this.data as KnownStatus;
+  KnownRefreshSessionStatu get knownValue =>
+      this.data as KnownRefreshSessionStatu;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownStatus? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownRefreshSessionStatu? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

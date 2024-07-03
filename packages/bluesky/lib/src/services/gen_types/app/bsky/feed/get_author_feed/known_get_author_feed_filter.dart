@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_filter.freezed.dart';
+part 'known_get_author_feed_filter.freezed.dart';
 
-enum KnownFilter {
+enum KnownGetAuthorFeedFilter {
   @JsonValue('posts_with_replies')
   posts_with_replies('posts_with_replies'),
   @JsonValue('posts_no_replies')
@@ -29,10 +29,10 @@ enum KnownFilter {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownFilter(this.value);
+  const KnownGetAuthorFeedFilter(this.value);
 
-  /// Returns [KnownFilter] associated with [value], otherwise null.
-  static KnownFilter? valueOf(final String? value) {
+  /// Returns [KnownGetAuthorFeedFilter] associated with [value], otherwise null.
+  static KnownGetAuthorFeedFilter? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -45,31 +45,34 @@ enum KnownFilter {
   }
 }
 
-extension $KnownFilterExtension on KnownFilter {
-  /// Returns this value as [UFilter].
-  UFilter toUnion() => UFilter.knownValue(data: this);
+extension $KnownGetAuthorFeedFilterExtension on KnownGetAuthorFeedFilter {
+  /// Returns this value as [UGetAuthorFeedFilter].
+  UGetAuthorFeedFilter toUnion() => UGetAuthorFeedFilter.knownValue(data: this);
 
   /// Returns true if this value is [posts_with_replies], otherwise false.
-  bool get isPosts_with_replies => this == KnownFilter.posts_with_replies;
+  bool get isPosts_with_replies =>
+      this == KnownGetAuthorFeedFilter.posts_with_replies;
 
   /// Returns true if this value is not [posts_with_replies], otherwise false.
   bool get isNotPosts_with_replies => !isPosts_with_replies;
 
   /// Returns true if this value is [posts_no_replies], otherwise false.
-  bool get isPosts_no_replies => this == KnownFilter.posts_no_replies;
+  bool get isPosts_no_replies =>
+      this == KnownGetAuthorFeedFilter.posts_no_replies;
 
   /// Returns true if this value is not [posts_no_replies], otherwise false.
   bool get isNotPosts_no_replies => !isPosts_no_replies;
 
   /// Returns true if this value is [posts_with_media], otherwise false.
-  bool get isPosts_with_media => this == KnownFilter.posts_with_media;
+  bool get isPosts_with_media =>
+      this == KnownGetAuthorFeedFilter.posts_with_media;
 
   /// Returns true if this value is not [posts_with_media], otherwise false.
   bool get isNotPosts_with_media => !isPosts_with_media;
 
   /// Returns true if this value is [posts_and_author_threads], otherwise false.
   bool get isPosts_and_author_threads =>
-      this == KnownFilter.posts_and_author_threads;
+      this == KnownGetAuthorFeedFilter.posts_and_author_threads;
 
   /// Returns true if this value is not [posts_and_author_threads], otherwise false.
   bool get isNotPosts_and_author_threads => !isPosts_and_author_threads;
@@ -92,59 +95,60 @@ extension $KnownFilterExtension on KnownFilter {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownFilter
+///   knownValue: (data) => data, // => KnownGetAuthorFeedFilter
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownFilter or null
+///   print(object.knownValue); // => KnownGetAuthorFeedFilter or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UFilter with _$UFilter {
-  const factory UFilter.knownValue({
-    required KnownFilter data,
-  }) = UFilterKnownValue;
+class UGetAuthorFeedFilter with _$UGetAuthorFeedFilter {
+  const factory UGetAuthorFeedFilter.knownValue({
+    required KnownGetAuthorFeedFilter data,
+  }) = UGetAuthorFeedFilterKnownValue;
 
-  const factory UFilter.unknownValue({
+  const factory UGetAuthorFeedFilter.unknownValue({
     required String data,
-  }) = UFilterUnknownValue;
+  }) = UGetAuthorFeedFilterUnknownValue;
 }
 
-final class UFilterConverter implements JsonConverter<UFilter, String> {
-  const UFilterConverter();
+final class UGetAuthorFeedFilterConverter
+    implements JsonConverter<UGetAuthorFeedFilter, String> {
+  const UGetAuthorFeedFilterConverter();
 
   @override
-  UFilter fromJson(String json) {
-    final knownValue = KnownFilter.valueOf(json);
+  UGetAuthorFeedFilter fromJson(String json) {
+    final knownValue = KnownGetAuthorFeedFilter.valueOf(json);
 
     return knownValue != null
-        ? UFilter.knownValue(data: knownValue)
-        : UFilter.unknownValue(data: json);
+        ? UGetAuthorFeedFilter.knownValue(data: knownValue)
+        : UGetAuthorFeedFilter.unknownValue(data: json);
   }
 
   @override
-  String toJson(UFilter object) => object.when(
+  String toJson(UGetAuthorFeedFilter object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UFilterExtension on UFilter {
+extension $UGetAuthorFeedFilterExtension on UGetAuthorFeedFilter {
   /// Returns string value.
-  String toJson() => const UFilterConverter().toJson(this);
+  String toJson() => const UGetAuthorFeedFilterConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UFilterKnownValue;
+  bool get isKnownValue => this is UGetAuthorFeedFilterKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UFilterUnknownValue;
+  bool get isUnknownValue => this is UGetAuthorFeedFilterUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -152,10 +156,12 @@ extension $UFilterExtension on UFilter {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownFilter get knownValue => this.data as KnownFilter;
+  KnownGetAuthorFeedFilter get knownValue =>
+      this.data as KnownGetAuthorFeedFilter;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownFilter? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownGetAuthorFeedFilter? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

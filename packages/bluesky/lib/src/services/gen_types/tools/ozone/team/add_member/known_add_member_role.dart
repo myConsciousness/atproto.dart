@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_role.freezed.dart';
+part 'known_add_member_role.freezed.dart';
 
-enum KnownRole {
+enum KnownAddMemberRole {
   /// Admin role. Highest level of access, can perform all actions.
   @JsonValue('tools.ozone.team.defs#roleAdmin')
   roleAdmin('tools.ozone.team.defs#roleAdmin'),
@@ -32,10 +32,10 @@ enum KnownRole {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownRole(this.value);
+  const KnownAddMemberRole(this.value);
 
-  /// Returns [KnownRole] associated with [value], otherwise null.
-  static KnownRole? valueOf(final String? value) {
+  /// Returns [KnownAddMemberRole] associated with [value], otherwise null.
+  static KnownAddMemberRole? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -48,24 +48,24 @@ enum KnownRole {
   }
 }
 
-extension $KnownRoleExtension on KnownRole {
-  /// Returns this value as [URole].
-  URole toUnion() => URole.knownValue(data: this);
+extension $KnownAddMemberRoleExtension on KnownAddMemberRole {
+  /// Returns this value as [UAddMemberRole].
+  UAddMemberRole toUnion() => UAddMemberRole.knownValue(data: this);
 
   /// Returns true if this value is [roleAdmin], otherwise false.
-  bool get isRoleAdmin => this == KnownRole.roleAdmin;
+  bool get isRoleAdmin => this == KnownAddMemberRole.roleAdmin;
 
   /// Returns true if this value is not [roleAdmin], otherwise false.
   bool get isNotRoleAdmin => !isRoleAdmin;
 
   /// Returns true if this value is [roleModerator], otherwise false.
-  bool get isRoleModerator => this == KnownRole.roleModerator;
+  bool get isRoleModerator => this == KnownAddMemberRole.roleModerator;
 
   /// Returns true if this value is not [roleModerator], otherwise false.
   bool get isNotRoleModerator => !isRoleModerator;
 
   /// Returns true if this value is [roleTriage], otherwise false.
-  bool get isRoleTriage => this == KnownRole.roleTriage;
+  bool get isRoleTriage => this == KnownAddMemberRole.roleTriage;
 
   /// Returns true if this value is not [roleTriage], otherwise false.
   bool get isNotRoleTriage => !isRoleTriage;
@@ -88,59 +88,60 @@ extension $KnownRoleExtension on KnownRole {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownRole
+///   knownValue: (data) => data, // => KnownAddMemberRole
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownRole or null
+///   print(object.knownValue); // => KnownAddMemberRole or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class URole with _$URole {
-  const factory URole.knownValue({
-    required KnownRole data,
-  }) = URoleKnownValue;
+class UAddMemberRole with _$UAddMemberRole {
+  const factory UAddMemberRole.knownValue({
+    required KnownAddMemberRole data,
+  }) = UAddMemberRoleKnownValue;
 
-  const factory URole.unknownValue({
+  const factory UAddMemberRole.unknownValue({
     required String data,
-  }) = URoleUnknownValue;
+  }) = UAddMemberRoleUnknownValue;
 }
 
-final class URoleConverter implements JsonConverter<URole, String> {
-  const URoleConverter();
+final class UAddMemberRoleConverter
+    implements JsonConverter<UAddMemberRole, String> {
+  const UAddMemberRoleConverter();
 
   @override
-  URole fromJson(String json) {
-    final knownValue = KnownRole.valueOf(json);
+  UAddMemberRole fromJson(String json) {
+    final knownValue = KnownAddMemberRole.valueOf(json);
 
     return knownValue != null
-        ? URole.knownValue(data: knownValue)
-        : URole.unknownValue(data: json);
+        ? UAddMemberRole.knownValue(data: knownValue)
+        : UAddMemberRole.unknownValue(data: json);
   }
 
   @override
-  String toJson(URole object) => object.when(
+  String toJson(UAddMemberRole object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $URoleExtension on URole {
+extension $UAddMemberRoleExtension on UAddMemberRole {
   /// Returns string value.
-  String toJson() => const URoleConverter().toJson(this);
+  String toJson() => const UAddMemberRoleConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is URoleKnownValue;
+  bool get isKnownValue => this is UAddMemberRoleKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is URoleUnknownValue;
+  bool get isUnknownValue => this is UAddMemberRoleUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -148,10 +149,10 @@ extension $URoleExtension on URole {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownRole get knownValue => this.data as KnownRole;
+  KnownAddMemberRole get knownValue => this.data as KnownAddMemberRole;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownRole? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownAddMemberRole? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

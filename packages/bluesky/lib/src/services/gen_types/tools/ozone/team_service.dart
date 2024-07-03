@@ -16,10 +16,10 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
-import '../../tools/ozone/team/add_member/known_role.dart';
+import '../../tools/ozone/team/add_member/known_add_member_role.dart';
 import '../../tools/ozone/team/defs/member.dart';
 import '../../tools/ozone/team/list_members/output.dart';
-import '../../tools/ozone/team/update_member/known_role.dart';
+import '../../tools/ozone/team/update_member/known_update_member_role.dart';
 
 /// Contains `tools.ozone.team.*` endpoints.
 final class TeamService {
@@ -33,7 +33,7 @@ final class TeamService {
   Future<XRPCResponse<Member>> updateMember({
     required String did,
     bool? disabled,
-    URole? role,
+    UUpdateMemberRole? role,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -91,7 +91,7 @@ final class TeamService {
   /// https://atprotodart.com/docs/lexicons/tools/ozone/team/addMember
   Future<XRPCResponse<Member>> addMember({
     required String did,
-    required URole role,
+    required UAddMemberRole role,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>

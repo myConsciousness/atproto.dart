@@ -17,8 +17,8 @@ _$SearchPostsParamsImpl _$$SearchPostsParamsImplFromJson(Map json) =>
           q: $checkedConvert('q', (v) => v as String),
           sort: $checkedConvert(
               'sort',
-              (v) => _$JsonConverterFromJson<String, USort>(
-                  v, const USortConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, USearchPostsSort>(
+                  v, const USearchPostsSortConverter().fromJson)),
           since: $checkedConvert('since', (v) => v as String?),
           until: $checkedConvert('until', (v) => v as String?),
           mentions: $checkedConvert('mentions', (v) => v as String?),
@@ -54,8 +54,8 @@ Map<String, dynamic> _$$SearchPostsParamsImplToJson(
 
   writeNotNull(
       'sort',
-      _$JsonConverterToJson<String, USort>(
-          instance.sort, const USortConverter().toJson));
+      _$JsonConverterToJson<String, USearchPostsSort>(
+          instance.sort, const USearchPostsSortConverter().toJson));
   writeNotNull('since', instance.since);
   writeNotNull('until', instance.until);
   writeNotNull('mentions', instance.mentions);

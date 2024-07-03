@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../tools/ozone/team/add_member/known_role.dart';
+import '../../../../tools/ozone/team/add_member/known_add_member_role.dart';
 
 part 'input.freezed.dart';
 part 'input.g.dart';
@@ -25,7 +25,7 @@ class AddMemberInput with _$AddMemberInput {
   @JsonSerializable(includeIfNull: false)
   const factory AddMemberInput({
     required String did,
-    @URoleConverter() required URole role,
+    @UAddMemberRoleConverter() required UAddMemberRole role,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

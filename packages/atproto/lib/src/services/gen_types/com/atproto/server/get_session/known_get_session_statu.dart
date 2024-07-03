@@ -13,22 +13,24 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_sort.freezed.dart';
+part 'known_get_session_statu.freezed.dart';
 
-enum KnownSort {
-  @JsonValue('recent')
-  recent('recent'),
-  @JsonValue('usage')
-  usage('usage'),
+enum KnownGetSessionStatu {
+  @JsonValue('takendown')
+  takendown('takendown'),
+  @JsonValue('suspended')
+  suspended('suspended'),
+  @JsonValue('deactivated')
+  deactivated('deactivated'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownSort(this.value);
+  const KnownGetSessionStatu(this.value);
 
-  /// Returns [KnownSort] associated with [value], otherwise null.
-  static KnownSort? valueOf(final String? value) {
+  /// Returns [KnownGetSessionStatu] associated with [value], otherwise null.
+  static KnownGetSessionStatu? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -41,21 +43,27 @@ enum KnownSort {
   }
 }
 
-extension $KnownSortExtension on KnownSort {
-  /// Returns this value as [USort].
-  USort toUnion() => USort.knownValue(data: this);
+extension $KnownGetSessionStatuExtension on KnownGetSessionStatu {
+  /// Returns this value as [UGetSessionStatu].
+  UGetSessionStatu toUnion() => UGetSessionStatu.knownValue(data: this);
 
-  /// Returns true if this value is [recent], otherwise false.
-  bool get isRecent => this == KnownSort.recent;
+  /// Returns true if this value is [takendown], otherwise false.
+  bool get isTakendown => this == KnownGetSessionStatu.takendown;
 
-  /// Returns true if this value is not [recent], otherwise false.
-  bool get isNotRecent => !isRecent;
+  /// Returns true if this value is not [takendown], otherwise false.
+  bool get isNotTakendown => !isTakendown;
 
-  /// Returns true if this value is [usage], otherwise false.
-  bool get isUsage => this == KnownSort.usage;
+  /// Returns true if this value is [suspended], otherwise false.
+  bool get isSuspended => this == KnownGetSessionStatu.suspended;
 
-  /// Returns true if this value is not [usage], otherwise false.
-  bool get isNotUsage => !isUsage;
+  /// Returns true if this value is not [suspended], otherwise false.
+  bool get isNotSuspended => !isSuspended;
+
+  /// Returns true if this value is [deactivated], otherwise false.
+  bool get isDeactivated => this == KnownGetSessionStatu.deactivated;
+
+  /// Returns true if this value is not [deactivated], otherwise false.
+  bool get isNotDeactivated => !isDeactivated;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -75,59 +83,60 @@ extension $KnownSortExtension on KnownSort {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownSort
+///   knownValue: (data) => data, // => KnownGetSessionStatu
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownSort or null
+///   print(object.knownValue); // => KnownGetSessionStatu or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class USort with _$USort {
-  const factory USort.knownValue({
-    required KnownSort data,
-  }) = USortKnownValue;
+class UGetSessionStatu with _$UGetSessionStatu {
+  const factory UGetSessionStatu.knownValue({
+    required KnownGetSessionStatu data,
+  }) = UGetSessionStatuKnownValue;
 
-  const factory USort.unknownValue({
+  const factory UGetSessionStatu.unknownValue({
     required String data,
-  }) = USortUnknownValue;
+  }) = UGetSessionStatuUnknownValue;
 }
 
-final class USortConverter implements JsonConverter<USort, String> {
-  const USortConverter();
+final class UGetSessionStatuConverter
+    implements JsonConverter<UGetSessionStatu, String> {
+  const UGetSessionStatuConverter();
 
   @override
-  USort fromJson(String json) {
-    final knownValue = KnownSort.valueOf(json);
+  UGetSessionStatu fromJson(String json) {
+    final knownValue = KnownGetSessionStatu.valueOf(json);
 
     return knownValue != null
-        ? USort.knownValue(data: knownValue)
-        : USort.unknownValue(data: json);
+        ? UGetSessionStatu.knownValue(data: knownValue)
+        : UGetSessionStatu.unknownValue(data: json);
   }
 
   @override
-  String toJson(USort object) => object.when(
+  String toJson(UGetSessionStatu object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $USortExtension on USort {
+extension $UGetSessionStatuExtension on UGetSessionStatu {
   /// Returns string value.
-  String toJson() => const USortConverter().toJson(this);
+  String toJson() => const UGetSessionStatuConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is USortKnownValue;
+  bool get isKnownValue => this is UGetSessionStatuKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is USortUnknownValue;
+  bool get isUnknownValue => this is UGetSessionStatuUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -135,10 +144,11 @@ extension $USortExtension on USort {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownSort get knownValue => this.data as KnownSort;
+  KnownGetSessionStatu get knownValue => this.data as KnownGetSessionStatu;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownSort? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownGetSessionStatu? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

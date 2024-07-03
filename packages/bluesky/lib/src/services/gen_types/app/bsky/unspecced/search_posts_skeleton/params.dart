@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/unspecced/search_posts_skeleton/known_sort.dart';
+import '../../../../app/bsky/unspecced/search_posts_skeleton/known_search_posts_skeleton_sort.dart';
 
 part 'params.freezed.dart';
 part 'params.g.dart';
@@ -28,7 +28,7 @@ class SearchPostsSkeletonParams with _$SearchPostsSkeletonParams {
     required String q,
 
     /// Specifies the ranking order of results.
-    @USortConverter() USort? sort,
+    @USearchPostsSkeletonSortConverter() USearchPostsSkeletonSort? sort,
 
     /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
     String? since,

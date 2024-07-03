@@ -11,5 +11,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/search_posts/params.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/feed/search_posts/known_sort.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/feed/search_posts/known_search_posts_sort.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/search_posts/output.dart';

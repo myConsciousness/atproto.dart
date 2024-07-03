@@ -13,24 +13,22 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_platform.freezed.dart';
+part 'known_get_invite_codes_sort.freezed.dart';
 
-enum KnownPlatform {
-  @JsonValue('ios')
-  ios('ios'),
-  @JsonValue('android')
-  android('android'),
-  @JsonValue('web')
-  web('web'),
+enum KnownGetInviteCodesSort {
+  @JsonValue('recent')
+  recent('recent'),
+  @JsonValue('usage')
+  usage('usage'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownPlatform(this.value);
+  const KnownGetInviteCodesSort(this.value);
 
-  /// Returns [KnownPlatform] associated with [value], otherwise null.
-  static KnownPlatform? valueOf(final String? value) {
+  /// Returns [KnownGetInviteCodesSort] associated with [value], otherwise null.
+  static KnownGetInviteCodesSort? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,27 +41,21 @@ enum KnownPlatform {
   }
 }
 
-extension $KnownPlatformExtension on KnownPlatform {
-  /// Returns this value as [UPlatform].
-  UPlatform toUnion() => UPlatform.knownValue(data: this);
+extension $KnownGetInviteCodesSortExtension on KnownGetInviteCodesSort {
+  /// Returns this value as [UGetInviteCodesSort].
+  UGetInviteCodesSort toUnion() => UGetInviteCodesSort.knownValue(data: this);
 
-  /// Returns true if this value is [ios], otherwise false.
-  bool get isIos => this == KnownPlatform.ios;
+  /// Returns true if this value is [recent], otherwise false.
+  bool get isRecent => this == KnownGetInviteCodesSort.recent;
 
-  /// Returns true if this value is not [ios], otherwise false.
-  bool get isNotIos => !isIos;
+  /// Returns true if this value is not [recent], otherwise false.
+  bool get isNotRecent => !isRecent;
 
-  /// Returns true if this value is [android], otherwise false.
-  bool get isAndroid => this == KnownPlatform.android;
+  /// Returns true if this value is [usage], otherwise false.
+  bool get isUsage => this == KnownGetInviteCodesSort.usage;
 
-  /// Returns true if this value is not [android], otherwise false.
-  bool get isNotAndroid => !isAndroid;
-
-  /// Returns true if this value is [web], otherwise false.
-  bool get isWeb => this == KnownPlatform.web;
-
-  /// Returns true if this value is not [web], otherwise false.
-  bool get isNotWeb => !isWeb;
+  /// Returns true if this value is not [usage], otherwise false.
+  bool get isNotUsage => !isUsage;
 }
 
 /// This is an union object to improve safety and convenience of objects
@@ -83,59 +75,60 @@ extension $KnownPlatformExtension on KnownPlatform {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownPlatform
+///   knownValue: (data) => data, // => KnownGetInviteCodesSort
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownPlatform or null
+///   print(object.knownValue); // => KnownGetInviteCodesSort or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UPlatform with _$UPlatform {
-  const factory UPlatform.knownValue({
-    required KnownPlatform data,
-  }) = UPlatformKnownValue;
+class UGetInviteCodesSort with _$UGetInviteCodesSort {
+  const factory UGetInviteCodesSort.knownValue({
+    required KnownGetInviteCodesSort data,
+  }) = UGetInviteCodesSortKnownValue;
 
-  const factory UPlatform.unknownValue({
+  const factory UGetInviteCodesSort.unknownValue({
     required String data,
-  }) = UPlatformUnknownValue;
+  }) = UGetInviteCodesSortUnknownValue;
 }
 
-final class UPlatformConverter implements JsonConverter<UPlatform, String> {
-  const UPlatformConverter();
+final class UGetInviteCodesSortConverter
+    implements JsonConverter<UGetInviteCodesSort, String> {
+  const UGetInviteCodesSortConverter();
 
   @override
-  UPlatform fromJson(String json) {
-    final knownValue = KnownPlatform.valueOf(json);
+  UGetInviteCodesSort fromJson(String json) {
+    final knownValue = KnownGetInviteCodesSort.valueOf(json);
 
     return knownValue != null
-        ? UPlatform.knownValue(data: knownValue)
-        : UPlatform.unknownValue(data: json);
+        ? UGetInviteCodesSort.knownValue(data: knownValue)
+        : UGetInviteCodesSort.unknownValue(data: json);
   }
 
   @override
-  String toJson(UPlatform object) => object.when(
+  String toJson(UGetInviteCodesSort object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UPlatformExtension on UPlatform {
+extension $UGetInviteCodesSortExtension on UGetInviteCodesSort {
   /// Returns string value.
-  String toJson() => const UPlatformConverter().toJson(this);
+  String toJson() => const UGetInviteCodesSortConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UPlatformKnownValue;
+  bool get isKnownValue => this is UGetInviteCodesSortKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UPlatformUnknownValue;
+  bool get isUnknownValue => this is UGetInviteCodesSortUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -143,10 +136,12 @@ extension $UPlatformExtension on UPlatform {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownPlatform get knownValue => this.data as KnownPlatform;
+  KnownGetInviteCodesSort get knownValue =>
+      this.data as KnownGetInviteCodesSort;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownPlatform? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownGetInviteCodesSort? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

@@ -29,8 +29,8 @@ mixin _$GetSessionOutput {
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @UStatusConverter()
-  UStatus? get status => throw _privateConstructorUsedError;
+  @UGetSessionStatuConverter()
+  UGetSessionStatu? get status => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -56,10 +56,10 @@ abstract class $GetSessionOutputCopyWith<$Res> {
       bool emailAuthFactor,
       Map<String, dynamic>? didDoc,
       bool active,
-      @UStatusConverter() UStatus? status,
+      @UGetSessionStatuConverter() UGetSessionStatu? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UStatusCopyWith<$Res>? get status;
+  $UGetSessionStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class _$GetSessionOutputCopyWithImpl<$Res, $Val extends GetSessionOutput>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatus?,
+              as UGetSessionStatu?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -127,12 +127,12 @@ class _$GetSessionOutputCopyWithImpl<$Res, $Val extends GetSessionOutput>
 
   @override
   @pragma('vm:prefer-inline')
-  $UStatusCopyWith<$Res>? get status {
+  $UGetSessionStatuCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $UStatusCopyWith<$Res>(_value.status!, (value) {
+    return $UGetSessionStatuCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -154,11 +154,11 @@ abstract class _$$GetSessionOutputImplCopyWith<$Res>
       bool emailAuthFactor,
       Map<String, dynamic>? didDoc,
       bool active,
-      @UStatusConverter() UStatus? status,
+      @UGetSessionStatuConverter() UGetSessionStatu? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UStatusCopyWith<$Res>? get status;
+  $UGetSessionStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -214,7 +214,7 @@ class __$$GetSessionOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatus?,
+              as UGetSessionStatu?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -235,7 +235,7 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
       this.emailAuthFactor = false,
       final Map<String, dynamic>? didDoc,
       this.active = false,
-      @UStatusConverter() this.status,
+      @UGetSessionStatuConverter() this.status,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _didDoc = didDoc,
         _$unknown = $unknown;
@@ -271,8 +271,8 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @override
-  @UStatusConverter()
-  final UStatus? status;
+  @UGetSessionStatuConverter()
+  final UGetSessionStatu? status;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -349,7 +349,7 @@ abstract class _GetSessionOutput implements GetSessionOutput {
           final bool emailAuthFactor,
           final Map<String, dynamic>? didDoc,
           final bool active,
-          @UStatusConverter() final UStatus? status,
+          @UGetSessionStatuConverter() final UGetSessionStatu? status,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetSessionOutputImpl;
 
@@ -373,8 +373,8 @@ abstract class _GetSessionOutput implements GetSessionOutput {
   @override
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @UStatusConverter()
-  UStatus? get status;
+  @UGetSessionStatuConverter()
+  UGetSessionStatu? get status;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

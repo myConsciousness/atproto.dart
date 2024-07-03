@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../com/atproto/admin/get_invite_codes/known_sort.dart';
+import '../../../../com/atproto/admin/get_invite_codes/known_get_invite_codes_sort.dart';
 
 part 'params.freezed.dart';
 part 'params.g.dart';
@@ -24,7 +24,7 @@ part 'params.g.dart';
 class GetInviteCodesParams with _$GetInviteCodesParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetInviteCodesParams({
-    @USortConverter() USort? sort,
+    @UGetInviteCodesSortConverter() UGetInviteCodesSort? sort,
     int? limit,
     String? cursor,
 

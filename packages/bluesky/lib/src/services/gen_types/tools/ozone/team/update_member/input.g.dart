@@ -18,8 +18,8 @@ _$UpdateMemberInputImpl _$$UpdateMemberInputImplFromJson(Map json) =>
           disabled: $checkedConvert('disabled', (v) => v as bool?),
           role: $checkedConvert(
               'role',
-              (v) => _$JsonConverterFromJson<String, URole>(
-                  v, const URoleConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, UUpdateMemberRole>(
+                  v, const UUpdateMemberRoleConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -45,8 +45,8 @@ Map<String, dynamic> _$$UpdateMemberInputImplToJson(
   writeNotNull('disabled', instance.disabled);
   writeNotNull(
       'role',
-      _$JsonConverterToJson<String, URole>(
-          instance.role, const URoleConverter().toJson));
+      _$JsonConverterToJson<String, UUpdateMemberRole>(
+          instance.role, const UUpdateMemberRoleConverter().toJson));
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

@@ -28,8 +28,8 @@ mixin _$RefreshSessionOutput {
   bool get active => throw _privateConstructorUsedError;
 
   /// Hosting status of the account. If not specified, then assume 'active'.
-  @UStatusConverter()
-  UStatus? get status => throw _privateConstructorUsedError;
+  @URefreshSessionStatuConverter()
+  URefreshSessionStatu? get status => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -54,10 +54,10 @@ abstract class $RefreshSessionOutputCopyWith<$Res> {
       String did,
       Map<String, dynamic>? didDoc,
       bool active,
-      @UStatusConverter() UStatus? status,
+      @URefreshSessionStatuConverter() URefreshSessionStatu? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UStatusCopyWith<$Res>? get status;
+  $URefreshSessionStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatus?,
+              as URefreshSessionStatu?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -121,12 +121,12 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $UStatusCopyWith<$Res>? get status {
+  $URefreshSessionStatuCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $UStatusCopyWith<$Res>(_value.status!, (value) {
+    return $URefreshSessionStatuCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -147,11 +147,11 @@ abstract class _$$RefreshSessionOutputImplCopyWith<$Res>
       String did,
       Map<String, dynamic>? didDoc,
       bool active,
-      @UStatusConverter() UStatus? status,
+      @URefreshSessionStatuConverter() URefreshSessionStatu? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UStatusCopyWith<$Res>? get status;
+  $URefreshSessionStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -202,7 +202,7 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatus?,
+              as URefreshSessionStatu?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -222,7 +222,7 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
       required this.did,
       final Map<String, dynamic>? didDoc,
       this.active = false,
-      @UStatusConverter() this.status,
+      @URefreshSessionStatuConverter() this.status,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _didDoc = didDoc,
         _$unknown = $unknown;
@@ -254,8 +254,8 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
 
   /// Hosting status of the account. If not specified, then assume 'active'.
   @override
-  @UStatusConverter()
-  final UStatus? status;
+  @URefreshSessionStatuConverter()
+  final URefreshSessionStatu? status;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -330,7 +330,7 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
           required final String did,
           final Map<String, dynamic>? didDoc,
           final bool active,
-          @UStatusConverter() final UStatus? status,
+          @URefreshSessionStatuConverter() final URefreshSessionStatu? status,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RefreshSessionOutputImpl;
 
@@ -352,8 +352,8 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
   @override
 
   /// Hosting status of the account. If not specified, then assume 'active'.
-  @UStatusConverter()
-  UStatus? get status;
+  @URefreshSessionStatuConverter()
+  URefreshSessionStatu? get status;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

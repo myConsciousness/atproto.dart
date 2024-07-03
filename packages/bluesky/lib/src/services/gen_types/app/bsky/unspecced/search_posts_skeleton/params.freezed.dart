@@ -25,8 +25,8 @@ mixin _$SearchPostsSkeletonParams {
   String get q => throw _privateConstructorUsedError;
 
   /// Specifies the ranking order of results.
-  @USortConverter()
-  USort? get sort => throw _privateConstructorUsedError;
+  @USearchPostsSkeletonSortConverter()
+  USearchPostsSkeletonSort? get sort => throw _privateConstructorUsedError;
 
   /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
   String? get since => throw _privateConstructorUsedError;
@@ -77,7 +77,7 @@ abstract class $SearchPostsSkeletonParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String q,
-      @USortConverter() USort? sort,
+      @USearchPostsSkeletonSortConverter() USearchPostsSkeletonSort? sort,
       String? since,
       String? until,
       String? mentions,
@@ -91,7 +91,7 @@ abstract class $SearchPostsSkeletonParamsCopyWith<$Res> {
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $USortCopyWith<$Res>? get sort;
+  $USearchPostsSkeletonSortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -131,7 +131,7 @@ class _$SearchPostsSkeletonParamsCopyWithImpl<$Res,
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as USort?,
+              as USearchPostsSkeletonSort?,
       since: freezed == since
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
@@ -185,12 +185,12 @@ class _$SearchPostsSkeletonParamsCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $USortCopyWith<$Res>? get sort {
+  $USearchPostsSkeletonSortCopyWith<$Res>? get sort {
     if (_value.sort == null) {
       return null;
     }
 
-    return $USortCopyWith<$Res>(_value.sort!, (value) {
+    return $USearchPostsSkeletonSortCopyWith<$Res>(_value.sort!, (value) {
       return _then(_value.copyWith(sort: value) as $Val);
     });
   }
@@ -207,7 +207,7 @@ abstract class _$$SearchPostsSkeletonParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String q,
-      @USortConverter() USort? sort,
+      @USearchPostsSkeletonSortConverter() USearchPostsSkeletonSort? sort,
       String? since,
       String? until,
       String? mentions,
@@ -222,7 +222,7 @@ abstract class _$$SearchPostsSkeletonParamsImplCopyWith<$Res>
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $USortCopyWith<$Res>? get sort;
+  $USearchPostsSkeletonSortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -261,7 +261,7 @@ class __$$SearchPostsSkeletonParamsImplCopyWithImpl<$Res>
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as USort?,
+              as USearchPostsSkeletonSort?,
       since: freezed == since
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
@@ -320,7 +320,7 @@ class __$$SearchPostsSkeletonParamsImplCopyWithImpl<$Res>
 class _$SearchPostsSkeletonParamsImpl implements _SearchPostsSkeletonParams {
   const _$SearchPostsSkeletonParamsImpl(
       {required this.q,
-      @USortConverter() this.sort,
+      @USearchPostsSkeletonSortConverter() this.sort,
       this.since,
       this.until,
       this.mentions,
@@ -345,8 +345,8 @@ class _$SearchPostsSkeletonParamsImpl implements _SearchPostsSkeletonParams {
 
   /// Specifies the ranking order of results.
   @override
-  @USortConverter()
-  final USort? sort;
+  @USearchPostsSkeletonSortConverter()
+  final USearchPostsSkeletonSort? sort;
 
   /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
   @override
@@ -476,21 +476,21 @@ class _$SearchPostsSkeletonParamsImpl implements _SearchPostsSkeletonParams {
 
 abstract class _SearchPostsSkeletonParams implements SearchPostsSkeletonParams {
   const factory _SearchPostsSkeletonParams(
-          {required final String q,
-          @USortConverter() final USort? sort,
-          final String? since,
-          final String? until,
-          final String? mentions,
-          final String? author,
-          final String? lang,
-          final String? domain,
-          final String? url,
-          final List<String>? tag,
-          final String? viewer,
-          final int? limit,
-          final String? cursor,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
-      _$SearchPostsSkeletonParamsImpl;
+      {required final String q,
+      @USearchPostsSkeletonSortConverter() final USearchPostsSkeletonSort? sort,
+      final String? since,
+      final String? until,
+      final String? mentions,
+      final String? author,
+      final String? lang,
+      final String? domain,
+      final String? url,
+      final List<String>? tag,
+      final String? viewer,
+      final int? limit,
+      final String? cursor,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic>? $unknown}) = _$SearchPostsSkeletonParamsImpl;
 
   factory _SearchPostsSkeletonParams.fromJson(Map<String, dynamic> json) =
       _$SearchPostsSkeletonParamsImpl.fromJson;
@@ -502,8 +502,8 @@ abstract class _SearchPostsSkeletonParams implements SearchPostsSkeletonParams {
   @override
 
   /// Specifies the ranking order of results.
-  @USortConverter()
-  USort? get sort;
+  @USearchPostsSkeletonSortConverter()
+  USearchPostsSkeletonSort? get sort;
   @override
 
   /// Filter results for posts after the indicated datetime (inclusive). Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a datetime, or just an ISO date (YYYY-MM-DD).
