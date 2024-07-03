@@ -24,8 +24,9 @@ _$MessageInputImpl _$$MessageInputImplFromJson(Map json) => $checkedCreate(
                   .toList()),
           embed: $checkedConvert(
               'embed',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
-                  v, const UEmbedConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UMessageInputEmbed>(
+                  v, const UMessageInputEmbedConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -52,8 +53,8 @@ Map<String, dynamic> _$$MessageInputImplToJson(_$MessageInputImpl instance) {
       'facets', instance.facets?.map(const FacetConverter().toJson).toList());
   writeNotNull(
       'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, UEmbed>(
-          instance.embed, const UEmbedConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UMessageInputEmbed>(
+          instance.embed, const UMessageInputEmbedConverter().toJson));
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_embed.dart';
+part of 'union_post_view_embed.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UEmbed {
+mixin _$UPostViewEmbed {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -47,45 +47,48 @@ mixin _$UEmbed {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedImagesView value) imagesView,
-    required TResult Function(UEmbedExternalView value) externalView,
-    required TResult Function(UEmbedRecordView value) recordView,
-    required TResult Function(UEmbedRecordWithMediaView value)
+    required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedExternalView value) externalView,
+    required TResult Function(UPostViewEmbedRecordView value) recordView,
+    required TResult Function(UPostViewEmbedRecordWithMediaView value)
         recordWithMediaView,
-    required TResult Function(UEmbedUnknown value) unknown,
+    required TResult Function(UPostViewEmbedUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedImagesView value)? imagesView,
-    TResult? Function(UEmbedExternalView value)? externalView,
-    TResult? Function(UEmbedRecordView value)? recordView,
-    TResult? Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult? Function(UEmbedUnknown value)? unknown,
+    TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedExternalView value)? externalView,
+    TResult? Function(UPostViewEmbedRecordView value)? recordView,
+    TResult? Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult? Function(UPostViewEmbedUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedImagesView value)? imagesView,
-    TResult Function(UEmbedExternalView value)? externalView,
-    TResult Function(UEmbedRecordView value)? recordView,
-    TResult Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult Function(UEmbedUnknown value)? unknown,
+    TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedExternalView value)? externalView,
+    TResult Function(UPostViewEmbedRecordView value)? recordView,
+    TResult Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult Function(UPostViewEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UEmbedCopyWith<$Res> {
-  factory $UEmbedCopyWith(UEmbed value, $Res Function(UEmbed) then) =
-      _$UEmbedCopyWithImpl<$Res, UEmbed>;
+abstract class $UPostViewEmbedCopyWith<$Res> {
+  factory $UPostViewEmbedCopyWith(
+          UPostViewEmbed value, $Res Function(UPostViewEmbed) then) =
+      _$UPostViewEmbedCopyWithImpl<$Res, UPostViewEmbed>;
 }
 
 /// @nodoc
-class _$UEmbedCopyWithImpl<$Res, $Val extends UEmbed>
-    implements $UEmbedCopyWith<$Res> {
-  _$UEmbedCopyWithImpl(this._value, this._then);
+class _$UPostViewEmbedCopyWithImpl<$Res, $Val extends UPostViewEmbed>
+    implements $UPostViewEmbedCopyWith<$Res> {
+  _$UPostViewEmbedCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -94,10 +97,11 @@ class _$UEmbedCopyWithImpl<$Res, $Val extends UEmbed>
 }
 
 /// @nodoc
-abstract class _$$UEmbedImagesViewImplCopyWith<$Res> {
-  factory _$$UEmbedImagesViewImplCopyWith(_$UEmbedImagesViewImpl value,
-          $Res Function(_$UEmbedImagesViewImpl) then) =
-      __$$UEmbedImagesViewImplCopyWithImpl<$Res>;
+abstract class _$$UPostViewEmbedImagesViewImplCopyWith<$Res> {
+  factory _$$UPostViewEmbedImagesViewImplCopyWith(
+          _$UPostViewEmbedImagesViewImpl value,
+          $Res Function(_$UPostViewEmbedImagesViewImpl) then) =
+      __$$UPostViewEmbedImagesViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ImagesView data});
 
@@ -105,11 +109,12 @@ abstract class _$$UEmbedImagesViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedImagesViewImplCopyWithImpl<$Res>
-    extends _$UEmbedCopyWithImpl<$Res, _$UEmbedImagesViewImpl>
-    implements _$$UEmbedImagesViewImplCopyWith<$Res> {
-  __$$UEmbedImagesViewImplCopyWithImpl(_$UEmbedImagesViewImpl _value,
-      $Res Function(_$UEmbedImagesViewImpl) _then)
+class __$$UPostViewEmbedImagesViewImplCopyWithImpl<$Res>
+    extends _$UPostViewEmbedCopyWithImpl<$Res, _$UPostViewEmbedImagesViewImpl>
+    implements _$$UPostViewEmbedImagesViewImplCopyWith<$Res> {
+  __$$UPostViewEmbedImagesViewImplCopyWithImpl(
+      _$UPostViewEmbedImagesViewImpl _value,
+      $Res Function(_$UPostViewEmbedImagesViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +122,7 @@ class __$$UEmbedImagesViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedImagesViewImpl(
+    return _then(_$UPostViewEmbedImagesViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -136,22 +141,22 @@ class __$$UEmbedImagesViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedImagesViewImpl implements UEmbedImagesView {
-  const _$UEmbedImagesViewImpl({required this.data});
+class _$UPostViewEmbedImagesViewImpl implements UPostViewEmbedImagesView {
+  const _$UPostViewEmbedImagesViewImpl({required this.data});
 
   @override
   final ImagesView data;
 
   @override
   String toString() {
-    return 'UEmbed.imagesView(data: $data)';
+    return 'UPostViewEmbed.imagesView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedImagesViewImpl &&
+            other is _$UPostViewEmbedImagesViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -161,9 +166,9 @@ class _$UEmbedImagesViewImpl implements UEmbedImagesView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedImagesViewImplCopyWith<_$UEmbedImagesViewImpl> get copyWith =>
-      __$$UEmbedImagesViewImplCopyWithImpl<_$UEmbedImagesViewImpl>(
-          this, _$identity);
+  _$$UPostViewEmbedImagesViewImplCopyWith<_$UPostViewEmbedImagesViewImpl>
+      get copyWith => __$$UPostViewEmbedImagesViewImplCopyWithImpl<
+          _$UPostViewEmbedImagesViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -208,12 +213,12 @@ class _$UEmbedImagesViewImpl implements UEmbedImagesView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedImagesView value) imagesView,
-    required TResult Function(UEmbedExternalView value) externalView,
-    required TResult Function(UEmbedRecordView value) recordView,
-    required TResult Function(UEmbedRecordWithMediaView value)
+    required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedExternalView value) externalView,
+    required TResult Function(UPostViewEmbedRecordView value) recordView,
+    required TResult Function(UPostViewEmbedRecordWithMediaView value)
         recordWithMediaView,
-    required TResult Function(UEmbedUnknown value) unknown,
+    required TResult Function(UPostViewEmbedUnknown value) unknown,
   }) {
     return imagesView(this);
   }
@@ -221,11 +226,12 @@ class _$UEmbedImagesViewImpl implements UEmbedImagesView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedImagesView value)? imagesView,
-    TResult? Function(UEmbedExternalView value)? externalView,
-    TResult? Function(UEmbedRecordView value)? recordView,
-    TResult? Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult? Function(UEmbedUnknown value)? unknown,
+    TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedExternalView value)? externalView,
+    TResult? Function(UPostViewEmbedRecordView value)? recordView,
+    TResult? Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult? Function(UPostViewEmbedUnknown value)? unknown,
   }) {
     return imagesView?.call(this);
   }
@@ -233,11 +239,12 @@ class _$UEmbedImagesViewImpl implements UEmbedImagesView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedImagesView value)? imagesView,
-    TResult Function(UEmbedExternalView value)? externalView,
-    TResult Function(UEmbedRecordView value)? recordView,
-    TResult Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult Function(UEmbedUnknown value)? unknown,
+    TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedExternalView value)? externalView,
+    TResult Function(UPostViewEmbedRecordView value)? recordView,
+    TResult Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult Function(UPostViewEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (imagesView != null) {
@@ -247,22 +254,23 @@ class _$UEmbedImagesViewImpl implements UEmbedImagesView {
   }
 }
 
-abstract class UEmbedImagesView implements UEmbed {
-  const factory UEmbedImagesView({required final ImagesView data}) =
-      _$UEmbedImagesViewImpl;
+abstract class UPostViewEmbedImagesView implements UPostViewEmbed {
+  const factory UPostViewEmbedImagesView({required final ImagesView data}) =
+      _$UPostViewEmbedImagesViewImpl;
 
   @override
   ImagesView get data;
   @JsonKey(ignore: true)
-  _$$UEmbedImagesViewImplCopyWith<_$UEmbedImagesViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UPostViewEmbedImagesViewImplCopyWith<_$UPostViewEmbedImagesViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedExternalViewImplCopyWith<$Res> {
-  factory _$$UEmbedExternalViewImplCopyWith(_$UEmbedExternalViewImpl value,
-          $Res Function(_$UEmbedExternalViewImpl) then) =
-      __$$UEmbedExternalViewImplCopyWithImpl<$Res>;
+abstract class _$$UPostViewEmbedExternalViewImplCopyWith<$Res> {
+  factory _$$UPostViewEmbedExternalViewImplCopyWith(
+          _$UPostViewEmbedExternalViewImpl value,
+          $Res Function(_$UPostViewEmbedExternalViewImpl) then) =
+      __$$UPostViewEmbedExternalViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ExternalView data});
 
@@ -270,11 +278,12 @@ abstract class _$$UEmbedExternalViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedExternalViewImplCopyWithImpl<$Res>
-    extends _$UEmbedCopyWithImpl<$Res, _$UEmbedExternalViewImpl>
-    implements _$$UEmbedExternalViewImplCopyWith<$Res> {
-  __$$UEmbedExternalViewImplCopyWithImpl(_$UEmbedExternalViewImpl _value,
-      $Res Function(_$UEmbedExternalViewImpl) _then)
+class __$$UPostViewEmbedExternalViewImplCopyWithImpl<$Res>
+    extends _$UPostViewEmbedCopyWithImpl<$Res, _$UPostViewEmbedExternalViewImpl>
+    implements _$$UPostViewEmbedExternalViewImplCopyWith<$Res> {
+  __$$UPostViewEmbedExternalViewImplCopyWithImpl(
+      _$UPostViewEmbedExternalViewImpl _value,
+      $Res Function(_$UPostViewEmbedExternalViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -282,7 +291,7 @@ class __$$UEmbedExternalViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedExternalViewImpl(
+    return _then(_$UPostViewEmbedExternalViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -301,22 +310,22 @@ class __$$UEmbedExternalViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedExternalViewImpl implements UEmbedExternalView {
-  const _$UEmbedExternalViewImpl({required this.data});
+class _$UPostViewEmbedExternalViewImpl implements UPostViewEmbedExternalView {
+  const _$UPostViewEmbedExternalViewImpl({required this.data});
 
   @override
   final ExternalView data;
 
   @override
   String toString() {
-    return 'UEmbed.externalView(data: $data)';
+    return 'UPostViewEmbed.externalView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedExternalViewImpl &&
+            other is _$UPostViewEmbedExternalViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -326,9 +335,9 @@ class _$UEmbedExternalViewImpl implements UEmbedExternalView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedExternalViewImplCopyWith<_$UEmbedExternalViewImpl> get copyWith =>
-      __$$UEmbedExternalViewImplCopyWithImpl<_$UEmbedExternalViewImpl>(
-          this, _$identity);
+  _$$UPostViewEmbedExternalViewImplCopyWith<_$UPostViewEmbedExternalViewImpl>
+      get copyWith => __$$UPostViewEmbedExternalViewImplCopyWithImpl<
+          _$UPostViewEmbedExternalViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -373,12 +382,12 @@ class _$UEmbedExternalViewImpl implements UEmbedExternalView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedImagesView value) imagesView,
-    required TResult Function(UEmbedExternalView value) externalView,
-    required TResult Function(UEmbedRecordView value) recordView,
-    required TResult Function(UEmbedRecordWithMediaView value)
+    required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedExternalView value) externalView,
+    required TResult Function(UPostViewEmbedRecordView value) recordView,
+    required TResult Function(UPostViewEmbedRecordWithMediaView value)
         recordWithMediaView,
-    required TResult Function(UEmbedUnknown value) unknown,
+    required TResult Function(UPostViewEmbedUnknown value) unknown,
   }) {
     return externalView(this);
   }
@@ -386,11 +395,12 @@ class _$UEmbedExternalViewImpl implements UEmbedExternalView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedImagesView value)? imagesView,
-    TResult? Function(UEmbedExternalView value)? externalView,
-    TResult? Function(UEmbedRecordView value)? recordView,
-    TResult? Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult? Function(UEmbedUnknown value)? unknown,
+    TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedExternalView value)? externalView,
+    TResult? Function(UPostViewEmbedRecordView value)? recordView,
+    TResult? Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult? Function(UPostViewEmbedUnknown value)? unknown,
   }) {
     return externalView?.call(this);
   }
@@ -398,11 +408,12 @@ class _$UEmbedExternalViewImpl implements UEmbedExternalView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedImagesView value)? imagesView,
-    TResult Function(UEmbedExternalView value)? externalView,
-    TResult Function(UEmbedRecordView value)? recordView,
-    TResult Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult Function(UEmbedUnknown value)? unknown,
+    TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedExternalView value)? externalView,
+    TResult Function(UPostViewEmbedRecordView value)? recordView,
+    TResult Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult Function(UPostViewEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (externalView != null) {
@@ -412,22 +423,23 @@ class _$UEmbedExternalViewImpl implements UEmbedExternalView {
   }
 }
 
-abstract class UEmbedExternalView implements UEmbed {
-  const factory UEmbedExternalView({required final ExternalView data}) =
-      _$UEmbedExternalViewImpl;
+abstract class UPostViewEmbedExternalView implements UPostViewEmbed {
+  const factory UPostViewEmbedExternalView({required final ExternalView data}) =
+      _$UPostViewEmbedExternalViewImpl;
 
   @override
   ExternalView get data;
   @JsonKey(ignore: true)
-  _$$UEmbedExternalViewImplCopyWith<_$UEmbedExternalViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UPostViewEmbedExternalViewImplCopyWith<_$UPostViewEmbedExternalViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedRecordViewImplCopyWith<$Res> {
-  factory _$$UEmbedRecordViewImplCopyWith(_$UEmbedRecordViewImpl value,
-          $Res Function(_$UEmbedRecordViewImpl) then) =
-      __$$UEmbedRecordViewImplCopyWithImpl<$Res>;
+abstract class _$$UPostViewEmbedRecordViewImplCopyWith<$Res> {
+  factory _$$UPostViewEmbedRecordViewImplCopyWith(
+          _$UPostViewEmbedRecordViewImpl value,
+          $Res Function(_$UPostViewEmbedRecordViewImpl) then) =
+      __$$UPostViewEmbedRecordViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RecordView data});
 
@@ -435,11 +447,12 @@ abstract class _$$UEmbedRecordViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedRecordViewImplCopyWithImpl<$Res>
-    extends _$UEmbedCopyWithImpl<$Res, _$UEmbedRecordViewImpl>
-    implements _$$UEmbedRecordViewImplCopyWith<$Res> {
-  __$$UEmbedRecordViewImplCopyWithImpl(_$UEmbedRecordViewImpl _value,
-      $Res Function(_$UEmbedRecordViewImpl) _then)
+class __$$UPostViewEmbedRecordViewImplCopyWithImpl<$Res>
+    extends _$UPostViewEmbedCopyWithImpl<$Res, _$UPostViewEmbedRecordViewImpl>
+    implements _$$UPostViewEmbedRecordViewImplCopyWith<$Res> {
+  __$$UPostViewEmbedRecordViewImplCopyWithImpl(
+      _$UPostViewEmbedRecordViewImpl _value,
+      $Res Function(_$UPostViewEmbedRecordViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -447,7 +460,7 @@ class __$$UEmbedRecordViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedRecordViewImpl(
+    return _then(_$UPostViewEmbedRecordViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -466,22 +479,22 @@ class __$$UEmbedRecordViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedRecordViewImpl implements UEmbedRecordView {
-  const _$UEmbedRecordViewImpl({required this.data});
+class _$UPostViewEmbedRecordViewImpl implements UPostViewEmbedRecordView {
+  const _$UPostViewEmbedRecordViewImpl({required this.data});
 
   @override
   final RecordView data;
 
   @override
   String toString() {
-    return 'UEmbed.recordView(data: $data)';
+    return 'UPostViewEmbed.recordView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedRecordViewImpl &&
+            other is _$UPostViewEmbedRecordViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -491,9 +504,9 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedRecordViewImplCopyWith<_$UEmbedRecordViewImpl> get copyWith =>
-      __$$UEmbedRecordViewImplCopyWithImpl<_$UEmbedRecordViewImpl>(
-          this, _$identity);
+  _$$UPostViewEmbedRecordViewImplCopyWith<_$UPostViewEmbedRecordViewImpl>
+      get copyWith => __$$UPostViewEmbedRecordViewImplCopyWithImpl<
+          _$UPostViewEmbedRecordViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -538,12 +551,12 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedImagesView value) imagesView,
-    required TResult Function(UEmbedExternalView value) externalView,
-    required TResult Function(UEmbedRecordView value) recordView,
-    required TResult Function(UEmbedRecordWithMediaView value)
+    required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedExternalView value) externalView,
+    required TResult Function(UPostViewEmbedRecordView value) recordView,
+    required TResult Function(UPostViewEmbedRecordWithMediaView value)
         recordWithMediaView,
-    required TResult Function(UEmbedUnknown value) unknown,
+    required TResult Function(UPostViewEmbedUnknown value) unknown,
   }) {
     return recordView(this);
   }
@@ -551,11 +564,12 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedImagesView value)? imagesView,
-    TResult? Function(UEmbedExternalView value)? externalView,
-    TResult? Function(UEmbedRecordView value)? recordView,
-    TResult? Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult? Function(UEmbedUnknown value)? unknown,
+    TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedExternalView value)? externalView,
+    TResult? Function(UPostViewEmbedRecordView value)? recordView,
+    TResult? Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult? Function(UPostViewEmbedUnknown value)? unknown,
   }) {
     return recordView?.call(this);
   }
@@ -563,11 +577,12 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedImagesView value)? imagesView,
-    TResult Function(UEmbedExternalView value)? externalView,
-    TResult Function(UEmbedRecordView value)? recordView,
-    TResult Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult Function(UEmbedUnknown value)? unknown,
+    TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedExternalView value)? externalView,
+    TResult Function(UPostViewEmbedRecordView value)? recordView,
+    TResult Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult Function(UPostViewEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (recordView != null) {
@@ -577,23 +592,23 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   }
 }
 
-abstract class UEmbedRecordView implements UEmbed {
-  const factory UEmbedRecordView({required final RecordView data}) =
-      _$UEmbedRecordViewImpl;
+abstract class UPostViewEmbedRecordView implements UPostViewEmbed {
+  const factory UPostViewEmbedRecordView({required final RecordView data}) =
+      _$UPostViewEmbedRecordViewImpl;
 
   @override
   RecordView get data;
   @JsonKey(ignore: true)
-  _$$UEmbedRecordViewImplCopyWith<_$UEmbedRecordViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UPostViewEmbedRecordViewImplCopyWith<_$UPostViewEmbedRecordViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedRecordWithMediaViewImplCopyWith<$Res> {
-  factory _$$UEmbedRecordWithMediaViewImplCopyWith(
-          _$UEmbedRecordWithMediaViewImpl value,
-          $Res Function(_$UEmbedRecordWithMediaViewImpl) then) =
-      __$$UEmbedRecordWithMediaViewImplCopyWithImpl<$Res>;
+abstract class _$$UPostViewEmbedRecordWithMediaViewImplCopyWith<$Res> {
+  factory _$$UPostViewEmbedRecordWithMediaViewImplCopyWith(
+          _$UPostViewEmbedRecordWithMediaViewImpl value,
+          $Res Function(_$UPostViewEmbedRecordWithMediaViewImpl) then) =
+      __$$UPostViewEmbedRecordWithMediaViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RecordWithMediaView data});
 
@@ -601,12 +616,13 @@ abstract class _$$UEmbedRecordWithMediaViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedRecordWithMediaViewImplCopyWithImpl<$Res>
-    extends _$UEmbedCopyWithImpl<$Res, _$UEmbedRecordWithMediaViewImpl>
-    implements _$$UEmbedRecordWithMediaViewImplCopyWith<$Res> {
-  __$$UEmbedRecordWithMediaViewImplCopyWithImpl(
-      _$UEmbedRecordWithMediaViewImpl _value,
-      $Res Function(_$UEmbedRecordWithMediaViewImpl) _then)
+class __$$UPostViewEmbedRecordWithMediaViewImplCopyWithImpl<$Res>
+    extends _$UPostViewEmbedCopyWithImpl<$Res,
+        _$UPostViewEmbedRecordWithMediaViewImpl>
+    implements _$$UPostViewEmbedRecordWithMediaViewImplCopyWith<$Res> {
+  __$$UPostViewEmbedRecordWithMediaViewImplCopyWithImpl(
+      _$UPostViewEmbedRecordWithMediaViewImpl _value,
+      $Res Function(_$UPostViewEmbedRecordWithMediaViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -614,7 +630,7 @@ class __$$UEmbedRecordWithMediaViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedRecordWithMediaViewImpl(
+    return _then(_$UPostViewEmbedRecordWithMediaViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -633,22 +649,23 @@ class __$$UEmbedRecordWithMediaViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedRecordWithMediaViewImpl implements UEmbedRecordWithMediaView {
-  const _$UEmbedRecordWithMediaViewImpl({required this.data});
+class _$UPostViewEmbedRecordWithMediaViewImpl
+    implements UPostViewEmbedRecordWithMediaView {
+  const _$UPostViewEmbedRecordWithMediaViewImpl({required this.data});
 
   @override
   final RecordWithMediaView data;
 
   @override
   String toString() {
-    return 'UEmbed.recordWithMediaView(data: $data)';
+    return 'UPostViewEmbed.recordWithMediaView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedRecordWithMediaViewImpl &&
+            other is _$UPostViewEmbedRecordWithMediaViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -658,9 +675,10 @@ class _$UEmbedRecordWithMediaViewImpl implements UEmbedRecordWithMediaView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedRecordWithMediaViewImplCopyWith<_$UEmbedRecordWithMediaViewImpl>
-      get copyWith => __$$UEmbedRecordWithMediaViewImplCopyWithImpl<
-          _$UEmbedRecordWithMediaViewImpl>(this, _$identity);
+  _$$UPostViewEmbedRecordWithMediaViewImplCopyWith<
+          _$UPostViewEmbedRecordWithMediaViewImpl>
+      get copyWith => __$$UPostViewEmbedRecordWithMediaViewImplCopyWithImpl<
+          _$UPostViewEmbedRecordWithMediaViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -705,12 +723,12 @@ class _$UEmbedRecordWithMediaViewImpl implements UEmbedRecordWithMediaView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedImagesView value) imagesView,
-    required TResult Function(UEmbedExternalView value) externalView,
-    required TResult Function(UEmbedRecordView value) recordView,
-    required TResult Function(UEmbedRecordWithMediaView value)
+    required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedExternalView value) externalView,
+    required TResult Function(UPostViewEmbedRecordView value) recordView,
+    required TResult Function(UPostViewEmbedRecordWithMediaView value)
         recordWithMediaView,
-    required TResult Function(UEmbedUnknown value) unknown,
+    required TResult Function(UPostViewEmbedUnknown value) unknown,
   }) {
     return recordWithMediaView(this);
   }
@@ -718,11 +736,12 @@ class _$UEmbedRecordWithMediaViewImpl implements UEmbedRecordWithMediaView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedImagesView value)? imagesView,
-    TResult? Function(UEmbedExternalView value)? externalView,
-    TResult? Function(UEmbedRecordView value)? recordView,
-    TResult? Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult? Function(UEmbedUnknown value)? unknown,
+    TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedExternalView value)? externalView,
+    TResult? Function(UPostViewEmbedRecordView value)? recordView,
+    TResult? Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult? Function(UPostViewEmbedUnknown value)? unknown,
   }) {
     return recordWithMediaView?.call(this);
   }
@@ -730,11 +749,12 @@ class _$UEmbedRecordWithMediaViewImpl implements UEmbedRecordWithMediaView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedImagesView value)? imagesView,
-    TResult Function(UEmbedExternalView value)? externalView,
-    TResult Function(UEmbedRecordView value)? recordView,
-    TResult Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult Function(UEmbedUnknown value)? unknown,
+    TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedExternalView value)? externalView,
+    TResult Function(UPostViewEmbedRecordView value)? recordView,
+    TResult Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult Function(UPostViewEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (recordWithMediaView != null) {
@@ -744,33 +764,35 @@ class _$UEmbedRecordWithMediaViewImpl implements UEmbedRecordWithMediaView {
   }
 }
 
-abstract class UEmbedRecordWithMediaView implements UEmbed {
-  const factory UEmbedRecordWithMediaView(
+abstract class UPostViewEmbedRecordWithMediaView implements UPostViewEmbed {
+  const factory UPostViewEmbedRecordWithMediaView(
           {required final RecordWithMediaView data}) =
-      _$UEmbedRecordWithMediaViewImpl;
+      _$UPostViewEmbedRecordWithMediaViewImpl;
 
   @override
   RecordWithMediaView get data;
   @JsonKey(ignore: true)
-  _$$UEmbedRecordWithMediaViewImplCopyWith<_$UEmbedRecordWithMediaViewImpl>
+  _$$UPostViewEmbedRecordWithMediaViewImplCopyWith<
+          _$UPostViewEmbedRecordWithMediaViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedUnknownImplCopyWith<$Res> {
-  factory _$$UEmbedUnknownImplCopyWith(
-          _$UEmbedUnknownImpl value, $Res Function(_$UEmbedUnknownImpl) then) =
-      __$$UEmbedUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UPostViewEmbedUnknownImplCopyWith<$Res> {
+  factory _$$UPostViewEmbedUnknownImplCopyWith(
+          _$UPostViewEmbedUnknownImpl value,
+          $Res Function(_$UPostViewEmbedUnknownImpl) then) =
+      __$$UPostViewEmbedUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UEmbedUnknownImplCopyWithImpl<$Res>
-    extends _$UEmbedCopyWithImpl<$Res, _$UEmbedUnknownImpl>
-    implements _$$UEmbedUnknownImplCopyWith<$Res> {
-  __$$UEmbedUnknownImplCopyWithImpl(
-      _$UEmbedUnknownImpl _value, $Res Function(_$UEmbedUnknownImpl) _then)
+class __$$UPostViewEmbedUnknownImplCopyWithImpl<$Res>
+    extends _$UPostViewEmbedCopyWithImpl<$Res, _$UPostViewEmbedUnknownImpl>
+    implements _$$UPostViewEmbedUnknownImplCopyWith<$Res> {
+  __$$UPostViewEmbedUnknownImplCopyWithImpl(_$UPostViewEmbedUnknownImpl _value,
+      $Res Function(_$UPostViewEmbedUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -778,7 +800,7 @@ class __$$UEmbedUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedUnknownImpl(
+    return _then(_$UPostViewEmbedUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -789,8 +811,8 @@ class __$$UEmbedUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedUnknownImpl implements UEmbedUnknown {
-  const _$UEmbedUnknownImpl({required final Map<String, dynamic> data})
+class _$UPostViewEmbedUnknownImpl implements UPostViewEmbedUnknown {
+  const _$UPostViewEmbedUnknownImpl({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -803,14 +825,14 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
 
   @override
   String toString() {
-    return 'UEmbed.unknown(data: $data)';
+    return 'UPostViewEmbed.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedUnknownImpl &&
+            other is _$UPostViewEmbedUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -821,8 +843,9 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedUnknownImplCopyWith<_$UEmbedUnknownImpl> get copyWith =>
-      __$$UEmbedUnknownImplCopyWithImpl<_$UEmbedUnknownImpl>(this, _$identity);
+  _$$UPostViewEmbedUnknownImplCopyWith<_$UPostViewEmbedUnknownImpl>
+      get copyWith => __$$UPostViewEmbedUnknownImplCopyWithImpl<
+          _$UPostViewEmbedUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -867,12 +890,12 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedImagesView value) imagesView,
-    required TResult Function(UEmbedExternalView value) externalView,
-    required TResult Function(UEmbedRecordView value) recordView,
-    required TResult Function(UEmbedRecordWithMediaView value)
+    required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedExternalView value) externalView,
+    required TResult Function(UPostViewEmbedRecordView value) recordView,
+    required TResult Function(UPostViewEmbedRecordWithMediaView value)
         recordWithMediaView,
-    required TResult Function(UEmbedUnknown value) unknown,
+    required TResult Function(UPostViewEmbedUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -880,11 +903,12 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedImagesView value)? imagesView,
-    TResult? Function(UEmbedExternalView value)? externalView,
-    TResult? Function(UEmbedRecordView value)? recordView,
-    TResult? Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult? Function(UEmbedUnknown value)? unknown,
+    TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedExternalView value)? externalView,
+    TResult? Function(UPostViewEmbedRecordView value)? recordView,
+    TResult? Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult? Function(UPostViewEmbedUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -892,11 +916,12 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedImagesView value)? imagesView,
-    TResult Function(UEmbedExternalView value)? externalView,
-    TResult Function(UEmbedRecordView value)? recordView,
-    TResult Function(UEmbedRecordWithMediaView value)? recordWithMediaView,
-    TResult Function(UEmbedUnknown value)? unknown,
+    TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedExternalView value)? externalView,
+    TResult Function(UPostViewEmbedRecordView value)? recordView,
+    TResult Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult Function(UPostViewEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -906,13 +931,13 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   }
 }
 
-abstract class UEmbedUnknown implements UEmbed {
-  const factory UEmbedUnknown({required final Map<String, dynamic> data}) =
-      _$UEmbedUnknownImpl;
+abstract class UPostViewEmbedUnknown implements UPostViewEmbed {
+  const factory UPostViewEmbedUnknown(
+      {required final Map<String, dynamic> data}) = _$UPostViewEmbedUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UEmbedUnknownImplCopyWith<_$UEmbedUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UPostViewEmbedUnknownImplCopyWith<_$UPostViewEmbedUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

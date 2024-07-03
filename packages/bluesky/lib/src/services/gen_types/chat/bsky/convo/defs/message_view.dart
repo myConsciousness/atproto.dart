@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bluesky/app_bsky_richtext_facet.dart';
 import '../../../../../../ids.g.dart';
 import '../../../../chat/bsky/convo/defs/message_view_sender.dart';
-import '../../../../chat/bsky/convo/defs/union_embed.dart';
+import '../../../../chat/bsky/convo/defs/union_message_view_embed.dart';
 
 part 'message_view.freezed.dart';
 part 'message_view.g.dart';
@@ -39,7 +39,7 @@ class MessageView with _$MessageView {
 
     /// Annotations of text (mentions, URLs, hashtags, etc)
     @FacetConverter() List<Facet>? facets,
-    @UEmbedConverter() UEmbed? embed,
+    @UMessageViewEmbedConverter() UMessageViewEmbed? embed,
     @MessageViewSenderConverter() required MessageViewSender sender,
     required DateTime sentAt,
 

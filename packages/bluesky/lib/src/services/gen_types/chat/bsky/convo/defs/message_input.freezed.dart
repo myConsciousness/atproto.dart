@@ -30,8 +30,8 @@ mixin _$MessageInput {
   /// Annotations of text (mentions, URLs, hashtags, etc)
   @FacetConverter()
   List<Facet>? get facets => throw _privateConstructorUsedError;
-  @UEmbedConverter()
-  UEmbed? get embed => throw _privateConstructorUsedError;
+  @UMessageInputEmbedConverter()
+  UMessageInputEmbed? get embed => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -53,10 +53,10 @@ abstract class $MessageInputCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String text,
       @FacetConverter() List<Facet>? facets,
-      @UEmbedConverter() UEmbed? embed,
+      @UMessageInputEmbedConverter() UMessageInputEmbed? embed,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UEmbedCopyWith<$Res>? get embed;
+  $UMessageInputEmbedCopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -94,7 +94,7 @@ class _$MessageInputCopyWithImpl<$Res, $Val extends MessageInput>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UMessageInputEmbed?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -104,12 +104,12 @@ class _$MessageInputCopyWithImpl<$Res, $Val extends MessageInput>
 
   @override
   @pragma('vm:prefer-inline')
-  $UEmbedCopyWith<$Res>? get embed {
+  $UMessageInputEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $UMessageInputEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -127,11 +127,11 @@ abstract class _$$MessageInputImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String text,
       @FacetConverter() List<Facet>? facets,
-      @UEmbedConverter() UEmbed? embed,
+      @UMessageInputEmbedConverter() UMessageInputEmbed? embed,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UEmbedCopyWith<$Res>? get embed;
+  $UMessageInputEmbedCopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -167,7 +167,7 @@ class __$$MessageInputImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UMessageInputEmbed?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -184,7 +184,7 @@ class _$MessageInputImpl implements _MessageInput {
       {@JsonKey(name: r'$type') this.$type = chatBskyConvoDefsMessageInput,
       required this.text,
       @FacetConverter() final List<Facet>? facets,
-      @UEmbedConverter() this.embed,
+      @UMessageInputEmbedConverter() this.embed,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _facets = facets,
         _$unknown = $unknown;
@@ -216,8 +216,8 @@ class _$MessageInputImpl implements _MessageInput {
   }
 
   @override
-  @UEmbedConverter()
-  final UEmbed? embed;
+  @UMessageInputEmbedConverter()
+  final UMessageInputEmbed? embed;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -279,7 +279,7 @@ abstract class _MessageInput implements MessageInput {
           {@JsonKey(name: r'$type') final String $type,
           required final String text,
           @FacetConverter() final List<Facet>? facets,
-          @UEmbedConverter() final UEmbed? embed,
+          @UMessageInputEmbedConverter() final UMessageInputEmbed? embed,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$MessageInputImpl;
 
@@ -301,8 +301,8 @@ abstract class _MessageInput implements MessageInput {
   @FacetConverter()
   List<Facet>? get facets;
   @override
-  @UEmbedConverter()
-  UEmbed? get embed;
+  @UMessageInputEmbedConverter()
+  UMessageInputEmbed? get embed;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

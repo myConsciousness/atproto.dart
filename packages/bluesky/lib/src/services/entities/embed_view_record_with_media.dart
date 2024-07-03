@@ -19,6 +19,7 @@ part 'embed_view_record_with_media.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#view
 @freezed
+@Deprecated('Use RecordWithMediaView')
 class EmbedViewRecordWithMedia with _$EmbedViewRecordWithMedia {
   const factory EmbedViewRecordWithMedia({
     @typeKey @Default(appBskyEmbedRecordWithMediaView) String type,

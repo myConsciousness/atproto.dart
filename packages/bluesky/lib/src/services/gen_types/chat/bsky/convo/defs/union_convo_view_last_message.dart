@@ -17,73 +17,75 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../chat/bsky/convo/defs/deleted_message_view.dart';
 import '../../../../chat/bsky/convo/defs/message_view.dart';
 
-part 'union_last_message.freezed.dart';
+part 'union_convo_view_last_message.freezed.dart';
 
 @freezed
-class ULastMessage with _$ULastMessage {
-  const factory ULastMessage.messageView({
+class UConvoViewLastMessage with _$UConvoViewLastMessage {
+  const factory UConvoViewLastMessage.messageView({
     required MessageView data,
-  }) = ULastMessageMessageView;
+  }) = UConvoViewLastMessageMessageView;
 
-  const factory ULastMessage.deletedMessageView({
+  const factory UConvoViewLastMessage.deletedMessageView({
     required DeletedMessageView data,
-  }) = ULastMessageDeletedMessageView;
+  }) = UConvoViewLastMessageDeletedMessageView;
 
-  const factory ULastMessage.unknown({
+  const factory UConvoViewLastMessage.unknown({
     required Map<String, dynamic> data,
-  }) = ULastMessageUnknown;
+  }) = UConvoViewLastMessageUnknown;
 }
 
-final class ULastMessageConverter
-    implements JsonConverter<ULastMessage, Map<String, dynamic>> {
-  const ULastMessageConverter();
+final class UConvoViewLastMessageConverter
+    implements JsonConverter<UConvoViewLastMessage, Map<String, dynamic>> {
+  const UConvoViewLastMessageConverter();
 
   @override
-  ULastMessage fromJson(Map<String, dynamic> json) {
+  UConvoViewLastMessage fromJson(Map<String, dynamic> json) {
     try {
       if (isMessageView(json)) {
-        return ULastMessage.messageView(
+        return UConvoViewLastMessage.messageView(
           data: const MessageViewConverter().fromJson(json),
         );
       }
       if (isDeletedMessageView(json)) {
-        return ULastMessage.deletedMessageView(
+        return UConvoViewLastMessage.deletedMessageView(
           data: const DeletedMessageViewConverter().fromJson(json),
         );
       }
 
-      return ULastMessage.unknown(data: json);
+      return UConvoViewLastMessage.unknown(data: json);
     } catch (_) {
-      return ULastMessage.unknown(data: json);
+      return UConvoViewLastMessage.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ULastMessage object) => object.when(
+  Map<String, dynamic> toJson(UConvoViewLastMessage object) => object.when(
         messageView: const MessageViewConverter().toJson,
         deletedMessageView: const DeletedMessageViewConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension $ULastMessageExtension on ULastMessage {
+extension $UConvoViewLastMessageExtension on UConvoViewLastMessage {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const ULastMessageConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UConvoViewLastMessageConverter().toJson(this);
 
   /// Returns true if this data is [MessageView], otherwise false.
-  bool get isMessageView => this is ULastMessageMessageView;
+  bool get isMessageView => this is UConvoViewLastMessageMessageView;
 
   /// Returns true if this data is not [MessageView], otherwise false.
   bool get isNotMessageView => !isMessageView;
 
   /// Returns true if this data is [DeletedMessageView], otherwise false.
-  bool get isDeletedMessageView => this is ULastMessageDeletedMessageView;
+  bool get isDeletedMessageView =>
+      this is UConvoViewLastMessageDeletedMessageView;
 
   /// Returns true if this data is not [DeletedMessageView], otherwise false.
   bool get isNotDeletedMessageView => !isDeletedMessageView;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is ULastMessageUnknown;
+  bool get isUnknown => this is UConvoViewLastMessageUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

@@ -13,7 +13,7 @@ import '../../../services/gen_types/app/bsky/embed/record/view_blocked.dart';
 import '../../../services/gen_types/app/bsky/embed/record/view_record.dart';
 import '../../../services/gen_types/app/bsky/embed/record_with_media/union_record_with_media_media.dart';
 import '../../../services/gen_types/app/bsky/embed/record_with_media/union_record_with_media_view_media.dart';
-import '../../../services/gen_types/app/bsky/feed/defs/union_embed.dart';
+import '../../../services/gen_types/app/bsky/feed/defs/union_post_view_embed.dart';
 import '../../../services/gen_types/app/bsky/feed/post/record.dart';
 import '../../../services/gen_types/app/bsky/feed/post/union_post_embed.dart';
 import '../../decision.dart';
@@ -147,7 +147,7 @@ ModerationDecision decideBlockedQuotedPost(
 
 bool _hasHiddenPost(
   final AtUri uri,
-  final UEmbed? embed,
+  final UPostViewEmbed? embed,
   final List<AtUri> hiddenPosts,
 ) {
   if (hiddenPosts.isEmpty) return false;
@@ -176,7 +176,7 @@ bool _hasHiddenPost(
 
 bool _hasMutedWords(
   final PostRecord record,
-  final UEmbed? embed,
+  final UPostViewEmbed? embed,
   final List<MutedWord> mutedWords,
 ) {
   if (mutedWords.isEmpty) return false;

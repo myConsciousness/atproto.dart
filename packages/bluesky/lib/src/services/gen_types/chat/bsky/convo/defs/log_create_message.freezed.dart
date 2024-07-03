@@ -27,8 +27,8 @@ mixin _$LogCreateMessage {
   String get $type => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
-  @UMessageConverter()
-  UMessage get message => throw _privateConstructorUsedError;
+  @ULogCreateMessageMessageConverter()
+  ULogCreateMessageMessage get message => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -50,10 +50,10 @@ abstract class $LogCreateMessageCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String rev,
       String convoId,
-      @UMessageConverter() UMessage message,
+      @ULogCreateMessageMessageConverter() ULogCreateMessageMessage message,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UMessageCopyWith<$Res> get message;
+  $ULogCreateMessageMessageCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -91,7 +91,7 @@ class _$LogCreateMessageCopyWithImpl<$Res, $Val extends LogCreateMessage>
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as UMessage,
+              as ULogCreateMessageMessage,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -101,8 +101,8 @@ class _$LogCreateMessageCopyWithImpl<$Res, $Val extends LogCreateMessage>
 
   @override
   @pragma('vm:prefer-inline')
-  $UMessageCopyWith<$Res> get message {
-    return $UMessageCopyWith<$Res>(_value.message, (value) {
+  $ULogCreateMessageMessageCopyWith<$Res> get message {
+    return $ULogCreateMessageMessageCopyWith<$Res>(_value.message, (value) {
       return _then(_value.copyWith(message: value) as $Val);
     });
   }
@@ -120,11 +120,11 @@ abstract class _$$LogCreateMessageImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String rev,
       String convoId,
-      @UMessageConverter() UMessage message,
+      @ULogCreateMessageMessageConverter() ULogCreateMessageMessage message,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UMessageCopyWith<$Res> get message;
+  $ULogCreateMessageMessageCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -160,7 +160,7 @@ class __$$LogCreateMessageImplCopyWithImpl<$Res>
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as UMessage,
+              as ULogCreateMessageMessage,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class _$LogCreateMessageImpl implements _LogCreateMessage {
       {@JsonKey(name: r'$type') this.$type = chatBskyConvoDefsLogCreateMessage,
       required this.rev,
       required this.convoId,
-      @UMessageConverter() required this.message,
+      @ULogCreateMessageMessageConverter() required this.message,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -195,8 +195,8 @@ class _$LogCreateMessageImpl implements _LogCreateMessage {
   @override
   final String convoId;
   @override
-  @UMessageConverter()
-  final UMessage message;
+  @ULogCreateMessageMessageConverter()
+  final ULogCreateMessageMessage message;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -254,7 +254,8 @@ abstract class _LogCreateMessage implements LogCreateMessage {
           {@JsonKey(name: r'$type') final String $type,
           required final String rev,
           required final String convoId,
-          @UMessageConverter() required final UMessage message,
+          @ULogCreateMessageMessageConverter()
+          required final ULogCreateMessageMessage message,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LogCreateMessageImpl;
 
@@ -273,8 +274,8 @@ abstract class _LogCreateMessage implements LogCreateMessage {
   @override
   String get convoId;
   @override
-  @UMessageConverter()
-  UMessage get message;
+  @ULogCreateMessageMessageConverter()
+  ULogCreateMessageMessage get message;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

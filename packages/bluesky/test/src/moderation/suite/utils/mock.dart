@@ -12,7 +12,7 @@ import 'package:bluesky/src/services/gen_types/app/bsky/embed/record/union_recor
 import 'package:bluesky/src/services/gen_types/app/bsky/embed/record/view.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/embed/record/view_record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/defs/post_view.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/feed/defs/union_embed.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/defs/union_post_view_embed.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/post/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/defs/known_list_purpose.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/defs/list_view_basic.dart';
@@ -41,7 +41,7 @@ PostRecord post({
 PostView postView({
   required PostRecord record,
   required ProfileViewBasic author,
-  UEmbed? embed,
+  UPostViewEmbed? embed,
   List<Label>? labels,
   feed_defs.ViewerState? viewer,
 }) {
@@ -95,12 +95,12 @@ Label label({
   );
 }
 
-UEmbed embedRecordView({
+UPostViewEmbed embedRecordView({
   required PostRecord record,
   required ProfileViewBasic author,
   List<Label>? labels,
 }) {
-  return UEmbed.recordView(
+  return UPostViewEmbed.recordView(
     data: RecordView(
       record: URecordViewRecord.recordViewRecord(
         data: RecordViewRecord(

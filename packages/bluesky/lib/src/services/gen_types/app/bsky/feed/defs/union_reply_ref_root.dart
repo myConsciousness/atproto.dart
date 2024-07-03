@@ -18,58 +18,58 @@ import '../../../../app/bsky/feed/defs/blocked_post.dart';
 import '../../../../app/bsky/feed/defs/not_found_post.dart';
 import '../../../../app/bsky/feed/defs/post_view.dart';
 
-part 'union_root.freezed.dart';
+part 'union_reply_ref_root.freezed.dart';
 
 @freezed
-class URoot with _$URoot {
-  const factory URoot.postView({
+class UReplyRefRoot with _$UReplyRefRoot {
+  const factory UReplyRefRoot.postView({
     required PostView data,
-  }) = URootPostView;
+  }) = UReplyRefRootPostView;
 
-  const factory URoot.notFoundPost({
+  const factory UReplyRefRoot.notFoundPost({
     required NotFoundPost data,
-  }) = URootNotFoundPost;
+  }) = UReplyRefRootNotFoundPost;
 
-  const factory URoot.blockedPost({
+  const factory UReplyRefRoot.blockedPost({
     required BlockedPost data,
-  }) = URootBlockedPost;
+  }) = UReplyRefRootBlockedPost;
 
-  const factory URoot.unknown({
+  const factory UReplyRefRoot.unknown({
     required Map<String, dynamic> data,
-  }) = URootUnknown;
+  }) = UReplyRefRootUnknown;
 }
 
-final class URootConverter
-    implements JsonConverter<URoot, Map<String, dynamic>> {
-  const URootConverter();
+final class UReplyRefRootConverter
+    implements JsonConverter<UReplyRefRoot, Map<String, dynamic>> {
+  const UReplyRefRootConverter();
 
   @override
-  URoot fromJson(Map<String, dynamic> json) {
+  UReplyRefRoot fromJson(Map<String, dynamic> json) {
     try {
       if (isPostView(json)) {
-        return URoot.postView(
+        return UReplyRefRoot.postView(
           data: const PostViewConverter().fromJson(json),
         );
       }
       if (isNotFoundPost(json)) {
-        return URoot.notFoundPost(
+        return UReplyRefRoot.notFoundPost(
           data: const NotFoundPostConverter().fromJson(json),
         );
       }
       if (isBlockedPost(json)) {
-        return URoot.blockedPost(
+        return UReplyRefRoot.blockedPost(
           data: const BlockedPostConverter().fromJson(json),
         );
       }
 
-      return URoot.unknown(data: json);
+      return UReplyRefRoot.unknown(data: json);
     } catch (_) {
-      return URoot.unknown(data: json);
+      return UReplyRefRoot.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(URoot object) => object.when(
+  Map<String, dynamic> toJson(UReplyRefRoot object) => object.when(
         postView: const PostViewConverter().toJson,
         notFoundPost: const NotFoundPostConverter().toJson,
         blockedPost: const BlockedPostConverter().toJson,
@@ -77,30 +77,30 @@ final class URootConverter
       );
 }
 
-extension $URootExtension on URoot {
+extension $UReplyRefRootExtension on UReplyRefRoot {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const URootConverter().toJson(this);
+  Map<String, dynamic> toJson() => const UReplyRefRootConverter().toJson(this);
 
   /// Returns true if this data is [PostView], otherwise false.
-  bool get isPostView => this is URootPostView;
+  bool get isPostView => this is UReplyRefRootPostView;
 
   /// Returns true if this data is not [PostView], otherwise false.
   bool get isNotPostView => !isPostView;
 
   /// Returns true if this data is [NotFoundPost], otherwise false.
-  bool get isNotFoundPost => this is URootNotFoundPost;
+  bool get isNotFoundPost => this is UReplyRefRootNotFoundPost;
 
   /// Returns true if this data is not [NotFoundPost], otherwise false.
   bool get isNotNotFoundPost => !isNotFoundPost;
 
   /// Returns true if this data is [BlockedPost], otherwise false.
-  bool get isBlockedPost => this is URootBlockedPost;
+  bool get isBlockedPost => this is UReplyRefRootBlockedPost;
 
   /// Returns true if this data is not [BlockedPost], otherwise false.
   bool get isNotBlockedPost => !isBlockedPost;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is URootUnknown;
+  bool get isUnknown => this is UReplyRefRootUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

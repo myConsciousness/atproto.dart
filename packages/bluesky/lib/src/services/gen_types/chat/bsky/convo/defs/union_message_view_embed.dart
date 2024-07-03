@@ -16,57 +16,58 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'package:bluesky/app_bsky_embed_record.dart';
 
-part 'union_embed.freezed.dart';
+part 'union_message_view_embed.freezed.dart';
 
 @freezed
-class UEmbed with _$UEmbed {
-  const factory UEmbed.recordView({
+class UMessageViewEmbed with _$UMessageViewEmbed {
+  const factory UMessageViewEmbed.recordView({
     required RecordView data,
-  }) = UEmbedRecordView;
+  }) = UMessageViewEmbedRecordView;
 
-  const factory UEmbed.unknown({
+  const factory UMessageViewEmbed.unknown({
     required Map<String, dynamic> data,
-  }) = UEmbedUnknown;
+  }) = UMessageViewEmbedUnknown;
 }
 
-final class UEmbedConverter
-    implements JsonConverter<UEmbed, Map<String, dynamic>> {
-  const UEmbedConverter();
+final class UMessageViewEmbedConverter
+    implements JsonConverter<UMessageViewEmbed, Map<String, dynamic>> {
+  const UMessageViewEmbedConverter();
 
   @override
-  UEmbed fromJson(Map<String, dynamic> json) {
+  UMessageViewEmbed fromJson(Map<String, dynamic> json) {
     try {
       if (isRecordView(json)) {
-        return UEmbed.recordView(
+        return UMessageViewEmbed.recordView(
           data: const RecordViewConverter().fromJson(json),
         );
       }
 
-      return UEmbed.unknown(data: json);
+      return UMessageViewEmbed.unknown(data: json);
     } catch (_) {
-      return UEmbed.unknown(data: json);
+      return UMessageViewEmbed.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UEmbed object) => object.when(
+  Map<String, dynamic> toJson(UMessageViewEmbed object) => object.when(
         recordView: const RecordViewConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension $UEmbedExtension on UEmbed {
+extension $UMessageViewEmbedExtension on UMessageViewEmbed {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UEmbedConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UMessageViewEmbedConverter().toJson(this);
 
   /// Returns true if this data is [RecordView], otherwise false.
-  bool get isRecordView => this is UEmbedRecordView;
+  bool get isRecordView => this is UMessageViewEmbedRecordView;
 
   /// Returns true if this data is not [RecordView], otherwise false.
   bool get isNotRecordView => !isRecordView;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UEmbedUnknown;
+  bool get isUnknown => this is UMessageViewEmbedUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

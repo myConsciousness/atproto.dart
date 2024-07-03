@@ -16,57 +16,59 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../app/bsky/feed/defs/skeleton_reason_repost.dart';
 
-part 'union_reason.freezed.dart';
+part 'union_skeleton_feed_post_reason.freezed.dart';
 
 @freezed
-class UReason with _$UReason {
-  const factory UReason.skeletonReasonRepost({
+class USkeletonFeedPostReason with _$USkeletonFeedPostReason {
+  const factory USkeletonFeedPostReason.skeletonReasonRepost({
     required SkeletonReasonRepost data,
-  }) = UReasonSkeletonReasonRepost;
+  }) = USkeletonFeedPostReasonSkeletonReasonRepost;
 
-  const factory UReason.unknown({
+  const factory USkeletonFeedPostReason.unknown({
     required Map<String, dynamic> data,
-  }) = UReasonUnknown;
+  }) = USkeletonFeedPostReasonUnknown;
 }
 
-final class UReasonConverter
-    implements JsonConverter<UReason, Map<String, dynamic>> {
-  const UReasonConverter();
+final class USkeletonFeedPostReasonConverter
+    implements JsonConverter<USkeletonFeedPostReason, Map<String, dynamic>> {
+  const USkeletonFeedPostReasonConverter();
 
   @override
-  UReason fromJson(Map<String, dynamic> json) {
+  USkeletonFeedPostReason fromJson(Map<String, dynamic> json) {
     try {
       if (isSkeletonReasonRepost(json)) {
-        return UReason.skeletonReasonRepost(
+        return USkeletonFeedPostReason.skeletonReasonRepost(
           data: const SkeletonReasonRepostConverter().fromJson(json),
         );
       }
 
-      return UReason.unknown(data: json);
+      return USkeletonFeedPostReason.unknown(data: json);
     } catch (_) {
-      return UReason.unknown(data: json);
+      return USkeletonFeedPostReason.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UReason object) => object.when(
+  Map<String, dynamic> toJson(USkeletonFeedPostReason object) => object.when(
         skeletonReasonRepost: const SkeletonReasonRepostConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension $UReasonExtension on UReason {
+extension $USkeletonFeedPostReasonExtension on USkeletonFeedPostReason {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UReasonConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const USkeletonFeedPostReasonConverter().toJson(this);
 
   /// Returns true if this data is [SkeletonReasonRepost], otherwise false.
-  bool get isSkeletonReasonRepost => this is UReasonSkeletonReasonRepost;
+  bool get isSkeletonReasonRepost =>
+      this is USkeletonFeedPostReasonSkeletonReasonRepost;
 
   /// Returns true if this data is not [SkeletonReasonRepost], otherwise false.
   bool get isNotSkeletonReasonRepost => !isSkeletonReasonRepost;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UReasonUnknown;
+  bool get isUnknown => this is USkeletonFeedPostReasonUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

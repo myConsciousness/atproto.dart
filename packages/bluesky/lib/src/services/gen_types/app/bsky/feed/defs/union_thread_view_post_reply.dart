@@ -18,58 +18,58 @@ import '../../../../app/bsky/feed/defs/blocked_post.dart';
 import '../../../../app/bsky/feed/defs/not_found_post.dart';
 import '../../../../app/bsky/feed/defs/thread_view_post.dart';
 
-part 'union_reply.freezed.dart';
+part 'union_thread_view_post_reply.freezed.dart';
 
 @freezed
-class UReply with _$UReply {
-  const factory UReply.threadViewPost({
+class UThreadViewPostReply with _$UThreadViewPostReply {
+  const factory UThreadViewPostReply.threadViewPost({
     required ThreadViewPost data,
-  }) = UReplyThreadViewPost;
+  }) = UThreadViewPostReplyThreadViewPost;
 
-  const factory UReply.notFoundPost({
+  const factory UThreadViewPostReply.notFoundPost({
     required NotFoundPost data,
-  }) = UReplyNotFoundPost;
+  }) = UThreadViewPostReplyNotFoundPost;
 
-  const factory UReply.blockedPost({
+  const factory UThreadViewPostReply.blockedPost({
     required BlockedPost data,
-  }) = UReplyBlockedPost;
+  }) = UThreadViewPostReplyBlockedPost;
 
-  const factory UReply.unknown({
+  const factory UThreadViewPostReply.unknown({
     required Map<String, dynamic> data,
-  }) = UReplyUnknown;
+  }) = UThreadViewPostReplyUnknown;
 }
 
-final class UReplyConverter
-    implements JsonConverter<UReply, Map<String, dynamic>> {
-  const UReplyConverter();
+final class UThreadViewPostReplyConverter
+    implements JsonConverter<UThreadViewPostReply, Map<String, dynamic>> {
+  const UThreadViewPostReplyConverter();
 
   @override
-  UReply fromJson(Map<String, dynamic> json) {
+  UThreadViewPostReply fromJson(Map<String, dynamic> json) {
     try {
       if (isThreadViewPost(json)) {
-        return UReply.threadViewPost(
+        return UThreadViewPostReply.threadViewPost(
           data: const ThreadViewPostConverter().fromJson(json),
         );
       }
       if (isNotFoundPost(json)) {
-        return UReply.notFoundPost(
+        return UThreadViewPostReply.notFoundPost(
           data: const NotFoundPostConverter().fromJson(json),
         );
       }
       if (isBlockedPost(json)) {
-        return UReply.blockedPost(
+        return UThreadViewPostReply.blockedPost(
           data: const BlockedPostConverter().fromJson(json),
         );
       }
 
-      return UReply.unknown(data: json);
+      return UThreadViewPostReply.unknown(data: json);
     } catch (_) {
-      return UReply.unknown(data: json);
+      return UThreadViewPostReply.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UReply object) => object.when(
+  Map<String, dynamic> toJson(UThreadViewPostReply object) => object.when(
         threadViewPost: const ThreadViewPostConverter().toJson,
         notFoundPost: const NotFoundPostConverter().toJson,
         blockedPost: const BlockedPostConverter().toJson,
@@ -77,30 +77,31 @@ final class UReplyConverter
       );
 }
 
-extension $UReplyExtension on UReply {
+extension $UThreadViewPostReplyExtension on UThreadViewPostReply {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UReplyConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UThreadViewPostReplyConverter().toJson(this);
 
   /// Returns true if this data is [ThreadViewPost], otherwise false.
-  bool get isThreadViewPost => this is UReplyThreadViewPost;
+  bool get isThreadViewPost => this is UThreadViewPostReplyThreadViewPost;
 
   /// Returns true if this data is not [ThreadViewPost], otherwise false.
   bool get isNotThreadViewPost => !isThreadViewPost;
 
   /// Returns true if this data is [NotFoundPost], otherwise false.
-  bool get isNotFoundPost => this is UReplyNotFoundPost;
+  bool get isNotFoundPost => this is UThreadViewPostReplyNotFoundPost;
 
   /// Returns true if this data is not [NotFoundPost], otherwise false.
   bool get isNotNotFoundPost => !isNotFoundPost;
 
   /// Returns true if this data is [BlockedPost], otherwise false.
-  bool get isBlockedPost => this is UReplyBlockedPost;
+  bool get isBlockedPost => this is UThreadViewPostReplyBlockedPost;
 
   /// Returns true if this data is not [BlockedPost], otherwise false.
   bool get isNotBlockedPost => !isBlockedPost;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UReplyUnknown;
+  bool get isUnknown => this is UThreadViewPostReplyUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

@@ -19,7 +19,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import '../../../../app/bsky/feed/defs/threadgate_view.dart';
-import '../../../../app/bsky/feed/defs/union_embed.dart';
+import '../../../../app/bsky/feed/defs/union_post_view_embed.dart';
 import '../../../../app/bsky/feed/defs/viewer_state.dart';
 import '../../feed/post/record.dart';
 
@@ -39,7 +39,7 @@ class PostView with _$PostView {
     required String cid,
     @ProfileViewBasicConverter() required ProfileViewBasic author,
     @PostRecordConverter() required PostRecord record,
-    @UEmbedConverter() UEmbed? embed,
+    @UPostViewEmbedConverter() UPostViewEmbed? embed,
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,

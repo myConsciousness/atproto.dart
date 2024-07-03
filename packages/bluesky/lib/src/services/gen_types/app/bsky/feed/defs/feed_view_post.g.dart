@@ -25,8 +25,9 @@ _$FeedViewPostImpl _$$FeedViewPostImplFromJson(Map json) => $checkedCreate(
                   v, const ReplyRefConverter().fromJson)),
           reason: $checkedConvert(
               'reason',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UReason>(
-                  v, const UReasonConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UFeedViewPostReason>(
+                  v, const UFeedViewPostReasonConverter().fromJson)),
           feedContext: $checkedConvert('feedContext', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -56,8 +57,8 @@ Map<String, dynamic> _$$FeedViewPostImplToJson(_$FeedViewPostImpl instance) {
           instance.reply, const ReplyRefConverter().toJson));
   writeNotNull(
       'reason',
-      _$JsonConverterToJson<Map<String, dynamic>, UReason>(
-          instance.reason, const UReasonConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UFeedViewPostReason>(
+          instance.reason, const UFeedViewPostReasonConverter().toJson));
   writeNotNull('feedContext', instance.feedContext);
   writeNotNull(r'$unknown', instance.$unknown);
   return val;

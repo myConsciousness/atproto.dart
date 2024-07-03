@@ -20,7 +20,7 @@ _$LogCreateMessageImpl _$$LogCreateMessageImplFromJson(Map json) =>
           convoId: $checkedConvert('convoId', (v) => v as String),
           message: $checkedConvert(
               'message',
-              (v) => const UMessageConverter()
+              (v) => const ULogCreateMessageMessageConverter()
                   .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -38,7 +38,8 @@ Map<String, dynamic> _$$LogCreateMessageImplToJson(
     r'$type': instance.$type,
     'rev': instance.rev,
     'convoId': instance.convoId,
-    'message': const UMessageConverter().toJson(instance.message),
+    'message':
+        const ULogCreateMessageMessageConverter().toJson(instance.message),
   };
 
   void writeNotNull(String key, dynamic value) {

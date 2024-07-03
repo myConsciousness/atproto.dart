@@ -27,10 +27,10 @@ mixin _$ThreadViewPost {
   String get $type => throw _privateConstructorUsedError;
   @PostViewConverter()
   PostView get post => throw _privateConstructorUsedError;
-  @UParentConverter()
-  UParent? get parent => throw _privateConstructorUsedError;
-  @UReplyConverter()
-  List<UReply>? get replies => throw _privateConstructorUsedError;
+  @UThreadViewPostParentConverter()
+  UThreadViewPostParent? get parent => throw _privateConstructorUsedError;
+  @UThreadViewPostReplyConverter()
+  List<UThreadViewPostReply>? get replies => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -51,12 +51,12 @@ abstract class $ThreadViewPostCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @PostViewConverter() PostView post,
-      @UParentConverter() UParent? parent,
-      @UReplyConverter() List<UReply>? replies,
+      @UThreadViewPostParentConverter() UThreadViewPostParent? parent,
+      @UThreadViewPostReplyConverter() List<UThreadViewPostReply>? replies,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $PostViewCopyWith<$Res> get post;
-  $UParentCopyWith<$Res>? get parent;
+  $UThreadViewPostParentCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
@@ -90,11 +90,11 @@ class _$ThreadViewPostCopyWithImpl<$Res, $Val extends ThreadViewPost>
       parent: freezed == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as UParent?,
+              as UThreadViewPostParent?,
       replies: freezed == replies
           ? _value.replies
           : replies // ignore: cast_nullable_to_non_nullable
-              as List<UReply>?,
+              as List<UThreadViewPostReply>?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -112,12 +112,12 @@ class _$ThreadViewPostCopyWithImpl<$Res, $Val extends ThreadViewPost>
 
   @override
   @pragma('vm:prefer-inline')
-  $UParentCopyWith<$Res>? get parent {
+  $UThreadViewPostParentCopyWith<$Res>? get parent {
     if (_value.parent == null) {
       return null;
     }
 
-    return $UParentCopyWith<$Res>(_value.parent!, (value) {
+    return $UThreadViewPostParentCopyWith<$Res>(_value.parent!, (value) {
       return _then(_value.copyWith(parent: value) as $Val);
     });
   }
@@ -134,14 +134,14 @@ abstract class _$$ThreadViewPostImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @PostViewConverter() PostView post,
-      @UParentConverter() UParent? parent,
-      @UReplyConverter() List<UReply>? replies,
+      @UThreadViewPostParentConverter() UThreadViewPostParent? parent,
+      @UThreadViewPostReplyConverter() List<UThreadViewPostReply>? replies,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $PostViewCopyWith<$Res> get post;
   @override
-  $UParentCopyWith<$Res>? get parent;
+  $UThreadViewPostParentCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
@@ -173,11 +173,11 @@ class __$$ThreadViewPostImplCopyWithImpl<$Res>
       parent: freezed == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as UParent?,
+              as UThreadViewPostParent?,
       replies: freezed == replies
           ? _value._replies
           : replies // ignore: cast_nullable_to_non_nullable
-              as List<UReply>?,
+              as List<UThreadViewPostReply>?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -193,8 +193,9 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
   const _$ThreadViewPostImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsThreadViewPost,
       @PostViewConverter() required this.post,
-      @UParentConverter() this.parent,
-      @UReplyConverter() final List<UReply>? replies,
+      @UThreadViewPostParentConverter() this.parent,
+      @UThreadViewPostReplyConverter()
+      final List<UThreadViewPostReply>? replies,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _replies = replies,
         _$unknown = $unknown;
@@ -212,12 +213,12 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
   @PostViewConverter()
   final PostView post;
   @override
-  @UParentConverter()
-  final UParent? parent;
-  final List<UReply>? _replies;
+  @UThreadViewPostParentConverter()
+  final UThreadViewPostParent? parent;
+  final List<UThreadViewPostReply>? _replies;
   @override
-  @UReplyConverter()
-  List<UReply>? get replies {
+  @UThreadViewPostReplyConverter()
+  List<UThreadViewPostReply>? get replies {
     final value = _replies;
     if (value == null) return null;
     if (_replies is EqualUnmodifiableListView) return _replies;
@@ -285,8 +286,9 @@ abstract class _ThreadViewPost implements ThreadViewPost {
   const factory _ThreadViewPost(
           {@JsonKey(name: r'$type') final String $type,
           @PostViewConverter() required final PostView post,
-          @UParentConverter() final UParent? parent,
-          @UReplyConverter() final List<UReply>? replies,
+          @UThreadViewPostParentConverter() final UThreadViewPostParent? parent,
+          @UThreadViewPostReplyConverter()
+          final List<UThreadViewPostReply>? replies,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ThreadViewPostImpl;
 
@@ -304,11 +306,11 @@ abstract class _ThreadViewPost implements ThreadViewPost {
   @PostViewConverter()
   PostView get post;
   @override
-  @UParentConverter()
-  UParent? get parent;
+  @UThreadViewPostParentConverter()
+  UThreadViewPostParent? get parent;
   @override
-  @UReplyConverter()
-  List<UReply>? get replies;
+  @UThreadViewPostReplyConverter()
+  List<UThreadViewPostReply>? get replies;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

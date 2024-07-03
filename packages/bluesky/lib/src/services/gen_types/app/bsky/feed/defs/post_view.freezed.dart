@@ -32,8 +32,8 @@ mixin _$PostView {
   ProfileViewBasic get author => throw _privateConstructorUsedError;
   @PostRecordConverter()
   PostRecord get record => throw _privateConstructorUsedError;
-  @UEmbedConverter()
-  UEmbed? get embed => throw _privateConstructorUsedError;
+  @UPostViewEmbedConverter()
+  UPostViewEmbed? get embed => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
@@ -66,7 +66,7 @@ abstract class $PostViewCopyWith<$Res> {
       String cid,
       @ProfileViewBasicConverter() ProfileViewBasic author,
       @PostRecordConverter() PostRecord record,
-      @UEmbedConverter() UEmbed? embed,
+      @UPostViewEmbedConverter() UPostViewEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -78,7 +78,7 @@ abstract class $PostViewCopyWith<$Res> {
 
   $ProfileViewBasicCopyWith<$Res> get author;
   $PostRecordCopyWith<$Res> get record;
-  $UEmbedCopyWith<$Res>? get embed;
+  $UPostViewEmbedCopyWith<$Res>? get embed;
   $ViewerStateCopyWith<$Res> get viewer;
   $ThreadgateViewCopyWith<$Res> get threadgate;
 }
@@ -135,7 +135,7 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UPostViewEmbed?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -189,12 +189,12 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
 
   @override
   @pragma('vm:prefer-inline')
-  $UEmbedCopyWith<$Res>? get embed {
+  $UPostViewEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $UPostViewEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -230,7 +230,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
       String cid,
       @ProfileViewBasicConverter() ProfileViewBasic author,
       @PostRecordConverter() PostRecord record,
-      @UEmbedConverter() UEmbed? embed,
+      @UPostViewEmbedConverter() UPostViewEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -245,7 +245,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
   @override
   $PostRecordCopyWith<$Res> get record;
   @override
-  $UEmbedCopyWith<$Res>? get embed;
+  $UPostViewEmbedCopyWith<$Res>? get embed;
   @override
   $ViewerStateCopyWith<$Res> get viewer;
   @override
@@ -302,7 +302,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UPostViewEmbed?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -349,7 +349,7 @@ class _$PostViewImpl implements _PostView {
       required this.cid,
       @ProfileViewBasicConverter() required this.author,
       @PostRecordConverter() required this.record,
-      @UEmbedConverter() this.embed,
+      @UPostViewEmbedConverter() this.embed,
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
@@ -382,8 +382,8 @@ class _$PostViewImpl implements _PostView {
   @PostRecordConverter()
   final PostRecord record;
   @override
-  @UEmbedConverter()
-  final UEmbed? embed;
+  @UPostViewEmbedConverter()
+  final UPostViewEmbed? embed;
   @override
   @JsonKey()
   final int replyCount;
@@ -500,7 +500,7 @@ abstract class _PostView implements PostView {
           required final String cid,
           @ProfileViewBasicConverter() required final ProfileViewBasic author,
           @PostRecordConverter() required final PostRecord record,
-          @UEmbedConverter() final UEmbed? embed,
+          @UPostViewEmbedConverter() final UPostViewEmbed? embed,
           final int replyCount,
           final int repostCount,
           final int likeCount,
@@ -533,8 +533,8 @@ abstract class _PostView implements PostView {
   @PostRecordConverter()
   PostRecord get record;
   @override
-  @UEmbedConverter()
-  UEmbed? get embed;
+  @UPostViewEmbedConverter()
+  UPostViewEmbed? get embed;
   @override
   int get replyCount;
   @override

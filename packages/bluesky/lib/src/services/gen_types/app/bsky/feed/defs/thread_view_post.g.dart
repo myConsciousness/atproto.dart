@@ -21,12 +21,13 @@ _$ThreadViewPostImpl _$$ThreadViewPostImplFromJson(Map json) => $checkedCreate(
                   .fromJson(v as Map<String, dynamic>)),
           parent: $checkedConvert(
               'parent',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UParent>(
-                  v, const UParentConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UThreadViewPostParent>(
+                  v, const UThreadViewPostParentConverter().fromJson)),
           replies: $checkedConvert(
               'replies',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => const UReplyConverter()
+                  ?.map((e) => const UThreadViewPostReplyConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
@@ -54,10 +55,13 @@ Map<String, dynamic> _$$ThreadViewPostImplToJson(
 
   writeNotNull(
       'parent',
-      _$JsonConverterToJson<Map<String, dynamic>, UParent>(
-          instance.parent, const UParentConverter().toJson));
-  writeNotNull('replies',
-      instance.replies?.map(const UReplyConverter().toJson).toList());
+      _$JsonConverterToJson<Map<String, dynamic>, UThreadViewPostParent>(
+          instance.parent, const UThreadViewPostParentConverter().toJson));
+  writeNotNull(
+      'replies',
+      instance.replies
+          ?.map(const UThreadViewPostReplyConverter().toJson)
+          .toList());
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

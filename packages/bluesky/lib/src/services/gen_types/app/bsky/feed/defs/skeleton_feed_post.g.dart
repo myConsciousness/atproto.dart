@@ -20,8 +20,9 @@ _$SkeletonFeedPostImpl _$$SkeletonFeedPostImplFromJson(Map json) =>
               'post', (v) => const AtUriConverter().fromJson(v as String)),
           reason: $checkedConvert(
               'reason',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UReason>(
-                  v, const UReasonConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      USkeletonFeedPostReason>(
+                  v, const USkeletonFeedPostReasonConverter().fromJson)),
           feedContext: $checkedConvert('feedContext', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -48,8 +49,8 @@ Map<String, dynamic> _$$SkeletonFeedPostImplToJson(
 
   writeNotNull(
       'reason',
-      _$JsonConverterToJson<Map<String, dynamic>, UReason>(
-          instance.reason, const UReasonConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, USkeletonFeedPostReason>(
+          instance.reason, const USkeletonFeedPostReasonConverter().toJson));
   writeNotNull('feedContext', instance.feedContext);
   writeNotNull(r'$unknown', instance.$unknown);
   return val;

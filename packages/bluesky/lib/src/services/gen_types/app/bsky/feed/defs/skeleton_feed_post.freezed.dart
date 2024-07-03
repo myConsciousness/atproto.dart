@@ -27,8 +27,8 @@ mixin _$SkeletonFeedPost {
   String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get post => throw _privateConstructorUsedError;
-  @UReasonConverter()
-  UReason? get reason => throw _privateConstructorUsedError;
+  @USkeletonFeedPostReasonConverter()
+  USkeletonFeedPostReason? get reason => throw _privateConstructorUsedError;
 
   /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
   String? get feedContext => throw _privateConstructorUsedError;
@@ -52,11 +52,11 @@ abstract class $SkeletonFeedPostCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri post,
-      @UReasonConverter() UReason? reason,
+      @USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? reason,
       String? feedContext,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UReasonCopyWith<$Res>? get reason;
+  $USkeletonFeedPostReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -90,7 +90,7 @@ class _$SkeletonFeedPostCopyWithImpl<$Res, $Val extends SkeletonFeedPost>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as UReason?,
+              as USkeletonFeedPostReason?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
@@ -104,12 +104,12 @@ class _$SkeletonFeedPostCopyWithImpl<$Res, $Val extends SkeletonFeedPost>
 
   @override
   @pragma('vm:prefer-inline')
-  $UReasonCopyWith<$Res>? get reason {
+  $USkeletonFeedPostReasonCopyWith<$Res>? get reason {
     if (_value.reason == null) {
       return null;
     }
 
-    return $UReasonCopyWith<$Res>(_value.reason!, (value) {
+    return $USkeletonFeedPostReasonCopyWith<$Res>(_value.reason!, (value) {
       return _then(_value.copyWith(reason: value) as $Val);
     });
   }
@@ -126,12 +126,12 @@ abstract class _$$SkeletonFeedPostImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri post,
-      @UReasonConverter() UReason? reason,
+      @USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? reason,
       String? feedContext,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UReasonCopyWith<$Res>? get reason;
+  $USkeletonFeedPostReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -163,7 +163,7 @@ class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as UReason?,
+              as USkeletonFeedPostReason?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
@@ -183,7 +183,7 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
   const _$SkeletonFeedPostImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsSkeletonFeedPost,
       @AtUriConverter() required this.post,
-      @UReasonConverter() this.reason,
+      @USkeletonFeedPostReasonConverter() this.reason,
       this.feedContext,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -201,8 +201,8 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
   @AtUriConverter()
   final AtUri post;
   @override
-  @UReasonConverter()
-  final UReason? reason;
+  @USkeletonFeedPostReasonConverter()
+  final USkeletonFeedPostReason? reason;
 
   /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
   @override
@@ -262,12 +262,12 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
 
 abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   const factory _SkeletonFeedPost(
-          {@JsonKey(name: r'$type') final String $type,
-          @AtUriConverter() required final AtUri post,
-          @UReasonConverter() final UReason? reason,
-          final String? feedContext,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
-      _$SkeletonFeedPostImpl;
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri post,
+      @USkeletonFeedPostReasonConverter() final USkeletonFeedPostReason? reason,
+      final String? feedContext,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic>? $unknown}) = _$SkeletonFeedPostImpl;
 
   factory _SkeletonFeedPost.fromJson(Map<String, dynamic> json) =
       _$SkeletonFeedPostImpl.fromJson;
@@ -283,8 +283,8 @@ abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   @AtUriConverter()
   AtUri get post;
   @override
-  @UReasonConverter()
-  UReason? get reason;
+  @USkeletonFeedPostReasonConverter()
+  USkeletonFeedPostReason? get reason;
   @override
 
   /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.

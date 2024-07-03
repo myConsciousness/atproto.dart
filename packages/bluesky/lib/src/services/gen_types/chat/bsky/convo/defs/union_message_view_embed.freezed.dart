@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_embed.dart';
+part of 'union_message_view_embed.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UEmbed {
+mixin _$UMessageViewEmbed {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -38,35 +38,36 @@ mixin _$UEmbed {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecordView value) recordView,
-    required TResult Function(UEmbedUnknown value) unknown,
+    required TResult Function(UMessageViewEmbedRecordView value) recordView,
+    required TResult Function(UMessageViewEmbedUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecordView value)? recordView,
-    TResult? Function(UEmbedUnknown value)? unknown,
+    TResult? Function(UMessageViewEmbedRecordView value)? recordView,
+    TResult? Function(UMessageViewEmbedUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecordView value)? recordView,
-    TResult Function(UEmbedUnknown value)? unknown,
+    TResult Function(UMessageViewEmbedRecordView value)? recordView,
+    TResult Function(UMessageViewEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UEmbedCopyWith<$Res> {
-  factory $UEmbedCopyWith(UEmbed value, $Res Function(UEmbed) then) =
-      _$UEmbedCopyWithImpl<$Res, UEmbed>;
+abstract class $UMessageViewEmbedCopyWith<$Res> {
+  factory $UMessageViewEmbedCopyWith(
+          UMessageViewEmbed value, $Res Function(UMessageViewEmbed) then) =
+      _$UMessageViewEmbedCopyWithImpl<$Res, UMessageViewEmbed>;
 }
 
 /// @nodoc
-class _$UEmbedCopyWithImpl<$Res, $Val extends UEmbed>
-    implements $UEmbedCopyWith<$Res> {
-  _$UEmbedCopyWithImpl(this._value, this._then);
+class _$UMessageViewEmbedCopyWithImpl<$Res, $Val extends UMessageViewEmbed>
+    implements $UMessageViewEmbedCopyWith<$Res> {
+  _$UMessageViewEmbedCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,10 +76,11 @@ class _$UEmbedCopyWithImpl<$Res, $Val extends UEmbed>
 }
 
 /// @nodoc
-abstract class _$$UEmbedRecordViewImplCopyWith<$Res> {
-  factory _$$UEmbedRecordViewImplCopyWith(_$UEmbedRecordViewImpl value,
-          $Res Function(_$UEmbedRecordViewImpl) then) =
-      __$$UEmbedRecordViewImplCopyWithImpl<$Res>;
+abstract class _$$UMessageViewEmbedRecordViewImplCopyWith<$Res> {
+  factory _$$UMessageViewEmbedRecordViewImplCopyWith(
+          _$UMessageViewEmbedRecordViewImpl value,
+          $Res Function(_$UMessageViewEmbedRecordViewImpl) then) =
+      __$$UMessageViewEmbedRecordViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RecordView data});
 
@@ -86,11 +88,13 @@ abstract class _$$UEmbedRecordViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedRecordViewImplCopyWithImpl<$Res>
-    extends _$UEmbedCopyWithImpl<$Res, _$UEmbedRecordViewImpl>
-    implements _$$UEmbedRecordViewImplCopyWith<$Res> {
-  __$$UEmbedRecordViewImplCopyWithImpl(_$UEmbedRecordViewImpl _value,
-      $Res Function(_$UEmbedRecordViewImpl) _then)
+class __$$UMessageViewEmbedRecordViewImplCopyWithImpl<$Res>
+    extends _$UMessageViewEmbedCopyWithImpl<$Res,
+        _$UMessageViewEmbedRecordViewImpl>
+    implements _$$UMessageViewEmbedRecordViewImplCopyWith<$Res> {
+  __$$UMessageViewEmbedRecordViewImplCopyWithImpl(
+      _$UMessageViewEmbedRecordViewImpl _value,
+      $Res Function(_$UMessageViewEmbedRecordViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +102,7 @@ class __$$UEmbedRecordViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedRecordViewImpl(
+    return _then(_$UMessageViewEmbedRecordViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -117,22 +121,22 @@ class __$$UEmbedRecordViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedRecordViewImpl implements UEmbedRecordView {
-  const _$UEmbedRecordViewImpl({required this.data});
+class _$UMessageViewEmbedRecordViewImpl implements UMessageViewEmbedRecordView {
+  const _$UMessageViewEmbedRecordViewImpl({required this.data});
 
   @override
   final RecordView data;
 
   @override
   String toString() {
-    return 'UEmbed.recordView(data: $data)';
+    return 'UMessageViewEmbed.recordView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedRecordViewImpl &&
+            other is _$UMessageViewEmbedRecordViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -142,9 +146,9 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedRecordViewImplCopyWith<_$UEmbedRecordViewImpl> get copyWith =>
-      __$$UEmbedRecordViewImplCopyWithImpl<_$UEmbedRecordViewImpl>(
-          this, _$identity);
+  _$$UMessageViewEmbedRecordViewImplCopyWith<_$UMessageViewEmbedRecordViewImpl>
+      get copyWith => __$$UMessageViewEmbedRecordViewImplCopyWithImpl<
+          _$UMessageViewEmbedRecordViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -180,8 +184,8 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecordView value) recordView,
-    required TResult Function(UEmbedUnknown value) unknown,
+    required TResult Function(UMessageViewEmbedRecordView value) recordView,
+    required TResult Function(UMessageViewEmbedUnknown value) unknown,
   }) {
     return recordView(this);
   }
@@ -189,8 +193,8 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecordView value)? recordView,
-    TResult? Function(UEmbedUnknown value)? unknown,
+    TResult? Function(UMessageViewEmbedRecordView value)? recordView,
+    TResult? Function(UMessageViewEmbedUnknown value)? unknown,
   }) {
     return recordView?.call(this);
   }
@@ -198,8 +202,8 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecordView value)? recordView,
-    TResult Function(UEmbedUnknown value)? unknown,
+    TResult Function(UMessageViewEmbedRecordView value)? recordView,
+    TResult Function(UMessageViewEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (recordView != null) {
@@ -209,32 +213,35 @@ class _$UEmbedRecordViewImpl implements UEmbedRecordView {
   }
 }
 
-abstract class UEmbedRecordView implements UEmbed {
-  const factory UEmbedRecordView({required final RecordView data}) =
-      _$UEmbedRecordViewImpl;
+abstract class UMessageViewEmbedRecordView implements UMessageViewEmbed {
+  const factory UMessageViewEmbedRecordView({required final RecordView data}) =
+      _$UMessageViewEmbedRecordViewImpl;
 
   @override
   RecordView get data;
   @JsonKey(ignore: true)
-  _$$UEmbedRecordViewImplCopyWith<_$UEmbedRecordViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UMessageViewEmbedRecordViewImplCopyWith<_$UMessageViewEmbedRecordViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedUnknownImplCopyWith<$Res> {
-  factory _$$UEmbedUnknownImplCopyWith(
-          _$UEmbedUnknownImpl value, $Res Function(_$UEmbedUnknownImpl) then) =
-      __$$UEmbedUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UMessageViewEmbedUnknownImplCopyWith<$Res> {
+  factory _$$UMessageViewEmbedUnknownImplCopyWith(
+          _$UMessageViewEmbedUnknownImpl value,
+          $Res Function(_$UMessageViewEmbedUnknownImpl) then) =
+      __$$UMessageViewEmbedUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UEmbedUnknownImplCopyWithImpl<$Res>
-    extends _$UEmbedCopyWithImpl<$Res, _$UEmbedUnknownImpl>
-    implements _$$UEmbedUnknownImplCopyWith<$Res> {
-  __$$UEmbedUnknownImplCopyWithImpl(
-      _$UEmbedUnknownImpl _value, $Res Function(_$UEmbedUnknownImpl) _then)
+class __$$UMessageViewEmbedUnknownImplCopyWithImpl<$Res>
+    extends _$UMessageViewEmbedCopyWithImpl<$Res,
+        _$UMessageViewEmbedUnknownImpl>
+    implements _$$UMessageViewEmbedUnknownImplCopyWith<$Res> {
+  __$$UMessageViewEmbedUnknownImplCopyWithImpl(
+      _$UMessageViewEmbedUnknownImpl _value,
+      $Res Function(_$UMessageViewEmbedUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -242,7 +249,7 @@ class __$$UEmbedUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedUnknownImpl(
+    return _then(_$UMessageViewEmbedUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -253,8 +260,9 @@ class __$$UEmbedUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEmbedUnknownImpl implements UEmbedUnknown {
-  const _$UEmbedUnknownImpl({required final Map<String, dynamic> data})
+class _$UMessageViewEmbedUnknownImpl implements UMessageViewEmbedUnknown {
+  const _$UMessageViewEmbedUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -267,14 +275,14 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
 
   @override
   String toString() {
-    return 'UEmbed.unknown(data: $data)';
+    return 'UMessageViewEmbed.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedUnknownImpl &&
+            other is _$UMessageViewEmbedUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -285,8 +293,9 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedUnknownImplCopyWith<_$UEmbedUnknownImpl> get copyWith =>
-      __$$UEmbedUnknownImplCopyWithImpl<_$UEmbedUnknownImpl>(this, _$identity);
+  _$$UMessageViewEmbedUnknownImplCopyWith<_$UMessageViewEmbedUnknownImpl>
+      get copyWith => __$$UMessageViewEmbedUnknownImplCopyWithImpl<
+          _$UMessageViewEmbedUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -322,8 +331,8 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecordView value) recordView,
-    required TResult Function(UEmbedUnknown value) unknown,
+    required TResult Function(UMessageViewEmbedRecordView value) recordView,
+    required TResult Function(UMessageViewEmbedUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -331,8 +340,8 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecordView value)? recordView,
-    TResult? Function(UEmbedUnknown value)? unknown,
+    TResult? Function(UMessageViewEmbedRecordView value)? recordView,
+    TResult? Function(UMessageViewEmbedUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -340,8 +349,8 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecordView value)? recordView,
-    TResult Function(UEmbedUnknown value)? unknown,
+    TResult Function(UMessageViewEmbedRecordView value)? recordView,
+    TResult Function(UMessageViewEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -351,13 +360,14 @@ class _$UEmbedUnknownImpl implements UEmbedUnknown {
   }
 }
 
-abstract class UEmbedUnknown implements UEmbed {
-  const factory UEmbedUnknown({required final Map<String, dynamic> data}) =
-      _$UEmbedUnknownImpl;
+abstract class UMessageViewEmbedUnknown implements UMessageViewEmbed {
+  const factory UMessageViewEmbedUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$UMessageViewEmbedUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UEmbedUnknownImplCopyWith<_$UEmbedUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UMessageViewEmbedUnknownImplCopyWith<_$UMessageViewEmbedUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -19,67 +19,67 @@ import '../../../../app/bsky/embed/images/view.dart';
 import '../../../../app/bsky/embed/record/view.dart';
 import '../../../../app/bsky/embed/record_with_media/view.dart';
 
-part 'union_embed.freezed.dart';
+part 'union_post_view_embed.freezed.dart';
 
 @freezed
-class UEmbed with _$UEmbed {
-  const factory UEmbed.imagesView({
+class UPostViewEmbed with _$UPostViewEmbed {
+  const factory UPostViewEmbed.imagesView({
     required ImagesView data,
-  }) = UEmbedImagesView;
+  }) = UPostViewEmbedImagesView;
 
-  const factory UEmbed.externalView({
+  const factory UPostViewEmbed.externalView({
     required ExternalView data,
-  }) = UEmbedExternalView;
+  }) = UPostViewEmbedExternalView;
 
-  const factory UEmbed.recordView({
+  const factory UPostViewEmbed.recordView({
     required RecordView data,
-  }) = UEmbedRecordView;
+  }) = UPostViewEmbedRecordView;
 
-  const factory UEmbed.recordWithMediaView({
+  const factory UPostViewEmbed.recordWithMediaView({
     required RecordWithMediaView data,
-  }) = UEmbedRecordWithMediaView;
+  }) = UPostViewEmbedRecordWithMediaView;
 
-  const factory UEmbed.unknown({
+  const factory UPostViewEmbed.unknown({
     required Map<String, dynamic> data,
-  }) = UEmbedUnknown;
+  }) = UPostViewEmbedUnknown;
 }
 
-final class UEmbedConverter
-    implements JsonConverter<UEmbed, Map<String, dynamic>> {
-  const UEmbedConverter();
+final class UPostViewEmbedConverter
+    implements JsonConverter<UPostViewEmbed, Map<String, dynamic>> {
+  const UPostViewEmbedConverter();
 
   @override
-  UEmbed fromJson(Map<String, dynamic> json) {
+  UPostViewEmbed fromJson(Map<String, dynamic> json) {
     try {
       if (isImagesView(json)) {
-        return UEmbed.imagesView(
+        return UPostViewEmbed.imagesView(
           data: const ImagesViewConverter().fromJson(json),
         );
       }
       if (isExternalView(json)) {
-        return UEmbed.externalView(
+        return UPostViewEmbed.externalView(
           data: const ExternalViewConverter().fromJson(json),
         );
       }
       if (isRecordView(json)) {
-        return UEmbed.recordView(
+        return UPostViewEmbed.recordView(
           data: const RecordViewConverter().fromJson(json),
         );
       }
       if (isRecordWithMediaView(json)) {
-        return UEmbed.recordWithMediaView(
+        return UPostViewEmbed.recordWithMediaView(
           data: const RecordWithMediaViewConverter().fromJson(json),
         );
       }
 
-      return UEmbed.unknown(data: json);
+      return UPostViewEmbed.unknown(data: json);
     } catch (_) {
-      return UEmbed.unknown(data: json);
+      return UPostViewEmbed.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UEmbed object) => object.when(
+  Map<String, dynamic> toJson(UPostViewEmbed object) => object.when(
         imagesView: const ImagesViewConverter().toJson,
         externalView: const ExternalViewConverter().toJson,
         recordView: const RecordViewConverter().toJson,
@@ -88,36 +88,36 @@ final class UEmbedConverter
       );
 }
 
-extension $UEmbedExtension on UEmbed {
+extension $UPostViewEmbedExtension on UPostViewEmbed {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UEmbedConverter().toJson(this);
+  Map<String, dynamic> toJson() => const UPostViewEmbedConverter().toJson(this);
 
   /// Returns true if this data is [ImagesView], otherwise false.
-  bool get isImagesView => this is UEmbedImagesView;
+  bool get isImagesView => this is UPostViewEmbedImagesView;
 
   /// Returns true if this data is not [ImagesView], otherwise false.
   bool get isNotImagesView => !isImagesView;
 
   /// Returns true if this data is [ExternalView], otherwise false.
-  bool get isExternalView => this is UEmbedExternalView;
+  bool get isExternalView => this is UPostViewEmbedExternalView;
 
   /// Returns true if this data is not [ExternalView], otherwise false.
   bool get isNotExternalView => !isExternalView;
 
   /// Returns true if this data is [RecordView], otherwise false.
-  bool get isRecordView => this is UEmbedRecordView;
+  bool get isRecordView => this is UPostViewEmbedRecordView;
 
   /// Returns true if this data is not [RecordView], otherwise false.
   bool get isNotRecordView => !isRecordView;
 
   /// Returns true if this data is [RecordWithMediaView], otherwise false.
-  bool get isRecordWithMediaView => this is UEmbedRecordWithMediaView;
+  bool get isRecordWithMediaView => this is UPostViewEmbedRecordWithMediaView;
 
   /// Returns true if this data is not [RecordWithMediaView], otherwise false.
   bool get isNotRecordWithMediaView => !isRecordWithMediaView;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UEmbedUnknown;
+  bool get isUnknown => this is UPostViewEmbedUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

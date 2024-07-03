@@ -16,7 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
 import '../../../../chat/bsky/actor/defs/profile_view_basic.dart';
-import '../../../../chat/bsky/convo/defs/union_last_message.dart';
+import '../../../../chat/bsky/convo/defs/union_convo_view_last_message.dart';
 
 part 'convo_view.freezed.dart';
 part 'convo_view.g.dart';
@@ -33,7 +33,7 @@ class ConvoView with _$ConvoView {
     required String id,
     required String rev,
     @ProfileViewBasicConverter() required List<ProfileViewBasic> members,
-    @ULastMessageConverter() ULastMessage? lastMessage,
+    @UConvoViewLastMessageConverter() UConvoViewLastMessage? lastMessage,
     required bool muted,
     required int unreadCount,
 

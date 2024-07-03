@@ -32,8 +32,8 @@ mixin _$MessageView {
   /// Annotations of text (mentions, URLs, hashtags, etc)
   @FacetConverter()
   List<Facet>? get facets => throw _privateConstructorUsedError;
-  @UEmbedConverter()
-  UEmbed? get embed => throw _privateConstructorUsedError;
+  @UMessageViewEmbedConverter()
+  UMessageViewEmbed? get embed => throw _privateConstructorUsedError;
   @MessageViewSenderConverter()
   MessageViewSender get sender => throw _privateConstructorUsedError;
   DateTime get sentAt => throw _privateConstructorUsedError;
@@ -60,12 +60,12 @@ abstract class $MessageViewCopyWith<$Res> {
       String rev,
       String text,
       @FacetConverter() List<Facet>? facets,
-      @UEmbedConverter() UEmbed? embed,
+      @UMessageViewEmbedConverter() UMessageViewEmbed? embed,
       @MessageViewSenderConverter() MessageViewSender sender,
       DateTime sentAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UEmbedCopyWith<$Res>? get embed;
+  $UMessageViewEmbedCopyWith<$Res>? get embed;
   $MessageViewSenderCopyWith<$Res> get sender;
 }
 
@@ -116,7 +116,7 @@ class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UMessageViewEmbed?,
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
@@ -134,12 +134,12 @@ class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
 
   @override
   @pragma('vm:prefer-inline')
-  $UEmbedCopyWith<$Res>? get embed {
+  $UMessageViewEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $UMessageViewEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -167,13 +167,13 @@ abstract class _$$MessageViewImplCopyWith<$Res>
       String rev,
       String text,
       @FacetConverter() List<Facet>? facets,
-      @UEmbedConverter() UEmbed? embed,
+      @UMessageViewEmbedConverter() UMessageViewEmbed? embed,
       @MessageViewSenderConverter() MessageViewSender sender,
       DateTime sentAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UEmbedCopyWith<$Res>? get embed;
+  $UMessageViewEmbedCopyWith<$Res>? get embed;
   @override
   $MessageViewSenderCopyWith<$Res> get sender;
 }
@@ -223,7 +223,7 @@ class __$$MessageViewImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UMessageViewEmbed?,
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
@@ -250,7 +250,7 @@ class _$MessageViewImpl implements _MessageView {
       required this.rev,
       required this.text,
       @FacetConverter() final List<Facet>? facets,
-      @UEmbedConverter() this.embed,
+      @UMessageViewEmbedConverter() this.embed,
       @MessageViewSenderConverter() required this.sender,
       required this.sentAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -288,8 +288,8 @@ class _$MessageViewImpl implements _MessageView {
   }
 
   @override
-  @UEmbedConverter()
-  final UEmbed? embed;
+  @UMessageViewEmbedConverter()
+  final UMessageViewEmbed? embed;
   @override
   @MessageViewSenderConverter()
   final MessageViewSender sender;
@@ -366,7 +366,7 @@ abstract class _MessageView implements MessageView {
           required final String rev,
           required final String text,
           @FacetConverter() final List<Facet>? facets,
-          @UEmbedConverter() final UEmbed? embed,
+          @UMessageViewEmbedConverter() final UMessageViewEmbed? embed,
           @MessageViewSenderConverter() required final MessageViewSender sender,
           required final DateTime sentAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -394,8 +394,8 @@ abstract class _MessageView implements MessageView {
   @FacetConverter()
   List<Facet>? get facets;
   @override
-  @UEmbedConverter()
-  UEmbed? get embed;
+  @UMessageViewEmbedConverter()
+  UMessageViewEmbed? get embed;
   @override
   @MessageViewSenderConverter()
   MessageViewSender get sender;

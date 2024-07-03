@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../chat/bsky/convo/defs/union_message.dart';
+import '../../../../chat/bsky/convo/defs/union_log_create_message_message.dart';
 
 part 'log_create_message.freezed.dart';
 part 'log_create_message.g.dart';
@@ -33,7 +33,8 @@ class LogCreateMessage with _$LogCreateMessage {
     String $type,
     required String rev,
     required String convoId,
-    @UMessageConverter() required UMessage message,
+    @ULogCreateMessageMessageConverter()
+    required ULogCreateMessageMessage message,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

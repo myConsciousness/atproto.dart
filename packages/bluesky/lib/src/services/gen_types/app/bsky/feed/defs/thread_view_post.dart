@@ -16,8 +16,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/feed/defs/post_view.dart';
-import '../../../../app/bsky/feed/defs/union_parent.dart';
-import '../../../../app/bsky/feed/defs/union_reply.dart';
+import '../../../../app/bsky/feed/defs/union_thread_view_post_parent.dart';
+import '../../../../app/bsky/feed/defs/union_thread_view_post_reply.dart';
 
 part 'thread_view_post.freezed.dart';
 part 'thread_view_post.g.dart';
@@ -34,8 +34,8 @@ class ThreadViewPost with _$ThreadViewPost {
     @JsonKey(name: r'$type')
     String $type,
     @PostViewConverter() required PostView post,
-    @UParentConverter() UParent? parent,
-    @UReplyConverter() List<UReply>? replies,
+    @UThreadViewPostParentConverter() UThreadViewPostParent? parent,
+    @UThreadViewPostReplyConverter() List<UThreadViewPostReply>? replies,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

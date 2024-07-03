@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_root.dart';
+part of 'union_reply_ref_root.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$URoot {
+mixin _$UReplyRefRoot {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -44,41 +44,42 @@ mixin _$URoot {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URootPostView value) postView,
-    required TResult Function(URootNotFoundPost value) notFoundPost,
-    required TResult Function(URootBlockedPost value) blockedPost,
-    required TResult Function(URootUnknown value) unknown,
+    required TResult Function(UReplyRefRootPostView value) postView,
+    required TResult Function(UReplyRefRootNotFoundPost value) notFoundPost,
+    required TResult Function(UReplyRefRootBlockedPost value) blockedPost,
+    required TResult Function(UReplyRefRootUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URootPostView value)? postView,
-    TResult? Function(URootNotFoundPost value)? notFoundPost,
-    TResult? Function(URootBlockedPost value)? blockedPost,
-    TResult? Function(URootUnknown value)? unknown,
+    TResult? Function(UReplyRefRootPostView value)? postView,
+    TResult? Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult? Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult? Function(UReplyRefRootUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URootPostView value)? postView,
-    TResult Function(URootNotFoundPost value)? notFoundPost,
-    TResult Function(URootBlockedPost value)? blockedPost,
-    TResult Function(URootUnknown value)? unknown,
+    TResult Function(UReplyRefRootPostView value)? postView,
+    TResult Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult Function(UReplyRefRootUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $URootCopyWith<$Res> {
-  factory $URootCopyWith(URoot value, $Res Function(URoot) then) =
-      _$URootCopyWithImpl<$Res, URoot>;
+abstract class $UReplyRefRootCopyWith<$Res> {
+  factory $UReplyRefRootCopyWith(
+          UReplyRefRoot value, $Res Function(UReplyRefRoot) then) =
+      _$UReplyRefRootCopyWithImpl<$Res, UReplyRefRoot>;
 }
 
 /// @nodoc
-class _$URootCopyWithImpl<$Res, $Val extends URoot>
-    implements $URootCopyWith<$Res> {
-  _$URootCopyWithImpl(this._value, this._then);
+class _$UReplyRefRootCopyWithImpl<$Res, $Val extends UReplyRefRoot>
+    implements $UReplyRefRootCopyWith<$Res> {
+  _$UReplyRefRootCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,10 +88,11 @@ class _$URootCopyWithImpl<$Res, $Val extends URoot>
 }
 
 /// @nodoc
-abstract class _$$URootPostViewImplCopyWith<$Res> {
-  factory _$$URootPostViewImplCopyWith(
-          _$URootPostViewImpl value, $Res Function(_$URootPostViewImpl) then) =
-      __$$URootPostViewImplCopyWithImpl<$Res>;
+abstract class _$$UReplyRefRootPostViewImplCopyWith<$Res> {
+  factory _$$UReplyRefRootPostViewImplCopyWith(
+          _$UReplyRefRootPostViewImpl value,
+          $Res Function(_$UReplyRefRootPostViewImpl) then) =
+      __$$UReplyRefRootPostViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PostView data});
 
@@ -98,11 +100,11 @@ abstract class _$$URootPostViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URootPostViewImplCopyWithImpl<$Res>
-    extends _$URootCopyWithImpl<$Res, _$URootPostViewImpl>
-    implements _$$URootPostViewImplCopyWith<$Res> {
-  __$$URootPostViewImplCopyWithImpl(
-      _$URootPostViewImpl _value, $Res Function(_$URootPostViewImpl) _then)
+class __$$UReplyRefRootPostViewImplCopyWithImpl<$Res>
+    extends _$UReplyRefRootCopyWithImpl<$Res, _$UReplyRefRootPostViewImpl>
+    implements _$$UReplyRefRootPostViewImplCopyWith<$Res> {
+  __$$UReplyRefRootPostViewImplCopyWithImpl(_$UReplyRefRootPostViewImpl _value,
+      $Res Function(_$UReplyRefRootPostViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +112,7 @@ class __$$URootPostViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URootPostViewImpl(
+    return _then(_$UReplyRefRootPostViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -129,22 +131,22 @@ class __$$URootPostViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URootPostViewImpl implements URootPostView {
-  const _$URootPostViewImpl({required this.data});
+class _$UReplyRefRootPostViewImpl implements UReplyRefRootPostView {
+  const _$UReplyRefRootPostViewImpl({required this.data});
 
   @override
   final PostView data;
 
   @override
   String toString() {
-    return 'URoot.postView(data: $data)';
+    return 'UReplyRefRoot.postView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URootPostViewImpl &&
+            other is _$UReplyRefRootPostViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -154,8 +156,9 @@ class _$URootPostViewImpl implements URootPostView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URootPostViewImplCopyWith<_$URootPostViewImpl> get copyWith =>
-      __$$URootPostViewImplCopyWithImpl<_$URootPostViewImpl>(this, _$identity);
+  _$$UReplyRefRootPostViewImplCopyWith<_$UReplyRefRootPostViewImpl>
+      get copyWith => __$$UReplyRefRootPostViewImplCopyWithImpl<
+          _$UReplyRefRootPostViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -197,10 +200,10 @@ class _$URootPostViewImpl implements URootPostView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URootPostView value) postView,
-    required TResult Function(URootNotFoundPost value) notFoundPost,
-    required TResult Function(URootBlockedPost value) blockedPost,
-    required TResult Function(URootUnknown value) unknown,
+    required TResult Function(UReplyRefRootPostView value) postView,
+    required TResult Function(UReplyRefRootNotFoundPost value) notFoundPost,
+    required TResult Function(UReplyRefRootBlockedPost value) blockedPost,
+    required TResult Function(UReplyRefRootUnknown value) unknown,
   }) {
     return postView(this);
   }
@@ -208,10 +211,10 @@ class _$URootPostViewImpl implements URootPostView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URootPostView value)? postView,
-    TResult? Function(URootNotFoundPost value)? notFoundPost,
-    TResult? Function(URootBlockedPost value)? blockedPost,
-    TResult? Function(URootUnknown value)? unknown,
+    TResult? Function(UReplyRefRootPostView value)? postView,
+    TResult? Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult? Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult? Function(UReplyRefRootUnknown value)? unknown,
   }) {
     return postView?.call(this);
   }
@@ -219,10 +222,10 @@ class _$URootPostViewImpl implements URootPostView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URootPostView value)? postView,
-    TResult Function(URootNotFoundPost value)? notFoundPost,
-    TResult Function(URootBlockedPost value)? blockedPost,
-    TResult Function(URootUnknown value)? unknown,
+    TResult Function(UReplyRefRootPostView value)? postView,
+    TResult Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult Function(UReplyRefRootUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (postView != null) {
@@ -232,22 +235,23 @@ class _$URootPostViewImpl implements URootPostView {
   }
 }
 
-abstract class URootPostView implements URoot {
-  const factory URootPostView({required final PostView data}) =
-      _$URootPostViewImpl;
+abstract class UReplyRefRootPostView implements UReplyRefRoot {
+  const factory UReplyRefRootPostView({required final PostView data}) =
+      _$UReplyRefRootPostViewImpl;
 
   @override
   PostView get data;
   @JsonKey(ignore: true)
-  _$$URootPostViewImplCopyWith<_$URootPostViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UReplyRefRootPostViewImplCopyWith<_$UReplyRefRootPostViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URootNotFoundPostImplCopyWith<$Res> {
-  factory _$$URootNotFoundPostImplCopyWith(_$URootNotFoundPostImpl value,
-          $Res Function(_$URootNotFoundPostImpl) then) =
-      __$$URootNotFoundPostImplCopyWithImpl<$Res>;
+abstract class _$$UReplyRefRootNotFoundPostImplCopyWith<$Res> {
+  factory _$$UReplyRefRootNotFoundPostImplCopyWith(
+          _$UReplyRefRootNotFoundPostImpl value,
+          $Res Function(_$UReplyRefRootNotFoundPostImpl) then) =
+      __$$UReplyRefRootNotFoundPostImplCopyWithImpl<$Res>;
   @useResult
   $Res call({NotFoundPost data});
 
@@ -255,11 +259,12 @@ abstract class _$$URootNotFoundPostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URootNotFoundPostImplCopyWithImpl<$Res>
-    extends _$URootCopyWithImpl<$Res, _$URootNotFoundPostImpl>
-    implements _$$URootNotFoundPostImplCopyWith<$Res> {
-  __$$URootNotFoundPostImplCopyWithImpl(_$URootNotFoundPostImpl _value,
-      $Res Function(_$URootNotFoundPostImpl) _then)
+class __$$UReplyRefRootNotFoundPostImplCopyWithImpl<$Res>
+    extends _$UReplyRefRootCopyWithImpl<$Res, _$UReplyRefRootNotFoundPostImpl>
+    implements _$$UReplyRefRootNotFoundPostImplCopyWith<$Res> {
+  __$$UReplyRefRootNotFoundPostImplCopyWithImpl(
+      _$UReplyRefRootNotFoundPostImpl _value,
+      $Res Function(_$UReplyRefRootNotFoundPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -267,7 +272,7 @@ class __$$URootNotFoundPostImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URootNotFoundPostImpl(
+    return _then(_$UReplyRefRootNotFoundPostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -286,22 +291,22 @@ class __$$URootNotFoundPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URootNotFoundPostImpl implements URootNotFoundPost {
-  const _$URootNotFoundPostImpl({required this.data});
+class _$UReplyRefRootNotFoundPostImpl implements UReplyRefRootNotFoundPost {
+  const _$UReplyRefRootNotFoundPostImpl({required this.data});
 
   @override
   final NotFoundPost data;
 
   @override
   String toString() {
-    return 'URoot.notFoundPost(data: $data)';
+    return 'UReplyRefRoot.notFoundPost(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URootNotFoundPostImpl &&
+            other is _$UReplyRefRootNotFoundPostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -311,9 +316,9 @@ class _$URootNotFoundPostImpl implements URootNotFoundPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URootNotFoundPostImplCopyWith<_$URootNotFoundPostImpl> get copyWith =>
-      __$$URootNotFoundPostImplCopyWithImpl<_$URootNotFoundPostImpl>(
-          this, _$identity);
+  _$$UReplyRefRootNotFoundPostImplCopyWith<_$UReplyRefRootNotFoundPostImpl>
+      get copyWith => __$$UReplyRefRootNotFoundPostImplCopyWithImpl<
+          _$UReplyRefRootNotFoundPostImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -355,10 +360,10 @@ class _$URootNotFoundPostImpl implements URootNotFoundPost {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URootPostView value) postView,
-    required TResult Function(URootNotFoundPost value) notFoundPost,
-    required TResult Function(URootBlockedPost value) blockedPost,
-    required TResult Function(URootUnknown value) unknown,
+    required TResult Function(UReplyRefRootPostView value) postView,
+    required TResult Function(UReplyRefRootNotFoundPost value) notFoundPost,
+    required TResult Function(UReplyRefRootBlockedPost value) blockedPost,
+    required TResult Function(UReplyRefRootUnknown value) unknown,
   }) {
     return notFoundPost(this);
   }
@@ -366,10 +371,10 @@ class _$URootNotFoundPostImpl implements URootNotFoundPost {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URootPostView value)? postView,
-    TResult? Function(URootNotFoundPost value)? notFoundPost,
-    TResult? Function(URootBlockedPost value)? blockedPost,
-    TResult? Function(URootUnknown value)? unknown,
+    TResult? Function(UReplyRefRootPostView value)? postView,
+    TResult? Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult? Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult? Function(UReplyRefRootUnknown value)? unknown,
   }) {
     return notFoundPost?.call(this);
   }
@@ -377,10 +382,10 @@ class _$URootNotFoundPostImpl implements URootNotFoundPost {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URootPostView value)? postView,
-    TResult Function(URootNotFoundPost value)? notFoundPost,
-    TResult Function(URootBlockedPost value)? blockedPost,
-    TResult Function(URootUnknown value)? unknown,
+    TResult Function(UReplyRefRootPostView value)? postView,
+    TResult Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult Function(UReplyRefRootUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (notFoundPost != null) {
@@ -390,22 +395,23 @@ class _$URootNotFoundPostImpl implements URootNotFoundPost {
   }
 }
 
-abstract class URootNotFoundPost implements URoot {
-  const factory URootNotFoundPost({required final NotFoundPost data}) =
-      _$URootNotFoundPostImpl;
+abstract class UReplyRefRootNotFoundPost implements UReplyRefRoot {
+  const factory UReplyRefRootNotFoundPost({required final NotFoundPost data}) =
+      _$UReplyRefRootNotFoundPostImpl;
 
   @override
   NotFoundPost get data;
   @JsonKey(ignore: true)
-  _$$URootNotFoundPostImplCopyWith<_$URootNotFoundPostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UReplyRefRootNotFoundPostImplCopyWith<_$UReplyRefRootNotFoundPostImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URootBlockedPostImplCopyWith<$Res> {
-  factory _$$URootBlockedPostImplCopyWith(_$URootBlockedPostImpl value,
-          $Res Function(_$URootBlockedPostImpl) then) =
-      __$$URootBlockedPostImplCopyWithImpl<$Res>;
+abstract class _$$UReplyRefRootBlockedPostImplCopyWith<$Res> {
+  factory _$$UReplyRefRootBlockedPostImplCopyWith(
+          _$UReplyRefRootBlockedPostImpl value,
+          $Res Function(_$UReplyRefRootBlockedPostImpl) then) =
+      __$$UReplyRefRootBlockedPostImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BlockedPost data});
 
@@ -413,11 +419,12 @@ abstract class _$$URootBlockedPostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URootBlockedPostImplCopyWithImpl<$Res>
-    extends _$URootCopyWithImpl<$Res, _$URootBlockedPostImpl>
-    implements _$$URootBlockedPostImplCopyWith<$Res> {
-  __$$URootBlockedPostImplCopyWithImpl(_$URootBlockedPostImpl _value,
-      $Res Function(_$URootBlockedPostImpl) _then)
+class __$$UReplyRefRootBlockedPostImplCopyWithImpl<$Res>
+    extends _$UReplyRefRootCopyWithImpl<$Res, _$UReplyRefRootBlockedPostImpl>
+    implements _$$UReplyRefRootBlockedPostImplCopyWith<$Res> {
+  __$$UReplyRefRootBlockedPostImplCopyWithImpl(
+      _$UReplyRefRootBlockedPostImpl _value,
+      $Res Function(_$UReplyRefRootBlockedPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -425,7 +432,7 @@ class __$$URootBlockedPostImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URootBlockedPostImpl(
+    return _then(_$UReplyRefRootBlockedPostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -444,22 +451,22 @@ class __$$URootBlockedPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URootBlockedPostImpl implements URootBlockedPost {
-  const _$URootBlockedPostImpl({required this.data});
+class _$UReplyRefRootBlockedPostImpl implements UReplyRefRootBlockedPost {
+  const _$UReplyRefRootBlockedPostImpl({required this.data});
 
   @override
   final BlockedPost data;
 
   @override
   String toString() {
-    return 'URoot.blockedPost(data: $data)';
+    return 'UReplyRefRoot.blockedPost(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URootBlockedPostImpl &&
+            other is _$UReplyRefRootBlockedPostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -469,9 +476,9 @@ class _$URootBlockedPostImpl implements URootBlockedPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URootBlockedPostImplCopyWith<_$URootBlockedPostImpl> get copyWith =>
-      __$$URootBlockedPostImplCopyWithImpl<_$URootBlockedPostImpl>(
-          this, _$identity);
+  _$$UReplyRefRootBlockedPostImplCopyWith<_$UReplyRefRootBlockedPostImpl>
+      get copyWith => __$$UReplyRefRootBlockedPostImplCopyWithImpl<
+          _$UReplyRefRootBlockedPostImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -513,10 +520,10 @@ class _$URootBlockedPostImpl implements URootBlockedPost {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URootPostView value) postView,
-    required TResult Function(URootNotFoundPost value) notFoundPost,
-    required TResult Function(URootBlockedPost value) blockedPost,
-    required TResult Function(URootUnknown value) unknown,
+    required TResult Function(UReplyRefRootPostView value) postView,
+    required TResult Function(UReplyRefRootNotFoundPost value) notFoundPost,
+    required TResult Function(UReplyRefRootBlockedPost value) blockedPost,
+    required TResult Function(UReplyRefRootUnknown value) unknown,
   }) {
     return blockedPost(this);
   }
@@ -524,10 +531,10 @@ class _$URootBlockedPostImpl implements URootBlockedPost {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URootPostView value)? postView,
-    TResult? Function(URootNotFoundPost value)? notFoundPost,
-    TResult? Function(URootBlockedPost value)? blockedPost,
-    TResult? Function(URootUnknown value)? unknown,
+    TResult? Function(UReplyRefRootPostView value)? postView,
+    TResult? Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult? Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult? Function(UReplyRefRootUnknown value)? unknown,
   }) {
     return blockedPost?.call(this);
   }
@@ -535,10 +542,10 @@ class _$URootBlockedPostImpl implements URootBlockedPost {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URootPostView value)? postView,
-    TResult Function(URootNotFoundPost value)? notFoundPost,
-    TResult Function(URootBlockedPost value)? blockedPost,
-    TResult Function(URootUnknown value)? unknown,
+    TResult Function(UReplyRefRootPostView value)? postView,
+    TResult Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult Function(UReplyRefRootUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (blockedPost != null) {
@@ -548,32 +555,32 @@ class _$URootBlockedPostImpl implements URootBlockedPost {
   }
 }
 
-abstract class URootBlockedPost implements URoot {
-  const factory URootBlockedPost({required final BlockedPost data}) =
-      _$URootBlockedPostImpl;
+abstract class UReplyRefRootBlockedPost implements UReplyRefRoot {
+  const factory UReplyRefRootBlockedPost({required final BlockedPost data}) =
+      _$UReplyRefRootBlockedPostImpl;
 
   @override
   BlockedPost get data;
   @JsonKey(ignore: true)
-  _$$URootBlockedPostImplCopyWith<_$URootBlockedPostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UReplyRefRootBlockedPostImplCopyWith<_$UReplyRefRootBlockedPostImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URootUnknownImplCopyWith<$Res> {
-  factory _$$URootUnknownImplCopyWith(
-          _$URootUnknownImpl value, $Res Function(_$URootUnknownImpl) then) =
-      __$$URootUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UReplyRefRootUnknownImplCopyWith<$Res> {
+  factory _$$UReplyRefRootUnknownImplCopyWith(_$UReplyRefRootUnknownImpl value,
+          $Res Function(_$UReplyRefRootUnknownImpl) then) =
+      __$$UReplyRefRootUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$URootUnknownImplCopyWithImpl<$Res>
-    extends _$URootCopyWithImpl<$Res, _$URootUnknownImpl>
-    implements _$$URootUnknownImplCopyWith<$Res> {
-  __$$URootUnknownImplCopyWithImpl(
-      _$URootUnknownImpl _value, $Res Function(_$URootUnknownImpl) _then)
+class __$$UReplyRefRootUnknownImplCopyWithImpl<$Res>
+    extends _$UReplyRefRootCopyWithImpl<$Res, _$UReplyRefRootUnknownImpl>
+    implements _$$UReplyRefRootUnknownImplCopyWith<$Res> {
+  __$$UReplyRefRootUnknownImplCopyWithImpl(_$UReplyRefRootUnknownImpl _value,
+      $Res Function(_$UReplyRefRootUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -581,7 +588,7 @@ class __$$URootUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URootUnknownImpl(
+    return _then(_$UReplyRefRootUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -592,8 +599,8 @@ class __$$URootUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URootUnknownImpl implements URootUnknown {
-  const _$URootUnknownImpl({required final Map<String, dynamic> data})
+class _$UReplyRefRootUnknownImpl implements UReplyRefRootUnknown {
+  const _$UReplyRefRootUnknownImpl({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -606,14 +613,14 @@ class _$URootUnknownImpl implements URootUnknown {
 
   @override
   String toString() {
-    return 'URoot.unknown(data: $data)';
+    return 'UReplyRefRoot.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URootUnknownImpl &&
+            other is _$UReplyRefRootUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -624,8 +631,10 @@ class _$URootUnknownImpl implements URootUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URootUnknownImplCopyWith<_$URootUnknownImpl> get copyWith =>
-      __$$URootUnknownImplCopyWithImpl<_$URootUnknownImpl>(this, _$identity);
+  _$$UReplyRefRootUnknownImplCopyWith<_$UReplyRefRootUnknownImpl>
+      get copyWith =>
+          __$$UReplyRefRootUnknownImplCopyWithImpl<_$UReplyRefRootUnknownImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -667,10 +676,10 @@ class _$URootUnknownImpl implements URootUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URootPostView value) postView,
-    required TResult Function(URootNotFoundPost value) notFoundPost,
-    required TResult Function(URootBlockedPost value) blockedPost,
-    required TResult Function(URootUnknown value) unknown,
+    required TResult Function(UReplyRefRootPostView value) postView,
+    required TResult Function(UReplyRefRootNotFoundPost value) notFoundPost,
+    required TResult Function(UReplyRefRootBlockedPost value) blockedPost,
+    required TResult Function(UReplyRefRootUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -678,10 +687,10 @@ class _$URootUnknownImpl implements URootUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URootPostView value)? postView,
-    TResult? Function(URootNotFoundPost value)? notFoundPost,
-    TResult? Function(URootBlockedPost value)? blockedPost,
-    TResult? Function(URootUnknown value)? unknown,
+    TResult? Function(UReplyRefRootPostView value)? postView,
+    TResult? Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult? Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult? Function(UReplyRefRootUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -689,10 +698,10 @@ class _$URootUnknownImpl implements URootUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URootPostView value)? postView,
-    TResult Function(URootNotFoundPost value)? notFoundPost,
-    TResult Function(URootBlockedPost value)? blockedPost,
-    TResult Function(URootUnknown value)? unknown,
+    TResult Function(UReplyRefRootPostView value)? postView,
+    TResult Function(UReplyRefRootNotFoundPost value)? notFoundPost,
+    TResult Function(UReplyRefRootBlockedPost value)? blockedPost,
+    TResult Function(UReplyRefRootUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -702,13 +711,13 @@ class _$URootUnknownImpl implements URootUnknown {
   }
 }
 
-abstract class URootUnknown implements URoot {
-  const factory URootUnknown({required final Map<String, dynamic> data}) =
-      _$URootUnknownImpl;
+abstract class UReplyRefRootUnknown implements UReplyRefRoot {
+  const factory UReplyRefRootUnknown(
+      {required final Map<String, dynamic> data}) = _$UReplyRefRootUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$URootUnknownImplCopyWith<_$URootUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UReplyRefRootUnknownImplCopyWith<_$UReplyRefRootUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -17,6 +17,7 @@ part 'embed_view.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#postview
 @freezed
+@Deprecated('Use UPostViewEmbed')
 class EmbedView with _$EmbedView {
   const factory EmbedView.record({
     required EmbedViewRecord data,

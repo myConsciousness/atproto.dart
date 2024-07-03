@@ -17,12 +17,12 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? appBskyFeedDefsReplyRef),
           root: $checkedConvert(
               'root',
-              (v) =>
-                  const URootConverter().fromJson(v as Map<String, dynamic>)),
+              (v) => const UReplyRefRootConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           parent: $checkedConvert(
               'parent',
-              (v) =>
-                  const UParentConverter().fromJson(v as Map<String, dynamic>)),
+              (v) => const UReplyRefParentConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           grandparentAuthor: $checkedConvert(
               'grandparentAuthor',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
@@ -41,8 +41,8 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$ReplyRefImplToJson(_$ReplyRefImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.$type,
-    'root': const URootConverter().toJson(instance.root),
-    'parent': const UParentConverter().toJson(instance.parent),
+    'root': const UReplyRefRootConverter().toJson(instance.root),
+    'parent': const UReplyRefParentConverter().toJson(instance.parent),
   };
 
   void writeNotNull(String key, dynamic value) {

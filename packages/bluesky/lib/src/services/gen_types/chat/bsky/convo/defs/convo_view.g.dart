@@ -25,9 +25,9 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
                   .toList()),
           lastMessage: $checkedConvert(
               'lastMessage',
-              (v) =>
-                  _$JsonConverterFromJson<Map<String, dynamic>, ULastMessage>(
-                      v, const ULastMessageConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UConvoViewLastMessage>(
+                  v, const UConvoViewLastMessageConverter().fromJson)),
           muted: $checkedConvert('muted', (v) => v as bool),
           unreadCount:
               $checkedConvert('unreadCount', (v) => (v as num).toInt()),
@@ -58,8 +58,8 @@ Map<String, dynamic> _$$ConvoViewImplToJson(_$ConvoViewImpl instance) {
 
   writeNotNull(
       'lastMessage',
-      _$JsonConverterToJson<Map<String, dynamic>, ULastMessage>(
-          instance.lastMessage, const ULastMessageConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UConvoViewLastMessage>(
+          instance.lastMessage, const UConvoViewLastMessageConverter().toJson));
   val['muted'] = instance.muted;
   val['unreadCount'] = instance.unreadCount;
   writeNotNull(r'$unknown', instance.$unknown);

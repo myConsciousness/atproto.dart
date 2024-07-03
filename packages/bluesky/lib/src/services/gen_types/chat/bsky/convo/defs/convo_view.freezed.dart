@@ -29,8 +29,8 @@ mixin _$ConvoView {
   String get rev => throw _privateConstructorUsedError;
   @ProfileViewBasicConverter()
   List<ProfileViewBasic> get members => throw _privateConstructorUsedError;
-  @ULastMessageConverter()
-  ULastMessage? get lastMessage => throw _privateConstructorUsedError;
+  @UConvoViewLastMessageConverter()
+  UConvoViewLastMessage? get lastMessage => throw _privateConstructorUsedError;
   bool get muted => throw _privateConstructorUsedError;
   int get unreadCount => throw _privateConstructorUsedError;
 
@@ -54,12 +54,12 @@ abstract class $ConvoViewCopyWith<$Res> {
       String id,
       String rev,
       @ProfileViewBasicConverter() List<ProfileViewBasic> members,
-      @ULastMessageConverter() ULastMessage? lastMessage,
+      @UConvoViewLastMessageConverter() UConvoViewLastMessage? lastMessage,
       bool muted,
       int unreadCount,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $ULastMessageCopyWith<$Res>? get lastMessage;
+  $UConvoViewLastMessageCopyWith<$Res>? get lastMessage;
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class _$ConvoViewCopyWithImpl<$Res, $Val extends ConvoView>
       lastMessage: freezed == lastMessage
           ? _value.lastMessage
           : lastMessage // ignore: cast_nullable_to_non_nullable
-              as ULastMessage?,
+              as UConvoViewLastMessage?,
       muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
@@ -122,12 +122,12 @@ class _$ConvoViewCopyWithImpl<$Res, $Val extends ConvoView>
 
   @override
   @pragma('vm:prefer-inline')
-  $ULastMessageCopyWith<$Res>? get lastMessage {
+  $UConvoViewLastMessageCopyWith<$Res>? get lastMessage {
     if (_value.lastMessage == null) {
       return null;
     }
 
-    return $ULastMessageCopyWith<$Res>(_value.lastMessage!, (value) {
+    return $UConvoViewLastMessageCopyWith<$Res>(_value.lastMessage!, (value) {
       return _then(_value.copyWith(lastMessage: value) as $Val);
     });
   }
@@ -146,13 +146,13 @@ abstract class _$$ConvoViewImplCopyWith<$Res>
       String id,
       String rev,
       @ProfileViewBasicConverter() List<ProfileViewBasic> members,
-      @ULastMessageConverter() ULastMessage? lastMessage,
+      @UConvoViewLastMessageConverter() UConvoViewLastMessage? lastMessage,
       bool muted,
       int unreadCount,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $ULastMessageCopyWith<$Res>? get lastMessage;
+  $UConvoViewLastMessageCopyWith<$Res>? get lastMessage;
 }
 
 /// @nodoc
@@ -195,7 +195,7 @@ class __$$ConvoViewImplCopyWithImpl<$Res>
       lastMessage: freezed == lastMessage
           ? _value.lastMessage
           : lastMessage // ignore: cast_nullable_to_non_nullable
-              as ULastMessage?,
+              as UConvoViewLastMessage?,
       muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
@@ -222,7 +222,7 @@ class _$ConvoViewImpl implements _ConvoView {
       required this.rev,
       @ProfileViewBasicConverter()
       required final List<ProfileViewBasic> members,
-      @ULastMessageConverter() this.lastMessage,
+      @UConvoViewLastMessageConverter() this.lastMessage,
       required this.muted,
       required this.unreadCount,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -252,8 +252,8 @@ class _$ConvoViewImpl implements _ConvoView {
   }
 
   @override
-  @ULastMessageConverter()
-  final ULastMessage? lastMessage;
+  @UConvoViewLastMessageConverter()
+  final UConvoViewLastMessage? lastMessage;
   @override
   final bool muted;
   @override
@@ -329,7 +329,8 @@ abstract class _ConvoView implements ConvoView {
           required final String rev,
           @ProfileViewBasicConverter()
           required final List<ProfileViewBasic> members,
-          @ULastMessageConverter() final ULastMessage? lastMessage,
+          @UConvoViewLastMessageConverter()
+          final UConvoViewLastMessage? lastMessage,
           required final bool muted,
           required final int unreadCount,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -353,8 +354,8 @@ abstract class _ConvoView implements ConvoView {
   @ProfileViewBasicConverter()
   List<ProfileViewBasic> get members;
   @override
-  @ULastMessageConverter()
-  ULastMessage? get lastMessage;
+  @UConvoViewLastMessageConverter()
+  UConvoViewLastMessage? get lastMessage;
   @override
   bool get muted;
   @override

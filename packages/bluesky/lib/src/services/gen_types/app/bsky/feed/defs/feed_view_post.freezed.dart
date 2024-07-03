@@ -29,8 +29,8 @@ mixin _$FeedViewPost {
   PostView get post => throw _privateConstructorUsedError;
   @ReplyRefConverter()
   ReplyRef? get reply => throw _privateConstructorUsedError;
-  @UReasonConverter()
-  UReason? get reason => throw _privateConstructorUsedError;
+  @UFeedViewPostReasonConverter()
+  UFeedViewPostReason? get reason => throw _privateConstructorUsedError;
 
   /// Context provided by feed generator that may be passed back alongside interactions.
   String? get feedContext => throw _privateConstructorUsedError;
@@ -55,13 +55,13 @@ abstract class $FeedViewPostCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @PostViewConverter() PostView post,
       @ReplyRefConverter() ReplyRef? reply,
-      @UReasonConverter() UReason? reason,
+      @UFeedViewPostReasonConverter() UFeedViewPostReason? reason,
       String? feedContext,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $PostViewCopyWith<$Res> get post;
   $ReplyRefCopyWith<$Res>? get reply;
-  $UReasonCopyWith<$Res>? get reason;
+  $UFeedViewPostReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as UReason?,
+              as UFeedViewPostReason?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
@@ -134,12 +134,12 @@ class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
 
   @override
   @pragma('vm:prefer-inline')
-  $UReasonCopyWith<$Res>? get reason {
+  $UFeedViewPostReasonCopyWith<$Res>? get reason {
     if (_value.reason == null) {
       return null;
     }
 
-    return $UReasonCopyWith<$Res>(_value.reason!, (value) {
+    return $UFeedViewPostReasonCopyWith<$Res>(_value.reason!, (value) {
       return _then(_value.copyWith(reason: value) as $Val);
     });
   }
@@ -157,7 +157,7 @@ abstract class _$$FeedViewPostImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @PostViewConverter() PostView post,
       @ReplyRefConverter() ReplyRef? reply,
-      @UReasonConverter() UReason? reason,
+      @UFeedViewPostReasonConverter() UFeedViewPostReason? reason,
       String? feedContext,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -166,7 +166,7 @@ abstract class _$$FeedViewPostImplCopyWith<$Res>
   @override
   $ReplyRefCopyWith<$Res>? get reply;
   @override
-  $UReasonCopyWith<$Res>? get reason;
+  $UFeedViewPostReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -203,7 +203,7 @@ class __$$FeedViewPostImplCopyWithImpl<$Res>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as UReason?,
+              as UFeedViewPostReason?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
@@ -224,7 +224,7 @@ class _$FeedViewPostImpl implements _FeedViewPost {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsFeedViewPost,
       @PostViewConverter() required this.post,
       @ReplyRefConverter() this.reply,
-      @UReasonConverter() this.reason,
+      @UFeedViewPostReasonConverter() this.reason,
       this.feedContext,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -245,8 +245,8 @@ class _$FeedViewPostImpl implements _FeedViewPost {
   @ReplyRefConverter()
   final ReplyRef? reply;
   @override
-  @UReasonConverter()
-  final UReason? reason;
+  @UFeedViewPostReasonConverter()
+  final UFeedViewPostReason? reason;
 
   /// Context provided by feed generator that may be passed back alongside interactions.
   @override
@@ -309,7 +309,7 @@ abstract class _FeedViewPost implements FeedViewPost {
           {@JsonKey(name: r'$type') final String $type,
           @PostViewConverter() required final PostView post,
           @ReplyRefConverter() final ReplyRef? reply,
-          @UReasonConverter() final UReason? reason,
+          @UFeedViewPostReasonConverter() final UFeedViewPostReason? reason,
           final String? feedContext,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$FeedViewPostImpl;
@@ -331,8 +331,8 @@ abstract class _FeedViewPost implements FeedViewPost {
   @ReplyRefConverter()
   ReplyRef? get reply;
   @override
-  @UReasonConverter()
-  UReason? get reason;
+  @UFeedViewPostReasonConverter()
+  UFeedViewPostReason? get reason;
   @override
 
   /// Context provided by feed generator that may be passed back alongside interactions.

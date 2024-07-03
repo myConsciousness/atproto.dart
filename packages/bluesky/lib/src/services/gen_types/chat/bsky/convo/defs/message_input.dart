@@ -16,7 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'package:bluesky/app_bsky_richtext_facet.dart';
 import '../../../../../../ids.g.dart';
-import '../../../../chat/bsky/convo/defs/union_embed.dart';
+import '../../../../chat/bsky/convo/defs/union_message_input_embed.dart';
 
 part 'message_input.freezed.dart';
 part 'message_input.g.dart';
@@ -36,7 +36,7 @@ class MessageInput with _$MessageInput {
 
     /// Annotations of text (mentions, URLs, hashtags, etc)
     @FacetConverter() List<Facet>? facets,
-    @UEmbedConverter() UEmbed? embed,
+    @UMessageInputEmbedConverter() UMessageInputEmbed? embed,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

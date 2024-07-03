@@ -28,8 +28,9 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
                   .fromJson(v as Map<String, dynamic>)),
           embed: $checkedConvert(
               'embed',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
-                  v, const UEmbedConverter().fromJson)),
+              (v) =>
+                  _$JsonConverterFromJson<Map<String, dynamic>, UPostViewEmbed>(
+                      v, const UPostViewEmbedConverter().fromJson)),
           replyCount:
               $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
           repostCount:
@@ -83,8 +84,8 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
 
   writeNotNull(
       'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, UEmbed>(
-          instance.embed, const UEmbedConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UPostViewEmbed>(
+          instance.embed, const UPostViewEmbedConverter().toJson));
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;

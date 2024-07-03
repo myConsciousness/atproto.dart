@@ -18,58 +18,58 @@ import '../../../../app/bsky/feed/defs/blocked_post.dart';
 import '../../../../app/bsky/feed/defs/not_found_post.dart';
 import '../../../../app/bsky/feed/defs/thread_view_post.dart';
 
-part 'union_parent.freezed.dart';
+part 'union_thread_view_post_parent.freezed.dart';
 
 @freezed
-class UParent with _$UParent {
-  const factory UParent.threadViewPost({
+class UThreadViewPostParent with _$UThreadViewPostParent {
+  const factory UThreadViewPostParent.threadViewPost({
     required ThreadViewPost data,
-  }) = UParentThreadViewPost;
+  }) = UThreadViewPostParentThreadViewPost;
 
-  const factory UParent.notFoundPost({
+  const factory UThreadViewPostParent.notFoundPost({
     required NotFoundPost data,
-  }) = UParentNotFoundPost;
+  }) = UThreadViewPostParentNotFoundPost;
 
-  const factory UParent.blockedPost({
+  const factory UThreadViewPostParent.blockedPost({
     required BlockedPost data,
-  }) = UParentBlockedPost;
+  }) = UThreadViewPostParentBlockedPost;
 
-  const factory UParent.unknown({
+  const factory UThreadViewPostParent.unknown({
     required Map<String, dynamic> data,
-  }) = UParentUnknown;
+  }) = UThreadViewPostParentUnknown;
 }
 
-final class UParentConverter
-    implements JsonConverter<UParent, Map<String, dynamic>> {
-  const UParentConverter();
+final class UThreadViewPostParentConverter
+    implements JsonConverter<UThreadViewPostParent, Map<String, dynamic>> {
+  const UThreadViewPostParentConverter();
 
   @override
-  UParent fromJson(Map<String, dynamic> json) {
+  UThreadViewPostParent fromJson(Map<String, dynamic> json) {
     try {
       if (isThreadViewPost(json)) {
-        return UParent.threadViewPost(
+        return UThreadViewPostParent.threadViewPost(
           data: const ThreadViewPostConverter().fromJson(json),
         );
       }
       if (isNotFoundPost(json)) {
-        return UParent.notFoundPost(
+        return UThreadViewPostParent.notFoundPost(
           data: const NotFoundPostConverter().fromJson(json),
         );
       }
       if (isBlockedPost(json)) {
-        return UParent.blockedPost(
+        return UThreadViewPostParent.blockedPost(
           data: const BlockedPostConverter().fromJson(json),
         );
       }
 
-      return UParent.unknown(data: json);
+      return UThreadViewPostParent.unknown(data: json);
     } catch (_) {
-      return UParent.unknown(data: json);
+      return UThreadViewPostParent.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UParent object) => object.when(
+  Map<String, dynamic> toJson(UThreadViewPostParent object) => object.when(
         threadViewPost: const ThreadViewPostConverter().toJson,
         notFoundPost: const NotFoundPostConverter().toJson,
         blockedPost: const BlockedPostConverter().toJson,
@@ -77,30 +77,31 @@ final class UParentConverter
       );
 }
 
-extension $UParentExtension on UParent {
+extension $UThreadViewPostParentExtension on UThreadViewPostParent {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UParentConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UThreadViewPostParentConverter().toJson(this);
 
   /// Returns true if this data is [ThreadViewPost], otherwise false.
-  bool get isThreadViewPost => this is UParentThreadViewPost;
+  bool get isThreadViewPost => this is UThreadViewPostParentThreadViewPost;
 
   /// Returns true if this data is not [ThreadViewPost], otherwise false.
   bool get isNotThreadViewPost => !isThreadViewPost;
 
   /// Returns true if this data is [NotFoundPost], otherwise false.
-  bool get isNotFoundPost => this is UParentNotFoundPost;
+  bool get isNotFoundPost => this is UThreadViewPostParentNotFoundPost;
 
   /// Returns true if this data is not [NotFoundPost], otherwise false.
   bool get isNotNotFoundPost => !isNotFoundPost;
 
   /// Returns true if this data is [BlockedPost], otherwise false.
-  bool get isBlockedPost => this is UParentBlockedPost;
+  bool get isBlockedPost => this is UThreadViewPostParentBlockedPost;
 
   /// Returns true if this data is not [BlockedPost], otherwise false.
   bool get isNotBlockedPost => !isBlockedPost;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UParentUnknown;
+  bool get isUnknown => this is UThreadViewPostParentUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

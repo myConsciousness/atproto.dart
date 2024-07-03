@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_last_message.dart';
+part of 'union_log_create_message_message.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ULastMessage {
+mixin _$ULogCreateMessageMessage {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -41,40 +41,44 @@ mixin _$ULastMessage {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULastMessageMessageView value) messageView,
-    required TResult Function(ULastMessageDeletedMessageView value)
+    required TResult Function(ULogCreateMessageMessageMessageView value)
+        messageView,
+    required TResult Function(ULogCreateMessageMessageDeletedMessageView value)
         deletedMessageView,
-    required TResult Function(ULastMessageUnknown value) unknown,
+    required TResult Function(ULogCreateMessageMessageUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULastMessageMessageView value)? messageView,
-    TResult? Function(ULastMessageDeletedMessageView value)? deletedMessageView,
-    TResult? Function(ULastMessageUnknown value)? unknown,
+    TResult? Function(ULogCreateMessageMessageMessageView value)? messageView,
+    TResult? Function(ULogCreateMessageMessageDeletedMessageView value)?
+        deletedMessageView,
+    TResult? Function(ULogCreateMessageMessageUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULastMessageMessageView value)? messageView,
-    TResult Function(ULastMessageDeletedMessageView value)? deletedMessageView,
-    TResult Function(ULastMessageUnknown value)? unknown,
+    TResult Function(ULogCreateMessageMessageMessageView value)? messageView,
+    TResult Function(ULogCreateMessageMessageDeletedMessageView value)?
+        deletedMessageView,
+    TResult Function(ULogCreateMessageMessageUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ULastMessageCopyWith<$Res> {
-  factory $ULastMessageCopyWith(
-          ULastMessage value, $Res Function(ULastMessage) then) =
-      _$ULastMessageCopyWithImpl<$Res, ULastMessage>;
+abstract class $ULogCreateMessageMessageCopyWith<$Res> {
+  factory $ULogCreateMessageMessageCopyWith(ULogCreateMessageMessage value,
+          $Res Function(ULogCreateMessageMessage) then) =
+      _$ULogCreateMessageMessageCopyWithImpl<$Res, ULogCreateMessageMessage>;
 }
 
 /// @nodoc
-class _$ULastMessageCopyWithImpl<$Res, $Val extends ULastMessage>
-    implements $ULastMessageCopyWith<$Res> {
-  _$ULastMessageCopyWithImpl(this._value, this._then);
+class _$ULogCreateMessageMessageCopyWithImpl<$Res,
+        $Val extends ULogCreateMessageMessage>
+    implements $ULogCreateMessageMessageCopyWith<$Res> {
+  _$ULogCreateMessageMessageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -83,11 +87,11 @@ class _$ULastMessageCopyWithImpl<$Res, $Val extends ULastMessage>
 }
 
 /// @nodoc
-abstract class _$$ULastMessageMessageViewImplCopyWith<$Res> {
-  factory _$$ULastMessageMessageViewImplCopyWith(
-          _$ULastMessageMessageViewImpl value,
-          $Res Function(_$ULastMessageMessageViewImpl) then) =
-      __$$ULastMessageMessageViewImplCopyWithImpl<$Res>;
+abstract class _$$ULogCreateMessageMessageMessageViewImplCopyWith<$Res> {
+  factory _$$ULogCreateMessageMessageMessageViewImplCopyWith(
+          _$ULogCreateMessageMessageMessageViewImpl value,
+          $Res Function(_$ULogCreateMessageMessageMessageViewImpl) then) =
+      __$$ULogCreateMessageMessageMessageViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({MessageView data});
 
@@ -95,12 +99,13 @@ abstract class _$$ULastMessageMessageViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULastMessageMessageViewImplCopyWithImpl<$Res>
-    extends _$ULastMessageCopyWithImpl<$Res, _$ULastMessageMessageViewImpl>
-    implements _$$ULastMessageMessageViewImplCopyWith<$Res> {
-  __$$ULastMessageMessageViewImplCopyWithImpl(
-      _$ULastMessageMessageViewImpl _value,
-      $Res Function(_$ULastMessageMessageViewImpl) _then)
+class __$$ULogCreateMessageMessageMessageViewImplCopyWithImpl<$Res>
+    extends _$ULogCreateMessageMessageCopyWithImpl<$Res,
+        _$ULogCreateMessageMessageMessageViewImpl>
+    implements _$$ULogCreateMessageMessageMessageViewImplCopyWith<$Res> {
+  __$$ULogCreateMessageMessageMessageViewImplCopyWithImpl(
+      _$ULogCreateMessageMessageMessageViewImpl _value,
+      $Res Function(_$ULogCreateMessageMessageMessageViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +113,7 @@ class __$$ULastMessageMessageViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULastMessageMessageViewImpl(
+    return _then(_$ULogCreateMessageMessageMessageViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -127,22 +132,23 @@ class __$$ULastMessageMessageViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULastMessageMessageViewImpl implements ULastMessageMessageView {
-  const _$ULastMessageMessageViewImpl({required this.data});
+class _$ULogCreateMessageMessageMessageViewImpl
+    implements ULogCreateMessageMessageMessageView {
+  const _$ULogCreateMessageMessageMessageViewImpl({required this.data});
 
   @override
   final MessageView data;
 
   @override
   String toString() {
-    return 'ULastMessage.messageView(data: $data)';
+    return 'ULogCreateMessageMessage.messageView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULastMessageMessageViewImpl &&
+            other is _$ULogCreateMessageMessageMessageViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -152,9 +158,10 @@ class _$ULastMessageMessageViewImpl implements ULastMessageMessageView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULastMessageMessageViewImplCopyWith<_$ULastMessageMessageViewImpl>
-      get copyWith => __$$ULastMessageMessageViewImplCopyWithImpl<
-          _$ULastMessageMessageViewImpl>(this, _$identity);
+  _$$ULogCreateMessageMessageMessageViewImplCopyWith<
+          _$ULogCreateMessageMessageMessageViewImpl>
+      get copyWith => __$$ULogCreateMessageMessageMessageViewImplCopyWithImpl<
+          _$ULogCreateMessageMessageMessageViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -193,10 +200,11 @@ class _$ULastMessageMessageViewImpl implements ULastMessageMessageView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULastMessageMessageView value) messageView,
-    required TResult Function(ULastMessageDeletedMessageView value)
+    required TResult Function(ULogCreateMessageMessageMessageView value)
+        messageView,
+    required TResult Function(ULogCreateMessageMessageDeletedMessageView value)
         deletedMessageView,
-    required TResult Function(ULastMessageUnknown value) unknown,
+    required TResult Function(ULogCreateMessageMessageUnknown value) unknown,
   }) {
     return messageView(this);
   }
@@ -204,9 +212,10 @@ class _$ULastMessageMessageViewImpl implements ULastMessageMessageView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULastMessageMessageView value)? messageView,
-    TResult? Function(ULastMessageDeletedMessageView value)? deletedMessageView,
-    TResult? Function(ULastMessageUnknown value)? unknown,
+    TResult? Function(ULogCreateMessageMessageMessageView value)? messageView,
+    TResult? Function(ULogCreateMessageMessageDeletedMessageView value)?
+        deletedMessageView,
+    TResult? Function(ULogCreateMessageMessageUnknown value)? unknown,
   }) {
     return messageView?.call(this);
   }
@@ -214,9 +223,10 @@ class _$ULastMessageMessageViewImpl implements ULastMessageMessageView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULastMessageMessageView value)? messageView,
-    TResult Function(ULastMessageDeletedMessageView value)? deletedMessageView,
-    TResult Function(ULastMessageUnknown value)? unknown,
+    TResult Function(ULogCreateMessageMessageMessageView value)? messageView,
+    TResult Function(ULogCreateMessageMessageDeletedMessageView value)?
+        deletedMessageView,
+    TResult Function(ULogCreateMessageMessageUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (messageView != null) {
@@ -226,23 +236,27 @@ class _$ULastMessageMessageViewImpl implements ULastMessageMessageView {
   }
 }
 
-abstract class ULastMessageMessageView implements ULastMessage {
-  const factory ULastMessageMessageView({required final MessageView data}) =
-      _$ULastMessageMessageViewImpl;
+abstract class ULogCreateMessageMessageMessageView
+    implements ULogCreateMessageMessage {
+  const factory ULogCreateMessageMessageMessageView(
+          {required final MessageView data}) =
+      _$ULogCreateMessageMessageMessageViewImpl;
 
   @override
   MessageView get data;
   @JsonKey(ignore: true)
-  _$$ULastMessageMessageViewImplCopyWith<_$ULastMessageMessageViewImpl>
+  _$$ULogCreateMessageMessageMessageViewImplCopyWith<
+          _$ULogCreateMessageMessageMessageViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULastMessageDeletedMessageViewImplCopyWith<$Res> {
-  factory _$$ULastMessageDeletedMessageViewImplCopyWith(
-          _$ULastMessageDeletedMessageViewImpl value,
-          $Res Function(_$ULastMessageDeletedMessageViewImpl) then) =
-      __$$ULastMessageDeletedMessageViewImplCopyWithImpl<$Res>;
+abstract class _$$ULogCreateMessageMessageDeletedMessageViewImplCopyWith<$Res> {
+  factory _$$ULogCreateMessageMessageDeletedMessageViewImplCopyWith(
+          _$ULogCreateMessageMessageDeletedMessageViewImpl value,
+          $Res Function(_$ULogCreateMessageMessageDeletedMessageViewImpl)
+              then) =
+      __$$ULogCreateMessageMessageDeletedMessageViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DeletedMessageView data});
 
@@ -250,13 +264,13 @@ abstract class _$$ULastMessageDeletedMessageViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULastMessageDeletedMessageViewImplCopyWithImpl<$Res>
-    extends _$ULastMessageCopyWithImpl<$Res,
-        _$ULastMessageDeletedMessageViewImpl>
-    implements _$$ULastMessageDeletedMessageViewImplCopyWith<$Res> {
-  __$$ULastMessageDeletedMessageViewImplCopyWithImpl(
-      _$ULastMessageDeletedMessageViewImpl _value,
-      $Res Function(_$ULastMessageDeletedMessageViewImpl) _then)
+class __$$ULogCreateMessageMessageDeletedMessageViewImplCopyWithImpl<$Res>
+    extends _$ULogCreateMessageMessageCopyWithImpl<$Res,
+        _$ULogCreateMessageMessageDeletedMessageViewImpl>
+    implements _$$ULogCreateMessageMessageDeletedMessageViewImplCopyWith<$Res> {
+  __$$ULogCreateMessageMessageDeletedMessageViewImplCopyWithImpl(
+      _$ULogCreateMessageMessageDeletedMessageViewImpl _value,
+      $Res Function(_$ULogCreateMessageMessageDeletedMessageViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -264,7 +278,7 @@ class __$$ULastMessageDeletedMessageViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULastMessageDeletedMessageViewImpl(
+    return _then(_$ULogCreateMessageMessageDeletedMessageViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -283,23 +297,23 @@ class __$$ULastMessageDeletedMessageViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULastMessageDeletedMessageViewImpl
-    implements ULastMessageDeletedMessageView {
-  const _$ULastMessageDeletedMessageViewImpl({required this.data});
+class _$ULogCreateMessageMessageDeletedMessageViewImpl
+    implements ULogCreateMessageMessageDeletedMessageView {
+  const _$ULogCreateMessageMessageDeletedMessageViewImpl({required this.data});
 
   @override
   final DeletedMessageView data;
 
   @override
   String toString() {
-    return 'ULastMessage.deletedMessageView(data: $data)';
+    return 'ULogCreateMessageMessage.deletedMessageView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULastMessageDeletedMessageViewImpl &&
+            other is _$ULogCreateMessageMessageDeletedMessageViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -309,10 +323,12 @@ class _$ULastMessageDeletedMessageViewImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULastMessageDeletedMessageViewImplCopyWith<
-          _$ULastMessageDeletedMessageViewImpl>
-      get copyWith => __$$ULastMessageDeletedMessageViewImplCopyWithImpl<
-          _$ULastMessageDeletedMessageViewImpl>(this, _$identity);
+  _$$ULogCreateMessageMessageDeletedMessageViewImplCopyWith<
+          _$ULogCreateMessageMessageDeletedMessageViewImpl>
+      get copyWith =>
+          __$$ULogCreateMessageMessageDeletedMessageViewImplCopyWithImpl<
+                  _$ULogCreateMessageMessageDeletedMessageViewImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -351,10 +367,11 @@ class _$ULastMessageDeletedMessageViewImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULastMessageMessageView value) messageView,
-    required TResult Function(ULastMessageDeletedMessageView value)
+    required TResult Function(ULogCreateMessageMessageMessageView value)
+        messageView,
+    required TResult Function(ULogCreateMessageMessageDeletedMessageView value)
         deletedMessageView,
-    required TResult Function(ULastMessageUnknown value) unknown,
+    required TResult Function(ULogCreateMessageMessageUnknown value) unknown,
   }) {
     return deletedMessageView(this);
   }
@@ -362,9 +379,10 @@ class _$ULastMessageDeletedMessageViewImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULastMessageMessageView value)? messageView,
-    TResult? Function(ULastMessageDeletedMessageView value)? deletedMessageView,
-    TResult? Function(ULastMessageUnknown value)? unknown,
+    TResult? Function(ULogCreateMessageMessageMessageView value)? messageView,
+    TResult? Function(ULogCreateMessageMessageDeletedMessageView value)?
+        deletedMessageView,
+    TResult? Function(ULogCreateMessageMessageUnknown value)? unknown,
   }) {
     return deletedMessageView?.call(this);
   }
@@ -372,9 +390,10 @@ class _$ULastMessageDeletedMessageViewImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULastMessageMessageView value)? messageView,
-    TResult Function(ULastMessageDeletedMessageView value)? deletedMessageView,
-    TResult Function(ULastMessageUnknown value)? unknown,
+    TResult Function(ULogCreateMessageMessageMessageView value)? messageView,
+    TResult Function(ULogCreateMessageMessageDeletedMessageView value)?
+        deletedMessageView,
+    TResult Function(ULogCreateMessageMessageUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (deletedMessageView != null) {
@@ -384,34 +403,38 @@ class _$ULastMessageDeletedMessageViewImpl
   }
 }
 
-abstract class ULastMessageDeletedMessageView implements ULastMessage {
-  const factory ULastMessageDeletedMessageView(
+abstract class ULogCreateMessageMessageDeletedMessageView
+    implements ULogCreateMessageMessage {
+  const factory ULogCreateMessageMessageDeletedMessageView(
           {required final DeletedMessageView data}) =
-      _$ULastMessageDeletedMessageViewImpl;
+      _$ULogCreateMessageMessageDeletedMessageViewImpl;
 
   @override
   DeletedMessageView get data;
   @JsonKey(ignore: true)
-  _$$ULastMessageDeletedMessageViewImplCopyWith<
-          _$ULastMessageDeletedMessageViewImpl>
+  _$$ULogCreateMessageMessageDeletedMessageViewImplCopyWith<
+          _$ULogCreateMessageMessageDeletedMessageViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULastMessageUnknownImplCopyWith<$Res> {
-  factory _$$ULastMessageUnknownImplCopyWith(_$ULastMessageUnknownImpl value,
-          $Res Function(_$ULastMessageUnknownImpl) then) =
-      __$$ULastMessageUnknownImplCopyWithImpl<$Res>;
+abstract class _$$ULogCreateMessageMessageUnknownImplCopyWith<$Res> {
+  factory _$$ULogCreateMessageMessageUnknownImplCopyWith(
+          _$ULogCreateMessageMessageUnknownImpl value,
+          $Res Function(_$ULogCreateMessageMessageUnknownImpl) then) =
+      __$$ULogCreateMessageMessageUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$ULastMessageUnknownImplCopyWithImpl<$Res>
-    extends _$ULastMessageCopyWithImpl<$Res, _$ULastMessageUnknownImpl>
-    implements _$$ULastMessageUnknownImplCopyWith<$Res> {
-  __$$ULastMessageUnknownImplCopyWithImpl(_$ULastMessageUnknownImpl _value,
-      $Res Function(_$ULastMessageUnknownImpl) _then)
+class __$$ULogCreateMessageMessageUnknownImplCopyWithImpl<$Res>
+    extends _$ULogCreateMessageMessageCopyWithImpl<$Res,
+        _$ULogCreateMessageMessageUnknownImpl>
+    implements _$$ULogCreateMessageMessageUnknownImplCopyWith<$Res> {
+  __$$ULogCreateMessageMessageUnknownImplCopyWithImpl(
+      _$ULogCreateMessageMessageUnknownImpl _value,
+      $Res Function(_$ULogCreateMessageMessageUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -419,7 +442,7 @@ class __$$ULastMessageUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULastMessageUnknownImpl(
+    return _then(_$ULogCreateMessageMessageUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -430,8 +453,10 @@ class __$$ULastMessageUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULastMessageUnknownImpl implements ULastMessageUnknown {
-  const _$ULastMessageUnknownImpl({required final Map<String, dynamic> data})
+class _$ULogCreateMessageMessageUnknownImpl
+    implements ULogCreateMessageMessageUnknown {
+  const _$ULogCreateMessageMessageUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -444,14 +469,14 @@ class _$ULastMessageUnknownImpl implements ULastMessageUnknown {
 
   @override
   String toString() {
-    return 'ULastMessage.unknown(data: $data)';
+    return 'ULogCreateMessageMessage.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULastMessageUnknownImpl &&
+            other is _$ULogCreateMessageMessageUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -462,9 +487,10 @@ class _$ULastMessageUnknownImpl implements ULastMessageUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULastMessageUnknownImplCopyWith<_$ULastMessageUnknownImpl> get copyWith =>
-      __$$ULastMessageUnknownImplCopyWithImpl<_$ULastMessageUnknownImpl>(
-          this, _$identity);
+  _$$ULogCreateMessageMessageUnknownImplCopyWith<
+          _$ULogCreateMessageMessageUnknownImpl>
+      get copyWith => __$$ULogCreateMessageMessageUnknownImplCopyWithImpl<
+          _$ULogCreateMessageMessageUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -503,10 +529,11 @@ class _$ULastMessageUnknownImpl implements ULastMessageUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULastMessageMessageView value) messageView,
-    required TResult Function(ULastMessageDeletedMessageView value)
+    required TResult Function(ULogCreateMessageMessageMessageView value)
+        messageView,
+    required TResult Function(ULogCreateMessageMessageDeletedMessageView value)
         deletedMessageView,
-    required TResult Function(ULastMessageUnknown value) unknown,
+    required TResult Function(ULogCreateMessageMessageUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -514,9 +541,10 @@ class _$ULastMessageUnknownImpl implements ULastMessageUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULastMessageMessageView value)? messageView,
-    TResult? Function(ULastMessageDeletedMessageView value)? deletedMessageView,
-    TResult? Function(ULastMessageUnknown value)? unknown,
+    TResult? Function(ULogCreateMessageMessageMessageView value)? messageView,
+    TResult? Function(ULogCreateMessageMessageDeletedMessageView value)?
+        deletedMessageView,
+    TResult? Function(ULogCreateMessageMessageUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -524,9 +552,10 @@ class _$ULastMessageUnknownImpl implements ULastMessageUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULastMessageMessageView value)? messageView,
-    TResult Function(ULastMessageDeletedMessageView value)? deletedMessageView,
-    TResult Function(ULastMessageUnknown value)? unknown,
+    TResult Function(ULogCreateMessageMessageMessageView value)? messageView,
+    TResult Function(ULogCreateMessageMessageDeletedMessageView value)?
+        deletedMessageView,
+    TResult Function(ULogCreateMessageMessageUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -536,13 +565,16 @@ class _$ULastMessageUnknownImpl implements ULastMessageUnknown {
   }
 }
 
-abstract class ULastMessageUnknown implements ULastMessage {
-  const factory ULastMessageUnknown(
-      {required final Map<String, dynamic> data}) = _$ULastMessageUnknownImpl;
+abstract class ULogCreateMessageMessageUnknown
+    implements ULogCreateMessageMessage {
+  const factory ULogCreateMessageMessageUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$ULogCreateMessageMessageUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$ULastMessageUnknownImplCopyWith<_$ULastMessageUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ULogCreateMessageMessageUnknownImplCopyWith<
+          _$ULogCreateMessageMessageUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

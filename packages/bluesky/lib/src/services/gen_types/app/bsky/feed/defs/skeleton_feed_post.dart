@@ -16,7 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/feed/defs/union_reason.dart';
+import '../../../../app/bsky/feed/defs/union_skeleton_feed_post_reason.dart';
 
 part 'skeleton_feed_post.freezed.dart';
 part 'skeleton_feed_post.g.dart';
@@ -33,7 +33,7 @@ class SkeletonFeedPost with _$SkeletonFeedPost {
     @JsonKey(name: r'$type')
     String $type,
     @AtUriConverter() required AtUri post,
-    @UReasonConverter() UReason? reason,
+    @USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? reason,
 
     /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
     String? feedContext,
