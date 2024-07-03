@@ -20,7 +20,8 @@ GetServiceAuthParams _$GetServiceAuthParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetServiceAuthParams {
-  /// The DID of the service that the token will be used to authenticate with
+  /// The DID of the service that the token will be used to
+  /// authenticate with
   String get aud => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -124,7 +125,8 @@ class _$GetServiceAuthParamsImpl implements _GetServiceAuthParams {
   factory _$GetServiceAuthParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetServiceAuthParamsImplFromJson(json);
 
-  /// The DID of the service that the token will be used to authenticate with
+  /// The DID of the service that the token will be used to
+  /// authenticate with
   @override
   final String aud;
 
@@ -188,7 +190,8 @@ abstract class _GetServiceAuthParams implements GetServiceAuthParams {
 
   @override
 
-  /// The DID of the service that the token will be used to authenticate with
+  /// The DID of the service that the token will be used to
+  /// authenticate with
   String get aud;
   @override
 

@@ -66,7 +66,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Enumerates which accounts the requesting account is currently blocking. Requires auth.
+  /// Enumerates which accounts the requesting account is currently
+  /// blocking. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks
   Future<XRPCResponse<GetBlocksOutput>> getBlocks({
@@ -86,7 +87,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
+  /// Creates a mute relationship for the specified list of accounts.
+  /// Mutes are private in Bluesky. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
   Future<XRPCResponse<EmptyData>> muteActorList({
@@ -103,7 +105,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
+  /// Enumerates accounts that the requesting account (actor) currently
+  /// has muted. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes
   Future<XRPCResponse<GetMutesOutput>> getMutes({
@@ -123,7 +126,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
+  /// Enumerates mod lists that the requesting account (actor)
+  /// currently has muted. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes
   Future<XRPCResponse<GetListMutesOutput>> getListMutes({
@@ -165,7 +169,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Record representing a block relationship against an entire an entire list of accounts (actors).
+  /// Record representing a block relationship against an entire an
+  /// entire list of accounts (actors).
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
   Future<XRPCResponse<StrongRef>> listblock({
@@ -188,7 +193,9 @@ final class GraphService {
         $client: $client,
       );
 
-  /// Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
+  /// Enumerates follows similar to a given account (actor). Expected
+  /// use is to recommend additional accounts immediately after
+  /// following one account.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
   Future<XRPCResponse<GetSuggestedFollowsByActorOutput>>
@@ -225,7 +232,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
+  /// Enumerates public relationships between one account, and a list
+  /// of other accounts. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
   Future<XRPCResponse<GetRelationshipsOutput>> getRelationships({
@@ -263,7 +271,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
+  /// Record representing an account's inclusion on a specific list.
+  /// The AppView will ignore duplicate listitem records.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
   Future<XRPCResponse<StrongRef>> listitem({
@@ -310,7 +319,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
+  /// Creates a mute relationship for the specified account. Mutes are
+  /// private in Bluesky. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor
   Future<XRPCResponse<EmptyData>> muteActor({
@@ -327,7 +337,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
+  /// Record declaring a social 'follow' relationship of another
+  /// account. Duplicate follows will be ignored by the AppView.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
   Future<XRPCResponse<StrongRef>> follow({
@@ -367,7 +378,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
+  /// Enumerates accounts which follow a specified account (actor) and
+  /// are followed by the viewer.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getKnownFollowers
   Future<XRPCResponse<GetKnownFollowersOutput>> getKnownFollowers({
@@ -406,7 +418,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
+  /// Record declaring a 'block' relationship against another account.
+  /// NOTE: blocks are public in Bluesky; see blog posts for details.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
   Future<XRPCResponse<StrongRef>> block({
@@ -429,7 +442,8 @@ final class GraphService {
         $client: $client,
       );
 
-  /// Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
+  /// Record representing a list of accounts (actors). Scope includes
+  /// both moderation-oriented lists and curration-oriented lists.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
   Future<XRPCResponse<StrongRef>> list({
@@ -541,7 +555,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Get mod lists that the requesting account (actor) is blocking. Requires auth.
+  /// Get mod lists that the requesting account (actor) is blocking.
+  /// Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListBlocks
   Future<XRPCResponse<GetListBlocksOutput>> getListBlocks({
@@ -561,7 +576,8 @@ final class GraphService {
         client: $client,
       );
 
-  /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
+  /// Mutes a thread preventing notifications from the thread and any
+  /// of its children. Mutes are private in Bluesky. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteThread
   Future<XRPCResponse<EmptyData>> muteThread({

@@ -24,8 +24,8 @@ mixin _$CreateAppPasswordInput {
   /// A short name for the App Password, to help distinguish them.
   String get name => throw _privateConstructorUsedError;
 
-  /// If an app password has 'privileged' access to possibly sensitive account
-  /// state. Meant for use with trusted clients.
+  /// If an app password has 'privileged' access to possibly sensitive
+  /// account state. Meant for use with trusted clients.
   bool? get privileged => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -151,8 +151,8 @@ class _$CreateAppPasswordInputImpl implements _CreateAppPasswordInput {
   @override
   final String name;
 
-  /// If an app password has 'privileged' access to possibly sensitive account
-  /// state. Meant for use with trusted clients.
+  /// If an app password has 'privileged' access to possibly sensitive
+  /// account state. Meant for use with trusted clients.
   @override
   final bool? privileged;
 
@@ -222,8 +222,8 @@ abstract class _CreateAppPasswordInput implements CreateAppPasswordInput {
   String get name;
   @override
 
-  /// If an app password has 'privileged' access to possibly sensitive account
-  /// state. Meant for use with trusted clients.
+  /// If an app password has 'privileged' access to possibly sensitive
+  /// account state. Meant for use with trusted clients.
   bool? get privileged;
   @override
 

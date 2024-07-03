@@ -36,7 +36,8 @@ mixin _$ProfileViewBasic {
   @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
 
-  /// Set to true when the actor cannot actively participate in converations
+  /// Set to true when the actor cannot actively participate in
+  /// converations
   bool get chatDisabled => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -303,7 +304,8 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
     return EqualUnmodifiableListView(value);
   }
 
-  /// Set to true when the actor cannot actively participate in converations
+  /// Set to true when the actor cannot actively participate in
+  /// converations
   @override
   @JsonKey()
   final bool chatDisabled;
@@ -420,7 +422,8 @@ abstract class _ProfileViewBasic implements ProfileViewBasic {
   List<Label>? get labels;
   @override
 
-  /// Set to true when the actor cannot actively participate in converations
+  /// Set to true when the actor cannot actively participate in
+  /// converations
   bool get chatDisabled;
   @override
 

@@ -26,8 +26,9 @@ class SendEmailInput with _$SendEmailInput {
     String? subject,
     required String senderDid,
 
-    /// Additional comment by the sender that won't be used in the email itself but
-    /// helpful to provide more context for moderators/reviewers
+    /// Additional comment by the sender that won't be used in the email
+    /// itself but helpful to provide more context for
+    /// moderators/reviewers
     String? comment,
 
     /// Contains unknown objects not defined in Lexicon.

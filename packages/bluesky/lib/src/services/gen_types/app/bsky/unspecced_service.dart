@@ -94,7 +94,8 @@ final class UnspeccedService {
             client: $client,
           );
 
-  /// Get a skeleton of suggested actors. Intended to be called and then hydrated through app.bsky.actor.getSuggestions
+  /// Get a skeleton of suggested actors. Intended to be called and
+  /// then hydrated through app.bsky.actor.getSuggestions
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton
   Future<XRPCResponse<GetSuggestionsSkeletonOutput>> getSuggestionsSkeleton({
@@ -116,7 +117,8 @@ final class UnspeccedService {
         client: $client,
       );
 
-  /// Get a list of suggestions (feeds and users) tagged with categories
+  /// Get a list of suggestions (feeds and users) tagged with
+  /// categories
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
   Future<XRPCResponse<GetTaggedSuggestionsOutput>> getTaggedSuggestions({

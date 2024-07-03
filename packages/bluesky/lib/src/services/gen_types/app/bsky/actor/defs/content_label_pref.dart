@@ -32,8 +32,8 @@ class ContentLabelPref with _$ContentLabelPref {
     @JsonKey(name: r'$type')
     String $type,
 
-    /// Which labeler does this preference apply to? If undefined, applies
-    /// globally.
+    /// Which labeler does this preference apply to? If undefined,
+    /// applies globally.
     String? labelerDid,
     required String label,
     @UContentLabelPrefVisibilityConverter()

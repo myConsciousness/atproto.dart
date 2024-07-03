@@ -16,11 +16,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'known_interaction_event.freezed.dart';
 
 enum KnownInteractionEvent {
-  /// Request that less content like the given feed item be shown in the feed
+  /// Request that less content like the given feed item be shown in
+  /// the feed
   @JsonValue('app.bsky.feed.defs#requestLess')
   requestLess('app.bsky.feed.defs#requestLess'),
 
-  /// Request that more content like the given feed item be shown in the feed
+  /// Request that more content like the given feed item be shown in
+  /// the feed
   @JsonValue('app.bsky.feed.defs#requestMore')
   requestMore('app.bsky.feed.defs#requestMore'),
 

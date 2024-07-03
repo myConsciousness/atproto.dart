@@ -21,9 +21,9 @@ part 'params.g.dart';
 class QueryLabelsParams with _$QueryLabelsParams {
   @JsonSerializable(includeIfNull: false)
   const factory QueryLabelsParams({
-    /// List of AT URI patterns to match (boolean 'OR'). Each may be a prefix
-    /// (ending with '*'; will match inclusive of the string leading to '*'), or a
-    /// full URI.
+    /// List of AT URI patterns to match (boolean 'OR'). Each may be a
+    /// prefix (ending with '*'; will match inclusive of the string
+    /// leading to '*'), or a full URI.
     required List<String> uriPatterns,
 
     /// Optional list of label sources (DIDs) to filter on.

@@ -26,7 +26,8 @@ final class NotificationService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
+  /// Register to receive push notifications, via a specified service,
+  /// for the requesting account. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush
   Future<XRPCResponse<EmptyData>> registerPush({
@@ -49,7 +50,8 @@ final class NotificationService {
         client: $client,
       );
 
-  /// Enumerate notifications for the requesting account. Requires auth.
+  /// Enumerate notifications for the requesting account. Requires
+  /// auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
   Future<XRPCResponse<ListNotificationsOutput>> listNotifications({
@@ -71,7 +73,8 @@ final class NotificationService {
         client: $client,
       );
 
-  /// Notify server that the requesting account has seen notifications. Requires auth.
+  /// Notify server that the requesting account has seen notifications.
+  /// Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
   Future<XRPCResponse<EmptyData>> updateSeen({
@@ -88,7 +91,8 @@ final class NotificationService {
         client: $client,
       );
 
-  /// Count the number of unread notifications for the requesting account. Requires auth.
+  /// Count the number of unread notifications for the requesting
+  /// account. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
   Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount({

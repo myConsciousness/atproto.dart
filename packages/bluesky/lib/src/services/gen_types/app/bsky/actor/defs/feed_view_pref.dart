@@ -40,7 +40,8 @@ class FeedViewPref with _$FeedViewPref {
     /// Hide replies in the feed if they are not by followed users.
     @Default(true) bool hideRepliesByUnfollowed,
 
-    /// Hide replies in the feed if they do not have this number of likes.
+    /// Hide replies in the feed if they do not have this number of
+    /// likes.
     @Default(0) int hideRepliesByLikeCount,
 
     /// Hide reposts in the feed.

@@ -35,7 +35,8 @@ class TemplateView with _$TemplateView {
     /// Name of the template.
     required String name,
 
-    /// Content of the template, can contain markdown and variable placeholders.
+    /// Content of the template, can contain markdown and variable
+    /// placeholders.
     String? subject,
 
     /// Subject of the message, used in emails.

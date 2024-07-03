@@ -19,8 +19,9 @@ import '../../../../../../ids.g.dart';
 part 'mention.freezed.dart';
 part 'mention.g.dart';
 
-/// Facet feature for mention of another account. The text is usually a handle,
-/// including a '@' prefix, but the facet reference is a DID.
+/// Facet feature for mention of another account. The text is usually
+/// a handle, including a '@' prefix, but the facet reference is a
+/// DID.
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
 @freezed

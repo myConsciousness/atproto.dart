@@ -35,7 +35,8 @@ mixin _$FeedViewPref {
   /// Hide replies in the feed if they are not by followed users.
   bool get hideRepliesByUnfollowed => throw _privateConstructorUsedError;
 
-  /// Hide replies in the feed if they do not have this number of likes.
+  /// Hide replies in the feed if they do not have this number of
+  /// likes.
   int get hideRepliesByLikeCount => throw _privateConstructorUsedError;
 
   /// Hide reposts in the feed.
@@ -245,7 +246,8 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
   @JsonKey()
   final bool hideRepliesByUnfollowed;
 
-  /// Hide replies in the feed if they do not have this number of likes.
+  /// Hide replies in the feed if they do not have this number of
+  /// likes.
   @override
   @JsonKey()
   final int hideRepliesByLikeCount;
@@ -363,7 +365,8 @@ abstract class _FeedViewPref implements FeedViewPref {
   bool get hideRepliesByUnfollowed;
   @override
 
-  /// Hide replies in the feed if they do not have this number of likes.
+  /// Hide replies in the feed if they do not have this number of
+  /// likes.
   int get hideRepliesByLikeCount;
   @override
 

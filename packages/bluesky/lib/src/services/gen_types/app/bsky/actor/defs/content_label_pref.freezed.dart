@@ -26,8 +26,8 @@ mixin _$ContentLabelPref {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
-  /// Which labeler does this preference apply to? If undefined, applies
-  /// globally.
+  /// Which labeler does this preference apply to? If undefined,
+  /// applies globally.
   String? get labelerDid => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
   @UContentLabelPrefVisibilityConverter()
@@ -198,8 +198,8 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
   @JsonKey(name: r'$type')
   final String $type;
 
-  /// Which labeler does this preference apply to? If undefined, applies
-  /// globally.
+  /// Which labeler does this preference apply to? If undefined,
+  /// applies globally.
   @override
   final String? labelerDid;
   @override
@@ -283,8 +283,8 @@ abstract class _ContentLabelPref implements ContentLabelPref {
   String get $type;
   @override
 
-  /// Which labeler does this preference apply to? If undefined, applies
-  /// globally.
+  /// Which labeler does this preference apply to? If undefined,
+  /// applies globally.
   String? get labelerDid;
   @override
   String get label;

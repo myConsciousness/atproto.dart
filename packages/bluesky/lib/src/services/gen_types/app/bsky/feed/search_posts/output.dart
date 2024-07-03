@@ -26,8 +26,8 @@ class SearchPostsOutput with _$SearchPostsOutput {
   const factory SearchPostsOutput({
     String? cursor,
 
-    /// Count of search hits. Optional, may be rounded/truncated, and may not be
-    /// possible to paginate through all hits.
+    /// Count of search hits. Optional, may be rounded/truncated, and may
+    /// not be possible to paginate through all hits.
     @Default(0) int hitsTotal,
     @PostViewConverter() required List<PostView> posts,
 

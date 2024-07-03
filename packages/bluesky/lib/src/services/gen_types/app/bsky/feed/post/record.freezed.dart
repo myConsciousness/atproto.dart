@@ -26,7 +26,8 @@ mixin _$PostRecord {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
-  /// The primary post content. May be an empty string, if there are embeds.
+  /// The primary post content. May be an empty string, if there are
+  /// embeds.
   String get text => throw _privateConstructorUsedError;
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
@@ -44,7 +45,8 @@ mixin _$PostRecord {
   @UPostLabelConverter()
   UPostLabel? get labels => throw _privateConstructorUsedError;
 
-  /// Additional hashtags, in addition to any included in post text and facets.
+  /// Additional hashtags, in addition to any included in post text and
+  /// facets.
   List<String>? get tags => throw _privateConstructorUsedError;
 
   /// Client-declared timestamp when this post was originally created.
@@ -313,7 +315,8 @@ class _$PostRecordImpl implements _PostRecord {
   @JsonKey(name: r'$type')
   final String $type;
 
-  /// The primary post content. May be an empty string, if there are embeds.
+  /// The primary post content. May be an empty string, if there are
+  /// embeds.
   @override
   final String text;
 
@@ -356,10 +359,12 @@ class _$PostRecordImpl implements _PostRecord {
   @UPostLabelConverter()
   final UPostLabel? labels;
 
-  /// Additional hashtags, in addition to any included in post text and facets.
+  /// Additional hashtags, in addition to any included in post text and
+  /// facets.
   final List<String>? _tags;
 
-  /// Additional hashtags, in addition to any included in post text and facets.
+  /// Additional hashtags, in addition to any included in post text and
+  /// facets.
   @override
   List<String>? get tags {
     final value = _tags;
@@ -465,7 +470,8 @@ abstract class _PostRecord implements PostRecord {
   String get $type;
   @override
 
-  /// The primary post content. May be an empty string, if there are embeds.
+  /// The primary post content. May be an empty string, if there are
+  /// embeds.
   String get text;
   @override
 
@@ -489,7 +495,8 @@ abstract class _PostRecord implements PostRecord {
   UPostLabel? get labels;
   @override
 
-  /// Additional hashtags, in addition to any included in post text and facets.
+  /// Additional hashtags, in addition to any included in post text and
+  /// facets.
   List<String>? get tags;
   @override
 

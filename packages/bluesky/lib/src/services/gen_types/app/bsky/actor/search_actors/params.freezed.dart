@@ -20,8 +20,8 @@ SearchActorsParams _$SearchActorsParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchActorsParams {
-  /// Search query string. Syntax, phrase, boolean, and faceting is unspecified,
-  /// but Lucene query syntax is recommended.
+  /// Search query string. Syntax, phrase, boolean, and faceting is
+  /// unspecified, but Lucene query syntax is recommended.
   String? get q => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -154,8 +154,8 @@ class _$SearchActorsParamsImpl implements _SearchActorsParams {
   factory _$SearchActorsParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SearchActorsParamsImplFromJson(json);
 
-  /// Search query string. Syntax, phrase, boolean, and faceting is unspecified,
-  /// but Lucene query syntax is recommended.
+  /// Search query string. Syntax, phrase, boolean, and faceting is
+  /// unspecified, but Lucene query syntax is recommended.
   @override
   final String? q;
   @override
@@ -226,8 +226,8 @@ abstract class _SearchActorsParams implements SearchActorsParams {
 
   @override
 
-  /// Search query string. Syntax, phrase, boolean, and faceting is unspecified,
-  /// but Lucene query syntax is recommended.
+  /// Search query string. Syntax, phrase, boolean, and faceting is
+  /// unspecified, but Lucene query syntax is recommended.
   String? get q;
   @override
   int? get limit;

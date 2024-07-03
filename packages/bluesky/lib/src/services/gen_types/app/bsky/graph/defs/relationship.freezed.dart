@@ -27,12 +27,13 @@ mixin _$Relationship {
   String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
-  /// if the actor follows this DID, this is the AT-URI of the follow record
+  /// if the actor follows this DID, this is the AT-URI of the follow
+  /// record
   @AtUriConverter()
   AtUri? get following => throw _privateConstructorUsedError;
 
-  /// if the actor is followed by this DID, contains the AT-URI of the follow
-  /// record
+  /// if the actor is followed by this DID, contains the AT-URI of the
+  /// follow record
   @AtUriConverter()
   AtUri? get followedBy => throw _privateConstructorUsedError;
 
@@ -186,13 +187,14 @@ class _$RelationshipImpl implements _Relationship {
   @override
   final String did;
 
-  /// if the actor follows this DID, this is the AT-URI of the follow record
+  /// if the actor follows this DID, this is the AT-URI of the follow
+  /// record
   @override
   @AtUriConverter()
   final AtUri? following;
 
-  /// if the actor is followed by this DID, contains the AT-URI of the follow
-  /// record
+  /// if the actor is followed by this DID, contains the AT-URI of the
+  /// follow record
   @override
   @AtUriConverter()
   final AtUri? followedBy;
@@ -272,13 +274,14 @@ abstract class _Relationship implements Relationship {
   String get did;
   @override
 
-  /// if the actor follows this DID, this is the AT-URI of the follow record
+  /// if the actor follows this DID, this is the AT-URI of the follow
+  /// record
   @AtUriConverter()
   AtUri? get following;
   @override
 
-  /// if the actor is followed by this DID, contains the AT-URI of the follow
-  /// record
+  /// if the actor is followed by this DID, contains the AT-URI of the
+  /// follow record
   @AtUriConverter()
   AtUri? get followedBy;
   @override

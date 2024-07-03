@@ -33,7 +33,8 @@ mixin _$LabelValueDefinitionStrings {
   /// A short human-readable name for the label.
   String get name => throw _privateConstructorUsedError;
 
-  /// A longer description of what the label means and why it might be applied.
+  /// A longer description of what the label means and why it might be
+  /// applied.
   String get description => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -201,7 +202,8 @@ class _$LabelValueDefinitionStringsImpl
   @override
   final String name;
 
-  /// A longer description of what the label means and why it might be applied.
+  /// A longer description of what the label means and why it might be
+  /// applied.
   @override
   final String description;
 
@@ -287,7 +289,8 @@ abstract class _LabelValueDefinitionStrings
   String get name;
   @override
 
-  /// A longer description of what the label means and why it might be applied.
+  /// A longer description of what the label means and why it might be
+  /// applied.
   String get description;
   @override
 

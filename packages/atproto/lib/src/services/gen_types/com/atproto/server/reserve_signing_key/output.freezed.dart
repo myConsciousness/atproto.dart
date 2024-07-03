@@ -21,7 +21,8 @@ ReserveSigningKeyOutput _$ReserveSigningKeyOutputFromJson(
 
 /// @nodoc
 mixin _$ReserveSigningKeyOutput {
-  /// The public key for the reserved signing key, in did:key serialization.
+  /// The public key for the reserved signing key, in did:key
+  /// serialization.
   String get signingKey => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -130,7 +131,8 @@ class _$ReserveSigningKeyOutputImpl implements _ReserveSigningKeyOutput {
   factory _$ReserveSigningKeyOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReserveSigningKeyOutputImplFromJson(json);
 
-  /// The public key for the reserved signing key, in did:key serialization.
+  /// The public key for the reserved signing key, in did:key
+  /// serialization.
   @override
   final String signingKey;
 
@@ -194,7 +196,8 @@ abstract class _ReserveSigningKeyOutput implements ReserveSigningKeyOutput {
 
   @override
 
-  /// The public key for the reserved signing key, in did:key serialization.
+  /// The public key for the reserved signing key, in did:key
+  /// serialization.
   String get signingKey;
   @override
 

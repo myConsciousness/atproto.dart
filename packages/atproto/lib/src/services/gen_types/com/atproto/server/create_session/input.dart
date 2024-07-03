@@ -21,8 +21,8 @@ part 'input.g.dart';
 class CreateSessionInput with _$CreateSessionInput {
   @JsonSerializable(includeIfNull: false)
   const factory CreateSessionInput({
-    /// Handle or other identifier supported by the server for the authenticating
-    /// user.
+    /// Handle or other identifier supported by the server for the
+    /// authenticating user.
     required String identifier,
     required String password,
     String? authFactorToken,

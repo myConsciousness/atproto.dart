@@ -24,8 +24,8 @@ class UpdateEmailInput with _$UpdateEmailInput {
     required String email,
     bool? emailAuthFactor,
 
-    /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's
-    /// email has been confirmed.
+    /// Requires a token from com.atproto.sever.requestEmailUpdate if the
+    /// account's email has been confirmed.
     String? token,
 
     /// Contains unknown objects not defined in Lexicon.

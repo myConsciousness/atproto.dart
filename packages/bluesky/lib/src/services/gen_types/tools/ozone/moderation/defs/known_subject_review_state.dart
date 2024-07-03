@@ -16,19 +16,24 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'known_subject_review_state.freezed.dart';
 
 enum KnownSubjectReviewState {
-  /// Moderator review status of a subject: Open. Indicates that the subject needs to be reviewed by a moderator
+  /// Moderator review status of a subject: Open. Indicates that the
+  /// subject needs to be reviewed by a moderator
   @JsonValue('#reviewOpen')
   reviewOpen('#reviewOpen'),
 
-  /// Moderator review status of a subject: Escalated. Indicates that the subject was escalated for review by a moderator
+  /// Moderator review status of a subject: Escalated. Indicates that
+  /// the subject was escalated for review by a moderator
   @JsonValue('#reviewEscalated')
   reviewEscalated('#reviewEscalated'),
 
-  /// Moderator review status of a subject: Closed. Indicates that the subject was already reviewed and resolved by a moderator
+  /// Moderator review status of a subject: Closed. Indicates that the
+  /// subject was already reviewed and resolved by a moderator
   @JsonValue('#reviewClosed')
   reviewClosed('#reviewClosed'),
 
-  /// Moderator review status of a subject: Unnecessary. Indicates that the subject does not need a review at the moment but there is probably some moderation related metadata available for it
+  /// Moderator review status of a subject: Unnecessary. Indicates that
+  /// the subject does not need a review at the moment but there is
+  /// probably some moderation related metadata available for it
   @JsonValue('#reviewNone')
   reviewNone('#reviewNone'),
   ;

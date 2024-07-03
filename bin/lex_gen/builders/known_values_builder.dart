@@ -8,6 +8,7 @@ import 'package:lexicon/lexicon.dart';
 // 🌎 Project imports:
 import '../rules/utils.dart';
 import '../types/known_values.dart';
+import '../types/dart_doc.dart';
 
 final class LexKnownValuesBuilder {
   const LexKnownValuesBuilder({
@@ -44,7 +45,7 @@ final class LexKnownValuesBuilder {
     final path = docId.toString().replaceAll('.', '/');
 
     return LexGenKnownValues(
-      description: description,
+      dartDoc: DartDoc(description: description),
       name: objectName,
       elements: elements,
       fileName: fileName,
@@ -64,7 +65,7 @@ final class LexKnownValuesBuilder {
         if (refToken is ULexUserTypeToken) {
           elements.add(
             LexGenKnownValuesElement(
-              description: refToken.data.description,
+              dartDoc: DartDoc(description: refToken.data.description),
               name: segments.last,
               value: knownValue,
             ),
@@ -77,7 +78,7 @@ final class LexKnownValuesBuilder {
           if (refToken is ULexUserTypeToken) {
             elements.add(
               LexGenKnownValuesElement(
-                description: refToken.data.description,
+                dartDoc: DartDoc(description: refToken.data.description),
                 name: knownValue.substring(1),
                 value: knownValue,
               ),

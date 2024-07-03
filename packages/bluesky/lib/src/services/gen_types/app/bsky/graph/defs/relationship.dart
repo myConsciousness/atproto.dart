@@ -20,9 +20,9 @@ import '../../../../../../ids.g.dart';
 part 'relationship.freezed.dart';
 part 'relationship.g.dart';
 
-/// lists the bi-directional graph relationships between one actor (not
-/// indicated in the object), and the target actors (the DID included in the
-/// object)
+/// lists the bi-directional graph relationships between one actor
+/// (not indicated in the object), and the target actors (the DID
+/// included in the object)
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#relationship
 @freezed
@@ -37,11 +37,12 @@ class Relationship with _$Relationship {
     String $type,
     required String did,
 
-    /// if the actor follows this DID, this is the AT-URI of the follow record
+    /// if the actor follows this DID, this is the AT-URI of the follow
+    /// record
     @AtUriConverter() AtUri? following,
 
-    /// if the actor is followed by this DID, contains the AT-URI of the follow
-    /// record
+    /// if the actor is followed by this DID, contains the AT-URI of the
+    /// follow record
     @AtUriConverter() AtUri? followedBy,
 
     /// Contains unknown objects not defined in Lexicon.

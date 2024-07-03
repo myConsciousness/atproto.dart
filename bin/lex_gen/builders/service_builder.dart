@@ -11,6 +11,7 @@ import '../rules/utils.dart';
 import '../types/data_type.dart';
 import '../types/export.dart';
 import '../types/object.dart';
+import '../types/dart_doc.dart';
 import '../types/service.dart';
 import '../types/service_context.dart';
 
@@ -56,8 +57,10 @@ final class ServiceBuilder {
       endpoints.add(
         LexServiceEndpoint(
           def: endpoint.def,
-          description: _getEndpointDescription(endpoint),
-          referencePath: endpoint.referencePath,
+          dartDoc: DartDoc(
+            description: _getEndpointDescription(endpoint),
+            reference: endpoint.referencePath,
+          ),
           args: _getServiceEndpointArgs(endpoint),
           serviceName: endpoint.serviceName,
           name: endpoint.name,

@@ -20,52 +20,56 @@ SearchPostsParams _$SearchPostsParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchPostsParams {
-  /// Search query string; syntax, phrase, boolean, and faceting is unspecified,
-  /// but Lucene query syntax is recommended.
+  /// Search query string; syntax, phrase, boolean, and faceting is
+  /// unspecified, but Lucene query syntax is recommended.
   String get q => throw _privateConstructorUsedError;
 
   /// Specifies the ranking order of results.
   @USearchPostsSortConverter()
   USearchPostsSort? get sort => throw _privateConstructorUsedError;
 
-  /// Filter results for posts after the indicated datetime (inclusive). Expected
-  /// to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a
-  /// datetime, or just an ISO date (YYYY-MM-DD).
+  /// Filter results for posts after the indicated datetime
+  /// (inclusive). Expected to use 'sortAt' timestamp, which may not
+  /// match 'createdAt'. Can be a datetime, or just an ISO date
+  /// (YYYY-MM-DD).
   String? get since => throw _privateConstructorUsedError;
 
-  /// Filter results for posts before the indicated datetime (not inclusive).
-  /// Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be
-  /// a datetime, or just an ISO date (YYY-MM-DD).
+  /// Filter results for posts before the indicated datetime (not
+  /// inclusive). Expected to use 'sortAt' timestamp, which may not
+  /// match 'createdAt'. Can be a datetime, or just an ISO date
+  /// (YYY-MM-DD).
   String? get until => throw _privateConstructorUsedError;
 
-  /// Filter to posts which mention the given account. Handles are resolved to
-  /// DID before query-time. Only matches rich-text facet mentions.
+  /// Filter to posts which mention the given account. Handles are
+  /// resolved to DID before query-time. Only matches rich-text facet
+  /// mentions.
   String? get mentions => throw _privateConstructorUsedError;
 
-  /// Filter to posts by the given account. Handles are resolved to DID before
-  /// query-time.
+  /// Filter to posts by the given account. Handles are resolved to DID
+  /// before query-time.
   String? get author => throw _privateConstructorUsedError;
 
-  /// Filter to posts in the given language. Expected to be based on post
-  /// language field, though server may override language detection.
+  /// Filter to posts in the given language. Expected to be based on
+  /// post language field, though server may override language
+  /// detection.
   String? get lang => throw _privateConstructorUsedError;
 
-  /// Filter to posts with URLs (facet links or embeds) linking to the given
-  /// domain (hostname). Server may apply hostname normalization.
+  /// Filter to posts with URLs (facet links or embeds) linking to the
+  /// given domain (hostname). Server may apply hostname normalization.
   String? get domain => throw _privateConstructorUsedError;
 
-  /// Filter to posts with links (facet links or embeds) pointing to this URL.
-  /// Server may apply URL normalization or fuzzy matching.
+  /// Filter to posts with links (facet links or embeds) pointing to
+  /// this URL. Server may apply URL normalization or fuzzy matching.
   String? get url => throw _privateConstructorUsedError;
 
-  /// Filter to posts with the given tag (hashtag), based on rich-text facet or
-  /// tag field. Do not include the hash (#) prefix. Multiple tags can be
-  /// specified, with 'AND' matching.
+  /// Filter to posts with the given tag (hashtag), based on rich-text
+  /// facet or tag field. Do not include the hash (#) prefix. Multiple
+  /// tags can be specified, with 'AND' matching.
   List<String>? get tag => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
 
-  /// Optional pagination mechanism; may not necessarily allow scrolling through
-  /// entire result set.
+  /// Optional pagination mechanism; may not necessarily allow
+  /// scrolling through entire result set.
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -331,8 +335,8 @@ class _$SearchPostsParamsImpl implements _SearchPostsParams {
   factory _$SearchPostsParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SearchPostsParamsImplFromJson(json);
 
-  /// Search query string; syntax, phrase, boolean, and faceting is unspecified,
-  /// but Lucene query syntax is recommended.
+  /// Search query string; syntax, phrase, boolean, and faceting is
+  /// unspecified, but Lucene query syntax is recommended.
   @override
   final String q;
 
@@ -341,51 +345,55 @@ class _$SearchPostsParamsImpl implements _SearchPostsParams {
   @USearchPostsSortConverter()
   final USearchPostsSort? sort;
 
-  /// Filter results for posts after the indicated datetime (inclusive). Expected
-  /// to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a
-  /// datetime, or just an ISO date (YYYY-MM-DD).
+  /// Filter results for posts after the indicated datetime
+  /// (inclusive). Expected to use 'sortAt' timestamp, which may not
+  /// match 'createdAt'. Can be a datetime, or just an ISO date
+  /// (YYYY-MM-DD).
   @override
   final String? since;
 
-  /// Filter results for posts before the indicated datetime (not inclusive).
-  /// Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be
-  /// a datetime, or just an ISO date (YYY-MM-DD).
+  /// Filter results for posts before the indicated datetime (not
+  /// inclusive). Expected to use 'sortAt' timestamp, which may not
+  /// match 'createdAt'. Can be a datetime, or just an ISO date
+  /// (YYY-MM-DD).
   @override
   final String? until;
 
-  /// Filter to posts which mention the given account. Handles are resolved to
-  /// DID before query-time. Only matches rich-text facet mentions.
+  /// Filter to posts which mention the given account. Handles are
+  /// resolved to DID before query-time. Only matches rich-text facet
+  /// mentions.
   @override
   final String? mentions;
 
-  /// Filter to posts by the given account. Handles are resolved to DID before
-  /// query-time.
+  /// Filter to posts by the given account. Handles are resolved to DID
+  /// before query-time.
   @override
   final String? author;
 
-  /// Filter to posts in the given language. Expected to be based on post
-  /// language field, though server may override language detection.
+  /// Filter to posts in the given language. Expected to be based on
+  /// post language field, though server may override language
+  /// detection.
   @override
   final String? lang;
 
-  /// Filter to posts with URLs (facet links or embeds) linking to the given
-  /// domain (hostname). Server may apply hostname normalization.
+  /// Filter to posts with URLs (facet links or embeds) linking to the
+  /// given domain (hostname). Server may apply hostname normalization.
   @override
   final String? domain;
 
-  /// Filter to posts with links (facet links or embeds) pointing to this URL.
-  /// Server may apply URL normalization or fuzzy matching.
+  /// Filter to posts with links (facet links or embeds) pointing to
+  /// this URL. Server may apply URL normalization or fuzzy matching.
   @override
   final String? url;
 
-  /// Filter to posts with the given tag (hashtag), based on rich-text facet or
-  /// tag field. Do not include the hash (#) prefix. Multiple tags can be
-  /// specified, with 'AND' matching.
+  /// Filter to posts with the given tag (hashtag), based on rich-text
+  /// facet or tag field. Do not include the hash (#) prefix. Multiple
+  /// tags can be specified, with 'AND' matching.
   final List<String>? _tag;
 
-  /// Filter to posts with the given tag (hashtag), based on rich-text facet or
-  /// tag field. Do not include the hash (#) prefix. Multiple tags can be
-  /// specified, with 'AND' matching.
+  /// Filter to posts with the given tag (hashtag), based on rich-text
+  /// facet or tag field. Do not include the hash (#) prefix. Multiple
+  /// tags can be specified, with 'AND' matching.
   @override
   List<String>? get tag {
     final value = _tag;
@@ -398,8 +406,8 @@ class _$SearchPostsParamsImpl implements _SearchPostsParams {
   @override
   final int? limit;
 
-  /// Optional pagination mechanism; may not necessarily allow scrolling through
-  /// entire result set.
+  /// Optional pagination mechanism; may not necessarily allow
+  /// scrolling through entire result set.
   @override
   final String? cursor;
 
@@ -498,8 +506,8 @@ abstract class _SearchPostsParams implements SearchPostsParams {
 
   @override
 
-  /// Search query string; syntax, phrase, boolean, and faceting is unspecified,
-  /// but Lucene query syntax is recommended.
+  /// Search query string; syntax, phrase, boolean, and faceting is
+  /// unspecified, but Lucene query syntax is recommended.
   String get q;
   @override
 
@@ -508,53 +516,57 @@ abstract class _SearchPostsParams implements SearchPostsParams {
   USearchPostsSort? get sort;
   @override
 
-  /// Filter results for posts after the indicated datetime (inclusive). Expected
-  /// to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a
-  /// datetime, or just an ISO date (YYYY-MM-DD).
+  /// Filter results for posts after the indicated datetime
+  /// (inclusive). Expected to use 'sortAt' timestamp, which may not
+  /// match 'createdAt'. Can be a datetime, or just an ISO date
+  /// (YYYY-MM-DD).
   String? get since;
   @override
 
-  /// Filter results for posts before the indicated datetime (not inclusive).
-  /// Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be
-  /// a datetime, or just an ISO date (YYY-MM-DD).
+  /// Filter results for posts before the indicated datetime (not
+  /// inclusive). Expected to use 'sortAt' timestamp, which may not
+  /// match 'createdAt'. Can be a datetime, or just an ISO date
+  /// (YYY-MM-DD).
   String? get until;
   @override
 
-  /// Filter to posts which mention the given account. Handles are resolved to
-  /// DID before query-time. Only matches rich-text facet mentions.
+  /// Filter to posts which mention the given account. Handles are
+  /// resolved to DID before query-time. Only matches rich-text facet
+  /// mentions.
   String? get mentions;
   @override
 
-  /// Filter to posts by the given account. Handles are resolved to DID before
-  /// query-time.
+  /// Filter to posts by the given account. Handles are resolved to DID
+  /// before query-time.
   String? get author;
   @override
 
-  /// Filter to posts in the given language. Expected to be based on post
-  /// language field, though server may override language detection.
+  /// Filter to posts in the given language. Expected to be based on
+  /// post language field, though server may override language
+  /// detection.
   String? get lang;
   @override
 
-  /// Filter to posts with URLs (facet links or embeds) linking to the given
-  /// domain (hostname). Server may apply hostname normalization.
+  /// Filter to posts with URLs (facet links or embeds) linking to the
+  /// given domain (hostname). Server may apply hostname normalization.
   String? get domain;
   @override
 
-  /// Filter to posts with links (facet links or embeds) pointing to this URL.
-  /// Server may apply URL normalization or fuzzy matching.
+  /// Filter to posts with links (facet links or embeds) pointing to
+  /// this URL. Server may apply URL normalization or fuzzy matching.
   String? get url;
   @override
 
-  /// Filter to posts with the given tag (hashtag), based on rich-text facet or
-  /// tag field. Do not include the hash (#) prefix. Multiple tags can be
-  /// specified, with 'AND' matching.
+  /// Filter to posts with the given tag (hashtag), based on rich-text
+  /// facet or tag field. Do not include the hash (#) prefix. Multiple
+  /// tags can be specified, with 'AND' matching.
   List<String>? get tag;
   @override
   int? get limit;
   @override
 
-  /// Optional pagination mechanism; may not necessarily allow scrolling through
-  /// entire result set.
+  /// Optional pagination mechanism; may not necessarily allow
+  /// scrolling through entire result set.
   String? get cursor;
   @override
 

@@ -26,7 +26,9 @@ final class ModerationService {
 
   final ATProtoServiceContext _ctx;
 
-  /// Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.
+  /// Submit a moderation report regarding an atproto account or
+  /// record. Implemented by moderation services (with PDS proxying),
+  /// and requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createReport
   Future<XRPCResponse<CreateReportOutput>> createReport({

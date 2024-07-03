@@ -25,12 +25,12 @@ part 'output.g.dart';
 class DescribeServerOutput with _$DescribeServerOutput {
   @JsonSerializable(includeIfNull: false)
   const factory DescribeServerOutput({
-    /// If true, an invite code must be supplied to create an account on this
-    /// instance.
+    /// If true, an invite code must be supplied to create an account on
+    /// this instance.
     @Default(false) bool inviteCodeRequired,
 
-    /// If true, a phone verification token must be supplied to create an account
-    /// on this instance.
+    /// If true, a phone verification token must be supplied to create an
+    /// account on this instance.
     @Default(false) bool phoneVerificationRequired,
 
     /// List of domain suffixes that can be used in account handles.

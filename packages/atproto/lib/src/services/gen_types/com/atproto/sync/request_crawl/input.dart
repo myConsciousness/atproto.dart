@@ -21,7 +21,8 @@ part 'input.g.dart';
 class RequestCrawlInput with _$RequestCrawlInput {
   @JsonSerializable(includeIfNull: false)
   const factory RequestCrawlInput({
-    /// Hostname of the current service (eg, PDS) that is requesting to be crawled.
+    /// Hostname of the current service (eg, PDS) that is requesting to
+    /// be crawled.
     required String hostname,
 
     /// Contains unknown objects not defined in Lexicon.

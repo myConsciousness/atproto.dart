@@ -5,6 +5,7 @@
 // 🌎 Project imports:
 import '../../utils.dart';
 import '../rules/utils.dart';
+import 'dart_doc.dart';
 
 const _kFreezedAnnotationPackage =
     "import 'package:freezed_annotation/freezed_annotation.dart';";
@@ -41,14 +42,14 @@ String _getUnionDartDoc(final String name) =>
 
 final class LexGenKnownValues {
   const LexGenKnownValues({
-    this.description,
+    this.dartDoc,
     required this.name,
     required this.elements,
     required this.fileName,
     required this.filePath,
   });
 
-  final String? description;
+  final DartDoc? dartDoc;
   final String name;
   final List<LexGenKnownValuesElement> elements;
 
@@ -68,6 +69,7 @@ final class LexGenKnownValues {
       ..writeln();
 
     // Known values
+    buffer.writeln(dartDoc.toString());
     buffer.writeln('enum Known$name {');
     for (final element in elements) {
       buffer.write(element.toString());
@@ -205,12 +207,12 @@ final class LexGenKnownValues {
 
 final class LexGenKnownValuesElement {
   const LexGenKnownValuesElement({
-    this.description,
+    this.dartDoc,
     required this.name,
     this.value,
   });
 
-  final String? description;
+  final DartDoc? dartDoc;
   final String name;
   final String? value;
 
@@ -218,8 +220,8 @@ final class LexGenKnownValuesElement {
   String toString() {
     final buffer = StringBuffer();
 
-    if (description != null) {
-      buffer.writeln('/// $description');
+    if (dartDoc != null) {
+      buffer.writeln(dartDoc.toString());
     }
 
     if (value != null) {

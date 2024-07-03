@@ -24,46 +24,50 @@ part 'params.g.dart';
 class SearchPostsSkeletonParams with _$SearchPostsSkeletonParams {
   @JsonSerializable(includeIfNull: false)
   const factory SearchPostsSkeletonParams({
-    /// Search query string; syntax, phrase, boolean, and faceting is unspecified,
-    /// but Lucene query syntax is recommended.
+    /// Search query string; syntax, phrase, boolean, and faceting is
+    /// unspecified, but Lucene query syntax is recommended.
     required String q,
 
     /// Specifies the ranking order of results.
     @USearchPostsSkeletonSortConverter() USearchPostsSkeletonSort? sort,
 
-    /// Filter results for posts after the indicated datetime (inclusive). Expected
-    /// to use 'sortAt' timestamp, which may not match 'createdAt'. Can be a
-    /// datetime, or just an ISO date (YYYY-MM-DD).
+    /// Filter results for posts after the indicated datetime
+    /// (inclusive). Expected to use 'sortAt' timestamp, which may not
+    /// match 'createdAt'. Can be a datetime, or just an ISO date
+    /// (YYYY-MM-DD).
     String? since,
 
-    /// Filter results for posts before the indicated datetime (not inclusive).
-    /// Expected to use 'sortAt' timestamp, which may not match 'createdAt'. Can be
-    /// a datetime, or just an ISO date (YYY-MM-DD).
+    /// Filter results for posts before the indicated datetime (not
+    /// inclusive). Expected to use 'sortAt' timestamp, which may not
+    /// match 'createdAt'. Can be a datetime, or just an ISO date
+    /// (YYY-MM-DD).
     String? until,
 
-    /// Filter to posts which mention the given account. Handles are resolved to
-    /// DID before query-time. Only matches rich-text facet mentions.
+    /// Filter to posts which mention the given account. Handles are
+    /// resolved to DID before query-time. Only matches rich-text facet
+    /// mentions.
     String? mentions,
 
-    /// Filter to posts by the given account. Handles are resolved to DID before
-    /// query-time.
+    /// Filter to posts by the given account. Handles are resolved to DID
+    /// before query-time.
     String? author,
 
-    /// Filter to posts in the given language. Expected to be based on post
-    /// language field, though server may override language detection.
+    /// Filter to posts in the given language. Expected to be based on
+    /// post language field, though server may override language
+    /// detection.
     String? lang,
 
-    /// Filter to posts with URLs (facet links or embeds) linking to the given
-    /// domain (hostname). Server may apply hostname normalization.
+    /// Filter to posts with URLs (facet links or embeds) linking to the
+    /// given domain (hostname). Server may apply hostname normalization.
     String? domain,
 
-    /// Filter to posts with links (facet links or embeds) pointing to this URL.
-    /// Server may apply URL normalization or fuzzy matching.
+    /// Filter to posts with links (facet links or embeds) pointing to
+    /// this URL. Server may apply URL normalization or fuzzy matching.
     String? url,
 
-    /// Filter to posts with the given tag (hashtag), based on rich-text facet or
-    /// tag field. Do not include the hash (#) prefix. Multiple tags can be
-    /// specified, with 'AND' matching.
+    /// Filter to posts with the given tag (hashtag), based on rich-text
+    /// facet or tag field. Do not include the hash (#) prefix. Multiple
+    /// tags can be specified, with 'AND' matching.
     List<String>? tag,
 
     /// DID of the account making the request (not included for
@@ -71,8 +75,8 @@ class SearchPostsSkeletonParams with _$SearchPostsSkeletonParams {
     String? viewer,
     int? limit,
 
-    /// Optional pagination mechanism; may not necessarily allow scrolling through
-    /// entire result set.
+    /// Optional pagination mechanism; may not necessarily allow
+    /// scrolling through entire result set.
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

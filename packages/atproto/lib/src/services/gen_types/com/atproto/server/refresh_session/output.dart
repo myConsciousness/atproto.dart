@@ -32,7 +32,8 @@ class RefreshSessionOutput with _$RefreshSessionOutput {
     Map<String, dynamic>? didDoc,
     @Default(false) bool active,
 
-    /// Hosting status of the account. If not specified, then assume 'active'.
+    /// Hosting status of the account. If not specified, then assume
+    /// 'active'.
     @URefreshSessionStatuConverter() URefreshSessionStatu? status,
 
     /// Contains unknown objects not defined in Lexicon.

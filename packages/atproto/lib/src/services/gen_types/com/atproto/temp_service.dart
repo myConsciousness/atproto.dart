@@ -24,7 +24,8 @@ final class TempService {
 
   final ATProtoServiceContext _ctx;
 
-  /// Request a verification code to be sent to the supplied phone number
+  /// Request a verification code to be sent to the supplied phone
+  /// number
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/temp/requestPhoneVerification
   Future<XRPCResponse<EmptyData>> requestPhoneVerification({

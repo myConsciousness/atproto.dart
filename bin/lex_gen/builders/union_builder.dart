@@ -12,6 +12,7 @@ import '../rules/utils.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
 import '../types/union.dart';
+import '../types/dart_doc.dart';
 
 final class LexUnionBuilder {
   const LexUnionBuilder({
@@ -56,7 +57,7 @@ final class LexUnionBuilder {
     final path = docId.toString().replaceAll('.', '/');
 
     return LexUnion(
-      description: description,
+      dartDoc: DartDoc(description: description),
       name: objectName,
       refs: refTypes,
       fileName: fileName,

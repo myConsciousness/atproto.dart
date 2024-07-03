@@ -42,7 +42,8 @@ class ProfileViewBasic with _$ProfileViewBasic {
     @ViewerStateConverter() @Default(ViewerState()) ViewerState viewer,
     @LabelConverter() List<Label>? labels,
 
-    /// Set to true when the actor cannot actively participate in converations
+    /// Set to true when the actor cannot actively participate in
+    /// converations
     @Default(false) bool chatDisabled,
 
     /// Contains unknown objects not defined in Lexicon.

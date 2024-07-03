@@ -24,7 +24,8 @@ enum KnownMemberRole {
   @JsonValue('#roleModerator')
   roleModerator('#roleModerator'),
 
-  /// Triage role. Mostly intended for monitoring and escalating issues.
+  /// Triage role. Mostly intended for monitoring and escalating
+  /// issues.
   @JsonValue('#roleTriage')
   roleTriage('#roleTriage'),
   ;

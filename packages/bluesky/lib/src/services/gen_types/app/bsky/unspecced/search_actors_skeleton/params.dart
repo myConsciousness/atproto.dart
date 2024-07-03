@@ -21,22 +21,23 @@ part 'params.g.dart';
 class SearchActorsSkeletonParams with _$SearchActorsSkeletonParams {
   @JsonSerializable(includeIfNull: false)
   const factory SearchActorsSkeletonParams({
-    /// Search query string; syntax, phrase, boolean, and faceting is unspecified,
-    /// but Lucene query syntax is recommended. For typeahead search, only simple
-    /// term match is supported, not full syntax.
+    /// Search query string; syntax, phrase, boolean, and faceting is
+    /// unspecified, but Lucene query syntax is recommended. For
+    /// typeahead search, only simple term match is supported, not full
+    /// syntax.
     required String q,
 
     /// DID of the account making the request (not included for
-    /// public/unauthenticated queries). Used to boost followed accounts in
-    /// ranking.
+    /// public/unauthenticated queries). Used to boost followed accounts
+    /// in ranking.
     String? viewer,
 
     /// If true, acts as fast/simple 'typeahead' query.
     bool? typeahead,
     int? limit,
 
-    /// Optional pagination mechanism; may not necessarily allow scrolling through
-    /// entire result set.
+    /// Optional pagination mechanism; may not necessarily allow
+    /// scrolling through entire result set.
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

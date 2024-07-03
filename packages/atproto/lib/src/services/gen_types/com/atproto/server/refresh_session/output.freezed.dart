@@ -27,7 +27,8 @@ mixin _$RefreshSessionOutput {
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
   bool get active => throw _privateConstructorUsedError;
 
-  /// Hosting status of the account. If not specified, then assume 'active'.
+  /// Hosting status of the account. If not specified, then assume
+  /// 'active'.
   @URefreshSessionStatuConverter()
   URefreshSessionStatu? get status => throw _privateConstructorUsedError;
 
@@ -252,7 +253,8 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
   @JsonKey()
   final bool active;
 
-  /// Hosting status of the account. If not specified, then assume 'active'.
+  /// Hosting status of the account. If not specified, then assume
+  /// 'active'.
   @override
   @URefreshSessionStatuConverter()
   final URefreshSessionStatu? status;
@@ -351,7 +353,8 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
   bool get active;
   @override
 
-  /// Hosting status of the account. If not specified, then assume 'active'.
+  /// Hosting status of the account. If not specified, then assume
+  /// 'active'.
   @URefreshSessionStatuConverter()
   URefreshSessionStatu? get status;
   @override

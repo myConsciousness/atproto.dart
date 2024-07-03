@@ -30,13 +30,13 @@ class ImagesViewImage with _$ImagesViewImage {
     /// `app.bsky.embed.images#viewImage`
     @Default(appBskyEmbedImagesViewImage) @JsonKey(name: r'$type') String $type,
 
-    /// Fully-qualified URL where a thumbnail of the image can be fetched. For
-    /// example, CDN location provided by the App View.
+    /// Fully-qualified URL where a thumbnail of the image can be
+    /// fetched. For example, CDN location provided by the App View.
     required String thumb,
 
-    /// Fully-qualified URL where a large version of the image can be fetched. May
-    /// or may not be the exact original blob. For example, CDN location provided
-    /// by the App View.
+    /// Fully-qualified URL where a large version of the image can be
+    /// fetched. May or may not be the exact original blob. For example,
+    /// CDN location provided by the App View.
     required String fullsize,
 
     /// Alt text description of the image, for accessibility.

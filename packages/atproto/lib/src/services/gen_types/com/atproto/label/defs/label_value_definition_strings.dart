@@ -19,8 +19,8 @@ import '../../../../../../ids.g.dart';
 part 'label_value_definition_strings.freezed.dart';
 part 'label_value_definition_strings.g.dart';
 
-/// Strings which describe the label in the UI, localized into a specific
-/// language.
+/// Strings which describe the label in the UI, localized into a
+/// specific language.
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinitionstrings
 @freezed
@@ -40,7 +40,8 @@ class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
     /// A short human-readable name for the label.
     required String name,
 
-    /// A longer description of what the label means and why it might be applied.
+    /// A longer description of what the label means and why it might be
+    /// applied.
     required String description,
 
     /// Contains unknown objects not defined in Lexicon.

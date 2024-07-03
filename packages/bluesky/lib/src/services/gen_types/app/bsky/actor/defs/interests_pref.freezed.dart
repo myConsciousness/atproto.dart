@@ -26,8 +26,8 @@ mixin _$InterestsPref {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
-  /// A list of tags which describe the account owner's interests gathered during
-  /// onboarding.
+  /// A list of tags which describe the account owner's interests
+  /// gathered during onboarding.
   List<String> get tags => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -153,12 +153,12 @@ class _$InterestsPrefImpl implements _InterestsPref {
   @JsonKey(name: r'$type')
   final String $type;
 
-  /// A list of tags which describe the account owner's interests gathered during
-  /// onboarding.
+  /// A list of tags which describe the account owner's interests
+  /// gathered during onboarding.
   final List<String> _tags;
 
-  /// A list of tags which describe the account owner's interests gathered during
-  /// onboarding.
+  /// A list of tags which describe the account owner's interests
+  /// gathered during onboarding.
   @override
   List<String> get tags {
     if (_tags is EqualUnmodifiableListView) return _tags;
@@ -236,8 +236,8 @@ abstract class _InterestsPref implements InterestsPref {
   String get $type;
   @override
 
-  /// A list of tags which describe the account owner's interests gathered during
-  /// onboarding.
+  /// A list of tags which describe the account owner's interests
+  /// gathered during onboarding.
   List<String> get tags;
   @override
 

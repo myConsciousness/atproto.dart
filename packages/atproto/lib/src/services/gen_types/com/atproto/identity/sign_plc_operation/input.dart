@@ -21,7 +21,8 @@ part 'input.g.dart';
 class SignPlcOperationInput with _$SignPlcOperationInput {
   @JsonSerializable(includeIfNull: false)
   const factory SignPlcOperationInput({
-    /// A token received through com.atproto.identity.requestPlcOperationSignature
+    /// A token received through
+    /// com.atproto.identity.requestPlcOperationSignature
     String? token,
     List<String>? rotationKeys,
     List<String>? alsoKnownAs,

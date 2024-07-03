@@ -29,8 +29,8 @@ mixin _$BskyAppStatePref {
   BskyAppProgressGuide? get activeProgressGuide =>
       throw _privateConstructorUsedError;
 
-  /// An array of tokens which identify nudges (modals, popups, tours, highlight
-  /// dots) that should be shown to the user.
+  /// An array of tokens which identify nudges (modals, popups, tours,
+  /// highlight dots) that should be shown to the user.
   List<String>? get queuedNudges => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -192,12 +192,12 @@ class _$BskyAppStatePrefImpl implements _BskyAppStatePref {
   @BskyAppProgressGuideConverter()
   final BskyAppProgressGuide? activeProgressGuide;
 
-  /// An array of tokens which identify nudges (modals, popups, tours, highlight
-  /// dots) that should be shown to the user.
+  /// An array of tokens which identify nudges (modals, popups, tours,
+  /// highlight dots) that should be shown to the user.
   final List<String>? _queuedNudges;
 
-  /// An array of tokens which identify nudges (modals, popups, tours, highlight
-  /// dots) that should be shown to the user.
+  /// An array of tokens which identify nudges (modals, popups, tours,
+  /// highlight dots) that should be shown to the user.
   @override
   List<String>? get queuedNudges {
     final value = _queuedNudges;
@@ -287,8 +287,8 @@ abstract class _BskyAppStatePref implements BskyAppStatePref {
   BskyAppProgressGuide? get activeProgressGuide;
   @override
 
-  /// An array of tokens which identify nudges (modals, popups, tours, highlight
-  /// dots) that should be shown to the user.
+  /// An array of tokens which identify nudges (modals, popups, tours,
+  /// highlight dots) that should be shown to the user.
   List<String>? get queuedNudges;
   @override
 

@@ -22,8 +22,8 @@ GetSuggestionsSkeletonParams _$GetSuggestionsSkeletonParamsFromJson(
 /// @nodoc
 mixin _$GetSuggestionsSkeletonParams {
   /// DID of the account making the request (not included for
-  /// public/unauthenticated queries). Used to boost followed accounts in
-  /// ranking.
+  /// public/unauthenticated queries). Used to boost followed accounts
+  /// in ranking.
   String? get viewer => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -165,8 +165,8 @@ class _$GetSuggestionsSkeletonParamsImpl
       _$$GetSuggestionsSkeletonParamsImplFromJson(json);
 
   /// DID of the account making the request (not included for
-  /// public/unauthenticated queries). Used to boost followed accounts in
-  /// ranking.
+  /// public/unauthenticated queries). Used to boost followed accounts
+  /// in ranking.
   @override
   final String? viewer;
   @override
@@ -240,8 +240,8 @@ abstract class _GetSuggestionsSkeletonParams
   @override
 
   /// DID of the account making the request (not included for
-  /// public/unauthenticated queries). Used to boost followed accounts in
-  /// ranking.
+  /// public/unauthenticated queries). Used to boost followed accounts
+  /// in ranking.
   String? get viewer;
   @override
   int? get limit;

@@ -31,8 +31,8 @@ class InterestsPref with _$InterestsPref {
     @JsonKey(name: r'$type')
     String $type,
 
-    /// A list of tags which describe the account owner's interests gathered during
-    /// onboarding.
+    /// A list of tags which describe the account owner's interests
+    /// gathered during onboarding.
     required List<String> tags,
 
     /// Contains unknown objects not defined in Lexicon.

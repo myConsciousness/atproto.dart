@@ -33,7 +33,8 @@ final class RepoService {
 
   final ATProtoServiceContext _ctx;
 
-  /// List a range of records in a repository, matching a specific collection. Does not require auth.
+  /// List a range of records in a repository, matching a specific
+  /// collection. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords
   Future<XRPCResponse<ListRecordsOutput>> listRecords({
@@ -63,7 +64,8 @@ final class RepoService {
         client: $client,
       );
 
-  /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
+  /// Delete a repository record, or ensure it doesn't exist. Requires
+  /// auth, implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/deleteRecord
   Future<XRPCResponse<EmptyData>> deleteRecord({
@@ -88,7 +90,8 @@ final class RepoService {
         client: $client,
       );
 
-  /// Get information about an account and repository, including the list of collections. Does not require auth.
+  /// Get information about an account and repository, including the
+  /// list of collections. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
   Future<XRPCResponse<DescribeRepoOutput>> describeRepo({
@@ -106,7 +109,8 @@ final class RepoService {
         client: $client,
       );
 
-  /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
+  /// Write a repository record, creating or updating it as needed.
+  /// Requires auth, implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/putRecord
   Future<XRPCResponse<StrongRef>> putRecord({
@@ -160,7 +164,8 @@ final class RepoService {
         client: $client,
       );
 
-  /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
+  /// Apply a batch transaction of repository creates, updates, and
+  /// deletes. Requires auth, implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites
   Future<XRPCResponse<EmptyData>> applyWrites({
@@ -183,7 +188,8 @@ final class RepoService {
         client: $client,
       );
 
-  /// Create a single new repository record. Requires auth, implemented by PDS.
+  /// Create a single new repository record. Requires auth, implemented
+  /// by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord
   Future<XRPCResponse<StrongRef>> createRecord({
@@ -211,7 +217,11 @@ final class RepoService {
         client: $client,
       );
 
-  /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
+  /// Upload a new blob, to be referenced from a repository record. The
+  /// blob will be deleted if it is not referenced within a time window
+  /// (eg, minutes). Blob restrictions (mimetype, size, etc) are
+  /// enforced when the reference is created. Requires auth,
+  /// implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
   Future<XRPCResponse<UploadBlobOutput>> uploadBlob({
@@ -227,7 +237,8 @@ final class RepoService {
         client: $client,
       );
 
-  /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
+  /// Returns a list of missing blobs for the requesting account.
+  /// Intended to be used in the account migration flow.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs
   Future<XRPCResponse<ListMissingBlobsOutput>> listMissingBlobs({
@@ -247,7 +258,8 @@ final class RepoService {
         client: $client,
       );
 
-  /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
+  /// Import a repo in the form of a CAR file. Requires Content-Length
+  /// HTTP header to be set.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo
   Future<XRPCResponse<EmptyData>> importRepo({

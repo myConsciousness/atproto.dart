@@ -32,7 +32,8 @@ final class ActorService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Find actors (profiles) matching search criteria. Does not require auth.
+  /// Find actors (profiles) matching search criteria. Does not require
+  /// auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
   Future<XRPCResponse<SearchActorsOutput>> searchActors({
@@ -56,7 +57,9 @@ final class ActorService {
         client: $client,
       );
 
-  /// Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.
+  /// Find actor suggestions for a prefix search term. Expected use is
+  /// for auto-completion during text field entry. Does not require
+  /// auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
   Future<XRPCResponse<SearchActorsTypeaheadOutput>> searchActorsTypeahead({
@@ -78,7 +81,8 @@ final class ActorService {
         client: $client,
       );
 
-  /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
+  /// Get detailed profile view of an actor. Does not require auth, but
+  /// contains relevant metadata with auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
   Future<XRPCResponse<ProfileViewDetailed>> getProfile({
@@ -96,7 +100,8 @@ final class ActorService {
         client: $client,
       );
 
-  /// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
+  /// Get a list of suggested actors. Expected use is discovery of
+  /// accounts to follow during new account onboarding.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
   Future<XRPCResponse<GetSuggestionsOutput>> getSuggestions({
@@ -185,7 +190,9 @@ final class ActorService {
         client: $client,
       );
 
-  /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
+  /// Get private preferences attached to the current account. Expected
+  /// use is synchronization between multiple devices, and
+  /// import/export during account migration. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
   Future<XRPCResponse<Preferences>> getPreferences({

@@ -35,8 +35,8 @@ class FeedViewPost with _$FeedViewPost {
     @ReplyRefConverter() ReplyRef? reply,
     @UFeedViewPostReasonConverter() UFeedViewPostReason? reason,
 
-    /// Context provided by feed generator that may be passed back alongside
-    /// interactions.
+    /// Context provided by feed generator that may be passed back
+    /// alongside interactions.
     String? feedContext,
 
     /// Contains unknown objects not defined in Lexicon.

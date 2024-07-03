@@ -8,17 +8,18 @@
 import '../../utils.dart';
 import '../rules/utils.dart';
 import 'data_type.dart';
+import 'dart_doc.dart';
 
 final class LexUnion {
   const LexUnion({
-    this.description,
+    this.dartDoc,
     required this.name,
     required this.refs,
     required this.fileName,
     required this.filePath,
   });
 
-  final String? description;
+  final DartDoc? dartDoc;
   final String name;
   final List<DataType> refs;
 
@@ -49,6 +50,7 @@ final class LexUnion {
     buffer.writeln();
 
     // Union Object
+    buffer.writeln(dartDoc.toString());
     buffer.writeln('@freezed');
     buffer.writeln('class U$name with _\$U$name {');
     for (final ref in refs) {

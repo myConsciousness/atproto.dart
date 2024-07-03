@@ -20,7 +20,8 @@ RequestCrawlInput _$RequestCrawlInputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RequestCrawlInput {
-  /// Hostname of the current service (eg, PDS) that is requesting to be crawled.
+  /// Hostname of the current service (eg, PDS) that is requesting to
+  /// be crawled.
   String get hostname => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -125,7 +126,8 @@ class _$RequestCrawlInputImpl implements _RequestCrawlInput {
   factory _$RequestCrawlInputImpl.fromJson(Map<String, dynamic> json) =>
       _$$RequestCrawlInputImplFromJson(json);
 
-  /// Hostname of the current service (eg, PDS) that is requesting to be crawled.
+  /// Hostname of the current service (eg, PDS) that is requesting to
+  /// be crawled.
   @override
   final String hostname;
 
@@ -189,7 +191,8 @@ abstract class _RequestCrawlInput implements RequestCrawlInput {
 
   @override
 
-  /// Hostname of the current service (eg, PDS) that is requesting to be crawled.
+  /// Hostname of the current service (eg, PDS) that is requesting to
+  /// be crawled.
   String get hostname;
   @override
 

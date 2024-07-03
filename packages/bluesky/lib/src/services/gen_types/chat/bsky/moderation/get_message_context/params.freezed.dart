@@ -21,8 +21,8 @@ GetMessageContextParams _$GetMessageContextParamsFromJson(
 
 /// @nodoc
 mixin _$GetMessageContextParams {
-  /// Conversation that the message is from. NOTE: this field will eventually be
-  /// required.
+  /// Conversation that the message is from. NOTE: this field will
+  /// eventually be required.
   String? get convoId => throw _privateConstructorUsedError;
   String get messageId => throw _privateConstructorUsedError;
   int? get before => throw _privateConstructorUsedError;
@@ -173,8 +173,8 @@ class _$GetMessageContextParamsImpl implements _GetMessageContextParams {
   factory _$GetMessageContextParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetMessageContextParamsImplFromJson(json);
 
-  /// Conversation that the message is from. NOTE: this field will eventually be
-  /// required.
+  /// Conversation that the message is from. NOTE: this field will
+  /// eventually be required.
   @override
   final String? convoId;
   @override
@@ -250,8 +250,8 @@ abstract class _GetMessageContextParams implements GetMessageContextParams {
 
   @override
 
-  /// Conversation that the message is from. NOTE: this field will eventually be
-  /// required.
+  /// Conversation that the message is from. NOTE: this field will
+  /// eventually be required.
   String? get convoId;
   @override
   String get messageId;

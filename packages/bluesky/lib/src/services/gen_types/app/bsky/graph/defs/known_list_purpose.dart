@@ -16,15 +16,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'known_list_purpose.freezed.dart';
 
 enum KnownListPurpose {
-  /// A list of actors to apply an aggregate moderation action (mute/block) on.
+  /// A list of actors to apply an aggregate moderation action
+  /// (mute/block) on.
   @JsonValue('app.bsky.graph.defs#modlist')
   modlist('app.bsky.graph.defs#modlist'),
 
-  /// A list of actors used for curation purposes such as list feeds or interaction gating.
+  /// A list of actors used for curation purposes such as list feeds or
+  /// interaction gating.
   @JsonValue('app.bsky.graph.defs#curatelist')
   curatelist('app.bsky.graph.defs#curatelist'),
 
-  /// A list of actors used for only for reference purposes such as within a starter pack.
+  /// A list of actors used for only for reference purposes such as
+  /// within a starter pack.
   @JsonValue('app.bsky.graph.defs#referencelist')
   referencelist('app.bsky.graph.defs#referencelist'),
   ;

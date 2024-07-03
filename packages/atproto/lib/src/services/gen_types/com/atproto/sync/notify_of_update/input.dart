@@ -21,8 +21,8 @@ part 'input.g.dart';
 class NotifyOfUpdateInput with _$NotifyOfUpdateInput {
   @JsonSerializable(includeIfNull: false)
   const factory NotifyOfUpdateInput({
-    /// Hostname of the current service (usually a PDS) that is notifying of
-    /// update.
+    /// Hostname of the current service (usually a PDS) that is notifying
+    /// of update.
     required String hostname,
 
     /// Contains unknown objects not defined in Lexicon.

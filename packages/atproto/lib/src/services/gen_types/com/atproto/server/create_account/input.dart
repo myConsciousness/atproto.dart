@@ -32,17 +32,17 @@ class CreateAccountInput with _$CreateAccountInput {
     String? verificationCode,
     String? verificationPhone,
 
-    /// Initial account password. May need to meet instance-specific password
-    /// strength requirements.
+    /// Initial account password. May need to meet instance-specific
+    /// password strength requirements.
     String? password,
 
-    /// DID PLC rotation key (aka, recovery key) to be included in PLC creation
-    /// operation.
+    /// DID PLC rotation key (aka, recovery key) to be included in PLC
+    /// creation operation.
     String? recoveryKey,
 
-    /// A signed DID PLC operation to be submitted as part of importing an existing
-    /// account to this instance. NOTE: this optional field may be updated when
-    /// full account migration is implemented.
+    /// A signed DID PLC operation to be submitted as part of importing
+    /// an existing account to this instance. NOTE: this optional field
+    /// may be updated when full account migration is implemented.
     Map<String, dynamic>? plcOp,
 
     /// Contains unknown objects not defined in Lexicon.

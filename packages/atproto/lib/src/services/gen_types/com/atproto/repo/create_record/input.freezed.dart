@@ -30,7 +30,8 @@ mixin _$CreateRecordInput {
   /// The Record Key.
   String? get rkey => throw _privateConstructorUsedError;
 
-  /// Can be set to 'false' to skip Lexicon schema validation of record data.
+  /// Can be set to 'false' to skip Lexicon schema validation of record
+  /// data.
   bool? get validate => throw _privateConstructorUsedError;
 
   /// The record itself. Must contain a $type field.
@@ -220,7 +221,8 @@ class _$CreateRecordInputImpl implements _CreateRecordInput {
   @override
   final String? rkey;
 
-  /// Can be set to 'false' to skip Lexicon schema validation of record data.
+  /// Can be set to 'false' to skip Lexicon schema validation of record
+  /// data.
   @override
   final bool? validate;
 
@@ -331,7 +333,8 @@ abstract class _CreateRecordInput implements CreateRecordInput {
   String? get rkey;
   @override
 
-  /// Can be set to 'false' to skip Lexicon schema validation of record data.
+  /// Can be set to 'false' to skip Lexicon schema validation of record
+  /// data.
   bool? get validate;
   @override
 

@@ -39,7 +39,7 @@ final class DartDoc {
     if (description == null) return [];
     if (description!.isEmpty) return [];
 
-    const maxLength = 75;
+    const maxLength = 65;
 
     if (description!.length <= maxLength) return [description!];
 

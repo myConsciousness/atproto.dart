@@ -30,14 +30,16 @@ mixin _$PutRecordInput {
   /// The Record Key.
   String get rkey => throw _privateConstructorUsedError;
 
-  /// Can be set to 'false' to skip Lexicon schema validation of record data.
+  /// Can be set to 'false' to skip Lexicon schema validation of record
+  /// data.
   bool? get validate => throw _privateConstructorUsedError;
 
   /// The record to write.
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
-  /// Compare and swap with the previous record by CID. WARNING: nullable and
-  /// optional field; may cause problems with golang implementation
+  /// Compare and swap with the previous record by CID. WARNING:
+  /// nullable and optional field; may cause problems with golang
+  /// implementation
   String? get swapRecord => throw _privateConstructorUsedError;
 
   /// Compare and swap with the previous commit by CID.
@@ -237,7 +239,8 @@ class _$PutRecordInputImpl implements _PutRecordInput {
   @override
   final String rkey;
 
-  /// Can be set to 'false' to skip Lexicon schema validation of record data.
+  /// Can be set to 'false' to skip Lexicon schema validation of record
+  /// data.
   @override
   final bool? validate;
 
@@ -252,8 +255,9 @@ class _$PutRecordInputImpl implements _PutRecordInput {
     return EqualUnmodifiableMapView(_record);
   }
 
-  /// Compare and swap with the previous record by CID. WARNING: nullable and
-  /// optional field; may cause problems with golang implementation
+  /// Compare and swap with the previous record by CID. WARNING:
+  /// nullable and optional field; may cause problems with golang
+  /// implementation
   @override
   final String? swapRecord;
 
@@ -357,7 +361,8 @@ abstract class _PutRecordInput implements PutRecordInput {
   String get rkey;
   @override
 
-  /// Can be set to 'false' to skip Lexicon schema validation of record data.
+  /// Can be set to 'false' to skip Lexicon schema validation of record
+  /// data.
   bool? get validate;
   @override
 
@@ -365,8 +370,9 @@ abstract class _PutRecordInput implements PutRecordInput {
   Map<String, dynamic> get record;
   @override
 
-  /// Compare and swap with the previous record by CID. WARNING: nullable and
-  /// optional field; may cause problems with golang implementation
+  /// Compare and swap with the previous record by CID. WARNING:
+  /// nullable and optional field; may cause problems with golang
+  /// implementation
   String? get swapRecord;
   @override
 

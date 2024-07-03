@@ -26,12 +26,13 @@ mixin _$DescribeRepoOutput {
   /// The complete DID document for this account.
   Map<String, dynamic> get didDoc => throw _privateConstructorUsedError;
 
-  /// List of all the collections (NSIDs) for which this repo contains at least
-  /// one record.
+  /// List of all the collections (NSIDs) for which this repo contains
+  /// at least one record.
   @NSIDConverter()
   List<NSID> get collections => throw _privateConstructorUsedError;
 
-  /// Indicates if handle is currently valid (resolves bi-directionally)
+  /// Indicates if handle is currently valid (resolves
+  /// bi-directionally)
   bool get handleIsCorrect => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -206,12 +207,12 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
     return EqualUnmodifiableMapView(_didDoc);
   }
 
-  /// List of all the collections (NSIDs) for which this repo contains at least
-  /// one record.
+  /// List of all the collections (NSIDs) for which this repo contains
+  /// at least one record.
   final List<NSID> _collections;
 
-  /// List of all the collections (NSIDs) for which this repo contains at least
-  /// one record.
+  /// List of all the collections (NSIDs) for which this repo contains
+  /// at least one record.
   @override
   @NSIDConverter()
   List<NSID> get collections {
@@ -220,7 +221,8 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
     return EqualUnmodifiableListView(_collections);
   }
 
-  /// Indicates if handle is currently valid (resolves bi-directionally)
+  /// Indicates if handle is currently valid (resolves
+  /// bi-directionally)
   @override
   final bool handleIsCorrect;
 
@@ -307,13 +309,14 @@ abstract class _DescribeRepoOutput implements DescribeRepoOutput {
   Map<String, dynamic> get didDoc;
   @override
 
-  /// List of all the collections (NSIDs) for which this repo contains at least
-  /// one record.
+  /// List of all the collections (NSIDs) for which this repo contains
+  /// at least one record.
   @NSIDConverter()
   List<NSID> get collections;
   @override
 
-  /// Indicates if handle is currently valid (resolves bi-directionally)
+  /// Indicates if handle is currently valid (resolves
+  /// bi-directionally)
   bool get handleIsCorrect;
   @override
 

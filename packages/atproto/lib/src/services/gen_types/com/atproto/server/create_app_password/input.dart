@@ -24,8 +24,8 @@ class CreateAppPasswordInput with _$CreateAppPasswordInput {
     /// A short name for the App Password, to help distinguish them.
     required String name,
 
-    /// If an app password has 'privileged' access to possibly sensitive account
-    /// state. Meant for use with trusted clients.
+    /// If an app password has 'privileged' access to possibly sensitive
+    /// account state. Meant for use with trusted clients.
     bool? privileged,
 
     /// Contains unknown objects not defined in Lexicon.

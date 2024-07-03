@@ -51,7 +51,8 @@ final class AdminService {
         client: $client,
       );
 
-  /// Get the service-specific admin status of a subject (account, record, or blob).
+  /// Get the service-specific admin status of a subject (account,
+  /// record, or blob).
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getSubjectStatus
   Future<XRPCResponse<GetSubjectStatusOutput>> getSubjectStatus({
@@ -236,7 +237,8 @@ final class AdminService {
         client: $client,
       );
 
-  /// Update the service-specific admin status of a subject (account, record, or blob).
+  /// Update the service-specific admin status of a subject (account,
+  /// record, or blob).
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateSubjectStatus
   Future<XRPCResponse<UpdateSubjectStatusOutput>> updateSubjectStatus({
@@ -258,7 +260,8 @@ final class AdminService {
         client: $client,
       );
 
-  /// Disable some set of codes and/or all codes associated with a set of users.
+  /// Disable some set of codes and/or all codes associated with a set
+  /// of users.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/disableInviteCodes
   Future<XRPCResponse<EmptyData>> disableInviteCodes({
@@ -295,7 +298,8 @@ final class AdminService {
         client: $client,
       );
 
-  /// Disable an account from receiving new invite codes, but does not invalidate existing codes.
+  /// Disable an account from receiving new invite codes, but does not
+  /// invalidate existing codes.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/disableAccountInvites
   Future<XRPCResponse<EmptyData>> disableAccountInvites({

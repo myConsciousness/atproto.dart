@@ -22,8 +22,8 @@ class GetSuggestionsSkeletonParams with _$GetSuggestionsSkeletonParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetSuggestionsSkeletonParams({
     /// DID of the account making the request (not included for
-    /// public/unauthenticated queries). Used to boost followed accounts in
-    /// ranking.
+    /// public/unauthenticated queries). Used to boost followed accounts
+    /// in ranking.
     String? viewer,
     int? limit,
     String? cursor,

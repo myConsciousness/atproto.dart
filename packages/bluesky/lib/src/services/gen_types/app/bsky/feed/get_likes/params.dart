@@ -25,8 +25,8 @@ class GetLikesParams with _$GetLikesParams {
     /// AT-URI of the subject (eg, a post record).
     @AtUriConverter() required AtUri uri,
 
-    /// CID of the subject record (aka, specific version of record), to filter
-    /// likes.
+    /// CID of the subject record (aka, specific version of record), to
+    /// filter likes.
     String? cid,
     int? limit,
     String? cursor,

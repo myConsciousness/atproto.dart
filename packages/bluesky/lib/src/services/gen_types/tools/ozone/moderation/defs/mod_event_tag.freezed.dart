@@ -26,11 +26,12 @@ mixin _$ModEventTag {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
-  /// Tags to be added to the subject. If already exists, won't be duplicated.
+  /// Tags to be added to the subject. If already exists, won't be
+  /// duplicated.
   List<String> get add => throw _privateConstructorUsedError;
 
-  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't
-  /// be duplicated.
+  /// Tags to be removed to the subject. Ignores a tag If it doesn't
+  /// exist, won't be duplicated.
   List<String> get remove => throw _privateConstructorUsedError;
 
   /// Additional comment about added/removed tags.
@@ -187,10 +188,12 @@ class _$ModEventTagImpl implements _ModEventTag {
   @JsonKey(name: r'$type')
   final String $type;
 
-  /// Tags to be added to the subject. If already exists, won't be duplicated.
+  /// Tags to be added to the subject. If already exists, won't be
+  /// duplicated.
   final List<String> _add;
 
-  /// Tags to be added to the subject. If already exists, won't be duplicated.
+  /// Tags to be added to the subject. If already exists, won't be
+  /// duplicated.
   @override
   List<String> get add {
     if (_add is EqualUnmodifiableListView) return _add;
@@ -198,12 +201,12 @@ class _$ModEventTagImpl implements _ModEventTag {
     return EqualUnmodifiableListView(_add);
   }
 
-  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't
-  /// be duplicated.
+  /// Tags to be removed to the subject. Ignores a tag If it doesn't
+  /// exist, won't be duplicated.
   final List<String> _remove;
 
-  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't
-  /// be duplicated.
+  /// Tags to be removed to the subject. Ignores a tag If it doesn't
+  /// exist, won't be duplicated.
   @override
   List<String> get remove {
     if (_remove is EqualUnmodifiableListView) return _remove;
@@ -291,12 +294,13 @@ abstract class _ModEventTag implements ModEventTag {
   String get $type;
   @override
 
-  /// Tags to be added to the subject. If already exists, won't be duplicated.
+  /// Tags to be added to the subject. If already exists, won't be
+  /// duplicated.
   List<String> get add;
   @override
 
-  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't
-  /// be duplicated.
+  /// Tags to be removed to the subject. Ignores a tag If it doesn't
+  /// exist, won't be duplicated.
   List<String> get remove;
   @override
 

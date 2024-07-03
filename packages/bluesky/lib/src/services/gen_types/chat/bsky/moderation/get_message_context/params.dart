@@ -21,8 +21,8 @@ part 'params.g.dart';
 class GetMessageContextParams with _$GetMessageContextParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetMessageContextParams({
-    /// Conversation that the message is from. NOTE: this field will eventually be
-    /// required.
+    /// Conversation that the message is from. NOTE: this field will
+    /// eventually be required.
     String? convoId,
     required String messageId,
     int? before,

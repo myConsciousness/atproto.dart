@@ -21,7 +21,8 @@ SignPlcOperationInput _$SignPlcOperationInputFromJson(
 
 /// @nodoc
 mixin _$SignPlcOperationInput {
-  /// A token received through com.atproto.identity.requestPlcOperationSignature
+  /// A token received through
+  /// com.atproto.identity.requestPlcOperationSignature
   String? get token => throw _privateConstructorUsedError;
   List<String>? get rotationKeys => throw _privateConstructorUsedError;
   List<String>? get alsoKnownAs => throw _privateConstructorUsedError;
@@ -190,7 +191,8 @@ class _$SignPlcOperationInputImpl implements _SignPlcOperationInput {
   factory _$SignPlcOperationInputImpl.fromJson(Map<String, dynamic> json) =>
       _$$SignPlcOperationInputImplFromJson(json);
 
-  /// A token received through com.atproto.identity.requestPlcOperationSignature
+  /// A token received through
+  /// com.atproto.identity.requestPlcOperationSignature
   @override
   final String? token;
   final List<String>? _rotationKeys;
@@ -310,7 +312,8 @@ abstract class _SignPlcOperationInput implements SignPlcOperationInput {
 
   @override
 
-  /// A token received through com.atproto.identity.requestPlcOperationSignature
+  /// A token received through
+  /// com.atproto.identity.requestPlcOperationSignature
   String? get token;
   @override
   List<String>? get rotationKeys;

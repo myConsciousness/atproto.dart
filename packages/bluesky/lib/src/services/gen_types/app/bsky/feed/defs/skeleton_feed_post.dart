@@ -35,8 +35,8 @@ class SkeletonFeedPost with _$SkeletonFeedPost {
     @AtUriConverter() required AtUri post,
     @USkeletonFeedPostReasonConverter() USkeletonFeedPostReason? reason,
 
-    /// Context that will be passed through to client and may be passed to feed
-    /// generator back alongside interactions.
+    /// Context that will be passed through to client and may be passed
+    /// to feed generator back alongside interactions.
     String? feedContext,
 
     /// Contains unknown objects not defined in Lexicon.

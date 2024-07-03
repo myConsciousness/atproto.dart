@@ -34,7 +34,8 @@ class ReplyRef with _$ReplyRef {
     @UReplyRefRootConverter() required UReplyRefRoot root,
     @UReplyRefParentConverter() required UReplyRefParent parent,
 
-    /// When parent is a reply to another post, this is the author of that post.
+    /// When parent is a reply to another post, this is the author of
+    /// that post.
     @ProfileViewBasicConverter() ProfileViewBasic? grandparentAuthor,
 
     /// Contains unknown objects not defined in Lexicon.

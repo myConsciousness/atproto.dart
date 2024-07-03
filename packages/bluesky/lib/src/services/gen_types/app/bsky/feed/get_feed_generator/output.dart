@@ -26,12 +26,12 @@ class GetFeedGeneratorOutput with _$GetFeedGeneratorOutput {
   const factory GetFeedGeneratorOutput({
     @GeneratorViewConverter() required GeneratorView view,
 
-    /// Indicates whether the feed generator service has been online recently, or
-    /// else seems to be inactive.
+    /// Indicates whether the feed generator service has been online
+    /// recently, or else seems to be inactive.
     required bool isOnline,
 
-    /// Indicates whether the feed generator service is compatible with the record
-    /// declaration.
+    /// Indicates whether the feed generator service is compatible with
+    /// the record declaration.
     required bool isValid,
 
     /// Contains unknown objects not defined in Lexicon.

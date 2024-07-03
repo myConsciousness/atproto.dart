@@ -21,8 +21,8 @@ part 'input.g.dart';
 class DeactivateAccountInput with _$DeactivateAccountInput {
   @JsonSerializable(includeIfNull: false)
   const factory DeactivateAccountInput({
-    /// A recommendation to server as to how long they should hold onto the
-    /// deactivated account before deleting.
+    /// A recommendation to server as to how long they should hold onto
+    /// the deactivated account before deleting.
     DateTime? deleteAfter,
 
     /// Contains unknown objects not defined in Lexicon.

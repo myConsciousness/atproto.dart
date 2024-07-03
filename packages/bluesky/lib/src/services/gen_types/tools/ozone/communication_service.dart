@@ -25,7 +25,9 @@ final class CommunicationService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
+  /// Administrative action to update an existing communication
+  /// template. Allows passing partial fields to patch specific fields
+  /// only.
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/updateTemplate
   Future<XRPCResponse<TemplateView>> updateTemplate({
@@ -84,7 +86,8 @@ final class CommunicationService {
         client: $client,
       );
 
-  /// Administrative action to create a new, re-usable communication (email for now) template.
+  /// Administrative action to create a new, re-usable communication
+  /// (email for now) template.
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/createTemplate
   Future<XRPCResponse<TemplateView>> createTemplate({

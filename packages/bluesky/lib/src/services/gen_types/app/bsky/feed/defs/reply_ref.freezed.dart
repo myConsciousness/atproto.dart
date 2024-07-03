@@ -30,7 +30,8 @@ mixin _$ReplyRef {
   @UReplyRefParentConverter()
   UReplyRefParent get parent => throw _privateConstructorUsedError;
 
-  /// When parent is a reply to another post, this is the author of that post.
+  /// When parent is a reply to another post, this is the author of
+  /// that post.
   @ProfileViewBasicConverter()
   ProfileViewBasic? get grandparentAuthor => throw _privateConstructorUsedError;
 
@@ -226,7 +227,8 @@ class _$ReplyRefImpl implements _ReplyRef {
   @UReplyRefParentConverter()
   final UReplyRefParent parent;
 
-  /// When parent is a reply to another post, this is the author of that post.
+  /// When parent is a reply to another post, this is the author of
+  /// that post.
   @override
   @ProfileViewBasicConverter()
   final ProfileViewBasic? grandparentAuthor;
@@ -309,7 +311,8 @@ abstract class _ReplyRef implements ReplyRef {
   UReplyRefParent get parent;
   @override
 
-  /// When parent is a reply to another post, this is the author of that post.
+  /// When parent is a reply to another post, this is the author of
+  /// that post.
   @ProfileViewBasicConverter()
   ProfileViewBasic? get grandparentAuthor;
   @override

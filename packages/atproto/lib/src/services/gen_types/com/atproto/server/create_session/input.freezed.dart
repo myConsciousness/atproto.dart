@@ -20,8 +20,8 @@ CreateSessionInput _$CreateSessionInputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateSessionInput {
-  /// Handle or other identifier supported by the server for the authenticating
-  /// user.
+  /// Handle or other identifier supported by the server for the
+  /// authenticating user.
   String get identifier => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String? get authFactorToken => throw _privateConstructorUsedError;
@@ -154,8 +154,8 @@ class _$CreateSessionInputImpl implements _CreateSessionInput {
   factory _$CreateSessionInputImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateSessionInputImplFromJson(json);
 
-  /// Handle or other identifier supported by the server for the authenticating
-  /// user.
+  /// Handle or other identifier supported by the server for the
+  /// authenticating user.
   @override
   final String identifier;
   @override
@@ -229,8 +229,8 @@ abstract class _CreateSessionInput implements CreateSessionInput {
 
   @override
 
-  /// Handle or other identifier supported by the server for the authenticating
-  /// user.
+  /// Handle or other identifier supported by the server for the
+  /// authenticating user.
   String get identifier;
   @override
   String get password;

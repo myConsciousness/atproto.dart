@@ -19,7 +19,8 @@ import '../../../../../../ids.g.dart';
 part 'mod_event_divert.freezed.dart';
 part 'mod_event_divert.g.dart';
 
-/// Divert a record's blobs to a 3rd party service for further scanning/tagging
+/// Divert a record's blobs to a 3rd party service for further
+/// scanning/tagging
 ///
 /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/defs#modeventdivert
 @freezed

@@ -29,10 +29,11 @@ mixin _$Identity {
   String get did => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
 
-  /// The current handle for the account, or 'handle.invalid' if validation
-  /// fails. This field is optional, might have been validated or passed-through
-  /// from an upstream source. Semantics and behaviors for PDS vs Relay may
-  /// evolve in the future; see atproto specs for more details.
+  /// The current handle for the account, or 'handle.invalid' if
+  /// validation fails. This field is optional, might have been
+  /// validated or passed-through from an upstream source. Semantics
+  /// and behaviors for PDS vs Relay may evolve in the future; see
+  /// atproto specs for more details.
   String? get handle => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -202,10 +203,11 @@ class _$IdentityImpl implements _Identity {
   @override
   final DateTime time;
 
-  /// The current handle for the account, or 'handle.invalid' if validation
-  /// fails. This field is optional, might have been validated or passed-through
-  /// from an upstream source. Semantics and behaviors for PDS vs Relay may
-  /// evolve in the future; see atproto specs for more details.
+  /// The current handle for the account, or 'handle.invalid' if
+  /// validation fails. This field is optional, might have been
+  /// validated or passed-through from an upstream source. Semantics
+  /// and behaviors for PDS vs Relay may evolve in the future; see
+  /// atproto specs for more details.
   @override
   final String? handle;
 
@@ -288,10 +290,11 @@ abstract class _Identity implements Identity {
   DateTime get time;
   @override
 
-  /// The current handle for the account, or 'handle.invalid' if validation
-  /// fails. This field is optional, might have been validated or passed-through
-  /// from an upstream source. Semantics and behaviors for PDS vs Relay may
-  /// evolve in the future; see atproto specs for more details.
+  /// The current handle for the account, or 'handle.invalid' if
+  /// validation fails. This field is optional, might have been
+  /// validated or passed-through from an upstream source. Semantics
+  /// and behaviors for PDS vs Relay may evolve in the future; see
+  /// atproto specs for more details.
   String? get handle;
   @override
 

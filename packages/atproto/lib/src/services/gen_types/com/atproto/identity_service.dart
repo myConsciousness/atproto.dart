@@ -26,7 +26,8 @@ final class IdentityService {
 
   final ATProtoServiceContext _ctx;
 
-  /// Describe the credentials that should be included in the DID doc of an account that is migrating to this service.
+  /// Describe the credentials that should be included in the DID doc
+  /// of an account that is migrating to this service.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
   Future<XRPCResponse<GetRecommendedDidCredentialsOutput>>
@@ -41,7 +42,8 @@ final class IdentityService {
             client: $client,
           );
 
-  /// Request an email with a code to in order to request a signed PLC operation. Requires Auth.
+  /// Request an email with a code to in order to request a signed PLC
+  /// operation. Requires Auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
   Future<XRPCResponse<EmptyData>> requestPlcOperationSignature({
@@ -54,7 +56,9 @@ final class IdentityService {
         client: $client,
       );
 
-  /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
+  /// Validates a PLC operation to ensure that it doesn't violate a
+  /// service's constraints or get the identity into a bad state, then
+  /// submits it to the PLC registry
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
   Future<XRPCResponse<EmptyData>> submitPlcOperation({
@@ -89,7 +93,9 @@ final class IdentityService {
         client: $client,
       );
 
-  /// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
+  /// Updates the current account's handle. Verifies handle validity,
+  /// and updates did:plc document if necessary. Implemented by PDS,
+  /// and requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
   Future<XRPCResponse<EmptyData>> updateHandle({
@@ -106,7 +112,8 @@ final class IdentityService {
         client: $client,
       );
 
-  /// Signs a PLC operation to update some value(s) in the requesting DID's document.
+  /// Signs a PLC operation to update some value(s) in the requesting
+  /// DID's document.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
   Future<XRPCResponse<SignPlcOperationOutput>> signPlcOperation({

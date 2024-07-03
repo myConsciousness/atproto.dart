@@ -30,8 +30,8 @@ mixin _$GetRecordParams {
   /// The Record Key.
   String get rkey => throw _privateConstructorUsedError;
 
-  /// The CID of the version of the record. If not specified, then return the
-  /// most recent version.
+  /// The CID of the version of the record. If not specified, then
+  /// return the most recent version.
   String? get cid => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -188,8 +188,8 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
   @override
   final String rkey;
 
-  /// The CID of the version of the record. If not specified, then return the
-  /// most recent version.
+  /// The CID of the version of the record. If not specified, then
+  /// return the most recent version.
   @override
   final String? cid;
 
@@ -272,8 +272,8 @@ abstract class _GetRecordParams implements GetRecordParams {
   String get rkey;
   @override
 
-  /// The CID of the version of the record. If not specified, then return the
-  /// most recent version.
+  /// The CID of the version of the record. If not specified, then
+  /// return the most recent version.
   String? get cid;
   @override
 

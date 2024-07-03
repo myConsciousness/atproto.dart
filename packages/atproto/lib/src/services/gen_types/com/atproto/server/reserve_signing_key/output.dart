@@ -21,7 +21,8 @@ part 'output.g.dart';
 class ReserveSigningKeyOutput with _$ReserveSigningKeyOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ReserveSigningKeyOutput({
-    /// The public key for the reserved signing key, in did:key serialization.
+    /// The public key for the reserved signing key, in did:key
+    /// serialization.
     required String signingKey,
 
     /// Contains unknown objects not defined in Lexicon.

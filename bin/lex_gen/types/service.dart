@@ -11,6 +11,7 @@ import '../../utils.dart';
 import '../rules/object_type.dart';
 import '../rules/utils.dart';
 import 'data_type.dart';
+import 'dart_doc.dart';
 import 'service_context.dart';
 import 'known_values.dart';
 import 'union.dart';
@@ -194,8 +195,7 @@ final class LexService {
 final class LexServiceEndpoint {
   const LexServiceEndpoint({
     required this.def,
-    required this.description,
-    required this.referencePath,
+    required this.dartDoc,
     required this.args,
     required this.serviceName,
     required this.name,
@@ -205,8 +205,7 @@ final class LexServiceEndpoint {
 
   final LexUserType def;
 
-  final String? description;
-  final String referencePath;
+  final DartDoc? dartDoc;
 
   final List<LexServiceEndpointArg> args;
   final String serviceName;
@@ -228,15 +227,7 @@ final class LexServiceEndpoint {
   String build(final ServiceContext ctx) {
     final buffer = StringBuffer();
 
-    if (description != null) {
-      buffer.writeln('  /// $description');
-      buffer.writeln('  ///');
-    }
-    buffer.writeln('  /// $referencePath');
-    if (description != null &&
-        description!.toLowerCase().contains('deprecated')) {
-      buffer.writeln("  @Deprecated('$description')");
-    }
+    buffer.writeln(dartDoc.toString());
 
     if (method == LexServiceEndpointMethod.get) {
       buffer.write(_getGetEndpoint(ctx));
@@ -254,16 +245,7 @@ final class LexServiceEndpoint {
   String buildFunction(final ServiceContext ctx) {
     final buffer = StringBuffer();
 
-    if (description != null) {
-      buffer.writeln('  /// $description');
-      buffer.writeln('  ///');
-    }
-    buffer.writeln('  /// $referencePath');
-    if (description != null &&
-        description!.toLowerCase().contains('deprecated')) {
-      buffer.writeln("  @Deprecated('$description')");
-    }
-
+    buffer.writeln(dartDoc.toString());
     buffer.write(_getPostFunctionEndpoint(ctx));
 
     return buffer.toString();

@@ -30,7 +30,8 @@ mixin _$TemplateView {
   /// Name of the template.
   String get name => throw _privateConstructorUsedError;
 
-  /// Content of the template, can contain markdown and variable placeholders.
+  /// Content of the template, can contain markdown and variable
+  /// placeholders.
   String? get subject => throw _privateConstructorUsedError;
 
   /// Subject of the message, used in emails.
@@ -262,7 +263,8 @@ class _$TemplateViewImpl implements _TemplateView {
   @override
   final String name;
 
-  /// Content of the template, can contain markdown and variable placeholders.
+  /// Content of the template, can contain markdown and variable
+  /// placeholders.
   @override
   final String? subject;
 
@@ -382,7 +384,8 @@ abstract class _TemplateView implements TemplateView {
   String get name;
   @override
 
-  /// Content of the template, can contain markdown and variable placeholders.
+  /// Content of the template, can contain markdown and variable
+  /// placeholders.
   String? get subject;
   @override
 

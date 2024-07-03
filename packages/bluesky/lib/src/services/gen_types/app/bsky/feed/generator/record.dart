@@ -37,8 +37,8 @@ class GeneratorRecord with _$GeneratorRecord {
     @FacetConverter() List<Facet>? descriptionFacets,
     @BlobConverter() Blob? avatar,
 
-    /// Declaration that a feed accepts feedback interactions from a client through
-    /// app.bsky.feed.sendInteractions
+    /// Declaration that a feed accepts feedback interactions from a
+    /// client through app.bsky.feed.sendInteractions
     @Default(false) bool acceptsInteractions,
 
     /// Self-label values

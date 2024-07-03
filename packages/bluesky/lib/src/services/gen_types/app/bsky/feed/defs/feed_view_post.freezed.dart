@@ -32,8 +32,8 @@ mixin _$FeedViewPost {
   @UFeedViewPostReasonConverter()
   UFeedViewPostReason? get reason => throw _privateConstructorUsedError;
 
-  /// Context provided by feed generator that may be passed back alongside
-  /// interactions.
+  /// Context provided by feed generator that may be passed back
+  /// alongside interactions.
   String? get feedContext => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -249,8 +249,8 @@ class _$FeedViewPostImpl implements _FeedViewPost {
   @UFeedViewPostReasonConverter()
   final UFeedViewPostReason? reason;
 
-  /// Context provided by feed generator that may be passed back alongside
-  /// interactions.
+  /// Context provided by feed generator that may be passed back
+  /// alongside interactions.
   @override
   final String? feedContext;
 
@@ -337,8 +337,8 @@ abstract class _FeedViewPost implements FeedViewPost {
   UFeedViewPostReason? get reason;
   @override
 
-  /// Context provided by feed generator that may be passed back alongside
-  /// interactions.
+  /// Context provided by feed generator that may be passed back
+  /// alongside interactions.
   String? get feedContext;
   @override
 

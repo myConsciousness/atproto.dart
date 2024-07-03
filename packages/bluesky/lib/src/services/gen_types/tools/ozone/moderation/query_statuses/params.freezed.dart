@@ -37,18 +37,20 @@ mixin _$QueryStatusesParams {
   /// Search subjects reviewed before a given timestamp
   DateTime? get reviewedBefore => throw _privateConstructorUsedError;
 
-  /// By default, we don't include muted subjects in the results. Set this to
-  /// true to include them.
+  /// By default, we don't include muted subjects in the results. Set
+  /// this to true to include them.
   bool? get includeMuted => throw _privateConstructorUsedError;
 
-  /// When set to true, only muted subjects and reporters will be returned.
+  /// When set to true, only muted subjects and reporters will be
+  /// returned.
   bool? get onlyMuted => throw _privateConstructorUsedError;
 
   /// Specify when fetching subjects in a certain state
   String? get reviewState => throw _privateConstructorUsedError;
   List<String>? get ignoreSubjects => throw _privateConstructorUsedError;
 
-  /// Get all subject statuses that were reviewed by a specific moderator
+  /// Get all subject statuses that were reviewed by a specific
+  /// moderator
   String? get lastReviewedBy => throw _privateConstructorUsedError;
   String? get sortField => throw _privateConstructorUsedError;
   String? get sortDirection => throw _privateConstructorUsedError;
@@ -425,12 +427,13 @@ class _$QueryStatusesParamsImpl implements _QueryStatusesParams {
   @override
   final DateTime? reviewedBefore;
 
-  /// By default, we don't include muted subjects in the results. Set this to
-  /// true to include them.
+  /// By default, we don't include muted subjects in the results. Set
+  /// this to true to include them.
   @override
   final bool? includeMuted;
 
-  /// When set to true, only muted subjects and reporters will be returned.
+  /// When set to true, only muted subjects and reporters will be
+  /// returned.
   @override
   final bool? onlyMuted;
 
@@ -447,7 +450,8 @@ class _$QueryStatusesParamsImpl implements _QueryStatusesParams {
     return EqualUnmodifiableListView(value);
   }
 
-  /// Get all subject statuses that were reviewed by a specific moderator
+  /// Get all subject statuses that were reviewed by a specific
+  /// moderator
   @override
   final String? lastReviewedBy;
   @override
@@ -639,12 +643,13 @@ abstract class _QueryStatusesParams implements QueryStatusesParams {
   DateTime? get reviewedBefore;
   @override
 
-  /// By default, we don't include muted subjects in the results. Set this to
-  /// true to include them.
+  /// By default, we don't include muted subjects in the results. Set
+  /// this to true to include them.
   bool? get includeMuted;
   @override
 
-  /// When set to true, only muted subjects and reporters will be returned.
+  /// When set to true, only muted subjects and reporters will be
+  /// returned.
   bool? get onlyMuted;
   @override
 
@@ -654,7 +659,8 @@ abstract class _QueryStatusesParams implements QueryStatusesParams {
   List<String>? get ignoreSubjects;
   @override
 
-  /// Get all subject statuses that were reviewed by a specific moderator
+  /// Get all subject statuses that were reviewed by a specific
+  /// moderator
   String? get lastReviewedBy;
   @override
   String? get sortField;

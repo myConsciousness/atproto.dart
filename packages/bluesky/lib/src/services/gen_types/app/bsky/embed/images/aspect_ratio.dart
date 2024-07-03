@@ -19,8 +19,8 @@ import '../../../../../../ids.g.dart';
 part 'aspect_ratio.freezed.dart';
 part 'aspect_ratio.g.dart';
 
-/// width:height represents an aspect ratio. It may be approximate, and may not
-/// correspond to absolute dimensions in any given unit.
+/// width:height represents an aspect ratio. It may be approximate,
+/// and may not correspond to absolute dimensions in any given unit.
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#aspectratio
 @freezed

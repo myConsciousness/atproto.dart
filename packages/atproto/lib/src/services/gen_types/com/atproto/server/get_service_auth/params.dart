@@ -21,7 +21,8 @@ part 'params.g.dart';
 class GetServiceAuthParams with _$GetServiceAuthParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetServiceAuthParams({
-    /// The DID of the service that the token will be used to authenticate with
+    /// The DID of the service that the token will be used to
+    /// authenticate with
     required String aud,
 
     /// Contains unknown objects not defined in Lexicon.

@@ -38,12 +38,12 @@ class SubjectStatusView with _$SubjectStatusView {
     List<String>? subjectBlobCids,
     String? subjectRepoHandle,
 
-    /// Timestamp referencing when the last update was made to the moderation
-    /// status of the subject
+    /// Timestamp referencing when the last update was made to the
+    /// moderation status of the subject
     required DateTime updatedAt,
 
-    /// Timestamp referencing the first moderation status impacting event was
-    /// emitted on the subject
+    /// Timestamp referencing the first moderation status impacting event
+    /// was emitted on the subject
     required DateTime createdAt,
     @USubjectReviewStateConverter() required USubjectReviewState reviewState,
 
@@ -55,14 +55,14 @@ class SubjectStatusView with _$SubjectStatusView {
     DateTime? lastReviewedAt,
     DateTime? lastReportedAt,
 
-    /// Timestamp referencing when the author of the subject appealed a moderation
-    /// action
+    /// Timestamp referencing when the author of the subject appealed a
+    /// moderation action
     DateTime? lastAppealedAt,
     @Default(false) bool takendown,
 
-    /// True indicates that the a previously taken moderator action was appealed
-    /// against, by the author of the content. False indicates last appeal was
-    /// resolved by moderators.
+    /// True indicates that the a previously taken moderator action was
+    /// appealed against, by the author of the content. False indicates
+    /// last appeal was resolved by moderators.
     @Default(false) bool appealed,
     DateTime? suspendUntil,
     List<String>? tags,

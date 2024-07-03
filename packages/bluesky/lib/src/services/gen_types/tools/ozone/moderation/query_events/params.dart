@@ -22,13 +22,13 @@ class QueryEventsParams with _$QueryEventsParams {
   @JsonSerializable(includeIfNull: false)
   const factory QueryEventsParams({
     /// The types of events (fully qualified string in the format of
-    /// tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified,
-    /// all events are returned.
+    /// tools.ozone.moderation.defs#modEvent<name>) to filter by. If not
+    /// specified, all events are returned.
     List<String>? types,
     String? createdBy,
 
-    /// Sort direction for the events. Defaults to descending order of created at
-    /// timestamp.
+    /// Sort direction for the events. Defaults to descending order of
+    /// created at timestamp.
     String? sortDirection,
 
     /// Retrieve events created after a given timestamp
@@ -38,28 +38,32 @@ class QueryEventsParams with _$QueryEventsParams {
     DateTime? createdBefore,
     String? subject,
 
-    /// If true, events on all record types (posts, lists, profile etc.) owned by
-    /// the did are returned
+    /// If true, events on all record types (posts, lists, profile etc.)
+    /// owned by the did are returned
     bool? includeAllUserRecords,
     int? limit,
 
     /// If true, only events with comments are returned
     bool? hasComment,
 
-    /// If specified, only events with comments containing the keyword are returned
+    /// If specified, only events with comments containing the keyword
+    /// are returned
     String? comment,
 
-    /// If specified, only events where all of these labels were added are returned
+    /// If specified, only events where all of these labels were added
+    /// are returned
     List<String>? addedLabels,
 
-    /// If specified, only events where all of these labels were removed are
-    /// returned
+    /// If specified, only events where all of these labels were removed
+    /// are returned
     List<String>? removedLabels,
 
-    /// If specified, only events where all of these tags were added are returned
+    /// If specified, only events where all of these tags were added are
+    /// returned
     List<String>? addedTags,
 
-    /// If specified, only events where all of these tags were removed are returned
+    /// If specified, only events where all of these tags were removed
+    /// are returned
     List<String>? removedTags,
     List<String>? reportTypes,
     String? cursor,

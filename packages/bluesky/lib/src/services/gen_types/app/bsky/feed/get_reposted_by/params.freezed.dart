@@ -24,8 +24,8 @@ mixin _$GetRepostedByParams {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
-  /// If supplied, filters to reposts of specific version (by CID) of the post
-  /// record.
+  /// If supplied, filters to reposts of specific version (by CID) of
+  /// the post record.
   String? get cid => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -176,8 +176,8 @@ class _$GetRepostedByParamsImpl implements _GetRepostedByParams {
   @AtUriConverter()
   final AtUri uri;
 
-  /// If supplied, filters to reposts of specific version (by CID) of the post
-  /// record.
+  /// If supplied, filters to reposts of specific version (by CID) of
+  /// the post record.
   @override
   final String? cid;
   @override
@@ -255,8 +255,8 @@ abstract class _GetRepostedByParams implements GetRepostedByParams {
   AtUri get uri;
   @override
 
-  /// If supplied, filters to reposts of specific version (by CID) of the post
-  /// record.
+  /// If supplied, filters to reposts of specific version (by CID) of
+  /// the post record.
   String? get cid;
   @override
   int? get limit;

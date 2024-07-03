@@ -24,7 +24,8 @@ enum KnownUpdateMemberRole {
   @JsonValue('tools.ozone.team.defs#roleModerator')
   roleModerator('tools.ozone.team.defs#roleModerator'),
 
-  /// Triage role. Mostly intended for monitoring and escalating issues.
+  /// Triage role. Mostly intended for monitoring and escalating
+  /// issues.
   @JsonValue('tools.ozone.team.defs#roleTriage')
   roleTriage('tools.ozone.team.defs#roleTriage'),
   ;

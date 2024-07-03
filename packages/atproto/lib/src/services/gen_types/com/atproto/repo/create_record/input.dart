@@ -31,7 +31,8 @@ class CreateRecordInput with _$CreateRecordInput {
     /// The Record Key.
     String? rkey,
 
-    /// Can be set to 'false' to skip Lexicon schema validation of record data.
+    /// Can be set to 'false' to skip Lexicon schema validation of record
+    /// data.
     bool? validate,
 
     /// The record itself. Must contain a $type field.

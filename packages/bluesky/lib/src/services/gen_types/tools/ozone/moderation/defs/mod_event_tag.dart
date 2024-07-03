@@ -33,11 +33,12 @@ class ModEventTag with _$ModEventTag {
     @JsonKey(name: r'$type')
     String $type,
 
-    /// Tags to be added to the subject. If already exists, won't be duplicated.
+    /// Tags to be added to the subject. If already exists, won't be
+    /// duplicated.
     required List<String> add,
 
-    /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't
-    /// be duplicated.
+    /// Tags to be removed to the subject. Ignores a tag If it doesn't
+    /// exist, won't be duplicated.
     required List<String> remove,
 
     /// Additional comment about added/removed tags.

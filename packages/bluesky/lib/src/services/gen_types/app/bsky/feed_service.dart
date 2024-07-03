@@ -53,7 +53,8 @@ final class FeedService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
+  /// Gets post views for a specified list of posts (by AT-URI). This
+  /// is sometimes referred to as 'hydrating' a 'feed skeleton'.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
   Future<XRPCResponse<GetPostsOutput>> getPosts({
@@ -71,7 +72,8 @@ final class FeedService {
         client: $client,
       );
 
-  /// Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
+  /// Get a view of the requesting account's home timeline. This is
+  /// expected to be some form of reverse-chronological feed.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getTimeline
   Future<XRPCResponse<GetTimelineOutput>> getTimeline({
@@ -93,7 +95,8 @@ final class FeedService {
         client: $client,
       );
 
-  /// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
+  /// Get a hydrated feed from an actor's selected feed generator.
+  /// Implemented by App View.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeed
   Future<XRPCResponse<GetFeedOutput>> getFeed({
@@ -163,7 +166,8 @@ final class FeedService {
         client: $client,
       );
 
-  /// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
+  /// Get a list of feeds (feed generator records) created by the actor
+  /// (in the actor's repo).
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorFeeds
   Future<XRPCResponse<GetActorFeedsOutput>> getActorFeeds({
@@ -185,7 +189,8 @@ final class FeedService {
         client: $client,
       );
 
-  /// Get a list of suggested feeds (feed generators) for the requesting account.
+  /// Get a list of suggested feeds (feed generators) for the
+  /// requesting account.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getSuggestedFeeds
   Future<XRPCResponse<GetSuggestedFeedsOutput>> getSuggestedFeeds({
@@ -228,7 +233,8 @@ final class FeedService {
         $client: $client,
       );
 
-  /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
+  /// Get posts in a thread. Does not require auth, but additional
+  /// metadata and filtering will be applied for authed requests.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPostThread
   Future<XRPCResponse<GetPostThreadOutput>> getPostThread({
@@ -250,7 +256,8 @@ final class FeedService {
         client: $client,
       );
 
-  /// Find posts matching search criteria, returning views of those posts.
+  /// Find posts matching search criteria, returning views of those
+  /// posts.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
   Future<XRPCResponse<SearchPostsOutput>> searchPosts({
@@ -290,7 +297,9 @@ final class FeedService {
         client: $client,
       );
 
-  /// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
+  /// Get information about a feed generator, including policies and
+  /// offered feed URIs. Does not require auth; implemented by Feed
+  /// Generator services (not App View).
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
   Future<XRPCResponse<DescribeFeedGeneratorOutput>> describeFeedGenerator({
@@ -326,7 +335,8 @@ final class FeedService {
         client: $client,
       );
 
-  /// Send information about interactions with feed items back to the feed generator that served them.
+  /// Send information about interactions with feed items back to the
+  /// feed generator that served them.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/sendInteractions
   Future<XRPCResponse<EmptyData>> sendInteractions({
@@ -343,7 +353,8 @@ final class FeedService {
         client: $client,
       );
 
-  /// Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.
+  /// Get a view of an actor's 'author feed' (post and reposts by the
+  /// author). Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getAuthorFeed
   Future<XRPCResponse<GetAuthorFeedOutput>> getAuthorFeed({
@@ -385,7 +396,10 @@ final class FeedService {
         client: $client,
       );
 
-  /// Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository..
+  /// Record defining interaction gating rules for a thread (aka, reply
+  /// controls). The record key (rkey) of the threadgate record must
+  /// match the record key of the thread's root post, and that record
+  /// must be in the same repository..
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate
   Future<XRPCResponse<StrongRef>> threadgate({
@@ -469,7 +483,9 @@ final class FeedService {
         $client: $client,
       );
 
-  /// Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
+  /// Record declaring of the existence of a feed generator, and
+  /// containing metadata about it. The record can exist in any
+  /// repository.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/generator
   Future<XRPCResponse<StrongRef>> generator({
@@ -525,7 +541,8 @@ final class FeedService {
         client: $client,
       );
 
-  /// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
+  /// Get a feed of recent posts from a list (posts and reposts from
+  /// any actors on the list). Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getListFeed
   Future<XRPCResponse<GetListFeedOutput>> getListFeed({
@@ -547,7 +564,9 @@ final class FeedService {
         client: $client,
       );
 
-  /// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
+  /// Get a skeleton of a feed provided by a feed generator. Auth is
+  /// optional, depending on provider requirements, and provides the
+  /// DID of the requester. Implemented by Feed Generator Service.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedSkeleton
   Future<XRPCResponse<GetFeedSkeletonOutput>> getFeedSkeleton({

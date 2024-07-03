@@ -23,7 +23,8 @@ import '../../../../com/atproto/label/defs/label_value_definition_strings.dart';
 part 'label_value_definition.freezed.dart';
 part 'label_value_definition.g.dart';
 
-/// Declares a label value and its expected interpertations and behaviors.
+/// Declares a label value and its expected interpertations and
+/// behaviors.
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinition
 @freezed
@@ -37,18 +38,19 @@ class LabelValueDefinition with _$LabelValueDefinition {
     @JsonKey(name: r'$type')
     String $type,
 
-    /// The value of the label being defined. Must only include lowercase ascii and
-    /// the '-' character ([a-z-]+).
+    /// The value of the label being defined. Must only include lowercase
+    /// ascii and the '-' character ([a-z-]+).
     required String identifier,
 
-    /// How should a client visually convey this label? 'inform' means neutral and
-    /// informational; 'alert' means negative and warning; 'none' means show
-    /// nothing.
+    /// How should a client visually convey this label? 'inform' means
+    /// neutral and informational; 'alert' means negative and warning;
+    /// 'none' means show nothing.
     @ULabelValueDefinitionSeverityConverter()
     required ULabelValueDefinitionSeverity severity,
 
-    /// What should this label hide in the UI, if applied? 'content' hides all of
-    /// the target; 'media' hides the images/video/audio; 'none' hides nothing.
+    /// What should this label hide in the UI, if applied? 'content'
+    /// hides all of the target; 'media' hides the images/video/audio;
+    /// 'none' hides nothing.
     @ULabelValueDefinitionBlurConverter()
     required ULabelValueDefinitionBlur blurs,
 
@@ -56,8 +58,8 @@ class LabelValueDefinition with _$LabelValueDefinition {
     @ULabelValueDefinitionDefaultSettingConverter()
     ULabelValueDefinitionDefaultSetting? defaultSetting,
 
-    /// Does the user need to have adult content enabled in order to configure this
-    /// label?
+    /// Does the user need to have adult content enabled in order to
+    /// configure this label?
     @Default(false) bool adultOnly,
     @LabelValueDefinitionStringsConverter()
     required List<LabelValueDefinitionStrings> locales,

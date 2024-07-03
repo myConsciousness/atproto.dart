@@ -34,7 +34,8 @@ class PostRecord with _$PostRecord {
     /// `app.bsky.feed.post`
     @Default(appBskyFeedPost) @JsonKey(name: r'$type') String $type,
 
-    /// The primary post content. May be an empty string, if there are embeds.
+    /// The primary post content. May be an empty string, if there are
+    /// embeds.
     required String text,
 
     /// Annotations of text (mentions, URLs, hashtags, etc)
@@ -48,7 +49,8 @@ class PostRecord with _$PostRecord {
     /// Self-label values for this post. Effectively content warnings.
     @UPostLabelConverter() UPostLabel? labels,
 
-    /// Additional hashtags, in addition to any included in post text and facets.
+    /// Additional hashtags, in addition to any included in post text and
+    /// facets.
     List<String>? tags,
 
     /// Client-declared timestamp when this post was originally created.

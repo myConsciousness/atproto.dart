@@ -32,9 +32,10 @@ class GetSessionOutput with _$GetSessionOutput {
     Map<String, dynamic>? didDoc,
     @Default(false) bool active,
 
-    /// If active=false, this optional field indicates a possible reason for why
-    /// the account is not active. If active=false and no status is supplied, then
-    /// the host makes no claim for why the repository is no longer being hosted.
+    /// If active=false, this optional field indicates a possible reason
+    /// for why the account is not active. If active=false and no status
+    /// is supplied, then the host makes no claim for why the repository
+    /// is no longer being hosted.
     @UGetSessionStatuConverter() UGetSessionStatu? status,
 
     /// Contains unknown objects not defined in Lexicon.

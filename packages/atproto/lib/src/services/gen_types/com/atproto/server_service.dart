@@ -56,7 +56,8 @@ Future<XRPCResponse<CreateSessionOutput>> createSession({
       $client: $client,
     );
 
-/// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
+/// Refresh an authentication session. Requires auth using the
+/// 'refreshJwt' (not the 'accessJwt').
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
 Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
@@ -131,7 +132,8 @@ final class _$Fn {
         client: $client,
       );
 
-  /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
+  /// Refresh an authentication session. Requires auth using the
+  /// 'refreshJwt' (not the 'accessJwt').
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
   Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
@@ -185,7 +187,11 @@ final class ServerService {
         client: $client,
       );
 
-  /// Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
+  /// Reserve a repo signing key, for use with account creation.
+  /// Necessary so that a DID PLC update operation can be constructed
+  /// during an account migraiton. Public and does not require auth;
+  /// implemented by PDS. NOTE: this endpoint may change when full
+  /// account migration is implemented.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/reserveSigningKey
   Future<XRPCResponse<ReserveSigningKeyOutput>> reserveSigningKey({
@@ -217,7 +223,8 @@ final class ServerService {
         client: $client,
       );
 
-  /// Get a signed token on behalf of the requesting DID for the requested service.
+  /// Get a signed token on behalf of the requesting DID for the
+  /// requested service.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth
   Future<XRPCResponse<GetServiceAuthOutput>> getServiceAuth({
@@ -235,7 +242,8 @@ final class ServerService {
         client: $client,
       );
 
-  /// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
+  /// Delete an actor's account with a token and password. Can only be
+  /// called after requesting a deletion token. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteAccount
   Future<XRPCResponse<EmptyData>> deleteAccount({
@@ -273,7 +281,8 @@ final class ServerService {
         client: $client,
       );
 
-  /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
+  /// Describes the server's account creation requirements and
+  /// capabilities. Implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer
   Future<XRPCResponse<DescribeServerOutput>> describeServer({
@@ -341,7 +350,10 @@ final class ServerService {
         client: $client,
       );
 
-  /// Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.
+  /// Returns the status of an account, especially as pertaining to
+  /// import or recovery. Can be called many times over the course of
+  /// an account migration. Requires auth and can only be called
+  /// pertaining to oneself.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
   Future<XRPCResponse<CheckAccountStatusOutput>> checkAccountStatus({
@@ -437,7 +449,10 @@ final class ServerService {
         client: $client,
       );
 
-  /// Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.
+  /// Deactivates a currently active account. Stops serving of repo,
+  /// and future writes to repo until reactivated. Used to finalize
+  /// account migration with the old host after the account has been
+  /// activated on the new host.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/deactivateAccount
   Future<XRPCResponse<EmptyData>> deactivateAccount({
@@ -455,7 +470,9 @@ final class ServerService {
         client: $client,
       );
 
-  /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
+  /// Activates a currently deactivated account. Used to finalize
+  /// account migration after the account's repo is imported and
+  /// identity is setup.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/activateAccount
   Future<XRPCResponse<EmptyData>> activateAccount({
@@ -481,7 +498,8 @@ final class ServerService {
         client: $client,
       );
 
-  /// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
+  /// Confirm an email using a token from
+  /// com.atproto.server.requestEmailConfirmation.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/confirmEmail
   Future<XRPCResponse<EmptyData>> confirmEmail({

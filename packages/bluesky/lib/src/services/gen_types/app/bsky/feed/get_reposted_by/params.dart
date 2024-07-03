@@ -25,8 +25,8 @@ class GetRepostedByParams with _$GetRepostedByParams {
     /// Reference (AT-URI) of post record
     @AtUriConverter() required AtUri uri,
 
-    /// If supplied, filters to reposts of specific version (by CID) of the post
-    /// record.
+    /// If supplied, filters to reposts of specific version (by CID) of
+    /// the post record.
     String? cid,
     int? limit,
     String? cursor,

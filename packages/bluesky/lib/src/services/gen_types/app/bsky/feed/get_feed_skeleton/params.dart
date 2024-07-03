@@ -22,8 +22,8 @@ part 'params.g.dart';
 class GetFeedSkeletonParams with _$GetFeedSkeletonParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetFeedSkeletonParams({
-    /// Reference to feed generator record describing the specific feed being
-    /// requested.
+    /// Reference to feed generator record describing the specific feed
+    /// being requested.
     @AtUriConverter() required AtUri feed,
     int? limit,
     String? cursor,
