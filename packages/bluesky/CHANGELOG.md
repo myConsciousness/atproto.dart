@@ -9,6 +9,14 @@
 - All `knownValues` are now implemented as union types of `Enum` and `String`.
 - Useful extensions have been added for union type objects.
 
+## v0.16.12
+
+- Fixed a bug that prevented `RepoService.deleteRecord` from working.
+
+## v0.16.11
+
+- Fixed a bug that prevented `RepoService.deleteRecord` from working.
+
 ## v0.16.10
 
 - Bump `atproto_core`.
