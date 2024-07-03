@@ -100,7 +100,8 @@ final class LexNamingConvention {
     // Package Import
     if (rootDocId.startsWith('com.atproto.')) {
       return 'package:atproto/$packageName.dart';
-    } else if (rootDocId.startsWith('app.bsky.')) {
+    } else if (rootDocId.startsWith('app.bsky.') ||
+        rootDocId.startsWith('chat.bsky.')) {
       return 'package:bluesky/$packageName.dart';
     }
 

@@ -403,3 +403,66 @@ const chatBskyModerationGetMessageContext =
 /// `chat.bsky.moderation.updateActorAccess`
 const chatBskyModerationUpdateActorAccess =
     NSID(ids.chatBskyModerationUpdateActorAccess);
+
+/// `tools.ozone.communication.createTemplate`
+const toolsOzoneCommunicationCreateTemplate =
+    NSID(ids.toolsOzoneCommunicationCreateTemplate);
+
+/// `tools.ozone.communication.deleteTemplate`
+const toolsOzoneCommunicationDeleteTemplate =
+    NSID(ids.toolsOzoneCommunicationDeleteTemplate);
+
+/// `tools.ozone.communication.listTemplates`
+const toolsOzoneCommunicationListTemplates =
+    NSID(ids.toolsOzoneCommunicationListTemplates);
+
+/// `tools.ozone.communication.updateTemplate`
+const toolsOzoneCommunicationUpdateTemplate =
+    NSID(ids.toolsOzoneCommunicationUpdateTemplate);
+
+/// `tools.ozone.moderation.emitEvent`
+const toolsOzoneModerationEmitEvent = NSID(ids.toolsOzoneModerationEmitEvent);
+
+/// `tools.ozone.moderation.getEvent`
+const toolsOzoneModerationGetEvent = NSID(ids.toolsOzoneModerationGetEvent);
+
+/// `tools.ozone.moderation.getRecord`
+const toolsOzoneModerationGetRecord = NSID(ids.toolsOzoneModerationGetRecord);
+
+/// `tools.ozone.moderation.getRepo`
+const toolsOzoneModerationGetRepo = NSID(ids.toolsOzoneModerationGetRepo);
+
+/// `tools.ozone.moderation.queryEvents`
+const toolsOzoneModerationQueryEvents =
+    NSID(ids.toolsOzoneModerationQueryEvents);
+
+/// `tools.ozone.moderation.queryStatuses`
+const toolsOzoneModerationQueryStatuses =
+    NSID(ids.toolsOzoneModerationQueryStatuses);
+
+/// `tools.ozone.moderation.searchRepos`
+const toolsOzoneModerationSearchRepos =
+    NSID(ids.toolsOzoneModerationSearchRepos);
+
+/// `tools.ozone.server.getConfig`
+const toolsOzoneServerGetConfig = NSID(ids.toolsOzoneServerGetConfig);
+
+/// `tools.ozone.server.getConfig#serviceConfig`
+const toolsOzoneServerGetConfigServiceConfig =
+    NSID(ids.toolsOzoneServerGetConfigServiceConfig);
+
+/// `tools.ozone.server.getConfig#viewerConfig`
+const toolsOzoneServerGetConfigViewerConfig =
+    NSID(ids.toolsOzoneServerGetConfigViewerConfig);
+
+/// `tools.ozone.team.addMember`
+const toolsOzoneTeamAddMember = NSID(ids.toolsOzoneTeamAddMember);
+
+/// `tools.ozone.team.deleteMember`
+const toolsOzoneTeamDeleteMember = NSID(ids.toolsOzoneTeamDeleteMember);
+
+/// `tools.ozone.team.listMembers`
+const toolsOzoneTeamListMembers = NSID(ids.toolsOzoneTeamListMembers);
+
+/// `tools.ozone.team.updateMember`
+const toolsOzoneTeamUpdateMember = NSID(ids.toolsOzoneTeamUpdateMember);

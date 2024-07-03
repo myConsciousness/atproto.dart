@@ -130,7 +130,8 @@ final class LexService {
     if (namespace.startsWith('com.atproto')) {
       buffer.writeln('  final ATProtoServiceContext _ctx;');
     } else if (namespace.startsWith('app.bsky') ||
-        namespace.startsWith('chat.bsky')) {
+        namespace.startsWith('chat.bsky') ||
+        namespace.startsWith('tools.ozone')) {
       buffer.writeln('  final BlueskyServiceContext _ctx;');
     } else {
       throw UnsupportedError('Unsupported service: $name');

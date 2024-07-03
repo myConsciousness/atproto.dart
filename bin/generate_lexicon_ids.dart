@@ -11,8 +11,7 @@ import 'utils.dart';
 
 const packages = {
   'atproto': ['com.atproto'],
-  'bluesky': ['app.bsky', 'chat.bsky'],
-  'bluesky_chat': ['chat.bsky'],
+  'bluesky': ['app.bsky', 'chat.bsky', 'tools.ozone'],
 };
 
 final _header = getFileHeader('Lexicon IDs Generator');

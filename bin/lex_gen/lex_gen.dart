@@ -42,7 +42,7 @@ const _kAtproto = Package(
 
 const _kBsky = Package(
   name: 'bluesky',
-  domains: ['app.bsky', 'chat.bsky'],
+  domains: ['app.bsky', 'chat.bsky', 'tools.ozone'],
   recordConfigs: [
     RecordConfig(
       subject: NSID('app.bsky.feed.post'),

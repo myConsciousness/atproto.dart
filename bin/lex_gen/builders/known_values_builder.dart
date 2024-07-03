@@ -71,20 +71,34 @@ final class LexKnownValuesBuilder {
           );
         }
       } else {
-        String name = knownValue;
-        if (name.startsWith('!')) {
-          name = name.substring(1); // Remove unnecessary sign.
-        }
-        if (name.contains('-')) {
-          name = name.split('-').map(toFirstUpper).join();
-        }
+        if (knownValue.startsWith('#')) {
+          final refToken = getRef(docId, knownValue)?.def;
 
-        elements.add(
-          LexGenKnownValuesElement(
-            name: toFirstLower(name),
-            value: knownValue,
-          ),
-        );
+          if (refToken is ULexUserTypeToken) {
+            elements.add(
+              LexGenKnownValuesElement(
+                description: refToken.data.description,
+                name: knownValue.substring(1),
+                value: knownValue,
+              ),
+            );
+          }
+        } else {
+          String name = knownValue;
+          if (name.startsWith('!')) {
+            name = name.substring(1); // Remove unnecessary sign.
+          }
+          if (name.contains('-')) {
+            name = name.split('-').map(toFirstUpper).join();
+          }
+
+          elements.add(
+            LexGenKnownValuesElement(
+              name: toFirstLower(name),
+              value: knownValue,
+            ),
+          );
+        }
       }
     }
 
