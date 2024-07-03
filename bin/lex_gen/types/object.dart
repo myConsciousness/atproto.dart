@@ -244,8 +244,7 @@ final class LexGenObject {
     }
     buffer.writeln('  /// Returns true if this object has unknown objects,');
     buffer.writeln('  /// otherwise false.');
-    buffer.writeln(
-        '  bool get hasUnknown => \$unknown != null && \$unknown!.isNotEmpty;');
+    buffer.writeln('  bool get hasUnknown => \$unknown != null;');
     buffer.writeln();
     buffer
         .writeln('  /// Returns true if this object has not unknown objects,');
