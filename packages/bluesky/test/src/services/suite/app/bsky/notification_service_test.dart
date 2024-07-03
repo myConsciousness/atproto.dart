@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/notification/get_unread_count/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/output.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/notification/register_push/known_platform.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/register_push/known_register_push_platform.dart';
 import 'service_suite.dart';
 
 void main() {
@@ -32,7 +32,7 @@ void main() {
     (m, s) => s.registerPush(
       serviceDid: 'did:web:bob.test',
       token: 'fake',
-      platform: KnownPlatform.web.toUnion(),
+      platform: KnownRegisterPushPlatform.web.toUnion(),
       appId: 'fake id',
     ),
     id: appBskyNotificationRegisterPush,
