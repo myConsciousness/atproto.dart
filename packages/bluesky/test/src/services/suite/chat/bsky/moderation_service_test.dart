@@ -7,8 +7,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/types/chat/bsky/moderation/getActorMetadata/output.dart';
-import 'package:bluesky/src/services/types/chat/bsky/moderation/getMessageContext/output.dart';
+import 'package:bluesky/src/services/gen_types/chat/bsky/moderation/get_actor_metadata/output.dart';
+import 'package:bluesky/src/services/gen_types/chat/bsky/moderation/get_message_context/output.dart';
 import 'service_suite.dart';
 
 void main() {

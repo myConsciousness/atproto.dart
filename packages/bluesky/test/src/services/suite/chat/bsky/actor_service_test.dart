@@ -8,13 +8,13 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/types/chat/bsky/actor/declaration/allow_incoming.dart';
+import 'package:bluesky/src/services/gen_types/chat/bsky/actor/declaration/known_declaration_allow_incoming.dart';
 import 'service_suite.dart';
 
 void main() {
   testActor<StrongRef>(
     (m, s) => s.declaration(
-      allowIncoming: DeclarationAllowIncoming.following,
+      allowIncoming: KnownDeclarationAllowIncoming.following.toUnion(),
     ),
     id: chatBskyActorDeclaration,
   );
