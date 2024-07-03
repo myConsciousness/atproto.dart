@@ -12,6 +12,7 @@ import '../rules/utils.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
 import '../types/object.dart';
+import '../types/known_values.dart';
 import '../types/union.dart';
 import 'known_values_builder.dart';
 import 'union_builder.dart';
@@ -317,15 +318,11 @@ final class LexGenObjectBuilder {
       type: dataType,
       name: name,
       array: property['items'] != null,
-      knownValues: LexKnownValuesBuilder(
-        docId: ctx.docId,
-        defName: ctx.mainDocIds.contains(ctx.docId) ||
-                objectType == ObjectType.record
-            ? ctx.docId.toString().split('.').last
-            : null,
+      knownValues: _getKnownValues(
+        objectType: objectType,
         propertyName: name,
-        knownValues: property['knownValues'] ?? const [],
-      ).build(),
+        property: property,
+      ),
       union: union,
       defaultValue: !isRequired
           ? getDefaultValue(
@@ -337,6 +334,28 @@ final class LexGenObjectBuilder {
             )
           : null,
     );
+  }
+
+  LexGenKnownValues? _getKnownValues({
+    required ObjectType objectType,
+    required String propertyName,
+    required Map<String, dynamic> property,
+  }) {
+    String? defName;
+    if (objectType == ObjectType.record) {
+      defName = ctx.docId.toString().split('.').last;
+    } else if (ctx.mainDocIds.contains(ctx.docId)) {
+      defName = ctx.defName != 'main'
+          ? ctx.docId.toString().split('.').last + toFirstUpper(ctx.defName)
+          : ctx.docId.toString().split('.').last;
+    }
+
+    return LexKnownValuesBuilder(
+      docId: ctx.docId,
+      defName: defName,
+      propertyName: propertyName,
+      knownValues: property['knownValues'] ?? const [],
+    ).build();
   }
 
   LexUnion? _getUnion({
