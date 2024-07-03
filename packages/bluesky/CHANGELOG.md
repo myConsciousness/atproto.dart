@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.12
+
+- Fixed a bug that prevented `RepoService.deleteRecord` from working.
+
 ## v0.16.11
 
 - Fixed a bug that prevented `RepoService.deleteRecord` from working.
