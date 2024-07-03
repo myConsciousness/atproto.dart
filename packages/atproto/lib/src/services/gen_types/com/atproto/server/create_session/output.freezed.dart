@@ -34,8 +34,8 @@ mixin _$CreateSessionOutput {
   /// for why the account is not active. If active=false and no status
   /// is supplied, then the host makes no claim for why the repository
   /// is no longer being hosted.
-  @UCreateSessionStatuConverter()
-  UCreateSessionStatu? get status => throw _privateConstructorUsedError;
+  @UCreateSessionStatusConverter()
+  UCreateSessionStatus? get status => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -63,10 +63,10 @@ abstract class $CreateSessionOutputCopyWith<$Res> {
       bool emailConfirmed,
       bool emailAuthFactor,
       bool active,
-      @UCreateSessionStatuConverter() UCreateSessionStatu? status,
+      @UCreateSessionStatusConverter() UCreateSessionStatus? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UCreateSessionStatuCopyWith<$Res>? get status;
+  $UCreateSessionStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -134,7 +134,7 @@ class _$CreateSessionOutputCopyWithImpl<$Res, $Val extends CreateSessionOutput>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UCreateSessionStatu?,
+              as UCreateSessionStatus?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -144,12 +144,12 @@ class _$CreateSessionOutputCopyWithImpl<$Res, $Val extends CreateSessionOutput>
 
   @override
   @pragma('vm:prefer-inline')
-  $UCreateSessionStatuCopyWith<$Res>? get status {
+  $UCreateSessionStatusCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $UCreateSessionStatuCopyWith<$Res>(_value.status!, (value) {
+    return $UCreateSessionStatusCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -173,11 +173,11 @@ abstract class _$$CreateSessionOutputImplCopyWith<$Res>
       bool emailConfirmed,
       bool emailAuthFactor,
       bool active,
-      @UCreateSessionStatuConverter() UCreateSessionStatu? status,
+      @UCreateSessionStatusConverter() UCreateSessionStatus? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UCreateSessionStatuCopyWith<$Res>? get status;
+  $UCreateSessionStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -243,7 +243,7 @@ class __$$CreateSessionOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UCreateSessionStatu?,
+              as UCreateSessionStatus?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -266,7 +266,7 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
       this.emailConfirmed = false,
       this.emailAuthFactor = false,
       this.active = false,
-      @UCreateSessionStatuConverter() this.status,
+      @UCreateSessionStatusConverter() this.status,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _didDoc = didDoc,
         _$unknown = $unknown;
@@ -309,8 +309,8 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
   /// is supplied, then the host makes no claim for why the repository
   /// is no longer being hosted.
   @override
-  @UCreateSessionStatuConverter()
-  final UCreateSessionStatu? status;
+  @UCreateSessionStatusConverter()
+  final UCreateSessionStatus? status;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -395,7 +395,7 @@ abstract class _CreateSessionOutput implements CreateSessionOutput {
           final bool emailConfirmed,
           final bool emailAuthFactor,
           final bool active,
-          @UCreateSessionStatuConverter() final UCreateSessionStatu? status,
+          @UCreateSessionStatusConverter() final UCreateSessionStatus? status,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$CreateSessionOutputImpl;
 
@@ -426,8 +426,8 @@ abstract class _CreateSessionOutput implements CreateSessionOutput {
   /// for why the account is not active. If active=false and no status
   /// is supplied, then the host makes no claim for why the repository
   /// is no longer being hosted.
-  @UCreateSessionStatuConverter()
-  UCreateSessionStatu? get status;
+  @UCreateSessionStatusConverter()
+  UCreateSessionStatus? get status;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

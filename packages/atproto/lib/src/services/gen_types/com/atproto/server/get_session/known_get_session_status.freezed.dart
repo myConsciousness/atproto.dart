@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_account_statu.dart';
+part of 'known_get_session_status.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,59 +15,59 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UAccountStatu {
+mixin _$UGetSessionStatus {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownAccountStatu data) knownValue,
+    required TResult Function(KnownGetSessionStatus data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownAccountStatu data)? knownValue,
+    TResult? Function(KnownGetSessionStatus data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownAccountStatu data)? knownValue,
+    TResult Function(KnownGetSessionStatus data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAccountStatuKnownValue value) knownValue,
-    required TResult Function(UAccountStatuUnknownValue value) unknownValue,
+    required TResult Function(UGetSessionStatusKnownValue value) knownValue,
+    required TResult Function(UGetSessionStatusUnknownValue value) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAccountStatuKnownValue value)? knownValue,
-    TResult? Function(UAccountStatuUnknownValue value)? unknownValue,
+    TResult? Function(UGetSessionStatusKnownValue value)? knownValue,
+    TResult? Function(UGetSessionStatusUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAccountStatuKnownValue value)? knownValue,
-    TResult Function(UAccountStatuUnknownValue value)? unknownValue,
+    TResult Function(UGetSessionStatusKnownValue value)? knownValue,
+    TResult Function(UGetSessionStatusUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UAccountStatuCopyWith<$Res> {
-  factory $UAccountStatuCopyWith(
-          UAccountStatu value, $Res Function(UAccountStatu) then) =
-      _$UAccountStatuCopyWithImpl<$Res, UAccountStatu>;
+abstract class $UGetSessionStatusCopyWith<$Res> {
+  factory $UGetSessionStatusCopyWith(
+          UGetSessionStatus value, $Res Function(UGetSessionStatus) then) =
+      _$UGetSessionStatusCopyWithImpl<$Res, UGetSessionStatus>;
 }
 
 /// @nodoc
-class _$UAccountStatuCopyWithImpl<$Res, $Val extends UAccountStatu>
-    implements $UAccountStatuCopyWith<$Res> {
-  _$UAccountStatuCopyWithImpl(this._value, this._then);
+class _$UGetSessionStatusCopyWithImpl<$Res, $Val extends UGetSessionStatus>
+    implements $UGetSessionStatusCopyWith<$Res> {
+  _$UGetSessionStatusCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,22 +76,23 @@ class _$UAccountStatuCopyWithImpl<$Res, $Val extends UAccountStatu>
 }
 
 /// @nodoc
-abstract class _$$UAccountStatuKnownValueImplCopyWith<$Res> {
-  factory _$$UAccountStatuKnownValueImplCopyWith(
-          _$UAccountStatuKnownValueImpl value,
-          $Res Function(_$UAccountStatuKnownValueImpl) then) =
-      __$$UAccountStatuKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$UGetSessionStatusKnownValueImplCopyWith<$Res> {
+  factory _$$UGetSessionStatusKnownValueImplCopyWith(
+          _$UGetSessionStatusKnownValueImpl value,
+          $Res Function(_$UGetSessionStatusKnownValueImpl) then) =
+      __$$UGetSessionStatusKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownAccountStatu data});
+  $Res call({KnownGetSessionStatus data});
 }
 
 /// @nodoc
-class __$$UAccountStatuKnownValueImplCopyWithImpl<$Res>
-    extends _$UAccountStatuCopyWithImpl<$Res, _$UAccountStatuKnownValueImpl>
-    implements _$$UAccountStatuKnownValueImplCopyWith<$Res> {
-  __$$UAccountStatuKnownValueImplCopyWithImpl(
-      _$UAccountStatuKnownValueImpl _value,
-      $Res Function(_$UAccountStatuKnownValueImpl) _then)
+class __$$UGetSessionStatusKnownValueImplCopyWithImpl<$Res>
+    extends _$UGetSessionStatusCopyWithImpl<$Res,
+        _$UGetSessionStatusKnownValueImpl>
+    implements _$$UGetSessionStatusKnownValueImplCopyWith<$Res> {
+  __$$UGetSessionStatusKnownValueImplCopyWithImpl(
+      _$UGetSessionStatusKnownValueImpl _value,
+      $Res Function(_$UGetSessionStatusKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,33 +100,33 @@ class __$$UAccountStatuKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UAccountStatuKnownValueImpl(
+    return _then(_$UGetSessionStatusKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownAccountStatu,
+              as KnownGetSessionStatus,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UAccountStatuKnownValueImpl implements UAccountStatuKnownValue {
-  const _$UAccountStatuKnownValueImpl({required this.data});
+class _$UGetSessionStatusKnownValueImpl implements UGetSessionStatusKnownValue {
+  const _$UGetSessionStatusKnownValueImpl({required this.data});
 
   @override
-  final KnownAccountStatu data;
+  final KnownGetSessionStatus data;
 
   @override
   String toString() {
-    return 'UAccountStatu.knownValue(data: $data)';
+    return 'UGetSessionStatus.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UAccountStatuKnownValueImpl &&
+            other is _$UGetSessionStatusKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -135,14 +136,14 @@ class _$UAccountStatuKnownValueImpl implements UAccountStatuKnownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UAccountStatuKnownValueImplCopyWith<_$UAccountStatuKnownValueImpl>
-      get copyWith => __$$UAccountStatuKnownValueImplCopyWithImpl<
-          _$UAccountStatuKnownValueImpl>(this, _$identity);
+  _$$UGetSessionStatusKnownValueImplCopyWith<_$UGetSessionStatusKnownValueImpl>
+      get copyWith => __$$UGetSessionStatusKnownValueImplCopyWithImpl<
+          _$UGetSessionStatusKnownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownAccountStatu data) knownValue,
+    required TResult Function(KnownGetSessionStatus data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -151,7 +152,7 @@ class _$UAccountStatuKnownValueImpl implements UAccountStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownAccountStatu data)? knownValue,
+    TResult? Function(KnownGetSessionStatus data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -160,7 +161,7 @@ class _$UAccountStatuKnownValueImpl implements UAccountStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownAccountStatu data)? knownValue,
+    TResult Function(KnownGetSessionStatus data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -173,8 +174,8 @@ class _$UAccountStatuKnownValueImpl implements UAccountStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAccountStatuKnownValue value) knownValue,
-    required TResult Function(UAccountStatuUnknownValue value) unknownValue,
+    required TResult Function(UGetSessionStatusKnownValue value) knownValue,
+    required TResult Function(UGetSessionStatusUnknownValue value) unknownValue,
   }) {
     return knownValue(this);
   }
@@ -182,8 +183,8 @@ class _$UAccountStatuKnownValueImpl implements UAccountStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAccountStatuKnownValue value)? knownValue,
-    TResult? Function(UAccountStatuUnknownValue value)? unknownValue,
+    TResult? Function(UGetSessionStatusKnownValue value)? knownValue,
+    TResult? Function(UGetSessionStatusUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -191,8 +192,8 @@ class _$UAccountStatuKnownValueImpl implements UAccountStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAccountStatuKnownValue value)? knownValue,
-    TResult Function(UAccountStatuUnknownValue value)? unknownValue,
+    TResult Function(UGetSessionStatusKnownValue value)? knownValue,
+    TResult Function(UGetSessionStatusUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -202,34 +203,36 @@ class _$UAccountStatuKnownValueImpl implements UAccountStatuKnownValue {
   }
 }
 
-abstract class UAccountStatuKnownValue implements UAccountStatu {
-  const factory UAccountStatuKnownValue(
-      {required final KnownAccountStatu data}) = _$UAccountStatuKnownValueImpl;
+abstract class UGetSessionStatusKnownValue implements UGetSessionStatus {
+  const factory UGetSessionStatusKnownValue(
+          {required final KnownGetSessionStatus data}) =
+      _$UGetSessionStatusKnownValueImpl;
 
   @override
-  KnownAccountStatu get data;
+  KnownGetSessionStatus get data;
   @JsonKey(ignore: true)
-  _$$UAccountStatuKnownValueImplCopyWith<_$UAccountStatuKnownValueImpl>
+  _$$UGetSessionStatusKnownValueImplCopyWith<_$UGetSessionStatusKnownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UAccountStatuUnknownValueImplCopyWith<$Res> {
-  factory _$$UAccountStatuUnknownValueImplCopyWith(
-          _$UAccountStatuUnknownValueImpl value,
-          $Res Function(_$UAccountStatuUnknownValueImpl) then) =
-      __$$UAccountStatuUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$UGetSessionStatusUnknownValueImplCopyWith<$Res> {
+  factory _$$UGetSessionStatusUnknownValueImplCopyWith(
+          _$UGetSessionStatusUnknownValueImpl value,
+          $Res Function(_$UGetSessionStatusUnknownValueImpl) then) =
+      __$$UGetSessionStatusUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$UAccountStatuUnknownValueImplCopyWithImpl<$Res>
-    extends _$UAccountStatuCopyWithImpl<$Res, _$UAccountStatuUnknownValueImpl>
-    implements _$$UAccountStatuUnknownValueImplCopyWith<$Res> {
-  __$$UAccountStatuUnknownValueImplCopyWithImpl(
-      _$UAccountStatuUnknownValueImpl _value,
-      $Res Function(_$UAccountStatuUnknownValueImpl) _then)
+class __$$UGetSessionStatusUnknownValueImplCopyWithImpl<$Res>
+    extends _$UGetSessionStatusCopyWithImpl<$Res,
+        _$UGetSessionStatusUnknownValueImpl>
+    implements _$$UGetSessionStatusUnknownValueImplCopyWith<$Res> {
+  __$$UGetSessionStatusUnknownValueImplCopyWithImpl(
+      _$UGetSessionStatusUnknownValueImpl _value,
+      $Res Function(_$UGetSessionStatusUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -237,7 +240,7 @@ class __$$UAccountStatuUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UAccountStatuUnknownValueImpl(
+    return _then(_$UGetSessionStatusUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -248,22 +251,23 @@ class __$$UAccountStatuUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UAccountStatuUnknownValueImpl implements UAccountStatuUnknownValue {
-  const _$UAccountStatuUnknownValueImpl({required this.data});
+class _$UGetSessionStatusUnknownValueImpl
+    implements UGetSessionStatusUnknownValue {
+  const _$UGetSessionStatusUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'UAccountStatu.unknownValue(data: $data)';
+    return 'UGetSessionStatus.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UAccountStatuUnknownValueImpl &&
+            other is _$UGetSessionStatusUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -273,14 +277,15 @@ class _$UAccountStatuUnknownValueImpl implements UAccountStatuUnknownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UAccountStatuUnknownValueImplCopyWith<_$UAccountStatuUnknownValueImpl>
-      get copyWith => __$$UAccountStatuUnknownValueImplCopyWithImpl<
-          _$UAccountStatuUnknownValueImpl>(this, _$identity);
+  _$$UGetSessionStatusUnknownValueImplCopyWith<
+          _$UGetSessionStatusUnknownValueImpl>
+      get copyWith => __$$UGetSessionStatusUnknownValueImplCopyWithImpl<
+          _$UGetSessionStatusUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownAccountStatu data) knownValue,
+    required TResult Function(KnownGetSessionStatus data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -289,7 +294,7 @@ class _$UAccountStatuUnknownValueImpl implements UAccountStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownAccountStatu data)? knownValue,
+    TResult? Function(KnownGetSessionStatus data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -298,7 +303,7 @@ class _$UAccountStatuUnknownValueImpl implements UAccountStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownAccountStatu data)? knownValue,
+    TResult Function(KnownGetSessionStatus data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -311,8 +316,8 @@ class _$UAccountStatuUnknownValueImpl implements UAccountStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAccountStatuKnownValue value) knownValue,
-    required TResult Function(UAccountStatuUnknownValue value) unknownValue,
+    required TResult Function(UGetSessionStatusKnownValue value) knownValue,
+    required TResult Function(UGetSessionStatusUnknownValue value) unknownValue,
   }) {
     return unknownValue(this);
   }
@@ -320,8 +325,8 @@ class _$UAccountStatuUnknownValueImpl implements UAccountStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAccountStatuKnownValue value)? knownValue,
-    TResult? Function(UAccountStatuUnknownValue value)? unknownValue,
+    TResult? Function(UGetSessionStatusKnownValue value)? knownValue,
+    TResult? Function(UGetSessionStatusUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -329,8 +334,8 @@ class _$UAccountStatuUnknownValueImpl implements UAccountStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAccountStatuKnownValue value)? knownValue,
-    TResult Function(UAccountStatuUnknownValue value)? unknownValue,
+    TResult Function(UGetSessionStatusKnownValue value)? knownValue,
+    TResult Function(UGetSessionStatusUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -340,13 +345,14 @@ class _$UAccountStatuUnknownValueImpl implements UAccountStatuUnknownValue {
   }
 }
 
-abstract class UAccountStatuUnknownValue implements UAccountStatu {
-  const factory UAccountStatuUnknownValue({required final String data}) =
-      _$UAccountStatuUnknownValueImpl;
+abstract class UGetSessionStatusUnknownValue implements UGetSessionStatus {
+  const factory UGetSessionStatusUnknownValue({required final String data}) =
+      _$UGetSessionStatusUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$UAccountStatuUnknownValueImplCopyWith<_$UAccountStatuUnknownValueImpl>
+  _$$UGetSessionStatusUnknownValueImplCopyWith<
+          _$UGetSessionStatusUnknownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

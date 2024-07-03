@@ -26,8 +26,8 @@ _$RefreshSessionOutputImpl _$$RefreshSessionOutputImplFromJson(Map json) =>
           active: $checkedConvert('active', (v) => v as bool? ?? false),
           status: $checkedConvert(
               'status',
-              (v) => _$JsonConverterFromJson<String, URefreshSessionStatu>(
-                  v, const URefreshSessionStatuConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, URefreshSessionStatus>(
+                  v, const URefreshSessionStatusConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -57,8 +57,8 @@ Map<String, dynamic> _$$RefreshSessionOutputImplToJson(
   val['active'] = instance.active;
   writeNotNull(
       'status',
-      _$JsonConverterToJson<String, URefreshSessionStatu>(
-          instance.status, const URefreshSessionStatuConverter().toJson));
+      _$JsonConverterToJson<String, URefreshSessionStatus>(
+          instance.status, const URefreshSessionStatusConverter().toJson));
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

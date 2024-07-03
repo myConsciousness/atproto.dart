@@ -34,7 +34,9 @@ void writeFileAsStringSync(final String filePath, final String contents) {
 }
 
 String getSingular(String plural) {
-  if (_kExceptionSingular.contains(plural)) return plural;
+  if (_kExceptionSingular.contains(splitByUpper(plural).last.toLowerCase())) {
+    return plural;
+  }
 
   // Check if the word follows the plural rules
   if (plural.endsWith('ies')) {

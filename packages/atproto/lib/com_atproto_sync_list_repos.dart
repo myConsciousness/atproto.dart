@@ -13,4 +13,4 @@
 export 'package:atproto/src/services/gen_types/com/atproto/sync/list_repos/params.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/list_repos/output.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/list_repos/repo.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/sync/list_repos/known_repo_statu.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync/list_repos/known_repo_status.dart';

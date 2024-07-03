@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_create_session_statu.freezed.dart';
+part 'known_create_session_status.freezed.dart';
 
-enum KnownCreateSessionStatu {
+enum KnownCreateSessionStatus {
   @JsonValue('takendown')
   takendown('takendown'),
   @JsonValue('suspended')
@@ -27,10 +27,10 @@ enum KnownCreateSessionStatu {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownCreateSessionStatu(this.value);
+  const KnownCreateSessionStatus(this.value);
 
-  /// Returns [KnownCreateSessionStatu] associated with [value], otherwise null.
-  static KnownCreateSessionStatu? valueOf(final String? value) {
+  /// Returns [KnownCreateSessionStatus] associated with [value], otherwise null.
+  static KnownCreateSessionStatus? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,24 +43,24 @@ enum KnownCreateSessionStatu {
   }
 }
 
-extension $KnownCreateSessionStatuExtension on KnownCreateSessionStatu {
-  /// Returns this value as [UCreateSessionStatu].
-  UCreateSessionStatu toUnion() => UCreateSessionStatu.knownValue(data: this);
+extension $KnownCreateSessionStatusExtension on KnownCreateSessionStatus {
+  /// Returns this value as [UCreateSessionStatus].
+  UCreateSessionStatus toUnion() => UCreateSessionStatus.knownValue(data: this);
 
   /// Returns true if this value is [takendown], otherwise false.
-  bool get isTakendown => this == KnownCreateSessionStatu.takendown;
+  bool get isTakendown => this == KnownCreateSessionStatus.takendown;
 
   /// Returns true if this value is not [takendown], otherwise false.
   bool get isNotTakendown => !isTakendown;
 
   /// Returns true if this value is [suspended], otherwise false.
-  bool get isSuspended => this == KnownCreateSessionStatu.suspended;
+  bool get isSuspended => this == KnownCreateSessionStatus.suspended;
 
   /// Returns true if this value is not [suspended], otherwise false.
   bool get isNotSuspended => !isSuspended;
 
   /// Returns true if this value is [deactivated], otherwise false.
-  bool get isDeactivated => this == KnownCreateSessionStatu.deactivated;
+  bool get isDeactivated => this == KnownCreateSessionStatus.deactivated;
 
   /// Returns true if this value is not [deactivated], otherwise false.
   bool get isNotDeactivated => !isDeactivated;
@@ -83,60 +83,60 @@ extension $KnownCreateSessionStatuExtension on KnownCreateSessionStatu {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownCreateSessionStatu
+///   knownValue: (data) => data, // => KnownCreateSessionStatus
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownCreateSessionStatu or null
+///   print(object.knownValue); // => KnownCreateSessionStatus or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UCreateSessionStatu with _$UCreateSessionStatu {
-  const factory UCreateSessionStatu.knownValue({
-    required KnownCreateSessionStatu data,
-  }) = UCreateSessionStatuKnownValue;
+class UCreateSessionStatus with _$UCreateSessionStatus {
+  const factory UCreateSessionStatus.knownValue({
+    required KnownCreateSessionStatus data,
+  }) = UCreateSessionStatusKnownValue;
 
-  const factory UCreateSessionStatu.unknownValue({
+  const factory UCreateSessionStatus.unknownValue({
     required String data,
-  }) = UCreateSessionStatuUnknownValue;
+  }) = UCreateSessionStatusUnknownValue;
 }
 
-final class UCreateSessionStatuConverter
-    implements JsonConverter<UCreateSessionStatu, String> {
-  const UCreateSessionStatuConverter();
+final class UCreateSessionStatusConverter
+    implements JsonConverter<UCreateSessionStatus, String> {
+  const UCreateSessionStatusConverter();
 
   @override
-  UCreateSessionStatu fromJson(String json) {
-    final knownValue = KnownCreateSessionStatu.valueOf(json);
+  UCreateSessionStatus fromJson(String json) {
+    final knownValue = KnownCreateSessionStatus.valueOf(json);
 
     return knownValue != null
-        ? UCreateSessionStatu.knownValue(data: knownValue)
-        : UCreateSessionStatu.unknownValue(data: json);
+        ? UCreateSessionStatus.knownValue(data: knownValue)
+        : UCreateSessionStatus.unknownValue(data: json);
   }
 
   @override
-  String toJson(UCreateSessionStatu object) => object.when(
+  String toJson(UCreateSessionStatus object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UCreateSessionStatuExtension on UCreateSessionStatu {
+extension $UCreateSessionStatusExtension on UCreateSessionStatus {
   /// Returns string value.
-  String toJson() => const UCreateSessionStatuConverter().toJson(this);
+  String toJson() => const UCreateSessionStatusConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UCreateSessionStatuKnownValue;
+  bool get isKnownValue => this is UCreateSessionStatusKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UCreateSessionStatuUnknownValue;
+  bool get isUnknownValue => this is UCreateSessionStatusUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -144,11 +144,11 @@ extension $UCreateSessionStatuExtension on UCreateSessionStatu {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownCreateSessionStatu get knownValue =>
-      this.data as KnownCreateSessionStatu;
+  KnownCreateSessionStatus get knownValue =>
+      this.data as KnownCreateSessionStatus;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownCreateSessionStatu? get knownValueOrNull =>
+  KnownCreateSessionStatus? get knownValueOrNull =>
       isKnownValue ? knownValue : null;
 
   /// Returns unknown value.

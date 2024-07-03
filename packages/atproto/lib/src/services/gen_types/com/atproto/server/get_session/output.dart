@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../com/atproto/server/get_session/known_get_session_statu.dart';
+import '../../../../com/atproto/server/get_session/known_get_session_status.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -36,7 +36,7 @@ class GetSessionOutput with _$GetSessionOutput {
     /// for why the account is not active. If active=false and no status
     /// is supplied, then the host makes no claim for why the repository
     /// is no longer being hosted.
-    @UGetSessionStatuConverter() UGetSessionStatu? status,
+    @UGetSessionStatusConverter() UGetSessionStatus? status,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

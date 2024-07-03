@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_get_repo_status_statu.dart';
+part of 'known_get_repo_status_status.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,60 +15,61 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UGetRepoStatusStatu {
+mixin _$UGetRepoStatusStatus {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownGetRepoStatusStatu data) knownValue,
+    required TResult Function(KnownGetRepoStatusStatus data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownGetRepoStatusStatu data)? knownValue,
+    TResult? Function(KnownGetRepoStatusStatus data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownGetRepoStatusStatu data)? knownValue,
+    TResult Function(KnownGetRepoStatusStatus data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UGetRepoStatusStatuKnownValue value) knownValue,
-    required TResult Function(UGetRepoStatusStatuUnknownValue value)
+    required TResult Function(UGetRepoStatusStatusKnownValue value) knownValue,
+    required TResult Function(UGetRepoStatusStatusUnknownValue value)
         unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UGetRepoStatusStatuKnownValue value)? knownValue,
-    TResult? Function(UGetRepoStatusStatuUnknownValue value)? unknownValue,
+    TResult? Function(UGetRepoStatusStatusKnownValue value)? knownValue,
+    TResult? Function(UGetRepoStatusStatusUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UGetRepoStatusStatuKnownValue value)? knownValue,
-    TResult Function(UGetRepoStatusStatuUnknownValue value)? unknownValue,
+    TResult Function(UGetRepoStatusStatusKnownValue value)? knownValue,
+    TResult Function(UGetRepoStatusStatusUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UGetRepoStatusStatuCopyWith<$Res> {
-  factory $UGetRepoStatusStatuCopyWith(
-          UGetRepoStatusStatu value, $Res Function(UGetRepoStatusStatu) then) =
-      _$UGetRepoStatusStatuCopyWithImpl<$Res, UGetRepoStatusStatu>;
+abstract class $UGetRepoStatusStatusCopyWith<$Res> {
+  factory $UGetRepoStatusStatusCopyWith(UGetRepoStatusStatus value,
+          $Res Function(UGetRepoStatusStatus) then) =
+      _$UGetRepoStatusStatusCopyWithImpl<$Res, UGetRepoStatusStatus>;
 }
 
 /// @nodoc
-class _$UGetRepoStatusStatuCopyWithImpl<$Res, $Val extends UGetRepoStatusStatu>
-    implements $UGetRepoStatusStatuCopyWith<$Res> {
-  _$UGetRepoStatusStatuCopyWithImpl(this._value, this._then);
+class _$UGetRepoStatusStatusCopyWithImpl<$Res,
+        $Val extends UGetRepoStatusStatus>
+    implements $UGetRepoStatusStatusCopyWith<$Res> {
+  _$UGetRepoStatusStatusCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -77,23 +78,23 @@ class _$UGetRepoStatusStatuCopyWithImpl<$Res, $Val extends UGetRepoStatusStatu>
 }
 
 /// @nodoc
-abstract class _$$UGetRepoStatusStatuKnownValueImplCopyWith<$Res> {
-  factory _$$UGetRepoStatusStatuKnownValueImplCopyWith(
-          _$UGetRepoStatusStatuKnownValueImpl value,
-          $Res Function(_$UGetRepoStatusStatuKnownValueImpl) then) =
-      __$$UGetRepoStatusStatuKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$UGetRepoStatusStatusKnownValueImplCopyWith<$Res> {
+  factory _$$UGetRepoStatusStatusKnownValueImplCopyWith(
+          _$UGetRepoStatusStatusKnownValueImpl value,
+          $Res Function(_$UGetRepoStatusStatusKnownValueImpl) then) =
+      __$$UGetRepoStatusStatusKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownGetRepoStatusStatu data});
+  $Res call({KnownGetRepoStatusStatus data});
 }
 
 /// @nodoc
-class __$$UGetRepoStatusStatuKnownValueImplCopyWithImpl<$Res>
-    extends _$UGetRepoStatusStatuCopyWithImpl<$Res,
-        _$UGetRepoStatusStatuKnownValueImpl>
-    implements _$$UGetRepoStatusStatuKnownValueImplCopyWith<$Res> {
-  __$$UGetRepoStatusStatuKnownValueImplCopyWithImpl(
-      _$UGetRepoStatusStatuKnownValueImpl _value,
-      $Res Function(_$UGetRepoStatusStatuKnownValueImpl) _then)
+class __$$UGetRepoStatusStatusKnownValueImplCopyWithImpl<$Res>
+    extends _$UGetRepoStatusStatusCopyWithImpl<$Res,
+        _$UGetRepoStatusStatusKnownValueImpl>
+    implements _$$UGetRepoStatusStatusKnownValueImplCopyWith<$Res> {
+  __$$UGetRepoStatusStatusKnownValueImplCopyWithImpl(
+      _$UGetRepoStatusStatusKnownValueImpl _value,
+      $Res Function(_$UGetRepoStatusStatusKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,34 +102,34 @@ class __$$UGetRepoStatusStatuKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UGetRepoStatusStatuKnownValueImpl(
+    return _then(_$UGetRepoStatusStatusKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownGetRepoStatusStatu,
+              as KnownGetRepoStatusStatus,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UGetRepoStatusStatuKnownValueImpl
-    implements UGetRepoStatusStatuKnownValue {
-  const _$UGetRepoStatusStatuKnownValueImpl({required this.data});
+class _$UGetRepoStatusStatusKnownValueImpl
+    implements UGetRepoStatusStatusKnownValue {
+  const _$UGetRepoStatusStatusKnownValueImpl({required this.data});
 
   @override
-  final KnownGetRepoStatusStatu data;
+  final KnownGetRepoStatusStatus data;
 
   @override
   String toString() {
-    return 'UGetRepoStatusStatu.knownValue(data: $data)';
+    return 'UGetRepoStatusStatus.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UGetRepoStatusStatuKnownValueImpl &&
+            other is _$UGetRepoStatusStatusKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -138,15 +139,15 @@ class _$UGetRepoStatusStatuKnownValueImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UGetRepoStatusStatuKnownValueImplCopyWith<
-          _$UGetRepoStatusStatuKnownValueImpl>
-      get copyWith => __$$UGetRepoStatusStatuKnownValueImplCopyWithImpl<
-          _$UGetRepoStatusStatuKnownValueImpl>(this, _$identity);
+  _$$UGetRepoStatusStatusKnownValueImplCopyWith<
+          _$UGetRepoStatusStatusKnownValueImpl>
+      get copyWith => __$$UGetRepoStatusStatusKnownValueImplCopyWithImpl<
+          _$UGetRepoStatusStatusKnownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownGetRepoStatusStatu data) knownValue,
+    required TResult Function(KnownGetRepoStatusStatus data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -155,7 +156,7 @@ class _$UGetRepoStatusStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownGetRepoStatusStatu data)? knownValue,
+    TResult? Function(KnownGetRepoStatusStatus data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -164,7 +165,7 @@ class _$UGetRepoStatusStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownGetRepoStatusStatu data)? knownValue,
+    TResult Function(KnownGetRepoStatusStatus data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -177,8 +178,8 @@ class _$UGetRepoStatusStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UGetRepoStatusStatuKnownValue value) knownValue,
-    required TResult Function(UGetRepoStatusStatuUnknownValue value)
+    required TResult Function(UGetRepoStatusStatusKnownValue value) knownValue,
+    required TResult Function(UGetRepoStatusStatusUnknownValue value)
         unknownValue,
   }) {
     return knownValue(this);
@@ -187,8 +188,8 @@ class _$UGetRepoStatusStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UGetRepoStatusStatuKnownValue value)? knownValue,
-    TResult? Function(UGetRepoStatusStatuUnknownValue value)? unknownValue,
+    TResult? Function(UGetRepoStatusStatusKnownValue value)? knownValue,
+    TResult? Function(UGetRepoStatusStatusUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -196,8 +197,8 @@ class _$UGetRepoStatusStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UGetRepoStatusStatuKnownValue value)? knownValue,
-    TResult Function(UGetRepoStatusStatuUnknownValue value)? unknownValue,
+    TResult Function(UGetRepoStatusStatusKnownValue value)? knownValue,
+    TResult Function(UGetRepoStatusStatusUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -207,37 +208,37 @@ class _$UGetRepoStatusStatuKnownValueImpl
   }
 }
 
-abstract class UGetRepoStatusStatuKnownValue implements UGetRepoStatusStatu {
-  const factory UGetRepoStatusStatuKnownValue(
-          {required final KnownGetRepoStatusStatu data}) =
-      _$UGetRepoStatusStatuKnownValueImpl;
+abstract class UGetRepoStatusStatusKnownValue implements UGetRepoStatusStatus {
+  const factory UGetRepoStatusStatusKnownValue(
+          {required final KnownGetRepoStatusStatus data}) =
+      _$UGetRepoStatusStatusKnownValueImpl;
 
   @override
-  KnownGetRepoStatusStatu get data;
+  KnownGetRepoStatusStatus get data;
   @JsonKey(ignore: true)
-  _$$UGetRepoStatusStatuKnownValueImplCopyWith<
-          _$UGetRepoStatusStatuKnownValueImpl>
+  _$$UGetRepoStatusStatusKnownValueImplCopyWith<
+          _$UGetRepoStatusStatusKnownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UGetRepoStatusStatuUnknownValueImplCopyWith<$Res> {
-  factory _$$UGetRepoStatusStatuUnknownValueImplCopyWith(
-          _$UGetRepoStatusStatuUnknownValueImpl value,
-          $Res Function(_$UGetRepoStatusStatuUnknownValueImpl) then) =
-      __$$UGetRepoStatusStatuUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$UGetRepoStatusStatusUnknownValueImplCopyWith<$Res> {
+  factory _$$UGetRepoStatusStatusUnknownValueImplCopyWith(
+          _$UGetRepoStatusStatusUnknownValueImpl value,
+          $Res Function(_$UGetRepoStatusStatusUnknownValueImpl) then) =
+      __$$UGetRepoStatusStatusUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$UGetRepoStatusStatuUnknownValueImplCopyWithImpl<$Res>
-    extends _$UGetRepoStatusStatuCopyWithImpl<$Res,
-        _$UGetRepoStatusStatuUnknownValueImpl>
-    implements _$$UGetRepoStatusStatuUnknownValueImplCopyWith<$Res> {
-  __$$UGetRepoStatusStatuUnknownValueImplCopyWithImpl(
-      _$UGetRepoStatusStatuUnknownValueImpl _value,
-      $Res Function(_$UGetRepoStatusStatuUnknownValueImpl) _then)
+class __$$UGetRepoStatusStatusUnknownValueImplCopyWithImpl<$Res>
+    extends _$UGetRepoStatusStatusCopyWithImpl<$Res,
+        _$UGetRepoStatusStatusUnknownValueImpl>
+    implements _$$UGetRepoStatusStatusUnknownValueImplCopyWith<$Res> {
+  __$$UGetRepoStatusStatusUnknownValueImplCopyWithImpl(
+      _$UGetRepoStatusStatusUnknownValueImpl _value,
+      $Res Function(_$UGetRepoStatusStatusUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -245,7 +246,7 @@ class __$$UGetRepoStatusStatuUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UGetRepoStatusStatuUnknownValueImpl(
+    return _then(_$UGetRepoStatusStatusUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -256,23 +257,23 @@ class __$$UGetRepoStatusStatuUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UGetRepoStatusStatuUnknownValueImpl
-    implements UGetRepoStatusStatuUnknownValue {
-  const _$UGetRepoStatusStatuUnknownValueImpl({required this.data});
+class _$UGetRepoStatusStatusUnknownValueImpl
+    implements UGetRepoStatusStatusUnknownValue {
+  const _$UGetRepoStatusStatusUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'UGetRepoStatusStatu.unknownValue(data: $data)';
+    return 'UGetRepoStatusStatus.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UGetRepoStatusStatuUnknownValueImpl &&
+            other is _$UGetRepoStatusStatusUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -282,15 +283,15 @@ class _$UGetRepoStatusStatuUnknownValueImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UGetRepoStatusStatuUnknownValueImplCopyWith<
-          _$UGetRepoStatusStatuUnknownValueImpl>
-      get copyWith => __$$UGetRepoStatusStatuUnknownValueImplCopyWithImpl<
-          _$UGetRepoStatusStatuUnknownValueImpl>(this, _$identity);
+  _$$UGetRepoStatusStatusUnknownValueImplCopyWith<
+          _$UGetRepoStatusStatusUnknownValueImpl>
+      get copyWith => __$$UGetRepoStatusStatusUnknownValueImplCopyWithImpl<
+          _$UGetRepoStatusStatusUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownGetRepoStatusStatu data) knownValue,
+    required TResult Function(KnownGetRepoStatusStatus data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -299,7 +300,7 @@ class _$UGetRepoStatusStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownGetRepoStatusStatu data)? knownValue,
+    TResult? Function(KnownGetRepoStatusStatus data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -308,7 +309,7 @@ class _$UGetRepoStatusStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownGetRepoStatusStatu data)? knownValue,
+    TResult Function(KnownGetRepoStatusStatus data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -321,8 +322,8 @@ class _$UGetRepoStatusStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UGetRepoStatusStatuKnownValue value) knownValue,
-    required TResult Function(UGetRepoStatusStatuUnknownValue value)
+    required TResult Function(UGetRepoStatusStatusKnownValue value) knownValue,
+    required TResult Function(UGetRepoStatusStatusUnknownValue value)
         unknownValue,
   }) {
     return unknownValue(this);
@@ -331,8 +332,8 @@ class _$UGetRepoStatusStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UGetRepoStatusStatuKnownValue value)? knownValue,
-    TResult? Function(UGetRepoStatusStatuUnknownValue value)? unknownValue,
+    TResult? Function(UGetRepoStatusStatusKnownValue value)? knownValue,
+    TResult? Function(UGetRepoStatusStatusUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -340,8 +341,8 @@ class _$UGetRepoStatusStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UGetRepoStatusStatuKnownValue value)? knownValue,
-    TResult Function(UGetRepoStatusStatuUnknownValue value)? unknownValue,
+    TResult Function(UGetRepoStatusStatusKnownValue value)? knownValue,
+    TResult Function(UGetRepoStatusStatusUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -351,14 +352,15 @@ class _$UGetRepoStatusStatuUnknownValueImpl
   }
 }
 
-abstract class UGetRepoStatusStatuUnknownValue implements UGetRepoStatusStatu {
-  const factory UGetRepoStatusStatuUnknownValue({required final String data}) =
-      _$UGetRepoStatusStatuUnknownValueImpl;
+abstract class UGetRepoStatusStatusUnknownValue
+    implements UGetRepoStatusStatus {
+  const factory UGetRepoStatusStatusUnknownValue({required final String data}) =
+      _$UGetRepoStatusStatusUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$UGetRepoStatusStatuUnknownValueImplCopyWith<
-          _$UGetRepoStatusStatuUnknownValueImpl>
+  _$$UGetRepoStatusStatusUnknownValueImplCopyWith<
+          _$UGetRepoStatusStatusUnknownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

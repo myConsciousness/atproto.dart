@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_get_repo_status_statu.freezed.dart';
+part 'known_get_repo_status_status.freezed.dart';
 
-enum KnownGetRepoStatusStatu {
+enum KnownGetRepoStatusStatus {
   @JsonValue('takendown')
   takendown('takendown'),
   @JsonValue('suspended')
@@ -27,10 +27,10 @@ enum KnownGetRepoStatusStatu {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownGetRepoStatusStatu(this.value);
+  const KnownGetRepoStatusStatus(this.value);
 
-  /// Returns [KnownGetRepoStatusStatu] associated with [value], otherwise null.
-  static KnownGetRepoStatusStatu? valueOf(final String? value) {
+  /// Returns [KnownGetRepoStatusStatus] associated with [value], otherwise null.
+  static KnownGetRepoStatusStatus? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,24 +43,24 @@ enum KnownGetRepoStatusStatu {
   }
 }
 
-extension $KnownGetRepoStatusStatuExtension on KnownGetRepoStatusStatu {
-  /// Returns this value as [UGetRepoStatusStatu].
-  UGetRepoStatusStatu toUnion() => UGetRepoStatusStatu.knownValue(data: this);
+extension $KnownGetRepoStatusStatusExtension on KnownGetRepoStatusStatus {
+  /// Returns this value as [UGetRepoStatusStatus].
+  UGetRepoStatusStatus toUnion() => UGetRepoStatusStatus.knownValue(data: this);
 
   /// Returns true if this value is [takendown], otherwise false.
-  bool get isTakendown => this == KnownGetRepoStatusStatu.takendown;
+  bool get isTakendown => this == KnownGetRepoStatusStatus.takendown;
 
   /// Returns true if this value is not [takendown], otherwise false.
   bool get isNotTakendown => !isTakendown;
 
   /// Returns true if this value is [suspended], otherwise false.
-  bool get isSuspended => this == KnownGetRepoStatusStatu.suspended;
+  bool get isSuspended => this == KnownGetRepoStatusStatus.suspended;
 
   /// Returns true if this value is not [suspended], otherwise false.
   bool get isNotSuspended => !isSuspended;
 
   /// Returns true if this value is [deactivated], otherwise false.
-  bool get isDeactivated => this == KnownGetRepoStatusStatu.deactivated;
+  bool get isDeactivated => this == KnownGetRepoStatusStatus.deactivated;
 
   /// Returns true if this value is not [deactivated], otherwise false.
   bool get isNotDeactivated => !isDeactivated;
@@ -83,60 +83,60 @@ extension $KnownGetRepoStatusStatuExtension on KnownGetRepoStatusStatu {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownGetRepoStatusStatu
+///   knownValue: (data) => data, // => KnownGetRepoStatusStatus
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownGetRepoStatusStatu or null
+///   print(object.knownValue); // => KnownGetRepoStatusStatus or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UGetRepoStatusStatu with _$UGetRepoStatusStatu {
-  const factory UGetRepoStatusStatu.knownValue({
-    required KnownGetRepoStatusStatu data,
-  }) = UGetRepoStatusStatuKnownValue;
+class UGetRepoStatusStatus with _$UGetRepoStatusStatus {
+  const factory UGetRepoStatusStatus.knownValue({
+    required KnownGetRepoStatusStatus data,
+  }) = UGetRepoStatusStatusKnownValue;
 
-  const factory UGetRepoStatusStatu.unknownValue({
+  const factory UGetRepoStatusStatus.unknownValue({
     required String data,
-  }) = UGetRepoStatusStatuUnknownValue;
+  }) = UGetRepoStatusStatusUnknownValue;
 }
 
-final class UGetRepoStatusStatuConverter
-    implements JsonConverter<UGetRepoStatusStatu, String> {
-  const UGetRepoStatusStatuConverter();
+final class UGetRepoStatusStatusConverter
+    implements JsonConverter<UGetRepoStatusStatus, String> {
+  const UGetRepoStatusStatusConverter();
 
   @override
-  UGetRepoStatusStatu fromJson(String json) {
-    final knownValue = KnownGetRepoStatusStatu.valueOf(json);
+  UGetRepoStatusStatus fromJson(String json) {
+    final knownValue = KnownGetRepoStatusStatus.valueOf(json);
 
     return knownValue != null
-        ? UGetRepoStatusStatu.knownValue(data: knownValue)
-        : UGetRepoStatusStatu.unknownValue(data: json);
+        ? UGetRepoStatusStatus.knownValue(data: knownValue)
+        : UGetRepoStatusStatus.unknownValue(data: json);
   }
 
   @override
-  String toJson(UGetRepoStatusStatu object) => object.when(
+  String toJson(UGetRepoStatusStatus object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $UGetRepoStatusStatuExtension on UGetRepoStatusStatu {
+extension $UGetRepoStatusStatusExtension on UGetRepoStatusStatus {
   /// Returns string value.
-  String toJson() => const UGetRepoStatusStatuConverter().toJson(this);
+  String toJson() => const UGetRepoStatusStatusConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UGetRepoStatusStatuKnownValue;
+  bool get isKnownValue => this is UGetRepoStatusStatusKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UGetRepoStatusStatuUnknownValue;
+  bool get isUnknownValue => this is UGetRepoStatusStatusUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -144,11 +144,11 @@ extension $UGetRepoStatusStatuExtension on UGetRepoStatusStatu {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownGetRepoStatusStatu get knownValue =>
-      this.data as KnownGetRepoStatusStatu;
+  KnownGetRepoStatusStatus get knownValue =>
+      this.data as KnownGetRepoStatusStatus;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownGetRepoStatusStatu? get knownValueOrNull =>
+  KnownGetRepoStatusStatus? get knownValueOrNull =>
       isKnownValue ? knownValue : null;
 
   /// Returns unknown value.

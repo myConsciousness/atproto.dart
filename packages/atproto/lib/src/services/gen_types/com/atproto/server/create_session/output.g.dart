@@ -31,8 +31,8 @@ _$CreateSessionOutputImpl _$$CreateSessionOutputImplFromJson(Map json) =>
           active: $checkedConvert('active', (v) => v as bool? ?? false),
           status: $checkedConvert(
               'status',
-              (v) => _$JsonConverterFromJson<String, UCreateSessionStatu>(
-                  v, const UCreateSessionStatuConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, UCreateSessionStatus>(
+                  v, const UCreateSessionStatusConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -65,8 +65,8 @@ Map<String, dynamic> _$$CreateSessionOutputImplToJson(
   val['active'] = instance.active;
   writeNotNull(
       'status',
-      _$JsonConverterToJson<String, UCreateSessionStatu>(
-          instance.status, const UCreateSessionStatuConverter().toJson));
+      _$JsonConverterToJson<String, UCreateSessionStatus>(
+          instance.status, const UCreateSessionStatusConverter().toJson));
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

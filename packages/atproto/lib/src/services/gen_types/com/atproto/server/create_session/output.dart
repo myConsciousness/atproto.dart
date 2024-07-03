@@ -15,7 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../com/atproto/server/create_session/known_create_session_statu.dart';
+import '../../../../com/atproto/server/create_session/known_create_session_status.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -39,7 +39,7 @@ class CreateSessionOutput with _$CreateSessionOutput {
     /// for why the account is not active. If active=false and no status
     /// is supplied, then the host makes no claim for why the repository
     /// is no longer being hosted.
-    @UCreateSessionStatuConverter() UCreateSessionStatu? status,
+    @UCreateSessionStatusConverter() UCreateSessionStatus? status,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

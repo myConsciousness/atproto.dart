@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_repo_statu.freezed.dart';
+part 'known_repo_status.freezed.dart';
 
-enum KnownRepoStatu {
+enum KnownRepoStatus {
   @JsonValue('takendown')
   takendown('takendown'),
   @JsonValue('suspended')
@@ -27,10 +27,10 @@ enum KnownRepoStatu {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownRepoStatu(this.value);
+  const KnownRepoStatus(this.value);
 
-  /// Returns [KnownRepoStatu] associated with [value], otherwise null.
-  static KnownRepoStatu? valueOf(final String? value) {
+  /// Returns [KnownRepoStatus] associated with [value], otherwise null.
+  static KnownRepoStatus? valueOf(final String? value) {
     if (value == null) return null;
 
     for (final $value in values) {
@@ -43,24 +43,24 @@ enum KnownRepoStatu {
   }
 }
 
-extension $KnownRepoStatuExtension on KnownRepoStatu {
-  /// Returns this value as [URepoStatu].
-  URepoStatu toUnion() => URepoStatu.knownValue(data: this);
+extension $KnownRepoStatusExtension on KnownRepoStatus {
+  /// Returns this value as [URepoStatus].
+  URepoStatus toUnion() => URepoStatus.knownValue(data: this);
 
   /// Returns true if this value is [takendown], otherwise false.
-  bool get isTakendown => this == KnownRepoStatu.takendown;
+  bool get isTakendown => this == KnownRepoStatus.takendown;
 
   /// Returns true if this value is not [takendown], otherwise false.
   bool get isNotTakendown => !isTakendown;
 
   /// Returns true if this value is [suspended], otherwise false.
-  bool get isSuspended => this == KnownRepoStatu.suspended;
+  bool get isSuspended => this == KnownRepoStatus.suspended;
 
   /// Returns true if this value is not [suspended], otherwise false.
   bool get isNotSuspended => !isSuspended;
 
   /// Returns true if this value is [deactivated], otherwise false.
-  bool get isDeactivated => this == KnownRepoStatu.deactivated;
+  bool get isDeactivated => this == KnownRepoStatus.deactivated;
 
   /// Returns true if this value is not [deactivated], otherwise false.
   bool get isNotDeactivated => !isDeactivated;
@@ -83,59 +83,59 @@ extension $KnownRepoStatuExtension on KnownRepoStatu {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownRepoStatu
+///   knownValue: (data) => data, // => KnownRepoStatus
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownRepoStatu or null
+///   print(object.knownValue); // => KnownRepoStatus or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class URepoStatu with _$URepoStatu {
-  const factory URepoStatu.knownValue({
-    required KnownRepoStatu data,
-  }) = URepoStatuKnownValue;
+class URepoStatus with _$URepoStatus {
+  const factory URepoStatus.knownValue({
+    required KnownRepoStatus data,
+  }) = URepoStatusKnownValue;
 
-  const factory URepoStatu.unknownValue({
+  const factory URepoStatus.unknownValue({
     required String data,
-  }) = URepoStatuUnknownValue;
+  }) = URepoStatusUnknownValue;
 }
 
-final class URepoStatuConverter implements JsonConverter<URepoStatu, String> {
-  const URepoStatuConverter();
+final class URepoStatusConverter implements JsonConverter<URepoStatus, String> {
+  const URepoStatusConverter();
 
   @override
-  URepoStatu fromJson(String json) {
-    final knownValue = KnownRepoStatu.valueOf(json);
+  URepoStatus fromJson(String json) {
+    final knownValue = KnownRepoStatus.valueOf(json);
 
     return knownValue != null
-        ? URepoStatu.knownValue(data: knownValue)
-        : URepoStatu.unknownValue(data: json);
+        ? URepoStatus.knownValue(data: knownValue)
+        : URepoStatus.unknownValue(data: json);
   }
 
   @override
-  String toJson(URepoStatu object) => object.when(
+  String toJson(URepoStatus object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension $URepoStatuExtension on URepoStatu {
+extension $URepoStatusExtension on URepoStatus {
   /// Returns string value.
-  String toJson() => const URepoStatuConverter().toJson(this);
+  String toJson() => const URepoStatusConverter().toJson(this);
 
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is URepoStatuKnownValue;
+  bool get isKnownValue => this is URepoStatusKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is URepoStatuUnknownValue;
+  bool get isUnknownValue => this is URepoStatusUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -143,10 +143,10 @@ extension $URepoStatuExtension on URepoStatu {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownRepoStatu get knownValue => this.data as KnownRepoStatu;
+  KnownRepoStatus get knownValue => this.data as KnownRepoStatus;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownRepoStatu? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownRepoStatus? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

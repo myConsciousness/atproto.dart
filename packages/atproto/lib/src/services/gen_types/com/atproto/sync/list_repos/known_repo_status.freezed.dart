@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_create_session_statu.dart';
+part of 'known_repo_status.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,60 +15,59 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UCreateSessionStatu {
+mixin _$URepoStatus {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownCreateSessionStatu data) knownValue,
+    required TResult Function(KnownRepoStatus data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownCreateSessionStatu data)? knownValue,
+    TResult? Function(KnownRepoStatus data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownCreateSessionStatu data)? knownValue,
+    TResult Function(KnownRepoStatus data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UCreateSessionStatuKnownValue value) knownValue,
-    required TResult Function(UCreateSessionStatuUnknownValue value)
-        unknownValue,
+    required TResult Function(URepoStatusKnownValue value) knownValue,
+    required TResult Function(URepoStatusUnknownValue value) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UCreateSessionStatuKnownValue value)? knownValue,
-    TResult? Function(UCreateSessionStatuUnknownValue value)? unknownValue,
+    TResult? Function(URepoStatusKnownValue value)? knownValue,
+    TResult? Function(URepoStatusUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UCreateSessionStatuKnownValue value)? knownValue,
-    TResult Function(UCreateSessionStatuUnknownValue value)? unknownValue,
+    TResult Function(URepoStatusKnownValue value)? knownValue,
+    TResult Function(URepoStatusUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UCreateSessionStatuCopyWith<$Res> {
-  factory $UCreateSessionStatuCopyWith(
-          UCreateSessionStatu value, $Res Function(UCreateSessionStatu) then) =
-      _$UCreateSessionStatuCopyWithImpl<$Res, UCreateSessionStatu>;
+abstract class $URepoStatusCopyWith<$Res> {
+  factory $URepoStatusCopyWith(
+          URepoStatus value, $Res Function(URepoStatus) then) =
+      _$URepoStatusCopyWithImpl<$Res, URepoStatus>;
 }
 
 /// @nodoc
-class _$UCreateSessionStatuCopyWithImpl<$Res, $Val extends UCreateSessionStatu>
-    implements $UCreateSessionStatuCopyWith<$Res> {
-  _$UCreateSessionStatuCopyWithImpl(this._value, this._then);
+class _$URepoStatusCopyWithImpl<$Res, $Val extends URepoStatus>
+    implements $URepoStatusCopyWith<$Res> {
+  _$URepoStatusCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -77,23 +76,21 @@ class _$UCreateSessionStatuCopyWithImpl<$Res, $Val extends UCreateSessionStatu>
 }
 
 /// @nodoc
-abstract class _$$UCreateSessionStatuKnownValueImplCopyWith<$Res> {
-  factory _$$UCreateSessionStatuKnownValueImplCopyWith(
-          _$UCreateSessionStatuKnownValueImpl value,
-          $Res Function(_$UCreateSessionStatuKnownValueImpl) then) =
-      __$$UCreateSessionStatuKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$URepoStatusKnownValueImplCopyWith<$Res> {
+  factory _$$URepoStatusKnownValueImplCopyWith(
+          _$URepoStatusKnownValueImpl value,
+          $Res Function(_$URepoStatusKnownValueImpl) then) =
+      __$$URepoStatusKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownCreateSessionStatu data});
+  $Res call({KnownRepoStatus data});
 }
 
 /// @nodoc
-class __$$UCreateSessionStatuKnownValueImplCopyWithImpl<$Res>
-    extends _$UCreateSessionStatuCopyWithImpl<$Res,
-        _$UCreateSessionStatuKnownValueImpl>
-    implements _$$UCreateSessionStatuKnownValueImplCopyWith<$Res> {
-  __$$UCreateSessionStatuKnownValueImplCopyWithImpl(
-      _$UCreateSessionStatuKnownValueImpl _value,
-      $Res Function(_$UCreateSessionStatuKnownValueImpl) _then)
+class __$$URepoStatusKnownValueImplCopyWithImpl<$Res>
+    extends _$URepoStatusCopyWithImpl<$Res, _$URepoStatusKnownValueImpl>
+    implements _$$URepoStatusKnownValueImplCopyWith<$Res> {
+  __$$URepoStatusKnownValueImplCopyWithImpl(_$URepoStatusKnownValueImpl _value,
+      $Res Function(_$URepoStatusKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,34 +98,33 @@ class __$$UCreateSessionStatuKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UCreateSessionStatuKnownValueImpl(
+    return _then(_$URepoStatusKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownCreateSessionStatu,
+              as KnownRepoStatus,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UCreateSessionStatuKnownValueImpl
-    implements UCreateSessionStatuKnownValue {
-  const _$UCreateSessionStatuKnownValueImpl({required this.data});
+class _$URepoStatusKnownValueImpl implements URepoStatusKnownValue {
+  const _$URepoStatusKnownValueImpl({required this.data});
 
   @override
-  final KnownCreateSessionStatu data;
+  final KnownRepoStatus data;
 
   @override
   String toString() {
-    return 'UCreateSessionStatu.knownValue(data: $data)';
+    return 'URepoStatus.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UCreateSessionStatuKnownValueImpl &&
+            other is _$URepoStatusKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -138,15 +134,14 @@ class _$UCreateSessionStatuKnownValueImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UCreateSessionStatuKnownValueImplCopyWith<
-          _$UCreateSessionStatuKnownValueImpl>
-      get copyWith => __$$UCreateSessionStatuKnownValueImplCopyWithImpl<
-          _$UCreateSessionStatuKnownValueImpl>(this, _$identity);
+  _$$URepoStatusKnownValueImplCopyWith<_$URepoStatusKnownValueImpl>
+      get copyWith => __$$URepoStatusKnownValueImplCopyWithImpl<
+          _$URepoStatusKnownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownCreateSessionStatu data) knownValue,
+    required TResult Function(KnownRepoStatus data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -155,7 +150,7 @@ class _$UCreateSessionStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownCreateSessionStatu data)? knownValue,
+    TResult? Function(KnownRepoStatus data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -164,7 +159,7 @@ class _$UCreateSessionStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownCreateSessionStatu data)? knownValue,
+    TResult Function(KnownRepoStatus data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -177,9 +172,8 @@ class _$UCreateSessionStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UCreateSessionStatuKnownValue value) knownValue,
-    required TResult Function(UCreateSessionStatuUnknownValue value)
-        unknownValue,
+    required TResult Function(URepoStatusKnownValue value) knownValue,
+    required TResult Function(URepoStatusUnknownValue value) unknownValue,
   }) {
     return knownValue(this);
   }
@@ -187,8 +181,8 @@ class _$UCreateSessionStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UCreateSessionStatuKnownValue value)? knownValue,
-    TResult? Function(UCreateSessionStatuUnknownValue value)? unknownValue,
+    TResult? Function(URepoStatusKnownValue value)? knownValue,
+    TResult? Function(URepoStatusUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -196,8 +190,8 @@ class _$UCreateSessionStatuKnownValueImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UCreateSessionStatuKnownValue value)? knownValue,
-    TResult Function(UCreateSessionStatuUnknownValue value)? unknownValue,
+    TResult Function(URepoStatusKnownValue value)? knownValue,
+    TResult Function(URepoStatusUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -207,37 +201,34 @@ class _$UCreateSessionStatuKnownValueImpl
   }
 }
 
-abstract class UCreateSessionStatuKnownValue implements UCreateSessionStatu {
-  const factory UCreateSessionStatuKnownValue(
-          {required final KnownCreateSessionStatu data}) =
-      _$UCreateSessionStatuKnownValueImpl;
+abstract class URepoStatusKnownValue implements URepoStatus {
+  const factory URepoStatusKnownValue({required final KnownRepoStatus data}) =
+      _$URepoStatusKnownValueImpl;
 
   @override
-  KnownCreateSessionStatu get data;
+  KnownRepoStatus get data;
   @JsonKey(ignore: true)
-  _$$UCreateSessionStatuKnownValueImplCopyWith<
-          _$UCreateSessionStatuKnownValueImpl>
+  _$$URepoStatusKnownValueImplCopyWith<_$URepoStatusKnownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UCreateSessionStatuUnknownValueImplCopyWith<$Res> {
-  factory _$$UCreateSessionStatuUnknownValueImplCopyWith(
-          _$UCreateSessionStatuUnknownValueImpl value,
-          $Res Function(_$UCreateSessionStatuUnknownValueImpl) then) =
-      __$$UCreateSessionStatuUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$URepoStatusUnknownValueImplCopyWith<$Res> {
+  factory _$$URepoStatusUnknownValueImplCopyWith(
+          _$URepoStatusUnknownValueImpl value,
+          $Res Function(_$URepoStatusUnknownValueImpl) then) =
+      __$$URepoStatusUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$UCreateSessionStatuUnknownValueImplCopyWithImpl<$Res>
-    extends _$UCreateSessionStatuCopyWithImpl<$Res,
-        _$UCreateSessionStatuUnknownValueImpl>
-    implements _$$UCreateSessionStatuUnknownValueImplCopyWith<$Res> {
-  __$$UCreateSessionStatuUnknownValueImplCopyWithImpl(
-      _$UCreateSessionStatuUnknownValueImpl _value,
-      $Res Function(_$UCreateSessionStatuUnknownValueImpl) _then)
+class __$$URepoStatusUnknownValueImplCopyWithImpl<$Res>
+    extends _$URepoStatusCopyWithImpl<$Res, _$URepoStatusUnknownValueImpl>
+    implements _$$URepoStatusUnknownValueImplCopyWith<$Res> {
+  __$$URepoStatusUnknownValueImplCopyWithImpl(
+      _$URepoStatusUnknownValueImpl _value,
+      $Res Function(_$URepoStatusUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -245,7 +236,7 @@ class __$$UCreateSessionStatuUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UCreateSessionStatuUnknownValueImpl(
+    return _then(_$URepoStatusUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -256,23 +247,22 @@ class __$$UCreateSessionStatuUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UCreateSessionStatuUnknownValueImpl
-    implements UCreateSessionStatuUnknownValue {
-  const _$UCreateSessionStatuUnknownValueImpl({required this.data});
+class _$URepoStatusUnknownValueImpl implements URepoStatusUnknownValue {
+  const _$URepoStatusUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'UCreateSessionStatu.unknownValue(data: $data)';
+    return 'URepoStatus.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UCreateSessionStatuUnknownValueImpl &&
+            other is _$URepoStatusUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -282,15 +272,14 @@ class _$UCreateSessionStatuUnknownValueImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UCreateSessionStatuUnknownValueImplCopyWith<
-          _$UCreateSessionStatuUnknownValueImpl>
-      get copyWith => __$$UCreateSessionStatuUnknownValueImplCopyWithImpl<
-          _$UCreateSessionStatuUnknownValueImpl>(this, _$identity);
+  _$$URepoStatusUnknownValueImplCopyWith<_$URepoStatusUnknownValueImpl>
+      get copyWith => __$$URepoStatusUnknownValueImplCopyWithImpl<
+          _$URepoStatusUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownCreateSessionStatu data) knownValue,
+    required TResult Function(KnownRepoStatus data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -299,7 +288,7 @@ class _$UCreateSessionStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownCreateSessionStatu data)? knownValue,
+    TResult? Function(KnownRepoStatus data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -308,7 +297,7 @@ class _$UCreateSessionStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownCreateSessionStatu data)? knownValue,
+    TResult Function(KnownRepoStatus data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -321,9 +310,8 @@ class _$UCreateSessionStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UCreateSessionStatuKnownValue value) knownValue,
-    required TResult Function(UCreateSessionStatuUnknownValue value)
-        unknownValue,
+    required TResult Function(URepoStatusKnownValue value) knownValue,
+    required TResult Function(URepoStatusUnknownValue value) unknownValue,
   }) {
     return unknownValue(this);
   }
@@ -331,8 +319,8 @@ class _$UCreateSessionStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UCreateSessionStatuKnownValue value)? knownValue,
-    TResult? Function(UCreateSessionStatuUnknownValue value)? unknownValue,
+    TResult? Function(URepoStatusKnownValue value)? knownValue,
+    TResult? Function(URepoStatusUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -340,8 +328,8 @@ class _$UCreateSessionStatuUnknownValueImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UCreateSessionStatuKnownValue value)? knownValue,
-    TResult Function(UCreateSessionStatuUnknownValue value)? unknownValue,
+    TResult Function(URepoStatusKnownValue value)? knownValue,
+    TResult Function(URepoStatusUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -351,14 +339,13 @@ class _$UCreateSessionStatuUnknownValueImpl
   }
 }
 
-abstract class UCreateSessionStatuUnknownValue implements UCreateSessionStatu {
-  const factory UCreateSessionStatuUnknownValue({required final String data}) =
-      _$UCreateSessionStatuUnknownValueImpl;
+abstract class URepoStatusUnknownValue implements URepoStatus {
+  const factory URepoStatusUnknownValue({required final String data}) =
+      _$URepoStatusUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$UCreateSessionStatuUnknownValueImplCopyWith<
-          _$UCreateSessionStatuUnknownValueImpl>
+  _$$URepoStatusUnknownValueImplCopyWith<_$URepoStatusUnknownValueImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

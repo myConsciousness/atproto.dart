@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../com/atproto/sync/list_repos/known_repo_statu.dart';
+import '../../../../com/atproto/sync/list_repos/known_repo_status.dart';
 
 part 'repo.freezed.dart';
 part 'repo.g.dart';
@@ -40,7 +40,7 @@ class Repo with _$Repo {
     /// for why the account is not active. If active=false and no status
     /// is supplied, then the host makes no claim for why the repository
     /// is no longer being hosted.
-    @URepoStatuConverter() URepoStatu? status,
+    @URepoStatusConverter() URepoStatus? status,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

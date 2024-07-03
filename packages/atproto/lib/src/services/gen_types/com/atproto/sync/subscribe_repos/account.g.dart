@@ -21,8 +21,8 @@ _$AccountImpl _$$AccountImplFromJson(Map json) => $checkedCreate(
           active: $checkedConvert('active', (v) => v as bool),
           status: $checkedConvert(
               'status',
-              (v) => _$JsonConverterFromJson<String, UAccountStatu>(
-                  v, const UAccountStatuConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, UAccountStatus>(
+                  v, const UAccountStatusConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -50,8 +50,8 @@ Map<String, dynamic> _$$AccountImplToJson(_$AccountImpl instance) {
 
   writeNotNull(
       'status',
-      _$JsonConverterToJson<String, UAccountStatu>(
-          instance.status, const UAccountStatuConverter().toJson));
+      _$JsonConverterToJson<String, UAccountStatus>(
+          instance.status, const UAccountStatusConverter().toJson));
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

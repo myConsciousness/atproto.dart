@@ -35,8 +35,8 @@ mixin _$Account {
 
   /// If active=false, this optional field indicates a reason for why
   /// the account is not active.
-  @UAccountStatuConverter()
-  UAccountStatu? get status => throw _privateConstructorUsedError;
+  @UAccountStatusConverter()
+  UAccountStatus? get status => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -58,10 +58,10 @@ abstract class $AccountCopyWith<$Res> {
       String did,
       DateTime time,
       bool active,
-      @UAccountStatuConverter() UAccountStatu? status,
+      @UAccountStatusConverter() UAccountStatus? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UAccountStatuCopyWith<$Res>? get status;
+  $UAccountStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -109,7 +109,7 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UAccountStatu?,
+              as UAccountStatus?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -119,12 +119,12 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
 
   @override
   @pragma('vm:prefer-inline')
-  $UAccountStatuCopyWith<$Res>? get status {
+  $UAccountStatusCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $UAccountStatuCopyWith<$Res>(_value.status!, (value) {
+    return $UAccountStatusCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -143,11 +143,11 @@ abstract class _$$AccountImplCopyWith<$Res> implements $AccountCopyWith<$Res> {
       String did,
       DateTime time,
       bool active,
-      @UAccountStatuConverter() UAccountStatu? status,
+      @UAccountStatusConverter() UAccountStatus? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UAccountStatuCopyWith<$Res>? get status;
+  $UAccountStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -193,7 +193,7 @@ class __$$AccountImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UAccountStatu?,
+              as UAccountStatus?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -213,7 +213,7 @@ class _$AccountImpl implements _Account {
       required this.did,
       required this.time,
       required this.active,
-      @UAccountStatuConverter() this.status,
+      @UAccountStatusConverter() this.status,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -241,8 +241,8 @@ class _$AccountImpl implements _Account {
   /// If active=false, this optional field indicates a reason for why
   /// the account is not active.
   @override
-  @UAccountStatuConverter()
-  final UAccountStatu? status;
+  @UAccountStatusConverter()
+  final UAccountStatus? status;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -303,7 +303,7 @@ abstract class _Account implements Account {
           required final String did,
           required final DateTime time,
           required final bool active,
-          @UAccountStatuConverter() final UAccountStatu? status,
+          @UAccountStatusConverter() final UAccountStatus? status,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$AccountImpl;
 
@@ -331,8 +331,8 @@ abstract class _Account implements Account {
 
   /// If active=false, this optional field indicates a reason for why
   /// the account is not active.
-  @UAccountStatuConverter()
-  UAccountStatu? get status;
+  @UAccountStatusConverter()
+  UAccountStatus? get status;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

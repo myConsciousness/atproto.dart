@@ -15,7 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../com/atproto/server/refresh_session/known_refresh_session_statu.dart';
+import '../../../../com/atproto/server/refresh_session/known_refresh_session_status.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -34,7 +34,7 @@ class RefreshSessionOutput with _$RefreshSessionOutput {
 
     /// Hosting status of the account. If not specified, then assume
     /// 'active'.
-    @URefreshSessionStatuConverter() URefreshSessionStatu? status,
+    @URefreshSessionStatusConverter() URefreshSessionStatus? status,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
