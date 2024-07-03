@@ -29,11 +29,6 @@ class GetRecordParams with _$GetRecordParams {
     /// Record Key
     required String rkey,
 
-    /// DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit
-    @Deprecated(
-        'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
-    String? commit,
-
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
   }) = _GetRecordParams;
@@ -43,12 +38,6 @@ class GetRecordParams with _$GetRecordParams {
 }
 
 extension $GetRecordParamsExtension on GetRecordParams {
-  /// Returns true if [commit] is not null, otherwise false.
-  bool get hasCommit => commit != null;
-
-  /// Returns true if [commit] is null, otherwise false.
-  bool get hasNotCommit => !hasCommit;
-
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null && $unknown!.isNotEmpty;

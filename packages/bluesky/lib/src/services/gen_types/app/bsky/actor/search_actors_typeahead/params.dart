@@ -21,9 +21,6 @@ part 'params.g.dart';
 class SearchActorsTypeaheadParams with _$SearchActorsTypeaheadParams {
   @JsonSerializable(includeIfNull: false)
   const factory SearchActorsTypeaheadParams({
-    /// DEPRECATED: use 'q' instead.
-    @Deprecated('DEPRECATED: use `q` instead.') String? term,
-
     /// Search query prefix; not a full query string.
     String? q,
     int? limit,
@@ -37,12 +34,6 @@ class SearchActorsTypeaheadParams with _$SearchActorsTypeaheadParams {
 }
 
 extension $SearchActorsTypeaheadParamsExtension on SearchActorsTypeaheadParams {
-  /// Returns true if [term] is not null, otherwise false.
-  bool get hasTerm => term != null;
-
-  /// Returns true if [term] is null, otherwise false.
-  bool get hasNotTerm => !hasTerm;
-
   /// Returns true if [q] is not null, otherwise false.
   bool get hasQ => q != null;
 

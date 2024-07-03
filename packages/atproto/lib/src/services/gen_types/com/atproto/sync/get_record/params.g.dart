@@ -18,7 +18,6 @@ _$GetRecordParamsImpl _$$GetRecordParamsImplFromJson(Map json) =>
           collection: $checkedConvert(
               'collection', (v) => const NSIDConverter().fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String),
-          commit: $checkedConvert('commit', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -43,7 +42,6 @@ Map<String, dynamic> _$$GetRecordParamsImplToJson(
     }
   }
 
-  writeNotNull('commit', instance.commit);
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

@@ -14,7 +14,6 @@ _$SearchActorsParamsImpl _$$SearchActorsParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$SearchActorsParamsImpl(
-          term: $checkedConvert('term', (v) => v as String?),
           q: $checkedConvert('q', (v) => v as String?),
           limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
@@ -38,7 +37,6 @@ Map<String, dynamic> _$$SearchActorsParamsImplToJson(
     }
   }
 
-  writeNotNull('term', instance.term);
   writeNotNull('q', instance.q);
   writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);

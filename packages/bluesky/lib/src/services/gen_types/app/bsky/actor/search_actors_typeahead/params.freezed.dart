@@ -21,10 +21,6 @@ SearchActorsTypeaheadParams _$SearchActorsTypeaheadParamsFromJson(
 
 /// @nodoc
 mixin _$SearchActorsTypeaheadParams {
-  /// DEPRECATED: use 'q' instead.
-  @Deprecated('DEPRECATED: use `q` instead.')
-  String? get term => throw _privateConstructorUsedError;
-
   /// Search query prefix; not a full query string.
   String? get q => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
@@ -48,8 +44,7 @@ abstract class $SearchActorsTypeaheadParamsCopyWith<$Res> {
           SearchActorsTypeaheadParams>;
   @useResult
   $Res call(
-      {@Deprecated('DEPRECATED: use `q` instead.') String? term,
-      String? q,
+      {String? q,
       int? limit,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -68,16 +63,11 @@ class _$SearchActorsTypeaheadParamsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? term = freezed,
     Object? q = freezed,
     Object? limit = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      term: freezed == term
-          ? _value.term
-          : term // ignore: cast_nullable_to_non_nullable
-              as String?,
       q: freezed == q
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
@@ -104,8 +94,7 @@ abstract class _$$SearchActorsTypeaheadParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@Deprecated('DEPRECATED: use `q` instead.') String? term,
-      String? q,
+      {String? q,
       int? limit,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -123,16 +112,11 @@ class __$$SearchActorsTypeaheadParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? term = freezed,
     Object? q = freezed,
     Object? limit = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$SearchActorsTypeaheadParamsImpl(
-      term: freezed == term
-          ? _value.term
-          : term // ignore: cast_nullable_to_non_nullable
-              as String?,
       q: freezed == q
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
@@ -155,8 +139,7 @@ class __$$SearchActorsTypeaheadParamsImplCopyWithImpl<$Res>
 class _$SearchActorsTypeaheadParamsImpl
     implements _SearchActorsTypeaheadParams {
   const _$SearchActorsTypeaheadParamsImpl(
-      {@Deprecated('DEPRECATED: use `q` instead.') this.term,
-      this.q,
+      {this.q,
       this.limit,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -164,11 +147,6 @@ class _$SearchActorsTypeaheadParamsImpl
   factory _$SearchActorsTypeaheadParamsImpl.fromJson(
           Map<String, dynamic> json) =>
       _$$SearchActorsTypeaheadParamsImplFromJson(json);
-
-  /// DEPRECATED: use 'q' instead.
-  @override
-  @Deprecated('DEPRECATED: use `q` instead.')
-  final String? term;
 
   /// Search query prefix; not a full query string.
   @override
@@ -192,7 +170,7 @@ class _$SearchActorsTypeaheadParamsImpl
 
   @override
   String toString() {
-    return 'SearchActorsTypeaheadParams(term: $term, q: $q, limit: $limit, \$unknown: ${$unknown})';
+    return 'SearchActorsTypeaheadParams(q: $q, limit: $limit, \$unknown: ${$unknown})';
   }
 
   @override
@@ -200,7 +178,6 @@ class _$SearchActorsTypeaheadParamsImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchActorsTypeaheadParamsImpl &&
-            (identical(other.term, term) || other.term == term) &&
             (identical(other.q, q) || other.q == q) &&
             (identical(other.limit, limit) || other.limit == limit) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
@@ -208,8 +185,8 @@ class _$SearchActorsTypeaheadParamsImpl
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, term, q, limit,
-      const DeepCollectionEquality().hash(_$unknown));
+  int get hashCode => Object.hash(
+      runtimeType, q, limit, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -229,8 +206,7 @@ class _$SearchActorsTypeaheadParamsImpl
 abstract class _SearchActorsTypeaheadParams
     implements SearchActorsTypeaheadParams {
   const factory _SearchActorsTypeaheadParams(
-          {@Deprecated('DEPRECATED: use `q` instead.') final String? term,
-          final String? q,
+          {final String? q,
           final int? limit,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$SearchActorsTypeaheadParamsImpl;
@@ -238,11 +214,6 @@ abstract class _SearchActorsTypeaheadParams
   factory _SearchActorsTypeaheadParams.fromJson(Map<String, dynamic> json) =
       _$SearchActorsTypeaheadParamsImpl.fromJson;
 
-  @override
-
-  /// DEPRECATED: use 'q' instead.
-  @Deprecated('DEPRECATED: use `q` instead.')
-  String? get term;
   @override
 
   /// Search query prefix; not a full query string.

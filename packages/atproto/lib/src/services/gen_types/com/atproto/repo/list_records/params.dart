@@ -32,16 +32,6 @@ class ListRecordsParams with _$ListRecordsParams {
     int? limit,
     String? cursor,
 
-    /// DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)
-    @Deprecated(
-        'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
-    String? rkeyStart,
-
-    /// DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)
-    @Deprecated(
-        'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
-    String? rkeyEnd,
-
     /// Flag to reverse the order of the returned records.
     bool? reverse,
 
@@ -71,18 +61,6 @@ extension $ListRecordsParamsExtension on ListRecordsParams {
 
   /// Returns true if [cursor] is null, otherwise false.
   bool get hasNotCursor => !hasCursor;
-
-  /// Returns true if [rkeyStart] is not null, otherwise false.
-  bool get hasRkeyStart => rkeyStart != null;
-
-  /// Returns true if [rkeyStart] is null, otherwise false.
-  bool get hasNotRkeyStart => !hasRkeyStart;
-
-  /// Returns true if [rkeyEnd] is not null, otherwise false.
-  bool get hasRkeyEnd => rkeyEnd != null;
-
-  /// Returns true if [rkeyEnd] is null, otherwise false.
-  bool get hasNotRkeyEnd => !hasRkeyEnd;
 
   /// Returns true or false from [reverse].
   bool get isReverse => reverse ?? false;

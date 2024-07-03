@@ -15,7 +15,6 @@ _$SearchActorsTypeaheadParamsImpl _$$SearchActorsTypeaheadParamsImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$SearchActorsTypeaheadParamsImpl(
-          term: $checkedConvert('term', (v) => v as String?),
           q: $checkedConvert('q', (v) => v as String?),
           limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
@@ -38,7 +37,6 @@ Map<String, dynamic> _$$SearchActorsTypeaheadParamsImplToJson(
     }
   }
 
-  writeNotNull('term', instance.term);
   writeNotNull('q', instance.q);
   writeNotNull('limit', instance.limit);
   writeNotNull(r'$unknown', instance.$unknown);

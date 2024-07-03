@@ -28,11 +28,6 @@ mixin _$GetRecordParams {
   /// Record Key
   String get rkey => throw _privateConstructorUsedError;
 
-  /// DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit
-  @Deprecated(
-      'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
-  String? get commit => throw _privateConstructorUsedError;
-
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
   Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
@@ -53,9 +48,6 @@ abstract class $GetRecordParamsCopyWith<$Res> {
       {String did,
       @NSIDConverter() NSID collection,
       String rkey,
-      @Deprecated(
-          'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
-      String? commit,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -75,7 +67,6 @@ class _$GetRecordParamsCopyWithImpl<$Res, $Val extends GetRecordParams>
     Object? did = null,
     Object? collection = null,
     Object? rkey = null,
-    Object? commit = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -91,10 +82,6 @@ class _$GetRecordParamsCopyWithImpl<$Res, $Val extends GetRecordParams>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String,
-      commit: freezed == commit
-          ? _value.commit
-          : commit // ignore: cast_nullable_to_non_nullable
-              as String?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -115,9 +102,6 @@ abstract class _$$GetRecordParamsImplCopyWith<$Res>
       {String did,
       @NSIDConverter() NSID collection,
       String rkey,
-      @Deprecated(
-          'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
-      String? commit,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -135,7 +119,6 @@ class __$$GetRecordParamsImplCopyWithImpl<$Res>
     Object? did = null,
     Object? collection = null,
     Object? rkey = null,
-    Object? commit = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$GetRecordParamsImpl(
@@ -151,10 +134,6 @@ class __$$GetRecordParamsImplCopyWithImpl<$Res>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String,
-      commit: freezed == commit
-          ? _value.commit
-          : commit // ignore: cast_nullable_to_non_nullable
-              as String?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -171,9 +150,6 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
       {required this.did,
       @NSIDConverter() required this.collection,
       required this.rkey,
-      @Deprecated(
-          'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
-      this.commit,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -191,12 +167,6 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
   @override
   final String rkey;
 
-  /// DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit
-  @override
-  @Deprecated(
-      'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
-  final String? commit;
-
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
 
@@ -213,7 +183,7 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
 
   @override
   String toString() {
-    return 'GetRecordParams(did: $did, collection: $collection, rkey: $rkey, commit: $commit, \$unknown: ${$unknown})';
+    return 'GetRecordParams(did: $did, collection: $collection, rkey: $rkey, \$unknown: ${$unknown})';
   }
 
   @override
@@ -225,13 +195,12 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
             (identical(other.rkey, rkey) || other.rkey == rkey) &&
-            (identical(other.commit, commit) || other.commit == commit) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, collection, rkey, commit,
+  int get hashCode => Object.hash(runtimeType, did, collection, rkey,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -251,14 +220,11 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
 
 abstract class _GetRecordParams implements GetRecordParams {
   const factory _GetRecordParams(
-      {required final String did,
-      @NSIDConverter() required final NSID collection,
-      required final String rkey,
-      @Deprecated(
-          'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
-      final String? commit,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic>? $unknown}) = _$GetRecordParamsImpl;
+          {required final String did,
+          @NSIDConverter() required final NSID collection,
+          required final String rkey,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
+      _$GetRecordParamsImpl;
 
   factory _GetRecordParams.fromJson(Map<String, dynamic> json) =
       _$GetRecordParamsImpl.fromJson;
@@ -274,12 +240,6 @@ abstract class _GetRecordParams implements GetRecordParams {
 
   /// Record Key
   String get rkey;
-  @override
-
-  /// DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit
-  @Deprecated(
-      'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
-  String? get commit;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

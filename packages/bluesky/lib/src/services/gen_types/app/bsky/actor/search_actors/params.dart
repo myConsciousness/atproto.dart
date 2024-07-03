@@ -21,9 +21,6 @@ part 'params.g.dart';
 class SearchActorsParams with _$SearchActorsParams {
   @JsonSerializable(includeIfNull: false)
   const factory SearchActorsParams({
-    /// DEPRECATED: use 'q' instead.
-    @Deprecated('DEPRECATED: use `q` instead.') String? term,
-
     /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     String? q,
     int? limit,
@@ -38,12 +35,6 @@ class SearchActorsParams with _$SearchActorsParams {
 }
 
 extension $SearchActorsParamsExtension on SearchActorsParams {
-  /// Returns true if [term] is not null, otherwise false.
-  bool get hasTerm => term != null;
-
-  /// Returns true if [term] is null, otherwise false.
-  bool get hasNotTerm => !hasTerm;
-
   /// Returns true if [q] is not null, otherwise false.
   bool get hasQ => q != null;
 

@@ -159,6 +159,8 @@ final class LexGenObject {
           "    @Default($id) @JsonKey(name: r'\$type') String \$type,");
     }
     for (final property in properties) {
+      if (utils.isDeprecated(property.description)) continue;
+
       buffer.writeln(property.build(type));
     }
     buffer.writeln('    /// Contains unknown objects not defined in Lexicon.');
@@ -213,7 +215,9 @@ final class LexGenObject {
       buffer.writeln('  $name to$name() => $name.fromJson(toJson());');
     }
     for (final property in properties) {
-      if (property.isRequired) continue;
+      if (property.isRequired || utils.isDeprecated(property.description)) {
+        continue;
+      }
 
       final name = property.name;
       final fnName = utils.toFirstUpper(name);

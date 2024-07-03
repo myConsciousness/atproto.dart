@@ -31,16 +31,6 @@ mixin _$ListRecordsParams {
   int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
-  /// DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)
-  @Deprecated(
-      'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
-  String? get rkeyStart => throw _privateConstructorUsedError;
-
-  /// DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)
-  @Deprecated(
-      'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
-  String? get rkeyEnd => throw _privateConstructorUsedError;
-
   /// Flag to reverse the order of the returned records.
   bool? get reverse => throw _privateConstructorUsedError;
 
@@ -65,12 +55,6 @@ abstract class $ListRecordsParamsCopyWith<$Res> {
       @NSIDConverter() NSID collection,
       int? limit,
       String? cursor,
-      @Deprecated(
-          'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
-      String? rkeyStart,
-      @Deprecated(
-          'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
-      String? rkeyEnd,
       bool? reverse,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -92,8 +76,6 @@ class _$ListRecordsParamsCopyWithImpl<$Res, $Val extends ListRecordsParams>
     Object? collection = null,
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? rkeyStart = freezed,
-    Object? rkeyEnd = freezed,
     Object? reverse = freezed,
     Object? $unknown = freezed,
   }) {
@@ -113,14 +95,6 @@ class _$ListRecordsParamsCopyWithImpl<$Res, $Val extends ListRecordsParams>
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rkeyStart: freezed == rkeyStart
-          ? _value.rkeyStart
-          : rkeyStart // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rkeyEnd: freezed == rkeyEnd
-          ? _value.rkeyEnd
-          : rkeyEnd // ignore: cast_nullable_to_non_nullable
               as String?,
       reverse: freezed == reverse
           ? _value.reverse
@@ -147,12 +121,6 @@ abstract class _$$ListRecordsParamsImplCopyWith<$Res>
       @NSIDConverter() NSID collection,
       int? limit,
       String? cursor,
-      @Deprecated(
-          'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
-      String? rkeyStart,
-      @Deprecated(
-          'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
-      String? rkeyEnd,
       bool? reverse,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -172,8 +140,6 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
     Object? collection = null,
     Object? limit = freezed,
     Object? cursor = freezed,
-    Object? rkeyStart = freezed,
-    Object? rkeyEnd = freezed,
     Object? reverse = freezed,
     Object? $unknown = freezed,
   }) {
@@ -193,14 +159,6 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rkeyStart: freezed == rkeyStart
-          ? _value.rkeyStart
-          : rkeyStart // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rkeyEnd: freezed == rkeyEnd
-          ? _value.rkeyEnd
-          : rkeyEnd // ignore: cast_nullable_to_non_nullable
               as String?,
       reverse: freezed == reverse
           ? _value.reverse
@@ -223,12 +181,6 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
       @NSIDConverter() required this.collection,
       this.limit,
       this.cursor,
-      @Deprecated(
-          'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
-      this.rkeyStart,
-      @Deprecated(
-          'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
-      this.rkeyEnd,
       this.reverse,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -251,18 +203,6 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
   @override
   final String? cursor;
 
-  /// DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)
-  @override
-  @Deprecated(
-      'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
-  final String? rkeyStart;
-
-  /// DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)
-  @override
-  @Deprecated(
-      'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
-  final String? rkeyEnd;
-
   /// Flag to reverse the order of the returned records.
   @override
   final bool? reverse;
@@ -283,7 +223,7 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
 
   @override
   String toString() {
-    return 'ListRecordsParams(repo: $repo, collection: $collection, limit: $limit, cursor: $cursor, rkeyStart: $rkeyStart, rkeyEnd: $rkeyEnd, reverse: $reverse, \$unknown: ${$unknown})';
+    return 'ListRecordsParams(repo: $repo, collection: $collection, limit: $limit, cursor: $cursor, reverse: $reverse, \$unknown: ${$unknown})';
   }
 
   @override
@@ -296,25 +236,14 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
                 other.collection == collection) &&
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            (identical(other.rkeyStart, rkeyStart) ||
-                other.rkeyStart == rkeyStart) &&
-            (identical(other.rkeyEnd, rkeyEnd) || other.rkeyEnd == rkeyEnd) &&
             (identical(other.reverse, reverse) || other.reverse == reverse) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      repo,
-      collection,
-      limit,
-      cursor,
-      rkeyStart,
-      rkeyEnd,
-      reverse,
-      const DeepCollectionEquality().hash(_$unknown));
+  int get hashCode => Object.hash(runtimeType, repo, collection, limit, cursor,
+      reverse, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -333,19 +262,13 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
 
 abstract class _ListRecordsParams implements ListRecordsParams {
   const factory _ListRecordsParams(
-      {final String? repo,
-      @NSIDConverter() required final NSID collection,
-      final int? limit,
-      final String? cursor,
-      @Deprecated(
-          'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
-      final String? rkeyStart,
-      @Deprecated(
-          'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
-      final String? rkeyEnd,
-      final bool? reverse,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic>? $unknown}) = _$ListRecordsParamsImpl;
+          {final String? repo,
+          @NSIDConverter() required final NSID collection,
+          final int? limit,
+          final String? cursor,
+          final bool? reverse,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
+      _$ListRecordsParamsImpl;
 
   factory _ListRecordsParams.fromJson(Map<String, dynamic> json) =
       _$ListRecordsParamsImpl.fromJson;
@@ -365,18 +288,6 @@ abstract class _ListRecordsParams implements ListRecordsParams {
   int? get limit;
   @override
   String? get cursor;
-  @override
-
-  /// DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)
-  @Deprecated(
-      'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
-  String? get rkeyStart;
-  @override
-
-  /// DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)
-  @Deprecated(
-      'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
-  String? get rkeyEnd;
   @override
 
   /// Flag to reverse the order of the returned records.

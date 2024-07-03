@@ -20,10 +20,6 @@ SearchActorsParams _$SearchActorsParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SearchActorsParams {
-  /// DEPRECATED: use 'q' instead.
-  @Deprecated('DEPRECATED: use `q` instead.')
-  String? get term => throw _privateConstructorUsedError;
-
   /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
   String? get q => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
@@ -46,8 +42,7 @@ abstract class $SearchActorsParamsCopyWith<$Res> {
       _$SearchActorsParamsCopyWithImpl<$Res, SearchActorsParams>;
   @useResult
   $Res call(
-      {@Deprecated('DEPRECATED: use `q` instead.') String? term,
-      String? q,
+      {String? q,
       int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -66,17 +61,12 @@ class _$SearchActorsParamsCopyWithImpl<$Res, $Val extends SearchActorsParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? term = freezed,
     Object? q = freezed,
     Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      term: freezed == term
-          ? _value.term
-          : term // ignore: cast_nullable_to_non_nullable
-              as String?,
       q: freezed == q
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
@@ -106,8 +96,7 @@ abstract class _$$SearchActorsParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@Deprecated('DEPRECATED: use `q` instead.') String? term,
-      String? q,
+      {String? q,
       int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -124,17 +113,12 @@ class __$$SearchActorsParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? term = freezed,
     Object? q = freezed,
     Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$SearchActorsParamsImpl(
-      term: freezed == term
-          ? _value.term
-          : term // ignore: cast_nullable_to_non_nullable
-              as String?,
       q: freezed == q
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
@@ -160,8 +144,7 @@ class __$$SearchActorsParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$SearchActorsParamsImpl implements _SearchActorsParams {
   const _$SearchActorsParamsImpl(
-      {@Deprecated('DEPRECATED: use `q` instead.') this.term,
-      this.q,
+      {this.q,
       this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -169,11 +152,6 @@ class _$SearchActorsParamsImpl implements _SearchActorsParams {
 
   factory _$SearchActorsParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SearchActorsParamsImplFromJson(json);
-
-  /// DEPRECATED: use 'q' instead.
-  @override
-  @Deprecated('DEPRECATED: use `q` instead.')
-  final String? term;
 
   /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
   @override
@@ -199,7 +177,7 @@ class _$SearchActorsParamsImpl implements _SearchActorsParams {
 
   @override
   String toString() {
-    return 'SearchActorsParams(term: $term, q: $q, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
+    return 'SearchActorsParams(q: $q, limit: $limit, cursor: $cursor, \$unknown: ${$unknown})';
   }
 
   @override
@@ -207,7 +185,6 @@ class _$SearchActorsParamsImpl implements _SearchActorsParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchActorsParamsImpl &&
-            (identical(other.term, term) || other.term == term) &&
             (identical(other.q, q) || other.q == q) &&
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
@@ -216,7 +193,7 @@ class _$SearchActorsParamsImpl implements _SearchActorsParams {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, term, q, limit, cursor,
+  int get hashCode => Object.hash(runtimeType, q, limit, cursor,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -236,8 +213,7 @@ class _$SearchActorsParamsImpl implements _SearchActorsParams {
 
 abstract class _SearchActorsParams implements SearchActorsParams {
   const factory _SearchActorsParams(
-          {@Deprecated('DEPRECATED: use `q` instead.') final String? term,
-          final String? q,
+          {final String? q,
           final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -246,11 +222,6 @@ abstract class _SearchActorsParams implements SearchActorsParams {
   factory _SearchActorsParams.fromJson(Map<String, dynamic> json) =
       _$SearchActorsParamsImpl.fromJson;
 
-  @override
-
-  /// DEPRECATED: use 'q' instead.
-  @Deprecated('DEPRECATED: use `q` instead.')
-  String? get term;
   @override
 
   /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
