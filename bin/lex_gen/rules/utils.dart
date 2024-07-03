@@ -64,11 +64,12 @@ String getSingular(String plural) {
 /// Function to check if a character is a consonant
 bool _isConsonant(String char) => !'aeiou'.contains(char.toLowerCase());
 
+List<String> splitByUpper(final String input) {
+  return input.split(RegExp(r'(?=[A-Z])'));
+}
+
 String toLowerCamelCase(final String input) {
-  return input
-      .split(RegExp(r'(?=[A-Z])'))
-      .map((word) => word.toLowerCase())
-      .join('_');
+  return splitByUpper(input).map((word) => word.toLowerCase()).join('_');
 }
 
 String toFirstUpper(final String input) {

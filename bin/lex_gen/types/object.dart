@@ -223,6 +223,19 @@ final class LexGenObject {
       final fnName = utils.toFirstUpper(name);
 
       if (property.type.name == 'bool') {
+        final prefix = utils.splitByUpper(property.name).first;
+        if (prefix == 'is' || prefix == 'has') {
+          buffer.writeln('  /// Returns negated true or false from [$name].');
+
+          final negatedFnName = prefix == 'is'
+              ? 'isNot${fnName.substring(2)}'
+              : 'hasNot${fnName.substring(3)}';
+
+          buffer.writeln('  bool get $negatedFnName => !$fnName;');
+
+          continue;
+        }
+
         final nullCheck = property.defaultValue == null ? '?? false' : '';
 
         buffer.writeln('  /// Returns true or false from [$name].');

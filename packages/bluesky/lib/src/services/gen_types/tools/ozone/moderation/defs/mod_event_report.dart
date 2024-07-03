@@ -62,11 +62,8 @@ extension $ModEventReportExtension on ModEventReport {
   /// Returns true if [comment] is null, otherwise false.
   bool get hasNotComment => !hasComment;
 
-  /// Returns true or false from [isReporterMuted].
-  bool get isIsReporterMuted => isReporterMuted;
-
   /// Returns negated true or false from [isReporterMuted].
-  bool get isNotIsReporterMuted => !isIsReporterMuted;
+  bool get isNotReporterMuted => !IsReporterMuted;
 
   /// Returns true if this object has unknown objects,
   /// otherwise false.
