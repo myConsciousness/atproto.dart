@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../com/atproto/repo/apply_writes/union_write.dart';
+import '../../../../com/atproto/repo/apply_writes/union_apply_writes_write.dart';
 
 part 'input.freezed.dart';
 part 'input.g.dart';
@@ -29,7 +29,7 @@ class ApplyWritesInput with _$ApplyWritesInput {
 
     /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
     bool? validate,
-    @UWriteConverter() required List<UWrite> writes,
+    @UApplyWritesWriteConverter() required List<UApplyWritesWrite> writes,
 
     /// If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.
     String? swapCommit,

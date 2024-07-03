@@ -18,7 +18,7 @@ _$GetRelationshipsOutputImpl _$$GetRelationshipsOutputImplFromJson(Map json) =>
           relationships: $checkedConvert(
               'relationships',
               (v) => (v as List<dynamic>)
-                  .map((e) => const URelationshipConverter()
+                  .map((e) => const UGetRelationshipsRelationshipConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
@@ -43,7 +43,7 @@ Map<String, dynamic> _$$GetRelationshipsOutputImplToJson(
 
   writeNotNull('actor', instance.actor);
   val['relationships'] = instance.relationships
-      .map(const URelationshipConverter().toJson)
+      .map(const UGetRelationshipsRelationshipConverter().toJson)
       .toList();
   writeNotNull(r'$unknown', instance.$unknown);
   return val;

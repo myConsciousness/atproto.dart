@@ -28,148 +28,148 @@ import '../../../../tools/ozone/moderation/defs/mod_event_takedown.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_unmute.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_unmute_reporter.dart';
 
-part 'union_event.freezed.dart';
+part 'union_emit_event_event.freezed.dart';
 
 @freezed
-class UEvent with _$UEvent {
-  const factory UEvent.modEventTakedown({
+class UEmitEventEvent with _$UEmitEventEvent {
+  const factory UEmitEventEvent.modEventTakedown({
     required ModEventTakedown data,
-  }) = UEventModEventTakedown;
+  }) = UEmitEventEventModEventTakedown;
 
-  const factory UEvent.modEventAcknowledge({
+  const factory UEmitEventEvent.modEventAcknowledge({
     required ModEventAcknowledge data,
-  }) = UEventModEventAcknowledge;
+  }) = UEmitEventEventModEventAcknowledge;
 
-  const factory UEvent.modEventEscalate({
+  const factory UEmitEventEvent.modEventEscalate({
     required ModEventEscalate data,
-  }) = UEventModEventEscalate;
+  }) = UEmitEventEventModEventEscalate;
 
-  const factory UEvent.modEventComment({
+  const factory UEmitEventEvent.modEventComment({
     required ModEventComment data,
-  }) = UEventModEventComment;
+  }) = UEmitEventEventModEventComment;
 
-  const factory UEvent.modEventLabel({
+  const factory UEmitEventEvent.modEventLabel({
     required ModEventLabel data,
-  }) = UEventModEventLabel;
+  }) = UEmitEventEventModEventLabel;
 
-  const factory UEvent.modEventReport({
+  const factory UEmitEventEvent.modEventReport({
     required ModEventReport data,
-  }) = UEventModEventReport;
+  }) = UEmitEventEventModEventReport;
 
-  const factory UEvent.modEventMute({
+  const factory UEmitEventEvent.modEventMute({
     required ModEventMute data,
-  }) = UEventModEventMute;
+  }) = UEmitEventEventModEventMute;
 
-  const factory UEvent.modEventUnmute({
+  const factory UEmitEventEvent.modEventUnmute({
     required ModEventUnmute data,
-  }) = UEventModEventUnmute;
+  }) = UEmitEventEventModEventUnmute;
 
-  const factory UEvent.modEventMuteReporter({
+  const factory UEmitEventEvent.modEventMuteReporter({
     required ModEventMuteReporter data,
-  }) = UEventModEventMuteReporter;
+  }) = UEmitEventEventModEventMuteReporter;
 
-  const factory UEvent.modEventUnmuteReporter({
+  const factory UEmitEventEvent.modEventUnmuteReporter({
     required ModEventUnmuteReporter data,
-  }) = UEventModEventUnmuteReporter;
+  }) = UEmitEventEventModEventUnmuteReporter;
 
-  const factory UEvent.modEventReverseTakedown({
+  const factory UEmitEventEvent.modEventReverseTakedown({
     required ModEventReverseTakedown data,
-  }) = UEventModEventReverseTakedown;
+  }) = UEmitEventEventModEventReverseTakedown;
 
-  const factory UEvent.modEventEmail({
+  const factory UEmitEventEvent.modEventEmail({
     required ModEventEmail data,
-  }) = UEventModEventEmail;
+  }) = UEmitEventEventModEventEmail;
 
-  const factory UEvent.modEventTag({
+  const factory UEmitEventEvent.modEventTag({
     required ModEventTag data,
-  }) = UEventModEventTag;
+  }) = UEmitEventEventModEventTag;
 
-  const factory UEvent.unknown({
+  const factory UEmitEventEvent.unknown({
     required Map<String, dynamic> data,
-  }) = UEventUnknown;
+  }) = UEmitEventEventUnknown;
 }
 
-final class UEventConverter
-    implements JsonConverter<UEvent, Map<String, dynamic>> {
-  const UEventConverter();
+final class UEmitEventEventConverter
+    implements JsonConverter<UEmitEventEvent, Map<String, dynamic>> {
+  const UEmitEventEventConverter();
 
   @override
-  UEvent fromJson(Map<String, dynamic> json) {
+  UEmitEventEvent fromJson(Map<String, dynamic> json) {
     try {
       if (isModEventTakedown(json)) {
-        return UEvent.modEventTakedown(
+        return UEmitEventEvent.modEventTakedown(
           data: const ModEventTakedownConverter().fromJson(json),
         );
       }
       if (isModEventAcknowledge(json)) {
-        return UEvent.modEventAcknowledge(
+        return UEmitEventEvent.modEventAcknowledge(
           data: const ModEventAcknowledgeConverter().fromJson(json),
         );
       }
       if (isModEventEscalate(json)) {
-        return UEvent.modEventEscalate(
+        return UEmitEventEvent.modEventEscalate(
           data: const ModEventEscalateConverter().fromJson(json),
         );
       }
       if (isModEventComment(json)) {
-        return UEvent.modEventComment(
+        return UEmitEventEvent.modEventComment(
           data: const ModEventCommentConverter().fromJson(json),
         );
       }
       if (isModEventLabel(json)) {
-        return UEvent.modEventLabel(
+        return UEmitEventEvent.modEventLabel(
           data: const ModEventLabelConverter().fromJson(json),
         );
       }
       if (isModEventReport(json)) {
-        return UEvent.modEventReport(
+        return UEmitEventEvent.modEventReport(
           data: const ModEventReportConverter().fromJson(json),
         );
       }
       if (isModEventMute(json)) {
-        return UEvent.modEventMute(
+        return UEmitEventEvent.modEventMute(
           data: const ModEventMuteConverter().fromJson(json),
         );
       }
       if (isModEventUnmute(json)) {
-        return UEvent.modEventUnmute(
+        return UEmitEventEvent.modEventUnmute(
           data: const ModEventUnmuteConverter().fromJson(json),
         );
       }
       if (isModEventMuteReporter(json)) {
-        return UEvent.modEventMuteReporter(
+        return UEmitEventEvent.modEventMuteReporter(
           data: const ModEventMuteReporterConverter().fromJson(json),
         );
       }
       if (isModEventUnmuteReporter(json)) {
-        return UEvent.modEventUnmuteReporter(
+        return UEmitEventEvent.modEventUnmuteReporter(
           data: const ModEventUnmuteReporterConverter().fromJson(json),
         );
       }
       if (isModEventReverseTakedown(json)) {
-        return UEvent.modEventReverseTakedown(
+        return UEmitEventEvent.modEventReverseTakedown(
           data: const ModEventReverseTakedownConverter().fromJson(json),
         );
       }
       if (isModEventEmail(json)) {
-        return UEvent.modEventEmail(
+        return UEmitEventEvent.modEventEmail(
           data: const ModEventEmailConverter().fromJson(json),
         );
       }
       if (isModEventTag(json)) {
-        return UEvent.modEventTag(
+        return UEmitEventEvent.modEventTag(
           data: const ModEventTagConverter().fromJson(json),
         );
       }
 
-      return UEvent.unknown(data: json);
+      return UEmitEventEvent.unknown(data: json);
     } catch (_) {
-      return UEvent.unknown(data: json);
+      return UEmitEventEvent.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UEvent object) => object.when(
+  Map<String, dynamic> toJson(UEmitEventEvent object) => object.when(
         modEventTakedown: const ModEventTakedownConverter().toJson,
         modEventAcknowledge: const ModEventAcknowledgeConverter().toJson,
         modEventEscalate: const ModEventEscalateConverter().toJson,
@@ -188,90 +188,94 @@ final class UEventConverter
       );
 }
 
-extension $UEventExtension on UEvent {
+extension $UEmitEventEventExtension on UEmitEventEvent {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UEventConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UEmitEventEventConverter().toJson(this);
 
   /// Returns true if this data is [ModEventTakedown], otherwise false.
-  bool get isModEventTakedown => this is UEventModEventTakedown;
+  bool get isModEventTakedown => this is UEmitEventEventModEventTakedown;
 
   /// Returns true if this data is not [ModEventTakedown], otherwise false.
   bool get isNotModEventTakedown => !isModEventTakedown;
 
   /// Returns true if this data is [ModEventAcknowledge], otherwise false.
-  bool get isModEventAcknowledge => this is UEventModEventAcknowledge;
+  bool get isModEventAcknowledge => this is UEmitEventEventModEventAcknowledge;
 
   /// Returns true if this data is not [ModEventAcknowledge], otherwise false.
   bool get isNotModEventAcknowledge => !isModEventAcknowledge;
 
   /// Returns true if this data is [ModEventEscalate], otherwise false.
-  bool get isModEventEscalate => this is UEventModEventEscalate;
+  bool get isModEventEscalate => this is UEmitEventEventModEventEscalate;
 
   /// Returns true if this data is not [ModEventEscalate], otherwise false.
   bool get isNotModEventEscalate => !isModEventEscalate;
 
   /// Returns true if this data is [ModEventComment], otherwise false.
-  bool get isModEventComment => this is UEventModEventComment;
+  bool get isModEventComment => this is UEmitEventEventModEventComment;
 
   /// Returns true if this data is not [ModEventComment], otherwise false.
   bool get isNotModEventComment => !isModEventComment;
 
   /// Returns true if this data is [ModEventLabel], otherwise false.
-  bool get isModEventLabel => this is UEventModEventLabel;
+  bool get isModEventLabel => this is UEmitEventEventModEventLabel;
 
   /// Returns true if this data is not [ModEventLabel], otherwise false.
   bool get isNotModEventLabel => !isModEventLabel;
 
   /// Returns true if this data is [ModEventReport], otherwise false.
-  bool get isModEventReport => this is UEventModEventReport;
+  bool get isModEventReport => this is UEmitEventEventModEventReport;
 
   /// Returns true if this data is not [ModEventReport], otherwise false.
   bool get isNotModEventReport => !isModEventReport;
 
   /// Returns true if this data is [ModEventMute], otherwise false.
-  bool get isModEventMute => this is UEventModEventMute;
+  bool get isModEventMute => this is UEmitEventEventModEventMute;
 
   /// Returns true if this data is not [ModEventMute], otherwise false.
   bool get isNotModEventMute => !isModEventMute;
 
   /// Returns true if this data is [ModEventUnmute], otherwise false.
-  bool get isModEventUnmute => this is UEventModEventUnmute;
+  bool get isModEventUnmute => this is UEmitEventEventModEventUnmute;
 
   /// Returns true if this data is not [ModEventUnmute], otherwise false.
   bool get isNotModEventUnmute => !isModEventUnmute;
 
   /// Returns true if this data is [ModEventMuteReporter], otherwise false.
-  bool get isModEventMuteReporter => this is UEventModEventMuteReporter;
+  bool get isModEventMuteReporter =>
+      this is UEmitEventEventModEventMuteReporter;
 
   /// Returns true if this data is not [ModEventMuteReporter], otherwise false.
   bool get isNotModEventMuteReporter => !isModEventMuteReporter;
 
   /// Returns true if this data is [ModEventUnmuteReporter], otherwise false.
-  bool get isModEventUnmuteReporter => this is UEventModEventUnmuteReporter;
+  bool get isModEventUnmuteReporter =>
+      this is UEmitEventEventModEventUnmuteReporter;
 
   /// Returns true if this data is not [ModEventUnmuteReporter], otherwise false.
   bool get isNotModEventUnmuteReporter => !isModEventUnmuteReporter;
 
   /// Returns true if this data is [ModEventReverseTakedown], otherwise false.
-  bool get isModEventReverseTakedown => this is UEventModEventReverseTakedown;
+  bool get isModEventReverseTakedown =>
+      this is UEmitEventEventModEventReverseTakedown;
 
   /// Returns true if this data is not [ModEventReverseTakedown], otherwise false.
   bool get isNotModEventReverseTakedown => !isModEventReverseTakedown;
 
   /// Returns true if this data is [ModEventEmail], otherwise false.
-  bool get isModEventEmail => this is UEventModEventEmail;
+  bool get isModEventEmail => this is UEmitEventEventModEventEmail;
 
   /// Returns true if this data is not [ModEventEmail], otherwise false.
   bool get isNotModEventEmail => !isModEventEmail;
 
   /// Returns true if this data is [ModEventTag], otherwise false.
-  bool get isModEventTag => this is UEventModEventTag;
+  bool get isModEventTag => this is UEmitEventEventModEventTag;
 
   /// Returns true if this data is not [ModEventTag], otherwise false.
   bool get isNotModEventTag => !isModEventTag;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UEventUnknown;
+  bool get isUnknown => this is UEmitEventEventUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

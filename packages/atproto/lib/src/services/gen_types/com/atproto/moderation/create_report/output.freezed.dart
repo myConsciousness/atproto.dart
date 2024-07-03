@@ -24,8 +24,8 @@ mixin _$CreateReportOutput {
   @UReasonTypeConverter()
   UReasonType get reasonType => throw _privateConstructorUsedError;
   String? get reason => throw _privateConstructorUsedError;
-  @USubjectConverter()
-  USubject get subject => throw _privateConstructorUsedError;
+  @UCreateReportSubjectConverter()
+  UCreateReportSubject get subject => throw _privateConstructorUsedError;
   String get reportedBy => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -49,13 +49,13 @@ abstract class $CreateReportOutputCopyWith<$Res> {
       {int id,
       @UReasonTypeConverter() UReasonType reasonType,
       String? reason,
-      @USubjectConverter() USubject subject,
+      @UCreateReportSubjectConverter() UCreateReportSubject subject,
       String reportedBy,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UReasonTypeCopyWith<$Res> get reasonType;
-  $USubjectCopyWith<$Res> get subject;
+  $UCreateReportSubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UCreateReportSubject,
       reportedBy: null == reportedBy
           ? _value.reportedBy
           : reportedBy // ignore: cast_nullable_to_non_nullable
@@ -121,8 +121,8 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
 
   @override
   @pragma('vm:prefer-inline')
-  $USubjectCopyWith<$Res> get subject {
-    return $USubjectCopyWith<$Res>(_value.subject, (value) {
+  $UCreateReportSubjectCopyWith<$Res> get subject {
+    return $UCreateReportSubjectCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
@@ -140,7 +140,7 @@ abstract class _$$CreateReportOutputImplCopyWith<$Res>
       {int id,
       @UReasonTypeConverter() UReasonType reasonType,
       String? reason,
-      @USubjectConverter() USubject subject,
+      @UCreateReportSubjectConverter() UCreateReportSubject subject,
       String reportedBy,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -148,7 +148,7 @@ abstract class _$$CreateReportOutputImplCopyWith<$Res>
   @override
   $UReasonTypeCopyWith<$Res> get reasonType;
   @override
-  $USubjectCopyWith<$Res> get subject;
+  $UCreateReportSubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -186,7 +186,7 @@ class __$$CreateReportOutputImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UCreateReportSubject,
       reportedBy: null == reportedBy
           ? _value.reportedBy
           : reportedBy // ignore: cast_nullable_to_non_nullable
@@ -211,7 +211,7 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
       {required this.id,
       @UReasonTypeConverter() required this.reasonType,
       this.reason,
-      @USubjectConverter() required this.subject,
+      @UCreateReportSubjectConverter() required this.subject,
       required this.reportedBy,
       required this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -228,8 +228,8 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
   @override
   final String? reason;
   @override
-  @USubjectConverter()
-  final USubject subject;
+  @UCreateReportSubjectConverter()
+  final UCreateReportSubject subject;
   @override
   final String reportedBy;
   @override
@@ -296,7 +296,8 @@ abstract class _CreateReportOutput implements CreateReportOutput {
           {required final int id,
           @UReasonTypeConverter() required final UReasonType reasonType,
           final String? reason,
-          @USubjectConverter() required final USubject subject,
+          @UCreateReportSubjectConverter()
+          required final UCreateReportSubject subject,
           required final String reportedBy,
           required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -313,8 +314,8 @@ abstract class _CreateReportOutput implements CreateReportOutput {
   @override
   String? get reason;
   @override
-  @USubjectConverter()
-  USubject get subject;
+  @UCreateReportSubjectConverter()
+  UCreateReportSubject get subject;
   @override
   String get reportedBy;
   @override

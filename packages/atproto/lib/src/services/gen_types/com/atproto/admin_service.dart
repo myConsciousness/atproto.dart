@@ -25,7 +25,7 @@ import '../../com/atproto/admin/get_subject_status/output.dart';
 import '../../com/atproto/admin/search_accounts/output.dart';
 import '../../com/atproto/admin/send_email/output.dart';
 import '../../com/atproto/admin/update_subject_status/output.dart';
-import '../../com/atproto/admin/update_subject_status/union_subject.dart';
+import '../../com/atproto/admin/update_subject_status/union_update_subject_status_subject.dart';
 
 /// Contains `com.atproto.admin.*` endpoints.
 final class AdminService {
@@ -240,7 +240,7 @@ final class AdminService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateSubjectStatus
   Future<XRPCResponse<UpdateSubjectStatusOutput>> updateSubjectStatus({
-    required USubject subject,
+    required UUpdateSubjectStatusSubject subject,
     StatusAttr? takedown,
     StatusAttr? deactivated,
     Map<String, String>? $headers,

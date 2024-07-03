@@ -25,8 +25,8 @@ mixin _$ApplyWritesInput {
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
   bool? get validate => throw _privateConstructorUsedError;
-  @UWriteConverter()
-  List<UWrite> get writes => throw _privateConstructorUsedError;
+  @UApplyWritesWriteConverter()
+  List<UApplyWritesWrite> get writes => throw _privateConstructorUsedError;
 
   /// If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.
   String? get swapCommit => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $ApplyWritesInputCopyWith<$Res> {
   $Res call(
       {String? repo,
       bool? validate,
-      @UWriteConverter() List<UWrite> writes,
+      @UApplyWritesWriteConverter() List<UApplyWritesWrite> writes,
       String? swapCommit,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -86,7 +86,7 @@ class _$ApplyWritesInputCopyWithImpl<$Res, $Val extends ApplyWritesInput>
       writes: null == writes
           ? _value.writes
           : writes // ignore: cast_nullable_to_non_nullable
-              as List<UWrite>,
+              as List<UApplyWritesWrite>,
       swapCommit: freezed == swapCommit
           ? _value.swapCommit
           : swapCommit // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ abstract class _$$ApplyWritesInputImplCopyWith<$Res>
   $Res call(
       {String? repo,
       bool? validate,
-      @UWriteConverter() List<UWrite> writes,
+      @UApplyWritesWriteConverter() List<UApplyWritesWrite> writes,
       String? swapCommit,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -144,7 +144,7 @@ class __$$ApplyWritesInputImplCopyWithImpl<$Res>
       writes: null == writes
           ? _value._writes
           : writes // ignore: cast_nullable_to_non_nullable
-              as List<UWrite>,
+              as List<UApplyWritesWrite>,
       swapCommit: freezed == swapCommit
           ? _value.swapCommit
           : swapCommit // ignore: cast_nullable_to_non_nullable
@@ -164,7 +164,8 @@ class _$ApplyWritesInputImpl implements _ApplyWritesInput {
   const _$ApplyWritesInputImpl(
       {this.repo,
       this.validate,
-      @UWriteConverter() required final List<UWrite> writes,
+      @UApplyWritesWriteConverter()
+      required final List<UApplyWritesWrite> writes,
       this.swapCommit,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _writes = writes,
@@ -180,10 +181,10 @@ class _$ApplyWritesInputImpl implements _ApplyWritesInput {
   /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
   @override
   final bool? validate;
-  final List<UWrite> _writes;
+  final List<UApplyWritesWrite> _writes;
   @override
-  @UWriteConverter()
-  List<UWrite> get writes {
+  @UApplyWritesWriteConverter()
+  List<UApplyWritesWrite> get writes {
     if (_writes is EqualUnmodifiableListView) return _writes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_writes);
@@ -255,7 +256,8 @@ abstract class _ApplyWritesInput implements ApplyWritesInput {
   const factory _ApplyWritesInput(
           {final String? repo,
           final bool? validate,
-          @UWriteConverter() required final List<UWrite> writes,
+          @UApplyWritesWriteConverter()
+          required final List<UApplyWritesWrite> writes,
           final String? swapCommit,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ApplyWritesInputImpl;
@@ -272,8 +274,8 @@ abstract class _ApplyWritesInput implements ApplyWritesInput {
   /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
   bool? get validate;
   @override
-  @UWriteConverter()
-  List<UWrite> get writes;
+  @UApplyWritesWriteConverter()
+  List<UApplyWritesWrite> get writes;
   @override
 
   /// If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.

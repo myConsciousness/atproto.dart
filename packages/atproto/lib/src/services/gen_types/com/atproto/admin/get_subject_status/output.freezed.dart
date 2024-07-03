@@ -21,8 +21,8 @@ GetSubjectStatusOutput _$GetSubjectStatusOutputFromJson(
 
 /// @nodoc
 mixin _$GetSubjectStatusOutput {
-  @USubjectConverter()
-  USubject get subject => throw _privateConstructorUsedError;
+  @UGetSubjectStatusSubjectConverter()
+  UGetSubjectStatusSubject get subject => throw _privateConstructorUsedError;
   @StatusAttrConverter()
   StatusAttr? get takedown => throw _privateConstructorUsedError;
   @StatusAttrConverter()
@@ -45,12 +45,12 @@ abstract class $GetSubjectStatusOutputCopyWith<$Res> {
       _$GetSubjectStatusOutputCopyWithImpl<$Res, GetSubjectStatusOutput>;
   @useResult
   $Res call(
-      {@USubjectConverter() USubject subject,
+      {@UGetSubjectStatusSubjectConverter() UGetSubjectStatusSubject subject,
       @StatusAttrConverter() StatusAttr? takedown,
       @StatusAttrConverter() StatusAttr? deactivated,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $USubjectCopyWith<$Res> get subject;
+  $UGetSubjectStatusSubjectCopyWith<$Res> get subject;
   $StatusAttrCopyWith<$Res>? get takedown;
   $StatusAttrCopyWith<$Res>? get deactivated;
 }
@@ -78,7 +78,7 @@ class _$GetSubjectStatusOutputCopyWithImpl<$Res,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UGetSubjectStatusSubject,
       takedown: freezed == takedown
           ? _value.takedown
           : takedown // ignore: cast_nullable_to_non_nullable
@@ -96,8 +96,8 @@ class _$GetSubjectStatusOutputCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $USubjectCopyWith<$Res> get subject {
-    return $USubjectCopyWith<$Res>(_value.subject, (value) {
+  $UGetSubjectStatusSubjectCopyWith<$Res> get subject {
+    return $UGetSubjectStatusSubjectCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
@@ -137,13 +137,13 @@ abstract class _$$GetSubjectStatusOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@USubjectConverter() USubject subject,
+      {@UGetSubjectStatusSubjectConverter() UGetSubjectStatusSubject subject,
       @StatusAttrConverter() StatusAttr? takedown,
       @StatusAttrConverter() StatusAttr? deactivated,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $USubjectCopyWith<$Res> get subject;
+  $UGetSubjectStatusSubjectCopyWith<$Res> get subject;
   @override
   $StatusAttrCopyWith<$Res>? get takedown;
   @override
@@ -172,7 +172,7 @@ class __$$GetSubjectStatusOutputImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UGetSubjectStatusSubject,
       takedown: freezed == takedown
           ? _value.takedown
           : takedown // ignore: cast_nullable_to_non_nullable
@@ -194,7 +194,7 @@ class __$$GetSubjectStatusOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
   const _$GetSubjectStatusOutputImpl(
-      {@USubjectConverter() required this.subject,
+      {@UGetSubjectStatusSubjectConverter() required this.subject,
       @StatusAttrConverter() this.takedown,
       @StatusAttrConverter() this.deactivated,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -204,8 +204,8 @@ class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
       _$$GetSubjectStatusOutputImplFromJson(json);
 
   @override
-  @USubjectConverter()
-  final USubject subject;
+  @UGetSubjectStatusSubjectConverter()
+  final UGetSubjectStatusSubject subject;
   @override
   @StatusAttrConverter()
   final StatusAttr? takedown;
@@ -267,7 +267,8 @@ class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
 
 abstract class _GetSubjectStatusOutput implements GetSubjectStatusOutput {
   const factory _GetSubjectStatusOutput(
-          {@USubjectConverter() required final USubject subject,
+          {@UGetSubjectStatusSubjectConverter()
+          required final UGetSubjectStatusSubject subject,
           @StatusAttrConverter() final StatusAttr? takedown,
           @StatusAttrConverter() final StatusAttr? deactivated,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -277,8 +278,8 @@ abstract class _GetSubjectStatusOutput implements GetSubjectStatusOutput {
       _$GetSubjectStatusOutputImpl.fromJson;
 
   @override
-  @USubjectConverter()
-  USubject get subject;
+  @UGetSubjectStatusSubjectConverter()
+  UGetSubjectStatusSubject get subject;
   @override
   @StatusAttrConverter()
   StatusAttr? get takedown;

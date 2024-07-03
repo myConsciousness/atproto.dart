@@ -18,58 +18,60 @@ import '../../../../com/atproto/admin/defs/repo_blob_ref.dart';
 import '../../../../com/atproto/admin/defs/repo_ref.dart';
 import '../../../../com/atproto/repo/strong_ref/main.dart';
 
-part 'union_subject.freezed.dart';
+part 'union_update_subject_status_subject.freezed.dart';
 
 @freezed
-class USubject with _$USubject {
-  const factory USubject.repoRef({
+class UUpdateSubjectStatusSubject with _$UUpdateSubjectStatusSubject {
+  const factory UUpdateSubjectStatusSubject.repoRef({
     required RepoRef data,
-  }) = USubjectRepoRef;
+  }) = UUpdateSubjectStatusSubjectRepoRef;
 
-  const factory USubject.strongRef({
+  const factory UUpdateSubjectStatusSubject.strongRef({
     required StrongRef data,
-  }) = USubjectStrongRef;
+  }) = UUpdateSubjectStatusSubjectStrongRef;
 
-  const factory USubject.repoBlobRef({
+  const factory UUpdateSubjectStatusSubject.repoBlobRef({
     required RepoBlobRef data,
-  }) = USubjectRepoBlobRef;
+  }) = UUpdateSubjectStatusSubjectRepoBlobRef;
 
-  const factory USubject.unknown({
+  const factory UUpdateSubjectStatusSubject.unknown({
     required Map<String, dynamic> data,
-  }) = USubjectUnknown;
+  }) = UUpdateSubjectStatusSubjectUnknown;
 }
 
-final class USubjectConverter
-    implements JsonConverter<USubject, Map<String, dynamic>> {
-  const USubjectConverter();
+final class UUpdateSubjectStatusSubjectConverter
+    implements
+        JsonConverter<UUpdateSubjectStatusSubject, Map<String, dynamic>> {
+  const UUpdateSubjectStatusSubjectConverter();
 
   @override
-  USubject fromJson(Map<String, dynamic> json) {
+  UUpdateSubjectStatusSubject fromJson(Map<String, dynamic> json) {
     try {
       if (isRepoRef(json)) {
-        return USubject.repoRef(
+        return UUpdateSubjectStatusSubject.repoRef(
           data: const RepoRefConverter().fromJson(json),
         );
       }
       if (isStrongRef(json)) {
-        return USubject.strongRef(
+        return UUpdateSubjectStatusSubject.strongRef(
           data: const StrongRefConverter().fromJson(json),
         );
       }
       if (isRepoBlobRef(json)) {
-        return USubject.repoBlobRef(
+        return UUpdateSubjectStatusSubject.repoBlobRef(
           data: const RepoBlobRefConverter().fromJson(json),
         );
       }
 
-      return USubject.unknown(data: json);
+      return UUpdateSubjectStatusSubject.unknown(data: json);
     } catch (_) {
-      return USubject.unknown(data: json);
+      return UUpdateSubjectStatusSubject.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(USubject object) => object.when(
+  Map<String, dynamic> toJson(UUpdateSubjectStatusSubject object) =>
+      object.when(
         repoRef: const RepoRefConverter().toJson,
         strongRef: const StrongRefConverter().toJson,
         repoBlobRef: const RepoBlobRefConverter().toJson,
@@ -77,30 +79,31 @@ final class USubjectConverter
       );
 }
 
-extension $USubjectExtension on USubject {
+extension $UUpdateSubjectStatusSubjectExtension on UUpdateSubjectStatusSubject {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const USubjectConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UUpdateSubjectStatusSubjectConverter().toJson(this);
 
   /// Returns true if this data is [RepoRef], otherwise false.
-  bool get isRepoRef => this is USubjectRepoRef;
+  bool get isRepoRef => this is UUpdateSubjectStatusSubjectRepoRef;
 
   /// Returns true if this data is not [RepoRef], otherwise false.
   bool get isNotRepoRef => !isRepoRef;
 
   /// Returns true if this data is [StrongRef], otherwise false.
-  bool get isStrongRef => this is USubjectStrongRef;
+  bool get isStrongRef => this is UUpdateSubjectStatusSubjectStrongRef;
 
   /// Returns true if this data is not [StrongRef], otherwise false.
   bool get isNotStrongRef => !isStrongRef;
 
   /// Returns true if this data is [RepoBlobRef], otherwise false.
-  bool get isRepoBlobRef => this is USubjectRepoBlobRef;
+  bool get isRepoBlobRef => this is UUpdateSubjectStatusSubjectRepoBlobRef;
 
   /// Returns true if this data is not [RepoBlobRef], otherwise false.
   bool get isNotRepoBlobRef => !isRepoBlobRef;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is USubjectUnknown;
+  bool get isUnknown => this is UUpdateSubjectStatusSubjectUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

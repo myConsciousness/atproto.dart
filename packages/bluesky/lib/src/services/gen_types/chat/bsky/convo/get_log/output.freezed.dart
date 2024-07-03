@@ -21,8 +21,8 @@ GetLogOutput _$GetLogOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetLogOutput {
   String? get cursor => throw _privateConstructorUsedError;
-  @ULogConverter()
-  List<ULog> get logs => throw _privateConstructorUsedError;
+  @UGetLogLogConverter()
+  List<UGetLogLog> get logs => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -42,7 +42,7 @@ abstract class $GetLogOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      @ULogConverter() List<ULog> logs,
+      @UGetLogLogConverter() List<UGetLogLog> logs,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -71,7 +71,7 @@ class _$GetLogOutputCopyWithImpl<$Res, $Val extends GetLogOutput>
       logs: null == logs
           ? _value.logs
           : logs // ignore: cast_nullable_to_non_nullable
-              as List<ULog>,
+              as List<UGetLogLog>,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -90,7 +90,7 @@ abstract class _$$GetLogOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      @ULogConverter() List<ULog> logs,
+      @UGetLogLogConverter() List<UGetLogLog> logs,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -117,7 +117,7 @@ class __$$GetLogOutputImplCopyWithImpl<$Res>
       logs: null == logs
           ? _value._logs
           : logs // ignore: cast_nullable_to_non_nullable
-              as List<ULog>,
+              as List<UGetLogLog>,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -132,7 +132,7 @@ class __$$GetLogOutputImplCopyWithImpl<$Res>
 class _$GetLogOutputImpl implements _GetLogOutput {
   const _$GetLogOutputImpl(
       {this.cursor,
-      @ULogConverter() required final List<ULog> logs,
+      @UGetLogLogConverter() required final List<UGetLogLog> logs,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _logs = logs,
         _$unknown = $unknown;
@@ -142,10 +142,10 @@ class _$GetLogOutputImpl implements _GetLogOutput {
 
   @override
   final String? cursor;
-  final List<ULog> _logs;
+  final List<UGetLogLog> _logs;
   @override
-  @ULogConverter()
-  List<ULog> get logs {
+  @UGetLogLogConverter()
+  List<UGetLogLog> get logs {
     if (_logs is EqualUnmodifiableListView) return _logs;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_logs);
@@ -205,7 +205,7 @@ class _$GetLogOutputImpl implements _GetLogOutput {
 abstract class _GetLogOutput implements GetLogOutput {
   const factory _GetLogOutput(
           {final String? cursor,
-          @ULogConverter() required final List<ULog> logs,
+          @UGetLogLogConverter() required final List<UGetLogLog> logs,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetLogOutputImpl;
 
@@ -215,8 +215,8 @@ abstract class _GetLogOutput implements GetLogOutput {
   @override
   String? get cursor;
   @override
-  @ULogConverter()
-  List<ULog> get logs;
+  @UGetLogLogConverter()
+  List<UGetLogLog> get logs;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

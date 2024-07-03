@@ -20,7 +20,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
-import '../../com/atproto/repo/apply_writes/union_write.dart';
+import '../../com/atproto/repo/apply_writes/union_apply_writes_write.dart';
 import '../../com/atproto/repo/describe_repo/output.dart';
 import '../../com/atproto/repo/get_record/output.dart';
 import '../../com/atproto/repo/list_missing_blobs/output.dart';
@@ -166,7 +166,7 @@ final class RepoService {
   Future<XRPCResponse<EmptyData>> applyWrites({
     String? repo,
     bool? validate,
-    required List<UWrite> writes,
+    required List<UApplyWritesWrite> writes,
     String? swapCommit,
     Map<String, String>? $headers,
     PostClient? $client,

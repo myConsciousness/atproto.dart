@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../com/atproto/moderation/create_report/union_subject.dart';
+import '../../../../com/atproto/moderation/create_report/union_create_report_subject.dart';
 import '../../../../com/atproto/moderation/defs/known_reason_type.dart';
 
 part 'output.freezed.dart';
@@ -28,7 +28,7 @@ class CreateReportOutput with _$CreateReportOutput {
     required int id,
     @UReasonTypeConverter() required UReasonType reasonType,
     String? reason,
-    @USubjectConverter() required USubject subject,
+    @UCreateReportSubjectConverter() required UCreateReportSubject subject,
     required String reportedBy,
     required DateTime createdAt,
 

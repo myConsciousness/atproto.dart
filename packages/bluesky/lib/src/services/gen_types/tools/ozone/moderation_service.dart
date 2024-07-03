@@ -20,8 +20,8 @@ import '../../tools/ozone/moderation/defs/mod_event_view.dart';
 import '../../tools/ozone/moderation/defs/mod_event_view_detail.dart';
 import '../../tools/ozone/moderation/defs/record_view_detail.dart';
 import '../../tools/ozone/moderation/defs/repo_view_detail.dart';
-import '../../tools/ozone/moderation/emit_event/union_event.dart';
-import '../../tools/ozone/moderation/emit_event/union_subject.dart';
+import '../../tools/ozone/moderation/emit_event/union_emit_event_event.dart';
+import '../../tools/ozone/moderation/emit_event/union_emit_event_subject.dart';
 import '../../tools/ozone/moderation/query_events/output.dart';
 import '../../tools/ozone/moderation/query_statuses/output.dart';
 import '../../tools/ozone/moderation/search_repos/output.dart';
@@ -54,8 +54,8 @@ final class ModerationService {
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/emitEvent
   Future<XRPCResponse<ModEventView>> emitEvent({
-    required UEvent event,
-    required USubject subject,
+    required UEmitEventEvent event,
+    required UEmitEventSubject subject,
     List<String>? subjectBlobCids,
     required String createdBy,
     Map<String, String>? $headers,

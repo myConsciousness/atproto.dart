@@ -17,73 +17,78 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../app/bsky/graph/defs/not_found_actor.dart';
 import '../../../../app/bsky/graph/defs/relationship.dart';
 
-part 'union_relationship.freezed.dart';
+part 'union_get_relationships_relationship.freezed.dart';
 
 @freezed
-class URelationship with _$URelationship {
-  const factory URelationship.relationship({
+class UGetRelationshipsRelationship with _$UGetRelationshipsRelationship {
+  const factory UGetRelationshipsRelationship.relationship({
     required Relationship data,
-  }) = URelationshipRelationship;
+  }) = UGetRelationshipsRelationshipRelationship;
 
-  const factory URelationship.notFoundActor({
+  const factory UGetRelationshipsRelationship.notFoundActor({
     required NotFoundActor data,
-  }) = URelationshipNotFoundActor;
+  }) = UGetRelationshipsRelationshipNotFoundActor;
 
-  const factory URelationship.unknown({
+  const factory UGetRelationshipsRelationship.unknown({
     required Map<String, dynamic> data,
-  }) = URelationshipUnknown;
+  }) = UGetRelationshipsRelationshipUnknown;
 }
 
-final class URelationshipConverter
-    implements JsonConverter<URelationship, Map<String, dynamic>> {
-  const URelationshipConverter();
+final class UGetRelationshipsRelationshipConverter
+    implements
+        JsonConverter<UGetRelationshipsRelationship, Map<String, dynamic>> {
+  const UGetRelationshipsRelationshipConverter();
 
   @override
-  URelationship fromJson(Map<String, dynamic> json) {
+  UGetRelationshipsRelationship fromJson(Map<String, dynamic> json) {
     try {
       if (isRelationship(json)) {
-        return URelationship.relationship(
+        return UGetRelationshipsRelationship.relationship(
           data: const RelationshipConverter().fromJson(json),
         );
       }
       if (isNotFoundActor(json)) {
-        return URelationship.notFoundActor(
+        return UGetRelationshipsRelationship.notFoundActor(
           data: const NotFoundActorConverter().fromJson(json),
         );
       }
 
-      return URelationship.unknown(data: json);
+      return UGetRelationshipsRelationship.unknown(data: json);
     } catch (_) {
-      return URelationship.unknown(data: json);
+      return UGetRelationshipsRelationship.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(URelationship object) => object.when(
+  Map<String, dynamic> toJson(UGetRelationshipsRelationship object) =>
+      object.when(
         relationship: const RelationshipConverter().toJson,
         notFoundActor: const NotFoundActorConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension $URelationshipExtension on URelationship {
+extension $UGetRelationshipsRelationshipExtension
+    on UGetRelationshipsRelationship {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const URelationshipConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UGetRelationshipsRelationshipConverter().toJson(this);
 
   /// Returns true if this data is [Relationship], otherwise false.
-  bool get isRelationship => this is URelationshipRelationship;
+  bool get isRelationship => this is UGetRelationshipsRelationshipRelationship;
 
   /// Returns true if this data is not [Relationship], otherwise false.
   bool get isNotRelationship => !isRelationship;
 
   /// Returns true if this data is [NotFoundActor], otherwise false.
-  bool get isNotFoundActor => this is URelationshipNotFoundActor;
+  bool get isNotFoundActor =>
+      this is UGetRelationshipsRelationshipNotFoundActor;
 
   /// Returns true if this data is not [NotFoundActor], otherwise false.
   bool get isNotNotFoundActor => !isNotFoundActor;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is URelationshipUnknown;
+  bool get isUnknown => this is UGetRelationshipsRelationshipUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

@@ -17,73 +17,75 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../chat/bsky/convo/defs/deleted_message_view.dart';
 import '../../../../chat/bsky/convo/defs/message_view.dart';
 
-part 'union_message.freezed.dart';
+part 'union_get_messages_message.freezed.dart';
 
 @freezed
-class UMessage with _$UMessage {
-  const factory UMessage.messageView({
+class UGetMessagesMessage with _$UGetMessagesMessage {
+  const factory UGetMessagesMessage.messageView({
     required MessageView data,
-  }) = UMessageMessageView;
+  }) = UGetMessagesMessageMessageView;
 
-  const factory UMessage.deletedMessageView({
+  const factory UGetMessagesMessage.deletedMessageView({
     required DeletedMessageView data,
-  }) = UMessageDeletedMessageView;
+  }) = UGetMessagesMessageDeletedMessageView;
 
-  const factory UMessage.unknown({
+  const factory UGetMessagesMessage.unknown({
     required Map<String, dynamic> data,
-  }) = UMessageUnknown;
+  }) = UGetMessagesMessageUnknown;
 }
 
-final class UMessageConverter
-    implements JsonConverter<UMessage, Map<String, dynamic>> {
-  const UMessageConverter();
+final class UGetMessagesMessageConverter
+    implements JsonConverter<UGetMessagesMessage, Map<String, dynamic>> {
+  const UGetMessagesMessageConverter();
 
   @override
-  UMessage fromJson(Map<String, dynamic> json) {
+  UGetMessagesMessage fromJson(Map<String, dynamic> json) {
     try {
       if (isMessageView(json)) {
-        return UMessage.messageView(
+        return UGetMessagesMessage.messageView(
           data: const MessageViewConverter().fromJson(json),
         );
       }
       if (isDeletedMessageView(json)) {
-        return UMessage.deletedMessageView(
+        return UGetMessagesMessage.deletedMessageView(
           data: const DeletedMessageViewConverter().fromJson(json),
         );
       }
 
-      return UMessage.unknown(data: json);
+      return UGetMessagesMessage.unknown(data: json);
     } catch (_) {
-      return UMessage.unknown(data: json);
+      return UGetMessagesMessage.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UMessage object) => object.when(
+  Map<String, dynamic> toJson(UGetMessagesMessage object) => object.when(
         messageView: const MessageViewConverter().toJson,
         deletedMessageView: const DeletedMessageViewConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension $UMessageExtension on UMessage {
+extension $UGetMessagesMessageExtension on UGetMessagesMessage {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UMessageConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UGetMessagesMessageConverter().toJson(this);
 
   /// Returns true if this data is [MessageView], otherwise false.
-  bool get isMessageView => this is UMessageMessageView;
+  bool get isMessageView => this is UGetMessagesMessageMessageView;
 
   /// Returns true if this data is not [MessageView], otherwise false.
   bool get isNotMessageView => !isMessageView;
 
   /// Returns true if this data is [DeletedMessageView], otherwise false.
-  bool get isDeletedMessageView => this is UMessageDeletedMessageView;
+  bool get isDeletedMessageView =>
+      this is UGetMessagesMessageDeletedMessageView;
 
   /// Returns true if this data is not [DeletedMessageView], otherwise false.
   bool get isNotDeletedMessageView => !isDeletedMessageView;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UMessageUnknown;
+  bool get isUnknown => this is UGetMessagesMessageUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

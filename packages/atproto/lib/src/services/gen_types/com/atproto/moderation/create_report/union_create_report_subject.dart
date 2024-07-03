@@ -17,73 +17,74 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../com/atproto/admin/defs/repo_ref.dart';
 import '../../../../com/atproto/repo/strong_ref/main.dart';
 
-part 'union_subject.freezed.dart';
+part 'union_create_report_subject.freezed.dart';
 
 @freezed
-class USubject with _$USubject {
-  const factory USubject.repoRef({
+class UCreateReportSubject with _$UCreateReportSubject {
+  const factory UCreateReportSubject.repoRef({
     required RepoRef data,
-  }) = USubjectRepoRef;
+  }) = UCreateReportSubjectRepoRef;
 
-  const factory USubject.strongRef({
+  const factory UCreateReportSubject.strongRef({
     required StrongRef data,
-  }) = USubjectStrongRef;
+  }) = UCreateReportSubjectStrongRef;
 
-  const factory USubject.unknown({
+  const factory UCreateReportSubject.unknown({
     required Map<String, dynamic> data,
-  }) = USubjectUnknown;
+  }) = UCreateReportSubjectUnknown;
 }
 
-final class USubjectConverter
-    implements JsonConverter<USubject, Map<String, dynamic>> {
-  const USubjectConverter();
+final class UCreateReportSubjectConverter
+    implements JsonConverter<UCreateReportSubject, Map<String, dynamic>> {
+  const UCreateReportSubjectConverter();
 
   @override
-  USubject fromJson(Map<String, dynamic> json) {
+  UCreateReportSubject fromJson(Map<String, dynamic> json) {
     try {
       if (isRepoRef(json)) {
-        return USubject.repoRef(
+        return UCreateReportSubject.repoRef(
           data: const RepoRefConverter().fromJson(json),
         );
       }
       if (isStrongRef(json)) {
-        return USubject.strongRef(
+        return UCreateReportSubject.strongRef(
           data: const StrongRefConverter().fromJson(json),
         );
       }
 
-      return USubject.unknown(data: json);
+      return UCreateReportSubject.unknown(data: json);
     } catch (_) {
-      return USubject.unknown(data: json);
+      return UCreateReportSubject.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(USubject object) => object.when(
+  Map<String, dynamic> toJson(UCreateReportSubject object) => object.when(
         repoRef: const RepoRefConverter().toJson,
         strongRef: const StrongRefConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension $USubjectExtension on USubject {
+extension $UCreateReportSubjectExtension on UCreateReportSubject {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const USubjectConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UCreateReportSubjectConverter().toJson(this);
 
   /// Returns true if this data is [RepoRef], otherwise false.
-  bool get isRepoRef => this is USubjectRepoRef;
+  bool get isRepoRef => this is UCreateReportSubjectRepoRef;
 
   /// Returns true if this data is not [RepoRef], otherwise false.
   bool get isNotRepoRef => !isRepoRef;
 
   /// Returns true if this data is [StrongRef], otherwise false.
-  bool get isStrongRef => this is USubjectStrongRef;
+  bool get isStrongRef => this is UCreateReportSubjectStrongRef;
 
   /// Returns true if this data is not [StrongRef], otherwise false.
   bool get isNotStrongRef => !isStrongRef;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is USubjectUnknown;
+  bool get isUnknown => this is UCreateReportSubjectUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

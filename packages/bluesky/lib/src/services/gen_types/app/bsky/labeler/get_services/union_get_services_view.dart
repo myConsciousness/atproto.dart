@@ -17,73 +17,74 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../app/bsky/labeler/defs/labeler_view.dart';
 import '../../../../app/bsky/labeler/defs/labeler_view_detailed.dart';
 
-part 'union_view.freezed.dart';
+part 'union_get_services_view.freezed.dart';
 
 @freezed
-class UView with _$UView {
-  const factory UView.labelerView({
+class UGetServicesView with _$UGetServicesView {
+  const factory UGetServicesView.labelerView({
     required LabelerView data,
-  }) = UViewLabelerView;
+  }) = UGetServicesViewLabelerView;
 
-  const factory UView.labelerViewDetailed({
+  const factory UGetServicesView.labelerViewDetailed({
     required LabelerViewDetailed data,
-  }) = UViewLabelerViewDetailed;
+  }) = UGetServicesViewLabelerViewDetailed;
 
-  const factory UView.unknown({
+  const factory UGetServicesView.unknown({
     required Map<String, dynamic> data,
-  }) = UViewUnknown;
+  }) = UGetServicesViewUnknown;
 }
 
-final class UViewConverter
-    implements JsonConverter<UView, Map<String, dynamic>> {
-  const UViewConverter();
+final class UGetServicesViewConverter
+    implements JsonConverter<UGetServicesView, Map<String, dynamic>> {
+  const UGetServicesViewConverter();
 
   @override
-  UView fromJson(Map<String, dynamic> json) {
+  UGetServicesView fromJson(Map<String, dynamic> json) {
     try {
       if (isLabelerView(json)) {
-        return UView.labelerView(
+        return UGetServicesView.labelerView(
           data: const LabelerViewConverter().fromJson(json),
         );
       }
       if (isLabelerViewDetailed(json)) {
-        return UView.labelerViewDetailed(
+        return UGetServicesView.labelerViewDetailed(
           data: const LabelerViewDetailedConverter().fromJson(json),
         );
       }
 
-      return UView.unknown(data: json);
+      return UGetServicesView.unknown(data: json);
     } catch (_) {
-      return UView.unknown(data: json);
+      return UGetServicesView.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UView object) => object.when(
+  Map<String, dynamic> toJson(UGetServicesView object) => object.when(
         labelerView: const LabelerViewConverter().toJson,
         labelerViewDetailed: const LabelerViewDetailedConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension $UViewExtension on UView {
+extension $UGetServicesViewExtension on UGetServicesView {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UViewConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UGetServicesViewConverter().toJson(this);
 
   /// Returns true if this data is [LabelerView], otherwise false.
-  bool get isLabelerView => this is UViewLabelerView;
+  bool get isLabelerView => this is UGetServicesViewLabelerView;
 
   /// Returns true if this data is not [LabelerView], otherwise false.
   bool get isNotLabelerView => !isLabelerView;
 
   /// Returns true if this data is [LabelerViewDetailed], otherwise false.
-  bool get isLabelerViewDetailed => this is UViewLabelerViewDetailed;
+  bool get isLabelerViewDetailed => this is UGetServicesViewLabelerViewDetailed;
 
   /// Returns true if this data is not [LabelerViewDetailed], otherwise false.
   bool get isNotLabelerViewDetailed => !isLabelerViewDetailed;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UViewUnknown;
+  bool get isUnknown => this is UGetServicesViewUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

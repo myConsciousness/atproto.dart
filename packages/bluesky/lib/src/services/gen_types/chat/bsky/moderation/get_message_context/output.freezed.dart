@@ -21,8 +21,9 @@ GetMessageContextOutput _$GetMessageContextOutputFromJson(
 
 /// @nodoc
 mixin _$GetMessageContextOutput {
-  @UMessageConverter()
-  List<UMessage> get messages => throw _privateConstructorUsedError;
+  @UGetMessageContextMessageConverter()
+  List<UGetMessageContextMessage> get messages =>
+      throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -41,7 +42,8 @@ abstract class $GetMessageContextOutputCopyWith<$Res> {
       _$GetMessageContextOutputCopyWithImpl<$Res, GetMessageContextOutput>;
   @useResult
   $Res call(
-      {@UMessageConverter() List<UMessage> messages,
+      {@UGetMessageContextMessageConverter()
+      List<UGetMessageContextMessage> messages,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -66,7 +68,7 @@ class _$GetMessageContextOutputCopyWithImpl<$Res,
       messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<UMessage>,
+              as List<UGetMessageContextMessage>,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -85,7 +87,8 @@ abstract class _$$GetMessageContextOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@UMessageConverter() List<UMessage> messages,
+      {@UGetMessageContextMessageConverter()
+      List<UGetMessageContextMessage> messages,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -109,7 +112,7 @@ class __$$GetMessageContextOutputImplCopyWithImpl<$Res>
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<UMessage>,
+              as List<UGetMessageContextMessage>,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -123,7 +126,8 @@ class __$$GetMessageContextOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
   const _$GetMessageContextOutputImpl(
-      {@UMessageConverter() required final List<UMessage> messages,
+      {@UGetMessageContextMessageConverter()
+      required final List<UGetMessageContextMessage> messages,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _messages = messages,
         _$unknown = $unknown;
@@ -131,10 +135,10 @@ class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
   factory _$GetMessageContextOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetMessageContextOutputImplFromJson(json);
 
-  final List<UMessage> _messages;
+  final List<UGetMessageContextMessage> _messages;
   @override
-  @UMessageConverter()
-  List<UMessage> get messages {
+  @UGetMessageContextMessageConverter()
+  List<UGetMessageContextMessage> get messages {
     if (_messages is EqualUnmodifiableListView) return _messages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_messages);
@@ -192,7 +196,8 @@ class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
 
 abstract class _GetMessageContextOutput implements GetMessageContextOutput {
   const factory _GetMessageContextOutput(
-          {@UMessageConverter() required final List<UMessage> messages,
+          {@UGetMessageContextMessageConverter()
+          required final List<UGetMessageContextMessage> messages,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetMessageContextOutputImpl;
 
@@ -200,8 +205,8 @@ abstract class _GetMessageContextOutput implements GetMessageContextOutput {
       _$GetMessageContextOutputImpl.fromJson;
 
   @override
-  @UMessageConverter()
-  List<UMessage> get messages;
+  @UGetMessageContextMessageConverter()
+  List<UGetMessageContextMessage> get messages;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

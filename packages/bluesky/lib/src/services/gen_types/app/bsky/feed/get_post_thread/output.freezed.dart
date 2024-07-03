@@ -20,8 +20,8 @@ GetPostThreadOutput _$GetPostThreadOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetPostThreadOutput {
-  @UThreadConverter()
-  UThread get thread => throw _privateConstructorUsedError;
+  @UGetPostThreadThreadConverter()
+  UGetPostThreadThread get thread => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -40,10 +40,10 @@ abstract class $GetPostThreadOutputCopyWith<$Res> {
       _$GetPostThreadOutputCopyWithImpl<$Res, GetPostThreadOutput>;
   @useResult
   $Res call(
-      {@UThreadConverter() UThread thread,
+      {@UGetPostThreadThreadConverter() UGetPostThreadThread thread,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UThreadCopyWith<$Res> get thread;
+  $UGetPostThreadThreadCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$GetPostThreadOutputCopyWithImpl<$Res, $Val extends GetPostThreadOutput>
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
-              as UThread,
+              as UGetPostThreadThread,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -76,8 +76,8 @@ class _$GetPostThreadOutputCopyWithImpl<$Res, $Val extends GetPostThreadOutput>
 
   @override
   @pragma('vm:prefer-inline')
-  $UThreadCopyWith<$Res> get thread {
-    return $UThreadCopyWith<$Res>(_value.thread, (value) {
+  $UGetPostThreadThreadCopyWith<$Res> get thread {
+    return $UGetPostThreadThreadCopyWith<$Res>(_value.thread, (value) {
       return _then(_value.copyWith(thread: value) as $Val);
     });
   }
@@ -92,11 +92,11 @@ abstract class _$$GetPostThreadOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@UThreadConverter() UThread thread,
+      {@UGetPostThreadThreadConverter() UGetPostThreadThread thread,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UThreadCopyWith<$Res> get thread;
+  $UGetPostThreadThreadCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
-              as UThread,
+              as UGetPostThreadThread,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -131,7 +131,7 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
   const _$GetPostThreadOutputImpl(
-      {@UThreadConverter() required this.thread,
+      {@UGetPostThreadThreadConverter() required this.thread,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -139,8 +139,8 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
       _$$GetPostThreadOutputImplFromJson(json);
 
   @override
-  @UThreadConverter()
-  final UThread thread;
+  @UGetPostThreadThreadConverter()
+  final UGetPostThreadThread thread;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -192,7 +192,8 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
 
 abstract class _GetPostThreadOutput implements GetPostThreadOutput {
   const factory _GetPostThreadOutput(
-          {@UThreadConverter() required final UThread thread,
+          {@UGetPostThreadThreadConverter()
+          required final UGetPostThreadThread thread,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetPostThreadOutputImpl;
 
@@ -200,8 +201,8 @@ abstract class _GetPostThreadOutput implements GetPostThreadOutput {
       _$GetPostThreadOutputImpl.fromJson;
 
   @override
-  @UThreadConverter()
-  UThread get thread;
+  @UGetPostThreadThreadConverter()
+  UGetPostThreadThread get thread;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

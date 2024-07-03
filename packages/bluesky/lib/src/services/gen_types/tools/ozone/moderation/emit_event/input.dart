@@ -14,8 +14,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../tools/ozone/moderation/emit_event/union_event.dart';
-import '../../../../tools/ozone/moderation/emit_event/union_subject.dart';
+import '../../../../tools/ozone/moderation/emit_event/union_emit_event_event.dart';
+import '../../../../tools/ozone/moderation/emit_event/union_emit_event_subject.dart';
 
 part 'input.freezed.dart';
 part 'input.g.dart';
@@ -25,8 +25,8 @@ part 'input.g.dart';
 class EmitEventInput with _$EmitEventInput {
   @JsonSerializable(includeIfNull: false)
   const factory EmitEventInput({
-    @UEventConverter() required UEvent event,
-    @USubjectConverter() required USubject subject,
+    @UEmitEventEventConverter() required UEmitEventEvent event,
+    @UEmitEventSubjectConverter() required UEmitEventSubject subject,
     List<String>? subjectBlobCids,
     required String createdBy,
 

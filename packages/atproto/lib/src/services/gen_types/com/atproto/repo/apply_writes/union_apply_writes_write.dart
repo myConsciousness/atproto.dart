@@ -18,58 +18,58 @@ import '../../../../com/atproto/repo/apply_writes/create.dart';
 import '../../../../com/atproto/repo/apply_writes/delete.dart';
 import '../../../../com/atproto/repo/apply_writes/update.dart';
 
-part 'union_write.freezed.dart';
+part 'union_apply_writes_write.freezed.dart';
 
 @freezed
-class UWrite with _$UWrite {
-  const factory UWrite.create({
+class UApplyWritesWrite with _$UApplyWritesWrite {
+  const factory UApplyWritesWrite.create({
     required Create data,
-  }) = UWriteCreate;
+  }) = UApplyWritesWriteCreate;
 
-  const factory UWrite.update({
+  const factory UApplyWritesWrite.update({
     required Update data,
-  }) = UWriteUpdate;
+  }) = UApplyWritesWriteUpdate;
 
-  const factory UWrite.delete({
+  const factory UApplyWritesWrite.delete({
     required Delete data,
-  }) = UWriteDelete;
+  }) = UApplyWritesWriteDelete;
 
-  const factory UWrite.unknown({
+  const factory UApplyWritesWrite.unknown({
     required Map<String, dynamic> data,
-  }) = UWriteUnknown;
+  }) = UApplyWritesWriteUnknown;
 }
 
-final class UWriteConverter
-    implements JsonConverter<UWrite, Map<String, dynamic>> {
-  const UWriteConverter();
+final class UApplyWritesWriteConverter
+    implements JsonConverter<UApplyWritesWrite, Map<String, dynamic>> {
+  const UApplyWritesWriteConverter();
 
   @override
-  UWrite fromJson(Map<String, dynamic> json) {
+  UApplyWritesWrite fromJson(Map<String, dynamic> json) {
     try {
       if (isCreate(json)) {
-        return UWrite.create(
+        return UApplyWritesWrite.create(
           data: const CreateConverter().fromJson(json),
         );
       }
       if (isUpdate(json)) {
-        return UWrite.update(
+        return UApplyWritesWrite.update(
           data: const UpdateConverter().fromJson(json),
         );
       }
       if (isDelete(json)) {
-        return UWrite.delete(
+        return UApplyWritesWrite.delete(
           data: const DeleteConverter().fromJson(json),
         );
       }
 
-      return UWrite.unknown(data: json);
+      return UApplyWritesWrite.unknown(data: json);
     } catch (_) {
-      return UWrite.unknown(data: json);
+      return UApplyWritesWrite.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UWrite object) => object.when(
+  Map<String, dynamic> toJson(UApplyWritesWrite object) => object.when(
         create: const CreateConverter().toJson,
         update: const UpdateConverter().toJson,
         delete: const DeleteConverter().toJson,
@@ -77,30 +77,31 @@ final class UWriteConverter
       );
 }
 
-extension $UWriteExtension on UWrite {
+extension $UApplyWritesWriteExtension on UApplyWritesWrite {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UWriteConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UApplyWritesWriteConverter().toJson(this);
 
   /// Returns true if this data is [Create], otherwise false.
-  bool get isCreate => this is UWriteCreate;
+  bool get isCreate => this is UApplyWritesWriteCreate;
 
   /// Returns true if this data is not [Create], otherwise false.
   bool get isNotCreate => !isCreate;
 
   /// Returns true if this data is [Update], otherwise false.
-  bool get isUpdate => this is UWriteUpdate;
+  bool get isUpdate => this is UApplyWritesWriteUpdate;
 
   /// Returns true if this data is not [Update], otherwise false.
   bool get isNotUpdate => !isUpdate;
 
   /// Returns true if this data is [Delete], otherwise false.
-  bool get isDelete => this is UWriteDelete;
+  bool get isDelete => this is UApplyWritesWriteDelete;
 
   /// Returns true if this data is not [Delete], otherwise false.
   bool get isNotDelete => !isDelete;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UWriteUnknown;
+  bool get isUnknown => this is UApplyWritesWriteUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

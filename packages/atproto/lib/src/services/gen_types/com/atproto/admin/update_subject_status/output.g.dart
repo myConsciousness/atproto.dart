@@ -17,7 +17,7 @@ _$UpdateSubjectStatusOutputImpl _$$UpdateSubjectStatusOutputImplFromJson(
         final val = _$UpdateSubjectStatusOutputImpl(
           subject: $checkedConvert(
               'subject',
-              (v) => const USubjectConverter()
+              (v) => const UUpdateSubjectStatusSubjectConverter()
                   .fromJson(v as Map<String, dynamic>)),
           takedown: $checkedConvert(
               'takedown',
@@ -36,7 +36,8 @@ _$UpdateSubjectStatusOutputImpl _$$UpdateSubjectStatusOutputImplFromJson(
 Map<String, dynamic> _$$UpdateSubjectStatusOutputImplToJson(
     _$UpdateSubjectStatusOutputImpl instance) {
   final val = <String, dynamic>{
-    'subject': const USubjectConverter().toJson(instance.subject),
+    'subject':
+        const UUpdateSubjectStatusSubjectConverter().toJson(instance.subject),
   };
 
   void writeNotNull(String key, dynamic value) {

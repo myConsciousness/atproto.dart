@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../chat/bsky/convo/get_log/union_log.dart';
+import '../../../../chat/bsky/convo/get_log/union_get_log_log.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -25,7 +25,7 @@ class GetLogOutput with _$GetLogOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetLogOutput({
     String? cursor,
-    @ULogConverter() required List<ULog> logs,
+    @UGetLogLogConverter() required List<UGetLogLog> logs,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

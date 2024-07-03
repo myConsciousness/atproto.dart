@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../com/atproto/admin/defs/status_attr.dart';
-import '../../../../com/atproto/admin/get_subject_status/union_subject.dart';
+import '../../../../com/atproto/admin/get_subject_status/union_get_subject_status_subject.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -25,7 +25,8 @@ part 'output.g.dart';
 class GetSubjectStatusOutput with _$GetSubjectStatusOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetSubjectStatusOutput({
-    @USubjectConverter() required USubject subject,
+    @UGetSubjectStatusSubjectConverter()
+    required UGetSubjectStatusSubject subject,
     @StatusAttrConverter() StatusAttr? takedown,
     @StatusAttrConverter() StatusAttr? deactivated,
 

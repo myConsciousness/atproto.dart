@@ -22,8 +22,9 @@ GetRelationshipsOutput _$GetRelationshipsOutputFromJson(
 /// @nodoc
 mixin _$GetRelationshipsOutput {
   String? get actor => throw _privateConstructorUsedError;
-  @URelationshipConverter()
-  List<URelationship> get relationships => throw _privateConstructorUsedError;
+  @UGetRelationshipsRelationshipConverter()
+  List<UGetRelationshipsRelationship> get relationships =>
+      throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -43,7 +44,8 @@ abstract class $GetRelationshipsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? actor,
-      @URelationshipConverter() List<URelationship> relationships,
+      @UGetRelationshipsRelationshipConverter()
+      List<UGetRelationshipsRelationship> relationships,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -73,7 +75,7 @@ class _$GetRelationshipsOutputCopyWithImpl<$Res,
       relationships: null == relationships
           ? _value.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
-              as List<URelationship>,
+              as List<UGetRelationshipsRelationship>,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -93,7 +95,8 @@ abstract class _$$GetRelationshipsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? actor,
-      @URelationshipConverter() List<URelationship> relationships,
+      @UGetRelationshipsRelationshipConverter()
+      List<UGetRelationshipsRelationship> relationships,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -122,7 +125,7 @@ class __$$GetRelationshipsOutputImplCopyWithImpl<$Res>
       relationships: null == relationships
           ? _value._relationships
           : relationships // ignore: cast_nullable_to_non_nullable
-              as List<URelationship>,
+              as List<UGetRelationshipsRelationship>,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -137,8 +140,8 @@ class __$$GetRelationshipsOutputImplCopyWithImpl<$Res>
 class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
   const _$GetRelationshipsOutputImpl(
       {this.actor,
-      @URelationshipConverter()
-      required final List<URelationship> relationships,
+      @UGetRelationshipsRelationshipConverter()
+      required final List<UGetRelationshipsRelationship> relationships,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _relationships = relationships,
         _$unknown = $unknown;
@@ -148,10 +151,10 @@ class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
 
   @override
   final String? actor;
-  final List<URelationship> _relationships;
+  final List<UGetRelationshipsRelationship> _relationships;
   @override
-  @URelationshipConverter()
-  List<URelationship> get relationships {
+  @UGetRelationshipsRelationshipConverter()
+  List<UGetRelationshipsRelationship> get relationships {
     if (_relationships is EqualUnmodifiableListView) return _relationships;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_relationships);
@@ -213,8 +216,8 @@ class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
 abstract class _GetRelationshipsOutput implements GetRelationshipsOutput {
   const factory _GetRelationshipsOutput(
           {final String? actor,
-          @URelationshipConverter()
-          required final List<URelationship> relationships,
+          @UGetRelationshipsRelationshipConverter()
+          required final List<UGetRelationshipsRelationship> relationships,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetRelationshipsOutputImpl;
 
@@ -224,8 +227,8 @@ abstract class _GetRelationshipsOutput implements GetRelationshipsOutput {
   @override
   String? get actor;
   @override
-  @URelationshipConverter()
-  List<URelationship> get relationships;
+  @UGetRelationshipsRelationshipConverter()
+  List<UGetRelationshipsRelationship> get relationships;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

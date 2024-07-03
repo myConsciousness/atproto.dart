@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_relationship.dart';
+part of 'union_get_relationships_relationship.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$URelationship {
+mixin _$UGetRelationshipsRelationship {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -41,39 +41,49 @@ mixin _$URelationship {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URelationshipRelationship value) relationship,
-    required TResult Function(URelationshipNotFoundActor value) notFoundActor,
-    required TResult Function(URelationshipUnknown value) unknown,
+    required TResult Function(UGetRelationshipsRelationshipRelationship value)
+        relationship,
+    required TResult Function(UGetRelationshipsRelationshipNotFoundActor value)
+        notFoundActor,
+    required TResult Function(UGetRelationshipsRelationshipUnknown value)
+        unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URelationshipRelationship value)? relationship,
-    TResult? Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult? Function(URelationshipUnknown value)? unknown,
+    TResult? Function(UGetRelationshipsRelationshipRelationship value)?
+        relationship,
+    TResult? Function(UGetRelationshipsRelationshipNotFoundActor value)?
+        notFoundActor,
+    TResult? Function(UGetRelationshipsRelationshipUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URelationshipRelationship value)? relationship,
-    TResult Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult Function(URelationshipUnknown value)? unknown,
+    TResult Function(UGetRelationshipsRelationshipRelationship value)?
+        relationship,
+    TResult Function(UGetRelationshipsRelationshipNotFoundActor value)?
+        notFoundActor,
+    TResult Function(UGetRelationshipsRelationshipUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $URelationshipCopyWith<$Res> {
-  factory $URelationshipCopyWith(
-          URelationship value, $Res Function(URelationship) then) =
-      _$URelationshipCopyWithImpl<$Res, URelationship>;
+abstract class $UGetRelationshipsRelationshipCopyWith<$Res> {
+  factory $UGetRelationshipsRelationshipCopyWith(
+          UGetRelationshipsRelationship value,
+          $Res Function(UGetRelationshipsRelationship) then) =
+      _$UGetRelationshipsRelationshipCopyWithImpl<$Res,
+          UGetRelationshipsRelationship>;
 }
 
 /// @nodoc
-class _$URelationshipCopyWithImpl<$Res, $Val extends URelationship>
-    implements $URelationshipCopyWith<$Res> {
-  _$URelationshipCopyWithImpl(this._value, this._then);
+class _$UGetRelationshipsRelationshipCopyWithImpl<$Res,
+        $Val extends UGetRelationshipsRelationship>
+    implements $UGetRelationshipsRelationshipCopyWith<$Res> {
+  _$UGetRelationshipsRelationshipCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -82,11 +92,11 @@ class _$URelationshipCopyWithImpl<$Res, $Val extends URelationship>
 }
 
 /// @nodoc
-abstract class _$$URelationshipRelationshipImplCopyWith<$Res> {
-  factory _$$URelationshipRelationshipImplCopyWith(
-          _$URelationshipRelationshipImpl value,
-          $Res Function(_$URelationshipRelationshipImpl) then) =
-      __$$URelationshipRelationshipImplCopyWithImpl<$Res>;
+abstract class _$$UGetRelationshipsRelationshipRelationshipImplCopyWith<$Res> {
+  factory _$$UGetRelationshipsRelationshipRelationshipImplCopyWith(
+          _$UGetRelationshipsRelationshipRelationshipImpl value,
+          $Res Function(_$UGetRelationshipsRelationshipRelationshipImpl) then) =
+      __$$UGetRelationshipsRelationshipRelationshipImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Relationship data});
 
@@ -94,12 +104,13 @@ abstract class _$$URelationshipRelationshipImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URelationshipRelationshipImplCopyWithImpl<$Res>
-    extends _$URelationshipCopyWithImpl<$Res, _$URelationshipRelationshipImpl>
-    implements _$$URelationshipRelationshipImplCopyWith<$Res> {
-  __$$URelationshipRelationshipImplCopyWithImpl(
-      _$URelationshipRelationshipImpl _value,
-      $Res Function(_$URelationshipRelationshipImpl) _then)
+class __$$UGetRelationshipsRelationshipRelationshipImplCopyWithImpl<$Res>
+    extends _$UGetRelationshipsRelationshipCopyWithImpl<$Res,
+        _$UGetRelationshipsRelationshipRelationshipImpl>
+    implements _$$UGetRelationshipsRelationshipRelationshipImplCopyWith<$Res> {
+  __$$UGetRelationshipsRelationshipRelationshipImplCopyWithImpl(
+      _$UGetRelationshipsRelationshipRelationshipImpl _value,
+      $Res Function(_$UGetRelationshipsRelationshipRelationshipImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +118,7 @@ class __$$URelationshipRelationshipImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URelationshipRelationshipImpl(
+    return _then(_$UGetRelationshipsRelationshipRelationshipImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -126,22 +137,23 @@ class __$$URelationshipRelationshipImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URelationshipRelationshipImpl implements URelationshipRelationship {
-  const _$URelationshipRelationshipImpl({required this.data});
+class _$UGetRelationshipsRelationshipRelationshipImpl
+    implements UGetRelationshipsRelationshipRelationship {
+  const _$UGetRelationshipsRelationshipRelationshipImpl({required this.data});
 
   @override
   final Relationship data;
 
   @override
   String toString() {
-    return 'URelationship.relationship(data: $data)';
+    return 'UGetRelationshipsRelationship.relationship(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URelationshipRelationshipImpl &&
+            other is _$UGetRelationshipsRelationshipRelationshipImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -151,9 +163,12 @@ class _$URelationshipRelationshipImpl implements URelationshipRelationship {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URelationshipRelationshipImplCopyWith<_$URelationshipRelationshipImpl>
-      get copyWith => __$$URelationshipRelationshipImplCopyWithImpl<
-          _$URelationshipRelationshipImpl>(this, _$identity);
+  _$$UGetRelationshipsRelationshipRelationshipImplCopyWith<
+          _$UGetRelationshipsRelationshipRelationshipImpl>
+      get copyWith =>
+          __$$UGetRelationshipsRelationshipRelationshipImplCopyWithImpl<
+                  _$UGetRelationshipsRelationshipRelationshipImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -192,9 +207,12 @@ class _$URelationshipRelationshipImpl implements URelationshipRelationship {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URelationshipRelationship value) relationship,
-    required TResult Function(URelationshipNotFoundActor value) notFoundActor,
-    required TResult Function(URelationshipUnknown value) unknown,
+    required TResult Function(UGetRelationshipsRelationshipRelationship value)
+        relationship,
+    required TResult Function(UGetRelationshipsRelationshipNotFoundActor value)
+        notFoundActor,
+    required TResult Function(UGetRelationshipsRelationshipUnknown value)
+        unknown,
   }) {
     return relationship(this);
   }
@@ -202,9 +220,11 @@ class _$URelationshipRelationshipImpl implements URelationshipRelationship {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URelationshipRelationship value)? relationship,
-    TResult? Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult? Function(URelationshipUnknown value)? unknown,
+    TResult? Function(UGetRelationshipsRelationshipRelationship value)?
+        relationship,
+    TResult? Function(UGetRelationshipsRelationshipNotFoundActor value)?
+        notFoundActor,
+    TResult? Function(UGetRelationshipsRelationshipUnknown value)? unknown,
   }) {
     return relationship?.call(this);
   }
@@ -212,9 +232,11 @@ class _$URelationshipRelationshipImpl implements URelationshipRelationship {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URelationshipRelationship value)? relationship,
-    TResult Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult Function(URelationshipUnknown value)? unknown,
+    TResult Function(UGetRelationshipsRelationshipRelationship value)?
+        relationship,
+    TResult Function(UGetRelationshipsRelationshipNotFoundActor value)?
+        notFoundActor,
+    TResult Function(UGetRelationshipsRelationshipUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (relationship != null) {
@@ -224,23 +246,27 @@ class _$URelationshipRelationshipImpl implements URelationshipRelationship {
   }
 }
 
-abstract class URelationshipRelationship implements URelationship {
-  const factory URelationshipRelationship({required final Relationship data}) =
-      _$URelationshipRelationshipImpl;
+abstract class UGetRelationshipsRelationshipRelationship
+    implements UGetRelationshipsRelationship {
+  const factory UGetRelationshipsRelationshipRelationship(
+          {required final Relationship data}) =
+      _$UGetRelationshipsRelationshipRelationshipImpl;
 
   @override
   Relationship get data;
   @JsonKey(ignore: true)
-  _$$URelationshipRelationshipImplCopyWith<_$URelationshipRelationshipImpl>
+  _$$UGetRelationshipsRelationshipRelationshipImplCopyWith<
+          _$UGetRelationshipsRelationshipRelationshipImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URelationshipNotFoundActorImplCopyWith<$Res> {
-  factory _$$URelationshipNotFoundActorImplCopyWith(
-          _$URelationshipNotFoundActorImpl value,
-          $Res Function(_$URelationshipNotFoundActorImpl) then) =
-      __$$URelationshipNotFoundActorImplCopyWithImpl<$Res>;
+abstract class _$$UGetRelationshipsRelationshipNotFoundActorImplCopyWith<$Res> {
+  factory _$$UGetRelationshipsRelationshipNotFoundActorImplCopyWith(
+          _$UGetRelationshipsRelationshipNotFoundActorImpl value,
+          $Res Function(_$UGetRelationshipsRelationshipNotFoundActorImpl)
+              then) =
+      __$$UGetRelationshipsRelationshipNotFoundActorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({NotFoundActor data});
 
@@ -248,12 +274,13 @@ abstract class _$$URelationshipNotFoundActorImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URelationshipNotFoundActorImplCopyWithImpl<$Res>
-    extends _$URelationshipCopyWithImpl<$Res, _$URelationshipNotFoundActorImpl>
-    implements _$$URelationshipNotFoundActorImplCopyWith<$Res> {
-  __$$URelationshipNotFoundActorImplCopyWithImpl(
-      _$URelationshipNotFoundActorImpl _value,
-      $Res Function(_$URelationshipNotFoundActorImpl) _then)
+class __$$UGetRelationshipsRelationshipNotFoundActorImplCopyWithImpl<$Res>
+    extends _$UGetRelationshipsRelationshipCopyWithImpl<$Res,
+        _$UGetRelationshipsRelationshipNotFoundActorImpl>
+    implements _$$UGetRelationshipsRelationshipNotFoundActorImplCopyWith<$Res> {
+  __$$UGetRelationshipsRelationshipNotFoundActorImplCopyWithImpl(
+      _$UGetRelationshipsRelationshipNotFoundActorImpl _value,
+      $Res Function(_$UGetRelationshipsRelationshipNotFoundActorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -261,7 +288,7 @@ class __$$URelationshipNotFoundActorImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URelationshipNotFoundActorImpl(
+    return _then(_$UGetRelationshipsRelationshipNotFoundActorImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -280,22 +307,23 @@ class __$$URelationshipNotFoundActorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URelationshipNotFoundActorImpl implements URelationshipNotFoundActor {
-  const _$URelationshipNotFoundActorImpl({required this.data});
+class _$UGetRelationshipsRelationshipNotFoundActorImpl
+    implements UGetRelationshipsRelationshipNotFoundActor {
+  const _$UGetRelationshipsRelationshipNotFoundActorImpl({required this.data});
 
   @override
   final NotFoundActor data;
 
   @override
   String toString() {
-    return 'URelationship.notFoundActor(data: $data)';
+    return 'UGetRelationshipsRelationship.notFoundActor(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URelationshipNotFoundActorImpl &&
+            other is _$UGetRelationshipsRelationshipNotFoundActorImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -305,9 +333,12 @@ class _$URelationshipNotFoundActorImpl implements URelationshipNotFoundActor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URelationshipNotFoundActorImplCopyWith<_$URelationshipNotFoundActorImpl>
-      get copyWith => __$$URelationshipNotFoundActorImplCopyWithImpl<
-          _$URelationshipNotFoundActorImpl>(this, _$identity);
+  _$$UGetRelationshipsRelationshipNotFoundActorImplCopyWith<
+          _$UGetRelationshipsRelationshipNotFoundActorImpl>
+      get copyWith =>
+          __$$UGetRelationshipsRelationshipNotFoundActorImplCopyWithImpl<
+                  _$UGetRelationshipsRelationshipNotFoundActorImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -346,9 +377,12 @@ class _$URelationshipNotFoundActorImpl implements URelationshipNotFoundActor {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URelationshipRelationship value) relationship,
-    required TResult Function(URelationshipNotFoundActor value) notFoundActor,
-    required TResult Function(URelationshipUnknown value) unknown,
+    required TResult Function(UGetRelationshipsRelationshipRelationship value)
+        relationship,
+    required TResult Function(UGetRelationshipsRelationshipNotFoundActor value)
+        notFoundActor,
+    required TResult Function(UGetRelationshipsRelationshipUnknown value)
+        unknown,
   }) {
     return notFoundActor(this);
   }
@@ -356,9 +390,11 @@ class _$URelationshipNotFoundActorImpl implements URelationshipNotFoundActor {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URelationshipRelationship value)? relationship,
-    TResult? Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult? Function(URelationshipUnknown value)? unknown,
+    TResult? Function(UGetRelationshipsRelationshipRelationship value)?
+        relationship,
+    TResult? Function(UGetRelationshipsRelationshipNotFoundActor value)?
+        notFoundActor,
+    TResult? Function(UGetRelationshipsRelationshipUnknown value)? unknown,
   }) {
     return notFoundActor?.call(this);
   }
@@ -366,9 +402,11 @@ class _$URelationshipNotFoundActorImpl implements URelationshipNotFoundActor {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URelationshipRelationship value)? relationship,
-    TResult Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult Function(URelationshipUnknown value)? unknown,
+    TResult Function(UGetRelationshipsRelationshipRelationship value)?
+        relationship,
+    TResult Function(UGetRelationshipsRelationshipNotFoundActor value)?
+        notFoundActor,
+    TResult Function(UGetRelationshipsRelationshipUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (notFoundActor != null) {
@@ -378,32 +416,38 @@ class _$URelationshipNotFoundActorImpl implements URelationshipNotFoundActor {
   }
 }
 
-abstract class URelationshipNotFoundActor implements URelationship {
-  const factory URelationshipNotFoundActor(
-      {required final NotFoundActor data}) = _$URelationshipNotFoundActorImpl;
+abstract class UGetRelationshipsRelationshipNotFoundActor
+    implements UGetRelationshipsRelationship {
+  const factory UGetRelationshipsRelationshipNotFoundActor(
+          {required final NotFoundActor data}) =
+      _$UGetRelationshipsRelationshipNotFoundActorImpl;
 
   @override
   NotFoundActor get data;
   @JsonKey(ignore: true)
-  _$$URelationshipNotFoundActorImplCopyWith<_$URelationshipNotFoundActorImpl>
+  _$$UGetRelationshipsRelationshipNotFoundActorImplCopyWith<
+          _$UGetRelationshipsRelationshipNotFoundActorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URelationshipUnknownImplCopyWith<$Res> {
-  factory _$$URelationshipUnknownImplCopyWith(_$URelationshipUnknownImpl value,
-          $Res Function(_$URelationshipUnknownImpl) then) =
-      __$$URelationshipUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UGetRelationshipsRelationshipUnknownImplCopyWith<$Res> {
+  factory _$$UGetRelationshipsRelationshipUnknownImplCopyWith(
+          _$UGetRelationshipsRelationshipUnknownImpl value,
+          $Res Function(_$UGetRelationshipsRelationshipUnknownImpl) then) =
+      __$$UGetRelationshipsRelationshipUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$URelationshipUnknownImplCopyWithImpl<$Res>
-    extends _$URelationshipCopyWithImpl<$Res, _$URelationshipUnknownImpl>
-    implements _$$URelationshipUnknownImplCopyWith<$Res> {
-  __$$URelationshipUnknownImplCopyWithImpl(_$URelationshipUnknownImpl _value,
-      $Res Function(_$URelationshipUnknownImpl) _then)
+class __$$UGetRelationshipsRelationshipUnknownImplCopyWithImpl<$Res>
+    extends _$UGetRelationshipsRelationshipCopyWithImpl<$Res,
+        _$UGetRelationshipsRelationshipUnknownImpl>
+    implements _$$UGetRelationshipsRelationshipUnknownImplCopyWith<$Res> {
+  __$$UGetRelationshipsRelationshipUnknownImplCopyWithImpl(
+      _$UGetRelationshipsRelationshipUnknownImpl _value,
+      $Res Function(_$UGetRelationshipsRelationshipUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -411,7 +455,7 @@ class __$$URelationshipUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URelationshipUnknownImpl(
+    return _then(_$UGetRelationshipsRelationshipUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -422,8 +466,10 @@ class __$$URelationshipUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URelationshipUnknownImpl implements URelationshipUnknown {
-  const _$URelationshipUnknownImpl({required final Map<String, dynamic> data})
+class _$UGetRelationshipsRelationshipUnknownImpl
+    implements UGetRelationshipsRelationshipUnknown {
+  const _$UGetRelationshipsRelationshipUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -436,14 +482,14 @@ class _$URelationshipUnknownImpl implements URelationshipUnknown {
 
   @override
   String toString() {
-    return 'URelationship.unknown(data: $data)';
+    return 'UGetRelationshipsRelationship.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URelationshipUnknownImpl &&
+            other is _$UGetRelationshipsRelationshipUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -454,10 +500,10 @@ class _$URelationshipUnknownImpl implements URelationshipUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URelationshipUnknownImplCopyWith<_$URelationshipUnknownImpl>
-      get copyWith =>
-          __$$URelationshipUnknownImplCopyWithImpl<_$URelationshipUnknownImpl>(
-              this, _$identity);
+  _$$UGetRelationshipsRelationshipUnknownImplCopyWith<
+          _$UGetRelationshipsRelationshipUnknownImpl>
+      get copyWith => __$$UGetRelationshipsRelationshipUnknownImplCopyWithImpl<
+          _$UGetRelationshipsRelationshipUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -496,9 +542,12 @@ class _$URelationshipUnknownImpl implements URelationshipUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URelationshipRelationship value) relationship,
-    required TResult Function(URelationshipNotFoundActor value) notFoundActor,
-    required TResult Function(URelationshipUnknown value) unknown,
+    required TResult Function(UGetRelationshipsRelationshipRelationship value)
+        relationship,
+    required TResult Function(UGetRelationshipsRelationshipNotFoundActor value)
+        notFoundActor,
+    required TResult Function(UGetRelationshipsRelationshipUnknown value)
+        unknown,
   }) {
     return unknown(this);
   }
@@ -506,9 +555,11 @@ class _$URelationshipUnknownImpl implements URelationshipUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URelationshipRelationship value)? relationship,
-    TResult? Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult? Function(URelationshipUnknown value)? unknown,
+    TResult? Function(UGetRelationshipsRelationshipRelationship value)?
+        relationship,
+    TResult? Function(UGetRelationshipsRelationshipNotFoundActor value)?
+        notFoundActor,
+    TResult? Function(UGetRelationshipsRelationshipUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -516,9 +567,11 @@ class _$URelationshipUnknownImpl implements URelationshipUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URelationshipRelationship value)? relationship,
-    TResult Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult Function(URelationshipUnknown value)? unknown,
+    TResult Function(UGetRelationshipsRelationshipRelationship value)?
+        relationship,
+    TResult Function(UGetRelationshipsRelationshipNotFoundActor value)?
+        notFoundActor,
+    TResult Function(UGetRelationshipsRelationshipUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -528,13 +581,16 @@ class _$URelationshipUnknownImpl implements URelationshipUnknown {
   }
 }
 
-abstract class URelationshipUnknown implements URelationship {
-  const factory URelationshipUnknown(
-      {required final Map<String, dynamic> data}) = _$URelationshipUnknownImpl;
+abstract class UGetRelationshipsRelationshipUnknown
+    implements UGetRelationshipsRelationship {
+  const factory UGetRelationshipsRelationshipUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$UGetRelationshipsRelationshipUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$URelationshipUnknownImplCopyWith<_$URelationshipUnknownImpl>
+  _$$UGetRelationshipsRelationshipUnknownImplCopyWith<
+          _$UGetRelationshipsRelationshipUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

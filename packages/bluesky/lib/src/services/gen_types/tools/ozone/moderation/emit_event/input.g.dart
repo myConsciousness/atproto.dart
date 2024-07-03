@@ -15,11 +15,11 @@ _$EmitEventInputImpl _$$EmitEventInputImplFromJson(Map json) => $checkedCreate(
         final val = _$EmitEventInputImpl(
           event: $checkedConvert(
               'event',
-              (v) =>
-                  const UEventConverter().fromJson(v as Map<String, dynamic>)),
+              (v) => const UEmitEventEventConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           subject: $checkedConvert(
               'subject',
-              (v) => const USubjectConverter()
+              (v) => const UEmitEventSubjectConverter()
                   .fromJson(v as Map<String, dynamic>)),
           subjectBlobCids: $checkedConvert('subjectBlobCids',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
@@ -37,8 +37,8 @@ _$EmitEventInputImpl _$$EmitEventInputImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$EmitEventInputImplToJson(
     _$EmitEventInputImpl instance) {
   final val = <String, dynamic>{
-    'event': const UEventConverter().toJson(instance.event),
-    'subject': const USubjectConverter().toJson(instance.subject),
+    'event': const UEmitEventEventConverter().toJson(instance.event),
+    'subject': const UEmitEventSubjectConverter().toJson(instance.subject),
   };
 
   void writeNotNull(String key, dynamic value) {

@@ -17,7 +17,7 @@ _$GetServicesOutputImpl _$$GetServicesOutputImplFromJson(Map json) =>
           views: $checkedConvert(
               'views',
               (v) => (v as List<dynamic>)
-                  .map((e) => const UViewConverter()
+                  .map((e) => const UGetServicesViewConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
@@ -33,7 +33,8 @@ _$GetServicesOutputImpl _$$GetServicesOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$GetServicesOutputImplToJson(
     _$GetServicesOutputImpl instance) {
   final val = <String, dynamic>{
-    'views': instance.views.map(const UViewConverter().toJson).toList(),
+    'views':
+        instance.views.map(const UGetServicesViewConverter().toJson).toList(),
   };
 
   void writeNotNull(String key, dynamic value) {

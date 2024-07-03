@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../com/atproto/moderation/create_report/union_subject.dart';
+import '../../../../com/atproto/moderation/create_report/union_create_report_subject.dart';
 import '../../../../com/atproto/moderation/defs/known_reason_type.dart';
 
 part 'input.freezed.dart';
@@ -30,7 +30,7 @@ class CreateReportInput with _$CreateReportInput {
 
     /// Additional context about the content and violation.
     String? reason,
-    @USubjectConverter() required USubject subject,
+    @UCreateReportSubjectConverter() required UCreateReportSubject subject,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

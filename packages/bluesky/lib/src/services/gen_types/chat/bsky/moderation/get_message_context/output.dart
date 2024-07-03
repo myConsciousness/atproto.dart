@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../chat/bsky/moderation/get_message_context/union_message.dart';
+import '../../../../chat/bsky/moderation/get_message_context/union_get_message_context_message.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -24,7 +24,8 @@ part 'output.g.dart';
 class GetMessageContextOutput with _$GetMessageContextOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetMessageContextOutput({
-    @UMessageConverter() required List<UMessage> messages,
+    @UGetMessageContextMessageConverter()
+    required List<UGetMessageContextMessage> messages,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

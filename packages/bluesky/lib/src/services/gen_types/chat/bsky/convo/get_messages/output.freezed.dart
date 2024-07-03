@@ -21,8 +21,8 @@ GetMessagesOutput _$GetMessagesOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetMessagesOutput {
   String? get cursor => throw _privateConstructorUsedError;
-  @UMessageConverter()
-  List<UMessage> get messages => throw _privateConstructorUsedError;
+  @UGetMessagesMessageConverter()
+  List<UGetMessagesMessage> get messages => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -42,7 +42,7 @@ abstract class $GetMessagesOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      @UMessageConverter() List<UMessage> messages,
+      @UGetMessagesMessageConverter() List<UGetMessagesMessage> messages,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -71,7 +71,7 @@ class _$GetMessagesOutputCopyWithImpl<$Res, $Val extends GetMessagesOutput>
       messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<UMessage>,
+              as List<UGetMessagesMessage>,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -90,7 +90,7 @@ abstract class _$$GetMessagesOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      @UMessageConverter() List<UMessage> messages,
+      @UGetMessagesMessageConverter() List<UGetMessagesMessage> messages,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -117,7 +117,7 @@ class __$$GetMessagesOutputImplCopyWithImpl<$Res>
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<UMessage>,
+              as List<UGetMessagesMessage>,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -132,7 +132,8 @@ class __$$GetMessagesOutputImplCopyWithImpl<$Res>
 class _$GetMessagesOutputImpl implements _GetMessagesOutput {
   const _$GetMessagesOutputImpl(
       {this.cursor,
-      @UMessageConverter() required final List<UMessage> messages,
+      @UGetMessagesMessageConverter()
+      required final List<UGetMessagesMessage> messages,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _messages = messages,
         _$unknown = $unknown;
@@ -142,10 +143,10 @@ class _$GetMessagesOutputImpl implements _GetMessagesOutput {
 
   @override
   final String? cursor;
-  final List<UMessage> _messages;
+  final List<UGetMessagesMessage> _messages;
   @override
-  @UMessageConverter()
-  List<UMessage> get messages {
+  @UGetMessagesMessageConverter()
+  List<UGetMessagesMessage> get messages {
     if (_messages is EqualUnmodifiableListView) return _messages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_messages);
@@ -206,7 +207,8 @@ class _$GetMessagesOutputImpl implements _GetMessagesOutput {
 abstract class _GetMessagesOutput implements GetMessagesOutput {
   const factory _GetMessagesOutput(
           {final String? cursor,
-          @UMessageConverter() required final List<UMessage> messages,
+          @UGetMessagesMessageConverter()
+          required final List<UGetMessagesMessage> messages,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetMessagesOutputImpl;
 
@@ -216,8 +218,8 @@ abstract class _GetMessagesOutput implements GetMessagesOutput {
   @override
   String? get cursor;
   @override
-  @UMessageConverter()
-  List<UMessage> get messages;
+  @UGetMessagesMessageConverter()
+  List<UGetMessagesMessage> get messages;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

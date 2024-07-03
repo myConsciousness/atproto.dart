@@ -20,8 +20,8 @@ GetServicesOutput _$GetServicesOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetServicesOutput {
-  @UViewConverter()
-  List<UView> get views => throw _privateConstructorUsedError;
+  @UGetServicesViewConverter()
+  List<UGetServicesView> get views => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -40,7 +40,7 @@ abstract class $GetServicesOutputCopyWith<$Res> {
       _$GetServicesOutputCopyWithImpl<$Res, GetServicesOutput>;
   @useResult
   $Res call(
-      {@UViewConverter() List<UView> views,
+      {@UGetServicesViewConverter() List<UGetServicesView> views,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -64,7 +64,7 @@ class _$GetServicesOutputCopyWithImpl<$Res, $Val extends GetServicesOutput>
       views: null == views
           ? _value.views
           : views // ignore: cast_nullable_to_non_nullable
-              as List<UView>,
+              as List<UGetServicesView>,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -82,7 +82,7 @@ abstract class _$$GetServicesOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@UViewConverter() List<UView> views,
+      {@UGetServicesViewConverter() List<UGetServicesView> views,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -104,7 +104,7 @@ class __$$GetServicesOutputImplCopyWithImpl<$Res>
       views: null == views
           ? _value._views
           : views // ignore: cast_nullable_to_non_nullable
-              as List<UView>,
+              as List<UGetServicesView>,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -118,7 +118,7 @@ class __$$GetServicesOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetServicesOutputImpl implements _GetServicesOutput {
   const _$GetServicesOutputImpl(
-      {@UViewConverter() required final List<UView> views,
+      {@UGetServicesViewConverter() required final List<UGetServicesView> views,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _views = views,
         _$unknown = $unknown;
@@ -126,10 +126,10 @@ class _$GetServicesOutputImpl implements _GetServicesOutput {
   factory _$GetServicesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetServicesOutputImplFromJson(json);
 
-  final List<UView> _views;
+  final List<UGetServicesView> _views;
   @override
-  @UViewConverter()
-  List<UView> get views {
+  @UGetServicesViewConverter()
+  List<UGetServicesView> get views {
     if (_views is EqualUnmodifiableListView) return _views;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_views);
@@ -187,16 +187,16 @@ class _$GetServicesOutputImpl implements _GetServicesOutput {
 
 abstract class _GetServicesOutput implements GetServicesOutput {
   const factory _GetServicesOutput(
-          {@UViewConverter() required final List<UView> views,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
-      _$GetServicesOutputImpl;
+      {@UGetServicesViewConverter() required final List<UGetServicesView> views,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic>? $unknown}) = _$GetServicesOutputImpl;
 
   factory _GetServicesOutput.fromJson(Map<String, dynamic> json) =
       _$GetServicesOutputImpl.fromJson;
 
   @override
-  @UViewConverter()
-  List<UView> get views;
+  @UGetServicesViewConverter()
+  List<UGetServicesView> get views;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

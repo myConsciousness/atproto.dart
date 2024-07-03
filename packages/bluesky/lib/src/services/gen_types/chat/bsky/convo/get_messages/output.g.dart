@@ -18,7 +18,7 @@ _$GetMessagesOutputImpl _$$GetMessagesOutputImplFromJson(Map json) =>
           messages: $checkedConvert(
               'messages',
               (v) => (v as List<dynamic>)
-                  .map((e) => const UMessageConverter()
+                  .map((e) => const UGetMessagesMessageConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
@@ -42,8 +42,9 @@ Map<String, dynamic> _$$GetMessagesOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['messages'] =
-      instance.messages.map(const UMessageConverter().toJson).toList();
+  val['messages'] = instance.messages
+      .map(const UGetMessagesMessageConverter().toJson)
+      .toList();
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

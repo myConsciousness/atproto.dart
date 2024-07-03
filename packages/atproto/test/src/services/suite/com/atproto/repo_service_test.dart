@@ -12,7 +12,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/extensions/repo_service.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/create.dart';
-import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/union_write.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/union_apply_writes_write.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/update.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/describe_repo/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/get_record/output.dart';
@@ -77,7 +77,7 @@ void main() {
 
   testRepo<EmptyData>(
     (m, s) => s.applyWrites(writes: [
-      UWrite.create(
+      UApplyWritesWrite.create(
         data: Create(
           collection: m.collection,
           value: {},

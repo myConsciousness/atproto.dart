@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/labeler/get_services/union_view.dart';
+import '../../../../app/bsky/labeler/get_services/union_get_services_view.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -24,7 +24,7 @@ part 'output.g.dart';
 class GetServicesOutput with _$GetServicesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetServicesOutput({
-    @UViewConverter() required List<UView> views,
+    @UGetServicesViewConverter() required List<UGetServicesView> views,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

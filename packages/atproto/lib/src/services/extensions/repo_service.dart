@@ -20,7 +20,7 @@ extension RepoServiceExtension on RepoService {
   }) async =>
       await applyWrites(
         repo: repo,
-        writes: writes.map((e) => UWrite.create(data: e)).toList(),
+        writes: writes.map((e) => UApplyWritesWrite.create(data: e)).toList(),
         validate: validate,
         swapCommit: swapCommit,
         $headers: $headers,
@@ -37,7 +37,7 @@ extension RepoServiceExtension on RepoService {
   }) async =>
       await applyWrites(
         repo: repo,
-        writes: writes.map((e) => UWrite.update(data: e)).toList(),
+        writes: writes.map((e) => UApplyWritesWrite.update(data: e)).toList(),
         validate: validate,
         swapCommit: swapCommit,
         $headers: $headers,
@@ -55,7 +55,7 @@ extension RepoServiceExtension on RepoService {
       await applyWrites(
         repo: repo,
         writes: uris
-            .map((e) => UWrite.delete(
+            .map((e) => UApplyWritesWrite.delete(
                     data: Delete(
                   collection: e.collection,
                   rkey: e.rkey,

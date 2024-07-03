@@ -21,8 +21,8 @@ UpdateSubjectStatusInput _$UpdateSubjectStatusInputFromJson(
 
 /// @nodoc
 mixin _$UpdateSubjectStatusInput {
-  @USubjectConverter()
-  USubject get subject => throw _privateConstructorUsedError;
+  @UUpdateSubjectStatusSubjectConverter()
+  UUpdateSubjectStatusSubject get subject => throw _privateConstructorUsedError;
   @StatusAttrConverter()
   StatusAttr? get takedown => throw _privateConstructorUsedError;
   @StatusAttrConverter()
@@ -45,12 +45,13 @@ abstract class $UpdateSubjectStatusInputCopyWith<$Res> {
       _$UpdateSubjectStatusInputCopyWithImpl<$Res, UpdateSubjectStatusInput>;
   @useResult
   $Res call(
-      {@USubjectConverter() USubject subject,
+      {@UUpdateSubjectStatusSubjectConverter()
+      UUpdateSubjectStatusSubject subject,
       @StatusAttrConverter() StatusAttr? takedown,
       @StatusAttrConverter() StatusAttr? deactivated,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $USubjectCopyWith<$Res> get subject;
+  $UUpdateSubjectStatusSubjectCopyWith<$Res> get subject;
   $StatusAttrCopyWith<$Res>? get takedown;
   $StatusAttrCopyWith<$Res>? get deactivated;
 }
@@ -78,7 +79,7 @@ class _$UpdateSubjectStatusInputCopyWithImpl<$Res,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UUpdateSubjectStatusSubject,
       takedown: freezed == takedown
           ? _value.takedown
           : takedown // ignore: cast_nullable_to_non_nullable
@@ -96,8 +97,8 @@ class _$UpdateSubjectStatusInputCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $USubjectCopyWith<$Res> get subject {
-    return $USubjectCopyWith<$Res>(_value.subject, (value) {
+  $UUpdateSubjectStatusSubjectCopyWith<$Res> get subject {
+    return $UUpdateSubjectStatusSubjectCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
@@ -137,13 +138,14 @@ abstract class _$$UpdateSubjectStatusInputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@USubjectConverter() USubject subject,
+      {@UUpdateSubjectStatusSubjectConverter()
+      UUpdateSubjectStatusSubject subject,
       @StatusAttrConverter() StatusAttr? takedown,
       @StatusAttrConverter() StatusAttr? deactivated,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $USubjectCopyWith<$Res> get subject;
+  $UUpdateSubjectStatusSubjectCopyWith<$Res> get subject;
   @override
   $StatusAttrCopyWith<$Res>? get takedown;
   @override
@@ -172,7 +174,7 @@ class __$$UpdateSubjectStatusInputImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UUpdateSubjectStatusSubject,
       takedown: freezed == takedown
           ? _value.takedown
           : takedown // ignore: cast_nullable_to_non_nullable
@@ -194,7 +196,7 @@ class __$$UpdateSubjectStatusInputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$UpdateSubjectStatusInputImpl implements _UpdateSubjectStatusInput {
   const _$UpdateSubjectStatusInputImpl(
-      {@USubjectConverter() required this.subject,
+      {@UUpdateSubjectStatusSubjectConverter() required this.subject,
       @StatusAttrConverter() this.takedown,
       @StatusAttrConverter() this.deactivated,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -204,8 +206,8 @@ class _$UpdateSubjectStatusInputImpl implements _UpdateSubjectStatusInput {
       _$$UpdateSubjectStatusInputImplFromJson(json);
 
   @override
-  @USubjectConverter()
-  final USubject subject;
+  @UUpdateSubjectStatusSubjectConverter()
+  final UUpdateSubjectStatusSubject subject;
   @override
   @StatusAttrConverter()
   final StatusAttr? takedown;
@@ -267,7 +269,8 @@ class _$UpdateSubjectStatusInputImpl implements _UpdateSubjectStatusInput {
 
 abstract class _UpdateSubjectStatusInput implements UpdateSubjectStatusInput {
   const factory _UpdateSubjectStatusInput(
-          {@USubjectConverter() required final USubject subject,
+          {@UUpdateSubjectStatusSubjectConverter()
+          required final UUpdateSubjectStatusSubject subject,
           @StatusAttrConverter() final StatusAttr? takedown,
           @StatusAttrConverter() final StatusAttr? deactivated,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -277,8 +280,8 @@ abstract class _UpdateSubjectStatusInput implements UpdateSubjectStatusInput {
       _$UpdateSubjectStatusInputImpl.fromJson;
 
   @override
-  @USubjectConverter()
-  USubject get subject;
+  @UUpdateSubjectStatusSubjectConverter()
+  UUpdateSubjectStatusSubject get subject;
   @override
   @StatusAttrConverter()
   StatusAttr? get takedown;

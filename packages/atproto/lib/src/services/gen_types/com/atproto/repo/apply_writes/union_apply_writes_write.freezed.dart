@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_write.dart';
+part of 'union_apply_writes_write.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UWrite {
+mixin _$UApplyWritesWrite {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -44,41 +44,42 @@ mixin _$UWrite {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UWriteCreate value) create,
-    required TResult Function(UWriteUpdate value) update,
-    required TResult Function(UWriteDelete value) delete,
-    required TResult Function(UWriteUnknown value) unknown,
+    required TResult Function(UApplyWritesWriteCreate value) create,
+    required TResult Function(UApplyWritesWriteUpdate value) update,
+    required TResult Function(UApplyWritesWriteDelete value) delete,
+    required TResult Function(UApplyWritesWriteUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UWriteCreate value)? create,
-    TResult? Function(UWriteUpdate value)? update,
-    TResult? Function(UWriteDelete value)? delete,
-    TResult? Function(UWriteUnknown value)? unknown,
+    TResult? Function(UApplyWritesWriteCreate value)? create,
+    TResult? Function(UApplyWritesWriteUpdate value)? update,
+    TResult? Function(UApplyWritesWriteDelete value)? delete,
+    TResult? Function(UApplyWritesWriteUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UWriteCreate value)? create,
-    TResult Function(UWriteUpdate value)? update,
-    TResult Function(UWriteDelete value)? delete,
-    TResult Function(UWriteUnknown value)? unknown,
+    TResult Function(UApplyWritesWriteCreate value)? create,
+    TResult Function(UApplyWritesWriteUpdate value)? update,
+    TResult Function(UApplyWritesWriteDelete value)? delete,
+    TResult Function(UApplyWritesWriteUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UWriteCopyWith<$Res> {
-  factory $UWriteCopyWith(UWrite value, $Res Function(UWrite) then) =
-      _$UWriteCopyWithImpl<$Res, UWrite>;
+abstract class $UApplyWritesWriteCopyWith<$Res> {
+  factory $UApplyWritesWriteCopyWith(
+          UApplyWritesWrite value, $Res Function(UApplyWritesWrite) then) =
+      _$UApplyWritesWriteCopyWithImpl<$Res, UApplyWritesWrite>;
 }
 
 /// @nodoc
-class _$UWriteCopyWithImpl<$Res, $Val extends UWrite>
-    implements $UWriteCopyWith<$Res> {
-  _$UWriteCopyWithImpl(this._value, this._then);
+class _$UApplyWritesWriteCopyWithImpl<$Res, $Val extends UApplyWritesWrite>
+    implements $UApplyWritesWriteCopyWith<$Res> {
+  _$UApplyWritesWriteCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,10 +88,11 @@ class _$UWriteCopyWithImpl<$Res, $Val extends UWrite>
 }
 
 /// @nodoc
-abstract class _$$UWriteCreateImplCopyWith<$Res> {
-  factory _$$UWriteCreateImplCopyWith(
-          _$UWriteCreateImpl value, $Res Function(_$UWriteCreateImpl) then) =
-      __$$UWriteCreateImplCopyWithImpl<$Res>;
+abstract class _$$UApplyWritesWriteCreateImplCopyWith<$Res> {
+  factory _$$UApplyWritesWriteCreateImplCopyWith(
+          _$UApplyWritesWriteCreateImpl value,
+          $Res Function(_$UApplyWritesWriteCreateImpl) then) =
+      __$$UApplyWritesWriteCreateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Create data});
 
@@ -98,11 +100,12 @@ abstract class _$$UWriteCreateImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UWriteCreateImplCopyWithImpl<$Res>
-    extends _$UWriteCopyWithImpl<$Res, _$UWriteCreateImpl>
-    implements _$$UWriteCreateImplCopyWith<$Res> {
-  __$$UWriteCreateImplCopyWithImpl(
-      _$UWriteCreateImpl _value, $Res Function(_$UWriteCreateImpl) _then)
+class __$$UApplyWritesWriteCreateImplCopyWithImpl<$Res>
+    extends _$UApplyWritesWriteCopyWithImpl<$Res, _$UApplyWritesWriteCreateImpl>
+    implements _$$UApplyWritesWriteCreateImplCopyWith<$Res> {
+  __$$UApplyWritesWriteCreateImplCopyWithImpl(
+      _$UApplyWritesWriteCreateImpl _value,
+      $Res Function(_$UApplyWritesWriteCreateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +113,7 @@ class __$$UWriteCreateImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UWriteCreateImpl(
+    return _then(_$UApplyWritesWriteCreateImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -129,22 +132,22 @@ class __$$UWriteCreateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UWriteCreateImpl implements UWriteCreate {
-  const _$UWriteCreateImpl({required this.data});
+class _$UApplyWritesWriteCreateImpl implements UApplyWritesWriteCreate {
+  const _$UApplyWritesWriteCreateImpl({required this.data});
 
   @override
   final Create data;
 
   @override
   String toString() {
-    return 'UWrite.create(data: $data)';
+    return 'UApplyWritesWrite.create(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UWriteCreateImpl &&
+            other is _$UApplyWritesWriteCreateImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -154,8 +157,9 @@ class _$UWriteCreateImpl implements UWriteCreate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UWriteCreateImplCopyWith<_$UWriteCreateImpl> get copyWith =>
-      __$$UWriteCreateImplCopyWithImpl<_$UWriteCreateImpl>(this, _$identity);
+  _$$UApplyWritesWriteCreateImplCopyWith<_$UApplyWritesWriteCreateImpl>
+      get copyWith => __$$UApplyWritesWriteCreateImplCopyWithImpl<
+          _$UApplyWritesWriteCreateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -197,10 +201,10 @@ class _$UWriteCreateImpl implements UWriteCreate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UWriteCreate value) create,
-    required TResult Function(UWriteUpdate value) update,
-    required TResult Function(UWriteDelete value) delete,
-    required TResult Function(UWriteUnknown value) unknown,
+    required TResult Function(UApplyWritesWriteCreate value) create,
+    required TResult Function(UApplyWritesWriteUpdate value) update,
+    required TResult Function(UApplyWritesWriteDelete value) delete,
+    required TResult Function(UApplyWritesWriteUnknown value) unknown,
   }) {
     return create(this);
   }
@@ -208,10 +212,10 @@ class _$UWriteCreateImpl implements UWriteCreate {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UWriteCreate value)? create,
-    TResult? Function(UWriteUpdate value)? update,
-    TResult? Function(UWriteDelete value)? delete,
-    TResult? Function(UWriteUnknown value)? unknown,
+    TResult? Function(UApplyWritesWriteCreate value)? create,
+    TResult? Function(UApplyWritesWriteUpdate value)? update,
+    TResult? Function(UApplyWritesWriteDelete value)? delete,
+    TResult? Function(UApplyWritesWriteUnknown value)? unknown,
   }) {
     return create?.call(this);
   }
@@ -219,10 +223,10 @@ class _$UWriteCreateImpl implements UWriteCreate {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UWriteCreate value)? create,
-    TResult Function(UWriteUpdate value)? update,
-    TResult Function(UWriteDelete value)? delete,
-    TResult Function(UWriteUnknown value)? unknown,
+    TResult Function(UApplyWritesWriteCreate value)? create,
+    TResult Function(UApplyWritesWriteUpdate value)? update,
+    TResult Function(UApplyWritesWriteDelete value)? delete,
+    TResult Function(UApplyWritesWriteUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -232,21 +236,23 @@ class _$UWriteCreateImpl implements UWriteCreate {
   }
 }
 
-abstract class UWriteCreate implements UWrite {
-  const factory UWriteCreate({required final Create data}) = _$UWriteCreateImpl;
+abstract class UApplyWritesWriteCreate implements UApplyWritesWrite {
+  const factory UApplyWritesWriteCreate({required final Create data}) =
+      _$UApplyWritesWriteCreateImpl;
 
   @override
   Create get data;
   @JsonKey(ignore: true)
-  _$$UWriteCreateImplCopyWith<_$UWriteCreateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UApplyWritesWriteCreateImplCopyWith<_$UApplyWritesWriteCreateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UWriteUpdateImplCopyWith<$Res> {
-  factory _$$UWriteUpdateImplCopyWith(
-          _$UWriteUpdateImpl value, $Res Function(_$UWriteUpdateImpl) then) =
-      __$$UWriteUpdateImplCopyWithImpl<$Res>;
+abstract class _$$UApplyWritesWriteUpdateImplCopyWith<$Res> {
+  factory _$$UApplyWritesWriteUpdateImplCopyWith(
+          _$UApplyWritesWriteUpdateImpl value,
+          $Res Function(_$UApplyWritesWriteUpdateImpl) then) =
+      __$$UApplyWritesWriteUpdateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Update data});
 
@@ -254,11 +260,12 @@ abstract class _$$UWriteUpdateImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UWriteUpdateImplCopyWithImpl<$Res>
-    extends _$UWriteCopyWithImpl<$Res, _$UWriteUpdateImpl>
-    implements _$$UWriteUpdateImplCopyWith<$Res> {
-  __$$UWriteUpdateImplCopyWithImpl(
-      _$UWriteUpdateImpl _value, $Res Function(_$UWriteUpdateImpl) _then)
+class __$$UApplyWritesWriteUpdateImplCopyWithImpl<$Res>
+    extends _$UApplyWritesWriteCopyWithImpl<$Res, _$UApplyWritesWriteUpdateImpl>
+    implements _$$UApplyWritesWriteUpdateImplCopyWith<$Res> {
+  __$$UApplyWritesWriteUpdateImplCopyWithImpl(
+      _$UApplyWritesWriteUpdateImpl _value,
+      $Res Function(_$UApplyWritesWriteUpdateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -266,7 +273,7 @@ class __$$UWriteUpdateImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UWriteUpdateImpl(
+    return _then(_$UApplyWritesWriteUpdateImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -285,22 +292,22 @@ class __$$UWriteUpdateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UWriteUpdateImpl implements UWriteUpdate {
-  const _$UWriteUpdateImpl({required this.data});
+class _$UApplyWritesWriteUpdateImpl implements UApplyWritesWriteUpdate {
+  const _$UApplyWritesWriteUpdateImpl({required this.data});
 
   @override
   final Update data;
 
   @override
   String toString() {
-    return 'UWrite.update(data: $data)';
+    return 'UApplyWritesWrite.update(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UWriteUpdateImpl &&
+            other is _$UApplyWritesWriteUpdateImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -310,8 +317,9 @@ class _$UWriteUpdateImpl implements UWriteUpdate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UWriteUpdateImplCopyWith<_$UWriteUpdateImpl> get copyWith =>
-      __$$UWriteUpdateImplCopyWithImpl<_$UWriteUpdateImpl>(this, _$identity);
+  _$$UApplyWritesWriteUpdateImplCopyWith<_$UApplyWritesWriteUpdateImpl>
+      get copyWith => __$$UApplyWritesWriteUpdateImplCopyWithImpl<
+          _$UApplyWritesWriteUpdateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -353,10 +361,10 @@ class _$UWriteUpdateImpl implements UWriteUpdate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UWriteCreate value) create,
-    required TResult Function(UWriteUpdate value) update,
-    required TResult Function(UWriteDelete value) delete,
-    required TResult Function(UWriteUnknown value) unknown,
+    required TResult Function(UApplyWritesWriteCreate value) create,
+    required TResult Function(UApplyWritesWriteUpdate value) update,
+    required TResult Function(UApplyWritesWriteDelete value) delete,
+    required TResult Function(UApplyWritesWriteUnknown value) unknown,
   }) {
     return update(this);
   }
@@ -364,10 +372,10 @@ class _$UWriteUpdateImpl implements UWriteUpdate {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UWriteCreate value)? create,
-    TResult? Function(UWriteUpdate value)? update,
-    TResult? Function(UWriteDelete value)? delete,
-    TResult? Function(UWriteUnknown value)? unknown,
+    TResult? Function(UApplyWritesWriteCreate value)? create,
+    TResult? Function(UApplyWritesWriteUpdate value)? update,
+    TResult? Function(UApplyWritesWriteDelete value)? delete,
+    TResult? Function(UApplyWritesWriteUnknown value)? unknown,
   }) {
     return update?.call(this);
   }
@@ -375,10 +383,10 @@ class _$UWriteUpdateImpl implements UWriteUpdate {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UWriteCreate value)? create,
-    TResult Function(UWriteUpdate value)? update,
-    TResult Function(UWriteDelete value)? delete,
-    TResult Function(UWriteUnknown value)? unknown,
+    TResult Function(UApplyWritesWriteCreate value)? create,
+    TResult Function(UApplyWritesWriteUpdate value)? update,
+    TResult Function(UApplyWritesWriteDelete value)? delete,
+    TResult Function(UApplyWritesWriteUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -388,21 +396,23 @@ class _$UWriteUpdateImpl implements UWriteUpdate {
   }
 }
 
-abstract class UWriteUpdate implements UWrite {
-  const factory UWriteUpdate({required final Update data}) = _$UWriteUpdateImpl;
+abstract class UApplyWritesWriteUpdate implements UApplyWritesWrite {
+  const factory UApplyWritesWriteUpdate({required final Update data}) =
+      _$UApplyWritesWriteUpdateImpl;
 
   @override
   Update get data;
   @JsonKey(ignore: true)
-  _$$UWriteUpdateImplCopyWith<_$UWriteUpdateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UApplyWritesWriteUpdateImplCopyWith<_$UApplyWritesWriteUpdateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UWriteDeleteImplCopyWith<$Res> {
-  factory _$$UWriteDeleteImplCopyWith(
-          _$UWriteDeleteImpl value, $Res Function(_$UWriteDeleteImpl) then) =
-      __$$UWriteDeleteImplCopyWithImpl<$Res>;
+abstract class _$$UApplyWritesWriteDeleteImplCopyWith<$Res> {
+  factory _$$UApplyWritesWriteDeleteImplCopyWith(
+          _$UApplyWritesWriteDeleteImpl value,
+          $Res Function(_$UApplyWritesWriteDeleteImpl) then) =
+      __$$UApplyWritesWriteDeleteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Delete data});
 
@@ -410,11 +420,12 @@ abstract class _$$UWriteDeleteImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UWriteDeleteImplCopyWithImpl<$Res>
-    extends _$UWriteCopyWithImpl<$Res, _$UWriteDeleteImpl>
-    implements _$$UWriteDeleteImplCopyWith<$Res> {
-  __$$UWriteDeleteImplCopyWithImpl(
-      _$UWriteDeleteImpl _value, $Res Function(_$UWriteDeleteImpl) _then)
+class __$$UApplyWritesWriteDeleteImplCopyWithImpl<$Res>
+    extends _$UApplyWritesWriteCopyWithImpl<$Res, _$UApplyWritesWriteDeleteImpl>
+    implements _$$UApplyWritesWriteDeleteImplCopyWith<$Res> {
+  __$$UApplyWritesWriteDeleteImplCopyWithImpl(
+      _$UApplyWritesWriteDeleteImpl _value,
+      $Res Function(_$UApplyWritesWriteDeleteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -422,7 +433,7 @@ class __$$UWriteDeleteImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UWriteDeleteImpl(
+    return _then(_$UApplyWritesWriteDeleteImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -441,22 +452,22 @@ class __$$UWriteDeleteImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UWriteDeleteImpl implements UWriteDelete {
-  const _$UWriteDeleteImpl({required this.data});
+class _$UApplyWritesWriteDeleteImpl implements UApplyWritesWriteDelete {
+  const _$UApplyWritesWriteDeleteImpl({required this.data});
 
   @override
   final Delete data;
 
   @override
   String toString() {
-    return 'UWrite.delete(data: $data)';
+    return 'UApplyWritesWrite.delete(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UWriteDeleteImpl &&
+            other is _$UApplyWritesWriteDeleteImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -466,8 +477,9 @@ class _$UWriteDeleteImpl implements UWriteDelete {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UWriteDeleteImplCopyWith<_$UWriteDeleteImpl> get copyWith =>
-      __$$UWriteDeleteImplCopyWithImpl<_$UWriteDeleteImpl>(this, _$identity);
+  _$$UApplyWritesWriteDeleteImplCopyWith<_$UApplyWritesWriteDeleteImpl>
+      get copyWith => __$$UApplyWritesWriteDeleteImplCopyWithImpl<
+          _$UApplyWritesWriteDeleteImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -509,10 +521,10 @@ class _$UWriteDeleteImpl implements UWriteDelete {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UWriteCreate value) create,
-    required TResult Function(UWriteUpdate value) update,
-    required TResult Function(UWriteDelete value) delete,
-    required TResult Function(UWriteUnknown value) unknown,
+    required TResult Function(UApplyWritesWriteCreate value) create,
+    required TResult Function(UApplyWritesWriteUpdate value) update,
+    required TResult Function(UApplyWritesWriteDelete value) delete,
+    required TResult Function(UApplyWritesWriteUnknown value) unknown,
   }) {
     return delete(this);
   }
@@ -520,10 +532,10 @@ class _$UWriteDeleteImpl implements UWriteDelete {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UWriteCreate value)? create,
-    TResult? Function(UWriteUpdate value)? update,
-    TResult? Function(UWriteDelete value)? delete,
-    TResult? Function(UWriteUnknown value)? unknown,
+    TResult? Function(UApplyWritesWriteCreate value)? create,
+    TResult? Function(UApplyWritesWriteUpdate value)? update,
+    TResult? Function(UApplyWritesWriteDelete value)? delete,
+    TResult? Function(UApplyWritesWriteUnknown value)? unknown,
   }) {
     return delete?.call(this);
   }
@@ -531,10 +543,10 @@ class _$UWriteDeleteImpl implements UWriteDelete {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UWriteCreate value)? create,
-    TResult Function(UWriteUpdate value)? update,
-    TResult Function(UWriteDelete value)? delete,
-    TResult Function(UWriteUnknown value)? unknown,
+    TResult Function(UApplyWritesWriteCreate value)? create,
+    TResult Function(UApplyWritesWriteUpdate value)? update,
+    TResult Function(UApplyWritesWriteDelete value)? delete,
+    TResult Function(UApplyWritesWriteUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -544,31 +556,35 @@ class _$UWriteDeleteImpl implements UWriteDelete {
   }
 }
 
-abstract class UWriteDelete implements UWrite {
-  const factory UWriteDelete({required final Delete data}) = _$UWriteDeleteImpl;
+abstract class UApplyWritesWriteDelete implements UApplyWritesWrite {
+  const factory UApplyWritesWriteDelete({required final Delete data}) =
+      _$UApplyWritesWriteDeleteImpl;
 
   @override
   Delete get data;
   @JsonKey(ignore: true)
-  _$$UWriteDeleteImplCopyWith<_$UWriteDeleteImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UApplyWritesWriteDeleteImplCopyWith<_$UApplyWritesWriteDeleteImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UWriteUnknownImplCopyWith<$Res> {
-  factory _$$UWriteUnknownImplCopyWith(
-          _$UWriteUnknownImpl value, $Res Function(_$UWriteUnknownImpl) then) =
-      __$$UWriteUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UApplyWritesWriteUnknownImplCopyWith<$Res> {
+  factory _$$UApplyWritesWriteUnknownImplCopyWith(
+          _$UApplyWritesWriteUnknownImpl value,
+          $Res Function(_$UApplyWritesWriteUnknownImpl) then) =
+      __$$UApplyWritesWriteUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UWriteUnknownImplCopyWithImpl<$Res>
-    extends _$UWriteCopyWithImpl<$Res, _$UWriteUnknownImpl>
-    implements _$$UWriteUnknownImplCopyWith<$Res> {
-  __$$UWriteUnknownImplCopyWithImpl(
-      _$UWriteUnknownImpl _value, $Res Function(_$UWriteUnknownImpl) _then)
+class __$$UApplyWritesWriteUnknownImplCopyWithImpl<$Res>
+    extends _$UApplyWritesWriteCopyWithImpl<$Res,
+        _$UApplyWritesWriteUnknownImpl>
+    implements _$$UApplyWritesWriteUnknownImplCopyWith<$Res> {
+  __$$UApplyWritesWriteUnknownImplCopyWithImpl(
+      _$UApplyWritesWriteUnknownImpl _value,
+      $Res Function(_$UApplyWritesWriteUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -576,7 +592,7 @@ class __$$UWriteUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UWriteUnknownImpl(
+    return _then(_$UApplyWritesWriteUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -587,8 +603,9 @@ class __$$UWriteUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UWriteUnknownImpl implements UWriteUnknown {
-  const _$UWriteUnknownImpl({required final Map<String, dynamic> data})
+class _$UApplyWritesWriteUnknownImpl implements UApplyWritesWriteUnknown {
+  const _$UApplyWritesWriteUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -601,14 +618,14 @@ class _$UWriteUnknownImpl implements UWriteUnknown {
 
   @override
   String toString() {
-    return 'UWrite.unknown(data: $data)';
+    return 'UApplyWritesWrite.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UWriteUnknownImpl &&
+            other is _$UApplyWritesWriteUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -619,8 +636,9 @@ class _$UWriteUnknownImpl implements UWriteUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UWriteUnknownImplCopyWith<_$UWriteUnknownImpl> get copyWith =>
-      __$$UWriteUnknownImplCopyWithImpl<_$UWriteUnknownImpl>(this, _$identity);
+  _$$UApplyWritesWriteUnknownImplCopyWith<_$UApplyWritesWriteUnknownImpl>
+      get copyWith => __$$UApplyWritesWriteUnknownImplCopyWithImpl<
+          _$UApplyWritesWriteUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -662,10 +680,10 @@ class _$UWriteUnknownImpl implements UWriteUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UWriteCreate value) create,
-    required TResult Function(UWriteUpdate value) update,
-    required TResult Function(UWriteDelete value) delete,
-    required TResult Function(UWriteUnknown value) unknown,
+    required TResult Function(UApplyWritesWriteCreate value) create,
+    required TResult Function(UApplyWritesWriteUpdate value) update,
+    required TResult Function(UApplyWritesWriteDelete value) delete,
+    required TResult Function(UApplyWritesWriteUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -673,10 +691,10 @@ class _$UWriteUnknownImpl implements UWriteUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UWriteCreate value)? create,
-    TResult? Function(UWriteUpdate value)? update,
-    TResult? Function(UWriteDelete value)? delete,
-    TResult? Function(UWriteUnknown value)? unknown,
+    TResult? Function(UApplyWritesWriteCreate value)? create,
+    TResult? Function(UApplyWritesWriteUpdate value)? update,
+    TResult? Function(UApplyWritesWriteDelete value)? delete,
+    TResult? Function(UApplyWritesWriteUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -684,10 +702,10 @@ class _$UWriteUnknownImpl implements UWriteUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UWriteCreate value)? create,
-    TResult Function(UWriteUpdate value)? update,
-    TResult Function(UWriteDelete value)? delete,
-    TResult Function(UWriteUnknown value)? unknown,
+    TResult Function(UApplyWritesWriteCreate value)? create,
+    TResult Function(UApplyWritesWriteUpdate value)? update,
+    TResult Function(UApplyWritesWriteDelete value)? delete,
+    TResult Function(UApplyWritesWriteUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -697,13 +715,14 @@ class _$UWriteUnknownImpl implements UWriteUnknown {
   }
 }
 
-abstract class UWriteUnknown implements UWrite {
-  const factory UWriteUnknown({required final Map<String, dynamic> data}) =
-      _$UWriteUnknownImpl;
+abstract class UApplyWritesWriteUnknown implements UApplyWritesWrite {
+  const factory UApplyWritesWriteUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$UApplyWritesWriteUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UWriteUnknownImplCopyWith<_$UWriteUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UApplyWritesWriteUnknownImplCopyWith<_$UApplyWritesWriteUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

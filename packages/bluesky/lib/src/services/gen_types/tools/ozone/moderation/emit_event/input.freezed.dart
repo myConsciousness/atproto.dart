@@ -20,10 +20,10 @@ EmitEventInput _$EmitEventInputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmitEventInput {
-  @UEventConverter()
-  UEvent get event => throw _privateConstructorUsedError;
-  @USubjectConverter()
-  USubject get subject => throw _privateConstructorUsedError;
+  @UEmitEventEventConverter()
+  UEmitEventEvent get event => throw _privateConstructorUsedError;
+  @UEmitEventSubjectConverter()
+  UEmitEventSubject get subject => throw _privateConstructorUsedError;
   List<String>? get subjectBlobCids => throw _privateConstructorUsedError;
   String get createdBy => throw _privateConstructorUsedError;
 
@@ -44,14 +44,14 @@ abstract class $EmitEventInputCopyWith<$Res> {
       _$EmitEventInputCopyWithImpl<$Res, EmitEventInput>;
   @useResult
   $Res call(
-      {@UEventConverter() UEvent event,
-      @USubjectConverter() USubject subject,
+      {@UEmitEventEventConverter() UEmitEventEvent event,
+      @UEmitEventSubjectConverter() UEmitEventSubject subject,
       List<String>? subjectBlobCids,
       String createdBy,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $UEventCopyWith<$Res> get event;
-  $USubjectCopyWith<$Res> get subject;
+  $UEmitEventEventCopyWith<$Res> get event;
+  $UEmitEventSubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -77,11 +77,11 @@ class _$EmitEventInputCopyWithImpl<$Res, $Val extends EmitEventInput>
       event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
-              as UEvent,
+              as UEmitEventEvent,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UEmitEventSubject,
       subjectBlobCids: freezed == subjectBlobCids
           ? _value.subjectBlobCids
           : subjectBlobCids // ignore: cast_nullable_to_non_nullable
@@ -99,16 +99,16 @@ class _$EmitEventInputCopyWithImpl<$Res, $Val extends EmitEventInput>
 
   @override
   @pragma('vm:prefer-inline')
-  $UEventCopyWith<$Res> get event {
-    return $UEventCopyWith<$Res>(_value.event, (value) {
+  $UEmitEventEventCopyWith<$Res> get event {
+    return $UEmitEventEventCopyWith<$Res>(_value.event, (value) {
       return _then(_value.copyWith(event: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $USubjectCopyWith<$Res> get subject {
-    return $USubjectCopyWith<$Res>(_value.subject, (value) {
+  $UEmitEventSubjectCopyWith<$Res> get subject {
+    return $UEmitEventSubjectCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
@@ -123,16 +123,16 @@ abstract class _$$EmitEventInputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@UEventConverter() UEvent event,
-      @USubjectConverter() USubject subject,
+      {@UEmitEventEventConverter() UEmitEventEvent event,
+      @UEmitEventSubjectConverter() UEmitEventSubject subject,
       List<String>? subjectBlobCids,
       String createdBy,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $UEventCopyWith<$Res> get event;
+  $UEmitEventEventCopyWith<$Res> get event;
   @override
-  $USubjectCopyWith<$Res> get subject;
+  $UEmitEventSubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -156,11 +156,11 @@ class __$$EmitEventInputImplCopyWithImpl<$Res>
       event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
-              as UEvent,
+              as UEmitEventEvent,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UEmitEventSubject,
       subjectBlobCids: freezed == subjectBlobCids
           ? _value._subjectBlobCids
           : subjectBlobCids // ignore: cast_nullable_to_non_nullable
@@ -182,8 +182,8 @@ class __$$EmitEventInputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$EmitEventInputImpl implements _EmitEventInput {
   const _$EmitEventInputImpl(
-      {@UEventConverter() required this.event,
-      @USubjectConverter() required this.subject,
+      {@UEmitEventEventConverter() required this.event,
+      @UEmitEventSubjectConverter() required this.subject,
       final List<String>? subjectBlobCids,
       required this.createdBy,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -194,11 +194,11 @@ class _$EmitEventInputImpl implements _EmitEventInput {
       _$$EmitEventInputImplFromJson(json);
 
   @override
-  @UEventConverter()
-  final UEvent event;
+  @UEmitEventEventConverter()
+  final UEmitEventEvent event;
   @override
-  @USubjectConverter()
-  final USubject subject;
+  @UEmitEventSubjectConverter()
+  final UEmitEventSubject subject;
   final List<String>? _subjectBlobCids;
   @override
   List<String>? get subjectBlobCids {
@@ -272,22 +272,22 @@ class _$EmitEventInputImpl implements _EmitEventInput {
 
 abstract class _EmitEventInput implements EmitEventInput {
   const factory _EmitEventInput(
-          {@UEventConverter() required final UEvent event,
-          @USubjectConverter() required final USubject subject,
-          final List<String>? subjectBlobCids,
-          required final String createdBy,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
-      _$EmitEventInputImpl;
+      {@UEmitEventEventConverter() required final UEmitEventEvent event,
+      @UEmitEventSubjectConverter() required final UEmitEventSubject subject,
+      final List<String>? subjectBlobCids,
+      required final String createdBy,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic>? $unknown}) = _$EmitEventInputImpl;
 
   factory _EmitEventInput.fromJson(Map<String, dynamic> json) =
       _$EmitEventInputImpl.fromJson;
 
   @override
-  @UEventConverter()
-  UEvent get event;
+  @UEmitEventEventConverter()
+  UEmitEventEvent get event;
   @override
-  @USubjectConverter()
-  USubject get subject;
+  @UEmitEventSubjectConverter()
+  UEmitEventSubject get subject;
   @override
   List<String>? get subjectBlobCids;
   @override

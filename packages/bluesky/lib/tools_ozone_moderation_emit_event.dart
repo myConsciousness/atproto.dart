@@ -11,5 +11,5 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/tools/ozone/moderation/emit_event/input.dart';
-export 'package:bluesky/src/services/gen_types/tools/ozone/moderation/emit_event/union_event.dart';
-export 'package:bluesky/src/services/gen_types/tools/ozone/moderation/emit_event/union_subject.dart';
+export 'package:bluesky/src/services/gen_types/tools/ozone/moderation/emit_event/union_emit_event_event.dart';
+export 'package:bluesky/src/services/gen_types/tools/ozone/moderation/emit_event/union_emit_event_subject.dart';

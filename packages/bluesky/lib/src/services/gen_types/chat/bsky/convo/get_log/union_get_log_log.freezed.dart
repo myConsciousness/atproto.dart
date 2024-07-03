@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_log.dart';
+part of 'union_get_log_log.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ULog {
+mixin _$UGetLogLog {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -47,44 +47,47 @@ mixin _$ULog {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULogLogBeginConvo value) logBeginConvo,
-    required TResult Function(ULogLogLeaveConvo value) logLeaveConvo,
-    required TResult Function(ULogLogCreateMessage value) logCreateMessage,
-    required TResult Function(ULogLogDeleteMessage value) logDeleteMessage,
-    required TResult Function(ULogUnknown value) unknown,
+    required TResult Function(UGetLogLogLogBeginConvo value) logBeginConvo,
+    required TResult Function(UGetLogLogLogLeaveConvo value) logLeaveConvo,
+    required TResult Function(UGetLogLogLogCreateMessage value)
+        logCreateMessage,
+    required TResult Function(UGetLogLogLogDeleteMessage value)
+        logDeleteMessage,
+    required TResult Function(UGetLogLogUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult? Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult? Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult? Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult? Function(ULogUnknown value)? unknown,
+    TResult? Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult? Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult? Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult? Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult? Function(UGetLogLogUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult Function(ULogUnknown value)? unknown,
+    TResult Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult Function(UGetLogLogUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ULogCopyWith<$Res> {
-  factory $ULogCopyWith(ULog value, $Res Function(ULog) then) =
-      _$ULogCopyWithImpl<$Res, ULog>;
+abstract class $UGetLogLogCopyWith<$Res> {
+  factory $UGetLogLogCopyWith(
+          UGetLogLog value, $Res Function(UGetLogLog) then) =
+      _$UGetLogLogCopyWithImpl<$Res, UGetLogLog>;
 }
 
 /// @nodoc
-class _$ULogCopyWithImpl<$Res, $Val extends ULog>
-    implements $ULogCopyWith<$Res> {
-  _$ULogCopyWithImpl(this._value, this._then);
+class _$UGetLogLogCopyWithImpl<$Res, $Val extends UGetLogLog>
+    implements $UGetLogLogCopyWith<$Res> {
+  _$UGetLogLogCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -93,10 +96,11 @@ class _$ULogCopyWithImpl<$Res, $Val extends ULog>
 }
 
 /// @nodoc
-abstract class _$$ULogLogBeginConvoImplCopyWith<$Res> {
-  factory _$$ULogLogBeginConvoImplCopyWith(_$ULogLogBeginConvoImpl value,
-          $Res Function(_$ULogLogBeginConvoImpl) then) =
-      __$$ULogLogBeginConvoImplCopyWithImpl<$Res>;
+abstract class _$$UGetLogLogLogBeginConvoImplCopyWith<$Res> {
+  factory _$$UGetLogLogLogBeginConvoImplCopyWith(
+          _$UGetLogLogLogBeginConvoImpl value,
+          $Res Function(_$UGetLogLogLogBeginConvoImpl) then) =
+      __$$UGetLogLogLogBeginConvoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LogBeginConvo data});
 
@@ -104,11 +108,12 @@ abstract class _$$ULogLogBeginConvoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULogLogBeginConvoImplCopyWithImpl<$Res>
-    extends _$ULogCopyWithImpl<$Res, _$ULogLogBeginConvoImpl>
-    implements _$$ULogLogBeginConvoImplCopyWith<$Res> {
-  __$$ULogLogBeginConvoImplCopyWithImpl(_$ULogLogBeginConvoImpl _value,
-      $Res Function(_$ULogLogBeginConvoImpl) _then)
+class __$$UGetLogLogLogBeginConvoImplCopyWithImpl<$Res>
+    extends _$UGetLogLogCopyWithImpl<$Res, _$UGetLogLogLogBeginConvoImpl>
+    implements _$$UGetLogLogLogBeginConvoImplCopyWith<$Res> {
+  __$$UGetLogLogLogBeginConvoImplCopyWithImpl(
+      _$UGetLogLogLogBeginConvoImpl _value,
+      $Res Function(_$UGetLogLogLogBeginConvoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +121,7 @@ class __$$ULogLogBeginConvoImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULogLogBeginConvoImpl(
+    return _then(_$UGetLogLogLogBeginConvoImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -135,22 +140,22 @@ class __$$ULogLogBeginConvoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULogLogBeginConvoImpl implements ULogLogBeginConvo {
-  const _$ULogLogBeginConvoImpl({required this.data});
+class _$UGetLogLogLogBeginConvoImpl implements UGetLogLogLogBeginConvo {
+  const _$UGetLogLogLogBeginConvoImpl({required this.data});
 
   @override
   final LogBeginConvo data;
 
   @override
   String toString() {
-    return 'ULog.logBeginConvo(data: $data)';
+    return 'UGetLogLog.logBeginConvo(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULogLogBeginConvoImpl &&
+            other is _$UGetLogLogLogBeginConvoImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -160,9 +165,9 @@ class _$ULogLogBeginConvoImpl implements ULogLogBeginConvo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULogLogBeginConvoImplCopyWith<_$ULogLogBeginConvoImpl> get copyWith =>
-      __$$ULogLogBeginConvoImplCopyWithImpl<_$ULogLogBeginConvoImpl>(
-          this, _$identity);
+  _$$UGetLogLogLogBeginConvoImplCopyWith<_$UGetLogLogLogBeginConvoImpl>
+      get copyWith => __$$UGetLogLogLogBeginConvoImplCopyWithImpl<
+          _$UGetLogLogLogBeginConvoImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -207,11 +212,13 @@ class _$ULogLogBeginConvoImpl implements ULogLogBeginConvo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULogLogBeginConvo value) logBeginConvo,
-    required TResult Function(ULogLogLeaveConvo value) logLeaveConvo,
-    required TResult Function(ULogLogCreateMessage value) logCreateMessage,
-    required TResult Function(ULogLogDeleteMessage value) logDeleteMessage,
-    required TResult Function(ULogUnknown value) unknown,
+    required TResult Function(UGetLogLogLogBeginConvo value) logBeginConvo,
+    required TResult Function(UGetLogLogLogLeaveConvo value) logLeaveConvo,
+    required TResult Function(UGetLogLogLogCreateMessage value)
+        logCreateMessage,
+    required TResult Function(UGetLogLogLogDeleteMessage value)
+        logDeleteMessage,
+    required TResult Function(UGetLogLogUnknown value) unknown,
   }) {
     return logBeginConvo(this);
   }
@@ -219,11 +226,11 @@ class _$ULogLogBeginConvoImpl implements ULogLogBeginConvo {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult? Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult? Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult? Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult? Function(ULogUnknown value)? unknown,
+    TResult? Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult? Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult? Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult? Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult? Function(UGetLogLogUnknown value)? unknown,
   }) {
     return logBeginConvo?.call(this);
   }
@@ -231,11 +238,11 @@ class _$ULogLogBeginConvoImpl implements ULogLogBeginConvo {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult Function(ULogUnknown value)? unknown,
+    TResult Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult Function(UGetLogLogUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (logBeginConvo != null) {
@@ -245,22 +252,23 @@ class _$ULogLogBeginConvoImpl implements ULogLogBeginConvo {
   }
 }
 
-abstract class ULogLogBeginConvo implements ULog {
-  const factory ULogLogBeginConvo({required final LogBeginConvo data}) =
-      _$ULogLogBeginConvoImpl;
+abstract class UGetLogLogLogBeginConvo implements UGetLogLog {
+  const factory UGetLogLogLogBeginConvo({required final LogBeginConvo data}) =
+      _$UGetLogLogLogBeginConvoImpl;
 
   @override
   LogBeginConvo get data;
   @JsonKey(ignore: true)
-  _$$ULogLogBeginConvoImplCopyWith<_$ULogLogBeginConvoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UGetLogLogLogBeginConvoImplCopyWith<_$UGetLogLogLogBeginConvoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULogLogLeaveConvoImplCopyWith<$Res> {
-  factory _$$ULogLogLeaveConvoImplCopyWith(_$ULogLogLeaveConvoImpl value,
-          $Res Function(_$ULogLogLeaveConvoImpl) then) =
-      __$$ULogLogLeaveConvoImplCopyWithImpl<$Res>;
+abstract class _$$UGetLogLogLogLeaveConvoImplCopyWith<$Res> {
+  factory _$$UGetLogLogLogLeaveConvoImplCopyWith(
+          _$UGetLogLogLogLeaveConvoImpl value,
+          $Res Function(_$UGetLogLogLogLeaveConvoImpl) then) =
+      __$$UGetLogLogLogLeaveConvoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LogLeaveConvo data});
 
@@ -268,11 +276,12 @@ abstract class _$$ULogLogLeaveConvoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULogLogLeaveConvoImplCopyWithImpl<$Res>
-    extends _$ULogCopyWithImpl<$Res, _$ULogLogLeaveConvoImpl>
-    implements _$$ULogLogLeaveConvoImplCopyWith<$Res> {
-  __$$ULogLogLeaveConvoImplCopyWithImpl(_$ULogLogLeaveConvoImpl _value,
-      $Res Function(_$ULogLogLeaveConvoImpl) _then)
+class __$$UGetLogLogLogLeaveConvoImplCopyWithImpl<$Res>
+    extends _$UGetLogLogCopyWithImpl<$Res, _$UGetLogLogLogLeaveConvoImpl>
+    implements _$$UGetLogLogLogLeaveConvoImplCopyWith<$Res> {
+  __$$UGetLogLogLogLeaveConvoImplCopyWithImpl(
+      _$UGetLogLogLogLeaveConvoImpl _value,
+      $Res Function(_$UGetLogLogLogLeaveConvoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -280,7 +289,7 @@ class __$$ULogLogLeaveConvoImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULogLogLeaveConvoImpl(
+    return _then(_$UGetLogLogLogLeaveConvoImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -299,22 +308,22 @@ class __$$ULogLogLeaveConvoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULogLogLeaveConvoImpl implements ULogLogLeaveConvo {
-  const _$ULogLogLeaveConvoImpl({required this.data});
+class _$UGetLogLogLogLeaveConvoImpl implements UGetLogLogLogLeaveConvo {
+  const _$UGetLogLogLogLeaveConvoImpl({required this.data});
 
   @override
   final LogLeaveConvo data;
 
   @override
   String toString() {
-    return 'ULog.logLeaveConvo(data: $data)';
+    return 'UGetLogLog.logLeaveConvo(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULogLogLeaveConvoImpl &&
+            other is _$UGetLogLogLogLeaveConvoImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -324,9 +333,9 @@ class _$ULogLogLeaveConvoImpl implements ULogLogLeaveConvo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULogLogLeaveConvoImplCopyWith<_$ULogLogLeaveConvoImpl> get copyWith =>
-      __$$ULogLogLeaveConvoImplCopyWithImpl<_$ULogLogLeaveConvoImpl>(
-          this, _$identity);
+  _$$UGetLogLogLogLeaveConvoImplCopyWith<_$UGetLogLogLogLeaveConvoImpl>
+      get copyWith => __$$UGetLogLogLogLeaveConvoImplCopyWithImpl<
+          _$UGetLogLogLogLeaveConvoImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -371,11 +380,13 @@ class _$ULogLogLeaveConvoImpl implements ULogLogLeaveConvo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULogLogBeginConvo value) logBeginConvo,
-    required TResult Function(ULogLogLeaveConvo value) logLeaveConvo,
-    required TResult Function(ULogLogCreateMessage value) logCreateMessage,
-    required TResult Function(ULogLogDeleteMessage value) logDeleteMessage,
-    required TResult Function(ULogUnknown value) unknown,
+    required TResult Function(UGetLogLogLogBeginConvo value) logBeginConvo,
+    required TResult Function(UGetLogLogLogLeaveConvo value) logLeaveConvo,
+    required TResult Function(UGetLogLogLogCreateMessage value)
+        logCreateMessage,
+    required TResult Function(UGetLogLogLogDeleteMessage value)
+        logDeleteMessage,
+    required TResult Function(UGetLogLogUnknown value) unknown,
   }) {
     return logLeaveConvo(this);
   }
@@ -383,11 +394,11 @@ class _$ULogLogLeaveConvoImpl implements ULogLogLeaveConvo {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult? Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult? Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult? Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult? Function(ULogUnknown value)? unknown,
+    TResult? Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult? Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult? Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult? Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult? Function(UGetLogLogUnknown value)? unknown,
   }) {
     return logLeaveConvo?.call(this);
   }
@@ -395,11 +406,11 @@ class _$ULogLogLeaveConvoImpl implements ULogLogLeaveConvo {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult Function(ULogUnknown value)? unknown,
+    TResult Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult Function(UGetLogLogUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (logLeaveConvo != null) {
@@ -409,22 +420,23 @@ class _$ULogLogLeaveConvoImpl implements ULogLogLeaveConvo {
   }
 }
 
-abstract class ULogLogLeaveConvo implements ULog {
-  const factory ULogLogLeaveConvo({required final LogLeaveConvo data}) =
-      _$ULogLogLeaveConvoImpl;
+abstract class UGetLogLogLogLeaveConvo implements UGetLogLog {
+  const factory UGetLogLogLogLeaveConvo({required final LogLeaveConvo data}) =
+      _$UGetLogLogLogLeaveConvoImpl;
 
   @override
   LogLeaveConvo get data;
   @JsonKey(ignore: true)
-  _$$ULogLogLeaveConvoImplCopyWith<_$ULogLogLeaveConvoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UGetLogLogLogLeaveConvoImplCopyWith<_$UGetLogLogLogLeaveConvoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULogLogCreateMessageImplCopyWith<$Res> {
-  factory _$$ULogLogCreateMessageImplCopyWith(_$ULogLogCreateMessageImpl value,
-          $Res Function(_$ULogLogCreateMessageImpl) then) =
-      __$$ULogLogCreateMessageImplCopyWithImpl<$Res>;
+abstract class _$$UGetLogLogLogCreateMessageImplCopyWith<$Res> {
+  factory _$$UGetLogLogLogCreateMessageImplCopyWith(
+          _$UGetLogLogLogCreateMessageImpl value,
+          $Res Function(_$UGetLogLogLogCreateMessageImpl) then) =
+      __$$UGetLogLogLogCreateMessageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LogCreateMessage data});
 
@@ -432,11 +444,12 @@ abstract class _$$ULogLogCreateMessageImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULogLogCreateMessageImplCopyWithImpl<$Res>
-    extends _$ULogCopyWithImpl<$Res, _$ULogLogCreateMessageImpl>
-    implements _$$ULogLogCreateMessageImplCopyWith<$Res> {
-  __$$ULogLogCreateMessageImplCopyWithImpl(_$ULogLogCreateMessageImpl _value,
-      $Res Function(_$ULogLogCreateMessageImpl) _then)
+class __$$UGetLogLogLogCreateMessageImplCopyWithImpl<$Res>
+    extends _$UGetLogLogCopyWithImpl<$Res, _$UGetLogLogLogCreateMessageImpl>
+    implements _$$UGetLogLogLogCreateMessageImplCopyWith<$Res> {
+  __$$UGetLogLogLogCreateMessageImplCopyWithImpl(
+      _$UGetLogLogLogCreateMessageImpl _value,
+      $Res Function(_$UGetLogLogLogCreateMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -444,7 +457,7 @@ class __$$ULogLogCreateMessageImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULogLogCreateMessageImpl(
+    return _then(_$UGetLogLogLogCreateMessageImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -463,22 +476,22 @@ class __$$ULogLogCreateMessageImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULogLogCreateMessageImpl implements ULogLogCreateMessage {
-  const _$ULogLogCreateMessageImpl({required this.data});
+class _$UGetLogLogLogCreateMessageImpl implements UGetLogLogLogCreateMessage {
+  const _$UGetLogLogLogCreateMessageImpl({required this.data});
 
   @override
   final LogCreateMessage data;
 
   @override
   String toString() {
-    return 'ULog.logCreateMessage(data: $data)';
+    return 'UGetLogLog.logCreateMessage(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULogLogCreateMessageImpl &&
+            other is _$UGetLogLogLogCreateMessageImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -488,10 +501,9 @@ class _$ULogLogCreateMessageImpl implements ULogLogCreateMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULogLogCreateMessageImplCopyWith<_$ULogLogCreateMessageImpl>
-      get copyWith =>
-          __$$ULogLogCreateMessageImplCopyWithImpl<_$ULogLogCreateMessageImpl>(
-              this, _$identity);
+  _$$UGetLogLogLogCreateMessageImplCopyWith<_$UGetLogLogLogCreateMessageImpl>
+      get copyWith => __$$UGetLogLogLogCreateMessageImplCopyWithImpl<
+          _$UGetLogLogLogCreateMessageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -536,11 +548,13 @@ class _$ULogLogCreateMessageImpl implements ULogLogCreateMessage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULogLogBeginConvo value) logBeginConvo,
-    required TResult Function(ULogLogLeaveConvo value) logLeaveConvo,
-    required TResult Function(ULogLogCreateMessage value) logCreateMessage,
-    required TResult Function(ULogLogDeleteMessage value) logDeleteMessage,
-    required TResult Function(ULogUnknown value) unknown,
+    required TResult Function(UGetLogLogLogBeginConvo value) logBeginConvo,
+    required TResult Function(UGetLogLogLogLeaveConvo value) logLeaveConvo,
+    required TResult Function(UGetLogLogLogCreateMessage value)
+        logCreateMessage,
+    required TResult Function(UGetLogLogLogDeleteMessage value)
+        logDeleteMessage,
+    required TResult Function(UGetLogLogUnknown value) unknown,
   }) {
     return logCreateMessage(this);
   }
@@ -548,11 +562,11 @@ class _$ULogLogCreateMessageImpl implements ULogLogCreateMessage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult? Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult? Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult? Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult? Function(ULogUnknown value)? unknown,
+    TResult? Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult? Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult? Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult? Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult? Function(UGetLogLogUnknown value)? unknown,
   }) {
     return logCreateMessage?.call(this);
   }
@@ -560,11 +574,11 @@ class _$ULogLogCreateMessageImpl implements ULogLogCreateMessage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult Function(ULogUnknown value)? unknown,
+    TResult Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult Function(UGetLogLogUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (logCreateMessage != null) {
@@ -574,22 +588,24 @@ class _$ULogLogCreateMessageImpl implements ULogLogCreateMessage {
   }
 }
 
-abstract class ULogLogCreateMessage implements ULog {
-  const factory ULogLogCreateMessage({required final LogCreateMessage data}) =
-      _$ULogLogCreateMessageImpl;
+abstract class UGetLogLogLogCreateMessage implements UGetLogLog {
+  const factory UGetLogLogLogCreateMessage(
+          {required final LogCreateMessage data}) =
+      _$UGetLogLogLogCreateMessageImpl;
 
   @override
   LogCreateMessage get data;
   @JsonKey(ignore: true)
-  _$$ULogLogCreateMessageImplCopyWith<_$ULogLogCreateMessageImpl>
+  _$$UGetLogLogLogCreateMessageImplCopyWith<_$UGetLogLogLogCreateMessageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULogLogDeleteMessageImplCopyWith<$Res> {
-  factory _$$ULogLogDeleteMessageImplCopyWith(_$ULogLogDeleteMessageImpl value,
-          $Res Function(_$ULogLogDeleteMessageImpl) then) =
-      __$$ULogLogDeleteMessageImplCopyWithImpl<$Res>;
+abstract class _$$UGetLogLogLogDeleteMessageImplCopyWith<$Res> {
+  factory _$$UGetLogLogLogDeleteMessageImplCopyWith(
+          _$UGetLogLogLogDeleteMessageImpl value,
+          $Res Function(_$UGetLogLogLogDeleteMessageImpl) then) =
+      __$$UGetLogLogLogDeleteMessageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LogDeleteMessage data});
 
@@ -597,11 +613,12 @@ abstract class _$$ULogLogDeleteMessageImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULogLogDeleteMessageImplCopyWithImpl<$Res>
-    extends _$ULogCopyWithImpl<$Res, _$ULogLogDeleteMessageImpl>
-    implements _$$ULogLogDeleteMessageImplCopyWith<$Res> {
-  __$$ULogLogDeleteMessageImplCopyWithImpl(_$ULogLogDeleteMessageImpl _value,
-      $Res Function(_$ULogLogDeleteMessageImpl) _then)
+class __$$UGetLogLogLogDeleteMessageImplCopyWithImpl<$Res>
+    extends _$UGetLogLogCopyWithImpl<$Res, _$UGetLogLogLogDeleteMessageImpl>
+    implements _$$UGetLogLogLogDeleteMessageImplCopyWith<$Res> {
+  __$$UGetLogLogLogDeleteMessageImplCopyWithImpl(
+      _$UGetLogLogLogDeleteMessageImpl _value,
+      $Res Function(_$UGetLogLogLogDeleteMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -609,7 +626,7 @@ class __$$ULogLogDeleteMessageImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULogLogDeleteMessageImpl(
+    return _then(_$UGetLogLogLogDeleteMessageImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -628,22 +645,22 @@ class __$$ULogLogDeleteMessageImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULogLogDeleteMessageImpl implements ULogLogDeleteMessage {
-  const _$ULogLogDeleteMessageImpl({required this.data});
+class _$UGetLogLogLogDeleteMessageImpl implements UGetLogLogLogDeleteMessage {
+  const _$UGetLogLogLogDeleteMessageImpl({required this.data});
 
   @override
   final LogDeleteMessage data;
 
   @override
   String toString() {
-    return 'ULog.logDeleteMessage(data: $data)';
+    return 'UGetLogLog.logDeleteMessage(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULogLogDeleteMessageImpl &&
+            other is _$UGetLogLogLogDeleteMessageImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -653,10 +670,9 @@ class _$ULogLogDeleteMessageImpl implements ULogLogDeleteMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULogLogDeleteMessageImplCopyWith<_$ULogLogDeleteMessageImpl>
-      get copyWith =>
-          __$$ULogLogDeleteMessageImplCopyWithImpl<_$ULogLogDeleteMessageImpl>(
-              this, _$identity);
+  _$$UGetLogLogLogDeleteMessageImplCopyWith<_$UGetLogLogLogDeleteMessageImpl>
+      get copyWith => __$$UGetLogLogLogDeleteMessageImplCopyWithImpl<
+          _$UGetLogLogLogDeleteMessageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -701,11 +717,13 @@ class _$ULogLogDeleteMessageImpl implements ULogLogDeleteMessage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULogLogBeginConvo value) logBeginConvo,
-    required TResult Function(ULogLogLeaveConvo value) logLeaveConvo,
-    required TResult Function(ULogLogCreateMessage value) logCreateMessage,
-    required TResult Function(ULogLogDeleteMessage value) logDeleteMessage,
-    required TResult Function(ULogUnknown value) unknown,
+    required TResult Function(UGetLogLogLogBeginConvo value) logBeginConvo,
+    required TResult Function(UGetLogLogLogLeaveConvo value) logLeaveConvo,
+    required TResult Function(UGetLogLogLogCreateMessage value)
+        logCreateMessage,
+    required TResult Function(UGetLogLogLogDeleteMessage value)
+        logDeleteMessage,
+    required TResult Function(UGetLogLogUnknown value) unknown,
   }) {
     return logDeleteMessage(this);
   }
@@ -713,11 +731,11 @@ class _$ULogLogDeleteMessageImpl implements ULogLogDeleteMessage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult? Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult? Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult? Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult? Function(ULogUnknown value)? unknown,
+    TResult? Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult? Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult? Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult? Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult? Function(UGetLogLogUnknown value)? unknown,
   }) {
     return logDeleteMessage?.call(this);
   }
@@ -725,11 +743,11 @@ class _$ULogLogDeleteMessageImpl implements ULogLogDeleteMessage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult Function(ULogUnknown value)? unknown,
+    TResult Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult Function(UGetLogLogUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (logDeleteMessage != null) {
@@ -739,32 +757,33 @@ class _$ULogLogDeleteMessageImpl implements ULogLogDeleteMessage {
   }
 }
 
-abstract class ULogLogDeleteMessage implements ULog {
-  const factory ULogLogDeleteMessage({required final LogDeleteMessage data}) =
-      _$ULogLogDeleteMessageImpl;
+abstract class UGetLogLogLogDeleteMessage implements UGetLogLog {
+  const factory UGetLogLogLogDeleteMessage(
+          {required final LogDeleteMessage data}) =
+      _$UGetLogLogLogDeleteMessageImpl;
 
   @override
   LogDeleteMessage get data;
   @JsonKey(ignore: true)
-  _$$ULogLogDeleteMessageImplCopyWith<_$ULogLogDeleteMessageImpl>
+  _$$UGetLogLogLogDeleteMessageImplCopyWith<_$UGetLogLogLogDeleteMessageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULogUnknownImplCopyWith<$Res> {
-  factory _$$ULogUnknownImplCopyWith(
-          _$ULogUnknownImpl value, $Res Function(_$ULogUnknownImpl) then) =
-      __$$ULogUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UGetLogLogUnknownImplCopyWith<$Res> {
+  factory _$$UGetLogLogUnknownImplCopyWith(_$UGetLogLogUnknownImpl value,
+          $Res Function(_$UGetLogLogUnknownImpl) then) =
+      __$$UGetLogLogUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$ULogUnknownImplCopyWithImpl<$Res>
-    extends _$ULogCopyWithImpl<$Res, _$ULogUnknownImpl>
-    implements _$$ULogUnknownImplCopyWith<$Res> {
-  __$$ULogUnknownImplCopyWithImpl(
-      _$ULogUnknownImpl _value, $Res Function(_$ULogUnknownImpl) _then)
+class __$$UGetLogLogUnknownImplCopyWithImpl<$Res>
+    extends _$UGetLogLogCopyWithImpl<$Res, _$UGetLogLogUnknownImpl>
+    implements _$$UGetLogLogUnknownImplCopyWith<$Res> {
+  __$$UGetLogLogUnknownImplCopyWithImpl(_$UGetLogLogUnknownImpl _value,
+      $Res Function(_$UGetLogLogUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -772,7 +791,7 @@ class __$$ULogUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULogUnknownImpl(
+    return _then(_$UGetLogLogUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -783,8 +802,8 @@ class __$$ULogUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULogUnknownImpl implements ULogUnknown {
-  const _$ULogUnknownImpl({required final Map<String, dynamic> data})
+class _$UGetLogLogUnknownImpl implements UGetLogLogUnknown {
+  const _$UGetLogLogUnknownImpl({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -797,14 +816,14 @@ class _$ULogUnknownImpl implements ULogUnknown {
 
   @override
   String toString() {
-    return 'ULog.unknown(data: $data)';
+    return 'UGetLogLog.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULogUnknownImpl &&
+            other is _$UGetLogLogUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -815,8 +834,9 @@ class _$ULogUnknownImpl implements ULogUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULogUnknownImplCopyWith<_$ULogUnknownImpl> get copyWith =>
-      __$$ULogUnknownImplCopyWithImpl<_$ULogUnknownImpl>(this, _$identity);
+  _$$UGetLogLogUnknownImplCopyWith<_$UGetLogLogUnknownImpl> get copyWith =>
+      __$$UGetLogLogUnknownImplCopyWithImpl<_$UGetLogLogUnknownImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -861,11 +881,13 @@ class _$ULogUnknownImpl implements ULogUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULogLogBeginConvo value) logBeginConvo,
-    required TResult Function(ULogLogLeaveConvo value) logLeaveConvo,
-    required TResult Function(ULogLogCreateMessage value) logCreateMessage,
-    required TResult Function(ULogLogDeleteMessage value) logDeleteMessage,
-    required TResult Function(ULogUnknown value) unknown,
+    required TResult Function(UGetLogLogLogBeginConvo value) logBeginConvo,
+    required TResult Function(UGetLogLogLogLeaveConvo value) logLeaveConvo,
+    required TResult Function(UGetLogLogLogCreateMessage value)
+        logCreateMessage,
+    required TResult Function(UGetLogLogLogDeleteMessage value)
+        logDeleteMessage,
+    required TResult Function(UGetLogLogUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -873,11 +895,11 @@ class _$ULogUnknownImpl implements ULogUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult? Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult? Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult? Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult? Function(ULogUnknown value)? unknown,
+    TResult? Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult? Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult? Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult? Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult? Function(UGetLogLogUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -885,11 +907,11 @@ class _$ULogUnknownImpl implements ULogUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULogLogBeginConvo value)? logBeginConvo,
-    TResult Function(ULogLogLeaveConvo value)? logLeaveConvo,
-    TResult Function(ULogLogCreateMessage value)? logCreateMessage,
-    TResult Function(ULogLogDeleteMessage value)? logDeleteMessage,
-    TResult Function(ULogUnknown value)? unknown,
+    TResult Function(UGetLogLogLogBeginConvo value)? logBeginConvo,
+    TResult Function(UGetLogLogLogLeaveConvo value)? logLeaveConvo,
+    TResult Function(UGetLogLogLogCreateMessage value)? logCreateMessage,
+    TResult Function(UGetLogLogLogDeleteMessage value)? logDeleteMessage,
+    TResult Function(UGetLogLogUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -899,13 +921,13 @@ class _$ULogUnknownImpl implements ULogUnknown {
   }
 }
 
-abstract class ULogUnknown implements ULog {
-  const factory ULogUnknown({required final Map<String, dynamic> data}) =
-      _$ULogUnknownImpl;
+abstract class UGetLogLogUnknown implements UGetLogLog {
+  const factory UGetLogLogUnknown({required final Map<String, dynamic> data}) =
+      _$UGetLogLogUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$ULogUnknownImplCopyWith<_$ULogUnknownImpl> get copyWith =>
+  _$$UGetLogLogUnknownImplCopyWith<_$UGetLogLogUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

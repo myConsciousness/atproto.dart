@@ -18,58 +18,58 @@ import '../../../../app/bsky/feed/defs/blocked_post.dart';
 import '../../../../app/bsky/feed/defs/not_found_post.dart';
 import '../../../../app/bsky/feed/defs/thread_view_post.dart';
 
-part 'union_thread.freezed.dart';
+part 'union_get_post_thread_thread.freezed.dart';
 
 @freezed
-class UThread with _$UThread {
-  const factory UThread.threadViewPost({
+class UGetPostThreadThread with _$UGetPostThreadThread {
+  const factory UGetPostThreadThread.threadViewPost({
     required ThreadViewPost data,
-  }) = UThreadThreadViewPost;
+  }) = UGetPostThreadThreadThreadViewPost;
 
-  const factory UThread.notFoundPost({
+  const factory UGetPostThreadThread.notFoundPost({
     required NotFoundPost data,
-  }) = UThreadNotFoundPost;
+  }) = UGetPostThreadThreadNotFoundPost;
 
-  const factory UThread.blockedPost({
+  const factory UGetPostThreadThread.blockedPost({
     required BlockedPost data,
-  }) = UThreadBlockedPost;
+  }) = UGetPostThreadThreadBlockedPost;
 
-  const factory UThread.unknown({
+  const factory UGetPostThreadThread.unknown({
     required Map<String, dynamic> data,
-  }) = UThreadUnknown;
+  }) = UGetPostThreadThreadUnknown;
 }
 
-final class UThreadConverter
-    implements JsonConverter<UThread, Map<String, dynamic>> {
-  const UThreadConverter();
+final class UGetPostThreadThreadConverter
+    implements JsonConverter<UGetPostThreadThread, Map<String, dynamic>> {
+  const UGetPostThreadThreadConverter();
 
   @override
-  UThread fromJson(Map<String, dynamic> json) {
+  UGetPostThreadThread fromJson(Map<String, dynamic> json) {
     try {
       if (isThreadViewPost(json)) {
-        return UThread.threadViewPost(
+        return UGetPostThreadThread.threadViewPost(
           data: const ThreadViewPostConverter().fromJson(json),
         );
       }
       if (isNotFoundPost(json)) {
-        return UThread.notFoundPost(
+        return UGetPostThreadThread.notFoundPost(
           data: const NotFoundPostConverter().fromJson(json),
         );
       }
       if (isBlockedPost(json)) {
-        return UThread.blockedPost(
+        return UGetPostThreadThread.blockedPost(
           data: const BlockedPostConverter().fromJson(json),
         );
       }
 
-      return UThread.unknown(data: json);
+      return UGetPostThreadThread.unknown(data: json);
     } catch (_) {
-      return UThread.unknown(data: json);
+      return UGetPostThreadThread.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UThread object) => object.when(
+  Map<String, dynamic> toJson(UGetPostThreadThread object) => object.when(
         threadViewPost: const ThreadViewPostConverter().toJson,
         notFoundPost: const NotFoundPostConverter().toJson,
         blockedPost: const BlockedPostConverter().toJson,
@@ -77,30 +77,31 @@ final class UThreadConverter
       );
 }
 
-extension $UThreadExtension on UThread {
+extension $UGetPostThreadThreadExtension on UGetPostThreadThread {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const UThreadConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UGetPostThreadThreadConverter().toJson(this);
 
   /// Returns true if this data is [ThreadViewPost], otherwise false.
-  bool get isThreadViewPost => this is UThreadThreadViewPost;
+  bool get isThreadViewPost => this is UGetPostThreadThreadThreadViewPost;
 
   /// Returns true if this data is not [ThreadViewPost], otherwise false.
   bool get isNotThreadViewPost => !isThreadViewPost;
 
   /// Returns true if this data is [NotFoundPost], otherwise false.
-  bool get isNotFoundPost => this is UThreadNotFoundPost;
+  bool get isNotFoundPost => this is UGetPostThreadThreadNotFoundPost;
 
   /// Returns true if this data is not [NotFoundPost], otherwise false.
   bool get isNotNotFoundPost => !isNotFoundPost;
 
   /// Returns true if this data is [BlockedPost], otherwise false.
-  bool get isBlockedPost => this is UThreadBlockedPost;
+  bool get isBlockedPost => this is UGetPostThreadThreadBlockedPost;
 
   /// Returns true if this data is not [BlockedPost], otherwise false.
   bool get isNotBlockedPost => !isBlockedPost;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UThreadUnknown;
+  bool get isUnknown => this is UGetPostThreadThreadUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

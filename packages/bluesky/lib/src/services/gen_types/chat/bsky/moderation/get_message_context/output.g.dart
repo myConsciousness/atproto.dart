@@ -18,7 +18,7 @@ _$GetMessageContextOutputImpl _$$GetMessageContextOutputImplFromJson(
           messages: $checkedConvert(
               'messages',
               (v) => (v as List<dynamic>)
-                  .map((e) => const UMessageConverter()
+                  .map((e) => const UGetMessageContextMessageConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
@@ -34,8 +34,9 @@ _$GetMessageContextOutputImpl _$$GetMessageContextOutputImplFromJson(
 Map<String, dynamic> _$$GetMessageContextOutputImplToJson(
     _$GetMessageContextOutputImpl instance) {
   final val = <String, dynamic>{
-    'messages':
-        instance.messages.map(const UMessageConverter().toJson).toList(),
+    'messages': instance.messages
+        .map(const UGetMessageContextMessageConverter().toJson)
+        .toList(),
   };
 
   void writeNotNull(String key, dynamic value) {

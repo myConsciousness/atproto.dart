@@ -12,4 +12,4 @@
 
 export 'package:bluesky/src/services/gen_types/chat/bsky/convo/get_messages/params.dart';
 export 'package:bluesky/src/services/gen_types/chat/bsky/convo/get_messages/output.dart';
-export 'package:bluesky/src/services/gen_types/chat/bsky/convo/get_messages/union_message.dart';
+export 'package:bluesky/src/services/gen_types/chat/bsky/convo/get_messages/union_get_messages_message.dart';

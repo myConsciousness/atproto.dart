@@ -26,8 +26,8 @@ mixin _$CreateReportInput {
 
   /// Additional context about the content and violation.
   String? get reason => throw _privateConstructorUsedError;
-  @USubjectConverter()
-  USubject get subject => throw _privateConstructorUsedError;
+  @UCreateReportSubjectConverter()
+  UCreateReportSubject get subject => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -48,11 +48,11 @@ abstract class $CreateReportInputCopyWith<$Res> {
   $Res call(
       {@UReasonTypeConverter() UReasonType reasonType,
       String? reason,
-      @USubjectConverter() USubject subject,
+      @UCreateReportSubjectConverter() UCreateReportSubject subject,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UReasonTypeCopyWith<$Res> get reasonType;
-  $USubjectCopyWith<$Res> get subject;
+  $UCreateReportSubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -85,7 +85,7 @@ class _$CreateReportInputCopyWithImpl<$Res, $Val extends CreateReportInput>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UCreateReportSubject,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -103,8 +103,8 @@ class _$CreateReportInputCopyWithImpl<$Res, $Val extends CreateReportInput>
 
   @override
   @pragma('vm:prefer-inline')
-  $USubjectCopyWith<$Res> get subject {
-    return $USubjectCopyWith<$Res>(_value.subject, (value) {
+  $UCreateReportSubjectCopyWith<$Res> get subject {
+    return $UCreateReportSubjectCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
@@ -121,13 +121,13 @@ abstract class _$$CreateReportInputImplCopyWith<$Res>
   $Res call(
       {@UReasonTypeConverter() UReasonType reasonType,
       String? reason,
-      @USubjectConverter() USubject subject,
+      @UCreateReportSubjectConverter() UCreateReportSubject subject,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UReasonTypeCopyWith<$Res> get reasonType;
   @override
-  $USubjectCopyWith<$Res> get subject;
+  $UCreateReportSubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -158,7 +158,7 @@ class __$$CreateReportInputImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as USubject,
+              as UCreateReportSubject,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -174,7 +174,7 @@ class _$CreateReportInputImpl implements _CreateReportInput {
   const _$CreateReportInputImpl(
       {@UReasonTypeConverter() required this.reasonType,
       this.reason,
-      @USubjectConverter() required this.subject,
+      @UCreateReportSubjectConverter() required this.subject,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -190,8 +190,8 @@ class _$CreateReportInputImpl implements _CreateReportInput {
   @override
   final String? reason;
   @override
-  @USubjectConverter()
-  final USubject subject;
+  @UCreateReportSubjectConverter()
+  final UCreateReportSubject subject;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -248,7 +248,8 @@ abstract class _CreateReportInput implements CreateReportInput {
   const factory _CreateReportInput(
           {@UReasonTypeConverter() required final UReasonType reasonType,
           final String? reason,
-          @USubjectConverter() required final USubject subject,
+          @UCreateReportSubjectConverter()
+          required final UCreateReportSubject subject,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$CreateReportInputImpl;
 
@@ -265,8 +266,8 @@ abstract class _CreateReportInput implements CreateReportInput {
   /// Additional context about the content and violation.
   String? get reason;
   @override
-  @USubjectConverter()
-  USubject get subject;
+  @UCreateReportSubjectConverter()
+  UCreateReportSubject get subject;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

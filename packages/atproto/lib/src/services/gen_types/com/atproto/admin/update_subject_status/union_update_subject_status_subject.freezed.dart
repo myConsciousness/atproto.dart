@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_subject.dart';
+part of 'union_update_subject_status_subject.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$USubject {
+mixin _$UUpdateSubjectStatusSubject {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -44,41 +44,48 @@ mixin _$USubject {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(USubjectRepoRef value) repoRef,
-    required TResult Function(USubjectStrongRef value) strongRef,
-    required TResult Function(USubjectRepoBlobRef value) repoBlobRef,
-    required TResult Function(USubjectUnknown value) unknown,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoRef value) repoRef,
+    required TResult Function(UUpdateSubjectStatusSubjectStrongRef value)
+        strongRef,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)
+        repoBlobRef,
+    required TResult Function(UUpdateSubjectStatusSubjectUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubjectRepoRef value)? repoRef,
-    TResult? Function(USubjectStrongRef value)? strongRef,
-    TResult? Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult? Function(USubjectUnknown value)? unknown,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult? Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoBlobRef value)?
+        repoBlobRef,
+    TResult? Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubjectRepoRef value)? repoRef,
-    TResult Function(USubjectStrongRef value)? strongRef,
-    TResult Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult Function(USubjectUnknown value)? unknown,
+    TResult Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)? repoBlobRef,
+    TResult Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $USubjectCopyWith<$Res> {
-  factory $USubjectCopyWith(USubject value, $Res Function(USubject) then) =
-      _$USubjectCopyWithImpl<$Res, USubject>;
+abstract class $UUpdateSubjectStatusSubjectCopyWith<$Res> {
+  factory $UUpdateSubjectStatusSubjectCopyWith(
+          UUpdateSubjectStatusSubject value,
+          $Res Function(UUpdateSubjectStatusSubject) then) =
+      _$UUpdateSubjectStatusSubjectCopyWithImpl<$Res,
+          UUpdateSubjectStatusSubject>;
 }
 
 /// @nodoc
-class _$USubjectCopyWithImpl<$Res, $Val extends USubject>
-    implements $USubjectCopyWith<$Res> {
-  _$USubjectCopyWithImpl(this._value, this._then);
+class _$UUpdateSubjectStatusSubjectCopyWithImpl<$Res,
+        $Val extends UUpdateSubjectStatusSubject>
+    implements $UUpdateSubjectStatusSubjectCopyWith<$Res> {
+  _$UUpdateSubjectStatusSubjectCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,10 +94,11 @@ class _$USubjectCopyWithImpl<$Res, $Val extends USubject>
 }
 
 /// @nodoc
-abstract class _$$USubjectRepoRefImplCopyWith<$Res> {
-  factory _$$USubjectRepoRefImplCopyWith(_$USubjectRepoRefImpl value,
-          $Res Function(_$USubjectRepoRefImpl) then) =
-      __$$USubjectRepoRefImplCopyWithImpl<$Res>;
+abstract class _$$UUpdateSubjectStatusSubjectRepoRefImplCopyWith<$Res> {
+  factory _$$UUpdateSubjectStatusSubjectRepoRefImplCopyWith(
+          _$UUpdateSubjectStatusSubjectRepoRefImpl value,
+          $Res Function(_$UUpdateSubjectStatusSubjectRepoRefImpl) then) =
+      __$$UUpdateSubjectStatusSubjectRepoRefImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RepoRef data});
 
@@ -98,11 +106,13 @@ abstract class _$$USubjectRepoRefImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubjectRepoRefImplCopyWithImpl<$Res>
-    extends _$USubjectCopyWithImpl<$Res, _$USubjectRepoRefImpl>
-    implements _$$USubjectRepoRefImplCopyWith<$Res> {
-  __$$USubjectRepoRefImplCopyWithImpl(
-      _$USubjectRepoRefImpl _value, $Res Function(_$USubjectRepoRefImpl) _then)
+class __$$UUpdateSubjectStatusSubjectRepoRefImplCopyWithImpl<$Res>
+    extends _$UUpdateSubjectStatusSubjectCopyWithImpl<$Res,
+        _$UUpdateSubjectStatusSubjectRepoRefImpl>
+    implements _$$UUpdateSubjectStatusSubjectRepoRefImplCopyWith<$Res> {
+  __$$UUpdateSubjectStatusSubjectRepoRefImplCopyWithImpl(
+      _$UUpdateSubjectStatusSubjectRepoRefImpl _value,
+      $Res Function(_$UUpdateSubjectStatusSubjectRepoRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +120,7 @@ class __$$USubjectRepoRefImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubjectRepoRefImpl(
+    return _then(_$UUpdateSubjectStatusSubjectRepoRefImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -129,22 +139,23 @@ class __$$USubjectRepoRefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$USubjectRepoRefImpl implements USubjectRepoRef {
-  const _$USubjectRepoRefImpl({required this.data});
+class _$UUpdateSubjectStatusSubjectRepoRefImpl
+    implements UUpdateSubjectStatusSubjectRepoRef {
+  const _$UUpdateSubjectStatusSubjectRepoRefImpl({required this.data});
 
   @override
   final RepoRef data;
 
   @override
   String toString() {
-    return 'USubject.repoRef(data: $data)';
+    return 'UUpdateSubjectStatusSubject.repoRef(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubjectRepoRefImpl &&
+            other is _$UUpdateSubjectStatusSubjectRepoRefImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -154,9 +165,10 @@ class _$USubjectRepoRefImpl implements USubjectRepoRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubjectRepoRefImplCopyWith<_$USubjectRepoRefImpl> get copyWith =>
-      __$$USubjectRepoRefImplCopyWithImpl<_$USubjectRepoRefImpl>(
-          this, _$identity);
+  _$$UUpdateSubjectStatusSubjectRepoRefImplCopyWith<
+          _$UUpdateSubjectStatusSubjectRepoRefImpl>
+      get copyWith => __$$UUpdateSubjectStatusSubjectRepoRefImplCopyWithImpl<
+          _$UUpdateSubjectStatusSubjectRepoRefImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -198,10 +210,12 @@ class _$USubjectRepoRefImpl implements USubjectRepoRef {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(USubjectRepoRef value) repoRef,
-    required TResult Function(USubjectStrongRef value) strongRef,
-    required TResult Function(USubjectRepoBlobRef value) repoBlobRef,
-    required TResult Function(USubjectUnknown value) unknown,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoRef value) repoRef,
+    required TResult Function(UUpdateSubjectStatusSubjectStrongRef value)
+        strongRef,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)
+        repoBlobRef,
+    required TResult Function(UUpdateSubjectStatusSubjectUnknown value) unknown,
   }) {
     return repoRef(this);
   }
@@ -209,10 +223,11 @@ class _$USubjectRepoRefImpl implements USubjectRepoRef {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubjectRepoRef value)? repoRef,
-    TResult? Function(USubjectStrongRef value)? strongRef,
-    TResult? Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult? Function(USubjectUnknown value)? unknown,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult? Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoBlobRef value)?
+        repoBlobRef,
+    TResult? Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
   }) {
     return repoRef?.call(this);
   }
@@ -220,10 +235,10 @@ class _$USubjectRepoRefImpl implements USubjectRepoRef {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubjectRepoRef value)? repoRef,
-    TResult Function(USubjectStrongRef value)? strongRef,
-    TResult Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult Function(USubjectUnknown value)? unknown,
+    TResult Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)? repoBlobRef,
+    TResult Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (repoRef != null) {
@@ -233,22 +248,25 @@ class _$USubjectRepoRefImpl implements USubjectRepoRef {
   }
 }
 
-abstract class USubjectRepoRef implements USubject {
-  const factory USubjectRepoRef({required final RepoRef data}) =
-      _$USubjectRepoRefImpl;
+abstract class UUpdateSubjectStatusSubjectRepoRef
+    implements UUpdateSubjectStatusSubject {
+  const factory UUpdateSubjectStatusSubjectRepoRef(
+      {required final RepoRef data}) = _$UUpdateSubjectStatusSubjectRepoRefImpl;
 
   @override
   RepoRef get data;
   @JsonKey(ignore: true)
-  _$$USubjectRepoRefImplCopyWith<_$USubjectRepoRefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UUpdateSubjectStatusSubjectRepoRefImplCopyWith<
+          _$UUpdateSubjectStatusSubjectRepoRefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubjectStrongRefImplCopyWith<$Res> {
-  factory _$$USubjectStrongRefImplCopyWith(_$USubjectStrongRefImpl value,
-          $Res Function(_$USubjectStrongRefImpl) then) =
-      __$$USubjectStrongRefImplCopyWithImpl<$Res>;
+abstract class _$$UUpdateSubjectStatusSubjectStrongRefImplCopyWith<$Res> {
+  factory _$$UUpdateSubjectStatusSubjectStrongRefImplCopyWith(
+          _$UUpdateSubjectStatusSubjectStrongRefImpl value,
+          $Res Function(_$UUpdateSubjectStatusSubjectStrongRefImpl) then) =
+      __$$UUpdateSubjectStatusSubjectStrongRefImplCopyWithImpl<$Res>;
   @useResult
   $Res call({StrongRef data});
 
@@ -256,11 +274,13 @@ abstract class _$$USubjectStrongRefImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubjectStrongRefImplCopyWithImpl<$Res>
-    extends _$USubjectCopyWithImpl<$Res, _$USubjectStrongRefImpl>
-    implements _$$USubjectStrongRefImplCopyWith<$Res> {
-  __$$USubjectStrongRefImplCopyWithImpl(_$USubjectStrongRefImpl _value,
-      $Res Function(_$USubjectStrongRefImpl) _then)
+class __$$UUpdateSubjectStatusSubjectStrongRefImplCopyWithImpl<$Res>
+    extends _$UUpdateSubjectStatusSubjectCopyWithImpl<$Res,
+        _$UUpdateSubjectStatusSubjectStrongRefImpl>
+    implements _$$UUpdateSubjectStatusSubjectStrongRefImplCopyWith<$Res> {
+  __$$UUpdateSubjectStatusSubjectStrongRefImplCopyWithImpl(
+      _$UUpdateSubjectStatusSubjectStrongRefImpl _value,
+      $Res Function(_$UUpdateSubjectStatusSubjectStrongRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -268,7 +288,7 @@ class __$$USubjectStrongRefImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubjectStrongRefImpl(
+    return _then(_$UUpdateSubjectStatusSubjectStrongRefImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -287,22 +307,23 @@ class __$$USubjectStrongRefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$USubjectStrongRefImpl implements USubjectStrongRef {
-  const _$USubjectStrongRefImpl({required this.data});
+class _$UUpdateSubjectStatusSubjectStrongRefImpl
+    implements UUpdateSubjectStatusSubjectStrongRef {
+  const _$UUpdateSubjectStatusSubjectStrongRefImpl({required this.data});
 
   @override
   final StrongRef data;
 
   @override
   String toString() {
-    return 'USubject.strongRef(data: $data)';
+    return 'UUpdateSubjectStatusSubject.strongRef(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubjectStrongRefImpl &&
+            other is _$UUpdateSubjectStatusSubjectStrongRefImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -312,9 +333,10 @@ class _$USubjectStrongRefImpl implements USubjectStrongRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubjectStrongRefImplCopyWith<_$USubjectStrongRefImpl> get copyWith =>
-      __$$USubjectStrongRefImplCopyWithImpl<_$USubjectStrongRefImpl>(
-          this, _$identity);
+  _$$UUpdateSubjectStatusSubjectStrongRefImplCopyWith<
+          _$UUpdateSubjectStatusSubjectStrongRefImpl>
+      get copyWith => __$$UUpdateSubjectStatusSubjectStrongRefImplCopyWithImpl<
+          _$UUpdateSubjectStatusSubjectStrongRefImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -356,10 +378,12 @@ class _$USubjectStrongRefImpl implements USubjectStrongRef {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(USubjectRepoRef value) repoRef,
-    required TResult Function(USubjectStrongRef value) strongRef,
-    required TResult Function(USubjectRepoBlobRef value) repoBlobRef,
-    required TResult Function(USubjectUnknown value) unknown,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoRef value) repoRef,
+    required TResult Function(UUpdateSubjectStatusSubjectStrongRef value)
+        strongRef,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)
+        repoBlobRef,
+    required TResult Function(UUpdateSubjectStatusSubjectUnknown value) unknown,
   }) {
     return strongRef(this);
   }
@@ -367,10 +391,11 @@ class _$USubjectStrongRefImpl implements USubjectStrongRef {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubjectRepoRef value)? repoRef,
-    TResult? Function(USubjectStrongRef value)? strongRef,
-    TResult? Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult? Function(USubjectUnknown value)? unknown,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult? Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoBlobRef value)?
+        repoBlobRef,
+    TResult? Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
   }) {
     return strongRef?.call(this);
   }
@@ -378,10 +403,10 @@ class _$USubjectStrongRefImpl implements USubjectStrongRef {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubjectRepoRef value)? repoRef,
-    TResult Function(USubjectStrongRef value)? strongRef,
-    TResult Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult Function(USubjectUnknown value)? unknown,
+    TResult Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)? repoBlobRef,
+    TResult Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (strongRef != null) {
@@ -391,22 +416,26 @@ class _$USubjectStrongRefImpl implements USubjectStrongRef {
   }
 }
 
-abstract class USubjectStrongRef implements USubject {
-  const factory USubjectStrongRef({required final StrongRef data}) =
-      _$USubjectStrongRefImpl;
+abstract class UUpdateSubjectStatusSubjectStrongRef
+    implements UUpdateSubjectStatusSubject {
+  const factory UUpdateSubjectStatusSubjectStrongRef(
+          {required final StrongRef data}) =
+      _$UUpdateSubjectStatusSubjectStrongRefImpl;
 
   @override
   StrongRef get data;
   @JsonKey(ignore: true)
-  _$$USubjectStrongRefImplCopyWith<_$USubjectStrongRefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UUpdateSubjectStatusSubjectStrongRefImplCopyWith<
+          _$UUpdateSubjectStatusSubjectStrongRefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubjectRepoBlobRefImplCopyWith<$Res> {
-  factory _$$USubjectRepoBlobRefImplCopyWith(_$USubjectRepoBlobRefImpl value,
-          $Res Function(_$USubjectRepoBlobRefImpl) then) =
-      __$$USubjectRepoBlobRefImplCopyWithImpl<$Res>;
+abstract class _$$UUpdateSubjectStatusSubjectRepoBlobRefImplCopyWith<$Res> {
+  factory _$$UUpdateSubjectStatusSubjectRepoBlobRefImplCopyWith(
+          _$UUpdateSubjectStatusSubjectRepoBlobRefImpl value,
+          $Res Function(_$UUpdateSubjectStatusSubjectRepoBlobRefImpl) then) =
+      __$$UUpdateSubjectStatusSubjectRepoBlobRefImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RepoBlobRef data});
 
@@ -414,11 +443,13 @@ abstract class _$$USubjectRepoBlobRefImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubjectRepoBlobRefImplCopyWithImpl<$Res>
-    extends _$USubjectCopyWithImpl<$Res, _$USubjectRepoBlobRefImpl>
-    implements _$$USubjectRepoBlobRefImplCopyWith<$Res> {
-  __$$USubjectRepoBlobRefImplCopyWithImpl(_$USubjectRepoBlobRefImpl _value,
-      $Res Function(_$USubjectRepoBlobRefImpl) _then)
+class __$$UUpdateSubjectStatusSubjectRepoBlobRefImplCopyWithImpl<$Res>
+    extends _$UUpdateSubjectStatusSubjectCopyWithImpl<$Res,
+        _$UUpdateSubjectStatusSubjectRepoBlobRefImpl>
+    implements _$$UUpdateSubjectStatusSubjectRepoBlobRefImplCopyWith<$Res> {
+  __$$UUpdateSubjectStatusSubjectRepoBlobRefImplCopyWithImpl(
+      _$UUpdateSubjectStatusSubjectRepoBlobRefImpl _value,
+      $Res Function(_$UUpdateSubjectStatusSubjectRepoBlobRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -426,7 +457,7 @@ class __$$USubjectRepoBlobRefImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubjectRepoBlobRefImpl(
+    return _then(_$UUpdateSubjectStatusSubjectRepoBlobRefImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -445,22 +476,23 @@ class __$$USubjectRepoBlobRefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$USubjectRepoBlobRefImpl implements USubjectRepoBlobRef {
-  const _$USubjectRepoBlobRefImpl({required this.data});
+class _$UUpdateSubjectStatusSubjectRepoBlobRefImpl
+    implements UUpdateSubjectStatusSubjectRepoBlobRef {
+  const _$UUpdateSubjectStatusSubjectRepoBlobRefImpl({required this.data});
 
   @override
   final RepoBlobRef data;
 
   @override
   String toString() {
-    return 'USubject.repoBlobRef(data: $data)';
+    return 'UUpdateSubjectStatusSubject.repoBlobRef(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubjectRepoBlobRefImpl &&
+            other is _$UUpdateSubjectStatusSubjectRepoBlobRefImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -470,9 +502,11 @@ class _$USubjectRepoBlobRefImpl implements USubjectRepoBlobRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubjectRepoBlobRefImplCopyWith<_$USubjectRepoBlobRefImpl> get copyWith =>
-      __$$USubjectRepoBlobRefImplCopyWithImpl<_$USubjectRepoBlobRefImpl>(
-          this, _$identity);
+  _$$UUpdateSubjectStatusSubjectRepoBlobRefImplCopyWith<
+          _$UUpdateSubjectStatusSubjectRepoBlobRefImpl>
+      get copyWith =>
+          __$$UUpdateSubjectStatusSubjectRepoBlobRefImplCopyWithImpl<
+              _$UUpdateSubjectStatusSubjectRepoBlobRefImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -514,10 +548,12 @@ class _$USubjectRepoBlobRefImpl implements USubjectRepoBlobRef {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(USubjectRepoRef value) repoRef,
-    required TResult Function(USubjectStrongRef value) strongRef,
-    required TResult Function(USubjectRepoBlobRef value) repoBlobRef,
-    required TResult Function(USubjectUnknown value) unknown,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoRef value) repoRef,
+    required TResult Function(UUpdateSubjectStatusSubjectStrongRef value)
+        strongRef,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)
+        repoBlobRef,
+    required TResult Function(UUpdateSubjectStatusSubjectUnknown value) unknown,
   }) {
     return repoBlobRef(this);
   }
@@ -525,10 +561,11 @@ class _$USubjectRepoBlobRefImpl implements USubjectRepoBlobRef {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubjectRepoRef value)? repoRef,
-    TResult? Function(USubjectStrongRef value)? strongRef,
-    TResult? Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult? Function(USubjectUnknown value)? unknown,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult? Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoBlobRef value)?
+        repoBlobRef,
+    TResult? Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
   }) {
     return repoBlobRef?.call(this);
   }
@@ -536,10 +573,10 @@ class _$USubjectRepoBlobRefImpl implements USubjectRepoBlobRef {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubjectRepoRef value)? repoRef,
-    TResult Function(USubjectStrongRef value)? strongRef,
-    TResult Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult Function(USubjectUnknown value)? unknown,
+    TResult Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)? repoBlobRef,
+    TResult Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (repoBlobRef != null) {
@@ -549,32 +586,38 @@ class _$USubjectRepoBlobRefImpl implements USubjectRepoBlobRef {
   }
 }
 
-abstract class USubjectRepoBlobRef implements USubject {
-  const factory USubjectRepoBlobRef({required final RepoBlobRef data}) =
-      _$USubjectRepoBlobRefImpl;
+abstract class UUpdateSubjectStatusSubjectRepoBlobRef
+    implements UUpdateSubjectStatusSubject {
+  const factory UUpdateSubjectStatusSubjectRepoBlobRef(
+          {required final RepoBlobRef data}) =
+      _$UUpdateSubjectStatusSubjectRepoBlobRefImpl;
 
   @override
   RepoBlobRef get data;
   @JsonKey(ignore: true)
-  _$$USubjectRepoBlobRefImplCopyWith<_$USubjectRepoBlobRefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UUpdateSubjectStatusSubjectRepoBlobRefImplCopyWith<
+          _$UUpdateSubjectStatusSubjectRepoBlobRefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubjectUnknownImplCopyWith<$Res> {
-  factory _$$USubjectUnknownImplCopyWith(_$USubjectUnknownImpl value,
-          $Res Function(_$USubjectUnknownImpl) then) =
-      __$$USubjectUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UUpdateSubjectStatusSubjectUnknownImplCopyWith<$Res> {
+  factory _$$UUpdateSubjectStatusSubjectUnknownImplCopyWith(
+          _$UUpdateSubjectStatusSubjectUnknownImpl value,
+          $Res Function(_$UUpdateSubjectStatusSubjectUnknownImpl) then) =
+      __$$UUpdateSubjectStatusSubjectUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$USubjectUnknownImplCopyWithImpl<$Res>
-    extends _$USubjectCopyWithImpl<$Res, _$USubjectUnknownImpl>
-    implements _$$USubjectUnknownImplCopyWith<$Res> {
-  __$$USubjectUnknownImplCopyWithImpl(
-      _$USubjectUnknownImpl _value, $Res Function(_$USubjectUnknownImpl) _then)
+class __$$UUpdateSubjectStatusSubjectUnknownImplCopyWithImpl<$Res>
+    extends _$UUpdateSubjectStatusSubjectCopyWithImpl<$Res,
+        _$UUpdateSubjectStatusSubjectUnknownImpl>
+    implements _$$UUpdateSubjectStatusSubjectUnknownImplCopyWith<$Res> {
+  __$$UUpdateSubjectStatusSubjectUnknownImplCopyWithImpl(
+      _$UUpdateSubjectStatusSubjectUnknownImpl _value,
+      $Res Function(_$UUpdateSubjectStatusSubjectUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -582,7 +625,7 @@ class __$$USubjectUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubjectUnknownImpl(
+    return _then(_$UUpdateSubjectStatusSubjectUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -593,8 +636,10 @@ class __$$USubjectUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$USubjectUnknownImpl implements USubjectUnknown {
-  const _$USubjectUnknownImpl({required final Map<String, dynamic> data})
+class _$UUpdateSubjectStatusSubjectUnknownImpl
+    implements UUpdateSubjectStatusSubjectUnknown {
+  const _$UUpdateSubjectStatusSubjectUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -607,14 +652,14 @@ class _$USubjectUnknownImpl implements USubjectUnknown {
 
   @override
   String toString() {
-    return 'USubject.unknown(data: $data)';
+    return 'UUpdateSubjectStatusSubject.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubjectUnknownImpl &&
+            other is _$UUpdateSubjectStatusSubjectUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -625,9 +670,10 @@ class _$USubjectUnknownImpl implements USubjectUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$USubjectUnknownImplCopyWith<_$USubjectUnknownImpl> get copyWith =>
-      __$$USubjectUnknownImplCopyWithImpl<_$USubjectUnknownImpl>(
-          this, _$identity);
+  _$$UUpdateSubjectStatusSubjectUnknownImplCopyWith<
+          _$UUpdateSubjectStatusSubjectUnknownImpl>
+      get copyWith => __$$UUpdateSubjectStatusSubjectUnknownImplCopyWithImpl<
+          _$UUpdateSubjectStatusSubjectUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -669,10 +715,12 @@ class _$USubjectUnknownImpl implements USubjectUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(USubjectRepoRef value) repoRef,
-    required TResult Function(USubjectStrongRef value) strongRef,
-    required TResult Function(USubjectRepoBlobRef value) repoBlobRef,
-    required TResult Function(USubjectUnknown value) unknown,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoRef value) repoRef,
+    required TResult Function(UUpdateSubjectStatusSubjectStrongRef value)
+        strongRef,
+    required TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)
+        repoBlobRef,
+    required TResult Function(UUpdateSubjectStatusSubjectUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -680,10 +728,11 @@ class _$USubjectUnknownImpl implements USubjectUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubjectRepoRef value)? repoRef,
-    TResult? Function(USubjectStrongRef value)? strongRef,
-    TResult? Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult? Function(USubjectUnknown value)? unknown,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult? Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult? Function(UUpdateSubjectStatusSubjectRepoBlobRef value)?
+        repoBlobRef,
+    TResult? Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -691,10 +740,10 @@ class _$USubjectUnknownImpl implements USubjectUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubjectRepoRef value)? repoRef,
-    TResult Function(USubjectStrongRef value)? strongRef,
-    TResult Function(USubjectRepoBlobRef value)? repoBlobRef,
-    TResult Function(USubjectUnknown value)? unknown,
+    TResult Function(UUpdateSubjectStatusSubjectRepoRef value)? repoRef,
+    TResult Function(UUpdateSubjectStatusSubjectStrongRef value)? strongRef,
+    TResult Function(UUpdateSubjectStatusSubjectRepoBlobRef value)? repoBlobRef,
+    TResult Function(UUpdateSubjectStatusSubjectUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -704,13 +753,16 @@ class _$USubjectUnknownImpl implements USubjectUnknown {
   }
 }
 
-abstract class USubjectUnknown implements USubject {
-  const factory USubjectUnknown({required final Map<String, dynamic> data}) =
-      _$USubjectUnknownImpl;
+abstract class UUpdateSubjectStatusSubjectUnknown
+    implements UUpdateSubjectStatusSubject {
+  const factory UUpdateSubjectStatusSubjectUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$UUpdateSubjectStatusSubjectUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$USubjectUnknownImplCopyWith<_$USubjectUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UUpdateSubjectStatusSubjectUnknownImplCopyWith<
+          _$UUpdateSubjectStatusSubjectUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

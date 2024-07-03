@@ -16,8 +16,8 @@ _$GetPostThreadOutputImpl _$$GetPostThreadOutputImplFromJson(Map json) =>
         final val = _$GetPostThreadOutputImpl(
           thread: $checkedConvert(
               'thread',
-              (v) =>
-                  const UThreadConverter().fromJson(v as Map<String, dynamic>)),
+              (v) => const UGetPostThreadThreadConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -31,7 +31,7 @@ _$GetPostThreadOutputImpl _$$GetPostThreadOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$GetPostThreadOutputImplToJson(
     _$GetPostThreadOutputImpl instance) {
   final val = <String, dynamic>{
-    'thread': const UThreadConverter().toJson(instance.thread),
+    'thread': const UGetPostThreadThreadConverter().toJson(instance.thread),
   };
 
   void writeNotNull(String key, dynamic value) {

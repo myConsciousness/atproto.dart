@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../com/atproto/admin/defs/status_attr.dart';
-import '../../../../com/atproto/admin/update_subject_status/union_subject.dart';
+import '../../../../com/atproto/admin/update_subject_status/union_update_subject_status_subject.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -25,7 +25,8 @@ part 'output.g.dart';
 class UpdateSubjectStatusOutput with _$UpdateSubjectStatusOutput {
   @JsonSerializable(includeIfNull: false)
   const factory UpdateSubjectStatusOutput({
-    @USubjectConverter() required USubject subject,
+    @UUpdateSubjectStatusSubjectConverter()
+    required UUpdateSubjectStatusSubject subject,
     @StatusAttrConverter() StatusAttr? takedown,
 
     /// Contains unknown objects not defined in Lexicon.

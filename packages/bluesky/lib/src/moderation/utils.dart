@@ -14,7 +14,7 @@ import '../services/gen_types/app/bsky/actor/defs/muted_word.dart';
 import '../services/gen_types/app/bsky/actor/defs/preferences.dart';
 import '../services/gen_types/app/bsky/actor/defs/union_preference.dart';
 import '../services/gen_types/app/bsky/labeler/defs/labeler_view_detailed.dart';
-import '../services/gen_types/app/bsky/labeler/get_services/union_view.dart';
+import '../services/gen_types/app/bsky/labeler/get_services/union_get_services_view.dart';
 import '../services/gen_types/app/bsky/labeler_service.dart';
 import 'types/behaviors/moderation_prefs.dart';
 import 'types/behaviors/moderation_prefs_labeler.dart';

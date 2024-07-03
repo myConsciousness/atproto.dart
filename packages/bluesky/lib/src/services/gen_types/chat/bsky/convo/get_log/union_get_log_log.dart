@@ -19,66 +19,67 @@ import '../../../../chat/bsky/convo/defs/log_create_message.dart';
 import '../../../../chat/bsky/convo/defs/log_delete_message.dart';
 import '../../../../chat/bsky/convo/defs/log_leave_convo.dart';
 
-part 'union_log.freezed.dart';
+part 'union_get_log_log.freezed.dart';
 
 @freezed
-class ULog with _$ULog {
-  const factory ULog.logBeginConvo({
+class UGetLogLog with _$UGetLogLog {
+  const factory UGetLogLog.logBeginConvo({
     required LogBeginConvo data,
-  }) = ULogLogBeginConvo;
+  }) = UGetLogLogLogBeginConvo;
 
-  const factory ULog.logLeaveConvo({
+  const factory UGetLogLog.logLeaveConvo({
     required LogLeaveConvo data,
-  }) = ULogLogLeaveConvo;
+  }) = UGetLogLogLogLeaveConvo;
 
-  const factory ULog.logCreateMessage({
+  const factory UGetLogLog.logCreateMessage({
     required LogCreateMessage data,
-  }) = ULogLogCreateMessage;
+  }) = UGetLogLogLogCreateMessage;
 
-  const factory ULog.logDeleteMessage({
+  const factory UGetLogLog.logDeleteMessage({
     required LogDeleteMessage data,
-  }) = ULogLogDeleteMessage;
+  }) = UGetLogLogLogDeleteMessage;
 
-  const factory ULog.unknown({
+  const factory UGetLogLog.unknown({
     required Map<String, dynamic> data,
-  }) = ULogUnknown;
+  }) = UGetLogLogUnknown;
 }
 
-final class ULogConverter implements JsonConverter<ULog, Map<String, dynamic>> {
-  const ULogConverter();
+final class UGetLogLogConverter
+    implements JsonConverter<UGetLogLog, Map<String, dynamic>> {
+  const UGetLogLogConverter();
 
   @override
-  ULog fromJson(Map<String, dynamic> json) {
+  UGetLogLog fromJson(Map<String, dynamic> json) {
     try {
       if (isLogBeginConvo(json)) {
-        return ULog.logBeginConvo(
+        return UGetLogLog.logBeginConvo(
           data: const LogBeginConvoConverter().fromJson(json),
         );
       }
       if (isLogLeaveConvo(json)) {
-        return ULog.logLeaveConvo(
+        return UGetLogLog.logLeaveConvo(
           data: const LogLeaveConvoConverter().fromJson(json),
         );
       }
       if (isLogCreateMessage(json)) {
-        return ULog.logCreateMessage(
+        return UGetLogLog.logCreateMessage(
           data: const LogCreateMessageConverter().fromJson(json),
         );
       }
       if (isLogDeleteMessage(json)) {
-        return ULog.logDeleteMessage(
+        return UGetLogLog.logDeleteMessage(
           data: const LogDeleteMessageConverter().fromJson(json),
         );
       }
 
-      return ULog.unknown(data: json);
+      return UGetLogLog.unknown(data: json);
     } catch (_) {
-      return ULog.unknown(data: json);
+      return UGetLogLog.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ULog object) => object.when(
+  Map<String, dynamic> toJson(UGetLogLog object) => object.when(
         logBeginConvo: const LogBeginConvoConverter().toJson,
         logLeaveConvo: const LogLeaveConvoConverter().toJson,
         logCreateMessage: const LogCreateMessageConverter().toJson,
@@ -87,36 +88,36 @@ final class ULogConverter implements JsonConverter<ULog, Map<String, dynamic>> {
       );
 }
 
-extension $ULogExtension on ULog {
+extension $UGetLogLogExtension on UGetLogLog {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const ULogConverter().toJson(this);
+  Map<String, dynamic> toJson() => const UGetLogLogConverter().toJson(this);
 
   /// Returns true if this data is [LogBeginConvo], otherwise false.
-  bool get isLogBeginConvo => this is ULogLogBeginConvo;
+  bool get isLogBeginConvo => this is UGetLogLogLogBeginConvo;
 
   /// Returns true if this data is not [LogBeginConvo], otherwise false.
   bool get isNotLogBeginConvo => !isLogBeginConvo;
 
   /// Returns true if this data is [LogLeaveConvo], otherwise false.
-  bool get isLogLeaveConvo => this is ULogLogLeaveConvo;
+  bool get isLogLeaveConvo => this is UGetLogLogLogLeaveConvo;
 
   /// Returns true if this data is not [LogLeaveConvo], otherwise false.
   bool get isNotLogLeaveConvo => !isLogLeaveConvo;
 
   /// Returns true if this data is [LogCreateMessage], otherwise false.
-  bool get isLogCreateMessage => this is ULogLogCreateMessage;
+  bool get isLogCreateMessage => this is UGetLogLogLogCreateMessage;
 
   /// Returns true if this data is not [LogCreateMessage], otherwise false.
   bool get isNotLogCreateMessage => !isLogCreateMessage;
 
   /// Returns true if this data is [LogDeleteMessage], otherwise false.
-  bool get isLogDeleteMessage => this is ULogLogDeleteMessage;
+  bool get isLogDeleteMessage => this is UGetLogLogLogDeleteMessage;
 
   /// Returns true if this data is not [LogDeleteMessage], otherwise false.
   bool get isNotLogDeleteMessage => !isLogDeleteMessage;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is ULogUnknown;
+  bool get isUnknown => this is UGetLogLogUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

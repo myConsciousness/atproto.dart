@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/feed/get_post_thread/union_thread.dart';
+import '../../../../app/bsky/feed/get_post_thread/union_get_post_thread_thread.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -24,7 +24,7 @@ part 'output.g.dart';
 class GetPostThreadOutput with _$GetPostThreadOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetPostThreadOutput({
-    @UThreadConverter() required UThread thread,
+    @UGetPostThreadThreadConverter() required UGetPostThreadThread thread,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_event.dart';
+part of 'union_emit_event_event.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UEvent {
+mixin _$UEmitEventEvent {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -76,79 +76,89 @@ mixin _$UEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UEventCopyWith<$Res> {
-  factory $UEventCopyWith(UEvent value, $Res Function(UEvent) then) =
-      _$UEventCopyWithImpl<$Res, UEvent>;
+abstract class $UEmitEventEventCopyWith<$Res> {
+  factory $UEmitEventEventCopyWith(
+          UEmitEventEvent value, $Res Function(UEmitEventEvent) then) =
+      _$UEmitEventEventCopyWithImpl<$Res, UEmitEventEvent>;
 }
 
 /// @nodoc
-class _$UEventCopyWithImpl<$Res, $Val extends UEvent>
-    implements $UEventCopyWith<$Res> {
-  _$UEventCopyWithImpl(this._value, this._then);
+class _$UEmitEventEventCopyWithImpl<$Res, $Val extends UEmitEventEvent>
+    implements $UEmitEventEventCopyWith<$Res> {
+  _$UEmitEventEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -157,11 +167,11 @@ class _$UEventCopyWithImpl<$Res, $Val extends UEvent>
 }
 
 /// @nodoc
-abstract class _$$UEventModEventTakedownImplCopyWith<$Res> {
-  factory _$$UEventModEventTakedownImplCopyWith(
-          _$UEventModEventTakedownImpl value,
-          $Res Function(_$UEventModEventTakedownImpl) then) =
-      __$$UEventModEventTakedownImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventTakedownImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventTakedownImplCopyWith(
+          _$UEmitEventEventModEventTakedownImpl value,
+          $Res Function(_$UEmitEventEventModEventTakedownImpl) then) =
+      __$$UEmitEventEventModEventTakedownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventTakedown data});
 
@@ -169,12 +179,13 @@ abstract class _$$UEventModEventTakedownImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventTakedownImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventTakedownImpl>
-    implements _$$UEventModEventTakedownImplCopyWith<$Res> {
-  __$$UEventModEventTakedownImplCopyWithImpl(
-      _$UEventModEventTakedownImpl _value,
-      $Res Function(_$UEventModEventTakedownImpl) _then)
+class __$$UEmitEventEventModEventTakedownImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventTakedownImpl>
+    implements _$$UEmitEventEventModEventTakedownImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventTakedownImplCopyWithImpl(
+      _$UEmitEventEventModEventTakedownImpl _value,
+      $Res Function(_$UEmitEventEventModEventTakedownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -182,7 +193,7 @@ class __$$UEventModEventTakedownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventTakedownImpl(
+    return _then(_$UEmitEventEventModEventTakedownImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -201,22 +212,23 @@ class __$$UEventModEventTakedownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventTakedownImpl implements UEventModEventTakedown {
-  const _$UEventModEventTakedownImpl({required this.data});
+class _$UEmitEventEventModEventTakedownImpl
+    implements UEmitEventEventModEventTakedown {
+  const _$UEmitEventEventModEventTakedownImpl({required this.data});
 
   @override
   final ModEventTakedown data;
 
   @override
   String toString() {
-    return 'UEvent.modEventTakedown(data: $data)';
+    return 'UEmitEventEvent.modEventTakedown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventTakedownImpl &&
+            other is _$UEmitEventEventModEventTakedownImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -226,9 +238,10 @@ class _$UEventModEventTakedownImpl implements UEventModEventTakedown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventTakedownImplCopyWith<_$UEventModEventTakedownImpl>
-      get copyWith => __$$UEventModEventTakedownImplCopyWithImpl<
-          _$UEventModEventTakedownImpl>(this, _$identity);
+  _$$UEmitEventEventModEventTakedownImplCopyWith<
+          _$UEmitEventEventModEventTakedownImpl>
+      get copyWith => __$$UEmitEventEventModEventTakedownImplCopyWithImpl<
+          _$UEmitEventEventModEventTakedownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -302,24 +315,29 @@ class _$UEventModEventTakedownImpl implements UEventModEventTakedown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventTakedown(this);
   }
@@ -327,22 +345,24 @@ class _$UEventModEventTakedownImpl implements UEventModEventTakedown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventTakedown?.call(this);
   }
@@ -350,22 +370,24 @@ class _$UEventModEventTakedownImpl implements UEventModEventTakedown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventTakedown != null) {
@@ -375,23 +397,25 @@ class _$UEventModEventTakedownImpl implements UEventModEventTakedown {
   }
 }
 
-abstract class UEventModEventTakedown implements UEvent {
-  const factory UEventModEventTakedown({required final ModEventTakedown data}) =
-      _$UEventModEventTakedownImpl;
+abstract class UEmitEventEventModEventTakedown implements UEmitEventEvent {
+  const factory UEmitEventEventModEventTakedown(
+          {required final ModEventTakedown data}) =
+      _$UEmitEventEventModEventTakedownImpl;
 
   @override
   ModEventTakedown get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventTakedownImplCopyWith<_$UEventModEventTakedownImpl>
+  _$$UEmitEventEventModEventTakedownImplCopyWith<
+          _$UEmitEventEventModEventTakedownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventAcknowledgeImplCopyWith<$Res> {
-  factory _$$UEventModEventAcknowledgeImplCopyWith(
-          _$UEventModEventAcknowledgeImpl value,
-          $Res Function(_$UEventModEventAcknowledgeImpl) then) =
-      __$$UEventModEventAcknowledgeImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventAcknowledgeImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventAcknowledgeImplCopyWith(
+          _$UEmitEventEventModEventAcknowledgeImpl value,
+          $Res Function(_$UEmitEventEventModEventAcknowledgeImpl) then) =
+      __$$UEmitEventEventModEventAcknowledgeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventAcknowledge data});
 
@@ -399,12 +423,13 @@ abstract class _$$UEventModEventAcknowledgeImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventAcknowledgeImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventAcknowledgeImpl>
-    implements _$$UEventModEventAcknowledgeImplCopyWith<$Res> {
-  __$$UEventModEventAcknowledgeImplCopyWithImpl(
-      _$UEventModEventAcknowledgeImpl _value,
-      $Res Function(_$UEventModEventAcknowledgeImpl) _then)
+class __$$UEmitEventEventModEventAcknowledgeImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventAcknowledgeImpl>
+    implements _$$UEmitEventEventModEventAcknowledgeImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventAcknowledgeImplCopyWithImpl(
+      _$UEmitEventEventModEventAcknowledgeImpl _value,
+      $Res Function(_$UEmitEventEventModEventAcknowledgeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -412,7 +437,7 @@ class __$$UEventModEventAcknowledgeImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventAcknowledgeImpl(
+    return _then(_$UEmitEventEventModEventAcknowledgeImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -431,22 +456,23 @@ class __$$UEventModEventAcknowledgeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventAcknowledgeImpl implements UEventModEventAcknowledge {
-  const _$UEventModEventAcknowledgeImpl({required this.data});
+class _$UEmitEventEventModEventAcknowledgeImpl
+    implements UEmitEventEventModEventAcknowledge {
+  const _$UEmitEventEventModEventAcknowledgeImpl({required this.data});
 
   @override
   final ModEventAcknowledge data;
 
   @override
   String toString() {
-    return 'UEvent.modEventAcknowledge(data: $data)';
+    return 'UEmitEventEvent.modEventAcknowledge(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventAcknowledgeImpl &&
+            other is _$UEmitEventEventModEventAcknowledgeImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -456,9 +482,10 @@ class _$UEventModEventAcknowledgeImpl implements UEventModEventAcknowledge {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventAcknowledgeImplCopyWith<_$UEventModEventAcknowledgeImpl>
-      get copyWith => __$$UEventModEventAcknowledgeImplCopyWithImpl<
-          _$UEventModEventAcknowledgeImpl>(this, _$identity);
+  _$$UEmitEventEventModEventAcknowledgeImplCopyWith<
+          _$UEmitEventEventModEventAcknowledgeImpl>
+      get copyWith => __$$UEmitEventEventModEventAcknowledgeImplCopyWithImpl<
+          _$UEmitEventEventModEventAcknowledgeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -532,24 +559,29 @@ class _$UEventModEventAcknowledgeImpl implements UEventModEventAcknowledge {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventAcknowledge(this);
   }
@@ -557,22 +589,24 @@ class _$UEventModEventAcknowledgeImpl implements UEventModEventAcknowledge {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventAcknowledge?.call(this);
   }
@@ -580,22 +614,24 @@ class _$UEventModEventAcknowledgeImpl implements UEventModEventAcknowledge {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventAcknowledge != null) {
@@ -605,24 +641,25 @@ class _$UEventModEventAcknowledgeImpl implements UEventModEventAcknowledge {
   }
 }
 
-abstract class UEventModEventAcknowledge implements UEvent {
-  const factory UEventModEventAcknowledge(
+abstract class UEmitEventEventModEventAcknowledge implements UEmitEventEvent {
+  const factory UEmitEventEventModEventAcknowledge(
           {required final ModEventAcknowledge data}) =
-      _$UEventModEventAcknowledgeImpl;
+      _$UEmitEventEventModEventAcknowledgeImpl;
 
   @override
   ModEventAcknowledge get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventAcknowledgeImplCopyWith<_$UEventModEventAcknowledgeImpl>
+  _$$UEmitEventEventModEventAcknowledgeImplCopyWith<
+          _$UEmitEventEventModEventAcknowledgeImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventEscalateImplCopyWith<$Res> {
-  factory _$$UEventModEventEscalateImplCopyWith(
-          _$UEventModEventEscalateImpl value,
-          $Res Function(_$UEventModEventEscalateImpl) then) =
-      __$$UEventModEventEscalateImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventEscalateImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventEscalateImplCopyWith(
+          _$UEmitEventEventModEventEscalateImpl value,
+          $Res Function(_$UEmitEventEventModEventEscalateImpl) then) =
+      __$$UEmitEventEventModEventEscalateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventEscalate data});
 
@@ -630,12 +667,13 @@ abstract class _$$UEventModEventEscalateImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventEscalateImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventEscalateImpl>
-    implements _$$UEventModEventEscalateImplCopyWith<$Res> {
-  __$$UEventModEventEscalateImplCopyWithImpl(
-      _$UEventModEventEscalateImpl _value,
-      $Res Function(_$UEventModEventEscalateImpl) _then)
+class __$$UEmitEventEventModEventEscalateImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventEscalateImpl>
+    implements _$$UEmitEventEventModEventEscalateImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventEscalateImplCopyWithImpl(
+      _$UEmitEventEventModEventEscalateImpl _value,
+      $Res Function(_$UEmitEventEventModEventEscalateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -643,7 +681,7 @@ class __$$UEventModEventEscalateImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventEscalateImpl(
+    return _then(_$UEmitEventEventModEventEscalateImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -662,22 +700,23 @@ class __$$UEventModEventEscalateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventEscalateImpl implements UEventModEventEscalate {
-  const _$UEventModEventEscalateImpl({required this.data});
+class _$UEmitEventEventModEventEscalateImpl
+    implements UEmitEventEventModEventEscalate {
+  const _$UEmitEventEventModEventEscalateImpl({required this.data});
 
   @override
   final ModEventEscalate data;
 
   @override
   String toString() {
-    return 'UEvent.modEventEscalate(data: $data)';
+    return 'UEmitEventEvent.modEventEscalate(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventEscalateImpl &&
+            other is _$UEmitEventEventModEventEscalateImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -687,9 +726,10 @@ class _$UEventModEventEscalateImpl implements UEventModEventEscalate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventEscalateImplCopyWith<_$UEventModEventEscalateImpl>
-      get copyWith => __$$UEventModEventEscalateImplCopyWithImpl<
-          _$UEventModEventEscalateImpl>(this, _$identity);
+  _$$UEmitEventEventModEventEscalateImplCopyWith<
+          _$UEmitEventEventModEventEscalateImpl>
+      get copyWith => __$$UEmitEventEventModEventEscalateImplCopyWithImpl<
+          _$UEmitEventEventModEventEscalateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -763,24 +803,29 @@ class _$UEventModEventEscalateImpl implements UEventModEventEscalate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventEscalate(this);
   }
@@ -788,22 +833,24 @@ class _$UEventModEventEscalateImpl implements UEventModEventEscalate {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventEscalate?.call(this);
   }
@@ -811,22 +858,24 @@ class _$UEventModEventEscalateImpl implements UEventModEventEscalate {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventEscalate != null) {
@@ -836,23 +885,25 @@ class _$UEventModEventEscalateImpl implements UEventModEventEscalate {
   }
 }
 
-abstract class UEventModEventEscalate implements UEvent {
-  const factory UEventModEventEscalate({required final ModEventEscalate data}) =
-      _$UEventModEventEscalateImpl;
+abstract class UEmitEventEventModEventEscalate implements UEmitEventEvent {
+  const factory UEmitEventEventModEventEscalate(
+          {required final ModEventEscalate data}) =
+      _$UEmitEventEventModEventEscalateImpl;
 
   @override
   ModEventEscalate get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventEscalateImplCopyWith<_$UEventModEventEscalateImpl>
+  _$$UEmitEventEventModEventEscalateImplCopyWith<
+          _$UEmitEventEventModEventEscalateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventCommentImplCopyWith<$Res> {
-  factory _$$UEventModEventCommentImplCopyWith(
-          _$UEventModEventCommentImpl value,
-          $Res Function(_$UEventModEventCommentImpl) then) =
-      __$$UEventModEventCommentImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventCommentImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventCommentImplCopyWith(
+          _$UEmitEventEventModEventCommentImpl value,
+          $Res Function(_$UEmitEventEventModEventCommentImpl) then) =
+      __$$UEmitEventEventModEventCommentImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventComment data});
 
@@ -860,11 +911,13 @@ abstract class _$$UEventModEventCommentImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventCommentImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventCommentImpl>
-    implements _$$UEventModEventCommentImplCopyWith<$Res> {
-  __$$UEventModEventCommentImplCopyWithImpl(_$UEventModEventCommentImpl _value,
-      $Res Function(_$UEventModEventCommentImpl) _then)
+class __$$UEmitEventEventModEventCommentImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventCommentImpl>
+    implements _$$UEmitEventEventModEventCommentImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventCommentImplCopyWithImpl(
+      _$UEmitEventEventModEventCommentImpl _value,
+      $Res Function(_$UEmitEventEventModEventCommentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -872,7 +925,7 @@ class __$$UEventModEventCommentImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventCommentImpl(
+    return _then(_$UEmitEventEventModEventCommentImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -891,22 +944,23 @@ class __$$UEventModEventCommentImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventCommentImpl implements UEventModEventComment {
-  const _$UEventModEventCommentImpl({required this.data});
+class _$UEmitEventEventModEventCommentImpl
+    implements UEmitEventEventModEventComment {
+  const _$UEmitEventEventModEventCommentImpl({required this.data});
 
   @override
   final ModEventComment data;
 
   @override
   String toString() {
-    return 'UEvent.modEventComment(data: $data)';
+    return 'UEmitEventEvent.modEventComment(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventCommentImpl &&
+            other is _$UEmitEventEventModEventCommentImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -916,9 +970,10 @@ class _$UEventModEventCommentImpl implements UEventModEventComment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventCommentImplCopyWith<_$UEventModEventCommentImpl>
-      get copyWith => __$$UEventModEventCommentImplCopyWithImpl<
-          _$UEventModEventCommentImpl>(this, _$identity);
+  _$$UEmitEventEventModEventCommentImplCopyWith<
+          _$UEmitEventEventModEventCommentImpl>
+      get copyWith => __$$UEmitEventEventModEventCommentImplCopyWithImpl<
+          _$UEmitEventEventModEventCommentImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -992,24 +1047,29 @@ class _$UEventModEventCommentImpl implements UEventModEventComment {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventComment(this);
   }
@@ -1017,22 +1077,24 @@ class _$UEventModEventCommentImpl implements UEventModEventComment {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventComment?.call(this);
   }
@@ -1040,22 +1102,24 @@ class _$UEventModEventCommentImpl implements UEventModEventComment {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventComment != null) {
@@ -1065,22 +1129,25 @@ class _$UEventModEventCommentImpl implements UEventModEventComment {
   }
 }
 
-abstract class UEventModEventComment implements UEvent {
-  const factory UEventModEventComment({required final ModEventComment data}) =
-      _$UEventModEventCommentImpl;
+abstract class UEmitEventEventModEventComment implements UEmitEventEvent {
+  const factory UEmitEventEventModEventComment(
+          {required final ModEventComment data}) =
+      _$UEmitEventEventModEventCommentImpl;
 
   @override
   ModEventComment get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventCommentImplCopyWith<_$UEventModEventCommentImpl>
+  _$$UEmitEventEventModEventCommentImplCopyWith<
+          _$UEmitEventEventModEventCommentImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventLabelImplCopyWith<$Res> {
-  factory _$$UEventModEventLabelImplCopyWith(_$UEventModEventLabelImpl value,
-          $Res Function(_$UEventModEventLabelImpl) then) =
-      __$$UEventModEventLabelImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventLabelImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventLabelImplCopyWith(
+          _$UEmitEventEventModEventLabelImpl value,
+          $Res Function(_$UEmitEventEventModEventLabelImpl) then) =
+      __$$UEmitEventEventModEventLabelImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventLabel data});
 
@@ -1088,11 +1155,13 @@ abstract class _$$UEventModEventLabelImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventLabelImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventLabelImpl>
-    implements _$$UEventModEventLabelImplCopyWith<$Res> {
-  __$$UEventModEventLabelImplCopyWithImpl(_$UEventModEventLabelImpl _value,
-      $Res Function(_$UEventModEventLabelImpl) _then)
+class __$$UEmitEventEventModEventLabelImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventLabelImpl>
+    implements _$$UEmitEventEventModEventLabelImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventLabelImplCopyWithImpl(
+      _$UEmitEventEventModEventLabelImpl _value,
+      $Res Function(_$UEmitEventEventModEventLabelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1100,7 +1169,7 @@ class __$$UEventModEventLabelImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventLabelImpl(
+    return _then(_$UEmitEventEventModEventLabelImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1119,22 +1188,23 @@ class __$$UEventModEventLabelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventLabelImpl implements UEventModEventLabel {
-  const _$UEventModEventLabelImpl({required this.data});
+class _$UEmitEventEventModEventLabelImpl
+    implements UEmitEventEventModEventLabel {
+  const _$UEmitEventEventModEventLabelImpl({required this.data});
 
   @override
   final ModEventLabel data;
 
   @override
   String toString() {
-    return 'UEvent.modEventLabel(data: $data)';
+    return 'UEmitEventEvent.modEventLabel(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventLabelImpl &&
+            other is _$UEmitEventEventModEventLabelImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1144,9 +1214,10 @@ class _$UEventModEventLabelImpl implements UEventModEventLabel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventLabelImplCopyWith<_$UEventModEventLabelImpl> get copyWith =>
-      __$$UEventModEventLabelImplCopyWithImpl<_$UEventModEventLabelImpl>(
-          this, _$identity);
+  _$$UEmitEventEventModEventLabelImplCopyWith<
+          _$UEmitEventEventModEventLabelImpl>
+      get copyWith => __$$UEmitEventEventModEventLabelImplCopyWithImpl<
+          _$UEmitEventEventModEventLabelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1220,24 +1291,29 @@ class _$UEventModEventLabelImpl implements UEventModEventLabel {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventLabel(this);
   }
@@ -1245,22 +1321,24 @@ class _$UEventModEventLabelImpl implements UEventModEventLabel {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventLabel?.call(this);
   }
@@ -1268,22 +1346,24 @@ class _$UEventModEventLabelImpl implements UEventModEventLabel {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventLabel != null) {
@@ -1293,22 +1373,24 @@ class _$UEventModEventLabelImpl implements UEventModEventLabel {
   }
 }
 
-abstract class UEventModEventLabel implements UEvent {
-  const factory UEventModEventLabel({required final ModEventLabel data}) =
-      _$UEventModEventLabelImpl;
+abstract class UEmitEventEventModEventLabel implements UEmitEventEvent {
+  const factory UEmitEventEventModEventLabel(
+      {required final ModEventLabel data}) = _$UEmitEventEventModEventLabelImpl;
 
   @override
   ModEventLabel get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventLabelImplCopyWith<_$UEventModEventLabelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UEmitEventEventModEventLabelImplCopyWith<
+          _$UEmitEventEventModEventLabelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventReportImplCopyWith<$Res> {
-  factory _$$UEventModEventReportImplCopyWith(_$UEventModEventReportImpl value,
-          $Res Function(_$UEventModEventReportImpl) then) =
-      __$$UEventModEventReportImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventReportImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventReportImplCopyWith(
+          _$UEmitEventEventModEventReportImpl value,
+          $Res Function(_$UEmitEventEventModEventReportImpl) then) =
+      __$$UEmitEventEventModEventReportImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventReport data});
 
@@ -1316,11 +1398,13 @@ abstract class _$$UEventModEventReportImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventReportImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventReportImpl>
-    implements _$$UEventModEventReportImplCopyWith<$Res> {
-  __$$UEventModEventReportImplCopyWithImpl(_$UEventModEventReportImpl _value,
-      $Res Function(_$UEventModEventReportImpl) _then)
+class __$$UEmitEventEventModEventReportImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventReportImpl>
+    implements _$$UEmitEventEventModEventReportImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventReportImplCopyWithImpl(
+      _$UEmitEventEventModEventReportImpl _value,
+      $Res Function(_$UEmitEventEventModEventReportImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1328,7 +1412,7 @@ class __$$UEventModEventReportImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventReportImpl(
+    return _then(_$UEmitEventEventModEventReportImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1347,22 +1431,23 @@ class __$$UEventModEventReportImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventReportImpl implements UEventModEventReport {
-  const _$UEventModEventReportImpl({required this.data});
+class _$UEmitEventEventModEventReportImpl
+    implements UEmitEventEventModEventReport {
+  const _$UEmitEventEventModEventReportImpl({required this.data});
 
   @override
   final ModEventReport data;
 
   @override
   String toString() {
-    return 'UEvent.modEventReport(data: $data)';
+    return 'UEmitEventEvent.modEventReport(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventReportImpl &&
+            other is _$UEmitEventEventModEventReportImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1372,10 +1457,10 @@ class _$UEventModEventReportImpl implements UEventModEventReport {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventReportImplCopyWith<_$UEventModEventReportImpl>
-      get copyWith =>
-          __$$UEventModEventReportImplCopyWithImpl<_$UEventModEventReportImpl>(
-              this, _$identity);
+  _$$UEmitEventEventModEventReportImplCopyWith<
+          _$UEmitEventEventModEventReportImpl>
+      get copyWith => __$$UEmitEventEventModEventReportImplCopyWithImpl<
+          _$UEmitEventEventModEventReportImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1449,24 +1534,29 @@ class _$UEventModEventReportImpl implements UEventModEventReport {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventReport(this);
   }
@@ -1474,22 +1564,24 @@ class _$UEventModEventReportImpl implements UEventModEventReport {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventReport?.call(this);
   }
@@ -1497,22 +1589,24 @@ class _$UEventModEventReportImpl implements UEventModEventReport {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventReport != null) {
@@ -1522,22 +1616,25 @@ class _$UEventModEventReportImpl implements UEventModEventReport {
   }
 }
 
-abstract class UEventModEventReport implements UEvent {
-  const factory UEventModEventReport({required final ModEventReport data}) =
-      _$UEventModEventReportImpl;
+abstract class UEmitEventEventModEventReport implements UEmitEventEvent {
+  const factory UEmitEventEventModEventReport(
+          {required final ModEventReport data}) =
+      _$UEmitEventEventModEventReportImpl;
 
   @override
   ModEventReport get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventReportImplCopyWith<_$UEventModEventReportImpl>
+  _$$UEmitEventEventModEventReportImplCopyWith<
+          _$UEmitEventEventModEventReportImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventMuteImplCopyWith<$Res> {
-  factory _$$UEventModEventMuteImplCopyWith(_$UEventModEventMuteImpl value,
-          $Res Function(_$UEventModEventMuteImpl) then) =
-      __$$UEventModEventMuteImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventMuteImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventMuteImplCopyWith(
+          _$UEmitEventEventModEventMuteImpl value,
+          $Res Function(_$UEmitEventEventModEventMuteImpl) then) =
+      __$$UEmitEventEventModEventMuteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventMute data});
 
@@ -1545,11 +1642,13 @@ abstract class _$$UEventModEventMuteImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventMuteImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventMuteImpl>
-    implements _$$UEventModEventMuteImplCopyWith<$Res> {
-  __$$UEventModEventMuteImplCopyWithImpl(_$UEventModEventMuteImpl _value,
-      $Res Function(_$UEventModEventMuteImpl) _then)
+class __$$UEmitEventEventModEventMuteImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventMuteImpl>
+    implements _$$UEmitEventEventModEventMuteImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventMuteImplCopyWithImpl(
+      _$UEmitEventEventModEventMuteImpl _value,
+      $Res Function(_$UEmitEventEventModEventMuteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1557,7 +1656,7 @@ class __$$UEventModEventMuteImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventMuteImpl(
+    return _then(_$UEmitEventEventModEventMuteImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1576,22 +1675,22 @@ class __$$UEventModEventMuteImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventMuteImpl implements UEventModEventMute {
-  const _$UEventModEventMuteImpl({required this.data});
+class _$UEmitEventEventModEventMuteImpl implements UEmitEventEventModEventMute {
+  const _$UEmitEventEventModEventMuteImpl({required this.data});
 
   @override
   final ModEventMute data;
 
   @override
   String toString() {
-    return 'UEvent.modEventMute(data: $data)';
+    return 'UEmitEventEvent.modEventMute(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventMuteImpl &&
+            other is _$UEmitEventEventModEventMuteImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1601,9 +1700,9 @@ class _$UEventModEventMuteImpl implements UEventModEventMute {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventMuteImplCopyWith<_$UEventModEventMuteImpl> get copyWith =>
-      __$$UEventModEventMuteImplCopyWithImpl<_$UEventModEventMuteImpl>(
-          this, _$identity);
+  _$$UEmitEventEventModEventMuteImplCopyWith<_$UEmitEventEventModEventMuteImpl>
+      get copyWith => __$$UEmitEventEventModEventMuteImplCopyWithImpl<
+          _$UEmitEventEventModEventMuteImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1677,24 +1776,29 @@ class _$UEventModEventMuteImpl implements UEventModEventMute {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventMute(this);
   }
@@ -1702,22 +1806,24 @@ class _$UEventModEventMuteImpl implements UEventModEventMute {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventMute?.call(this);
   }
@@ -1725,22 +1831,24 @@ class _$UEventModEventMuteImpl implements UEventModEventMute {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventMute != null) {
@@ -1750,22 +1858,23 @@ class _$UEventModEventMuteImpl implements UEventModEventMute {
   }
 }
 
-abstract class UEventModEventMute implements UEvent {
-  const factory UEventModEventMute({required final ModEventMute data}) =
-      _$UEventModEventMuteImpl;
+abstract class UEmitEventEventModEventMute implements UEmitEventEvent {
+  const factory UEmitEventEventModEventMute(
+      {required final ModEventMute data}) = _$UEmitEventEventModEventMuteImpl;
 
   @override
   ModEventMute get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventMuteImplCopyWith<_$UEventModEventMuteImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UEmitEventEventModEventMuteImplCopyWith<_$UEmitEventEventModEventMuteImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventUnmuteImplCopyWith<$Res> {
-  factory _$$UEventModEventUnmuteImplCopyWith(_$UEventModEventUnmuteImpl value,
-          $Res Function(_$UEventModEventUnmuteImpl) then) =
-      __$$UEventModEventUnmuteImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventUnmuteImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventUnmuteImplCopyWith(
+          _$UEmitEventEventModEventUnmuteImpl value,
+          $Res Function(_$UEmitEventEventModEventUnmuteImpl) then) =
+      __$$UEmitEventEventModEventUnmuteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventUnmute data});
 
@@ -1773,11 +1882,13 @@ abstract class _$$UEventModEventUnmuteImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventUnmuteImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventUnmuteImpl>
-    implements _$$UEventModEventUnmuteImplCopyWith<$Res> {
-  __$$UEventModEventUnmuteImplCopyWithImpl(_$UEventModEventUnmuteImpl _value,
-      $Res Function(_$UEventModEventUnmuteImpl) _then)
+class __$$UEmitEventEventModEventUnmuteImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventUnmuteImpl>
+    implements _$$UEmitEventEventModEventUnmuteImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventUnmuteImplCopyWithImpl(
+      _$UEmitEventEventModEventUnmuteImpl _value,
+      $Res Function(_$UEmitEventEventModEventUnmuteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1785,7 +1896,7 @@ class __$$UEventModEventUnmuteImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventUnmuteImpl(
+    return _then(_$UEmitEventEventModEventUnmuteImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1804,22 +1915,23 @@ class __$$UEventModEventUnmuteImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventUnmuteImpl implements UEventModEventUnmute {
-  const _$UEventModEventUnmuteImpl({required this.data});
+class _$UEmitEventEventModEventUnmuteImpl
+    implements UEmitEventEventModEventUnmute {
+  const _$UEmitEventEventModEventUnmuteImpl({required this.data});
 
   @override
   final ModEventUnmute data;
 
   @override
   String toString() {
-    return 'UEvent.modEventUnmute(data: $data)';
+    return 'UEmitEventEvent.modEventUnmute(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventUnmuteImpl &&
+            other is _$UEmitEventEventModEventUnmuteImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1829,10 +1941,10 @@ class _$UEventModEventUnmuteImpl implements UEventModEventUnmute {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventUnmuteImplCopyWith<_$UEventModEventUnmuteImpl>
-      get copyWith =>
-          __$$UEventModEventUnmuteImplCopyWithImpl<_$UEventModEventUnmuteImpl>(
-              this, _$identity);
+  _$$UEmitEventEventModEventUnmuteImplCopyWith<
+          _$UEmitEventEventModEventUnmuteImpl>
+      get copyWith => __$$UEmitEventEventModEventUnmuteImplCopyWithImpl<
+          _$UEmitEventEventModEventUnmuteImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1906,24 +2018,29 @@ class _$UEventModEventUnmuteImpl implements UEventModEventUnmute {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventUnmute(this);
   }
@@ -1931,22 +2048,24 @@ class _$UEventModEventUnmuteImpl implements UEventModEventUnmute {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventUnmute?.call(this);
   }
@@ -1954,22 +2073,24 @@ class _$UEventModEventUnmuteImpl implements UEventModEventUnmute {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventUnmute != null) {
@@ -1979,23 +2100,25 @@ class _$UEventModEventUnmuteImpl implements UEventModEventUnmute {
   }
 }
 
-abstract class UEventModEventUnmute implements UEvent {
-  const factory UEventModEventUnmute({required final ModEventUnmute data}) =
-      _$UEventModEventUnmuteImpl;
+abstract class UEmitEventEventModEventUnmute implements UEmitEventEvent {
+  const factory UEmitEventEventModEventUnmute(
+          {required final ModEventUnmute data}) =
+      _$UEmitEventEventModEventUnmuteImpl;
 
   @override
   ModEventUnmute get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventUnmuteImplCopyWith<_$UEventModEventUnmuteImpl>
+  _$$UEmitEventEventModEventUnmuteImplCopyWith<
+          _$UEmitEventEventModEventUnmuteImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventMuteReporterImplCopyWith<$Res> {
-  factory _$$UEventModEventMuteReporterImplCopyWith(
-          _$UEventModEventMuteReporterImpl value,
-          $Res Function(_$UEventModEventMuteReporterImpl) then) =
-      __$$UEventModEventMuteReporterImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventMuteReporterImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventMuteReporterImplCopyWith(
+          _$UEmitEventEventModEventMuteReporterImpl value,
+          $Res Function(_$UEmitEventEventModEventMuteReporterImpl) then) =
+      __$$UEmitEventEventModEventMuteReporterImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventMuteReporter data});
 
@@ -2003,12 +2126,13 @@ abstract class _$$UEventModEventMuteReporterImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventMuteReporterImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventMuteReporterImpl>
-    implements _$$UEventModEventMuteReporterImplCopyWith<$Res> {
-  __$$UEventModEventMuteReporterImplCopyWithImpl(
-      _$UEventModEventMuteReporterImpl _value,
-      $Res Function(_$UEventModEventMuteReporterImpl) _then)
+class __$$UEmitEventEventModEventMuteReporterImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventMuteReporterImpl>
+    implements _$$UEmitEventEventModEventMuteReporterImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventMuteReporterImplCopyWithImpl(
+      _$UEmitEventEventModEventMuteReporterImpl _value,
+      $Res Function(_$UEmitEventEventModEventMuteReporterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2016,7 +2140,7 @@ class __$$UEventModEventMuteReporterImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventMuteReporterImpl(
+    return _then(_$UEmitEventEventModEventMuteReporterImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -2035,22 +2159,23 @@ class __$$UEventModEventMuteReporterImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventMuteReporterImpl implements UEventModEventMuteReporter {
-  const _$UEventModEventMuteReporterImpl({required this.data});
+class _$UEmitEventEventModEventMuteReporterImpl
+    implements UEmitEventEventModEventMuteReporter {
+  const _$UEmitEventEventModEventMuteReporterImpl({required this.data});
 
   @override
   final ModEventMuteReporter data;
 
   @override
   String toString() {
-    return 'UEvent.modEventMuteReporter(data: $data)';
+    return 'UEmitEventEvent.modEventMuteReporter(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventMuteReporterImpl &&
+            other is _$UEmitEventEventModEventMuteReporterImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -2060,9 +2185,10 @@ class _$UEventModEventMuteReporterImpl implements UEventModEventMuteReporter {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventMuteReporterImplCopyWith<_$UEventModEventMuteReporterImpl>
-      get copyWith => __$$UEventModEventMuteReporterImplCopyWithImpl<
-          _$UEventModEventMuteReporterImpl>(this, _$identity);
+  _$$UEmitEventEventModEventMuteReporterImplCopyWith<
+          _$UEmitEventEventModEventMuteReporterImpl>
+      get copyWith => __$$UEmitEventEventModEventMuteReporterImplCopyWithImpl<
+          _$UEmitEventEventModEventMuteReporterImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2136,24 +2262,29 @@ class _$UEventModEventMuteReporterImpl implements UEventModEventMuteReporter {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventMuteReporter(this);
   }
@@ -2161,22 +2292,24 @@ class _$UEventModEventMuteReporterImpl implements UEventModEventMuteReporter {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventMuteReporter?.call(this);
   }
@@ -2184,22 +2317,24 @@ class _$UEventModEventMuteReporterImpl implements UEventModEventMuteReporter {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventMuteReporter != null) {
@@ -2209,24 +2344,25 @@ class _$UEventModEventMuteReporterImpl implements UEventModEventMuteReporter {
   }
 }
 
-abstract class UEventModEventMuteReporter implements UEvent {
-  const factory UEventModEventMuteReporter(
+abstract class UEmitEventEventModEventMuteReporter implements UEmitEventEvent {
+  const factory UEmitEventEventModEventMuteReporter(
           {required final ModEventMuteReporter data}) =
-      _$UEventModEventMuteReporterImpl;
+      _$UEmitEventEventModEventMuteReporterImpl;
 
   @override
   ModEventMuteReporter get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventMuteReporterImplCopyWith<_$UEventModEventMuteReporterImpl>
+  _$$UEmitEventEventModEventMuteReporterImplCopyWith<
+          _$UEmitEventEventModEventMuteReporterImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventUnmuteReporterImplCopyWith<$Res> {
-  factory _$$UEventModEventUnmuteReporterImplCopyWith(
-          _$UEventModEventUnmuteReporterImpl value,
-          $Res Function(_$UEventModEventUnmuteReporterImpl) then) =
-      __$$UEventModEventUnmuteReporterImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventUnmuteReporterImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventUnmuteReporterImplCopyWith(
+          _$UEmitEventEventModEventUnmuteReporterImpl value,
+          $Res Function(_$UEmitEventEventModEventUnmuteReporterImpl) then) =
+      __$$UEmitEventEventModEventUnmuteReporterImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventUnmuteReporter data});
 
@@ -2234,12 +2370,13 @@ abstract class _$$UEventModEventUnmuteReporterImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventUnmuteReporterImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventUnmuteReporterImpl>
-    implements _$$UEventModEventUnmuteReporterImplCopyWith<$Res> {
-  __$$UEventModEventUnmuteReporterImplCopyWithImpl(
-      _$UEventModEventUnmuteReporterImpl _value,
-      $Res Function(_$UEventModEventUnmuteReporterImpl) _then)
+class __$$UEmitEventEventModEventUnmuteReporterImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventUnmuteReporterImpl>
+    implements _$$UEmitEventEventModEventUnmuteReporterImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventUnmuteReporterImplCopyWithImpl(
+      _$UEmitEventEventModEventUnmuteReporterImpl _value,
+      $Res Function(_$UEmitEventEventModEventUnmuteReporterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2247,7 +2384,7 @@ class __$$UEventModEventUnmuteReporterImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventUnmuteReporterImpl(
+    return _then(_$UEmitEventEventModEventUnmuteReporterImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -2266,23 +2403,23 @@ class __$$UEventModEventUnmuteReporterImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventUnmuteReporterImpl
-    implements UEventModEventUnmuteReporter {
-  const _$UEventModEventUnmuteReporterImpl({required this.data});
+class _$UEmitEventEventModEventUnmuteReporterImpl
+    implements UEmitEventEventModEventUnmuteReporter {
+  const _$UEmitEventEventModEventUnmuteReporterImpl({required this.data});
 
   @override
   final ModEventUnmuteReporter data;
 
   @override
   String toString() {
-    return 'UEvent.modEventUnmuteReporter(data: $data)';
+    return 'UEmitEventEvent.modEventUnmuteReporter(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventUnmuteReporterImpl &&
+            other is _$UEmitEventEventModEventUnmuteReporterImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -2292,10 +2429,10 @@ class _$UEventModEventUnmuteReporterImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventUnmuteReporterImplCopyWith<
-          _$UEventModEventUnmuteReporterImpl>
-      get copyWith => __$$UEventModEventUnmuteReporterImplCopyWithImpl<
-          _$UEventModEventUnmuteReporterImpl>(this, _$identity);
+  _$$UEmitEventEventModEventUnmuteReporterImplCopyWith<
+          _$UEmitEventEventModEventUnmuteReporterImpl>
+      get copyWith => __$$UEmitEventEventModEventUnmuteReporterImplCopyWithImpl<
+          _$UEmitEventEventModEventUnmuteReporterImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2369,24 +2506,29 @@ class _$UEventModEventUnmuteReporterImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventUnmuteReporter(this);
   }
@@ -2394,22 +2536,24 @@ class _$UEventModEventUnmuteReporterImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventUnmuteReporter?.call(this);
   }
@@ -2417,22 +2561,24 @@ class _$UEventModEventUnmuteReporterImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventUnmuteReporter != null) {
@@ -2442,25 +2588,26 @@ class _$UEventModEventUnmuteReporterImpl
   }
 }
 
-abstract class UEventModEventUnmuteReporter implements UEvent {
-  const factory UEventModEventUnmuteReporter(
+abstract class UEmitEventEventModEventUnmuteReporter
+    implements UEmitEventEvent {
+  const factory UEmitEventEventModEventUnmuteReporter(
           {required final ModEventUnmuteReporter data}) =
-      _$UEventModEventUnmuteReporterImpl;
+      _$UEmitEventEventModEventUnmuteReporterImpl;
 
   @override
   ModEventUnmuteReporter get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventUnmuteReporterImplCopyWith<
-          _$UEventModEventUnmuteReporterImpl>
+  _$$UEmitEventEventModEventUnmuteReporterImplCopyWith<
+          _$UEmitEventEventModEventUnmuteReporterImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventReverseTakedownImplCopyWith<$Res> {
-  factory _$$UEventModEventReverseTakedownImplCopyWith(
-          _$UEventModEventReverseTakedownImpl value,
-          $Res Function(_$UEventModEventReverseTakedownImpl) then) =
-      __$$UEventModEventReverseTakedownImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventReverseTakedownImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventReverseTakedownImplCopyWith(
+          _$UEmitEventEventModEventReverseTakedownImpl value,
+          $Res Function(_$UEmitEventEventModEventReverseTakedownImpl) then) =
+      __$$UEmitEventEventModEventReverseTakedownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventReverseTakedown data});
 
@@ -2468,12 +2615,13 @@ abstract class _$$UEventModEventReverseTakedownImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventReverseTakedownImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventReverseTakedownImpl>
-    implements _$$UEventModEventReverseTakedownImplCopyWith<$Res> {
-  __$$UEventModEventReverseTakedownImplCopyWithImpl(
-      _$UEventModEventReverseTakedownImpl _value,
-      $Res Function(_$UEventModEventReverseTakedownImpl) _then)
+class __$$UEmitEventEventModEventReverseTakedownImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventReverseTakedownImpl>
+    implements _$$UEmitEventEventModEventReverseTakedownImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventReverseTakedownImplCopyWithImpl(
+      _$UEmitEventEventModEventReverseTakedownImpl _value,
+      $Res Function(_$UEmitEventEventModEventReverseTakedownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2481,7 +2629,7 @@ class __$$UEventModEventReverseTakedownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventReverseTakedownImpl(
+    return _then(_$UEmitEventEventModEventReverseTakedownImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -2500,23 +2648,23 @@ class __$$UEventModEventReverseTakedownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventReverseTakedownImpl
-    implements UEventModEventReverseTakedown {
-  const _$UEventModEventReverseTakedownImpl({required this.data});
+class _$UEmitEventEventModEventReverseTakedownImpl
+    implements UEmitEventEventModEventReverseTakedown {
+  const _$UEmitEventEventModEventReverseTakedownImpl({required this.data});
 
   @override
   final ModEventReverseTakedown data;
 
   @override
   String toString() {
-    return 'UEvent.modEventReverseTakedown(data: $data)';
+    return 'UEmitEventEvent.modEventReverseTakedown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventReverseTakedownImpl &&
+            other is _$UEmitEventEventModEventReverseTakedownImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -2526,10 +2674,11 @@ class _$UEventModEventReverseTakedownImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventReverseTakedownImplCopyWith<
-          _$UEventModEventReverseTakedownImpl>
-      get copyWith => __$$UEventModEventReverseTakedownImplCopyWithImpl<
-          _$UEventModEventReverseTakedownImpl>(this, _$identity);
+  _$$UEmitEventEventModEventReverseTakedownImplCopyWith<
+          _$UEmitEventEventModEventReverseTakedownImpl>
+      get copyWith =>
+          __$$UEmitEventEventModEventReverseTakedownImplCopyWithImpl<
+              _$UEmitEventEventModEventReverseTakedownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2603,24 +2752,29 @@ class _$UEventModEventReverseTakedownImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventReverseTakedown(this);
   }
@@ -2628,22 +2782,24 @@ class _$UEventModEventReverseTakedownImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventReverseTakedown?.call(this);
   }
@@ -2651,22 +2807,24 @@ class _$UEventModEventReverseTakedownImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventReverseTakedown != null) {
@@ -2676,24 +2834,26 @@ class _$UEventModEventReverseTakedownImpl
   }
 }
 
-abstract class UEventModEventReverseTakedown implements UEvent {
-  const factory UEventModEventReverseTakedown(
+abstract class UEmitEventEventModEventReverseTakedown
+    implements UEmitEventEvent {
+  const factory UEmitEventEventModEventReverseTakedown(
           {required final ModEventReverseTakedown data}) =
-      _$UEventModEventReverseTakedownImpl;
+      _$UEmitEventEventModEventReverseTakedownImpl;
 
   @override
   ModEventReverseTakedown get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventReverseTakedownImplCopyWith<
-          _$UEventModEventReverseTakedownImpl>
+  _$$UEmitEventEventModEventReverseTakedownImplCopyWith<
+          _$UEmitEventEventModEventReverseTakedownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventEmailImplCopyWith<$Res> {
-  factory _$$UEventModEventEmailImplCopyWith(_$UEventModEventEmailImpl value,
-          $Res Function(_$UEventModEventEmailImpl) then) =
-      __$$UEventModEventEmailImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventEmailImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventEmailImplCopyWith(
+          _$UEmitEventEventModEventEmailImpl value,
+          $Res Function(_$UEmitEventEventModEventEmailImpl) then) =
+      __$$UEmitEventEventModEventEmailImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventEmail data});
 
@@ -2701,11 +2861,13 @@ abstract class _$$UEventModEventEmailImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventEmailImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventEmailImpl>
-    implements _$$UEventModEventEmailImplCopyWith<$Res> {
-  __$$UEventModEventEmailImplCopyWithImpl(_$UEventModEventEmailImpl _value,
-      $Res Function(_$UEventModEventEmailImpl) _then)
+class __$$UEmitEventEventModEventEmailImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventEmailImpl>
+    implements _$$UEmitEventEventModEventEmailImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventEmailImplCopyWithImpl(
+      _$UEmitEventEventModEventEmailImpl _value,
+      $Res Function(_$UEmitEventEventModEventEmailImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2713,7 +2875,7 @@ class __$$UEventModEventEmailImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventEmailImpl(
+    return _then(_$UEmitEventEventModEventEmailImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -2732,22 +2894,23 @@ class __$$UEventModEventEmailImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventEmailImpl implements UEventModEventEmail {
-  const _$UEventModEventEmailImpl({required this.data});
+class _$UEmitEventEventModEventEmailImpl
+    implements UEmitEventEventModEventEmail {
+  const _$UEmitEventEventModEventEmailImpl({required this.data});
 
   @override
   final ModEventEmail data;
 
   @override
   String toString() {
-    return 'UEvent.modEventEmail(data: $data)';
+    return 'UEmitEventEvent.modEventEmail(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventEmailImpl &&
+            other is _$UEmitEventEventModEventEmailImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -2757,9 +2920,10 @@ class _$UEventModEventEmailImpl implements UEventModEventEmail {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventEmailImplCopyWith<_$UEventModEventEmailImpl> get copyWith =>
-      __$$UEventModEventEmailImplCopyWithImpl<_$UEventModEventEmailImpl>(
-          this, _$identity);
+  _$$UEmitEventEventModEventEmailImplCopyWith<
+          _$UEmitEventEventModEventEmailImpl>
+      get copyWith => __$$UEmitEventEventModEventEmailImplCopyWithImpl<
+          _$UEmitEventEventModEventEmailImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2833,24 +2997,29 @@ class _$UEventModEventEmailImpl implements UEventModEventEmail {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventEmail(this);
   }
@@ -2858,22 +3027,24 @@ class _$UEventModEventEmailImpl implements UEventModEventEmail {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventEmail?.call(this);
   }
@@ -2881,22 +3052,24 @@ class _$UEventModEventEmailImpl implements UEventModEventEmail {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventEmail != null) {
@@ -2906,22 +3079,24 @@ class _$UEventModEventEmailImpl implements UEventModEventEmail {
   }
 }
 
-abstract class UEventModEventEmail implements UEvent {
-  const factory UEventModEventEmail({required final ModEventEmail data}) =
-      _$UEventModEventEmailImpl;
+abstract class UEmitEventEventModEventEmail implements UEmitEventEvent {
+  const factory UEmitEventEventModEventEmail(
+      {required final ModEventEmail data}) = _$UEmitEventEventModEventEmailImpl;
 
   @override
   ModEventEmail get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventEmailImplCopyWith<_$UEventModEventEmailImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UEmitEventEventModEventEmailImplCopyWith<
+          _$UEmitEventEventModEventEmailImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventModEventTagImplCopyWith<$Res> {
-  factory _$$UEventModEventTagImplCopyWith(_$UEventModEventTagImpl value,
-          $Res Function(_$UEventModEventTagImpl) then) =
-      __$$UEventModEventTagImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventModEventTagImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventTagImplCopyWith(
+          _$UEmitEventEventModEventTagImpl value,
+          $Res Function(_$UEmitEventEventModEventTagImpl) then) =
+      __$$UEmitEventEventModEventTagImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ModEventTag data});
 
@@ -2929,11 +3104,13 @@ abstract class _$$UEventModEventTagImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEventModEventTagImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventModEventTagImpl>
-    implements _$$UEventModEventTagImplCopyWith<$Res> {
-  __$$UEventModEventTagImplCopyWithImpl(_$UEventModEventTagImpl _value,
-      $Res Function(_$UEventModEventTagImpl) _then)
+class __$$UEmitEventEventModEventTagImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventTagImpl>
+    implements _$$UEmitEventEventModEventTagImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventTagImplCopyWithImpl(
+      _$UEmitEventEventModEventTagImpl _value,
+      $Res Function(_$UEmitEventEventModEventTagImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2941,7 +3118,7 @@ class __$$UEventModEventTagImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventModEventTagImpl(
+    return _then(_$UEmitEventEventModEventTagImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -2960,22 +3137,22 @@ class __$$UEventModEventTagImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventModEventTagImpl implements UEventModEventTag {
-  const _$UEventModEventTagImpl({required this.data});
+class _$UEmitEventEventModEventTagImpl implements UEmitEventEventModEventTag {
+  const _$UEmitEventEventModEventTagImpl({required this.data});
 
   @override
   final ModEventTag data;
 
   @override
   String toString() {
-    return 'UEvent.modEventTag(data: $data)';
+    return 'UEmitEventEvent.modEventTag(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventModEventTagImpl &&
+            other is _$UEmitEventEventModEventTagImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -2985,9 +3162,9 @@ class _$UEventModEventTagImpl implements UEventModEventTag {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventModEventTagImplCopyWith<_$UEventModEventTagImpl> get copyWith =>
-      __$$UEventModEventTagImplCopyWithImpl<_$UEventModEventTagImpl>(
-          this, _$identity);
+  _$$UEmitEventEventModEventTagImplCopyWith<_$UEmitEventEventModEventTagImpl>
+      get copyWith => __$$UEmitEventEventModEventTagImplCopyWithImpl<
+          _$UEmitEventEventModEventTagImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3061,24 +3238,29 @@ class _$UEventModEventTagImpl implements UEventModEventTag {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return modEventTag(this);
   }
@@ -3086,22 +3268,24 @@ class _$UEventModEventTagImpl implements UEventModEventTag {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return modEventTag?.call(this);
   }
@@ -3109,22 +3293,24 @@ class _$UEventModEventTagImpl implements UEventModEventTag {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (modEventTag != null) {
@@ -3134,32 +3320,34 @@ class _$UEventModEventTagImpl implements UEventModEventTag {
   }
 }
 
-abstract class UEventModEventTag implements UEvent {
-  const factory UEventModEventTag({required final ModEventTag data}) =
-      _$UEventModEventTagImpl;
+abstract class UEmitEventEventModEventTag implements UEmitEventEvent {
+  const factory UEmitEventEventModEventTag({required final ModEventTag data}) =
+      _$UEmitEventEventModEventTagImpl;
 
   @override
   ModEventTag get data;
   @JsonKey(ignore: true)
-  _$$UEventModEventTagImplCopyWith<_$UEventModEventTagImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UEmitEventEventModEventTagImplCopyWith<_$UEmitEventEventModEventTagImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEventUnknownImplCopyWith<$Res> {
-  factory _$$UEventUnknownImplCopyWith(
-          _$UEventUnknownImpl value, $Res Function(_$UEventUnknownImpl) then) =
-      __$$UEventUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UEmitEventEventUnknownImplCopyWith<$Res> {
+  factory _$$UEmitEventEventUnknownImplCopyWith(
+          _$UEmitEventEventUnknownImpl value,
+          $Res Function(_$UEmitEventEventUnknownImpl) then) =
+      __$$UEmitEventEventUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UEventUnknownImplCopyWithImpl<$Res>
-    extends _$UEventCopyWithImpl<$Res, _$UEventUnknownImpl>
-    implements _$$UEventUnknownImplCopyWith<$Res> {
-  __$$UEventUnknownImplCopyWithImpl(
-      _$UEventUnknownImpl _value, $Res Function(_$UEventUnknownImpl) _then)
+class __$$UEmitEventEventUnknownImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res, _$UEmitEventEventUnknownImpl>
+    implements _$$UEmitEventEventUnknownImplCopyWith<$Res> {
+  __$$UEmitEventEventUnknownImplCopyWithImpl(
+      _$UEmitEventEventUnknownImpl _value,
+      $Res Function(_$UEmitEventEventUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3167,7 +3355,7 @@ class __$$UEventUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEventUnknownImpl(
+    return _then(_$UEmitEventEventUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -3178,8 +3366,8 @@ class __$$UEventUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UEventUnknownImpl implements UEventUnknown {
-  const _$UEventUnknownImpl({required final Map<String, dynamic> data})
+class _$UEmitEventEventUnknownImpl implements UEmitEventEventUnknown {
+  const _$UEmitEventEventUnknownImpl({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -3192,14 +3380,14 @@ class _$UEventUnknownImpl implements UEventUnknown {
 
   @override
   String toString() {
-    return 'UEvent.unknown(data: $data)';
+    return 'UEmitEventEvent.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEventUnknownImpl &&
+            other is _$UEmitEventEventUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -3210,8 +3398,9 @@ class _$UEventUnknownImpl implements UEventUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UEventUnknownImplCopyWith<_$UEventUnknownImpl> get copyWith =>
-      __$$UEventUnknownImplCopyWithImpl<_$UEventUnknownImpl>(this, _$identity);
+  _$$UEmitEventEventUnknownImplCopyWith<_$UEmitEventEventUnknownImpl>
+      get copyWith => __$$UEmitEventEventUnknownImplCopyWithImpl<
+          _$UEmitEventEventUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3285,24 +3474,29 @@ class _$UEventUnknownImpl implements UEventUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UEventModEventTakedown value) modEventTakedown,
-    required TResult Function(UEventModEventAcknowledge value)
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
         modEventAcknowledge,
-    required TResult Function(UEventModEventEscalate value) modEventEscalate,
-    required TResult Function(UEventModEventComment value) modEventComment,
-    required TResult Function(UEventModEventLabel value) modEventLabel,
-    required TResult Function(UEventModEventReport value) modEventReport,
-    required TResult Function(UEventModEventMute value) modEventMute,
-    required TResult Function(UEventModEventUnmute value) modEventUnmute,
-    required TResult Function(UEventModEventMuteReporter value)
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
         modEventMuteReporter,
-    required TResult Function(UEventModEventUnmuteReporter value)
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
         modEventUnmuteReporter,
-    required TResult Function(UEventModEventReverseTakedown value)
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
-    required TResult Function(UEventModEventEmail value) modEventEmail,
-    required TResult Function(UEventModEventTag value) modEventTag,
-    required TResult Function(UEventUnknown value) unknown,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -3310,22 +3504,24 @@ class _$UEventUnknownImpl implements UEventUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult? Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult? Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult? Function(UEventModEventComment value)? modEventComment,
-    TResult? Function(UEventModEventLabel value)? modEventLabel,
-    TResult? Function(UEventModEventReport value)? modEventReport,
-    TResult? Function(UEventModEventMute value)? modEventMute,
-    TResult? Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult? Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult? Function(UEventModEventUnmuteReporter value)?
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult? Function(UEventModEventReverseTakedown value)?
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult? Function(UEventModEventEmail value)? modEventEmail,
-    TResult? Function(UEventModEventTag value)? modEventTag,
-    TResult? Function(UEventUnknown value)? unknown,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -3333,22 +3529,24 @@ class _$UEventUnknownImpl implements UEventUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEventModEventTakedown value)? modEventTakedown,
-    TResult Function(UEventModEventAcknowledge value)? modEventAcknowledge,
-    TResult Function(UEventModEventEscalate value)? modEventEscalate,
-    TResult Function(UEventModEventComment value)? modEventComment,
-    TResult Function(UEventModEventLabel value)? modEventLabel,
-    TResult Function(UEventModEventReport value)? modEventReport,
-    TResult Function(UEventModEventMute value)? modEventMute,
-    TResult Function(UEventModEventUnmute value)? modEventUnmute,
-    TResult Function(UEventModEventMuteReporter value)? modEventMuteReporter,
-    TResult Function(UEventModEventUnmuteReporter value)?
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
         modEventUnmuteReporter,
-    TResult Function(UEventModEventReverseTakedown value)?
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
-    TResult Function(UEventModEventEmail value)? modEventEmail,
-    TResult Function(UEventModEventTag value)? modEventTag,
-    TResult Function(UEventUnknown value)? unknown,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -3358,13 +3556,14 @@ class _$UEventUnknownImpl implements UEventUnknown {
   }
 }
 
-abstract class UEventUnknown implements UEvent {
-  const factory UEventUnknown({required final Map<String, dynamic> data}) =
-      _$UEventUnknownImpl;
+abstract class UEmitEventEventUnknown implements UEmitEventEvent {
+  const factory UEmitEventEventUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$UEmitEventEventUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UEventUnknownImplCopyWith<_$UEventUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UEmitEventEventUnknownImplCopyWith<_$UEmitEventEventUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

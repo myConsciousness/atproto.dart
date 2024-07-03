@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/graph/get_relationships/union_relationship.dart';
+import '../../../../app/bsky/graph/get_relationships/union_get_relationships_relationship.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -25,7 +25,8 @@ class GetRelationshipsOutput with _$GetRelationshipsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetRelationshipsOutput({
     String? actor,
-    @URelationshipConverter() required List<URelationship> relationships,
+    @UGetRelationshipsRelationshipConverter()
+    required List<UGetRelationshipsRelationship> relationships,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

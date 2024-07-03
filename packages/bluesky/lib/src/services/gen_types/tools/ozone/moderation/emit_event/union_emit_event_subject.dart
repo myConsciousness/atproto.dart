@@ -11,96 +11,78 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_admin_defs.dart';
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../../../com/atproto/admin/defs/repo_blob_ref.dart';
-import '../../../../com/atproto/admin/defs/repo_ref.dart';
-import '../../../../com/atproto/repo/strong_ref/main.dart';
-
-part 'union_subject.freezed.dart';
+part 'union_emit_event_subject.freezed.dart';
 
 @freezed
-class USubject with _$USubject {
-  const factory USubject.repoRef({
+class UEmitEventSubject with _$UEmitEventSubject {
+  const factory UEmitEventSubject.repoRef({
     required RepoRef data,
-  }) = USubjectRepoRef;
+  }) = UEmitEventSubjectRepoRef;
 
-  const factory USubject.strongRef({
+  const factory UEmitEventSubject.strongRef({
     required StrongRef data,
-  }) = USubjectStrongRef;
+  }) = UEmitEventSubjectStrongRef;
 
-  const factory USubject.repoBlobRef({
-    required RepoBlobRef data,
-  }) = USubjectRepoBlobRef;
-
-  const factory USubject.unknown({
+  const factory UEmitEventSubject.unknown({
     required Map<String, dynamic> data,
-  }) = USubjectUnknown;
+  }) = UEmitEventSubjectUnknown;
 }
 
-final class USubjectConverter
-    implements JsonConverter<USubject, Map<String, dynamic>> {
-  const USubjectConverter();
+final class UEmitEventSubjectConverter
+    implements JsonConverter<UEmitEventSubject, Map<String, dynamic>> {
+  const UEmitEventSubjectConverter();
 
   @override
-  USubject fromJson(Map<String, dynamic> json) {
+  UEmitEventSubject fromJson(Map<String, dynamic> json) {
     try {
       if (isRepoRef(json)) {
-        return USubject.repoRef(
+        return UEmitEventSubject.repoRef(
           data: const RepoRefConverter().fromJson(json),
         );
       }
       if (isStrongRef(json)) {
-        return USubject.strongRef(
+        return UEmitEventSubject.strongRef(
           data: const StrongRefConverter().fromJson(json),
         );
       }
-      if (isRepoBlobRef(json)) {
-        return USubject.repoBlobRef(
-          data: const RepoBlobRefConverter().fromJson(json),
-        );
-      }
 
-      return USubject.unknown(data: json);
+      return UEmitEventSubject.unknown(data: json);
     } catch (_) {
-      return USubject.unknown(data: json);
+      return UEmitEventSubject.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(USubject object) => object.when(
+  Map<String, dynamic> toJson(UEmitEventSubject object) => object.when(
         repoRef: const RepoRefConverter().toJson,
         strongRef: const StrongRefConverter().toJson,
-        repoBlobRef: const RepoBlobRefConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension $USubjectExtension on USubject {
+extension $UEmitEventSubjectExtension on UEmitEventSubject {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const USubjectConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UEmitEventSubjectConverter().toJson(this);
 
   /// Returns true if this data is [RepoRef], otherwise false.
-  bool get isRepoRef => this is USubjectRepoRef;
+  bool get isRepoRef => this is UEmitEventSubjectRepoRef;
 
   /// Returns true if this data is not [RepoRef], otherwise false.
   bool get isNotRepoRef => !isRepoRef;
 
   /// Returns true if this data is [StrongRef], otherwise false.
-  bool get isStrongRef => this is USubjectStrongRef;
+  bool get isStrongRef => this is UEmitEventSubjectStrongRef;
 
   /// Returns true if this data is not [StrongRef], otherwise false.
   bool get isNotStrongRef => !isStrongRef;
 
-  /// Returns true if this data is [RepoBlobRef], otherwise false.
-  bool get isRepoBlobRef => this is USubjectRepoBlobRef;
-
-  /// Returns true if this data is not [RepoBlobRef], otherwise false.
-  bool get isNotRepoBlobRef => !isRepoBlobRef;
-
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is USubjectUnknown;
+  bool get isUnknown => this is UEmitEventSubjectUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;
@@ -120,14 +102,6 @@ extension $USubjectExtension on USubject {
 
   /// Returns [StrongRef] if this data is [StrongRef], otherwise null.
   StrongRef? get strongRefOrNull => isStrongRef ? strongRef : null;
-
-  /// Returns this data as [RepoBlobRef].
-  ///
-  /// Make sure to check if this object is [RepoBlobRef] with [isRepoBlobRef].
-  RepoBlobRef get repoBlobRef => this.data as RepoBlobRef;
-
-  /// Returns [RepoBlobRef] if this data is [RepoBlobRef], otherwise null.
-  RepoBlobRef? get repoBlobRefOrNull => isRepoBlobRef ? repoBlobRef : null;
 
   /// Returns this data as JSON object.
   ///

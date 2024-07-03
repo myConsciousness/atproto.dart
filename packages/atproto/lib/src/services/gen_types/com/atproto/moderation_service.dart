@@ -17,7 +17,7 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../com/atproto/moderation/create_report/output.dart';
-import '../../com/atproto/moderation/create_report/union_subject.dart';
+import '../../com/atproto/moderation/create_report/union_create_report_subject.dart';
 import '../../com/atproto/moderation/defs/known_reason_type.dart';
 
 /// Contains `com.atproto.moderation.*` endpoints.
@@ -32,7 +32,7 @@ final class ModerationService {
   Future<XRPCResponse<CreateReportOutput>> createReport({
     required UReasonType reasonType,
     String? reason,
-    required USubject subject,
+    required UCreateReportSubject subject,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>

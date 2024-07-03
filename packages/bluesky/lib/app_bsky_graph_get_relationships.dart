@@ -12,4 +12,4 @@
 
 export 'package:bluesky/src/services/gen_types/app/bsky/graph/get_relationships/params.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/graph/get_relationships/output.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/graph/get_relationships/union_relationship.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/graph/get_relationships/union_get_relationships_relationship.dart';

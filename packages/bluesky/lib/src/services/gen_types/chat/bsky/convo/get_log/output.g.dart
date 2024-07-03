@@ -17,8 +17,8 @@ _$GetLogOutputImpl _$$GetLogOutputImplFromJson(Map json) => $checkedCreate(
           logs: $checkedConvert(
               'logs',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      const ULogConverter().fromJson(e as Map<String, dynamic>))
+                  .map((e) => const UGetLogLogConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -40,7 +40,7 @@ Map<String, dynamic> _$$GetLogOutputImplToJson(_$GetLogOutputImpl instance) {
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['logs'] = instance.logs.map(const ULogConverter().toJson).toList();
+  val['logs'] = instance.logs.map(const UGetLogLogConverter().toJson).toList();
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

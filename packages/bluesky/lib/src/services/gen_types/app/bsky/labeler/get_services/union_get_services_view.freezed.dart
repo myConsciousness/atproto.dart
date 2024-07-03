@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_view.dart';
+part of 'union_get_services_view.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UView {
+mixin _$UGetServicesView {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -41,39 +41,42 @@ mixin _$UView {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewLabelerView value) labelerView,
-    required TResult Function(UViewLabelerViewDetailed value)
+    required TResult Function(UGetServicesViewLabelerView value) labelerView,
+    required TResult Function(UGetServicesViewLabelerViewDetailed value)
         labelerViewDetailed,
-    required TResult Function(UViewUnknown value) unknown,
+    required TResult Function(UGetServicesViewUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewLabelerView value)? labelerView,
-    TResult? Function(UViewLabelerViewDetailed value)? labelerViewDetailed,
-    TResult? Function(UViewUnknown value)? unknown,
+    TResult? Function(UGetServicesViewLabelerView value)? labelerView,
+    TResult? Function(UGetServicesViewLabelerViewDetailed value)?
+        labelerViewDetailed,
+    TResult? Function(UGetServicesViewUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewLabelerView value)? labelerView,
-    TResult Function(UViewLabelerViewDetailed value)? labelerViewDetailed,
-    TResult Function(UViewUnknown value)? unknown,
+    TResult Function(UGetServicesViewLabelerView value)? labelerView,
+    TResult Function(UGetServicesViewLabelerViewDetailed value)?
+        labelerViewDetailed,
+    TResult Function(UGetServicesViewUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UViewCopyWith<$Res> {
-  factory $UViewCopyWith(UView value, $Res Function(UView) then) =
-      _$UViewCopyWithImpl<$Res, UView>;
+abstract class $UGetServicesViewCopyWith<$Res> {
+  factory $UGetServicesViewCopyWith(
+          UGetServicesView value, $Res Function(UGetServicesView) then) =
+      _$UGetServicesViewCopyWithImpl<$Res, UGetServicesView>;
 }
 
 /// @nodoc
-class _$UViewCopyWithImpl<$Res, $Val extends UView>
-    implements $UViewCopyWith<$Res> {
-  _$UViewCopyWithImpl(this._value, this._then);
+class _$UGetServicesViewCopyWithImpl<$Res, $Val extends UGetServicesView>
+    implements $UGetServicesViewCopyWith<$Res> {
+  _$UGetServicesViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -82,10 +85,11 @@ class _$UViewCopyWithImpl<$Res, $Val extends UView>
 }
 
 /// @nodoc
-abstract class _$$UViewLabelerViewImplCopyWith<$Res> {
-  factory _$$UViewLabelerViewImplCopyWith(_$UViewLabelerViewImpl value,
-          $Res Function(_$UViewLabelerViewImpl) then) =
-      __$$UViewLabelerViewImplCopyWithImpl<$Res>;
+abstract class _$$UGetServicesViewLabelerViewImplCopyWith<$Res> {
+  factory _$$UGetServicesViewLabelerViewImplCopyWith(
+          _$UGetServicesViewLabelerViewImpl value,
+          $Res Function(_$UGetServicesViewLabelerViewImpl) then) =
+      __$$UGetServicesViewLabelerViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LabelerView data});
 
@@ -93,11 +97,13 @@ abstract class _$$UViewLabelerViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UViewLabelerViewImplCopyWithImpl<$Res>
-    extends _$UViewCopyWithImpl<$Res, _$UViewLabelerViewImpl>
-    implements _$$UViewLabelerViewImplCopyWith<$Res> {
-  __$$UViewLabelerViewImplCopyWithImpl(_$UViewLabelerViewImpl _value,
-      $Res Function(_$UViewLabelerViewImpl) _then)
+class __$$UGetServicesViewLabelerViewImplCopyWithImpl<$Res>
+    extends _$UGetServicesViewCopyWithImpl<$Res,
+        _$UGetServicesViewLabelerViewImpl>
+    implements _$$UGetServicesViewLabelerViewImplCopyWith<$Res> {
+  __$$UGetServicesViewLabelerViewImplCopyWithImpl(
+      _$UGetServicesViewLabelerViewImpl _value,
+      $Res Function(_$UGetServicesViewLabelerViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,7 +111,7 @@ class __$$UViewLabelerViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UViewLabelerViewImpl(
+    return _then(_$UGetServicesViewLabelerViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -124,22 +130,22 @@ class __$$UViewLabelerViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewLabelerViewImpl implements UViewLabelerView {
-  const _$UViewLabelerViewImpl({required this.data});
+class _$UGetServicesViewLabelerViewImpl implements UGetServicesViewLabelerView {
+  const _$UGetServicesViewLabelerViewImpl({required this.data});
 
   @override
   final LabelerView data;
 
   @override
   String toString() {
-    return 'UView.labelerView(data: $data)';
+    return 'UGetServicesView.labelerView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UViewLabelerViewImpl &&
+            other is _$UGetServicesViewLabelerViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -149,9 +155,9 @@ class _$UViewLabelerViewImpl implements UViewLabelerView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UViewLabelerViewImplCopyWith<_$UViewLabelerViewImpl> get copyWith =>
-      __$$UViewLabelerViewImplCopyWithImpl<_$UViewLabelerViewImpl>(
-          this, _$identity);
+  _$$UGetServicesViewLabelerViewImplCopyWith<_$UGetServicesViewLabelerViewImpl>
+      get copyWith => __$$UGetServicesViewLabelerViewImplCopyWithImpl<
+          _$UGetServicesViewLabelerViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -190,10 +196,10 @@ class _$UViewLabelerViewImpl implements UViewLabelerView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewLabelerView value) labelerView,
-    required TResult Function(UViewLabelerViewDetailed value)
+    required TResult Function(UGetServicesViewLabelerView value) labelerView,
+    required TResult Function(UGetServicesViewLabelerViewDetailed value)
         labelerViewDetailed,
-    required TResult Function(UViewUnknown value) unknown,
+    required TResult Function(UGetServicesViewUnknown value) unknown,
   }) {
     return labelerView(this);
   }
@@ -201,9 +207,10 @@ class _$UViewLabelerViewImpl implements UViewLabelerView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewLabelerView value)? labelerView,
-    TResult? Function(UViewLabelerViewDetailed value)? labelerViewDetailed,
-    TResult? Function(UViewUnknown value)? unknown,
+    TResult? Function(UGetServicesViewLabelerView value)? labelerView,
+    TResult? Function(UGetServicesViewLabelerViewDetailed value)?
+        labelerViewDetailed,
+    TResult? Function(UGetServicesViewUnknown value)? unknown,
   }) {
     return labelerView?.call(this);
   }
@@ -211,9 +218,10 @@ class _$UViewLabelerViewImpl implements UViewLabelerView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewLabelerView value)? labelerView,
-    TResult Function(UViewLabelerViewDetailed value)? labelerViewDetailed,
-    TResult Function(UViewUnknown value)? unknown,
+    TResult Function(UGetServicesViewLabelerView value)? labelerView,
+    TResult Function(UGetServicesViewLabelerViewDetailed value)?
+        labelerViewDetailed,
+    TResult Function(UGetServicesViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (labelerView != null) {
@@ -223,23 +231,23 @@ class _$UViewLabelerViewImpl implements UViewLabelerView {
   }
 }
 
-abstract class UViewLabelerView implements UView {
-  const factory UViewLabelerView({required final LabelerView data}) =
-      _$UViewLabelerViewImpl;
+abstract class UGetServicesViewLabelerView implements UGetServicesView {
+  const factory UGetServicesViewLabelerView({required final LabelerView data}) =
+      _$UGetServicesViewLabelerViewImpl;
 
   @override
   LabelerView get data;
   @JsonKey(ignore: true)
-  _$$UViewLabelerViewImplCopyWith<_$UViewLabelerViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UGetServicesViewLabelerViewImplCopyWith<_$UGetServicesViewLabelerViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UViewLabelerViewDetailedImplCopyWith<$Res> {
-  factory _$$UViewLabelerViewDetailedImplCopyWith(
-          _$UViewLabelerViewDetailedImpl value,
-          $Res Function(_$UViewLabelerViewDetailedImpl) then) =
-      __$$UViewLabelerViewDetailedImplCopyWithImpl<$Res>;
+abstract class _$$UGetServicesViewLabelerViewDetailedImplCopyWith<$Res> {
+  factory _$$UGetServicesViewLabelerViewDetailedImplCopyWith(
+          _$UGetServicesViewLabelerViewDetailedImpl value,
+          $Res Function(_$UGetServicesViewLabelerViewDetailedImpl) then) =
+      __$$UGetServicesViewLabelerViewDetailedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LabelerViewDetailed data});
 
@@ -247,12 +255,13 @@ abstract class _$$UViewLabelerViewDetailedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UViewLabelerViewDetailedImplCopyWithImpl<$Res>
-    extends _$UViewCopyWithImpl<$Res, _$UViewLabelerViewDetailedImpl>
-    implements _$$UViewLabelerViewDetailedImplCopyWith<$Res> {
-  __$$UViewLabelerViewDetailedImplCopyWithImpl(
-      _$UViewLabelerViewDetailedImpl _value,
-      $Res Function(_$UViewLabelerViewDetailedImpl) _then)
+class __$$UGetServicesViewLabelerViewDetailedImplCopyWithImpl<$Res>
+    extends _$UGetServicesViewCopyWithImpl<$Res,
+        _$UGetServicesViewLabelerViewDetailedImpl>
+    implements _$$UGetServicesViewLabelerViewDetailedImplCopyWith<$Res> {
+  __$$UGetServicesViewLabelerViewDetailedImplCopyWithImpl(
+      _$UGetServicesViewLabelerViewDetailedImpl _value,
+      $Res Function(_$UGetServicesViewLabelerViewDetailedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -260,7 +269,7 @@ class __$$UViewLabelerViewDetailedImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UViewLabelerViewDetailedImpl(
+    return _then(_$UGetServicesViewLabelerViewDetailedImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -279,22 +288,23 @@ class __$$UViewLabelerViewDetailedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewLabelerViewDetailedImpl implements UViewLabelerViewDetailed {
-  const _$UViewLabelerViewDetailedImpl({required this.data});
+class _$UGetServicesViewLabelerViewDetailedImpl
+    implements UGetServicesViewLabelerViewDetailed {
+  const _$UGetServicesViewLabelerViewDetailedImpl({required this.data});
 
   @override
   final LabelerViewDetailed data;
 
   @override
   String toString() {
-    return 'UView.labelerViewDetailed(data: $data)';
+    return 'UGetServicesView.labelerViewDetailed(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UViewLabelerViewDetailedImpl &&
+            other is _$UGetServicesViewLabelerViewDetailedImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -304,9 +314,10 @@ class _$UViewLabelerViewDetailedImpl implements UViewLabelerViewDetailed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UViewLabelerViewDetailedImplCopyWith<_$UViewLabelerViewDetailedImpl>
-      get copyWith => __$$UViewLabelerViewDetailedImplCopyWithImpl<
-          _$UViewLabelerViewDetailedImpl>(this, _$identity);
+  _$$UGetServicesViewLabelerViewDetailedImplCopyWith<
+          _$UGetServicesViewLabelerViewDetailedImpl>
+      get copyWith => __$$UGetServicesViewLabelerViewDetailedImplCopyWithImpl<
+          _$UGetServicesViewLabelerViewDetailedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -345,10 +356,10 @@ class _$UViewLabelerViewDetailedImpl implements UViewLabelerViewDetailed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewLabelerView value) labelerView,
-    required TResult Function(UViewLabelerViewDetailed value)
+    required TResult Function(UGetServicesViewLabelerView value) labelerView,
+    required TResult Function(UGetServicesViewLabelerViewDetailed value)
         labelerViewDetailed,
-    required TResult Function(UViewUnknown value) unknown,
+    required TResult Function(UGetServicesViewUnknown value) unknown,
   }) {
     return labelerViewDetailed(this);
   }
@@ -356,9 +367,10 @@ class _$UViewLabelerViewDetailedImpl implements UViewLabelerViewDetailed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewLabelerView value)? labelerView,
-    TResult? Function(UViewLabelerViewDetailed value)? labelerViewDetailed,
-    TResult? Function(UViewUnknown value)? unknown,
+    TResult? Function(UGetServicesViewLabelerView value)? labelerView,
+    TResult? Function(UGetServicesViewLabelerViewDetailed value)?
+        labelerViewDetailed,
+    TResult? Function(UGetServicesViewUnknown value)? unknown,
   }) {
     return labelerViewDetailed?.call(this);
   }
@@ -366,9 +378,10 @@ class _$UViewLabelerViewDetailedImpl implements UViewLabelerViewDetailed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewLabelerView value)? labelerView,
-    TResult Function(UViewLabelerViewDetailed value)? labelerViewDetailed,
-    TResult Function(UViewUnknown value)? unknown,
+    TResult Function(UGetServicesViewLabelerView value)? labelerView,
+    TResult Function(UGetServicesViewLabelerViewDetailed value)?
+        labelerViewDetailed,
+    TResult Function(UGetServicesViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (labelerViewDetailed != null) {
@@ -378,33 +391,36 @@ class _$UViewLabelerViewDetailedImpl implements UViewLabelerViewDetailed {
   }
 }
 
-abstract class UViewLabelerViewDetailed implements UView {
-  const factory UViewLabelerViewDetailed(
+abstract class UGetServicesViewLabelerViewDetailed implements UGetServicesView {
+  const factory UGetServicesViewLabelerViewDetailed(
           {required final LabelerViewDetailed data}) =
-      _$UViewLabelerViewDetailedImpl;
+      _$UGetServicesViewLabelerViewDetailedImpl;
 
   @override
   LabelerViewDetailed get data;
   @JsonKey(ignore: true)
-  _$$UViewLabelerViewDetailedImplCopyWith<_$UViewLabelerViewDetailedImpl>
+  _$$UGetServicesViewLabelerViewDetailedImplCopyWith<
+          _$UGetServicesViewLabelerViewDetailedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UViewUnknownImplCopyWith<$Res> {
-  factory _$$UViewUnknownImplCopyWith(
-          _$UViewUnknownImpl value, $Res Function(_$UViewUnknownImpl) then) =
-      __$$UViewUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UGetServicesViewUnknownImplCopyWith<$Res> {
+  factory _$$UGetServicesViewUnknownImplCopyWith(
+          _$UGetServicesViewUnknownImpl value,
+          $Res Function(_$UGetServicesViewUnknownImpl) then) =
+      __$$UGetServicesViewUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UViewUnknownImplCopyWithImpl<$Res>
-    extends _$UViewCopyWithImpl<$Res, _$UViewUnknownImpl>
-    implements _$$UViewUnknownImplCopyWith<$Res> {
-  __$$UViewUnknownImplCopyWithImpl(
-      _$UViewUnknownImpl _value, $Res Function(_$UViewUnknownImpl) _then)
+class __$$UGetServicesViewUnknownImplCopyWithImpl<$Res>
+    extends _$UGetServicesViewCopyWithImpl<$Res, _$UGetServicesViewUnknownImpl>
+    implements _$$UGetServicesViewUnknownImplCopyWith<$Res> {
+  __$$UGetServicesViewUnknownImplCopyWithImpl(
+      _$UGetServicesViewUnknownImpl _value,
+      $Res Function(_$UGetServicesViewUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -412,7 +428,7 @@ class __$$UViewUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UViewUnknownImpl(
+    return _then(_$UGetServicesViewUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -423,8 +439,9 @@ class __$$UViewUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewUnknownImpl implements UViewUnknown {
-  const _$UViewUnknownImpl({required final Map<String, dynamic> data})
+class _$UGetServicesViewUnknownImpl implements UGetServicesViewUnknown {
+  const _$UGetServicesViewUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -437,14 +454,14 @@ class _$UViewUnknownImpl implements UViewUnknown {
 
   @override
   String toString() {
-    return 'UView.unknown(data: $data)';
+    return 'UGetServicesView.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UViewUnknownImpl &&
+            other is _$UGetServicesViewUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -455,8 +472,9 @@ class _$UViewUnknownImpl implements UViewUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UViewUnknownImplCopyWith<_$UViewUnknownImpl> get copyWith =>
-      __$$UViewUnknownImplCopyWithImpl<_$UViewUnknownImpl>(this, _$identity);
+  _$$UGetServicesViewUnknownImplCopyWith<_$UGetServicesViewUnknownImpl>
+      get copyWith => __$$UGetServicesViewUnknownImplCopyWithImpl<
+          _$UGetServicesViewUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -495,10 +513,10 @@ class _$UViewUnknownImpl implements UViewUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewLabelerView value) labelerView,
-    required TResult Function(UViewLabelerViewDetailed value)
+    required TResult Function(UGetServicesViewLabelerView value) labelerView,
+    required TResult Function(UGetServicesViewLabelerViewDetailed value)
         labelerViewDetailed,
-    required TResult Function(UViewUnknown value) unknown,
+    required TResult Function(UGetServicesViewUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -506,9 +524,10 @@ class _$UViewUnknownImpl implements UViewUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewLabelerView value)? labelerView,
-    TResult? Function(UViewLabelerViewDetailed value)? labelerViewDetailed,
-    TResult? Function(UViewUnknown value)? unknown,
+    TResult? Function(UGetServicesViewLabelerView value)? labelerView,
+    TResult? Function(UGetServicesViewLabelerViewDetailed value)?
+        labelerViewDetailed,
+    TResult? Function(UGetServicesViewUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -516,9 +535,10 @@ class _$UViewUnknownImpl implements UViewUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewLabelerView value)? labelerView,
-    TResult Function(UViewLabelerViewDetailed value)? labelerViewDetailed,
-    TResult Function(UViewUnknown value)? unknown,
+    TResult Function(UGetServicesViewLabelerView value)? labelerView,
+    TResult Function(UGetServicesViewLabelerViewDetailed value)?
+        labelerViewDetailed,
+    TResult Function(UGetServicesViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -528,13 +548,14 @@ class _$UViewUnknownImpl implements UViewUnknown {
   }
 }
 
-abstract class UViewUnknown implements UView {
-  const factory UViewUnknown({required final Map<String, dynamic> data}) =
-      _$UViewUnknownImpl;
+abstract class UGetServicesViewUnknown implements UGetServicesView {
+  const factory UGetServicesViewUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$UGetServicesViewUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UViewUnknownImplCopyWith<_$UViewUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UGetServicesViewUnknownImplCopyWith<_$UGetServicesViewUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
