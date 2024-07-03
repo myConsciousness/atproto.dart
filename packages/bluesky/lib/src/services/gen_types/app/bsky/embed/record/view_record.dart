@@ -18,7 +18,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
-import '../../../../app/bsky/embed/record/union_record_embed.dart';
+import '../../../../app/bsky/embed/record/union_record_view_record_embed.dart';
 import '../../feed/post/record.dart';
 
 part 'view_record.freezed.dart';
@@ -45,7 +45,7 @@ class RecordViewRecord with _$RecordViewRecord {
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,
-    @URecordEmbedConverter() List<URecordEmbed>? embeds,
+    @URecordViewRecordEmbedConverter() List<URecordViewRecordEmbed>? embeds,
     required DateTime indexedAt,
 
     /// Contains unknown objects not defined in Lexicon.

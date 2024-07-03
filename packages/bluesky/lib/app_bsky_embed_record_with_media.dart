@@ -13,3 +13,4 @@
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/record_with_media/main.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/record_with_media/union_record_with_media_media.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/record_with_media/view.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/embed/record_with_media/union_record_with_media_view_media.dart';

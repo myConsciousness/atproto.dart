@@ -12,6 +12,7 @@ import '../rules/utils.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
 import '../types/object.dart';
+import '../types/union.dart';
 import 'known_values_builder.dart';
 import 'union_builder.dart';
 
@@ -281,23 +282,16 @@ final class LexGenObjectBuilder {
 
   LexGenObjectProperty _getObjectProperty(
     final String name,
-    final Map<String, dynamic> value,
+    final Map<String, dynamic> property,
     final List<String> requiredProperties,
     final List<String> nullableProperties,
     final ObjectType objectType,
   ) {
-    final property = value;
-    final union = LexUnionBuilder(
-      package: ctx.package,
-      docId: ctx.docId,
-      defName:
-          ctx.mainDocIds.contains(ctx.docId) || objectType == ObjectType.record
-              ? ctx.docId.toString().split('.').last
-              : null,
+    final union = _getUnion(
+      objectType: objectType,
       propertyName: name,
-      refs: property['refs'] ?? property['items']?['refs'] ?? const [],
-      mainDocIds: ctx.mainDocIds,
-    ).build();
+      property: property,
+    );
 
     final dataType = getDataType(
       ctx,
@@ -343,6 +337,30 @@ final class LexGenObjectBuilder {
             )
           : null,
     );
+  }
+
+  LexUnion? _getUnion({
+    required ObjectType objectType,
+    required String propertyName,
+    required Map<String, dynamic> property,
+  }) {
+    String? defName;
+    if (objectType == ObjectType.record) {
+      defName = ctx.docId.toString().split('.').last;
+    } else if (ctx.mainDocIds.contains(ctx.docId)) {
+      defName = ctx.defName != 'main'
+          ? ctx.docId.toString().split('.').last + toFirstUpper(ctx.defName)
+          : ctx.docId.toString().split('.').last;
+    }
+
+    return LexUnionBuilder(
+      package: ctx.package,
+      docId: ctx.docId,
+      defName: defName,
+      propertyName: propertyName,
+      refs: property['refs'] ?? property['items']?['refs'] ?? const [],
+      mainDocIds: ctx.mainDocIds,
+    ).build();
   }
 
   bool _isRequired(

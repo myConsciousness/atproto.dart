@@ -14,20 +14,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/embed/external/view.dart';
-import '../../../../app/bsky/embed/images/view.dart';
+import '../../../../app/bsky/embed/external/main.dart';
+import '../../../../app/bsky/embed/images/main.dart';
 
 part 'union_record_with_media_media.freezed.dart';
 
 @freezed
 class URecordWithMediaMedia with _$URecordWithMediaMedia {
-  const factory URecordWithMediaMedia.imagesView({
-    required ImagesView data,
-  }) = URecordWithMediaMediaImagesView;
+  const factory URecordWithMediaMedia.images({
+    required Images data,
+  }) = URecordWithMediaMediaImages;
 
-  const factory URecordWithMediaMedia.externalView({
-    required ExternalView data,
-  }) = URecordWithMediaMediaExternalView;
+  const factory URecordWithMediaMedia.external({
+    required External data,
+  }) = URecordWithMediaMediaExternal;
 
   const factory URecordWithMediaMedia.unknown({
     required Map<String, dynamic> data,
@@ -41,14 +41,14 @@ final class URecordWithMediaMediaConverter
   @override
   URecordWithMediaMedia fromJson(Map<String, dynamic> json) {
     try {
-      if (isImagesView(json)) {
-        return URecordWithMediaMedia.imagesView(
-          data: const ImagesViewConverter().fromJson(json),
+      if (isImages(json)) {
+        return URecordWithMediaMedia.images(
+          data: const ImagesConverter().fromJson(json),
         );
       }
-      if (isExternalView(json)) {
-        return URecordWithMediaMedia.externalView(
-          data: const ExternalViewConverter().fromJson(json),
+      if (isExternal(json)) {
+        return URecordWithMediaMedia.external(
+          data: const ExternalConverter().fromJson(json),
         );
       }
 
@@ -60,8 +60,8 @@ final class URecordWithMediaMediaConverter
 
   @override
   Map<String, dynamic> toJson(URecordWithMediaMedia object) => object.when(
-        imagesView: const ImagesViewConverter().toJson,
-        externalView: const ExternalViewConverter().toJson,
+        images: const ImagesConverter().toJson,
+        external: const ExternalConverter().toJson,
         unknown: (data) => data,
       );
 }
@@ -71,17 +71,17 @@ extension $URecordWithMediaMediaExtension on URecordWithMediaMedia {
   Map<String, dynamic> toJson() =>
       const URecordWithMediaMediaConverter().toJson(this);
 
-  /// Returns true if this data is [ImagesView], otherwise false.
-  bool get isImagesView => this is URecordWithMediaMediaImagesView;
+  /// Returns true if this data is [Images], otherwise false.
+  bool get isImages => this is URecordWithMediaMediaImages;
 
-  /// Returns true if this data is not [ImagesView], otherwise false.
-  bool get isNotImagesView => !isImagesView;
+  /// Returns true if this data is not [Images], otherwise false.
+  bool get isNotImages => !isImages;
 
-  /// Returns true if this data is [ExternalView], otherwise false.
-  bool get isExternalView => this is URecordWithMediaMediaExternalView;
+  /// Returns true if this data is [External], otherwise false.
+  bool get isExternal => this is URecordWithMediaMediaExternal;
 
-  /// Returns true if this data is not [ExternalView], otherwise false.
-  bool get isNotExternalView => !isExternalView;
+  /// Returns true if this data is not [External], otherwise false.
+  bool get isNotExternal => !isExternal;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is URecordWithMediaMediaUnknown;
@@ -89,21 +89,21 @@ extension $URecordWithMediaMediaExtension on URecordWithMediaMedia {
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;
 
-  /// Returns this data as [ImagesView].
+  /// Returns this data as [Images].
   ///
-  /// Make sure to check if this object is [ImagesView] with [isImagesView].
-  ImagesView get imagesView => this.data as ImagesView;
+  /// Make sure to check if this object is [Images] with [isImages].
+  Images get images => this.data as Images;
 
-  /// Returns [ImagesView] if this data is [ImagesView], otherwise null.
-  ImagesView? get imagesViewOrNull => isImagesView ? imagesView : null;
+  /// Returns [Images] if this data is [Images], otherwise null.
+  Images? get imagesOrNull => isImages ? images : null;
 
-  /// Returns this data as [ExternalView].
+  /// Returns this data as [External].
   ///
-  /// Make sure to check if this object is [ExternalView] with [isExternalView].
-  ExternalView get externalView => this.data as ExternalView;
+  /// Make sure to check if this object is [External] with [isExternal].
+  External get external => this.data as External;
 
-  /// Returns [ExternalView] if this data is [ExternalView], otherwise null.
-  ExternalView? get externalViewOrNull => isExternalView ? externalView : null;
+  /// Returns [External] if this data is [External], otherwise null.
+  External? get externalOrNull => isExternal ? external : null;
 
   /// Returns this data as JSON object.
   ///

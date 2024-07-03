@@ -6,12 +6,12 @@
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 
 // 🌎 Project imports:
-import '../entities/embed.dart';
-import '../entities/embed_record.dart';
+import '../gen_types/app/bsky/embed/record/main.dart';
+import '../gen_types/app/bsky/feed/post/union_post_embed.dart';
 
 extension StrongRefExtension on StrongRef {
-  /// Returns the [Embed] record representation of this strong ref.
-  Embed toEmbedRecord() => Embed.record(
-        data: EmbedRecord(ref: this),
+  /// Returns the [UPostEmbed] record representation of this strong ref.
+  UPostEmbed toEmbedRecord() => UPostEmbed.record(
+        data: Record(record: this),
       );
 }

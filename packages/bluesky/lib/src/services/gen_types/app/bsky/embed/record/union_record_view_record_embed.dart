@@ -19,67 +19,67 @@ import '../../../../app/bsky/embed/images/view.dart';
 import '../../../../app/bsky/embed/record/view.dart';
 import '../../../../app/bsky/embed/record_with_media/view.dart';
 
-part 'union_record_embed.freezed.dart';
+part 'union_record_view_record_embed.freezed.dart';
 
 @freezed
-class URecordEmbed with _$URecordEmbed {
-  const factory URecordEmbed.imagesView({
+class URecordViewRecordEmbed with _$URecordViewRecordEmbed {
+  const factory URecordViewRecordEmbed.imagesView({
     required ImagesView data,
-  }) = URecordEmbedImagesView;
+  }) = URecordViewRecordEmbedImagesView;
 
-  const factory URecordEmbed.externalView({
+  const factory URecordViewRecordEmbed.externalView({
     required ExternalView data,
-  }) = URecordEmbedExternalView;
+  }) = URecordViewRecordEmbedExternalView;
 
-  const factory URecordEmbed.recordView({
+  const factory URecordViewRecordEmbed.recordView({
     required RecordView data,
-  }) = URecordEmbedRecordView;
+  }) = URecordViewRecordEmbedRecordView;
 
-  const factory URecordEmbed.recordWithMediaView({
+  const factory URecordViewRecordEmbed.recordWithMediaView({
     required RecordWithMediaView data,
-  }) = URecordEmbedRecordWithMediaView;
+  }) = URecordViewRecordEmbedRecordWithMediaView;
 
-  const factory URecordEmbed.unknown({
+  const factory URecordViewRecordEmbed.unknown({
     required Map<String, dynamic> data,
-  }) = URecordEmbedUnknown;
+  }) = URecordViewRecordEmbedUnknown;
 }
 
-final class URecordEmbedConverter
-    implements JsonConverter<URecordEmbed, Map<String, dynamic>> {
-  const URecordEmbedConverter();
+final class URecordViewRecordEmbedConverter
+    implements JsonConverter<URecordViewRecordEmbed, Map<String, dynamic>> {
+  const URecordViewRecordEmbedConverter();
 
   @override
-  URecordEmbed fromJson(Map<String, dynamic> json) {
+  URecordViewRecordEmbed fromJson(Map<String, dynamic> json) {
     try {
       if (isImagesView(json)) {
-        return URecordEmbed.imagesView(
+        return URecordViewRecordEmbed.imagesView(
           data: const ImagesViewConverter().fromJson(json),
         );
       }
       if (isExternalView(json)) {
-        return URecordEmbed.externalView(
+        return URecordViewRecordEmbed.externalView(
           data: const ExternalViewConverter().fromJson(json),
         );
       }
       if (isRecordView(json)) {
-        return URecordEmbed.recordView(
+        return URecordViewRecordEmbed.recordView(
           data: const RecordViewConverter().fromJson(json),
         );
       }
       if (isRecordWithMediaView(json)) {
-        return URecordEmbed.recordWithMediaView(
+        return URecordViewRecordEmbed.recordWithMediaView(
           data: const RecordWithMediaViewConverter().fromJson(json),
         );
       }
 
-      return URecordEmbed.unknown(data: json);
+      return URecordViewRecordEmbed.unknown(data: json);
     } catch (_) {
-      return URecordEmbed.unknown(data: json);
+      return URecordViewRecordEmbed.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(URecordEmbed object) => object.when(
+  Map<String, dynamic> toJson(URecordViewRecordEmbed object) => object.when(
         imagesView: const ImagesViewConverter().toJson,
         externalView: const ExternalViewConverter().toJson,
         recordView: const RecordViewConverter().toJson,
@@ -88,36 +88,38 @@ final class URecordEmbedConverter
       );
 }
 
-extension $URecordEmbedExtension on URecordEmbed {
+extension $URecordViewRecordEmbedExtension on URecordViewRecordEmbed {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const URecordEmbedConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const URecordViewRecordEmbedConverter().toJson(this);
 
   /// Returns true if this data is [ImagesView], otherwise false.
-  bool get isImagesView => this is URecordEmbedImagesView;
+  bool get isImagesView => this is URecordViewRecordEmbedImagesView;
 
   /// Returns true if this data is not [ImagesView], otherwise false.
   bool get isNotImagesView => !isImagesView;
 
   /// Returns true if this data is [ExternalView], otherwise false.
-  bool get isExternalView => this is URecordEmbedExternalView;
+  bool get isExternalView => this is URecordViewRecordEmbedExternalView;
 
   /// Returns true if this data is not [ExternalView], otherwise false.
   bool get isNotExternalView => !isExternalView;
 
   /// Returns true if this data is [RecordView], otherwise false.
-  bool get isRecordView => this is URecordEmbedRecordView;
+  bool get isRecordView => this is URecordViewRecordEmbedRecordView;
 
   /// Returns true if this data is not [RecordView], otherwise false.
   bool get isNotRecordView => !isRecordView;
 
   /// Returns true if this data is [RecordWithMediaView], otherwise false.
-  bool get isRecordWithMediaView => this is URecordEmbedRecordWithMediaView;
+  bool get isRecordWithMediaView =>
+      this is URecordViewRecordEmbedRecordWithMediaView;
 
   /// Returns true if this data is not [RecordWithMediaView], otherwise false.
   bool get isNotRecordWithMediaView => !isRecordWithMediaView;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is URecordEmbedUnknown;
+  bool get isUnknown => this is URecordViewRecordEmbedUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

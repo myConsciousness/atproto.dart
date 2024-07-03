@@ -21,85 +21,85 @@ import '../../../../app/bsky/feed/defs/generator_view.dart';
 import '../../../../app/bsky/graph/defs/list_view.dart';
 import '../../../../app/bsky/labeler/defs/labeler_view.dart';
 
-part 'union_record_record.freezed.dart';
+part 'union_record_view_record.freezed.dart';
 
 @freezed
-class URecordRecord with _$URecordRecord {
-  const factory URecordRecord.recordViewRecord({
+class URecordViewRecord with _$URecordViewRecord {
+  const factory URecordViewRecord.recordViewRecord({
     required RecordViewRecord data,
-  }) = URecordRecordRecordViewRecord;
+  }) = URecordViewRecordRecordViewRecord;
 
-  const factory URecordRecord.recordViewNotFound({
+  const factory URecordViewRecord.recordViewNotFound({
     required RecordViewNotFound data,
-  }) = URecordRecordRecordViewNotFound;
+  }) = URecordViewRecordRecordViewNotFound;
 
-  const factory URecordRecord.recordViewBlocked({
+  const factory URecordViewRecord.recordViewBlocked({
     required RecordViewBlocked data,
-  }) = URecordRecordRecordViewBlocked;
+  }) = URecordViewRecordRecordViewBlocked;
 
-  const factory URecordRecord.generatorView({
+  const factory URecordViewRecord.generatorView({
     required GeneratorView data,
-  }) = URecordRecordGeneratorView;
+  }) = URecordViewRecordGeneratorView;
 
-  const factory URecordRecord.listView({
+  const factory URecordViewRecord.listView({
     required ListView data,
-  }) = URecordRecordListView;
+  }) = URecordViewRecordListView;
 
-  const factory URecordRecord.labelerView({
+  const factory URecordViewRecord.labelerView({
     required LabelerView data,
-  }) = URecordRecordLabelerView;
+  }) = URecordViewRecordLabelerView;
 
-  const factory URecordRecord.unknown({
+  const factory URecordViewRecord.unknown({
     required Map<String, dynamic> data,
-  }) = URecordRecordUnknown;
+  }) = URecordViewRecordUnknown;
 }
 
-final class URecordRecordConverter
-    implements JsonConverter<URecordRecord, Map<String, dynamic>> {
-  const URecordRecordConverter();
+final class URecordViewRecordConverter
+    implements JsonConverter<URecordViewRecord, Map<String, dynamic>> {
+  const URecordViewRecordConverter();
 
   @override
-  URecordRecord fromJson(Map<String, dynamic> json) {
+  URecordViewRecord fromJson(Map<String, dynamic> json) {
     try {
       if (isRecordViewRecord(json)) {
-        return URecordRecord.recordViewRecord(
+        return URecordViewRecord.recordViewRecord(
           data: const RecordViewRecordConverter().fromJson(json),
         );
       }
       if (isRecordViewNotFound(json)) {
-        return URecordRecord.recordViewNotFound(
+        return URecordViewRecord.recordViewNotFound(
           data: const RecordViewNotFoundConverter().fromJson(json),
         );
       }
       if (isRecordViewBlocked(json)) {
-        return URecordRecord.recordViewBlocked(
+        return URecordViewRecord.recordViewBlocked(
           data: const RecordViewBlockedConverter().fromJson(json),
         );
       }
       if (isGeneratorView(json)) {
-        return URecordRecord.generatorView(
+        return URecordViewRecord.generatorView(
           data: const GeneratorViewConverter().fromJson(json),
         );
       }
       if (isListView(json)) {
-        return URecordRecord.listView(
+        return URecordViewRecord.listView(
           data: const ListViewConverter().fromJson(json),
         );
       }
       if (isLabelerView(json)) {
-        return URecordRecord.labelerView(
+        return URecordViewRecord.labelerView(
           data: const LabelerViewConverter().fromJson(json),
         );
       }
 
-      return URecordRecord.unknown(data: json);
+      return URecordViewRecord.unknown(data: json);
     } catch (_) {
-      return URecordRecord.unknown(data: json);
+      return URecordViewRecord.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(URecordRecord object) => object.when(
+  Map<String, dynamic> toJson(URecordViewRecord object) => object.when(
         recordViewRecord: const RecordViewRecordConverter().toJson,
         recordViewNotFound: const RecordViewNotFoundConverter().toJson,
         recordViewBlocked: const RecordViewBlockedConverter().toJson,
@@ -110,48 +110,49 @@ final class URecordRecordConverter
       );
 }
 
-extension $URecordRecordExtension on URecordRecord {
+extension $URecordViewRecordExtension on URecordViewRecord {
   /// Returns JSON representation.
-  Map<String, dynamic> toJson() => const URecordRecordConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const URecordViewRecordConverter().toJson(this);
 
   /// Returns true if this data is [RecordViewRecord], otherwise false.
-  bool get isRecordViewRecord => this is URecordRecordRecordViewRecord;
+  bool get isRecordViewRecord => this is URecordViewRecordRecordViewRecord;
 
   /// Returns true if this data is not [RecordViewRecord], otherwise false.
   bool get isNotRecordViewRecord => !isRecordViewRecord;
 
   /// Returns true if this data is [RecordViewNotFound], otherwise false.
-  bool get isRecordViewNotFound => this is URecordRecordRecordViewNotFound;
+  bool get isRecordViewNotFound => this is URecordViewRecordRecordViewNotFound;
 
   /// Returns true if this data is not [RecordViewNotFound], otherwise false.
   bool get isNotRecordViewNotFound => !isRecordViewNotFound;
 
   /// Returns true if this data is [RecordViewBlocked], otherwise false.
-  bool get isRecordViewBlocked => this is URecordRecordRecordViewBlocked;
+  bool get isRecordViewBlocked => this is URecordViewRecordRecordViewBlocked;
 
   /// Returns true if this data is not [RecordViewBlocked], otherwise false.
   bool get isNotRecordViewBlocked => !isRecordViewBlocked;
 
   /// Returns true if this data is [GeneratorView], otherwise false.
-  bool get isGeneratorView => this is URecordRecordGeneratorView;
+  bool get isGeneratorView => this is URecordViewRecordGeneratorView;
 
   /// Returns true if this data is not [GeneratorView], otherwise false.
   bool get isNotGeneratorView => !isGeneratorView;
 
   /// Returns true if this data is [ListView], otherwise false.
-  bool get isListView => this is URecordRecordListView;
+  bool get isListView => this is URecordViewRecordListView;
 
   /// Returns true if this data is not [ListView], otherwise false.
   bool get isNotListView => !isListView;
 
   /// Returns true if this data is [LabelerView], otherwise false.
-  bool get isLabelerView => this is URecordRecordLabelerView;
+  bool get isLabelerView => this is URecordViewRecordLabelerView;
 
   /// Returns true if this data is not [LabelerView], otherwise false.
   bool get isNotLabelerView => !isLabelerView;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is URecordRecordUnknown;
+  bool get isUnknown => this is URecordViewRecordUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

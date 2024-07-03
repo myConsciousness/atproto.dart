@@ -22,7 +22,7 @@ _$RecordWithMediaViewImpl _$$RecordWithMediaViewImplFromJson(Map json) =>
                   .fromJson(v as Map<String, dynamic>)),
           media: $checkedConvert(
               'media',
-              (v) => const URecordWithMediaMediaConverter()
+              (v) => const URecordWithMediaViewMediaConverter()
                   .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -39,7 +39,7 @@ Map<String, dynamic> _$$RecordWithMediaViewImplToJson(
   final val = <String, dynamic>{
     r'$type': instance.$type,
     'record': const RecordViewConverter().toJson(instance.record),
-    'media': const URecordWithMediaMediaConverter().toJson(instance.media),
+    'media': const URecordWithMediaViewMediaConverter().toJson(instance.media),
   };
 
   void writeNotNull(String key, dynamic value) {

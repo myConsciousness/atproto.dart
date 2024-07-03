@@ -8,10 +8,11 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import '../../../services/gen_types/app/bsky/actor/defs/muted_word.dart';
-import '../../../services/gen_types/app/bsky/embed/record/union_record_record.dart';
+import '../../../services/gen_types/app/bsky/embed/record/union_record_view_record.dart';
 import '../../../services/gen_types/app/bsky/embed/record/view_blocked.dart';
 import '../../../services/gen_types/app/bsky/embed/record/view_record.dart';
 import '../../../services/gen_types/app/bsky/embed/record_with_media/union_record_with_media_media.dart';
+import '../../../services/gen_types/app/bsky/embed/record_with_media/union_record_with_media_view_media.dart';
 import '../../../services/gen_types/app/bsky/feed/defs/union_embed.dart';
 import '../../../services/gen_types/app/bsky/feed/post/record.dart';
 import '../../../services/gen_types/app/bsky/feed/post/union_post_embed.dart';
@@ -251,8 +252,8 @@ bool _hasMutedWords(
       final embeddedPostEmbedMedia = embeddedPostEmbed.recordWithMedia.media;
 
       // quoted post's link card when it did a quote + media
-      if (embeddedPostEmbedMedia.isExternalView) {
-        final external = embeddedPostEmbedMedia.externalView.external;
+      if (embeddedPostEmbedMedia.isExternal) {
+        final external = embeddedPostEmbedMedia.external.external;
         if (hasMutedWord(
           mutedWords: mutedWords,
           text: '${external.title} ${external.description}',
@@ -263,8 +264,8 @@ bool _hasMutedWords(
       }
 
       // quoted post's images when it did a quote + media
-      if (embeddedPostEmbedMedia.isImagesView) {
-        for (final image in embeddedPostEmbedMedia.imagesView.images) {
+      if (embeddedPostEmbedMedia.isImages) {
+        for (final image in embeddedPostEmbedMedia.images.images) {
           if (hasMutedWord(
             mutedWords: mutedWords,
             text: image.alt,

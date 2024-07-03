@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_record_record.dart';
+part of 'union_record_view_record.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$URecordRecord {
+mixin _$URecordViewRecord {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -53,55 +53,60 @@ mixin _$URecordRecord {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordRecordRecordViewRecord value)
+    required TResult Function(URecordViewRecordRecordViewRecord value)
         recordViewRecord,
-    required TResult Function(URecordRecordRecordViewNotFound value)
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
         recordViewNotFound,
-    required TResult Function(URecordRecordRecordViewBlocked value)
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
-    required TResult Function(URecordRecordGeneratorView value) generatorView,
-    required TResult Function(URecordRecordListView value) listView,
-    required TResult Function(URecordRecordLabelerView value) labelerView,
-    required TResult Function(URecordRecordUnknown value) unknown,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult? Function(URecordRecordRecordViewNotFound value)?
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
         recordViewNotFound,
-    TResult? Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult? Function(URecordRecordGeneratorView value)? generatorView,
-    TResult? Function(URecordRecordListView value)? listView,
-    TResult? Function(URecordRecordLabelerView value)? labelerView,
-    TResult? Function(URecordRecordUnknown value)? unknown,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult Function(URecordRecordRecordViewNotFound value)? recordViewNotFound,
-    TResult Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult Function(URecordRecordGeneratorView value)? generatorView,
-    TResult Function(URecordRecordListView value)? listView,
-    TResult Function(URecordRecordLabelerView value)? labelerView,
-    TResult Function(URecordRecordUnknown value)? unknown,
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $URecordRecordCopyWith<$Res> {
-  factory $URecordRecordCopyWith(
-          URecordRecord value, $Res Function(URecordRecord) then) =
-      _$URecordRecordCopyWithImpl<$Res, URecordRecord>;
+abstract class $URecordViewRecordCopyWith<$Res> {
+  factory $URecordViewRecordCopyWith(
+          URecordViewRecord value, $Res Function(URecordViewRecord) then) =
+      _$URecordViewRecordCopyWithImpl<$Res, URecordViewRecord>;
 }
 
 /// @nodoc
-class _$URecordRecordCopyWithImpl<$Res, $Val extends URecordRecord>
-    implements $URecordRecordCopyWith<$Res> {
-  _$URecordRecordCopyWithImpl(this._value, this._then);
+class _$URecordViewRecordCopyWithImpl<$Res, $Val extends URecordViewRecord>
+    implements $URecordViewRecordCopyWith<$Res> {
+  _$URecordViewRecordCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -110,11 +115,11 @@ class _$URecordRecordCopyWithImpl<$Res, $Val extends URecordRecord>
 }
 
 /// @nodoc
-abstract class _$$URecordRecordRecordViewRecordImplCopyWith<$Res> {
-  factory _$$URecordRecordRecordViewRecordImplCopyWith(
-          _$URecordRecordRecordViewRecordImpl value,
-          $Res Function(_$URecordRecordRecordViewRecordImpl) then) =
-      __$$URecordRecordRecordViewRecordImplCopyWithImpl<$Res>;
+abstract class _$$URecordViewRecordRecordViewRecordImplCopyWith<$Res> {
+  factory _$$URecordViewRecordRecordViewRecordImplCopyWith(
+          _$URecordViewRecordRecordViewRecordImpl value,
+          $Res Function(_$URecordViewRecordRecordViewRecordImpl) then) =
+      __$$URecordViewRecordRecordViewRecordImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RecordViewRecord data});
 
@@ -122,13 +127,13 @@ abstract class _$$URecordRecordRecordViewRecordImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URecordRecordRecordViewRecordImplCopyWithImpl<$Res>
-    extends _$URecordRecordCopyWithImpl<$Res,
-        _$URecordRecordRecordViewRecordImpl>
-    implements _$$URecordRecordRecordViewRecordImplCopyWith<$Res> {
-  __$$URecordRecordRecordViewRecordImplCopyWithImpl(
-      _$URecordRecordRecordViewRecordImpl _value,
-      $Res Function(_$URecordRecordRecordViewRecordImpl) _then)
+class __$$URecordViewRecordRecordViewRecordImplCopyWithImpl<$Res>
+    extends _$URecordViewRecordCopyWithImpl<$Res,
+        _$URecordViewRecordRecordViewRecordImpl>
+    implements _$$URecordViewRecordRecordViewRecordImplCopyWith<$Res> {
+  __$$URecordViewRecordRecordViewRecordImplCopyWithImpl(
+      _$URecordViewRecordRecordViewRecordImpl _value,
+      $Res Function(_$URecordViewRecordRecordViewRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -136,7 +141,7 @@ class __$$URecordRecordRecordViewRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URecordRecordRecordViewRecordImpl(
+    return _then(_$URecordViewRecordRecordViewRecordImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -155,23 +160,23 @@ class __$$URecordRecordRecordViewRecordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordRecordRecordViewRecordImpl
-    implements URecordRecordRecordViewRecord {
-  const _$URecordRecordRecordViewRecordImpl({required this.data});
+class _$URecordViewRecordRecordViewRecordImpl
+    implements URecordViewRecordRecordViewRecord {
+  const _$URecordViewRecordRecordViewRecordImpl({required this.data});
 
   @override
   final RecordViewRecord data;
 
   @override
   String toString() {
-    return 'URecordRecord.recordViewRecord(data: $data)';
+    return 'URecordViewRecord.recordViewRecord(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URecordRecordRecordViewRecordImpl &&
+            other is _$URecordViewRecordRecordViewRecordImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -181,10 +186,10 @@ class _$URecordRecordRecordViewRecordImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URecordRecordRecordViewRecordImplCopyWith<
-          _$URecordRecordRecordViewRecordImpl>
-      get copyWith => __$$URecordRecordRecordViewRecordImplCopyWithImpl<
-          _$URecordRecordRecordViewRecordImpl>(this, _$identity);
+  _$$URecordViewRecordRecordViewRecordImplCopyWith<
+          _$URecordViewRecordRecordViewRecordImpl>
+      get copyWith => __$$URecordViewRecordRecordViewRecordImplCopyWithImpl<
+          _$URecordViewRecordRecordViewRecordImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -235,16 +240,17 @@ class _$URecordRecordRecordViewRecordImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordRecordRecordViewRecord value)
+    required TResult Function(URecordViewRecordRecordViewRecord value)
         recordViewRecord,
-    required TResult Function(URecordRecordRecordViewNotFound value)
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
         recordViewNotFound,
-    required TResult Function(URecordRecordRecordViewBlocked value)
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
-    required TResult Function(URecordRecordGeneratorView value) generatorView,
-    required TResult Function(URecordRecordListView value) listView,
-    required TResult Function(URecordRecordLabelerView value) labelerView,
-    required TResult Function(URecordRecordUnknown value) unknown,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return recordViewRecord(this);
   }
@@ -252,14 +258,16 @@ class _$URecordRecordRecordViewRecordImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult? Function(URecordRecordRecordViewNotFound value)?
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
         recordViewNotFound,
-    TResult? Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult? Function(URecordRecordGeneratorView value)? generatorView,
-    TResult? Function(URecordRecordListView value)? listView,
-    TResult? Function(URecordRecordLabelerView value)? labelerView,
-    TResult? Function(URecordRecordUnknown value)? unknown,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return recordViewRecord?.call(this);
   }
@@ -267,13 +275,15 @@ class _$URecordRecordRecordViewRecordImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult Function(URecordRecordRecordViewNotFound value)? recordViewNotFound,
-    TResult Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult Function(URecordRecordGeneratorView value)? generatorView,
-    TResult Function(URecordRecordListView value)? listView,
-    TResult Function(URecordRecordLabelerView value)? labelerView,
-    TResult Function(URecordRecordUnknown value)? unknown,
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (recordViewRecord != null) {
@@ -283,25 +293,25 @@ class _$URecordRecordRecordViewRecordImpl
   }
 }
 
-abstract class URecordRecordRecordViewRecord implements URecordRecord {
-  const factory URecordRecordRecordViewRecord(
+abstract class URecordViewRecordRecordViewRecord implements URecordViewRecord {
+  const factory URecordViewRecordRecordViewRecord(
           {required final RecordViewRecord data}) =
-      _$URecordRecordRecordViewRecordImpl;
+      _$URecordViewRecordRecordViewRecordImpl;
 
   @override
   RecordViewRecord get data;
   @JsonKey(ignore: true)
-  _$$URecordRecordRecordViewRecordImplCopyWith<
-          _$URecordRecordRecordViewRecordImpl>
+  _$$URecordViewRecordRecordViewRecordImplCopyWith<
+          _$URecordViewRecordRecordViewRecordImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URecordRecordRecordViewNotFoundImplCopyWith<$Res> {
-  factory _$$URecordRecordRecordViewNotFoundImplCopyWith(
-          _$URecordRecordRecordViewNotFoundImpl value,
-          $Res Function(_$URecordRecordRecordViewNotFoundImpl) then) =
-      __$$URecordRecordRecordViewNotFoundImplCopyWithImpl<$Res>;
+abstract class _$$URecordViewRecordRecordViewNotFoundImplCopyWith<$Res> {
+  factory _$$URecordViewRecordRecordViewNotFoundImplCopyWith(
+          _$URecordViewRecordRecordViewNotFoundImpl value,
+          $Res Function(_$URecordViewRecordRecordViewNotFoundImpl) then) =
+      __$$URecordViewRecordRecordViewNotFoundImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RecordViewNotFound data});
 
@@ -309,13 +319,13 @@ abstract class _$$URecordRecordRecordViewNotFoundImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URecordRecordRecordViewNotFoundImplCopyWithImpl<$Res>
-    extends _$URecordRecordCopyWithImpl<$Res,
-        _$URecordRecordRecordViewNotFoundImpl>
-    implements _$$URecordRecordRecordViewNotFoundImplCopyWith<$Res> {
-  __$$URecordRecordRecordViewNotFoundImplCopyWithImpl(
-      _$URecordRecordRecordViewNotFoundImpl _value,
-      $Res Function(_$URecordRecordRecordViewNotFoundImpl) _then)
+class __$$URecordViewRecordRecordViewNotFoundImplCopyWithImpl<$Res>
+    extends _$URecordViewRecordCopyWithImpl<$Res,
+        _$URecordViewRecordRecordViewNotFoundImpl>
+    implements _$$URecordViewRecordRecordViewNotFoundImplCopyWith<$Res> {
+  __$$URecordViewRecordRecordViewNotFoundImplCopyWithImpl(
+      _$URecordViewRecordRecordViewNotFoundImpl _value,
+      $Res Function(_$URecordViewRecordRecordViewNotFoundImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -323,7 +333,7 @@ class __$$URecordRecordRecordViewNotFoundImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URecordRecordRecordViewNotFoundImpl(
+    return _then(_$URecordViewRecordRecordViewNotFoundImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -342,23 +352,23 @@ class __$$URecordRecordRecordViewNotFoundImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordRecordRecordViewNotFoundImpl
-    implements URecordRecordRecordViewNotFound {
-  const _$URecordRecordRecordViewNotFoundImpl({required this.data});
+class _$URecordViewRecordRecordViewNotFoundImpl
+    implements URecordViewRecordRecordViewNotFound {
+  const _$URecordViewRecordRecordViewNotFoundImpl({required this.data});
 
   @override
   final RecordViewNotFound data;
 
   @override
   String toString() {
-    return 'URecordRecord.recordViewNotFound(data: $data)';
+    return 'URecordViewRecord.recordViewNotFound(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URecordRecordRecordViewNotFoundImpl &&
+            other is _$URecordViewRecordRecordViewNotFoundImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -368,10 +378,10 @@ class _$URecordRecordRecordViewNotFoundImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URecordRecordRecordViewNotFoundImplCopyWith<
-          _$URecordRecordRecordViewNotFoundImpl>
-      get copyWith => __$$URecordRecordRecordViewNotFoundImplCopyWithImpl<
-          _$URecordRecordRecordViewNotFoundImpl>(this, _$identity);
+  _$$URecordViewRecordRecordViewNotFoundImplCopyWith<
+          _$URecordViewRecordRecordViewNotFoundImpl>
+      get copyWith => __$$URecordViewRecordRecordViewNotFoundImplCopyWithImpl<
+          _$URecordViewRecordRecordViewNotFoundImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -422,16 +432,17 @@ class _$URecordRecordRecordViewNotFoundImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordRecordRecordViewRecord value)
+    required TResult Function(URecordViewRecordRecordViewRecord value)
         recordViewRecord,
-    required TResult Function(URecordRecordRecordViewNotFound value)
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
         recordViewNotFound,
-    required TResult Function(URecordRecordRecordViewBlocked value)
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
-    required TResult Function(URecordRecordGeneratorView value) generatorView,
-    required TResult Function(URecordRecordListView value) listView,
-    required TResult Function(URecordRecordLabelerView value) labelerView,
-    required TResult Function(URecordRecordUnknown value) unknown,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return recordViewNotFound(this);
   }
@@ -439,14 +450,16 @@ class _$URecordRecordRecordViewNotFoundImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult? Function(URecordRecordRecordViewNotFound value)?
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
         recordViewNotFound,
-    TResult? Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult? Function(URecordRecordGeneratorView value)? generatorView,
-    TResult? Function(URecordRecordListView value)? listView,
-    TResult? Function(URecordRecordLabelerView value)? labelerView,
-    TResult? Function(URecordRecordUnknown value)? unknown,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return recordViewNotFound?.call(this);
   }
@@ -454,13 +467,15 @@ class _$URecordRecordRecordViewNotFoundImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult Function(URecordRecordRecordViewNotFound value)? recordViewNotFound,
-    TResult Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult Function(URecordRecordGeneratorView value)? generatorView,
-    TResult Function(URecordRecordListView value)? listView,
-    TResult Function(URecordRecordLabelerView value)? labelerView,
-    TResult Function(URecordRecordUnknown value)? unknown,
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (recordViewNotFound != null) {
@@ -470,25 +485,26 @@ class _$URecordRecordRecordViewNotFoundImpl
   }
 }
 
-abstract class URecordRecordRecordViewNotFound implements URecordRecord {
-  const factory URecordRecordRecordViewNotFound(
+abstract class URecordViewRecordRecordViewNotFound
+    implements URecordViewRecord {
+  const factory URecordViewRecordRecordViewNotFound(
           {required final RecordViewNotFound data}) =
-      _$URecordRecordRecordViewNotFoundImpl;
+      _$URecordViewRecordRecordViewNotFoundImpl;
 
   @override
   RecordViewNotFound get data;
   @JsonKey(ignore: true)
-  _$$URecordRecordRecordViewNotFoundImplCopyWith<
-          _$URecordRecordRecordViewNotFoundImpl>
+  _$$URecordViewRecordRecordViewNotFoundImplCopyWith<
+          _$URecordViewRecordRecordViewNotFoundImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URecordRecordRecordViewBlockedImplCopyWith<$Res> {
-  factory _$$URecordRecordRecordViewBlockedImplCopyWith(
-          _$URecordRecordRecordViewBlockedImpl value,
-          $Res Function(_$URecordRecordRecordViewBlockedImpl) then) =
-      __$$URecordRecordRecordViewBlockedImplCopyWithImpl<$Res>;
+abstract class _$$URecordViewRecordRecordViewBlockedImplCopyWith<$Res> {
+  factory _$$URecordViewRecordRecordViewBlockedImplCopyWith(
+          _$URecordViewRecordRecordViewBlockedImpl value,
+          $Res Function(_$URecordViewRecordRecordViewBlockedImpl) then) =
+      __$$URecordViewRecordRecordViewBlockedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RecordViewBlocked data});
 
@@ -496,13 +512,13 @@ abstract class _$$URecordRecordRecordViewBlockedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URecordRecordRecordViewBlockedImplCopyWithImpl<$Res>
-    extends _$URecordRecordCopyWithImpl<$Res,
-        _$URecordRecordRecordViewBlockedImpl>
-    implements _$$URecordRecordRecordViewBlockedImplCopyWith<$Res> {
-  __$$URecordRecordRecordViewBlockedImplCopyWithImpl(
-      _$URecordRecordRecordViewBlockedImpl _value,
-      $Res Function(_$URecordRecordRecordViewBlockedImpl) _then)
+class __$$URecordViewRecordRecordViewBlockedImplCopyWithImpl<$Res>
+    extends _$URecordViewRecordCopyWithImpl<$Res,
+        _$URecordViewRecordRecordViewBlockedImpl>
+    implements _$$URecordViewRecordRecordViewBlockedImplCopyWith<$Res> {
+  __$$URecordViewRecordRecordViewBlockedImplCopyWithImpl(
+      _$URecordViewRecordRecordViewBlockedImpl _value,
+      $Res Function(_$URecordViewRecordRecordViewBlockedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -510,7 +526,7 @@ class __$$URecordRecordRecordViewBlockedImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URecordRecordRecordViewBlockedImpl(
+    return _then(_$URecordViewRecordRecordViewBlockedImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -529,23 +545,23 @@ class __$$URecordRecordRecordViewBlockedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordRecordRecordViewBlockedImpl
-    implements URecordRecordRecordViewBlocked {
-  const _$URecordRecordRecordViewBlockedImpl({required this.data});
+class _$URecordViewRecordRecordViewBlockedImpl
+    implements URecordViewRecordRecordViewBlocked {
+  const _$URecordViewRecordRecordViewBlockedImpl({required this.data});
 
   @override
   final RecordViewBlocked data;
 
   @override
   String toString() {
-    return 'URecordRecord.recordViewBlocked(data: $data)';
+    return 'URecordViewRecord.recordViewBlocked(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URecordRecordRecordViewBlockedImpl &&
+            other is _$URecordViewRecordRecordViewBlockedImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -555,10 +571,10 @@ class _$URecordRecordRecordViewBlockedImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URecordRecordRecordViewBlockedImplCopyWith<
-          _$URecordRecordRecordViewBlockedImpl>
-      get copyWith => __$$URecordRecordRecordViewBlockedImplCopyWithImpl<
-          _$URecordRecordRecordViewBlockedImpl>(this, _$identity);
+  _$$URecordViewRecordRecordViewBlockedImplCopyWith<
+          _$URecordViewRecordRecordViewBlockedImpl>
+      get copyWith => __$$URecordViewRecordRecordViewBlockedImplCopyWithImpl<
+          _$URecordViewRecordRecordViewBlockedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -609,16 +625,17 @@ class _$URecordRecordRecordViewBlockedImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordRecordRecordViewRecord value)
+    required TResult Function(URecordViewRecordRecordViewRecord value)
         recordViewRecord,
-    required TResult Function(URecordRecordRecordViewNotFound value)
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
         recordViewNotFound,
-    required TResult Function(URecordRecordRecordViewBlocked value)
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
-    required TResult Function(URecordRecordGeneratorView value) generatorView,
-    required TResult Function(URecordRecordListView value) listView,
-    required TResult Function(URecordRecordLabelerView value) labelerView,
-    required TResult Function(URecordRecordUnknown value) unknown,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return recordViewBlocked(this);
   }
@@ -626,14 +643,16 @@ class _$URecordRecordRecordViewBlockedImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult? Function(URecordRecordRecordViewNotFound value)?
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
         recordViewNotFound,
-    TResult? Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult? Function(URecordRecordGeneratorView value)? generatorView,
-    TResult? Function(URecordRecordListView value)? listView,
-    TResult? Function(URecordRecordLabelerView value)? labelerView,
-    TResult? Function(URecordRecordUnknown value)? unknown,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return recordViewBlocked?.call(this);
   }
@@ -641,13 +660,15 @@ class _$URecordRecordRecordViewBlockedImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult Function(URecordRecordRecordViewNotFound value)? recordViewNotFound,
-    TResult Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult Function(URecordRecordGeneratorView value)? generatorView,
-    TResult Function(URecordRecordListView value)? listView,
-    TResult Function(URecordRecordLabelerView value)? labelerView,
-    TResult Function(URecordRecordUnknown value)? unknown,
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (recordViewBlocked != null) {
@@ -657,25 +678,25 @@ class _$URecordRecordRecordViewBlockedImpl
   }
 }
 
-abstract class URecordRecordRecordViewBlocked implements URecordRecord {
-  const factory URecordRecordRecordViewBlocked(
+abstract class URecordViewRecordRecordViewBlocked implements URecordViewRecord {
+  const factory URecordViewRecordRecordViewBlocked(
           {required final RecordViewBlocked data}) =
-      _$URecordRecordRecordViewBlockedImpl;
+      _$URecordViewRecordRecordViewBlockedImpl;
 
   @override
   RecordViewBlocked get data;
   @JsonKey(ignore: true)
-  _$$URecordRecordRecordViewBlockedImplCopyWith<
-          _$URecordRecordRecordViewBlockedImpl>
+  _$$URecordViewRecordRecordViewBlockedImplCopyWith<
+          _$URecordViewRecordRecordViewBlockedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URecordRecordGeneratorViewImplCopyWith<$Res> {
-  factory _$$URecordRecordGeneratorViewImplCopyWith(
-          _$URecordRecordGeneratorViewImpl value,
-          $Res Function(_$URecordRecordGeneratorViewImpl) then) =
-      __$$URecordRecordGeneratorViewImplCopyWithImpl<$Res>;
+abstract class _$$URecordViewRecordGeneratorViewImplCopyWith<$Res> {
+  factory _$$URecordViewRecordGeneratorViewImplCopyWith(
+          _$URecordViewRecordGeneratorViewImpl value,
+          $Res Function(_$URecordViewRecordGeneratorViewImpl) then) =
+      __$$URecordViewRecordGeneratorViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({GeneratorView data});
 
@@ -683,12 +704,13 @@ abstract class _$$URecordRecordGeneratorViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URecordRecordGeneratorViewImplCopyWithImpl<$Res>
-    extends _$URecordRecordCopyWithImpl<$Res, _$URecordRecordGeneratorViewImpl>
-    implements _$$URecordRecordGeneratorViewImplCopyWith<$Res> {
-  __$$URecordRecordGeneratorViewImplCopyWithImpl(
-      _$URecordRecordGeneratorViewImpl _value,
-      $Res Function(_$URecordRecordGeneratorViewImpl) _then)
+class __$$URecordViewRecordGeneratorViewImplCopyWithImpl<$Res>
+    extends _$URecordViewRecordCopyWithImpl<$Res,
+        _$URecordViewRecordGeneratorViewImpl>
+    implements _$$URecordViewRecordGeneratorViewImplCopyWith<$Res> {
+  __$$URecordViewRecordGeneratorViewImplCopyWithImpl(
+      _$URecordViewRecordGeneratorViewImpl _value,
+      $Res Function(_$URecordViewRecordGeneratorViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -696,7 +718,7 @@ class __$$URecordRecordGeneratorViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URecordRecordGeneratorViewImpl(
+    return _then(_$URecordViewRecordGeneratorViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -715,22 +737,23 @@ class __$$URecordRecordGeneratorViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordRecordGeneratorViewImpl implements URecordRecordGeneratorView {
-  const _$URecordRecordGeneratorViewImpl({required this.data});
+class _$URecordViewRecordGeneratorViewImpl
+    implements URecordViewRecordGeneratorView {
+  const _$URecordViewRecordGeneratorViewImpl({required this.data});
 
   @override
   final GeneratorView data;
 
   @override
   String toString() {
-    return 'URecordRecord.generatorView(data: $data)';
+    return 'URecordViewRecord.generatorView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URecordRecordGeneratorViewImpl &&
+            other is _$URecordViewRecordGeneratorViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -740,9 +763,10 @@ class _$URecordRecordGeneratorViewImpl implements URecordRecordGeneratorView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URecordRecordGeneratorViewImplCopyWith<_$URecordRecordGeneratorViewImpl>
-      get copyWith => __$$URecordRecordGeneratorViewImplCopyWithImpl<
-          _$URecordRecordGeneratorViewImpl>(this, _$identity);
+  _$$URecordViewRecordGeneratorViewImplCopyWith<
+          _$URecordViewRecordGeneratorViewImpl>
+      get copyWith => __$$URecordViewRecordGeneratorViewImplCopyWithImpl<
+          _$URecordViewRecordGeneratorViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -793,16 +817,17 @@ class _$URecordRecordGeneratorViewImpl implements URecordRecordGeneratorView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordRecordRecordViewRecord value)
+    required TResult Function(URecordViewRecordRecordViewRecord value)
         recordViewRecord,
-    required TResult Function(URecordRecordRecordViewNotFound value)
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
         recordViewNotFound,
-    required TResult Function(URecordRecordRecordViewBlocked value)
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
-    required TResult Function(URecordRecordGeneratorView value) generatorView,
-    required TResult Function(URecordRecordListView value) listView,
-    required TResult Function(URecordRecordLabelerView value) labelerView,
-    required TResult Function(URecordRecordUnknown value) unknown,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return generatorView(this);
   }
@@ -810,14 +835,16 @@ class _$URecordRecordGeneratorViewImpl implements URecordRecordGeneratorView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult? Function(URecordRecordRecordViewNotFound value)?
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
         recordViewNotFound,
-    TResult? Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult? Function(URecordRecordGeneratorView value)? generatorView,
-    TResult? Function(URecordRecordListView value)? listView,
-    TResult? Function(URecordRecordLabelerView value)? labelerView,
-    TResult? Function(URecordRecordUnknown value)? unknown,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return generatorView?.call(this);
   }
@@ -825,13 +852,15 @@ class _$URecordRecordGeneratorViewImpl implements URecordRecordGeneratorView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult Function(URecordRecordRecordViewNotFound value)? recordViewNotFound,
-    TResult Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult Function(URecordRecordGeneratorView value)? generatorView,
-    TResult Function(URecordRecordListView value)? listView,
-    TResult Function(URecordRecordLabelerView value)? labelerView,
-    TResult Function(URecordRecordUnknown value)? unknown,
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (generatorView != null) {
@@ -841,23 +870,25 @@ class _$URecordRecordGeneratorViewImpl implements URecordRecordGeneratorView {
   }
 }
 
-abstract class URecordRecordGeneratorView implements URecordRecord {
-  const factory URecordRecordGeneratorView(
-      {required final GeneratorView data}) = _$URecordRecordGeneratorViewImpl;
+abstract class URecordViewRecordGeneratorView implements URecordViewRecord {
+  const factory URecordViewRecordGeneratorView(
+          {required final GeneratorView data}) =
+      _$URecordViewRecordGeneratorViewImpl;
 
   @override
   GeneratorView get data;
   @JsonKey(ignore: true)
-  _$$URecordRecordGeneratorViewImplCopyWith<_$URecordRecordGeneratorViewImpl>
+  _$$URecordViewRecordGeneratorViewImplCopyWith<
+          _$URecordViewRecordGeneratorViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URecordRecordListViewImplCopyWith<$Res> {
-  factory _$$URecordRecordListViewImplCopyWith(
-          _$URecordRecordListViewImpl value,
-          $Res Function(_$URecordRecordListViewImpl) then) =
-      __$$URecordRecordListViewImplCopyWithImpl<$Res>;
+abstract class _$$URecordViewRecordListViewImplCopyWith<$Res> {
+  factory _$$URecordViewRecordListViewImplCopyWith(
+          _$URecordViewRecordListViewImpl value,
+          $Res Function(_$URecordViewRecordListViewImpl) then) =
+      __$$URecordViewRecordListViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ListView data});
 
@@ -865,11 +896,13 @@ abstract class _$$URecordRecordListViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URecordRecordListViewImplCopyWithImpl<$Res>
-    extends _$URecordRecordCopyWithImpl<$Res, _$URecordRecordListViewImpl>
-    implements _$$URecordRecordListViewImplCopyWith<$Res> {
-  __$$URecordRecordListViewImplCopyWithImpl(_$URecordRecordListViewImpl _value,
-      $Res Function(_$URecordRecordListViewImpl) _then)
+class __$$URecordViewRecordListViewImplCopyWithImpl<$Res>
+    extends _$URecordViewRecordCopyWithImpl<$Res,
+        _$URecordViewRecordListViewImpl>
+    implements _$$URecordViewRecordListViewImplCopyWith<$Res> {
+  __$$URecordViewRecordListViewImplCopyWithImpl(
+      _$URecordViewRecordListViewImpl _value,
+      $Res Function(_$URecordViewRecordListViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -877,7 +910,7 @@ class __$$URecordRecordListViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URecordRecordListViewImpl(
+    return _then(_$URecordViewRecordListViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -896,22 +929,22 @@ class __$$URecordRecordListViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordRecordListViewImpl implements URecordRecordListView {
-  const _$URecordRecordListViewImpl({required this.data});
+class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
+  const _$URecordViewRecordListViewImpl({required this.data});
 
   @override
   final ListView data;
 
   @override
   String toString() {
-    return 'URecordRecord.listView(data: $data)';
+    return 'URecordViewRecord.listView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URecordRecordListViewImpl &&
+            other is _$URecordViewRecordListViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -921,9 +954,9 @@ class _$URecordRecordListViewImpl implements URecordRecordListView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URecordRecordListViewImplCopyWith<_$URecordRecordListViewImpl>
-      get copyWith => __$$URecordRecordListViewImplCopyWithImpl<
-          _$URecordRecordListViewImpl>(this, _$identity);
+  _$$URecordViewRecordListViewImplCopyWith<_$URecordViewRecordListViewImpl>
+      get copyWith => __$$URecordViewRecordListViewImplCopyWithImpl<
+          _$URecordViewRecordListViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -974,16 +1007,17 @@ class _$URecordRecordListViewImpl implements URecordRecordListView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordRecordRecordViewRecord value)
+    required TResult Function(URecordViewRecordRecordViewRecord value)
         recordViewRecord,
-    required TResult Function(URecordRecordRecordViewNotFound value)
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
         recordViewNotFound,
-    required TResult Function(URecordRecordRecordViewBlocked value)
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
-    required TResult Function(URecordRecordGeneratorView value) generatorView,
-    required TResult Function(URecordRecordListView value) listView,
-    required TResult Function(URecordRecordLabelerView value) labelerView,
-    required TResult Function(URecordRecordUnknown value) unknown,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return listView(this);
   }
@@ -991,14 +1025,16 @@ class _$URecordRecordListViewImpl implements URecordRecordListView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult? Function(URecordRecordRecordViewNotFound value)?
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
         recordViewNotFound,
-    TResult? Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult? Function(URecordRecordGeneratorView value)? generatorView,
-    TResult? Function(URecordRecordListView value)? listView,
-    TResult? Function(URecordRecordLabelerView value)? labelerView,
-    TResult? Function(URecordRecordUnknown value)? unknown,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return listView?.call(this);
   }
@@ -1006,13 +1042,15 @@ class _$URecordRecordListViewImpl implements URecordRecordListView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult Function(URecordRecordRecordViewNotFound value)? recordViewNotFound,
-    TResult Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult Function(URecordRecordGeneratorView value)? generatorView,
-    TResult Function(URecordRecordListView value)? listView,
-    TResult Function(URecordRecordLabelerView value)? labelerView,
-    TResult Function(URecordRecordUnknown value)? unknown,
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (listView != null) {
@@ -1022,23 +1060,23 @@ class _$URecordRecordListViewImpl implements URecordRecordListView {
   }
 }
 
-abstract class URecordRecordListView implements URecordRecord {
-  const factory URecordRecordListView({required final ListView data}) =
-      _$URecordRecordListViewImpl;
+abstract class URecordViewRecordListView implements URecordViewRecord {
+  const factory URecordViewRecordListView({required final ListView data}) =
+      _$URecordViewRecordListViewImpl;
 
   @override
   ListView get data;
   @JsonKey(ignore: true)
-  _$$URecordRecordListViewImplCopyWith<_$URecordRecordListViewImpl>
+  _$$URecordViewRecordListViewImplCopyWith<_$URecordViewRecordListViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URecordRecordLabelerViewImplCopyWith<$Res> {
-  factory _$$URecordRecordLabelerViewImplCopyWith(
-          _$URecordRecordLabelerViewImpl value,
-          $Res Function(_$URecordRecordLabelerViewImpl) then) =
-      __$$URecordRecordLabelerViewImplCopyWithImpl<$Res>;
+abstract class _$$URecordViewRecordLabelerViewImplCopyWith<$Res> {
+  factory _$$URecordViewRecordLabelerViewImplCopyWith(
+          _$URecordViewRecordLabelerViewImpl value,
+          $Res Function(_$URecordViewRecordLabelerViewImpl) then) =
+      __$$URecordViewRecordLabelerViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LabelerView data});
 
@@ -1046,12 +1084,13 @@ abstract class _$$URecordRecordLabelerViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URecordRecordLabelerViewImplCopyWithImpl<$Res>
-    extends _$URecordRecordCopyWithImpl<$Res, _$URecordRecordLabelerViewImpl>
-    implements _$$URecordRecordLabelerViewImplCopyWith<$Res> {
-  __$$URecordRecordLabelerViewImplCopyWithImpl(
-      _$URecordRecordLabelerViewImpl _value,
-      $Res Function(_$URecordRecordLabelerViewImpl) _then)
+class __$$URecordViewRecordLabelerViewImplCopyWithImpl<$Res>
+    extends _$URecordViewRecordCopyWithImpl<$Res,
+        _$URecordViewRecordLabelerViewImpl>
+    implements _$$URecordViewRecordLabelerViewImplCopyWith<$Res> {
+  __$$URecordViewRecordLabelerViewImplCopyWithImpl(
+      _$URecordViewRecordLabelerViewImpl _value,
+      $Res Function(_$URecordViewRecordLabelerViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1059,7 +1098,7 @@ class __$$URecordRecordLabelerViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URecordRecordLabelerViewImpl(
+    return _then(_$URecordViewRecordLabelerViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1078,22 +1117,23 @@ class __$$URecordRecordLabelerViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordRecordLabelerViewImpl implements URecordRecordLabelerView {
-  const _$URecordRecordLabelerViewImpl({required this.data});
+class _$URecordViewRecordLabelerViewImpl
+    implements URecordViewRecordLabelerView {
+  const _$URecordViewRecordLabelerViewImpl({required this.data});
 
   @override
   final LabelerView data;
 
   @override
   String toString() {
-    return 'URecordRecord.labelerView(data: $data)';
+    return 'URecordViewRecord.labelerView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URecordRecordLabelerViewImpl &&
+            other is _$URecordViewRecordLabelerViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1103,9 +1143,10 @@ class _$URecordRecordLabelerViewImpl implements URecordRecordLabelerView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URecordRecordLabelerViewImplCopyWith<_$URecordRecordLabelerViewImpl>
-      get copyWith => __$$URecordRecordLabelerViewImplCopyWithImpl<
-          _$URecordRecordLabelerViewImpl>(this, _$identity);
+  _$$URecordViewRecordLabelerViewImplCopyWith<
+          _$URecordViewRecordLabelerViewImpl>
+      get copyWith => __$$URecordViewRecordLabelerViewImplCopyWithImpl<
+          _$URecordViewRecordLabelerViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1156,16 +1197,17 @@ class _$URecordRecordLabelerViewImpl implements URecordRecordLabelerView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordRecordRecordViewRecord value)
+    required TResult Function(URecordViewRecordRecordViewRecord value)
         recordViewRecord,
-    required TResult Function(URecordRecordRecordViewNotFound value)
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
         recordViewNotFound,
-    required TResult Function(URecordRecordRecordViewBlocked value)
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
-    required TResult Function(URecordRecordGeneratorView value) generatorView,
-    required TResult Function(URecordRecordListView value) listView,
-    required TResult Function(URecordRecordLabelerView value) labelerView,
-    required TResult Function(URecordRecordUnknown value) unknown,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return labelerView(this);
   }
@@ -1173,14 +1215,16 @@ class _$URecordRecordLabelerViewImpl implements URecordRecordLabelerView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult? Function(URecordRecordRecordViewNotFound value)?
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
         recordViewNotFound,
-    TResult? Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult? Function(URecordRecordGeneratorView value)? generatorView,
-    TResult? Function(URecordRecordListView value)? listView,
-    TResult? Function(URecordRecordLabelerView value)? labelerView,
-    TResult? Function(URecordRecordUnknown value)? unknown,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return labelerView?.call(this);
   }
@@ -1188,13 +1232,15 @@ class _$URecordRecordLabelerViewImpl implements URecordRecordLabelerView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult Function(URecordRecordRecordViewNotFound value)? recordViewNotFound,
-    TResult Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult Function(URecordRecordGeneratorView value)? generatorView,
-    TResult Function(URecordRecordListView value)? listView,
-    TResult Function(URecordRecordLabelerView value)? labelerView,
-    TResult Function(URecordRecordUnknown value)? unknown,
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (labelerView != null) {
@@ -1204,32 +1250,36 @@ class _$URecordRecordLabelerViewImpl implements URecordRecordLabelerView {
   }
 }
 
-abstract class URecordRecordLabelerView implements URecordRecord {
-  const factory URecordRecordLabelerView({required final LabelerView data}) =
-      _$URecordRecordLabelerViewImpl;
+abstract class URecordViewRecordLabelerView implements URecordViewRecord {
+  const factory URecordViewRecordLabelerView(
+      {required final LabelerView data}) = _$URecordViewRecordLabelerViewImpl;
 
   @override
   LabelerView get data;
   @JsonKey(ignore: true)
-  _$$URecordRecordLabelerViewImplCopyWith<_$URecordRecordLabelerViewImpl>
+  _$$URecordViewRecordLabelerViewImplCopyWith<
+          _$URecordViewRecordLabelerViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URecordRecordUnknownImplCopyWith<$Res> {
-  factory _$$URecordRecordUnknownImplCopyWith(_$URecordRecordUnknownImpl value,
-          $Res Function(_$URecordRecordUnknownImpl) then) =
-      __$$URecordRecordUnknownImplCopyWithImpl<$Res>;
+abstract class _$$URecordViewRecordUnknownImplCopyWith<$Res> {
+  factory _$$URecordViewRecordUnknownImplCopyWith(
+          _$URecordViewRecordUnknownImpl value,
+          $Res Function(_$URecordViewRecordUnknownImpl) then) =
+      __$$URecordViewRecordUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$URecordRecordUnknownImplCopyWithImpl<$Res>
-    extends _$URecordRecordCopyWithImpl<$Res, _$URecordRecordUnknownImpl>
-    implements _$$URecordRecordUnknownImplCopyWith<$Res> {
-  __$$URecordRecordUnknownImplCopyWithImpl(_$URecordRecordUnknownImpl _value,
-      $Res Function(_$URecordRecordUnknownImpl) _then)
+class __$$URecordViewRecordUnknownImplCopyWithImpl<$Res>
+    extends _$URecordViewRecordCopyWithImpl<$Res,
+        _$URecordViewRecordUnknownImpl>
+    implements _$$URecordViewRecordUnknownImplCopyWith<$Res> {
+  __$$URecordViewRecordUnknownImplCopyWithImpl(
+      _$URecordViewRecordUnknownImpl _value,
+      $Res Function(_$URecordViewRecordUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1237,7 +1287,7 @@ class __$$URecordRecordUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URecordRecordUnknownImpl(
+    return _then(_$URecordViewRecordUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1248,8 +1298,9 @@ class __$$URecordRecordUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordRecordUnknownImpl implements URecordRecordUnknown {
-  const _$URecordRecordUnknownImpl({required final Map<String, dynamic> data})
+class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
+  const _$URecordViewRecordUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -1262,14 +1313,14 @@ class _$URecordRecordUnknownImpl implements URecordRecordUnknown {
 
   @override
   String toString() {
-    return 'URecordRecord.unknown(data: $data)';
+    return 'URecordViewRecord.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URecordRecordUnknownImpl &&
+            other is _$URecordViewRecordUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -1280,10 +1331,9 @@ class _$URecordRecordUnknownImpl implements URecordRecordUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URecordRecordUnknownImplCopyWith<_$URecordRecordUnknownImpl>
-      get copyWith =>
-          __$$URecordRecordUnknownImplCopyWithImpl<_$URecordRecordUnknownImpl>(
-              this, _$identity);
+  _$$URecordViewRecordUnknownImplCopyWith<_$URecordViewRecordUnknownImpl>
+      get copyWith => __$$URecordViewRecordUnknownImplCopyWithImpl<
+          _$URecordViewRecordUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1334,16 +1384,17 @@ class _$URecordRecordUnknownImpl implements URecordRecordUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordRecordRecordViewRecord value)
+    required TResult Function(URecordViewRecordRecordViewRecord value)
         recordViewRecord,
-    required TResult Function(URecordRecordRecordViewNotFound value)
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
         recordViewNotFound,
-    required TResult Function(URecordRecordRecordViewBlocked value)
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
-    required TResult Function(URecordRecordGeneratorView value) generatorView,
-    required TResult Function(URecordRecordListView value) listView,
-    required TResult Function(URecordRecordLabelerView value) labelerView,
-    required TResult Function(URecordRecordUnknown value) unknown,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -1351,14 +1402,16 @@ class _$URecordRecordUnknownImpl implements URecordRecordUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult? Function(URecordRecordRecordViewNotFound value)?
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
         recordViewNotFound,
-    TResult? Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult? Function(URecordRecordGeneratorView value)? generatorView,
-    TResult? Function(URecordRecordListView value)? listView,
-    TResult? Function(URecordRecordLabelerView value)? labelerView,
-    TResult? Function(URecordRecordUnknown value)? unknown,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -1366,13 +1419,15 @@ class _$URecordRecordUnknownImpl implements URecordRecordUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordRecordRecordViewRecord value)? recordViewRecord,
-    TResult Function(URecordRecordRecordViewNotFound value)? recordViewNotFound,
-    TResult Function(URecordRecordRecordViewBlocked value)? recordViewBlocked,
-    TResult Function(URecordRecordGeneratorView value)? generatorView,
-    TResult Function(URecordRecordListView value)? listView,
-    TResult Function(URecordRecordLabelerView value)? labelerView,
-    TResult Function(URecordRecordUnknown value)? unknown,
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -1382,13 +1437,14 @@ class _$URecordRecordUnknownImpl implements URecordRecordUnknown {
   }
 }
 
-abstract class URecordRecordUnknown implements URecordRecord {
-  const factory URecordRecordUnknown(
-      {required final Map<String, dynamic> data}) = _$URecordRecordUnknownImpl;
+abstract class URecordViewRecordUnknown implements URecordViewRecord {
+  const factory URecordViewRecordUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$URecordViewRecordUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$URecordRecordUnknownImplCopyWith<_$URecordRecordUnknownImpl>
+  _$$URecordViewRecordUnknownImplCopyWith<_$URecordViewRecordUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

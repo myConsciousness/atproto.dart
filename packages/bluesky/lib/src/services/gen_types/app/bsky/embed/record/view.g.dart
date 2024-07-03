@@ -17,7 +17,7 @@ _$RecordViewImpl _$$RecordViewImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordView),
           record: $checkedConvert(
               'record',
-              (v) => const URecordRecordConverter()
+              (v) => const URecordViewRecordConverter()
                   .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -32,7 +32,7 @@ _$RecordViewImpl _$$RecordViewImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$RecordViewImplToJson(_$RecordViewImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.$type,
-    'record': const URecordRecordConverter().toJson(instance.record),
+    'record': const URecordViewRecordConverter().toJson(instance.record),
   };
 
   void writeNotNull(String key, dynamic value) {

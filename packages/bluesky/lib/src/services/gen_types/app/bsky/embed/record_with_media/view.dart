@@ -16,7 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/embed/record/view.dart';
-import '../../../../app/bsky/embed/record_with_media/union_record_with_media_media.dart';
+import '../../../../app/bsky/embed/record_with_media/union_record_with_media_view_media.dart';
 
 part 'view.freezed.dart';
 part 'view.g.dart';
@@ -33,7 +33,8 @@ class RecordWithMediaView with _$RecordWithMediaView {
     @JsonKey(name: r'$type')
     String $type,
     @RecordViewConverter() required RecordView record,
-    @URecordWithMediaMediaConverter() required URecordWithMediaMedia media,
+    @URecordWithMediaViewMediaConverter()
+    required URecordWithMediaViewMedia media,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

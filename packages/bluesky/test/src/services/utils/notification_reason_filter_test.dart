@@ -8,19 +8,20 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
-import 'package:bluesky/src/services/constants/notification_reason.dart';
-import 'package:bluesky/src/services/entities/actor.dart';
-import 'package:bluesky/src/services/entities/notification.dart';
-import 'package:bluesky/src/services/entities/notifications.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/known_reason.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/notification.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/output.dart';
 import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 
 final _baseNotification = Notification(
   cid: 'aaaa',
   uri: AtUri.parse(
       'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.feed.like/3jukrylmhec26'),
-  author: Actor(did: 'xxxxxx', handle: 'xxxxxx'),
-  reason: NotificationReason.like,
+  author: ProfileView(did: 'xxxxxx', handle: 'xxxxxx'),
+  reason: KnownReason.like.toUnion(),
   isRead: false,
+  record: {},
   indexedAt: DateTime.now(),
 );
 
@@ -31,14 +32,17 @@ void main() {
         GroupedNotificationReason.like,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
         ],
       ));
 
       expect(filtered.notifications.length, 1);
-      expect(filtered.notifications.first.reason.isLike, isTrue);
+      expect(
+        filtered.notifications.first.reason.knownValueOrNull?.isLike,
+        isTrue,
+      );
     });
 
     test('case2', () {
@@ -46,7 +50,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
         ],
@@ -61,7 +65,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -80,7 +84,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -99,7 +103,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification.copyWith(
             reasonSubject: AtUri.parse(
@@ -123,11 +127,11 @@ void main() {
         GroupedNotificationReason.follow,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
-            reason: NotificationReason.follow,
+            reason: KnownReason.follow.toUnion(),
           ),
         ],
       ));
@@ -141,14 +145,14 @@ void main() {
         GroupedNotificationReason.follow,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
-            reason: NotificationReason.follow,
+            reason: KnownReason.follow.toUnion(),
           ),
           _baseNotification.copyWith(
-            reason: NotificationReason.mention,
+            reason: KnownReason.mention.toUnion(),
           ),
         ],
       ));
@@ -163,14 +167,14 @@ void main() {
         GroupedNotificationReason.mention,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
-            reason: NotificationReason.follow,
+            reason: KnownReason.follow.toUnion(),
           ),
           _baseNotification.copyWith(
-            reason: NotificationReason.mention,
+            reason: KnownReason.mention.toUnion(),
           ),
         ],
       ));
@@ -185,7 +189,7 @@ void main() {
         GroupedNotificationReason.like,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
         ],
@@ -199,7 +203,7 @@ void main() {
         GroupedNotificationReason.like,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -219,7 +223,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -239,7 +243,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -248,13 +252,16 @@ void main() {
             ),
           ),
           _baseNotification.copyWith(
-            reason: NotificationReason.follow,
+            reason: KnownReason.follow.toUnion(),
           ),
         ],
       ));
 
       expect(filtered.notifications.length, 1);
-      expect(filtered.notifications.first.reason.isFollow, isTrue);
+      expect(
+        filtered.notifications.first.reason.knownValueOrNull?.isFollow,
+        isTrue,
+      );
     });
 
     test('case4', () {
@@ -264,7 +271,7 @@ void main() {
         GroupedNotificationReason.follow,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(ListNotificationsOutput(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -273,7 +280,7 @@ void main() {
             ),
           ),
           _baseNotification.copyWith(
-            reason: NotificationReason.follow,
+            reason: KnownReason.follow.toUnion(),
           ),
         ],
       ));

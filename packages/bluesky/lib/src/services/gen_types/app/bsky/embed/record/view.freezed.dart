@@ -25,8 +25,8 @@ mixin _$RecordView {
   /// `app.bsky.embed.record#view`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
-  @URecordRecordConverter()
-  URecordRecord get record => throw _privateConstructorUsedError;
+  @URecordViewRecordConverter()
+  URecordViewRecord get record => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -46,10 +46,10 @@ abstract class $RecordViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @URecordRecordConverter() URecordRecord record,
+      @URecordViewRecordConverter() URecordViewRecord record,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $URecordRecordCopyWith<$Res> get record;
+  $URecordViewRecordCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ class _$RecordViewCopyWithImpl<$Res, $Val extends RecordView>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as URecordRecord,
+              as URecordViewRecord,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -87,8 +87,8 @@ class _$RecordViewCopyWithImpl<$Res, $Val extends RecordView>
 
   @override
   @pragma('vm:prefer-inline')
-  $URecordRecordCopyWith<$Res> get record {
-    return $URecordRecordCopyWith<$Res>(_value.record, (value) {
+  $URecordViewRecordCopyWith<$Res> get record {
+    return $URecordViewRecordCopyWith<$Res>(_value.record, (value) {
       return _then(_value.copyWith(record: value) as $Val);
     });
   }
@@ -104,11 +104,11 @@ abstract class _$$RecordViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @URecordRecordConverter() URecordRecord record,
+      @URecordViewRecordConverter() URecordViewRecord record,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $URecordRecordCopyWith<$Res> get record;
+  $URecordViewRecordCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -134,7 +134,7 @@ class __$$RecordViewImplCopyWithImpl<$Res>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as URecordRecord,
+              as URecordViewRecord,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -149,7 +149,7 @@ class __$$RecordViewImplCopyWithImpl<$Res>
 class _$RecordViewImpl implements _RecordView {
   const _$RecordViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordView,
-      @URecordRecordConverter() required this.record,
+      @URecordViewRecordConverter() required this.record,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -163,8 +163,8 @@ class _$RecordViewImpl implements _RecordView {
   @JsonKey(name: r'$type')
   final String $type;
   @override
-  @URecordRecordConverter()
-  final URecordRecord record;
+  @URecordViewRecordConverter()
+  final URecordViewRecord record;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -217,7 +217,7 @@ class _$RecordViewImpl implements _RecordView {
 abstract class _RecordView implements RecordView {
   const factory _RecordView(
           {@JsonKey(name: r'$type') final String $type,
-          @URecordRecordConverter() required final URecordRecord record,
+          @URecordViewRecordConverter() required final URecordViewRecord record,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RecordViewImpl;
 
@@ -232,8 +232,8 @@ abstract class _RecordView implements RecordView {
   @JsonKey(name: r'$type')
   String get $type;
   @override
-  @URecordRecordConverter()
-  URecordRecord get record;
+  @URecordViewRecordConverter()
+  URecordViewRecord get record;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

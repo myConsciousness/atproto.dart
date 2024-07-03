@@ -39,8 +39,9 @@ mixin _$RecordViewRecord {
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
-  @URecordEmbedConverter()
-  List<URecordEmbed>? get embeds => throw _privateConstructorUsedError;
+  @URecordViewRecordEmbedConverter()
+  List<URecordViewRecordEmbed>? get embeds =>
+      throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -69,7 +70,7 @@ abstract class $RecordViewRecordCopyWith<$Res> {
       int replyCount,
       int repostCount,
       int likeCount,
-      @URecordEmbedConverter() List<URecordEmbed>? embeds,
+      @URecordViewRecordEmbedConverter() List<URecordViewRecordEmbed>? embeds,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -143,7 +144,7 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
       embeds: freezed == embeds
           ? _value.embeds
           : embeds // ignore: cast_nullable_to_non_nullable
-              as List<URecordEmbed>?,
+              as List<URecordViewRecordEmbed>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -190,7 +191,7 @@ abstract class _$$RecordViewRecordImplCopyWith<$Res>
       int replyCount,
       int repostCount,
       int likeCount,
-      @URecordEmbedConverter() List<URecordEmbed>? embeds,
+      @URecordViewRecordEmbedConverter() List<URecordViewRecordEmbed>? embeds,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -264,7 +265,7 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
       embeds: freezed == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
-              as List<URecordEmbed>?,
+              as List<URecordViewRecordEmbed>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -291,7 +292,8 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
-      @URecordEmbedConverter() final List<URecordEmbed>? embeds,
+      @URecordViewRecordEmbedConverter()
+      final List<URecordViewRecordEmbed>? embeds,
       required this.indexedAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _labels = labels,
@@ -340,10 +342,10 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
   @override
   @JsonKey()
   final int likeCount;
-  final List<URecordEmbed>? _embeds;
+  final List<URecordViewRecordEmbed>? _embeds;
   @override
-  @URecordEmbedConverter()
-  List<URecordEmbed>? get embeds {
+  @URecordViewRecordEmbedConverter()
+  List<URecordViewRecordEmbed>? get embeds {
     final value = _embeds;
     if (value == null) return null;
     if (_embeds is EqualUnmodifiableListView) return _embeds;
@@ -439,7 +441,8 @@ abstract class _RecordViewRecord implements RecordViewRecord {
           final int replyCount,
           final int repostCount,
           final int likeCount,
-          @URecordEmbedConverter() final List<URecordEmbed>? embeds,
+          @URecordViewRecordEmbedConverter()
+          final List<URecordViewRecordEmbed>? embeds,
           required final DateTime indexedAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RecordViewRecordImpl;
@@ -477,8 +480,8 @@ abstract class _RecordViewRecord implements RecordViewRecord {
   @override
   int get likeCount;
   @override
-  @URecordEmbedConverter()
-  List<URecordEmbed>? get embeds;
+  @URecordViewRecordEmbedConverter()
+  List<URecordViewRecordEmbed>? get embeds;
   @override
   DateTime get indexedAt;
   @override

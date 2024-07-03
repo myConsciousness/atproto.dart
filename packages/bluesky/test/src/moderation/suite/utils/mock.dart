@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view_basic.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/embed/record/union_record_record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/embed/record/union_record_view_record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/embed/record/view.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/embed/record/view_record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/defs/post_view.dart';
@@ -102,7 +102,7 @@ UEmbed embedRecordView({
 }) {
   return UEmbed.recordView(
     data: RecordView(
-      record: URecordRecord.recordViewRecord(
+      record: URecordViewRecord.recordViewRecord(
         data: RecordViewRecord(
           uri: AtUri('at://${author.did}/app.bsky.feed.post/fake'),
           cid: _kFakeCid,

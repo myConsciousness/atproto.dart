@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/embed/record/union_record_record.dart';
+import '../../../../app/bsky/embed/record/union_record_view_record.dart';
 
 part 'view.freezed.dart';
 part 'view.g.dart';
@@ -29,7 +29,7 @@ class RecordView with _$RecordView {
     ///
     /// `app.bsky.embed.record#view`
     @Default(appBskyEmbedRecordView) @JsonKey(name: r'$type') String $type,
-    @URecordRecordConverter() required URecordRecord record,
+    @URecordViewRecordConverter() required URecordViewRecord record,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

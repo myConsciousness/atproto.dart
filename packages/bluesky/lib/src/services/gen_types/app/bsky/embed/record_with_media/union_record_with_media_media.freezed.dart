@@ -19,45 +19,44 @@ mixin _$URecordWithMediaMedia {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ImagesView data) imagesView,
-    required TResult Function(ExternalView data) externalView,
+    required TResult Function(Images data) images,
+    required TResult Function(External data) external,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ImagesView data)? imagesView,
-    TResult? Function(ExternalView data)? externalView,
+    TResult? Function(Images data)? images,
+    TResult? Function(External data)? external,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ImagesView data)? imagesView,
-    TResult Function(ExternalView data)? externalView,
+    TResult Function(Images data)? images,
+    TResult Function(External data)? external,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordWithMediaMediaImagesView value) imagesView,
-    required TResult Function(URecordWithMediaMediaExternalView value)
-        externalView,
+    required TResult Function(URecordWithMediaMediaImages value) images,
+    required TResult Function(URecordWithMediaMediaExternal value) external,
     required TResult Function(URecordWithMediaMediaUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordWithMediaMediaImagesView value)? imagesView,
-    TResult? Function(URecordWithMediaMediaExternalView value)? externalView,
+    TResult? Function(URecordWithMediaMediaImages value)? images,
+    TResult? Function(URecordWithMediaMediaExternal value)? external,
     TResult? Function(URecordWithMediaMediaUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordWithMediaMediaImagesView value)? imagesView,
-    TResult Function(URecordWithMediaMediaExternalView value)? externalView,
+    TResult Function(URecordWithMediaMediaImages value)? images,
+    TResult Function(URecordWithMediaMediaExternal value)? external,
     TResult Function(URecordWithMediaMediaUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -84,25 +83,25 @@ class _$URecordWithMediaMediaCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$URecordWithMediaMediaImagesViewImplCopyWith<$Res> {
-  factory _$$URecordWithMediaMediaImagesViewImplCopyWith(
-          _$URecordWithMediaMediaImagesViewImpl value,
-          $Res Function(_$URecordWithMediaMediaImagesViewImpl) then) =
-      __$$URecordWithMediaMediaImagesViewImplCopyWithImpl<$Res>;
+abstract class _$$URecordWithMediaMediaImagesImplCopyWith<$Res> {
+  factory _$$URecordWithMediaMediaImagesImplCopyWith(
+          _$URecordWithMediaMediaImagesImpl value,
+          $Res Function(_$URecordWithMediaMediaImagesImpl) then) =
+      __$$URecordWithMediaMediaImagesImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ImagesView data});
+  $Res call({Images data});
 
-  $ImagesViewCopyWith<$Res> get data;
+  $ImagesCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$URecordWithMediaMediaImagesViewImplCopyWithImpl<$Res>
+class __$$URecordWithMediaMediaImagesImplCopyWithImpl<$Res>
     extends _$URecordWithMediaMediaCopyWithImpl<$Res,
-        _$URecordWithMediaMediaImagesViewImpl>
-    implements _$$URecordWithMediaMediaImagesViewImplCopyWith<$Res> {
-  __$$URecordWithMediaMediaImagesViewImplCopyWithImpl(
-      _$URecordWithMediaMediaImagesViewImpl _value,
-      $Res Function(_$URecordWithMediaMediaImagesViewImpl) _then)
+        _$URecordWithMediaMediaImagesImpl>
+    implements _$$URecordWithMediaMediaImagesImplCopyWith<$Res> {
+  __$$URecordWithMediaMediaImagesImplCopyWithImpl(
+      _$URecordWithMediaMediaImagesImpl _value,
+      $Res Function(_$URecordWithMediaMediaImagesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,18 +109,18 @@ class __$$URecordWithMediaMediaImagesViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URecordWithMediaMediaImagesViewImpl(
+    return _then(_$URecordWithMediaMediaImagesImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ImagesView,
+              as Images,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ImagesViewCopyWith<$Res> get data {
-    return $ImagesViewCopyWith<$Res>(_value.data, (value) {
+  $ImagesCopyWith<$Res> get data {
+    return $ImagesCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -129,23 +128,22 @@ class __$$URecordWithMediaMediaImagesViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordWithMediaMediaImagesViewImpl
-    implements URecordWithMediaMediaImagesView {
-  const _$URecordWithMediaMediaImagesViewImpl({required this.data});
+class _$URecordWithMediaMediaImagesImpl implements URecordWithMediaMediaImages {
+  const _$URecordWithMediaMediaImagesImpl({required this.data});
 
   @override
-  final ImagesView data;
+  final Images data;
 
   @override
   String toString() {
-    return 'URecordWithMediaMedia.imagesView(data: $data)';
+    return 'URecordWithMediaMedia.images(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URecordWithMediaMediaImagesViewImpl &&
+            other is _$URecordWithMediaMediaImagesImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -155,41 +153,40 @@ class _$URecordWithMediaMediaImagesViewImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URecordWithMediaMediaImagesViewImplCopyWith<
-          _$URecordWithMediaMediaImagesViewImpl>
-      get copyWith => __$$URecordWithMediaMediaImagesViewImplCopyWithImpl<
-          _$URecordWithMediaMediaImagesViewImpl>(this, _$identity);
+  _$$URecordWithMediaMediaImagesImplCopyWith<_$URecordWithMediaMediaImagesImpl>
+      get copyWith => __$$URecordWithMediaMediaImagesImplCopyWithImpl<
+          _$URecordWithMediaMediaImagesImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ImagesView data) imagesView,
-    required TResult Function(ExternalView data) externalView,
+    required TResult Function(Images data) images,
+    required TResult Function(External data) external,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
-    return imagesView(data);
+    return images(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ImagesView data)? imagesView,
-    TResult? Function(ExternalView data)? externalView,
+    TResult? Function(Images data)? images,
+    TResult? Function(External data)? external,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
-    return imagesView?.call(data);
+    return images?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ImagesView data)? imagesView,
-    TResult Function(ExternalView data)? externalView,
+    TResult Function(Images data)? images,
+    TResult Function(External data)? external,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
-    if (imagesView != null) {
-      return imagesView(data);
+    if (images != null) {
+      return images(data);
     }
     return orElse();
   }
@@ -197,72 +194,69 @@ class _$URecordWithMediaMediaImagesViewImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordWithMediaMediaImagesView value) imagesView,
-    required TResult Function(URecordWithMediaMediaExternalView value)
-        externalView,
+    required TResult Function(URecordWithMediaMediaImages value) images,
+    required TResult Function(URecordWithMediaMediaExternal value) external,
     required TResult Function(URecordWithMediaMediaUnknown value) unknown,
   }) {
-    return imagesView(this);
+    return images(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordWithMediaMediaImagesView value)? imagesView,
-    TResult? Function(URecordWithMediaMediaExternalView value)? externalView,
+    TResult? Function(URecordWithMediaMediaImages value)? images,
+    TResult? Function(URecordWithMediaMediaExternal value)? external,
     TResult? Function(URecordWithMediaMediaUnknown value)? unknown,
   }) {
-    return imagesView?.call(this);
+    return images?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordWithMediaMediaImagesView value)? imagesView,
-    TResult Function(URecordWithMediaMediaExternalView value)? externalView,
+    TResult Function(URecordWithMediaMediaImages value)? images,
+    TResult Function(URecordWithMediaMediaExternal value)? external,
     TResult Function(URecordWithMediaMediaUnknown value)? unknown,
     required TResult orElse(),
   }) {
-    if (imagesView != null) {
-      return imagesView(this);
+    if (images != null) {
+      return images(this);
     }
     return orElse();
   }
 }
 
-abstract class URecordWithMediaMediaImagesView
-    implements URecordWithMediaMedia {
-  const factory URecordWithMediaMediaImagesView(
-      {required final ImagesView data}) = _$URecordWithMediaMediaImagesViewImpl;
+abstract class URecordWithMediaMediaImages implements URecordWithMediaMedia {
+  const factory URecordWithMediaMediaImages({required final Images data}) =
+      _$URecordWithMediaMediaImagesImpl;
 
   @override
-  ImagesView get data;
+  Images get data;
   @JsonKey(ignore: true)
-  _$$URecordWithMediaMediaImagesViewImplCopyWith<
-          _$URecordWithMediaMediaImagesViewImpl>
+  _$$URecordWithMediaMediaImagesImplCopyWith<_$URecordWithMediaMediaImagesImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URecordWithMediaMediaExternalViewImplCopyWith<$Res> {
-  factory _$$URecordWithMediaMediaExternalViewImplCopyWith(
-          _$URecordWithMediaMediaExternalViewImpl value,
-          $Res Function(_$URecordWithMediaMediaExternalViewImpl) then) =
-      __$$URecordWithMediaMediaExternalViewImplCopyWithImpl<$Res>;
+abstract class _$$URecordWithMediaMediaExternalImplCopyWith<$Res> {
+  factory _$$URecordWithMediaMediaExternalImplCopyWith(
+          _$URecordWithMediaMediaExternalImpl value,
+          $Res Function(_$URecordWithMediaMediaExternalImpl) then) =
+      __$$URecordWithMediaMediaExternalImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ExternalView data});
+  $Res call({External data});
 
-  $ExternalViewCopyWith<$Res> get data;
+  $ExternalCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$URecordWithMediaMediaExternalViewImplCopyWithImpl<$Res>
+class __$$URecordWithMediaMediaExternalImplCopyWithImpl<$Res>
     extends _$URecordWithMediaMediaCopyWithImpl<$Res,
-        _$URecordWithMediaMediaExternalViewImpl>
-    implements _$$URecordWithMediaMediaExternalViewImplCopyWith<$Res> {
-  __$$URecordWithMediaMediaExternalViewImplCopyWithImpl(
-      _$URecordWithMediaMediaExternalViewImpl _value,
-      $Res Function(_$URecordWithMediaMediaExternalViewImpl) _then)
+        _$URecordWithMediaMediaExternalImpl>
+    implements _$$URecordWithMediaMediaExternalImplCopyWith<$Res> {
+  __$$URecordWithMediaMediaExternalImplCopyWithImpl(
+      _$URecordWithMediaMediaExternalImpl _value,
+      $Res Function(_$URecordWithMediaMediaExternalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -270,18 +264,18 @@ class __$$URecordWithMediaMediaExternalViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URecordWithMediaMediaExternalViewImpl(
+    return _then(_$URecordWithMediaMediaExternalImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ExternalView,
+              as External,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ExternalViewCopyWith<$Res> get data {
-    return $ExternalViewCopyWith<$Res>(_value.data, (value) {
+  $ExternalCopyWith<$Res> get data {
+    return $ExternalCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -289,23 +283,23 @@ class __$$URecordWithMediaMediaExternalViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordWithMediaMediaExternalViewImpl
-    implements URecordWithMediaMediaExternalView {
-  const _$URecordWithMediaMediaExternalViewImpl({required this.data});
+class _$URecordWithMediaMediaExternalImpl
+    implements URecordWithMediaMediaExternal {
+  const _$URecordWithMediaMediaExternalImpl({required this.data});
 
   @override
-  final ExternalView data;
+  final External data;
 
   @override
   String toString() {
-    return 'URecordWithMediaMedia.externalView(data: $data)';
+    return 'URecordWithMediaMedia.external(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URecordWithMediaMediaExternalViewImpl &&
+            other is _$URecordWithMediaMediaExternalImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -315,41 +309,41 @@ class _$URecordWithMediaMediaExternalViewImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URecordWithMediaMediaExternalViewImplCopyWith<
-          _$URecordWithMediaMediaExternalViewImpl>
-      get copyWith => __$$URecordWithMediaMediaExternalViewImplCopyWithImpl<
-          _$URecordWithMediaMediaExternalViewImpl>(this, _$identity);
+  _$$URecordWithMediaMediaExternalImplCopyWith<
+          _$URecordWithMediaMediaExternalImpl>
+      get copyWith => __$$URecordWithMediaMediaExternalImplCopyWithImpl<
+          _$URecordWithMediaMediaExternalImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ImagesView data) imagesView,
-    required TResult Function(ExternalView data) externalView,
+    required TResult Function(Images data) images,
+    required TResult Function(External data) external,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
-    return externalView(data);
+    return external(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ImagesView data)? imagesView,
-    TResult? Function(ExternalView data)? externalView,
+    TResult? Function(Images data)? images,
+    TResult? Function(External data)? external,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
-    return externalView?.call(data);
+    return external?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ImagesView data)? imagesView,
-    TResult Function(ExternalView data)? externalView,
+    TResult Function(Images data)? images,
+    TResult Function(External data)? external,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
-    if (externalView != null) {
-      return externalView(data);
+    if (external != null) {
+      return external(data);
     }
     return orElse();
   }
@@ -357,50 +351,47 @@ class _$URecordWithMediaMediaExternalViewImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordWithMediaMediaImagesView value) imagesView,
-    required TResult Function(URecordWithMediaMediaExternalView value)
-        externalView,
+    required TResult Function(URecordWithMediaMediaImages value) images,
+    required TResult Function(URecordWithMediaMediaExternal value) external,
     required TResult Function(URecordWithMediaMediaUnknown value) unknown,
   }) {
-    return externalView(this);
+    return external(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordWithMediaMediaImagesView value)? imagesView,
-    TResult? Function(URecordWithMediaMediaExternalView value)? externalView,
+    TResult? Function(URecordWithMediaMediaImages value)? images,
+    TResult? Function(URecordWithMediaMediaExternal value)? external,
     TResult? Function(URecordWithMediaMediaUnknown value)? unknown,
   }) {
-    return externalView?.call(this);
+    return external?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordWithMediaMediaImagesView value)? imagesView,
-    TResult Function(URecordWithMediaMediaExternalView value)? externalView,
+    TResult Function(URecordWithMediaMediaImages value)? images,
+    TResult Function(URecordWithMediaMediaExternal value)? external,
     TResult Function(URecordWithMediaMediaUnknown value)? unknown,
     required TResult orElse(),
   }) {
-    if (externalView != null) {
-      return externalView(this);
+    if (external != null) {
+      return external(this);
     }
     return orElse();
   }
 }
 
-abstract class URecordWithMediaMediaExternalView
-    implements URecordWithMediaMedia {
-  const factory URecordWithMediaMediaExternalView(
-          {required final ExternalView data}) =
-      _$URecordWithMediaMediaExternalViewImpl;
+abstract class URecordWithMediaMediaExternal implements URecordWithMediaMedia {
+  const factory URecordWithMediaMediaExternal({required final External data}) =
+      _$URecordWithMediaMediaExternalImpl;
 
   @override
-  ExternalView get data;
+  External get data;
   @JsonKey(ignore: true)
-  _$$URecordWithMediaMediaExternalViewImplCopyWith<
-          _$URecordWithMediaMediaExternalViewImpl>
+  _$$URecordWithMediaMediaExternalImplCopyWith<
+          _$URecordWithMediaMediaExternalImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -482,8 +473,8 @@ class _$URecordWithMediaMediaUnknownImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ImagesView data) imagesView,
-    required TResult Function(ExternalView data) externalView,
+    required TResult Function(Images data) images,
+    required TResult Function(External data) external,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -492,8 +483,8 @@ class _$URecordWithMediaMediaUnknownImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ImagesView data)? imagesView,
-    TResult? Function(ExternalView data)? externalView,
+    TResult? Function(Images data)? images,
+    TResult? Function(External data)? external,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -502,8 +493,8 @@ class _$URecordWithMediaMediaUnknownImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ImagesView data)? imagesView,
-    TResult Function(ExternalView data)? externalView,
+    TResult Function(Images data)? images,
+    TResult Function(External data)? external,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -516,9 +507,8 @@ class _$URecordWithMediaMediaUnknownImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URecordWithMediaMediaImagesView value) imagesView,
-    required TResult Function(URecordWithMediaMediaExternalView value)
-        externalView,
+    required TResult Function(URecordWithMediaMediaImages value) images,
+    required TResult Function(URecordWithMediaMediaExternal value) external,
     required TResult Function(URecordWithMediaMediaUnknown value) unknown,
   }) {
     return unknown(this);
@@ -527,8 +517,8 @@ class _$URecordWithMediaMediaUnknownImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URecordWithMediaMediaImagesView value)? imagesView,
-    TResult? Function(URecordWithMediaMediaExternalView value)? externalView,
+    TResult? Function(URecordWithMediaMediaImages value)? images,
+    TResult? Function(URecordWithMediaMediaExternal value)? external,
     TResult? Function(URecordWithMediaMediaUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -537,8 +527,8 @@ class _$URecordWithMediaMediaUnknownImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URecordWithMediaMediaImagesView value)? imagesView,
-    TResult Function(URecordWithMediaMediaExternalView value)? externalView,
+    TResult Function(URecordWithMediaMediaImages value)? images,
+    TResult Function(URecordWithMediaMediaExternal value)? external,
     TResult Function(URecordWithMediaMediaUnknown value)? unknown,
     required TResult orElse(),
   }) {
