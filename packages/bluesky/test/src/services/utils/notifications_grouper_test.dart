@@ -343,6 +343,7 @@ void main() {
               },
               'labels': []
             },
+            'record': {},
             'reason': 'mention',
             'isRead': true,
             'indexedAt': '2023-04-30T04:10:48.301Z',
@@ -468,6 +469,7 @@ void main() {
                 },
                 'labels': []
               },
+              'record': {},
               'reason': 'mention',
               'isRead': true,
               'indexedAt': '2023-04-30T04:10:48.301Z',
