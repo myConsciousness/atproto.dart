@@ -225,14 +225,6 @@ final class LexGenObject {
       if (property.type.name == 'bool') {
         final prefix = utils.splitByUpper(property.name).first;
         if (prefix == 'is' || prefix == 'has') {
-          buffer.writeln('  /// Returns negated true or false from [$name].');
-
-          final negatedFnName = prefix == 'is'
-              ? 'isNot${fnName.substring(2)}'
-              : 'hasNot${fnName.substring(3)}';
-
-          buffer.writeln('  bool get $negatedFnName => !$name;');
-
           continue;
         }
 
