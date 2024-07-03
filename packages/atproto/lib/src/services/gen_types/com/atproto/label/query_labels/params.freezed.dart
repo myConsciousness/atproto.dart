@@ -20,7 +20,9 @@ QueryLabelsParams _$QueryLabelsParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QueryLabelsParams {
-  /// List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.
+  /// List of AT URI patterns to match (boolean 'OR'). Each may be a prefix
+  /// (ending with '*'; will match inclusive of the string leading to '*'), or a
+  /// full URI.
   List<String> get uriPatterns => throw _privateConstructorUsedError;
 
   /// Optional list of label sources (DIDs) to filter on.
@@ -171,10 +173,14 @@ class _$QueryLabelsParamsImpl implements _QueryLabelsParams {
   factory _$QueryLabelsParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$QueryLabelsParamsImplFromJson(json);
 
-  /// List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.
+  /// List of AT URI patterns to match (boolean 'OR'). Each may be a prefix
+  /// (ending with '*'; will match inclusive of the string leading to '*'), or a
+  /// full URI.
   final List<String> _uriPatterns;
 
-  /// List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.
+  /// List of AT URI patterns to match (boolean 'OR'). Each may be a prefix
+  /// (ending with '*'; will match inclusive of the string leading to '*'), or a
+  /// full URI.
   @override
   List<String> get uriPatterns {
     if (_uriPatterns is EqualUnmodifiableListView) return _uriPatterns;
@@ -271,7 +277,9 @@ abstract class _QueryLabelsParams implements QueryLabelsParams {
 
   @override
 
-  /// List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.
+  /// List of AT URI patterns to match (boolean 'OR'). Each may be a prefix
+  /// (ending with '*'; will match inclusive of the string leading to '*'), or a
+  /// full URI.
   List<String> get uriPatterns;
   @override
 

@@ -20,7 +20,9 @@ import '../../../../com/atproto/sync/subscribe_repos/repo_op.dart';
 part 'commit.freezed.dart';
 part 'commit.g.dart';
 
-/// Represents an update of repository state. Note that empty commits are allowed, which include no repo data changes, but an update to rev and signature.
+/// Represents an update of repository state. Note that empty commits are
+/// allowed, which include no repo data changes, but an update to rev and
+/// signature.
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
 @freezed
@@ -37,7 +39,8 @@ class Commit with _$Commit {
     /// The stream sequence number of this message.
     required int seq,
 
-    /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
+    /// Indicates that this commit contained too many ops, or data size was too
+    /// large. Consumers will need to make a separate request to get missing data.
     required bool tooBig,
 
     /// The repo this event comes from.
@@ -46,13 +49,15 @@ class Commit with _$Commit {
     /// Repo commit object CID.
     required String commit,
 
-    /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
+    /// The rev of the emitted commit. Note that this information is also in the
+    /// commit object included in blocks, unless this is a tooBig event.
     required String rev,
 
     /// The rev of the last emitted commit from this repo (if any).
     String? since,
 
-    /// CAR file containing relevant blocks, as a diff since the previous repo state.
+    /// CAR file containing relevant blocks, as a diff since the previous repo
+    /// state.
     required List<int> blocks,
     @RepoOpConverter() required List<RepoOp> ops,
     required List<String> blobs,

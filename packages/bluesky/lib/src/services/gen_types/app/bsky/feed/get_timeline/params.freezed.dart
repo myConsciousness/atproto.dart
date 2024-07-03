@@ -20,7 +20,8 @@ GetTimelineParams _$GetTimelineParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetTimelineParams {
-  /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
+  /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed
+  /// flexibility has been moved to feed generator mechanism.
   String? get algorithm => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -153,7 +154,8 @@ class _$GetTimelineParamsImpl implements _GetTimelineParams {
   factory _$GetTimelineParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetTimelineParamsImplFromJson(json);
 
-  /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
+  /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed
+  /// flexibility has been moved to feed generator mechanism.
   @override
   final String? algorithm;
   @override
@@ -225,7 +227,8 @@ abstract class _GetTimelineParams implements GetTimelineParams {
 
   @override
 
-  /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
+  /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed
+  /// flexibility has been moved to feed generator mechanism.
   String? get algorithm;
   @override
   int? get limit;

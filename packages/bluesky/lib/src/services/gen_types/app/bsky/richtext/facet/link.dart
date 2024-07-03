@@ -19,7 +19,8 @@ import '../../../../../../ids.g.dart';
 part 'link.freezed.dart';
 part 'link.g.dart';
 
-/// Facet feature for a URL. The text URL may have been simplified or truncated, but the facet reference should be a complete URL.
+/// Facet feature for a URL. The text URL may have been simplified or
+/// truncated, but the facet reference should be a complete URL.
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#link
 @freezed

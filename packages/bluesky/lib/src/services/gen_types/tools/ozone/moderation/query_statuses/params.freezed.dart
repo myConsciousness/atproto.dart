@@ -37,7 +37,8 @@ mixin _$QueryStatusesParams {
   /// Search subjects reviewed before a given timestamp
   DateTime? get reviewedBefore => throw _privateConstructorUsedError;
 
-  /// By default, we don't include muted subjects in the results. Set this to true to include them.
+  /// By default, we don't include muted subjects in the results. Set this to
+  /// true to include them.
   bool? get includeMuted => throw _privateConstructorUsedError;
 
   /// When set to true, only muted subjects and reporters will be returned.
@@ -424,7 +425,8 @@ class _$QueryStatusesParamsImpl implements _QueryStatusesParams {
   @override
   final DateTime? reviewedBefore;
 
-  /// By default, we don't include muted subjects in the results. Set this to true to include them.
+  /// By default, we don't include muted subjects in the results. Set this to
+  /// true to include them.
   @override
   final bool? includeMuted;
 
@@ -637,7 +639,8 @@ abstract class _QueryStatusesParams implements QueryStatusesParams {
   DateTime? get reviewedBefore;
   @override
 
-  /// By default, we don't include muted subjects in the results. Set this to true to include them.
+  /// By default, we don't include muted subjects in the results. Set this to
+  /// true to include them.
   bool? get includeMuted;
   @override
 

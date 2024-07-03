@@ -26,7 +26,8 @@ class SearchActorsSkeletonOutput with _$SearchActorsSkeletonOutput {
   const factory SearchActorsSkeletonOutput({
     String? cursor,
 
-    /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
+    /// Count of search hits. Optional, may be rounded/truncated, and may not be
+    /// possible to paginate through all hits.
     @Default(0) int hitsTotal,
     @SkeletonSearchActorConverter() required List<SkeletonSearchActor> actors,
 

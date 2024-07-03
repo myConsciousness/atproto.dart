@@ -30,7 +30,8 @@ mixin _$ProfileRecord {
   /// Free-form profile description text.
   String? get description => throw _privateConstructorUsedError;
 
-  /// Small image to be displayed next to posts from account. AKA, 'profile picture'
+  /// Small image to be displayed next to posts from account. AKA, 'profile
+  /// picture'
   @BlobConverter()
   Blob? get avatar => throw _privateConstructorUsedError;
 
@@ -38,7 +39,8 @@ mixin _$ProfileRecord {
   @BlobConverter()
   Blob? get banner => throw _privateConstructorUsedError;
 
-  /// Self-label values, specific to the Bluesky application, on the overall account.
+  /// Self-label values, specific to the Bluesky application, on the overall
+  /// account.
   @UProfileLabelConverter()
   UProfileLabel? get labels => throw _privateConstructorUsedError;
   @StrongRefConverter()
@@ -313,7 +315,8 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   @override
   final String? description;
 
-  /// Small image to be displayed next to posts from account. AKA, 'profile picture'
+  /// Small image to be displayed next to posts from account. AKA, 'profile
+  /// picture'
   @override
   @BlobConverter()
   final Blob? avatar;
@@ -323,7 +326,8 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   @BlobConverter()
   final Blob? banner;
 
-  /// Self-label values, specific to the Bluesky application, on the overall account.
+  /// Self-label values, specific to the Bluesky application, on the overall
+  /// account.
   @override
   @UProfileLabelConverter()
   final UProfileLabel? labels;
@@ -431,7 +435,8 @@ abstract class _ProfileRecord implements ProfileRecord {
   String? get description;
   @override
 
-  /// Small image to be displayed next to posts from account. AKA, 'profile picture'
+  /// Small image to be displayed next to posts from account. AKA, 'profile
+  /// picture'
   @BlobConverter()
   Blob? get avatar;
   @override
@@ -441,7 +446,8 @@ abstract class _ProfileRecord implements ProfileRecord {
   Blob? get banner;
   @override
 
-  /// Self-label values, specific to the Bluesky application, on the overall account.
+  /// Self-label values, specific to the Bluesky application, on the overall
+  /// account.
   @UProfileLabelConverter()
   UProfileLabel? get labels;
   @override

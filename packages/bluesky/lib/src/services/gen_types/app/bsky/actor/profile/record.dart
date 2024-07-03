@@ -36,13 +36,15 @@ class ProfileRecord with _$ProfileRecord {
     /// Free-form profile description text.
     String? description,
 
-    /// Small image to be displayed next to posts from account. AKA, 'profile picture'
+    /// Small image to be displayed next to posts from account. AKA, 'profile
+    /// picture'
     @BlobConverter() Blob? avatar,
 
     /// Larger horizontal image to display behind profile view.
     @BlobConverter() Blob? banner,
 
-    /// Self-label values, specific to the Bluesky application, on the overall account.
+    /// Self-label values, specific to the Bluesky application, on the overall
+    /// account.
     @UProfileLabelConverter() UProfileLabel? labels,
     @StrongRefConverter() StrongRef? joinedViaStarterPack,
     DateTime? createdAt,

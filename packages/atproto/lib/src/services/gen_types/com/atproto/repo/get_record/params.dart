@@ -31,7 +31,8 @@ class GetRecordParams with _$GetRecordParams {
     /// The Record Key.
     required String rkey,
 
-    /// The CID of the version of the record. If not specified, then return the most recent version.
+    /// The CID of the version of the record. If not specified, then return the
+    /// most recent version.
     String? cid,
 
     /// Contains unknown objects not defined in Lexicon.

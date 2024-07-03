@@ -20,10 +20,12 @@ DescribeServerOutput _$DescribeServerOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DescribeServerOutput {
-  /// If true, an invite code must be supplied to create an account on this instance.
+  /// If true, an invite code must be supplied to create an account on this
+  /// instance.
   bool get inviteCodeRequired => throw _privateConstructorUsedError;
 
-  /// If true, a phone verification token must be supplied to create an account on this instance.
+  /// If true, a phone verification token must be supplied to create an account
+  /// on this instance.
   bool get phoneVerificationRequired => throw _privateConstructorUsedError;
 
   /// List of domain suffixes that can be used in account handles.
@@ -231,12 +233,14 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
   factory _$DescribeServerOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$DescribeServerOutputImplFromJson(json);
 
-  /// If true, an invite code must be supplied to create an account on this instance.
+  /// If true, an invite code must be supplied to create an account on this
+  /// instance.
   @override
   @JsonKey()
   final bool inviteCodeRequired;
 
-  /// If true, a phone verification token must be supplied to create an account on this instance.
+  /// If true, a phone verification token must be supplied to create an account
+  /// on this instance.
   @override
   @JsonKey()
   final bool phoneVerificationRequired;
@@ -348,11 +352,13 @@ abstract class _DescribeServerOutput implements DescribeServerOutput {
 
   @override
 
-  /// If true, an invite code must be supplied to create an account on this instance.
+  /// If true, an invite code must be supplied to create an account on this
+  /// instance.
   bool get inviteCodeRequired;
   @override
 
-  /// If true, a phone verification token must be supplied to create an account on this instance.
+  /// If true, a phone verification token must be supplied to create an account
+  /// on this instance.
   bool get phoneVerificationRequired;
   @override
 

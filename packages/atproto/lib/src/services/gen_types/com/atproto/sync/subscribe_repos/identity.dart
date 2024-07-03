@@ -19,7 +19,9 @@ import '../../../../../../ids.g.dart';
 part 'identity.freezed.dart';
 part 'identity.g.dart';
 
-/// Represents a change to an account's identity. Could be an updated handle, signing key, or pds hosting endpoint. Serves as a prod to all downstream services to refresh their identity cache.
+/// Represents a change to an account's identity. Could be an updated handle,
+/// signing key, or pds hosting endpoint. Serves as a prod to all downstream
+/// services to refresh their identity cache.
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#identity
 @freezed
@@ -36,7 +38,10 @@ class Identity with _$Identity {
     required String did,
     required DateTime time,
 
-    /// The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details.
+    /// The current handle for the account, or 'handle.invalid' if validation
+    /// fails. This field is optional, might have been validated or passed-through
+    /// from an upstream source. Semantics and behaviors for PDS vs Relay may
+    /// evolve in the future; see atproto specs for more details.
     String? handle,
 
     /// Contains unknown objects not defined in Lexicon.

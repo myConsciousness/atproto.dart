@@ -24,7 +24,8 @@ class CreateTemplateInput with _$CreateTemplateInput {
     /// Name of the template.
     required String name,
 
-    /// Content of the template, markdown supported, can contain variable placeholders.
+    /// Content of the template, markdown supported, can contain variable
+    /// placeholders.
     required String contentMarkdown,
 
     /// Subject of the message, used in emails.

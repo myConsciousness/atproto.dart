@@ -37,10 +37,12 @@ class Label with _$Label {
     /// DID of the actor who created this label.
     required String src,
 
-    /// AT URI of the record, repository (account), or other resource that this label applies to.
+    /// AT URI of the record, repository (account), or other resource that this
+    /// label applies to.
     required String uri,
 
-    /// Optionally, CID specifying the specific version of 'uri' resource this label applies to.
+    /// Optionally, CID specifying the specific version of 'uri' resource this
+    /// label applies to.
     String? cid,
 
     /// The short string name of the value or type of this label.

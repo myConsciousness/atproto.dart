@@ -28,7 +28,8 @@ class DescribeRepoOutput with _$DescribeRepoOutput {
     /// The complete DID document for this account.
     required Map<String, dynamic> didDoc,
 
-    /// List of all the collections (NSIDs) for which this repo contains at least one record.
+    /// List of all the collections (NSIDs) for which this repo contains at least
+    /// one record.
     @NSIDConverter() required List<NSID> collections,
 
     /// Indicates if handle is currently valid (resolves bi-directionally)

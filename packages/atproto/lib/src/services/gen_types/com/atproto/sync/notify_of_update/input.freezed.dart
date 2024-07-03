@@ -20,7 +20,8 @@ NotifyOfUpdateInput _$NotifyOfUpdateInputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NotifyOfUpdateInput {
-  /// Hostname of the current service (usually a PDS) that is notifying of update.
+  /// Hostname of the current service (usually a PDS) that is notifying of
+  /// update.
   String get hostname => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -125,7 +126,8 @@ class _$NotifyOfUpdateInputImpl implements _NotifyOfUpdateInput {
   factory _$NotifyOfUpdateInputImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotifyOfUpdateInputImplFromJson(json);
 
-  /// Hostname of the current service (usually a PDS) that is notifying of update.
+  /// Hostname of the current service (usually a PDS) that is notifying of
+  /// update.
   @override
   final String hostname;
 
@@ -189,7 +191,8 @@ abstract class _NotifyOfUpdateInput implements NotifyOfUpdateInput {
 
   @override
 
-  /// Hostname of the current service (usually a PDS) that is notifying of update.
+  /// Hostname of the current service (usually a PDS) that is notifying of
+  /// update.
   String get hostname;
   @override
 

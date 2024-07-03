@@ -24,7 +24,8 @@ mixin _$GetLikesParams {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
-  /// CID of the subject record (aka, specific version of record), to filter likes.
+  /// CID of the subject record (aka, specific version of record), to filter
+  /// likes.
   String? get cid => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -175,7 +176,8 @@ class _$GetLikesParamsImpl implements _GetLikesParams {
   @AtUriConverter()
   final AtUri uri;
 
-  /// CID of the subject record (aka, specific version of record), to filter likes.
+  /// CID of the subject record (aka, specific version of record), to filter
+  /// likes.
   @override
   final String? cid;
   @override
@@ -253,7 +255,8 @@ abstract class _GetLikesParams implements GetLikesParams {
   AtUri get uri;
   @override
 
-  /// CID of the subject record (aka, specific version of record), to filter likes.
+  /// CID of the subject record (aka, specific version of record), to filter
+  /// likes.
   String? get cid;
   @override
   int? get limit;

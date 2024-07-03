@@ -21,7 +21,8 @@ GetRecommendedDidCredentialsOutput _$GetRecommendedDidCredentialsOutputFromJson(
 
 /// @nodoc
 mixin _$GetRecommendedDidCredentialsOutput {
-  /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
+  /// Recommended rotation keys for PLC dids. Should be undefined (or ignored)
+  /// for did:webs.
   List<String>? get rotationKeys => throw _privateConstructorUsedError;
   List<String>? get alsoKnownAs => throw _privateConstructorUsedError;
   Map<String, dynamic>? get verificationMethods =>
@@ -182,10 +183,12 @@ class _$GetRecommendedDidCredentialsOutputImpl
           Map<String, dynamic> json) =>
       _$$GetRecommendedDidCredentialsOutputImplFromJson(json);
 
-  /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
+  /// Recommended rotation keys for PLC dids. Should be undefined (or ignored)
+  /// for did:webs.
   final List<String>? _rotationKeys;
 
-  /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
+  /// Recommended rotation keys for PLC dids. Should be undefined (or ignored)
+  /// for did:webs.
   @override
   List<String>? get rotationKeys {
     final value = _rotationKeys;
@@ -302,7 +305,8 @@ abstract class _GetRecommendedDidCredentialsOutput
 
   @override
 
-  /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
+  /// Recommended rotation keys for PLC dids. Should be undefined (or ignored)
+  /// for did:webs.
   List<String>? get rotationKeys;
   @override
   List<String>? get alsoKnownAs;

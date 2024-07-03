@@ -26,7 +26,8 @@ mixin _$ListRecord {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
-  /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)
+  /// Defines the purpose of the list (aka, moderation-oriented or
+  /// curration-oriented)
   @UListPurposeConverter()
   UListPurpose get purpose => throw _privateConstructorUsedError;
 
@@ -285,7 +286,8 @@ class _$ListRecordImpl implements _ListRecord {
   @JsonKey(name: r'$type')
   final String $type;
 
-  /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)
+  /// Defines the purpose of the list (aka, moderation-oriented or
+  /// curration-oriented)
   @override
   @UListPurposeConverter()
   final UListPurpose purpose;
@@ -407,7 +409,8 @@ abstract class _ListRecord implements ListRecord {
   String get $type;
   @override
 
-  /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)
+  /// Defines the purpose of the list (aka, moderation-oriented or
+  /// curration-oriented)
   @UListPurposeConverter()
   UListPurpose get purpose;
   @override

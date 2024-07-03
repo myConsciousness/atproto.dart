@@ -29,7 +29,8 @@ mixin _$ModEventTag {
   /// Tags to be added to the subject. If already exists, won't be duplicated.
   List<String> get add => throw _privateConstructorUsedError;
 
-  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't be duplicated.
+  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't
+  /// be duplicated.
   List<String> get remove => throw _privateConstructorUsedError;
 
   /// Additional comment about added/removed tags.
@@ -197,10 +198,12 @@ class _$ModEventTagImpl implements _ModEventTag {
     return EqualUnmodifiableListView(_add);
   }
 
-  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't be duplicated.
+  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't
+  /// be duplicated.
   final List<String> _remove;
 
-  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't be duplicated.
+  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't
+  /// be duplicated.
   @override
   List<String> get remove {
     if (_remove is EqualUnmodifiableListView) return _remove;
@@ -292,7 +295,8 @@ abstract class _ModEventTag implements ModEventTag {
   List<String> get add;
   @override
 
-  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't be duplicated.
+  /// Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't
+  /// be duplicated.
   List<String> get remove;
   @override
 

@@ -34,7 +34,8 @@ class ModEventTakedown with _$ModEventTakedown {
     String $type,
     String? comment,
 
-    /// Indicates how long the takedown should be in effect before automatically expiring.
+    /// Indicates how long the takedown should be in effect before automatically
+    /// expiring.
     @Default(0) int durationInHours,
 
     /// Contains unknown objects not defined in Lexicon.

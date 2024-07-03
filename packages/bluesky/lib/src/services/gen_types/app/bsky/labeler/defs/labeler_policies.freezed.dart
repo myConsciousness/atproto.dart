@@ -26,11 +26,13 @@ mixin _$LabelerPolicies {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
-  /// The label values which this labeler publishes. May include global or custom labels.
+  /// The label values which this labeler publishes. May include global or custom
+  /// labels.
   @ULabelValueConverter()
   List<ULabelValue> get labelValues => throw _privateConstructorUsedError;
 
-  /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
+  /// Label values created by this labeler and scoped exclusively to it. Labels
+  /// defined here will override global label definitions for this labeler.
   @LabelValueDefinitionConverter()
   List<LabelValueDefinition>? get labelValueDefinitions =>
       throw _privateConstructorUsedError;
@@ -175,10 +177,12 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
   @JsonKey(name: r'$type')
   final String $type;
 
-  /// The label values which this labeler publishes. May include global or custom labels.
+  /// The label values which this labeler publishes. May include global or custom
+  /// labels.
   final List<ULabelValue> _labelValues;
 
-  /// The label values which this labeler publishes. May include global or custom labels.
+  /// The label values which this labeler publishes. May include global or custom
+  /// labels.
   @override
   @ULabelValueConverter()
   List<ULabelValue> get labelValues {
@@ -187,10 +191,12 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
     return EqualUnmodifiableListView(_labelValues);
   }
 
-  /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
+  /// Label values created by this labeler and scoped exclusively to it. Labels
+  /// defined here will override global label definitions for this labeler.
   final List<LabelValueDefinition>? _labelValueDefinitions;
 
-  /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
+  /// Label values created by this labeler and scoped exclusively to it. Labels
+  /// defined here will override global label definitions for this labeler.
   @override
   @LabelValueDefinitionConverter()
   List<LabelValueDefinition>? get labelValueDefinitions {
@@ -279,12 +285,14 @@ abstract class _LabelerPolicies implements LabelerPolicies {
   String get $type;
   @override
 
-  /// The label values which this labeler publishes. May include global or custom labels.
+  /// The label values which this labeler publishes. May include global or custom
+  /// labels.
   @ULabelValueConverter()
   List<ULabelValue> get labelValues;
   @override
 
-  /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
+  /// Label values created by this labeler and scoped exclusively to it. Labels
+  /// defined here will override global label definitions for this labeler.
   @LabelValueDefinitionConverter()
   List<LabelValueDefinition>? get labelValueDefinitions;
   @override

@@ -31,10 +31,12 @@ mixin _$SubjectStatusView {
   List<String>? get subjectBlobCids => throw _privateConstructorUsedError;
   String? get subjectRepoHandle => throw _privateConstructorUsedError;
 
-  /// Timestamp referencing when the last update was made to the moderation status of the subject
+  /// Timestamp referencing when the last update was made to the moderation
+  /// status of the subject
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
-  /// Timestamp referencing the first moderation status impacting event was emitted on the subject
+  /// Timestamp referencing the first moderation status impacting event was
+  /// emitted on the subject
   DateTime get createdAt => throw _privateConstructorUsedError;
   @USubjectReviewStateConverter()
   USubjectReviewState get reviewState => throw _privateConstructorUsedError;
@@ -47,11 +49,14 @@ mixin _$SubjectStatusView {
   DateTime? get lastReviewedAt => throw _privateConstructorUsedError;
   DateTime? get lastReportedAt => throw _privateConstructorUsedError;
 
-  /// Timestamp referencing when the author of the subject appealed a moderation action
+  /// Timestamp referencing when the author of the subject appealed a moderation
+  /// action
   DateTime? get lastAppealedAt => throw _privateConstructorUsedError;
   bool get takendown => throw _privateConstructorUsedError;
 
-  /// True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators.
+  /// True indicates that the a previously taken moderator action was appealed
+  /// against, by the author of the content. False indicates last appeal was
+  /// resolved by moderators.
   bool get appealed => throw _privateConstructorUsedError;
   DateTime? get suspendUntil => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
@@ -443,11 +448,13 @@ class _$SubjectStatusViewImpl implements _SubjectStatusView {
   @override
   final String? subjectRepoHandle;
 
-  /// Timestamp referencing when the last update was made to the moderation status of the subject
+  /// Timestamp referencing when the last update was made to the moderation
+  /// status of the subject
   @override
   final DateTime updatedAt;
 
-  /// Timestamp referencing the first moderation status impacting event was emitted on the subject
+  /// Timestamp referencing the first moderation status impacting event was
+  /// emitted on the subject
   @override
   final DateTime createdAt;
   @override
@@ -468,14 +475,17 @@ class _$SubjectStatusViewImpl implements _SubjectStatusView {
   @override
   final DateTime? lastReportedAt;
 
-  /// Timestamp referencing when the author of the subject appealed a moderation action
+  /// Timestamp referencing when the author of the subject appealed a moderation
+  /// action
   @override
   final DateTime? lastAppealedAt;
   @override
   @JsonKey()
   final bool takendown;
 
-  /// True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators.
+  /// True indicates that the a previously taken moderator action was appealed
+  /// against, by the author of the content. False indicates last appeal was
+  /// resolved by moderators.
   @override
   @JsonKey()
   final bool appealed;
@@ -639,11 +649,13 @@ abstract class _SubjectStatusView implements SubjectStatusView {
   String? get subjectRepoHandle;
   @override
 
-  /// Timestamp referencing when the last update was made to the moderation status of the subject
+  /// Timestamp referencing when the last update was made to the moderation
+  /// status of the subject
   DateTime get updatedAt;
   @override
 
-  /// Timestamp referencing the first moderation status impacting event was emitted on the subject
+  /// Timestamp referencing the first moderation status impacting event was
+  /// emitted on the subject
   DateTime get createdAt;
   @override
   @USubjectReviewStateConverter()
@@ -664,13 +676,16 @@ abstract class _SubjectStatusView implements SubjectStatusView {
   DateTime? get lastReportedAt;
   @override
 
-  /// Timestamp referencing when the author of the subject appealed a moderation action
+  /// Timestamp referencing when the author of the subject appealed a moderation
+  /// action
   DateTime? get lastAppealedAt;
   @override
   bool get takendown;
   @override
 
-  /// True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators.
+  /// True indicates that the a previously taken moderator action was appealed
+  /// against, by the author of the content. False indicates last appeal was
+  /// resolved by moderators.
   bool get appealed;
   @override
   DateTime? get suspendUntil;

@@ -33,7 +33,8 @@ mixin _$GeneratorRecord {
   @BlobConverter()
   Blob? get avatar => throw _privateConstructorUsedError;
 
-  /// Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions
+  /// Declaration that a feed accepts feedback interactions from a client through
+  /// app.bsky.feed.sendInteractions
   bool get acceptsInteractions => throw _privateConstructorUsedError;
 
   /// Self-label values
@@ -308,7 +309,8 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   @BlobConverter()
   final Blob? avatar;
 
-  /// Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions
+  /// Declaration that a feed accepts feedback interactions from a client through
+  /// app.bsky.feed.sendInteractions
   @override
   @JsonKey()
   final bool acceptsInteractions;
@@ -429,7 +431,8 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   Blob? get avatar;
   @override
 
-  /// Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions
+  /// Declaration that a feed accepts feedback interactions from a client through
+  /// app.bsky.feed.sendInteractions
   bool get acceptsInteractions;
   @override
 

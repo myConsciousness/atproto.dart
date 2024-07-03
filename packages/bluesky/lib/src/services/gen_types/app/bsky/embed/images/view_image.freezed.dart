@@ -26,10 +26,13 @@ mixin _$ImagesViewImage {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
-  /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
+  /// Fully-qualified URL where a thumbnail of the image can be fetched. For
+  /// example, CDN location provided by the App View.
   String get thumb => throw _privateConstructorUsedError;
 
-  /// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
+  /// Fully-qualified URL where a large version of the image can be fetched. May
+  /// or may not be the exact original blob. For example, CDN location provided
+  /// by the App View.
   String get fullsize => throw _privateConstructorUsedError;
 
   /// Alt text description of the image, for accessibility.
@@ -215,11 +218,14 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
   @JsonKey(name: r'$type')
   final String $type;
 
-  /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
+  /// Fully-qualified URL where a thumbnail of the image can be fetched. For
+  /// example, CDN location provided by the App View.
   @override
   final String thumb;
 
-  /// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
+  /// Fully-qualified URL where a large version of the image can be fetched. May
+  /// or may not be the exact original blob. For example, CDN location provided
+  /// by the App View.
   @override
   final String fullsize;
 
@@ -306,11 +312,14 @@ abstract class _ImagesViewImage implements ImagesViewImage {
   String get $type;
   @override
 
-  /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
+  /// Fully-qualified URL where a thumbnail of the image can be fetched. For
+  /// example, CDN location provided by the App View.
   String get thumb;
   @override
 
-  /// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
+  /// Fully-qualified URL where a large version of the image can be fetched. May
+  /// or may not be the exact original blob. For example, CDN location provided
+  /// by the App View.
   String get fullsize;
   @override
 

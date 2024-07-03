@@ -21,7 +21,8 @@ part 'params.g.dart';
 class SearchActorsParams with _$SearchActorsParams {
   @JsonSerializable(includeIfNull: false)
   const factory SearchActorsParams({
-    /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
+    /// Search query string. Syntax, phrase, boolean, and faceting is unspecified,
+    /// but Lucene query syntax is recommended.
     String? q,
     int? limit,
     String? cursor,

@@ -27,7 +27,8 @@ mixin _$ModEventReport {
   String get $type => throw _privateConstructorUsedError;
   String? get comment => throw _privateConstructorUsedError;
 
-  /// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
+  /// Set to true if the reporter was muted from reporting at the time of the
+  /// event. These reports won't impact the reviewState of the subject.
   bool get isReporterMuted => throw _privateConstructorUsedError;
   @UReasonTypeConverter()
   UReasonType get reportType => throw _privateConstructorUsedError;
@@ -196,7 +197,8 @@ class _$ModEventReportImpl implements _ModEventReport {
   @override
   final String? comment;
 
-  /// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
+  /// Set to true if the reporter was muted from reporting at the time of the
+  /// event. These reports won't impact the reviewState of the subject.
   @override
   @JsonKey()
   final bool isReporterMuted;
@@ -280,7 +282,8 @@ abstract class _ModEventReport implements ModEventReport {
   String? get comment;
   @override
 
-  /// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
+  /// Set to true if the reporter was muted from reporting at the time of the
+  /// event. These reports won't impact the reviewState of the subject.
   bool get isReporterMuted;
   @override
   @UReasonTypeConverter()

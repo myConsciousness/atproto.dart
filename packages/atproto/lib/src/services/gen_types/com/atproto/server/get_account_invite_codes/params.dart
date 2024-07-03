@@ -23,7 +23,8 @@ class GetAccountInviteCodesParams with _$GetAccountInviteCodesParams {
   const factory GetAccountInviteCodesParams({
     bool? includeUsed,
 
-    /// Controls whether any new 'earned' but not 'created' invites should be created.
+    /// Controls whether any new 'earned' but not 'created' invites should be
+    /// created.
     bool? createAvailable,
 
     /// Contains unknown objects not defined in Lexicon.

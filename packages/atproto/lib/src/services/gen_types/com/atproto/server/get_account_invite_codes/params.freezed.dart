@@ -23,7 +23,8 @@ GetAccountInviteCodesParams _$GetAccountInviteCodesParamsFromJson(
 mixin _$GetAccountInviteCodesParams {
   bool? get includeUsed => throw _privateConstructorUsedError;
 
-  /// Controls whether any new 'earned' but not 'created' invites should be created.
+  /// Controls whether any new 'earned' but not 'created' invites should be
+  /// created.
   bool? get createAvailable => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -152,7 +153,8 @@ class _$GetAccountInviteCodesParamsImpl
   @override
   final bool? includeUsed;
 
-  /// Controls whether any new 'earned' but not 'created' invites should be created.
+  /// Controls whether any new 'earned' but not 'created' invites should be
+  /// created.
   @override
   final bool? createAvailable;
 
@@ -222,7 +224,8 @@ abstract class _GetAccountInviteCodesParams
   bool? get includeUsed;
   @override
 
-  /// Controls whether any new 'earned' but not 'created' invites should be created.
+  /// Controls whether any new 'earned' but not 'created' invites should be
+  /// created.
   bool? get createAvailable;
   @override
 

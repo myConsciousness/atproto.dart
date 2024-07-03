@@ -27,7 +27,9 @@ class GetRepoStatusOutput with _$GetRepoStatusOutput {
     required String did,
     required bool active,
 
-    /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
+    /// If active=false, this optional field indicates a possible reason for why
+    /// the account is not active. If active=false and no status is supplied, then
+    /// the host makes no claim for why the repository is no longer being hosted.
     @UGetRepoStatusStatuConverter() UGetRepoStatusStatu? status,
 
     /// Optional field, the current rev of the repo, if active=true

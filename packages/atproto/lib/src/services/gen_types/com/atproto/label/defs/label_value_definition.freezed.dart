@@ -26,15 +26,19 @@ mixin _$LabelValueDefinition {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
-  /// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).
+  /// The value of the label being defined. Must only include lowercase ascii and
+  /// the '-' character ([a-z-]+).
   String get identifier => throw _privateConstructorUsedError;
 
-  /// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
+  /// How should a client visually convey this label? 'inform' means neutral and
+  /// informational; 'alert' means negative and warning; 'none' means show
+  /// nothing.
   @ULabelValueDefinitionSeverityConverter()
   ULabelValueDefinitionSeverity get severity =>
       throw _privateConstructorUsedError;
 
-  /// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
+  /// What should this label hide in the UI, if applied? 'content' hides all of
+  /// the target; 'media' hides the images/video/audio; 'none' hides nothing.
   @ULabelValueDefinitionBlurConverter()
   ULabelValueDefinitionBlur get blurs => throw _privateConstructorUsedError;
 
@@ -43,7 +47,8 @@ mixin _$LabelValueDefinition {
   ULabelValueDefinitionDefaultSetting? get defaultSetting =>
       throw _privateConstructorUsedError;
 
-  /// Does the user need to have adult content enabled in order to configure this label?
+  /// Does the user need to have adult content enabled in order to configure this
+  /// label?
   bool get adultOnly => throw _privateConstructorUsedError;
   @LabelValueDefinitionStringsConverter()
   List<LabelValueDefinitionStrings> get locales =>
@@ -287,16 +292,20 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
   @JsonKey(name: r'$type')
   final String $type;
 
-  /// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).
+  /// The value of the label being defined. Must only include lowercase ascii and
+  /// the '-' character ([a-z-]+).
   @override
   final String identifier;
 
-  /// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
+  /// How should a client visually convey this label? 'inform' means neutral and
+  /// informational; 'alert' means negative and warning; 'none' means show
+  /// nothing.
   @override
   @ULabelValueDefinitionSeverityConverter()
   final ULabelValueDefinitionSeverity severity;
 
-  /// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
+  /// What should this label hide in the UI, if applied? 'content' hides all of
+  /// the target; 'media' hides the images/video/audio; 'none' hides nothing.
   @override
   @ULabelValueDefinitionBlurConverter()
   final ULabelValueDefinitionBlur blurs;
@@ -306,7 +315,8 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
   @ULabelValueDefinitionDefaultSettingConverter()
   final ULabelValueDefinitionDefaultSetting? defaultSetting;
 
-  /// Does the user need to have adult content enabled in order to configure this label?
+  /// Does the user need to have adult content enabled in order to configure this
+  /// label?
   @override
   @JsonKey()
   final bool adultOnly;
@@ -414,16 +424,20 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
   String get $type;
   @override
 
-  /// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).
+  /// The value of the label being defined. Must only include lowercase ascii and
+  /// the '-' character ([a-z-]+).
   String get identifier;
   @override
 
-  /// How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing.
+  /// How should a client visually convey this label? 'inform' means neutral and
+  /// informational; 'alert' means negative and warning; 'none' means show
+  /// nothing.
   @ULabelValueDefinitionSeverityConverter()
   ULabelValueDefinitionSeverity get severity;
   @override
 
-  /// What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing.
+  /// What should this label hide in the UI, if applied? 'content' hides all of
+  /// the target; 'media' hides the images/video/audio; 'none' hides nothing.
   @ULabelValueDefinitionBlurConverter()
   ULabelValueDefinitionBlur get blurs;
   @override
@@ -433,7 +447,8 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
   ULabelValueDefinitionDefaultSetting? get defaultSetting;
   @override
 
-  /// Does the user need to have adult content enabled in order to configure this label?
+  /// Does the user need to have adult content enabled in order to configure this
+  /// label?
   bool get adultOnly;
   @override
   @LabelValueDefinitionStringsConverter()

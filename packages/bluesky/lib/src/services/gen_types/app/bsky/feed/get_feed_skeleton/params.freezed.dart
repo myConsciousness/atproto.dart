@@ -21,7 +21,8 @@ GetFeedSkeletonParams _$GetFeedSkeletonParamsFromJson(
 
 /// @nodoc
 mixin _$GetFeedSkeletonParams {
-  /// Reference to feed generator record describing the specific feed being requested.
+  /// Reference to feed generator record describing the specific feed being
+  /// requested.
   @AtUriConverter()
   AtUri get feed => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
@@ -158,7 +159,8 @@ class _$GetFeedSkeletonParamsImpl implements _GetFeedSkeletonParams {
   factory _$GetFeedSkeletonParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetFeedSkeletonParamsImplFromJson(json);
 
-  /// Reference to feed generator record describing the specific feed being requested.
+  /// Reference to feed generator record describing the specific feed being
+  /// requested.
   @override
   @AtUriConverter()
   final AtUri feed;
@@ -230,7 +232,8 @@ abstract class _GetFeedSkeletonParams implements GetFeedSkeletonParams {
 
   @override
 
-  /// Reference to feed generator record describing the specific feed being requested.
+  /// Reference to feed generator record describing the specific feed being
+  /// requested.
   @AtUriConverter()
   AtUri get feed;
   @override

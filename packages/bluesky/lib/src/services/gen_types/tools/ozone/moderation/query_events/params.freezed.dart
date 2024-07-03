@@ -20,11 +20,14 @@ QueryEventsParams _$QueryEventsParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QueryEventsParams {
-  /// The types of events (fully qualified string in the format of tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified, all events are returned.
+  /// The types of events (fully qualified string in the format of
+  /// tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified,
+  /// all events are returned.
   List<String>? get types => throw _privateConstructorUsedError;
   String? get createdBy => throw _privateConstructorUsedError;
 
-  /// Sort direction for the events. Defaults to descending order of created at timestamp.
+  /// Sort direction for the events. Defaults to descending order of created at
+  /// timestamp.
   String? get sortDirection => throw _privateConstructorUsedError;
 
   /// Retrieve events created after a given timestamp
@@ -34,7 +37,8 @@ mixin _$QueryEventsParams {
   DateTime? get createdBefore => throw _privateConstructorUsedError;
   String? get subject => throw _privateConstructorUsedError;
 
-  /// If true, events on all record types (posts, lists, profile etc.) owned by the did are returned
+  /// If true, events on all record types (posts, lists, profile etc.) owned by
+  /// the did are returned
   bool? get includeAllUserRecords => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
 
@@ -47,7 +51,8 @@ mixin _$QueryEventsParams {
   /// If specified, only events where all of these labels were added are returned
   List<String>? get addedLabels => throw _privateConstructorUsedError;
 
-  /// If specified, only events where all of these labels were removed are returned
+  /// If specified, only events where all of these labels were removed are
+  /// returned
   List<String>? get removedLabels => throw _privateConstructorUsedError;
 
   /// If specified, only events where all of these tags were added are returned
@@ -361,10 +366,14 @@ class _$QueryEventsParamsImpl implements _QueryEventsParams {
   factory _$QueryEventsParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$QueryEventsParamsImplFromJson(json);
 
-  /// The types of events (fully qualified string in the format of tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified, all events are returned.
+  /// The types of events (fully qualified string in the format of
+  /// tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified,
+  /// all events are returned.
   final List<String>? _types;
 
-  /// The types of events (fully qualified string in the format of tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified, all events are returned.
+  /// The types of events (fully qualified string in the format of
+  /// tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified,
+  /// all events are returned.
   @override
   List<String>? get types {
     final value = _types;
@@ -377,7 +386,8 @@ class _$QueryEventsParamsImpl implements _QueryEventsParams {
   @override
   final String? createdBy;
 
-  /// Sort direction for the events. Defaults to descending order of created at timestamp.
+  /// Sort direction for the events. Defaults to descending order of created at
+  /// timestamp.
   @override
   final String? sortDirection;
 
@@ -391,7 +401,8 @@ class _$QueryEventsParamsImpl implements _QueryEventsParams {
   @override
   final String? subject;
 
-  /// If true, events on all record types (posts, lists, profile etc.) owned by the did are returned
+  /// If true, events on all record types (posts, lists, profile etc.) owned by
+  /// the did are returned
   @override
   final bool? includeAllUserRecords;
   @override
@@ -418,10 +429,12 @@ class _$QueryEventsParamsImpl implements _QueryEventsParams {
     return EqualUnmodifiableListView(value);
   }
 
-  /// If specified, only events where all of these labels were removed are returned
+  /// If specified, only events where all of these labels were removed are
+  /// returned
   final List<String>? _removedLabels;
 
-  /// If specified, only events where all of these labels were removed are returned
+  /// If specified, only events where all of these labels were removed are
+  /// returned
   @override
   List<String>? get removedLabels {
     final value = _removedLabels;
@@ -587,13 +600,16 @@ abstract class _QueryEventsParams implements QueryEventsParams {
 
   @override
 
-  /// The types of events (fully qualified string in the format of tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified, all events are returned.
+  /// The types of events (fully qualified string in the format of
+  /// tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified,
+  /// all events are returned.
   List<String>? get types;
   @override
   String? get createdBy;
   @override
 
-  /// Sort direction for the events. Defaults to descending order of created at timestamp.
+  /// Sort direction for the events. Defaults to descending order of created at
+  /// timestamp.
   String? get sortDirection;
   @override
 
@@ -607,7 +623,8 @@ abstract class _QueryEventsParams implements QueryEventsParams {
   String? get subject;
   @override
 
-  /// If true, events on all record types (posts, lists, profile etc.) owned by the did are returned
+  /// If true, events on all record types (posts, lists, profile etc.) owned by
+  /// the did are returned
   bool? get includeAllUserRecords;
   @override
   int? get limit;
@@ -625,7 +642,8 @@ abstract class _QueryEventsParams implements QueryEventsParams {
   List<String>? get addedLabels;
   @override
 
-  /// If specified, only events where all of these labels were removed are returned
+  /// If specified, only events where all of these labels were removed are
+  /// returned
   List<String>? get removedLabels;
   @override
 

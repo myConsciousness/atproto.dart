@@ -21,7 +21,8 @@ DeactivateAccountInput _$DeactivateAccountInputFromJson(
 
 /// @nodoc
 mixin _$DeactivateAccountInput {
-  /// A recommendation to server as to how long they should hold onto the deactivated account before deleting.
+  /// A recommendation to server as to how long they should hold onto the
+  /// deactivated account before deleting.
   DateTime? get deleteAfter => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -130,7 +131,8 @@ class _$DeactivateAccountInputImpl implements _DeactivateAccountInput {
   factory _$DeactivateAccountInputImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeactivateAccountInputImplFromJson(json);
 
-  /// A recommendation to server as to how long they should hold onto the deactivated account before deleting.
+  /// A recommendation to server as to how long they should hold onto the
+  /// deactivated account before deleting.
   @override
   final DateTime? deleteAfter;
 
@@ -194,7 +196,8 @@ abstract class _DeactivateAccountInput implements DeactivateAccountInput {
 
   @override
 
-  /// A recommendation to server as to how long they should hold onto the deactivated account before deleting.
+  /// A recommendation to server as to how long they should hold onto the
+  /// deactivated account before deleting.
   DateTime? get deleteAfter;
   @override
 

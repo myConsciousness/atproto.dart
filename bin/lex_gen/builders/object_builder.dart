@@ -12,6 +12,7 @@ import '../rules/utils.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
 import '../types/object.dart';
+import '../types/dart_doc.dart';
 import '../types/known_values.dart';
 import '../types/union.dart';
 import 'known_values_builder.dart';
@@ -51,14 +52,16 @@ final class LexGenObjectBuilder {
         refObject = LexGenObject(
           type: ObjectType.object,
           ctx: ctx,
-          description: ctx.description,
-          referencePath: ctx
-              .copyWith(
-                docId: refVariant.docId,
-                defName: refVariant.defName,
-                def: refVariant.def,
-              )
-              .referencePath,
+          dartDoc: DartDoc(
+            description: ctx.description,
+            reference: ctx
+                .copyWith(
+                  docId: refVariant.docId,
+                  defName: refVariant.defName,
+                  def: refVariant.def,
+                )
+                .referencePath,
+          ),
           namespace: refCtx.namespace,
           name: convention.getObjectName(),
           fileName: convention.getFileName(),
@@ -74,8 +77,10 @@ final class LexGenObjectBuilder {
         LexGenObject(
           type: e.key,
           ctx: ctx,
-          description: ctx.description,
-          referencePath: ctx.referencePath,
+          dartDoc: DartDoc(
+            description: ctx.description,
+            reference: ctx.referencePath,
+          ),
           namespace: ctx.namespace,
           name: convention.getObjectName(),
           fileName: convention.getFileName(),
@@ -144,6 +149,7 @@ final class LexGenObjectBuilder {
             importPath: 'dart:typed_data',
             encoding: body?.encoding,
           ),
+          dartDoc: DartDoc(description: body?.description),
           name: 'bytes',
           encoding: body?.encoding,
         ),
@@ -210,7 +216,7 @@ final class LexGenObjectBuilder {
 
         return <LexGenObjectProperty>[
           LexGenObjectProperty(
-            description: propertyJson['description'],
+            dartDoc: DartDoc(description: propertyJson['description']),
             isRequired:
                 object.requiredProperties?.contains(propertyName) ?? false,
             type: dataType,
@@ -305,7 +311,7 @@ final class LexGenObjectBuilder {
     );
 
     return LexGenObjectProperty(
-      description: property['description'],
+      dartDoc: DartDoc(description: property['description']),
       isRequired: _isRequired(
         objectType,
         name,

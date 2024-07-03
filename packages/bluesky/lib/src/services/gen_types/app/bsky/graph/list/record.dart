@@ -33,7 +33,8 @@ class ListRecord with _$ListRecord {
     /// `app.bsky.graph.list`
     @Default(appBskyGraphList) @JsonKey(name: r'$type') String $type,
 
-    /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)
+    /// Defines the purpose of the list (aka, moderation-oriented or
+    /// curration-oriented)
     @UListPurposeConverter() required UListPurpose purpose,
 
     /// Display name for list; can not be empty.

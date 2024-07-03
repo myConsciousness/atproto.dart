@@ -22,7 +22,8 @@ import '../../../../app/bsky/graph/defs/list_view_basic.dart';
 part 'viewer_state.freezed.dart';
 part 'viewer_state.g.dart';
 
-/// Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+/// Metadata about the requesting account's relationship with the subject
+/// account. Only has meaningful content for authed requests.
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#viewerstate
 @freezed

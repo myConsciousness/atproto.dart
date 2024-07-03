@@ -31,13 +31,17 @@ mixin _$CreateAccountInput {
   String? get verificationCode => throw _privateConstructorUsedError;
   String? get verificationPhone => throw _privateConstructorUsedError;
 
-  /// Initial account password. May need to meet instance-specific password strength requirements.
+  /// Initial account password. May need to meet instance-specific password
+  /// strength requirements.
   String? get password => throw _privateConstructorUsedError;
 
-  /// DID PLC rotation key (aka, recovery key) to be included in PLC creation operation.
+  /// DID PLC rotation key (aka, recovery key) to be included in PLC creation
+  /// operation.
   String? get recoveryKey => throw _privateConstructorUsedError;
 
-  /// A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented.
+  /// A signed DID PLC operation to be submitted as part of importing an existing
+  /// account to this instance. NOTE: this optional field may be updated when
+  /// full account migration is implemented.
   Map<String, dynamic>? get plcOp => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -264,18 +268,24 @@ class _$CreateAccountInputImpl implements _CreateAccountInput {
   @override
   final String? verificationPhone;
 
-  /// Initial account password. May need to meet instance-specific password strength requirements.
+  /// Initial account password. May need to meet instance-specific password
+  /// strength requirements.
   @override
   final String? password;
 
-  /// DID PLC rotation key (aka, recovery key) to be included in PLC creation operation.
+  /// DID PLC rotation key (aka, recovery key) to be included in PLC creation
+  /// operation.
   @override
   final String? recoveryKey;
 
-  /// A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented.
+  /// A signed DID PLC operation to be submitted as part of importing an existing
+  /// account to this instance. NOTE: this optional field may be updated when
+  /// full account migration is implemented.
   final Map<String, dynamic>? _plcOp;
 
-  /// A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented.
+  /// A signed DID PLC operation to be submitted as part of importing an existing
+  /// account to this instance. NOTE: this optional field may be updated when
+  /// full account migration is implemented.
   @override
   Map<String, dynamic>? get plcOp {
     final value = _plcOp;
@@ -391,15 +401,19 @@ abstract class _CreateAccountInput implements CreateAccountInput {
   String? get verificationPhone;
   @override
 
-  /// Initial account password. May need to meet instance-specific password strength requirements.
+  /// Initial account password. May need to meet instance-specific password
+  /// strength requirements.
   String? get password;
   @override
 
-  /// DID PLC rotation key (aka, recovery key) to be included in PLC creation operation.
+  /// DID PLC rotation key (aka, recovery key) to be included in PLC creation
+  /// operation.
   String? get recoveryKey;
   @override
 
-  /// A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented.
+  /// A signed DID PLC operation to be submitted as part of importing an existing
+  /// account to this instance. NOTE: this optional field may be updated when
+  /// full account migration is implemented.
   Map<String, dynamic>? get plcOp;
   @override
 

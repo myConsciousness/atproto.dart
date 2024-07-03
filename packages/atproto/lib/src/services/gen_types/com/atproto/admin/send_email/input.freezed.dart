@@ -25,7 +25,8 @@ mixin _$SendEmailInput {
   String? get subject => throw _privateConstructorUsedError;
   String get senderDid => throw _privateConstructorUsedError;
 
-  /// Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers
+  /// Additional comment by the sender that won't be used in the email itself but
+  /// helpful to provide more context for moderators/reviewers
   String? get comment => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -191,7 +192,8 @@ class _$SendEmailInputImpl implements _SendEmailInput {
   @override
   final String senderDid;
 
-  /// Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers
+  /// Additional comment by the sender that won't be used in the email itself but
+  /// helpful to provide more context for moderators/reviewers
   @override
   final String? comment;
 
@@ -272,7 +274,8 @@ abstract class _SendEmailInput implements SendEmailInput {
   String get senderDid;
   @override
 
-  /// Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers
+  /// Additional comment by the sender that won't be used in the email itself but
+  /// helpful to provide more context for moderators/reviewers
   String? get comment;
   @override
 

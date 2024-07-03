@@ -29,7 +29,8 @@ mixin _$Commit {
   /// The stream sequence number of this message.
   int get seq => throw _privateConstructorUsedError;
 
-  /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
+  /// Indicates that this commit contained too many ops, or data size was too
+  /// large. Consumers will need to make a separate request to get missing data.
   bool get tooBig => throw _privateConstructorUsedError;
 
   /// The repo this event comes from.
@@ -38,13 +39,15 @@ mixin _$Commit {
   /// Repo commit object CID.
   String get commit => throw _privateConstructorUsedError;
 
-  /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
+  /// The rev of the emitted commit. Note that this information is also in the
+  /// commit object included in blocks, unless this is a tooBig event.
   String get rev => throw _privateConstructorUsedError;
 
   /// The rev of the last emitted commit from this repo (if any).
   String? get since => throw _privateConstructorUsedError;
 
-  /// CAR file containing relevant blocks, as a diff since the previous repo state.
+  /// CAR file containing relevant blocks, as a diff since the previous repo
+  /// state.
   List<int> get blocks => throw _privateConstructorUsedError;
   @RepoOpConverter()
   List<RepoOp> get ops => throw _privateConstructorUsedError;
@@ -296,7 +299,8 @@ class _$CommitImpl implements _Commit {
   @override
   final int seq;
 
-  /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
+  /// Indicates that this commit contained too many ops, or data size was too
+  /// large. Consumers will need to make a separate request to get missing data.
   @override
   final bool tooBig;
 
@@ -308,7 +312,8 @@ class _$CommitImpl implements _Commit {
   @override
   final String commit;
 
-  /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
+  /// The rev of the emitted commit. Note that this information is also in the
+  /// commit object included in blocks, unless this is a tooBig event.
   @override
   final String rev;
 
@@ -316,10 +321,12 @@ class _$CommitImpl implements _Commit {
   @override
   final String? since;
 
-  /// CAR file containing relevant blocks, as a diff since the previous repo state.
+  /// CAR file containing relevant blocks, as a diff since the previous repo
+  /// state.
   final List<int> _blocks;
 
-  /// CAR file containing relevant blocks, as a diff since the previous repo state.
+  /// CAR file containing relevant blocks, as a diff since the previous repo
+  /// state.
   @override
   List<int> get blocks {
     if (_blocks is EqualUnmodifiableListView) return _blocks;
@@ -448,7 +455,8 @@ abstract class _Commit implements Commit {
   int get seq;
   @override
 
-  /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
+  /// Indicates that this commit contained too many ops, or data size was too
+  /// large. Consumers will need to make a separate request to get missing data.
   bool get tooBig;
   @override
 
@@ -460,7 +468,8 @@ abstract class _Commit implements Commit {
   String get commit;
   @override
 
-  /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
+  /// The rev of the emitted commit. Note that this information is also in the
+  /// commit object included in blocks, unless this is a tooBig event.
   String get rev;
   @override
 
@@ -468,7 +477,8 @@ abstract class _Commit implements Commit {
   String? get since;
   @override
 
-  /// CAR file containing relevant blocks, as a diff since the previous repo state.
+  /// CAR file containing relevant blocks, as a diff since the previous repo
+  /// state.
   List<int> get blocks;
   @override
   @RepoOpConverter()

@@ -23,7 +23,9 @@ mixin _$GetRepoStatusOutput {
   String get did => throw _privateConstructorUsedError;
   bool get active => throw _privateConstructorUsedError;
 
-  /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
+  /// If active=false, this optional field indicates a possible reason for why
+  /// the account is not active. If active=false and no status is supplied, then
+  /// the host makes no claim for why the repository is no longer being hosted.
   @UGetRepoStatusStatuConverter()
   UGetRepoStatusStatu? get status => throw _privateConstructorUsedError;
 
@@ -193,7 +195,9 @@ class _$GetRepoStatusOutputImpl implements _GetRepoStatusOutput {
   @override
   final bool active;
 
-  /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
+  /// If active=false, this optional field indicates a possible reason for why
+  /// the account is not active. If active=false and no status is supplied, then
+  /// the host makes no claim for why the repository is no longer being hosted.
   @override
   @UGetRepoStatusStatuConverter()
   final UGetRepoStatusStatu? status;
@@ -271,7 +275,9 @@ abstract class _GetRepoStatusOutput implements GetRepoStatusOutput {
   bool get active;
   @override
 
-  /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
+  /// If active=false, this optional field indicates a possible reason for why
+  /// the account is not active. If active=false and no status is supplied, then
+  /// the host makes no claim for why the repository is no longer being hosted.
   @UGetRepoStatusStatuConverter()
   UGetRepoStatusStatu? get status;
   @override

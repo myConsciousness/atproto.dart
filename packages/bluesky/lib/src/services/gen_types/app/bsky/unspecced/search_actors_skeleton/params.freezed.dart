@@ -21,17 +21,22 @@ SearchActorsSkeletonParams _$SearchActorsSkeletonParamsFromJson(
 
 /// @nodoc
 mixin _$SearchActorsSkeletonParams {
-  /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax.
+  /// Search query string; syntax, phrase, boolean, and faceting is unspecified,
+  /// but Lucene query syntax is recommended. For typeahead search, only simple
+  /// term match is supported, not full syntax.
   String get q => throw _privateConstructorUsedError;
 
-  /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
+  /// DID of the account making the request (not included for
+  /// public/unauthenticated queries). Used to boost followed accounts in
+  /// ranking.
   String? get viewer => throw _privateConstructorUsedError;
 
   /// If true, acts as fast/simple 'typeahead' query.
   bool? get typeahead => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
 
-  /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
+  /// Optional pagination mechanism; may not necessarily allow scrolling through
+  /// entire result set.
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -194,11 +199,15 @@ class _$SearchActorsSkeletonParamsImpl implements _SearchActorsSkeletonParams {
           Map<String, dynamic> json) =>
       _$$SearchActorsSkeletonParamsImplFromJson(json);
 
-  /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax.
+  /// Search query string; syntax, phrase, boolean, and faceting is unspecified,
+  /// but Lucene query syntax is recommended. For typeahead search, only simple
+  /// term match is supported, not full syntax.
   @override
   final String q;
 
-  /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
+  /// DID of the account making the request (not included for
+  /// public/unauthenticated queries). Used to boost followed accounts in
+  /// ranking.
   @override
   final String? viewer;
 
@@ -208,7 +217,8 @@ class _$SearchActorsSkeletonParamsImpl implements _SearchActorsSkeletonParams {
   @override
   final int? limit;
 
-  /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
+  /// Optional pagination mechanism; may not necessarily allow scrolling through
+  /// entire result set.
   @override
   final String? cursor;
 
@@ -281,11 +291,15 @@ abstract class _SearchActorsSkeletonParams
 
   @override
 
-  /// Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax.
+  /// Search query string; syntax, phrase, boolean, and faceting is unspecified,
+  /// but Lucene query syntax is recommended. For typeahead search, only simple
+  /// term match is supported, not full syntax.
   String get q;
   @override
 
-  /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
+  /// DID of the account making the request (not included for
+  /// public/unauthenticated queries). Used to boost followed accounts in
+  /// ranking.
   String? get viewer;
   @override
 
@@ -295,7 +309,8 @@ abstract class _SearchActorsSkeletonParams
   int? get limit;
   @override
 
-  /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
+  /// Optional pagination mechanism; may not necessarily allow scrolling through
+  /// entire result set.
   String? get cursor;
   @override
 

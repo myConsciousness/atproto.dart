@@ -27,7 +27,8 @@ mixin _$ModEventTakedown {
   String get $type => throw _privateConstructorUsedError;
   String? get comment => throw _privateConstructorUsedError;
 
-  /// Indicates how long the takedown should be in effect before automatically expiring.
+  /// Indicates how long the takedown should be in effect before automatically
+  /// expiring.
   int get durationInHours => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -168,7 +169,8 @@ class _$ModEventTakedownImpl implements _ModEventTakedown {
   @override
   final String? comment;
 
-  /// Indicates how long the takedown should be in effect before automatically expiring.
+  /// Indicates how long the takedown should be in effect before automatically
+  /// expiring.
   @override
   @JsonKey()
   final int durationInHours;
@@ -246,7 +248,8 @@ abstract class _ModEventTakedown implements ModEventTakedown {
   String? get comment;
   @override
 
-  /// Indicates how long the takedown should be in effect before automatically expiring.
+  /// Indicates how long the takedown should be in effect before automatically
+  /// expiring.
   int get durationInHours;
   @override
 

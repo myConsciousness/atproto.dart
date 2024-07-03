@@ -27,11 +27,13 @@ class ApplyWritesInput with _$ApplyWritesInput {
     /// The handle or DID of the repo (aka, current account).
     String? repo,
 
-    /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
+    /// Can be set to 'false' to skip Lexicon schema validation of record data, for
+    /// all operations.
     bool? validate,
     @UApplyWritesWriteConverter() required List<UApplyWritesWrite> writes,
 
-    /// If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.
+    /// If provided, the entire operation will fail if the current repo commit CID
+    /// does not match this value. Used to prevent conflicting repo mutations.
     String? swapCommit,
 
     /// Contains unknown objects not defined in Lexicon.

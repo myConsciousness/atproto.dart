@@ -20,7 +20,8 @@ import '../../../../app/bsky/actor/defs/bsky_app_progress_guide.dart';
 part 'bsky_app_state_pref.freezed.dart';
 part 'bsky_app_state_pref.g.dart';
 
-/// A grab bag of state that's specific to the bsky.app program. Third-party apps shouldn't use this.
+/// A grab bag of state that's specific to the bsky.app program. Third-party
+/// apps shouldn't use this.
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#bskyappstatepref
 @freezed
@@ -35,7 +36,8 @@ class BskyAppStatePref with _$BskyAppStatePref {
     String $type,
     @BskyAppProgressGuideConverter() BskyAppProgressGuide? activeProgressGuide,
 
-    /// An array of tokens which identify nudges (modals, popups, tours, highlight dots) that should be shown to the user.
+    /// An array of tokens which identify nudges (modals, popups, tours, highlight
+    /// dots) that should be shown to the user.
     List<String>? queuedNudges,
 
     /// Contains unknown objects not defined in Lexicon.

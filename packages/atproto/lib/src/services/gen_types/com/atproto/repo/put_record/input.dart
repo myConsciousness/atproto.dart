@@ -37,7 +37,8 @@ class PutRecordInput with _$PutRecordInput {
     /// The record to write.
     required Map<String, dynamic> record,
 
-    /// Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation
+    /// Compare and swap with the previous record by CID. WARNING: nullable and
+    /// optional field; may cause problems with golang implementation
     String? swapRecord,
 
     /// Compare and swap with the previous commit by CID.

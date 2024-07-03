@@ -30,7 +30,8 @@ mixin _$SkeletonFeedPost {
   @USkeletonFeedPostReasonConverter()
   USkeletonFeedPostReason? get reason => throw _privateConstructorUsedError;
 
-  /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
+  /// Context that will be passed through to client and may be passed to feed
+  /// generator back alongside interactions.
   String? get feedContext => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -204,7 +205,8 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
   @USkeletonFeedPostReasonConverter()
   final USkeletonFeedPostReason? reason;
 
-  /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
+  /// Context that will be passed through to client and may be passed to feed
+  /// generator back alongside interactions.
   @override
   final String? feedContext;
 
@@ -287,7 +289,8 @@ abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   USkeletonFeedPostReason? get reason;
   @override
 
-  /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
+  /// Context that will be passed through to client and may be passed to feed
+  /// generator back alongside interactions.
   String? get feedContext;
   @override
 

@@ -38,7 +38,8 @@ class QueryStatusesParams with _$QueryStatusesParams {
     /// Search subjects reviewed before a given timestamp
     DateTime? reviewedBefore,
 
-    /// By default, we don't include muted subjects in the results. Set this to true to include them.
+    /// By default, we don't include muted subjects in the results. Set this to
+    /// true to include them.
     bool? includeMuted,
 
     /// When set to true, only muted subjects and reporters will be returned.

@@ -36,7 +36,8 @@ mixin _$PutRecordInput {
   /// The record to write.
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
-  /// Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation
+  /// Compare and swap with the previous record by CID. WARNING: nullable and
+  /// optional field; may cause problems with golang implementation
   String? get swapRecord => throw _privateConstructorUsedError;
 
   /// Compare and swap with the previous commit by CID.
@@ -251,7 +252,8 @@ class _$PutRecordInputImpl implements _PutRecordInput {
     return EqualUnmodifiableMapView(_record);
   }
 
-  /// Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation
+  /// Compare and swap with the previous record by CID. WARNING: nullable and
+  /// optional field; may cause problems with golang implementation
   @override
   final String? swapRecord;
 
@@ -363,7 +365,8 @@ abstract class _PutRecordInput implements PutRecordInput {
   Map<String, dynamic> get record;
   @override
 
-  /// Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation
+  /// Compare and swap with the previous record by CID. WARNING: nullable and
+  /// optional field; may cause problems with golang implementation
   String? get swapRecord;
   @override
 

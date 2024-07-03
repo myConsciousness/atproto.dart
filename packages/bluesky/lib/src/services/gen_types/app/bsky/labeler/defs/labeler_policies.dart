@@ -32,10 +32,12 @@ class LabelerPolicies with _$LabelerPolicies {
     @JsonKey(name: r'$type')
     String $type,
 
-    /// The label values which this labeler publishes. May include global or custom labels.
+    /// The label values which this labeler publishes. May include global or custom
+    /// labels.
     @ULabelValueConverter() required List<ULabelValue> labelValues,
 
-    /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
+    /// Label values created by this labeler and scoped exclusively to it. Labels
+    /// defined here will override global label definitions for this labeler.
     @LabelValueDefinitionConverter()
     List<LabelValueDefinition>? labelValueDefinitions,
 

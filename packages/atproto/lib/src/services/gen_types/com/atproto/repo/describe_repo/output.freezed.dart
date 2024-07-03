@@ -26,7 +26,8 @@ mixin _$DescribeRepoOutput {
   /// The complete DID document for this account.
   Map<String, dynamic> get didDoc => throw _privateConstructorUsedError;
 
-  /// List of all the collections (NSIDs) for which this repo contains at least one record.
+  /// List of all the collections (NSIDs) for which this repo contains at least
+  /// one record.
   @NSIDConverter()
   List<NSID> get collections => throw _privateConstructorUsedError;
 
@@ -205,10 +206,12 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
     return EqualUnmodifiableMapView(_didDoc);
   }
 
-  /// List of all the collections (NSIDs) for which this repo contains at least one record.
+  /// List of all the collections (NSIDs) for which this repo contains at least
+  /// one record.
   final List<NSID> _collections;
 
-  /// List of all the collections (NSIDs) for which this repo contains at least one record.
+  /// List of all the collections (NSIDs) for which this repo contains at least
+  /// one record.
   @override
   @NSIDConverter()
   List<NSID> get collections {
@@ -304,7 +307,8 @@ abstract class _DescribeRepoOutput implements DescribeRepoOutput {
   Map<String, dynamic> get didDoc;
   @override
 
-  /// List of all the collections (NSIDs) for which this repo contains at least one record.
+  /// List of all the collections (NSIDs) for which this repo contains at least
+  /// one record.
   @NSIDConverter()
   List<NSID> get collections;
   @override

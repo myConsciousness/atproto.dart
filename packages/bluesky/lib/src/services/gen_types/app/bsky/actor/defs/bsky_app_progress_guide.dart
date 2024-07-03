@@ -19,7 +19,8 @@ import '../../../../../../ids.g.dart';
 part 'bsky_app_progress_guide.freezed.dart';
 part 'bsky_app_progress_guide.g.dart';
 
-/// If set, an active progress guide. Once completed, can be set to undefined. Should have unspecced fields tracking progress.
+/// If set, an active progress guide. Once completed, can be set to undefined.
+/// Should have unspecced fields tracking progress.
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#bskyappprogressguide
 @freezed

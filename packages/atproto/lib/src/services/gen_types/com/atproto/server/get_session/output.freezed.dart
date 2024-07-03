@@ -28,7 +28,9 @@ mixin _$GetSessionOutput {
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
   bool get active => throw _privateConstructorUsedError;
 
-  /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
+  /// If active=false, this optional field indicates a possible reason for why
+  /// the account is not active. If active=false and no status is supplied, then
+  /// the host makes no claim for why the repository is no longer being hosted.
   @UGetSessionStatuConverter()
   UGetSessionStatu? get status => throw _privateConstructorUsedError;
 
@@ -269,7 +271,9 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
   @JsonKey()
   final bool active;
 
-  /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
+  /// If active=false, this optional field indicates a possible reason for why
+  /// the account is not active. If active=false and no status is supplied, then
+  /// the host makes no claim for why the repository is no longer being hosted.
   @override
   @UGetSessionStatuConverter()
   final UGetSessionStatu? status;
@@ -372,7 +376,9 @@ abstract class _GetSessionOutput implements GetSessionOutput {
   bool get active;
   @override
 
-  /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
+  /// If active=false, this optional field indicates a possible reason for why
+  /// the account is not active. If active=false and no status is supplied, then
+  /// the host makes no claim for why the repository is no longer being hosted.
   @UGetSessionStatuConverter()
   UGetSessionStatu? get status;
   @override

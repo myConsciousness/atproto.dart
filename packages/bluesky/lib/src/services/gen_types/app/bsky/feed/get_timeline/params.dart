@@ -21,7 +21,8 @@ part 'params.g.dart';
 class GetTimelineParams with _$GetTimelineParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetTimelineParams({
-    /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
+    /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed
+    /// flexibility has been moved to feed generator mechanism.
     String? algorithm,
     int? limit,
     String? cursor,

@@ -23,12 +23,14 @@ mixin _$ApplyWritesInput {
   /// The handle or DID of the repo (aka, current account).
   String? get repo => throw _privateConstructorUsedError;
 
-  /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
+  /// Can be set to 'false' to skip Lexicon schema validation of record data, for
+  /// all operations.
   bool? get validate => throw _privateConstructorUsedError;
   @UApplyWritesWriteConverter()
   List<UApplyWritesWrite> get writes => throw _privateConstructorUsedError;
 
-  /// If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.
+  /// If provided, the entire operation will fail if the current repo commit CID
+  /// does not match this value. Used to prevent conflicting repo mutations.
   String? get swapCommit => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -178,7 +180,8 @@ class _$ApplyWritesInputImpl implements _ApplyWritesInput {
   @override
   final String? repo;
 
-  /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
+  /// Can be set to 'false' to skip Lexicon schema validation of record data, for
+  /// all operations.
   @override
   final bool? validate;
   final List<UApplyWritesWrite> _writes;
@@ -190,7 +193,8 @@ class _$ApplyWritesInputImpl implements _ApplyWritesInput {
     return EqualUnmodifiableListView(_writes);
   }
 
-  /// If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.
+  /// If provided, the entire operation will fail if the current repo commit CID
+  /// does not match this value. Used to prevent conflicting repo mutations.
   @override
   final String? swapCommit;
 
@@ -271,14 +275,16 @@ abstract class _ApplyWritesInput implements ApplyWritesInput {
   String? get repo;
   @override
 
-  /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
+  /// Can be set to 'false' to skip Lexicon schema validation of record data, for
+  /// all operations.
   bool? get validate;
   @override
   @UApplyWritesWriteConverter()
   List<UApplyWritesWrite> get writes;
   @override
 
-  /// If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.
+  /// If provided, the entire operation will fail if the current repo commit CID
+  /// does not match this value. Used to prevent conflicting repo mutations.
   String? get swapCommit;
   @override
 

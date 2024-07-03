@@ -23,7 +23,8 @@ SearchActorsSkeletonOutput _$SearchActorsSkeletonOutputFromJson(
 mixin _$SearchActorsSkeletonOutput {
   String? get cursor => throw _privateConstructorUsedError;
 
-  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
+  /// Count of search hits. Optional, may be rounded/truncated, and may not be
+  /// possible to paginate through all hits.
   int get hitsTotal => throw _privateConstructorUsedError;
   @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors => throw _privateConstructorUsedError;
@@ -167,7 +168,8 @@ class _$SearchActorsSkeletonOutputImpl implements _SearchActorsSkeletonOutput {
   @override
   final String? cursor;
 
-  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
+  /// Count of search hits. Optional, may be rounded/truncated, and may not be
+  /// possible to paginate through all hits.
   @override
   @JsonKey()
   final int hitsTotal;
@@ -252,7 +254,8 @@ abstract class _SearchActorsSkeletonOutput
   String? get cursor;
   @override
 
-  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
+  /// Count of search hits. Optional, may be rounded/truncated, and may not be
+  /// possible to paginate through all hits.
   int get hitsTotal;
   @override
   @SkeletonSearchActorConverter()

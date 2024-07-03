@@ -33,7 +33,8 @@ class Interaction with _$Interaction {
     @AtUriConverter() AtUri? item,
     @UInteractionEventConverter() UInteractionEvent? event,
 
-    /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
+    /// Context on a feed item that was orginally supplied by the feed generator on
+    /// getFeedSkeleton.
     String? feedContext,
 
     /// Contains unknown objects not defined in Lexicon.

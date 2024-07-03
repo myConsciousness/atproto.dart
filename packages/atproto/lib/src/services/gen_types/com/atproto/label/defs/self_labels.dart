@@ -20,7 +20,8 @@ import '../../../../com/atproto/label/defs/self_label.dart';
 part 'self_labels.freezed.dart';
 part 'self_labels.g.dart';
 
-/// Metadata tags on an atproto record, published by the author within the record.
+/// Metadata tags on an atproto record, published by the author within the
+/// record.
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabels
 @freezed

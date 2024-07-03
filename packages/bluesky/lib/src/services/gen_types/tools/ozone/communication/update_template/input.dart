@@ -27,7 +27,8 @@ class UpdateTemplateInput with _$UpdateTemplateInput {
     /// Name of the template.
     String? name,
 
-    /// Content of the template, markdown supported, can contain variable placeholders.
+    /// Content of the template, markdown supported, can contain variable
+    /// placeholders.
     String? contentMarkdown,
 
     /// Subject of the message, used in emails.

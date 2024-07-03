@@ -32,10 +32,12 @@ mixin _$Label {
   /// DID of the actor who created this label.
   String get src => throw _privateConstructorUsedError;
 
-  /// AT URI of the record, repository (account), or other resource that this label applies to.
+  /// AT URI of the record, repository (account), or other resource that this
+  /// label applies to.
   String get uri => throw _privateConstructorUsedError;
 
-  /// Optionally, CID specifying the specific version of 'uri' resource this label applies to.
+  /// Optionally, CID specifying the specific version of 'uri' resource this
+  /// label applies to.
   String? get cid => throw _privateConstructorUsedError;
 
   /// The short string name of the value or type of this label.
@@ -286,11 +288,13 @@ class _$LabelImpl implements _Label {
   @override
   final String src;
 
-  /// AT URI of the record, repository (account), or other resource that this label applies to.
+  /// AT URI of the record, repository (account), or other resource that this
+  /// label applies to.
   @override
   final String uri;
 
-  /// Optionally, CID specifying the specific version of 'uri' resource this label applies to.
+  /// Optionally, CID specifying the specific version of 'uri' resource this
+  /// label applies to.
   @override
   final String? cid;
 
@@ -425,11 +429,13 @@ abstract class _Label implements Label {
   String get src;
   @override
 
-  /// AT URI of the record, repository (account), or other resource that this label applies to.
+  /// AT URI of the record, repository (account), or other resource that this
+  /// label applies to.
   String get uri;
   @override
 
-  /// Optionally, CID specifying the specific version of 'uri' resource this label applies to.
+  /// Optionally, CID specifying the specific version of 'uri' resource this
+  /// label applies to.
   String? get cid;
   @override
 

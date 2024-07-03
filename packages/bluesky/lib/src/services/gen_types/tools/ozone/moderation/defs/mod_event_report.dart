@@ -35,7 +35,8 @@ class ModEventReport with _$ModEventReport {
     String $type,
     String? comment,
 
-    /// Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject.
+    /// Set to true if the reporter was muted from reporting at the time of the
+    /// event. These reports won't impact the reviewState of the subject.
     @Default(false) bool isReporterMuted,
     @UReasonTypeConverter() required UReasonType reportType,
 

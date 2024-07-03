@@ -12,6 +12,7 @@ import '../rules/object_type.dart';
 import '../rules/utils.dart' as utils;
 import 'data_type.dart';
 import 'known_values.dart';
+import 'dart_doc.dart';
 import 'ref.dart';
 import 'union.dart';
 import 'context.dart';
@@ -21,9 +22,8 @@ final class LexGenObject {
     required this.type,
     this.ignore = false,
     required this.ctx,
-    this.description,
-    required this.referencePath,
     this.namespace,
+    required this.dartDoc,
     required this.name,
     required this.fileName,
     required this.properties,
@@ -35,8 +35,7 @@ final class LexGenObject {
 
   final ObjectContext ctx;
 
-  final String? description;
-  final String referencePath;
+  final DartDoc dartDoc;
 
   final String? namespace;
   final String name;
@@ -133,12 +132,7 @@ final class LexGenObject {
     buffer.writeln();
 
     // Object
-    if (description != null && description!.isNotEmpty) {
-      buffer.writeln('/// $description');
-      buffer.writeln('///');
-    }
-    buffer.writeln('/// $referencePath');
-
+    buffer.writeln(dartDoc.toString());
     buffer.writeln('@freezed');
     buffer.writeln('class $name with _\$$name {');
     buffer.writeln('  @JsonSerializable(includeIfNull: false)');
@@ -159,7 +153,7 @@ final class LexGenObject {
           "    @Default($id) @JsonKey(name: r'\$type') String \$type,");
     }
     for (final property in properties) {
-      if (utils.isDeprecated(property.description)) continue;
+      if (utils.isDeprecated(property.dartDoc?.description)) continue;
 
       buffer.writeln(property.build(type));
     }
@@ -215,7 +209,8 @@ final class LexGenObject {
       buffer.writeln('  $name to$name() => $name.fromJson(toJson());');
     }
     for (final property in properties) {
-      if (property.isRequired || utils.isDeprecated(property.description)) {
+      if (property.isRequired ||
+          utils.isDeprecated(property.dartDoc?.description)) {
         continue;
       }
 
@@ -319,7 +314,7 @@ final class LexGenObject {
 
 final class LexGenObjectProperty {
   const LexGenObjectProperty({
-    this.description,
+    this.dartDoc,
     this.isRequired = false,
     required this.type,
     required this.name,
@@ -331,7 +326,7 @@ final class LexGenObjectProperty {
     this.refVariant,
   });
 
-  final String? description;
+  final DartDoc? dartDoc;
   final bool isRequired;
   final DataType type;
   final String name;
@@ -376,14 +371,8 @@ final class LexGenObjectProperty {
   ) {
     final buffer = StringBuffer();
 
-    if (description != null && description!.isNotEmpty) {
-      buffer.write('    '); // Comments will not be formatted
-      buffer.writeln('/// $description');
-
-      if (description!.toLowerCase().contains('deprecated')) {
-        buffer.write("@Deprecated('${description!.replaceAll("'", "`")}')");
-        buffer.write(' ');
-      }
+    if (dartDoc != null) {
+      buffer.writeln(dartDoc.toString());
     }
 
     if (converter != null) {

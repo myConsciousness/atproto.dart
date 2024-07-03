@@ -23,7 +23,8 @@ mixin _$UpdateEmailInput {
   String get email => throw _privateConstructorUsedError;
   bool? get emailAuthFactor => throw _privateConstructorUsedError;
 
-  /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.
+  /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's
+  /// email has been confirmed.
   String? get token => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -159,7 +160,8 @@ class _$UpdateEmailInputImpl implements _UpdateEmailInput {
   @override
   final bool? emailAuthFactor;
 
-  /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.
+  /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's
+  /// email has been confirmed.
   @override
   final String? token;
 
@@ -231,7 +233,8 @@ abstract class _UpdateEmailInput implements UpdateEmailInput {
   bool? get emailAuthFactor;
   @override
 
-  /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.
+  /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's
+  /// email has been confirmed.
   String? get token;
   @override
 

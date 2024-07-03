@@ -26,7 +26,8 @@ mixin _$UpdateTemplateInput {
   /// Name of the template.
   String? get name => throw _privateConstructorUsedError;
 
-  /// Content of the template, markdown supported, can contain variable placeholders.
+  /// Content of the template, markdown supported, can contain variable
+  /// placeholders.
   String? get contentMarkdown => throw _privateConstructorUsedError;
 
   /// Subject of the message, used in emails.
@@ -211,7 +212,8 @@ class _$UpdateTemplateInputImpl implements _UpdateTemplateInput {
   @override
   final String? name;
 
-  /// Content of the template, markdown supported, can contain variable placeholders.
+  /// Content of the template, markdown supported, can contain variable
+  /// placeholders.
   @override
   final String? contentMarkdown;
 
@@ -312,7 +314,8 @@ abstract class _UpdateTemplateInput implements UpdateTemplateInput {
   String? get name;
   @override
 
-  /// Content of the template, markdown supported, can contain variable placeholders.
+  /// Content of the template, markdown supported, can contain variable
+  /// placeholders.
   String? get contentMarkdown;
   @override
 

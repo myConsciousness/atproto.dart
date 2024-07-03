@@ -29,10 +29,12 @@ mixin _$Account {
   String get did => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
 
-  /// Indicates that the account has a repository which can be fetched from the host that emitted this event.
+  /// Indicates that the account has a repository which can be fetched from the
+  /// host that emitted this event.
   bool get active => throw _privateConstructorUsedError;
 
-  /// If active=false, this optional field indicates a reason for why the account is not active.
+  /// If active=false, this optional field indicates a reason for why the account
+  /// is not active.
   @UAccountStatuConverter()
   UAccountStatu? get status => throw _privateConstructorUsedError;
 
@@ -231,11 +233,13 @@ class _$AccountImpl implements _Account {
   @override
   final DateTime time;
 
-  /// Indicates that the account has a repository which can be fetched from the host that emitted this event.
+  /// Indicates that the account has a repository which can be fetched from the
+  /// host that emitted this event.
   @override
   final bool active;
 
-  /// If active=false, this optional field indicates a reason for why the account is not active.
+  /// If active=false, this optional field indicates a reason for why the account
+  /// is not active.
   @override
   @UAccountStatuConverter()
   final UAccountStatu? status;
@@ -320,11 +324,13 @@ abstract class _Account implements Account {
   DateTime get time;
   @override
 
-  /// Indicates that the account has a repository which can be fetched from the host that emitted this event.
+  /// Indicates that the account has a repository which can be fetched from the
+  /// host that emitted this event.
   bool get active;
   @override
 
-  /// If active=false, this optional field indicates a reason for why the account is not active.
+  /// If active=false, this optional field indicates a reason for why the account
+  /// is not active.
   @UAccountStatuConverter()
   UAccountStatu? get status;
   @override
