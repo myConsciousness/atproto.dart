@@ -363,7 +363,7 @@ final class LexGenObjectProperty {
       buffer.write(typeName);
       buffer.write(' ');
     } else {
-      if (defaultValue != null) {
+      if (!isRequired && defaultValue != null) {
         buffer.write('@Default($defaultValue) $typeName');
         buffer.write(' ');
       } else {

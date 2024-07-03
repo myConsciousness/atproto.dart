@@ -304,17 +304,15 @@ final class LexGenObjectBuilder {
       arrayUnion: union,
     );
 
-    bool isRequired = _isRequired(
-      objectType,
-      name,
-      dataType.name ?? '',
-      requiredProperties,
-      nullableProperties,
-    );
-
     return LexGenObjectProperty(
       description: property['description'],
-      isRequired: isRequired,
+      isRequired: _isRequired(
+        objectType,
+        name,
+        dataType.name ?? '',
+        requiredProperties,
+        nullableProperties,
+      ),
       type: dataType,
       name: name,
       array: property['items'] != null,
@@ -324,15 +322,13 @@ final class LexGenObjectBuilder {
         property: property,
       ),
       union: union,
-      defaultValue: !isRequired
-          ? getDefaultValue(
-              property['default'],
-              dataType,
-              ctx.docId,
-              property['ref'],
-              objectType,
-            )
-          : null,
+      defaultValue: getDefaultValue(
+        property['default'],
+        dataType,
+        ctx.docId,
+        property['ref'],
+        objectType,
+      ),
     );
   }
 
