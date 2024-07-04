@@ -21,7 +21,7 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../chat/bsky/actor/declaration/known_declaration_allow_incoming.dart';
 
-/// Contains `chat.bsky.actor.*` endpoints.
+/// Provides `chat.bsky.actor.*` endpoints.
 final class ActorService {
   ActorService(this._ctx);
 

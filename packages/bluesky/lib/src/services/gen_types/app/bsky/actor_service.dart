@@ -28,7 +28,7 @@ import '../../app/bsky/actor/profile/union_profile_label.dart';
 import '../../app/bsky/actor/search_actors/output.dart';
 import '../../app/bsky/actor/search_actors_typeahead/output.dart';
 
-/// Contains `app.bsky.actor.*` endpoints.
+/// Provides `app.bsky.actor.*` endpoints.
 final class ActorService {
   ActorService(this._ctx);
 

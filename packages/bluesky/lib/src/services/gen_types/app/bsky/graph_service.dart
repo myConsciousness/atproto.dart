@@ -45,7 +45,7 @@ import '../../app/bsky/graph/starterpack/feed_item.dart';
 import '../../app/bsky/graph/starterpack/record.dart';
 import '../../app/bsky/richtext/facet/main.dart';
 
-/// Contains `app.bsky.graph.*` endpoints.
+/// Provides `app.bsky.graph.*` endpoints.
 final class GraphService {
   GraphService(this._ctx);
 

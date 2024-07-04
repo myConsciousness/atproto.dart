@@ -18,7 +18,7 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../com/atproto/temp/check_signup_queue/output.dart';
 
-/// Contains `com.atproto.temp.*` endpoints.
+/// Provides `com.atproto.temp.*` endpoints.
 final class TempService {
   TempService(this._ctx);
 

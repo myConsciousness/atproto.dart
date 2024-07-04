@@ -19,7 +19,7 @@ import '../../../service_context.dart';
 import '../../chat/bsky/moderation/get_actor_metadata/output.dart';
 import '../../chat/bsky/moderation/get_message_context/output.dart';
 
-/// Contains `chat.bsky.moderation.*` endpoints.
+/// Provides `chat.bsky.moderation.*` endpoints.
 final class ModerationService {
   ModerationService(this._ctx);
 

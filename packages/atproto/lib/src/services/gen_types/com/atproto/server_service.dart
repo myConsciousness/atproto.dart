@@ -161,7 +161,7 @@ final class _$Fn {
       );
 }
 
-/// Contains `com.atproto.server.*` endpoints.
+/// Provides `com.atproto.server.*` endpoints.
 final class ServerService {
   ServerService(this._ctx);
 

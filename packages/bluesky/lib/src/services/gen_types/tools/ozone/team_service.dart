@@ -21,7 +21,7 @@ import '../../tools/ozone/team/defs/member.dart';
 import '../../tools/ozone/team/list_members/output.dart';
 import '../../tools/ozone/team/update_member/known_update_member_role.dart';
 
-/// Contains `tools.ozone.team.*` endpoints.
+/// Provides `tools.ozone.team.*` endpoints.
 final class TeamService {
   TeamService(this._ctx);
 

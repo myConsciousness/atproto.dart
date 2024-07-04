@@ -20,7 +20,7 @@ import '../../../service_context.dart';
 import '../../com/atproto/label/query_labels/output.dart';
 import '../../com/atproto/label/subscribe_labels/union_subscribe_labels_message.dart';
 
-/// Contains `com.atproto.label.*` endpoints.
+/// Provides `com.atproto.label.*` endpoints.
 final class LabelService {
   LabelService(this._ctx);
 

@@ -18,7 +18,7 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../tools/ozone/server/get_config/output.dart';
 
-/// Contains `tools.ozone.server.*` endpoints.
+/// Provides `tools.ozone.server.*` endpoints.
 final class ServerService {
   ServerService(this._ctx);
 

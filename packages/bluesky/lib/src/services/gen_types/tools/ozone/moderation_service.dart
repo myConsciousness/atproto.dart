@@ -26,7 +26,7 @@ import '../../tools/ozone/moderation/query_events/output.dart';
 import '../../tools/ozone/moderation/query_statuses/output.dart';
 import '../../tools/ozone/moderation/search_repos/output.dart';
 
-/// Contains `tools.ozone.moderation.*` endpoints.
+/// Provides `tools.ozone.moderation.*` endpoints.
 final class ModerationService {
   ModerationService(this._ctx);
 

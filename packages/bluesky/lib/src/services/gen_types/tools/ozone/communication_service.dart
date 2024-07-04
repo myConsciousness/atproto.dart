@@ -19,7 +19,7 @@ import '../../../service_context.dart';
 import '../../tools/ozone/communication/defs/template_view.dart';
 import '../../tools/ozone/communication/list_templates/output.dart';
 
-/// Contains `tools.ozone.communication.*` endpoints.
+/// Provides `tools.ozone.communication.*` endpoints.
 final class CommunicationService {
   CommunicationService(this._ctx);
 

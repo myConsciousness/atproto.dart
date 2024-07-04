@@ -27,7 +27,7 @@ import '../../com/atproto/repo/list_missing_blobs/output.dart';
 import '../../com/atproto/repo/list_records/output.dart';
 import '../../com/atproto/repo/upload_blob/output.dart';
 
-/// Contains `com.atproto.repo.*` endpoints.
+/// Provides `com.atproto.repo.*` endpoints.
 final class RepoService {
   RepoService(this._ctx);
 

@@ -129,7 +129,7 @@ final class LexService {
       buffer.writeln(_getFunctions(functions));
       buffer.writeln();
     }
-    buffer.writeln('/// Contains `$namespace.*` endpoints.');
+    buffer.writeln('/// Provides `$namespace.*` endpoints.');
     buffer.writeln('final class $name {');
     buffer.writeln('  $name(this._ctx);');
     buffer.writeln();
@@ -512,7 +512,7 @@ final class LexServiceEndpoint {
     buffer.writeln('        \$client: \$client,');
     buffer.writeln('      );');
 
-    // Create in bulk
+    // Bulk
     if (!(config?.disableInBulk ?? false)) {
       buffer.writeln();
       buffer.write(_getRecordInBulkEndpoint());
