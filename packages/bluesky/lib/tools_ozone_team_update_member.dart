@@ -10,5 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/gen_types/tools/ozone/team/update_member/input.dart';
 export 'package:bluesky/src/services/gen_types/tools/ozone/team/update_member/known_update_member_role.dart';

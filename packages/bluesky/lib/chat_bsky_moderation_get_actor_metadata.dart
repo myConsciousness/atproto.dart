@@ -10,6 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/gen_types/chat/bsky/moderation/get_actor_metadata/params.dart';
 export 'package:bluesky/src/services/gen_types/chat/bsky/moderation/get_actor_metadata/output.dart';
 export 'package:bluesky/src/services/gen_types/chat/bsky/moderation/get_actor_metadata/metadata.dart';

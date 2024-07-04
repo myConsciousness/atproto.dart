@@ -15,6 +15,7 @@ import 'rules/utils.dart';
 import 'types/context.dart';
 import 'types/export.dart';
 import 'types/object.dart';
+import 'rules/object_type.dart';
 
 final class LexTypesGen {
   const LexTypesGen(this._ctx);
@@ -60,13 +61,15 @@ final class LexTypesGen {
             !object.isBlob &&
             !object.isIpldCar &&
             !object.ignore) {
-          writeFileAsStringSync(
-            _getOutputFilePath(
-              object.refVariant?.docId ?? context.docId,
-              object.filePath,
-            ),
-            object.toString(),
-          );
+          if (!object.type.isParams && !object.type.isInput) {
+            writeFileAsStringSync(
+              _getOutputFilePath(
+                object.refVariant?.docId ?? context.docId,
+                object.filePath,
+              ),
+              object.toString(),
+            );
+          }
         }
 
         final docId = object.ignore

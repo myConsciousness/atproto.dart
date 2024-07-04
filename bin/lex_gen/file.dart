@@ -10,6 +10,7 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import '../utils.dart';
+import 'rules/object_type.dart';
 import 'lex_gen.dart';
 import 'rules/utils.dart';
 import 'types/export.dart';
@@ -26,7 +27,9 @@ final class LexGenFile {
           !(e.object?.isStrongRef ?? false) &&
           !(e.object?.isBlob ?? false) &&
           !(e.object?.isIpldCar ?? false) &&
-          !(e.object?.ignore ?? false));
+          !(e.object?.ignore ?? false) &&
+          !(e.object?.type.isParams ?? false) &&
+          !(e.object?.type.isInput ?? false));
 
       if (writable.isEmpty) return;
 

@@ -10,5 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/gen_types/app/bsky/graph/get_actor_starter_packs/params.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/graph/get_actor_starter_packs/output.dart';

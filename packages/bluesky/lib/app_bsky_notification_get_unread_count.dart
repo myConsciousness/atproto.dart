@@ -10,5 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/gen_types/app/bsky/notification/get_unread_count/params.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/notification/get_unread_count/output.dart';

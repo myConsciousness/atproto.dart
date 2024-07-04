@@ -10,5 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/gen_types/chat/bsky/convo/leave_convo/input.dart';
 export 'package:bluesky/src/services/gen_types/chat/bsky/convo/leave_convo/output.dart';

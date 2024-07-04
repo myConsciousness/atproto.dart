@@ -10,5 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/gen_types/tools/ozone/moderation/search_repos/params.dart';
 export 'package:bluesky/src/services/gen_types/tools/ozone/moderation/search_repos/output.dart';

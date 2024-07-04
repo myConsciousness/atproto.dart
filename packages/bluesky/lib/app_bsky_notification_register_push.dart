@@ -10,5 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/gen_types/app/bsky/notification/register_push/input.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/notification/register_push/known_register_push_platform.dart';

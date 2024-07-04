@@ -11,7 +11,6 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/union_subscribe_labels_message.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/params.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/labels.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/info.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/label/subscribe_labels/known_info_name.dart';

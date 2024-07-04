@@ -10,5 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/gen_types/com/atproto/admin/send_email/input.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/admin/send_email/output.dart';

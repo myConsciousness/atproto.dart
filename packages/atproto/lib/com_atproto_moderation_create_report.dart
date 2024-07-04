@@ -10,6 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/gen_types/com/atproto/moderation/create_report/input.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/moderation/create_report/union_create_report_subject.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/moderation/create_report/output.dart';

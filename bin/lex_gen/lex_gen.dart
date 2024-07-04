@@ -276,6 +276,16 @@ final class LexGenContext {
 
   final List<Package> packages;
 
+  Package get basePackage {
+    for (final package in packages) {
+      if (package.isBase) {
+        return package;
+      }
+    }
+
+    throw StateError('No base package found.');
+  }
+
   /// Returns supported lexicon docs based on [packages].
   List<LexiconDoc> get lexiconDocs =>
       packages.expand((e) => e.lexiconDocs).toList();
@@ -350,13 +360,15 @@ final class LexGen {
         typeDir.deleteSync(recursive: true);
       }
 
+      final baseDomain = ctx.basePackage.domains.firstOrNull!;
       final libDirPath = 'packages/$packageName/lib/';
       final libDir = Directory(libDirPath);
       for (final exportFile in libDir.listSync()) {
+        final authority = exportFile.path.substring(libDirPath.length);
+
         if (exportFile is File &&
-            exportFile.path
-                .substring(libDirPath.length)
-                .startsWith(domain.replaceAll('.', '_'))) {
+                authority.startsWith(domain.replaceAll('.', '_')) ||
+            authority.startsWith(baseDomain.replaceAll('.', '_'))) {
           exportFile.deleteSync();
         }
       }
