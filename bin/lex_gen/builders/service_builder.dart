@@ -58,7 +58,7 @@ final class ServiceBuilder {
         LexServiceEndpoint(
           def: endpoint.def,
           dartDoc: DartDoc(
-            description: _getEndpointDescription(endpoint),
+            value: _getEndpointDescription(endpoint),
             reference: endpoint.referencePath,
           ),
           args: _getServiceEndpointArgs(endpoint),

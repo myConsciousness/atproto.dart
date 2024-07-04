@@ -57,7 +57,7 @@ final class LexUnionBuilder {
     final path = docId.toString().replaceAll('.', '/');
 
     return LexUnion(
-      dartDoc: DartDoc(description: description),
+      dartDoc: DartDoc(value: description),
       name: objectName,
       refs: refTypes,
       fileName: fileName,

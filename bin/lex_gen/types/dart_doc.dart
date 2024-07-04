@@ -6,11 +6,11 @@ import 'package:characters/characters.dart';
 
 final class DartDoc {
   const DartDoc({
-    required this.description,
+    required this.value,
     this.reference,
   });
 
-  final String? description;
+  final String? value;
   final String? reference;
 
   @override
@@ -36,17 +36,17 @@ final class DartDoc {
   }
 
   List<String> get _chunks {
-    if (description == null) return [];
-    if (description!.isEmpty) return [];
+    if (value == null) return [];
+    if (value!.isEmpty) return [];
 
     const maxLength = 65;
 
-    if (description!.length <= maxLength) return [description!];
+    if (value!.length <= maxLength) return [value!];
 
     final chunk = StringBuffer();
     final chunks = <String>[];
 
-    for (final word in description!.split(' ')) {
+    for (final word in value!.split(' ')) {
       if (word.length > maxLength) {
         int i;
         for (i = 0; i < word.characters.length - maxLength; i += maxLength) {

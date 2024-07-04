@@ -45,7 +45,7 @@ final class LexKnownValuesBuilder {
     final path = docId.toString().replaceAll('.', '/');
 
     return LexGenKnownValues(
-      dartDoc: DartDoc(description: description),
+      dartDoc: DartDoc(value: description),
       name: objectName,
       elements: elements,
       fileName: fileName,
@@ -65,7 +65,7 @@ final class LexKnownValuesBuilder {
         if (refToken is ULexUserTypeToken) {
           elements.add(
             LexGenKnownValuesElement(
-              dartDoc: DartDoc(description: refToken.data.description),
+              dartDoc: DartDoc(value: refToken.data.description),
               name: segments.last,
               value: knownValue,
             ),
@@ -78,7 +78,7 @@ final class LexKnownValuesBuilder {
           if (refToken is ULexUserTypeToken) {
             elements.add(
               LexGenKnownValuesElement(
-                dartDoc: DartDoc(description: refToken.data.description),
+                dartDoc: DartDoc(value: refToken.data.description),
                 name: knownValue.substring(1),
                 value: knownValue,
               ),

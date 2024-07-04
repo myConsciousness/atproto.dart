@@ -153,7 +153,7 @@ final class LexGenObject {
           "    @Default($id) @JsonKey(name: r'\$type') String \$type,");
     }
     for (final property in properties) {
-      if (utils.isDeprecated(property.dartDoc?.description)) continue;
+      if (utils.isDeprecated(property.dartDoc?.value)) continue;
 
       buffer.writeln(property.build(type));
     }
@@ -209,8 +209,7 @@ final class LexGenObject {
       buffer.writeln('  $name to$name() => $name.fromJson(toJson());');
     }
     for (final property in properties) {
-      if (property.isRequired ||
-          utils.isDeprecated(property.dartDoc?.description)) {
+      if (property.isRequired || utils.isDeprecated(property.dartDoc?.value)) {
         continue;
       }
 
