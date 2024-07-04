@@ -240,6 +240,38 @@ final class ProfileRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<StrongRef>> put({
+    String? displayName,
+    String? description,
+    Blob? avatar,
+    Blob? banner,
+    UProfileLabel? labels,
+    StrongRef? joinedViaStarterPack,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyActorProfile,
+        rkey: 'self',
+        record: {
+          r'$type': 'app.bsky.actor.profile',
+          if (displayName != null) 'displayName': displayName,
+          if (description != null) 'description': description,
+          if (avatar != null) 'avatar': avatar.toJson(),
+          if (banner != null) 'banner': banner.toJson(),
+          if (labels != null) 'labels': labels.toJson(),
+          if (joinedViaStarterPack != null)
+            'joinedViaStarterPack': joinedViaStarterPack.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,

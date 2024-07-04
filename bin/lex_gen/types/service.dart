@@ -461,10 +461,34 @@ final class LexServiceEndpoint {
     buffer.writeln('        \$client: \$client,');
     buffer.writeln('      );');
 
-    // Create in bulk
-    if (!(config?.disableInBulk ?? false)) {
+    // Put
+    if (config != null && config.usePut) {
       buffer.writeln();
-      buffer.write(_getRecordInBulkEndpoint());
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> put({');
+      for (final arg in args) {
+        buffer.writeln('    ${arg.toString()},');
+      }
+      buffer.writeln('    Map<String, dynamic>? \$unknown,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    PostClient? \$client,');
+      buffer.writeln('  }) async =>');
+      buffer.writeln('    await _ctx.atproto.repo.putRecord(');
+      buffer.writeln('        repo: _ctx.repo,');
+      buffer.writeln('        collection: ns.$namespace,');
+      if (recordKey?.startsWith('literal:') ?? false) {
+        final rkey = recordKey!.split('literal:').last;
+        buffer.writeln("        rkey: '$rkey',");
+      }
+      buffer.writeln('        record: {');
+      buffer.writeln("          r'\$type': '$serviceName.$name',");
+      for (final arg in args) {
+        buffer.writeln(Payload(arg).toString());
+      }
+      buffer.writeln('          ...?\$unknown,');
+      buffer.writeln('        },');
+      buffer.writeln('        \$headers: \$headers,');
+      buffer.writeln('        \$client: \$client,');
+      buffer.writeln('      );');
     }
 
     // Delete
@@ -482,6 +506,12 @@ final class LexServiceEndpoint {
     buffer.writeln('        \$headers: \$headers,');
     buffer.writeln('        \$client: \$client,');
     buffer.writeln('      );');
+
+    // Create in bulk
+    if (!(config?.disableInBulk ?? false)) {
+      buffer.writeln();
+      buffer.write(_getRecordInBulkEndpoint());
+    }
 
     buffer.writeln('}');
 

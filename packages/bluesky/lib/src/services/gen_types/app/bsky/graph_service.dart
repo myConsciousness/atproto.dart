@@ -535,6 +535,20 @@ final class ListblockRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListblock,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [ListblockRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ListblockRecord> records, {
@@ -554,20 +568,6 @@ final class ListblockRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphListblock,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );
@@ -623,6 +623,20 @@ final class ListitemRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListitem,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [ListitemRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ListitemRecord> records, {
@@ -643,20 +657,6 @@ final class ListitemRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphListitem,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );
@@ -710,6 +710,20 @@ final class FollowRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphFollow,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [FollowRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<FollowRecord> records, {
@@ -729,20 +743,6 @@ final class FollowRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphFollow,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );
@@ -796,6 +796,20 @@ final class BlockRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphBlock,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [BlockRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<BlockRecord> records, {
@@ -815,20 +829,6 @@ final class BlockRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphBlock,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );
@@ -894,6 +894,20 @@ final class ListRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphList,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [ListRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ListRecord> records, {
@@ -920,20 +934,6 @@ final class ListRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphList,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );
@@ -997,6 +997,20 @@ final class StarterpackRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphStarterpack,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [StarterpackRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<StarterpackRecord> records, {
@@ -1023,20 +1037,6 @@ final class StarterpackRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphStarterpack,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );

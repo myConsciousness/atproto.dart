@@ -108,6 +108,20 @@ final class ServiceRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyLabelerService,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [ServiceRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ServiceRecord> records, {
@@ -128,20 +142,6 @@ final class ServiceRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyLabelerService,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );

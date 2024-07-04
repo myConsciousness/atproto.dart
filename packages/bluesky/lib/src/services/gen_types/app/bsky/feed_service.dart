@@ -520,6 +520,20 @@ final class RepostRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedRepost,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [RepostRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<RepostRecord> records, {
@@ -539,20 +553,6 @@ final class RepostRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedRepost,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );
@@ -672,6 +672,20 @@ final class LikeRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedLike,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [LikeRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<LikeRecord> records, {
@@ -691,20 +705,6 @@ final class LikeRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedLike,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );
@@ -770,6 +770,20 @@ final class PostRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedPost,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [PostRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<PostRecord> records, {
@@ -796,20 +810,6 @@ final class PostRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedPost,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );
@@ -878,6 +878,20 @@ final class GeneratorRecordHelper {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedGenerator,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [GeneratorRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<GeneratorRecord> records, {
@@ -905,20 +919,6 @@ final class GeneratorRecordHelper {
               ),
             )
             .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedGenerator,
-        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );

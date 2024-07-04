@@ -53,6 +53,7 @@ const _kBsky = Package(
     RecordConfig(
       subject: NSID('app.bsky.actor.profile'),
       disableInBulk: true,
+      usePut: true,
     ),
     RecordConfig(
       subject: NSID('app.bsky.feed.threadgate'),
@@ -249,12 +250,14 @@ final class RecordConfig {
   const RecordConfig({
     required this.subject,
     this.disableInBulk = false,
+    this.usePut = false,
     this.rkey,
     this.binds,
   });
 
   final NSID subject;
   final bool disableInBulk;
+  final bool usePut;
   final String? rkey;
   final List<NSID>? binds;
 
