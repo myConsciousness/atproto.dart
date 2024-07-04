@@ -39,7 +39,7 @@ Future<void> post() async {
 
   final facets = await text.entities.toFacets(service: _service);
 
-  final createdPost = await bluesky.feed.post(
+  final createdPost = await bluesky.feed.post.create(
     text: text.value,
     facets: facets.map(Facet.fromJson).toList(),
     embed: await _getEmbed(bluesky),
