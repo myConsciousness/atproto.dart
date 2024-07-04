@@ -15,13 +15,6 @@ import 'utils.dart' as utils;
 const _tableHeader = '| Method | Docs | Auth Required | Paging (cursor) |';
 const _tableDivider = '| --- | --- | :---: | :---: |';
 
-const _excludeAuthorities = [
-  'com.atproto.temp',
-  'com.atproto.admin',
-  'app.bsky.richtext',
-  'app.bsky.embed',
-];
-
 const _functions = [
   'createSession',
   'refreshSession',
@@ -36,16 +29,30 @@ void main(List<String> args) {
     ..writeln()
     ..writeln('# Supported API');
 
-  final services = _groupByService(utils.lexiconDocs);
+  final services = _groupByService(utils.lexiconDocs.where((e) {
+    for (final entry in e.defs.entries) {
+      if (entry.value is ULexUserTypeXrpcQuery ||
+          entry.value is ULexUserTypeXrpcProcedure ||
+          entry.value is ULexUserTypeXrpcSubscription ||
+          entry.value is ULexUserTypeRecord) {
+        return true;
+      }
+    }
+
+    return false;
+  }).toList());
 
   final Map<String, dynamic> authData = jsonDecode(
     File('data/auth.json').readAsStringSync(),
   );
 
-  <String, Map<String, List<LexiconDoc>>>{
-    'atproto': _only(services, authority: 'com.atproto'),
-    'bluesky': _only(services, authority: 'app.bsky'),
-    'bluesky_chat': _only(services, authority: 'chat.bsky'),
+  <String, List<Map<String, List<LexiconDoc>>>>{
+    'atproto': [_only(services, authority: 'com.atproto')],
+    'bluesky': [
+      _only(services, authority: 'app.bsky'),
+      _only(services, authority: 'chat.bsky'),
+      _only(services, authority: 'tools.ozone')
+    ],
   }.forEach((package, services) {
     matrix
       ..writeln()
@@ -66,53 +73,56 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
         ..writeln(':::');
     }
 
-    services.forEach((authority, lexiconDocs) {
-      final service = _toServiceName(authority);
+    for (final service in services) {
+      service.forEach((authority, lexiconDocs) {
+        final service = _toServiceName(authority);
 
-      matrix
-        ..writeln()
-        ..writeln('### $service Service')
-        ..writeln()
-        ..writeln(_tableHeader)
-        ..write(_tableDivider);
+        matrix
+          ..writeln()
+          ..writeln('### $authority')
+          ..writeln()
+          ..writeln(_tableHeader)
+          ..write(_tableDivider);
 
-      for (final lexiconDoc in lexiconDocs) {
-        final lexiconId = lexiconDoc.id.toString();
-        final method = lexiconId.split('.').last;
+        for (final lexiconDoc in lexiconDocs) {
+          final lexiconId = lexiconDoc.id.toString();
+          final method = lexiconId.split('.').last;
 
-        matrix.writeln();
-        if (_isFunction(method)) {
-          matrix.write('| **[${lexiconDoc.id}](${_getFunctionLink(
-            package,
-            method,
-          )})** | ');
-        } else {
-          matrix.write('| **[${lexiconDoc.id}](${_getMethodLink(
-            package,
-            service,
-            method,
-          )})** | ');
+          matrix.writeln();
+          if (_isFunction(method)) {
+            matrix.write('| **[${lexiconDoc.id}](${_getFunctionLink(
+              package,
+              method,
+            )})** | ');
+          } else {
+            matrix.write('| **[${lexiconDoc.id}](${_getMethodLink(
+              authority,
+              package,
+              service,
+              method,
+            )})** | ');
+          }
+
+          final referencePath = lexiconDoc.id.toString().replaceAll('.', '/');
+          matrix.write('[Reference](lexicons/$referencePath.md) | ');
+
+          final bool? authRequired = authData.containsKey(lexiconId)
+              ? authData[lexiconId]['required']
+              : false;
+          final authRequiredIcon = authRequired == null
+              ? 'N/A'
+              : authRequired
+                  ? '✅'
+                  : '❌';
+          matrix.write('$authRequiredIcon | ');
+
+          final pageable = _isPageable(lexiconDoc) ? '✅' : '❌';
+          matrix.write('$pageable |');
         }
 
-        final referencePath = lexiconDoc.id.toString().replaceAll('.', '/');
-        matrix.write('[Reference](lexicons/$referencePath.md) | ');
-
-        final bool? authRequired = authData.containsKey(lexiconId)
-            ? authData[lexiconId]['required']
-            : false;
-        final authRequiredIcon = authRequired == null
-            ? 'N/A'
-            : authRequired
-                ? '✅'
-                : '❌';
-        matrix.write('$authRequiredIcon | ');
-
-        final pageable = _isPageable(lexiconDoc) ? '✅' : '❌';
-        matrix.write('$pageable |');
-      }
-
-      matrix.writeln();
-    });
+        matrix.writeln();
+      });
+    }
   });
 
   File('website/docs/supported_api.md').writeAsStringSync(matrix.toString());
@@ -127,11 +137,25 @@ String _getFunctionLink(
     'https://pub.dev/documentation/$package/latest/$package/$function.html';
 
 String _getMethodLink(
+  final String authority,
   final String package,
   final String service,
   final String method,
-) =>
-    'https://pub.dev/documentation/$package/latest/$package/${service}Service/$method.html';
+) {
+  return 'https://pub.dev/documentation/$package/latest/${_getExposedPackageName(authority)}/${service}Service/$method.html';
+}
+
+String _getExposedPackageName(final String authority) {
+  if (authority.startsWith('app.bsky.')) {
+    return 'bluesky';
+  } else if (authority.startsWith('chat.bsky.')) {
+    return 'bluesky_chat';
+  } else if (authority.startsWith('tools.ozone.')) {
+    return 'ozone';
+  }
+
+  return 'atproto';
+}
 
 String _toServiceName(final String authority) {
   final service = authority.split('.').last;
@@ -153,7 +177,6 @@ Map<String, List<LexiconDoc>> _groupByService(
   for (final lexiconDoc in lexiconDocs) {
     final segments = lexiconDoc.id.toString().split('.');
     final authority = segments.sublist(0, 3).join('.');
-    if (_excludeAuthorities.contains(authority)) continue;
 
     bool isMethod = false;
     lexiconDoc.defs.forEach((_, def) {
