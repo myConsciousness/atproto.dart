@@ -526,8 +526,7 @@ final class LexServiceEndpoint {
   String _getRecordInBulkEndpoint() {
     final buffer = StringBuffer();
 
-    buffer.writeln(
-        '/// The batch process to create [${toFirstUpper(name)}Record] records.');
+    // Create
     buffer.writeln(
         '  Future<XRPCResponse<EmptyData>> createInBulk(final List<${toFirstUpper(name)}Record> records, {');
     buffer.writeln('    Map<String, String>? \$headers,');
@@ -544,6 +543,26 @@ final class LexServiceEndpoint {
     }
     buffer.writeln('                  ...?e.\$unknown,');
     buffer.writeln('                },');
+    buffer.writeln('              ),');
+    buffer.writeln('            )');
+    buffer.writeln('            .toList(),');
+    buffer.writeln('       \$headers: \$headers,');
+    buffer.writeln('       \$client: \$client,');
+    buffer.writeln('      );');
+
+    // Delete
+    buffer.writeln();
+    buffer.writeln(
+        '  Future<XRPCResponse<EmptyData>> deleteInBulk(final List<String> rkeys, {');
+    buffer.writeln('    Map<String, String>? \$headers,');
+    buffer.writeln('    PostClient? \$client,');
+    buffer.writeln('  }) async =>');
+    buffer.writeln('    await _ctx.deleteRecordInBulk(');
+    buffer.writeln('        writes: rkeys');
+    buffer.writeln('            .map<Delete>(');
+    buffer.writeln('              (e) => Delete(');
+    buffer.writeln('                collection: ns.$namespace,');
+    buffer.writeln('                rkey: e,');
     buffer.writeln('              ),');
     buffer.writeln('            )');
     buffer.writeln('            .toList(),');

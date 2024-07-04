@@ -126,7 +126,6 @@ final class ServiceRecordHelper {
         $client: $client,
       );
 
-  /// The batch process to create [ServiceRecord] records.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ServiceRecord> records, {
     Map<String, String>? $headers,
@@ -143,6 +142,24 @@ final class ServiceRecordHelper {
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                   ...?e.$unknown,
                 },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<EmptyData>> deleteInBulk(
+    final List<String> rkeys, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.deleteRecordInBulk(
+        writes: rkeys
+            .map<Delete>(
+              (e) => Delete(
+                collection: ns.appBskyLabelerService,
+                rkey: e,
               ),
             )
             .toList(),

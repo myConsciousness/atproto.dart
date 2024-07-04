@@ -46,6 +46,23 @@ final class BlueskyServiceContext extends core.ServiceContext {
         $client: $client,
       );
 
+  Future<core.XRPCResponse<core.EmptyData>> deleteRecordInBulk({
+    String? repo,
+    required List<Delete> writes,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    core.PostClient? $client,
+  }) async =>
+      await atproto.repo.deleteRecordInBulk(
+        repo: repo,
+        writes: writes,
+        validate: validate,
+        swapCommit: swapCommit,
+        $headers: $headers,
+        $client: $client,
+      );
+
   Future<core.XRPCResponse<T>> findRecord<T>(
     final core.AtUri uri, [
     core.ResponseDataBuilder<T>? to,

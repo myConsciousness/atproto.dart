@@ -12,6 +12,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/extensions/repo_service.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/create.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/delete.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/union_apply_writes_write.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/update.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/describe_repo/output.dart';
@@ -111,7 +112,12 @@ void main() {
   );
 
   testRepo<EmptyData>(
-    (m, s) => s.deleteRecordInBulk(uris: [m.uri]),
+    (m, s) => s.deleteRecordInBulk(writes: [
+      Delete(
+        collection: m.collection,
+        rkey: m.uri.rkey,
+      )
+    ]),
     id: comAtprotoRepoApplyWrites,
     label: 'Delete',
   );
