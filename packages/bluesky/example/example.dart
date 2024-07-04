@@ -53,8 +53,6 @@ Future<void> main() async {
       );
     }
 
-    KnownCreateSessionStatus.deactivated.value;
-
     //! Moderation Stuffs
     final preferences = await bsky.actor.getPreferences();
     final moderationPrefs = preferences.data.getModerationPrefs();
