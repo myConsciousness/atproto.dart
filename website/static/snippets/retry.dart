@@ -6,6 +6,7 @@
 
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/atproto.dart';
+import 'package:bluesky/com_atproto_server_create_session.dart';
 import 'package:bluesky/core.dart';
 
 Future<void> main(List<String> args) async {
@@ -26,11 +27,11 @@ Future<void> main(List<String> args) async {
   final session = await createSession(
     identifier: 'shinyakato.dev',
     password: 'xxxxxxxx',
-    retryConfig: retryConfig,
+    $retryConfig: retryConfig,
   );
 
   final bsky = Bluesky.fromSession(
-    session.data,
+    session.data.toSession(),
     retryConfig: retryConfig,
   );
 

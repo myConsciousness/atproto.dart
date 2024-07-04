@@ -9,6 +9,7 @@
 import 'package:bluesky/app_bsky_richtext_facet.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/atproto.dart';
+import 'package:bluesky/com_atproto_server_create_session.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 
 Future<void> main(List<String> args) async {
@@ -17,7 +18,7 @@ Future<void> main(List<String> args) async {
     password: 'xxxxxxxx',
   );
 
-  final bsky = Bluesky.fromSession(session.data);
+  final bsky = Bluesky.fromSession(session.data.toSession());
 
   final text = BlueskyText(
     'Hello, I am @shinyakato.dev! '
@@ -30,7 +31,7 @@ Future<void> main(List<String> args) async {
 
   final facets = await text.entities.toFacets();
 
-  final strongRef = await bsky.feed.post(
+  final strongRef = await bsky.feed.post.create(
     text: text.value,
     facets: facets.map(Facet.fromJson).toList(),
   );
