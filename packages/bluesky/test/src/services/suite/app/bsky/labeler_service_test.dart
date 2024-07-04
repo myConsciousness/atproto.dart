@@ -19,7 +19,7 @@ void main() {
   );
 
   testLabeler<StrongRef>(
-    (m, s) => s.service(
+    (m, s) => s.service.create(
       policies: LabelerPolicies(
         labelValues: [KnownLabelValue.hide.toUnion()],
       ),

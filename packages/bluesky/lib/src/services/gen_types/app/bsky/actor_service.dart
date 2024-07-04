@@ -11,6 +11,8 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_repo_get_record.dart';
+import 'package:atproto/com_atproto_repo_list_records.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
@@ -141,36 +143,7 @@ final class ActorService {
   /// A declaration of a Bluesky account profile.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
-  Future<XRPCResponse<StrongRef>> profile({
-    String? displayName,
-    String? description,
-    Blob? avatar,
-    Blob? banner,
-    UProfileLabel? labels,
-    StrongRef? joinedViaStarterPack,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyActorProfile,
-        record: {
-          r'$type': 'app.bsky.actor.profile',
-          if (displayName != null) 'displayName': displayName,
-          if (description != null) 'description': description,
-          if (avatar != null) 'avatar': avatar.toJson(),
-          if (banner != null) 'banner': banner.toJson(),
-          if (labels != null) 'labels': labels.toJson(),
-          if (joinedViaStarterPack != null)
-            'joinedViaStarterPack': joinedViaStarterPack.toJson(),
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
+  ProfileRecordHelper get profile => ProfileRecordHelper(_ctx);
 
   /// Get detailed profile views of multiple actors.
   ///
@@ -204,5 +177,80 @@ final class ActorService {
         headers: $headers,
         to: const PreferencesConverter().fromJson,
         client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.actor.profile`.
+final class ProfileRecordHelper {
+  const ProfileRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyActorProfile,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyActorProfile,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<StrongRef>> create({
+    String? displayName,
+    String? description,
+    Blob? avatar,
+    Blob? banner,
+    UProfileLabel? labels,
+    StrongRef? joinedViaStarterPack,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyActorProfile,
+        rkey: 'self',
+        record: {
+          r'$type': 'app.bsky.actor.profile',
+          if (displayName != null) 'displayName': displayName,
+          if (description != null) 'description': description,
+          if (avatar != null) 'avatar': avatar.toJson(),
+          if (banner != null) 'banner': banner.toJson(),
+          if (labels != null) 'labels': labels.toJson(),
+          if (joinedViaStarterPack != null)
+            'joinedViaStarterPack': joinedViaStarterPack.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyActorProfile,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
       );
 }

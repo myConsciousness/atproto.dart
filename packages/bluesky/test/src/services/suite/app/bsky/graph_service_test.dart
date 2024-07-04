@@ -24,13 +24,12 @@ import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_relationships/
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_suggested_follows_by_actor/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/list/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/listitem/record.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/graph_service.dart';
 import 'service_suite.dart';
 
 void main() {
   testGraph<StrongRef>(
-    (m, s) => s.follow(subject: m.did),
-    bulk: (m, s) => s.followInBulk([FollowRecord(subject: m.did)]),
+    (m, s) => s.follow.create(subject: m.did),
+    bulk: (m, s) => s.follow.createInBulk([FollowRecord(subject: m.did)]),
     id: appBskyGraphFollow,
   );
 
@@ -65,17 +64,17 @@ void main() {
   );
 
   testGraph<StrongRef>(
-    (m, s) => s.block(subject: m.did),
-    bulk: (m, s) => s.blockInBulk([BlockRecord(subject: m.did)]),
+    (m, s) => s.block.create(subject: m.did),
+    bulk: (m, s) => s.block.createInBulk([BlockRecord(subject: m.did)]),
     id: appBskyGraphBlock,
   );
 
   testGraph<StrongRef>(
-    (m, s) => s.list(
+    (m, s) => s.list.create(
       purpose: KnownListPurpose.curatelist.toUnion(),
       name: m.name,
     ),
-    bulk: (m, s) => s.listInBulk([
+    bulk: (m, s) => s.list.createInBulk([
       ListRecord(
         purpose: KnownListPurpose.modlist.toUnion(),
         name: m.name,
@@ -85,13 +84,13 @@ void main() {
   );
 
   testGraph<StrongRef>(
-    (m, s) => s.modlist(name: m.name),
+    (m, s) => s.list.createMod(name: m.name),
     id: appBskyGraphList,
     label: 'Moderation',
   );
 
   testGraph<StrongRef>(
-    (m, s) => s.curatelist(name: m.name),
+    (m, s) => s.list.createCurate(name: m.name),
     id: appBskyGraphList,
     label: 'Curation',
   );
@@ -112,8 +111,8 @@ void main() {
   );
 
   testGraph<StrongRef>(
-    (m, s) => s.listitem(subject: m.did, list: m.uri),
-    bulk: (m, s) => s.listitemInBulk([
+    (m, s) => s.listitem.create(subject: m.did, list: m.uri),
+    bulk: (m, s) => s.listitem.createInBulk([
       ListitemRecord(
         subject: m.did,
         list: m.uri,
@@ -143,7 +142,7 @@ void main() {
   );
 
   testGraph<StrongRef>(
-    (m, s) => s.listblock(subject: m.uri),
+    (m, s) => s.listblock.create(subject: m.uri),
     id: appBskyGraphListblock,
   );
 

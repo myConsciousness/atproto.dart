@@ -60,14 +60,6 @@ const _kBsky = Package(
       rkey: 'post',
     ),
     RecordConfig(
-      subject: NSID('app.bsky.feed.generator'),
-      disableInBulk: true,
-    ),
-    RecordConfig(
-      subject: NSID('app.bsky.labeler.service'),
-      disableInBulk: true,
-    ),
-    RecordConfig(
       subject: NSID('app.bsky.graph.starterpack'),
       binds: [
         NSID('app.bsky.graph.defs#starterPackView'),

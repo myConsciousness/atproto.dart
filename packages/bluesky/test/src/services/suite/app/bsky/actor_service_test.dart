@@ -46,7 +46,7 @@ void main() {
   );
 
   testActor<StrongRef>(
-    (m, s) => s.profile(),
+    (m, s) => s.profile.create(),
     id: appBskyActorProfile,
   );
 

@@ -13,7 +13,7 @@ import 'service_suite.dart';
 
 void main() {
   testActor<StrongRef>(
-    (m, s) => s.declaration(
+    (m, s) => s.declaration.create(
       allowIncoming: KnownDeclarationAllowIncoming.following.toUnion(),
     ),
     id: chatBskyActorDeclaration,

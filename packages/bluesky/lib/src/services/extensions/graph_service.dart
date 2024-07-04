@@ -12,8 +12,8 @@ import '../gen_types/app/bsky/graph/list/union_list_label.dart';
 import '../gen_types/app/bsky/graph_service.dart';
 import '../gen_types/app/bsky/richtext/facet/main.dart';
 
-extension GraphServiceExtension on GraphService {
-  Future<XRPCResponse<StrongRef>> modlist({
+extension ListRecordHelperExtension on ListRecordHelper {
+  Future<XRPCResponse<StrongRef>> createMod({
     required String name,
     String? description,
     List<Facet>? descriptionFacets,
@@ -22,7 +22,7 @@ extension GraphServiceExtension on GraphService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = emptyJson,
   }) async =>
-      await list(
+      await create(
         name: name,
         purpose: KnownListPurpose.modlist.toUnion(),
         description: description,
@@ -32,7 +32,7 @@ extension GraphServiceExtension on GraphService {
         createdAt: createdAt,
       );
 
-  Future<XRPCResponse<StrongRef>> curatelist({
+  Future<XRPCResponse<StrongRef>> createCurate({
     required String name,
     String? description,
     List<Facet>? descriptionFacets,
@@ -40,7 +40,7 @@ extension GraphServiceExtension on GraphService {
     UListLabel? labels,
     DateTime? createdAt,
   }) async =>
-      await list(
+      await create(
         name: name,
         purpose: KnownListPurpose.curatelist.toUnion(),
         description: description,

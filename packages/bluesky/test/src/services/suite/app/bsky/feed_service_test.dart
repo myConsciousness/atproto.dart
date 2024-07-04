@@ -28,19 +28,18 @@ import 'package:bluesky/src/services/gen_types/app/bsky/feed/like/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/post/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/repost/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/search_posts/output.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/feed_service.dart';
 import 'service_suite.dart';
 
 void main() {
   testFeed<StrongRef>(
-    (m, s) => s.post(text: m.text),
-    bulk: (m, s) => s.postInBulk([PostRecord(text: m.text)]),
+    (m, s) => s.post.create(text: m.text),
+    bulk: (m, s) => s.post.createInBulk([PostRecord(text: m.text)]),
     id: appBskyFeedPost,
   );
 
   testFeed<StrongRef>(
-    (m, s) => s.repost(subject: StrongRef(uri: m.uri, cid: m.cid)),
-    bulk: (m, s) => s.repostInBulk([
+    (m, s) => s.repost.create(subject: StrongRef(uri: m.uri, cid: m.cid)),
+    bulk: (m, s) => s.repost.createInBulk([
       RepostRecord(
         subject: StrongRef(cid: m.cid, uri: m.uri),
       ),
@@ -54,7 +53,12 @@ void main() {
   );
 
   testFeed<StrongRef>(
-    (m, s) => s.like(subject: StrongRef(uri: m.uri, cid: m.cid)),
+    (m, s) => s.like.create(subject: StrongRef(uri: m.uri, cid: m.cid)),
+    bulk: (m, s) => s.like.createInBulk([
+      LikeRecord(
+        subject: StrongRef(cid: m.cid, uri: m.uri),
+      )
+    ]),
     id: appBskyFeedPost,
   );
 
@@ -80,11 +84,6 @@ void main() {
 
   testFeed<GetLikesOutput>(
     (m, s) => s.getLikes(uri: m.uri),
-    bulk: (m, s) => s.likeInBulk([
-      LikeRecord(
-        subject: StrongRef(cid: m.cid, uri: m.uri),
-      )
-    ]),
     id: appBskyFeedGetLikes,
   );
 
@@ -104,7 +103,7 @@ void main() {
   );
 
   testFeed<StrongRef>(
-    (m, s) => s.generator(did: m.did, displayName: m.displayName),
+    (m, s) => s.generator.create(did: m.did, displayName: m.displayName),
     id: appBskyFeedGenerator,
   );
 
@@ -139,7 +138,7 @@ void main() {
   );
 
   testFeed<StrongRef>(
-    (m, s) => s.threadgate(post: m.uri),
+    (m, s) => s.threadgate.create(post: m.uri),
     id: appBskyFeedThreadgate,
   );
 

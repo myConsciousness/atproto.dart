@@ -42,15 +42,8 @@ final class LexService {
 
   String get namespace => ctx.name;
 
-  Set<LexServiceEndpoint> _getInBulkRecords() {
-    return endpoints.where((e) {
-      if (!e.isRecord) return false;
-
-      final config = ctx.package.getRecordConfig(e.docId);
-      if (config == null) return true;
-
-      return !config.disableInBulk;
-    }).toSet();
+  Set<LexServiceEndpoint> _getRecords() {
+    return endpoints.where((e) => e.isRecord).toSet();
   }
 
   Set<LexServiceEndpoint> _getAdaptors() {
@@ -62,19 +55,31 @@ final class LexService {
   }
 
   Set<String> _getImportPaths(
-    final Set<LexServiceEndpoint> inBulkRecords,
+    final Set<LexServiceEndpoint> records,
     final Set<LexServiceEndpoint> adaptors,
   ) {
+    final inBulkRecords = records.where((e) {
+      final config = ctx.package.getRecordConfig(e.docId);
+      if (config == null) return true;
+
+      return !config.disableInBulk;
+    });
+
     final recordPaths = inBulkRecords.map((e) {
       final path = e.docId.toString().replaceAll('.', '/');
       return "../../$path/record.dart";
-    });
+    }).toList();
     final adaptorPaths = adaptors.map((e) {
       final path = e.docId.toString().replaceAll('.', '/');
       final fileName = toLowerCamelCase(e.name);
 
       return '../../../adaptors/$path/${fileName}_adaptor.dart';
     });
+
+    if (records.isNotEmpty) {
+      recordPaths.add('package:atproto/com_atproto_repo_get_record.dart');
+      recordPaths.add('package:atproto/com_atproto_repo_list_records.dart');
+    }
 
     return {
       'package:atproto_core/atproto_core.dart',
@@ -107,7 +112,7 @@ final class LexService {
 
   @override
   String toString() {
-    final inBulkRecords = _getInBulkRecords();
+    final records = _getRecords();
     final adaptors = _getAdaptors();
     final functions = _getFunctionEndpoints();
 
@@ -115,7 +120,7 @@ final class LexService {
     buffer.writeln(getFileHeader('Lex Generator'));
     buffer.writeln();
     buffer.writeln("import '../../../../nsids.g.dart' as ns;");
-    for (final importPath in _getImportPaths(inBulkRecords, adaptors)) {
+    for (final importPath in _getImportPaths(records, adaptors)) {
       buffer.writeln("import '$importPath';");
     }
     buffer.writeln("import '../../../service_context.dart';");
@@ -146,14 +151,12 @@ final class LexService {
     }
     buffer.writeln('}');
 
-    if (inBulkRecords.isNotEmpty) {
+    if (records.isNotEmpty) {
       buffer.writeln();
-      buffer.writeln('extension ${name}Extension on $name {');
-      for (final record in inBulkRecords) {
-        buffer.writeln(record.getRecordInBulkEndpoint());
+      for (final record in records) {
+        buffer.writeln(record.getRecordService(ctx));
         buffer.writeln();
       }
-      buffer.writeln('}');
     }
 
     return buffer.toString();
@@ -381,9 +384,56 @@ final class LexServiceEndpoint {
   String _getRecordEndpoint(final ServiceContext ctx) {
     final buffer = StringBuffer();
 
+    final recordName = '${toFirstUpper(name)}Record';
+
+    buffer.writeln(
+        '  ${recordName}Helper get $name => ${recordName}Helper(_ctx);');
+
+    return buffer.toString();
+  }
+
+  String getRecordService(final ServiceContext ctx) {
+    final buffer = StringBuffer();
+
     final config = ctx.package.getRecordConfig(docId);
 
-    buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+    final recordName = '${toFirstUpper(name)}Record';
+
+    buffer.writeln('/// Useful helper for `${docId.toString()}`.');
+    buffer.writeln('final class ${recordName}Helper {');
+    buffer.writeln('  const ${recordName}Helper(this._ctx);');
+    buffer.writeln();
+    buffer.writeln('  final BlueskyServiceContext _ctx;');
+    buffer.writeln();
+
+    // Get
+    buffer.writeln('  Future<XRPCResponse<GetRecordOutput>> get({');
+    buffer.writeln('    required String rkey,');
+    buffer.writeln('    Map<String, String>? \$headers,');
+    buffer.writeln('    PostClient? \$client,');
+    buffer.writeln('  }) async =>');
+    buffer.writeln('    await _ctx.atproto.repo.getRecord(');
+    buffer.writeln('      collection: ns.$namespace,');
+    buffer.writeln('      rkey: rkey,');
+    buffer.writeln('      \$headers: \$headers,');
+    buffer.writeln('      \$client: \$client,');
+    buffer.writeln('    );');
+
+    // List
+    buffer.writeln();
+    buffer.writeln('  Future<XRPCResponse<ListRecordsOutput>> list({');
+    buffer.writeln('    Map<String, String>? \$headers,');
+    buffer.writeln('    PostClient? \$client,');
+    buffer.writeln('  }) async =>');
+    buffer.writeln('    await _ctx.atproto.repo.listRecords(');
+    buffer.writeln('      collection: ns.$namespace,');
+    buffer.writeln('      \$headers: \$headers,');
+    buffer.writeln('      \$client: \$client,');
+    buffer.writeln('    );');
+
+    // Create
+    buffer.writeln();
+    buffer.writeln('  Future<XRPCResponse<${type.name}>> create({');
     for (final arg in args) {
       buffer.writeln('    ${arg.toString()},');
     }
@@ -396,6 +446,9 @@ final class LexServiceEndpoint {
     buffer.writeln('        collection: ns.$namespace,');
     if (config != null && config.rkey != null) {
       buffer.writeln('        rkey: ${config.rkey}.rkey,');
+    } else if (recordKey?.startsWith('literal:') ?? false) {
+      final rkey = recordKey!.split('literal:').last;
+      buffer.writeln("        rkey: '$rkey',");
     }
     buffer.writeln('        record: {');
     buffer.writeln("          r'\$type': '$serviceName.$name',");
@@ -408,16 +461,40 @@ final class LexServiceEndpoint {
     buffer.writeln('        \$client: \$client,');
     buffer.writeln('      );');
 
+    // Create in bulk
+    if (!(config?.disableInBulk ?? false)) {
+      buffer.writeln();
+      buffer.write(_getRecordInBulkEndpoint());
+    }
+
+    // Delete
+    buffer.writeln();
+    buffer.writeln('  Future<XRPCResponse<EmptyData>> delete({');
+    buffer.writeln('    required String rkey,');
+    buffer.writeln('    Map<String, dynamic>? \$unknown,');
+    buffer.writeln('    Map<String, String>? \$headers,');
+    buffer.writeln('    PostClient? \$client,');
+    buffer.writeln('  }) async =>');
+    buffer.writeln('    await _ctx.atproto.repo.deleteRecord(');
+    buffer.writeln('        repo: _ctx.repo,');
+    buffer.writeln('        collection: ns.$namespace,');
+    buffer.writeln('        rkey: rkey,');
+    buffer.writeln('        \$headers: \$headers,');
+    buffer.writeln('        \$client: \$client,');
+    buffer.writeln('      );');
+
+    buffer.writeln('}');
+
     return buffer.toString();
   }
 
-  String getRecordInBulkEndpoint() {
+  String _getRecordInBulkEndpoint() {
     final buffer = StringBuffer();
 
     buffer.writeln(
         '/// The batch process to create [${toFirstUpper(name)}Record] records.');
     buffer.writeln(
-        '  Future<XRPCResponse<EmptyData>> ${name}InBulk(final List<${toFirstUpper(name)}Record> records, {');
+        '  Future<XRPCResponse<EmptyData>> createInBulk(final List<${toFirstUpper(name)}Record> records, {');
     buffer.writeln('    Map<String, String>? \$headers,');
     buffer.writeln('    PostClient? \$client,');
     buffer.writeln('  }) async =>');

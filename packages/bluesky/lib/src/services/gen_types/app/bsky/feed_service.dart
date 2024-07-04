@@ -12,6 +12,8 @@
 
 // 📦 Package imports:
 import 'package:atproto/com_atproto_repo_apply_writes.dart';
+import 'package:atproto/com_atproto_repo_get_record.dart';
+import 'package:atproto/com_atproto_repo_list_records.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
@@ -20,6 +22,7 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../app/bsky/feed/defs/interaction.dart';
 import '../../app/bsky/feed/describe_feed_generator/output.dart';
+import '../../app/bsky/feed/generator/record.dart';
 import '../../app/bsky/feed/generator/union_generator_label.dart';
 import '../../app/bsky/feed/get_actor_feeds/output.dart';
 import '../../app/bsky/feed/get_actor_likes/output.dart';
@@ -213,25 +216,7 @@ final class FeedService {
   /// Record representing a 'repost' of an existing Bluesky post.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/repost
-  Future<XRPCResponse<StrongRef>> repost({
-    required StrongRef subject,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedRepost,
-        record: {
-          r'$type': 'app.bsky.feed.repost',
-          'subject': subject.toJson(),
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
+  RepostRecordHelper get repost => RepostRecordHelper(_ctx);
 
   /// Get posts in a thread. Does not require auth, but additional
   /// metadata and filtering will be applied for authed requests.
@@ -402,126 +387,24 @@ final class FeedService {
   /// must be in the same repository..
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate
-  Future<XRPCResponse<StrongRef>> threadgate({
-    required AtUri post,
-    List<UThreadgateAllow>? allow,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedThreadgate,
-        rkey: post.rkey,
-        record: {
-          r'$type': 'app.bsky.feed.threadgate',
-          'post': post.toString(),
-          if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
+  ThreadgateRecordHelper get threadgate => ThreadgateRecordHelper(_ctx);
 
   /// Record declaring a 'like' of a piece of subject content.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/like
-  Future<XRPCResponse<StrongRef>> like({
-    required StrongRef subject,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedLike,
-        record: {
-          r'$type': 'app.bsky.feed.like',
-          'subject': subject.toJson(),
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
+  LikeRecordHelper get like => LikeRecordHelper(_ctx);
 
   /// Record containing a Bluesky post.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
-  Future<XRPCResponse<StrongRef>> post({
-    required String text,
-    List<Facet>? facets,
-    ReplyRef? reply,
-    UPostEmbed? embed,
-    List<String>? langs,
-    UPostLabel? labels,
-    List<String>? tags,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedPost,
-        record: {
-          r'$type': 'app.bsky.feed.post',
-          'text': text,
-          if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
-          if (reply != null) 'reply': reply.toJson(),
-          if (embed != null) 'embed': embed.toJson(),
-          if (langs != null) 'langs': langs,
-          if (labels != null) 'labels': labels.toJson(),
-          if (tags != null) 'tags': tags,
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
+  PostRecordHelper get post => PostRecordHelper(_ctx);
 
   /// Record declaring of the existence of a feed generator, and
   /// containing metadata about it. The record can exist in any
   /// repository.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/generator
-  Future<XRPCResponse<StrongRef>> generator({
-    required String did,
-    required String displayName,
-    String? description,
-    List<Facet>? descriptionFacets,
-    Blob? avatar,
-    bool? acceptsInteractions,
-    UGeneratorLabel? labels,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedGenerator,
-        record: {
-          r'$type': 'app.bsky.feed.generator',
-          'did': did,
-          'displayName': displayName,
-          if (description != null) 'description': description,
-          if (descriptionFacets != null)
-            'descriptionFacets':
-                descriptionFacets.map((e) => e.toJson()).toList(),
-          if (avatar != null) 'avatar': avatar.toJson(),
-          if (acceptsInteractions != null)
-            'acceptsInteractions': acceptsInteractions,
-          if (labels != null) 'labels': labels.toJson(),
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
+  GeneratorRecordHelper get generator => GeneratorRecordHelper(_ctx);
 
   /// Get information about a list of feed generators.
   ///
@@ -589,9 +472,56 @@ final class FeedService {
       );
 }
 
-extension FeedServiceExtension on FeedService {
+/// Useful helper for `app.bsky.feed.repost`.
+final class RepostRecordHelper {
+  const RepostRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyFeedRepost,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyFeedRepost,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<StrongRef>> create({
+    required StrongRef subject,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedRepost,
+        record: {
+          r'$type': 'app.bsky.feed.repost',
+          'subject': subject.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [RepostRecord] records.
-  Future<XRPCResponse<EmptyData>> repostInBulk(
+  Future<XRPCResponse<EmptyData>> createInBulk(
     final List<RepostRecord> records, {
     Map<String, String>? $headers,
     PostClient? $client,
@@ -613,8 +543,137 @@ extension FeedServiceExtension on FeedService {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedRepost,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.feed.threadgate`.
+final class ThreadgateRecordHelper {
+  const ThreadgateRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyFeedThreadgate,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyFeedThreadgate,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<StrongRef>> create({
+    required AtUri post,
+    List<UThreadgateAllow>? allow,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedThreadgate,
+        rkey: post.rkey,
+        record: {
+          r'$type': 'app.bsky.feed.threadgate',
+          'post': post.toString(),
+          if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedThreadgate,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.feed.like`.
+final class LikeRecordHelper {
+  const LikeRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyFeedLike,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyFeedLike,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<StrongRef>> create({
+    required StrongRef subject,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedLike,
+        record: {
+          r'$type': 'app.bsky.feed.like',
+          'subject': subject.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [LikeRecord] records.
-  Future<XRPCResponse<EmptyData>> likeInBulk(
+  Future<XRPCResponse<EmptyData>> createInBulk(
     final List<LikeRecord> records, {
     Map<String, String>? $headers,
     PostClient? $client,
@@ -636,8 +695,83 @@ extension FeedServiceExtension on FeedService {
         $client: $client,
       );
 
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedLike,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.feed.post`.
+final class PostRecordHelper {
+  const PostRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyFeedPost,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyFeedPost,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<StrongRef>> create({
+    required String text,
+    List<Facet>? facets,
+    ReplyRef? reply,
+    UPostEmbed? embed,
+    List<String>? langs,
+    UPostLabel? labels,
+    List<String>? tags,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedPost,
+        record: {
+          r'$type': 'app.bsky.feed.post',
+          'text': text,
+          if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
+          if (reply != null) 'reply': reply.toJson(),
+          if (embed != null) 'embed': embed.toJson(),
+          if (langs != null) 'langs': langs,
+          if (labels != null) 'labels': labels.toJson(),
+          if (tags != null) 'tags': tags,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
   /// The batch process to create [PostRecord] records.
-  Future<XRPCResponse<EmptyData>> postInBulk(
+  Future<XRPCResponse<EmptyData>> createInBulk(
     final List<PostRecord> records, {
     Map<String, String>? $headers,
     PostClient? $client,
@@ -662,6 +796,129 @@ extension FeedServiceExtension on FeedService {
               ),
             )
             .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedPost,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.feed.generator`.
+final class GeneratorRecordHelper {
+  const GeneratorRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyFeedGenerator,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyFeedGenerator,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<StrongRef>> create({
+    required String did,
+    required String displayName,
+    String? description,
+    List<Facet>? descriptionFacets,
+    Blob? avatar,
+    bool? acceptsInteractions,
+    UGeneratorLabel? labels,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedGenerator,
+        record: {
+          r'$type': 'app.bsky.feed.generator',
+          'did': did,
+          'displayName': displayName,
+          if (description != null) 'description': description,
+          if (descriptionFacets != null)
+            'descriptionFacets':
+                descriptionFacets.map((e) => e.toJson()).toList(),
+          if (avatar != null) 'avatar': avatar.toJson(),
+          if (acceptsInteractions != null)
+            'acceptsInteractions': acceptsInteractions,
+          if (labels != null) 'labels': labels.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [GeneratorRecord] records.
+  Future<XRPCResponse<EmptyData>> createInBulk(
+    final List<GeneratorRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyFeedGenerator,
+                value: {
+                  'did': e.did,
+                  'displayName': e.displayName,
+                  if (e.description != null) 'description': e.description!,
+                  if (e.descriptionFacets != null)
+                    'descriptionFacets':
+                        e.descriptionFacets!.map((e) => e.toJson()).toList(),
+                  if (e.avatar != null) 'avatar': e.avatar!.toJson(),
+                  'acceptsInteractions': e.acceptsInteractions,
+                  if (e.labels != null) 'labels': e.labels!.toJson(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...?e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedGenerator,
+        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );

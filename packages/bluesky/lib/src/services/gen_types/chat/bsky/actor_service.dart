@@ -11,6 +11,8 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_repo_get_record.dart';
+import 'package:atproto/com_atproto_repo_list_records.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
@@ -50,7 +52,38 @@ final class ActorService {
   /// A declaration of a Bluesky chat account.
   ///
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
-  Future<XRPCResponse<StrongRef>> declaration({
+  DeclarationRecordHelper get declaration => DeclarationRecordHelper(_ctx);
+}
+
+/// Useful helper for `chat.bsky.actor.declaration`.
+final class DeclarationRecordHelper {
+  const DeclarationRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.chatBskyActorDeclaration,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.chatBskyActorDeclaration,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<StrongRef>> create({
     required UDeclarationAllowIncoming allowIncoming,
     Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
@@ -59,11 +92,26 @@ final class ActorService {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.chatBskyActorDeclaration,
+        rkey: 'self',
         record: {
           r'$type': 'chat.bsky.actor.declaration',
           'allowIncoming': allowIncoming.toJson(),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<XRPCResponse<EmptyData>> delete({
+    required String rkey,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.chatBskyActorDeclaration,
+        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );

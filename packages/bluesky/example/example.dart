@@ -83,7 +83,7 @@ Future<void> main() async {
     print(feeds);
 
     //! Let's post cool stuff!
-    final record = await bsky.feed.post(
+    final record = await bsky.feed.post.create(
       text: 'Hello, Bluesky!',
     );
 
