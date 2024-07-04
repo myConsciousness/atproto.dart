@@ -407,6 +407,9 @@ final class LexServiceEndpoint {
     final config = ctx.package.getRecordConfig(docId);
 
     final recordName = '${toFirstUpper(name)}Record';
+    final rkey = recordKey?.startsWith('literal:') ?? false
+        ? recordKey!.split('literal:').last
+        : null;
 
     buffer.writeln('/// Useful helper for `${docId.toString()}`.');
     buffer.writeln('final class ${recordName}Helper {');
@@ -418,7 +421,9 @@ final class LexServiceEndpoint {
     // Get
     buffer.writeln('  /// Returns $name record associated with [rkey].');
     buffer.writeln('  Future<XRPCResponse<GetRecordOutput>> get({');
-    buffer.writeln('    required String rkey,');
+    if (rkey == null) {
+      buffer.writeln('    required String rkey,');
+    }
     buffer.writeln('    String? cid,');
     buffer.writeln('    Map<String, String>? \$unknown,');
     buffer.writeln('    Map<String, String>? \$headers,');
@@ -426,7 +431,11 @@ final class LexServiceEndpoint {
     buffer.writeln('  }) async =>');
     buffer.writeln('    await _ctx.atproto.repo.getRecord(');
     buffer.writeln('      collection: ns.$namespace,');
-    buffer.writeln('      rkey: rkey,');
+    if (rkey == null) {
+      buffer.writeln('      rkey: rkey,');
+    } else {
+      buffer.writeln("      rkey: '$rkey',");
+    }
     buffer.writeln('      cid: cid,');
     buffer.writeln('      \$unknown: \$unknown,');
     buffer.writeln('      \$headers: \$headers,');
@@ -474,8 +483,7 @@ final class LexServiceEndpoint {
     buffer.writeln('        collection: ns.$namespace,');
     if (config != null && config.rkey != null) {
       buffer.writeln('        rkey: ${config.rkey}.rkey,');
-    } else if (recordKey?.startsWith('literal:') ?? false) {
-      final rkey = recordKey!.split('literal:').last;
+    } else if (rkey != null) {
       buffer.writeln("        rkey: '$rkey',");
     }
     buffer.writeln('        record: {');
@@ -504,8 +512,9 @@ final class LexServiceEndpoint {
       buffer.writeln('    await _ctx.atproto.repo.putRecord(');
       buffer.writeln('        repo: _ctx.repo,');
       buffer.writeln('        collection: ns.$namespace,');
-      if (recordKey?.startsWith('literal:') ?? false) {
-        final rkey = recordKey!.split('literal:').last;
+      if (config.rkey != null) {
+        buffer.writeln('        rkey: ${config.rkey}.rkey,');
+      } else if (rkey != null) {
         buffer.writeln("        rkey: '$rkey',");
       }
       buffer.writeln('        record: {');
@@ -524,14 +533,20 @@ final class LexServiceEndpoint {
     buffer.writeln();
     buffer.writeln('  /// Deletes $name record.');
     buffer.writeln('  Future<XRPCResponse<EmptyData>> delete({');
-    buffer.writeln('    required String rkey,');
+    if (rkey == null) {
+      buffer.writeln('    required String rkey,');
+    }
     buffer.writeln('    Map<String, String>? \$headers,');
     buffer.writeln('    PostClient? \$client,');
     buffer.writeln('  }) async =>');
     buffer.writeln('    await _ctx.atproto.repo.deleteRecord(');
     buffer.writeln('        repo: _ctx.repo,');
     buffer.writeln('        collection: ns.$namespace,');
-    buffer.writeln('        rkey: rkey,');
+    if (rkey == null) {
+      buffer.writeln('      rkey: rkey,');
+    } else {
+      buffer.writeln("      rkey: '$rkey',");
+    }
     buffer.writeln('        \$headers: \$headers,');
     buffer.writeln('        \$client: \$client,');
     buffer.writeln('      );');

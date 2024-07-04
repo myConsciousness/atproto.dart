@@ -201,7 +201,6 @@ final class ProfileRecordHelper {
 
   /// Returns profile record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
-    required String rkey,
     String? cid,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
@@ -209,7 +208,7 @@ final class ProfileRecordHelper {
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.appBskyActorProfile,
-        rkey: rkey,
+        rkey: 'self',
         cid: cid,
         $unknown: $unknown,
         $headers: $headers,
@@ -307,14 +306,13 @@ final class ProfileRecordHelper {
 
   /// Deletes profile record.
   Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.deleteRecord(
         repo: _ctx.repo,
         collection: ns.appBskyActorProfile,
-        rkey: rkey,
+        rkey: 'self',
         $headers: $headers,
         $client: $client,
       );

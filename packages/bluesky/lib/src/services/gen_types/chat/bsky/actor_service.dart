@@ -65,7 +65,6 @@ final class DeclarationRecordHelper {
 
   /// Returns declaration record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
-    required String rkey,
     String? cid,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
@@ -73,7 +72,7 @@ final class DeclarationRecordHelper {
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.chatBskyActorDeclaration,
-        rkey: rkey,
+        rkey: 'self',
         cid: cid,
         $unknown: $unknown,
         $headers: $headers,
@@ -125,14 +124,13 @@ final class DeclarationRecordHelper {
 
   /// Deletes declaration record.
   Future<XRPCResponse<EmptyData>> delete({
-    required String rkey,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.deleteRecord(
         repo: _ctx.repo,
         collection: ns.chatBskyActorDeclaration,
-        rkey: rkey,
+        rkey: 'self',
         $headers: $headers,
         $client: $client,
       );
