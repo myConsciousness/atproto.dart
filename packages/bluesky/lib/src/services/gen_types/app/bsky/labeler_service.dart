@@ -63,6 +63,7 @@ final class ServiceRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns service record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -75,6 +76,7 @@ final class ServiceRecordHelper {
         $client: $client,
       );
 
+  /// Returns service records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -85,6 +87,7 @@ final class ServiceRecordHelper {
         $client: $client,
       );
 
+  /// Creates service record.
   Future<XRPCResponse<StrongRef>> create({
     required LabelerPolicies policies,
     UServiceLabel? labels,
@@ -108,6 +111,7 @@ final class ServiceRecordHelper {
         $client: $client,
       );
 
+  /// Deletes service record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,

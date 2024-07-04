@@ -186,6 +186,7 @@ final class ProfileRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns profile record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -198,6 +199,7 @@ final class ProfileRecordHelper {
         $client: $client,
       );
 
+  /// Returns profile records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -208,6 +210,7 @@ final class ProfileRecordHelper {
         $client: $client,
       );
 
+  /// Creates profile record.
   Future<XRPCResponse<StrongRef>> create({
     String? displayName,
     String? description,
@@ -240,6 +243,7 @@ final class ProfileRecordHelper {
         $client: $client,
       );
 
+  /// Updates profile record.
   Future<XRPCResponse<StrongRef>> put({
     String? displayName,
     String? description,
@@ -272,6 +276,7 @@ final class ProfileRecordHelper {
         $client: $client,
       );
 
+  /// Deletes profile record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,

@@ -478,6 +478,7 @@ final class RepostRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns repost record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -490,6 +491,7 @@ final class RepostRecordHelper {
         $client: $client,
       );
 
+  /// Returns repost records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -500,6 +502,7 @@ final class RepostRecordHelper {
         $client: $client,
       );
 
+  /// Creates repost record.
   Future<XRPCResponse<StrongRef>> create({
     required StrongRef subject,
     DateTime? createdAt,
@@ -520,6 +523,7 @@ final class RepostRecordHelper {
         $client: $client,
       );
 
+  /// Deletes repost record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
@@ -564,6 +568,7 @@ final class ThreadgateRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns threadgate record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -576,6 +581,7 @@ final class ThreadgateRecordHelper {
         $client: $client,
       );
 
+  /// Returns threadgate records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -586,6 +592,7 @@ final class ThreadgateRecordHelper {
         $client: $client,
       );
 
+  /// Creates threadgate record.
   Future<XRPCResponse<StrongRef>> create({
     required AtUri post,
     List<UThreadgateAllow>? allow,
@@ -609,6 +616,7 @@ final class ThreadgateRecordHelper {
         $client: $client,
       );
 
+  /// Deletes threadgate record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
@@ -630,6 +638,7 @@ final class LikeRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns like record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -642,6 +651,7 @@ final class LikeRecordHelper {
         $client: $client,
       );
 
+  /// Returns like records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -652,6 +662,7 @@ final class LikeRecordHelper {
         $client: $client,
       );
 
+  /// Creates like record.
   Future<XRPCResponse<StrongRef>> create({
     required StrongRef subject,
     DateTime? createdAt,
@@ -672,6 +683,7 @@ final class LikeRecordHelper {
         $client: $client,
       );
 
+  /// Deletes like record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
@@ -716,6 +728,7 @@ final class PostRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns post record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -728,6 +741,7 @@ final class PostRecordHelper {
         $client: $client,
       );
 
+  /// Returns post records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -738,6 +752,7 @@ final class PostRecordHelper {
         $client: $client,
       );
 
+  /// Creates post record.
   Future<XRPCResponse<StrongRef>> create({
     required String text,
     List<Facet>? facets,
@@ -770,6 +785,7 @@ final class PostRecordHelper {
         $client: $client,
       );
 
+  /// Deletes post record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
@@ -821,6 +837,7 @@ final class GeneratorRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns generator record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -833,6 +850,7 @@ final class GeneratorRecordHelper {
         $client: $client,
       );
 
+  /// Returns generator records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -843,6 +861,7 @@ final class GeneratorRecordHelper {
         $client: $client,
       );
 
+  /// Creates generator record.
   Future<XRPCResponse<StrongRef>> create({
     required String did,
     required String displayName,
@@ -878,6 +897,7 @@ final class GeneratorRecordHelper {
         $client: $client,
       );
 
+  /// Deletes generator record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,

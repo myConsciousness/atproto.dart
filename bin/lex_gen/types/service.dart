@@ -407,6 +407,7 @@ final class LexServiceEndpoint {
     buffer.writeln();
 
     // Get
+    buffer.writeln('  /// Returns $name record associated with [rkey].');
     buffer.writeln('  Future<XRPCResponse<GetRecordOutput>> get({');
     buffer.writeln('    required String rkey,');
     buffer.writeln('    Map<String, String>? \$headers,');
@@ -421,6 +422,7 @@ final class LexServiceEndpoint {
 
     // List
     buffer.writeln();
+    buffer.writeln('  /// Returns $name records.');
     buffer.writeln('  Future<XRPCResponse<ListRecordsOutput>> list({');
     buffer.writeln('    Map<String, String>? \$headers,');
     buffer.writeln('    PostClient? \$client,');
@@ -433,6 +435,7 @@ final class LexServiceEndpoint {
 
     // Create
     buffer.writeln();
+    buffer.writeln('  /// Creates $name record.');
     buffer.writeln('  Future<XRPCResponse<${type.name}>> create({');
     for (final arg in args) {
       buffer.writeln('    ${arg.toString()},');
@@ -464,6 +467,7 @@ final class LexServiceEndpoint {
     // Put
     if (config != null && config.usePut) {
       buffer.writeln();
+      buffer.writeln('  /// Updates $name record.');
       buffer.writeln('  Future<XRPCResponse<${type.name}>> put({');
       for (final arg in args) {
         buffer.writeln('    ${arg.toString()},');
@@ -493,6 +497,7 @@ final class LexServiceEndpoint {
 
     // Delete
     buffer.writeln();
+    buffer.writeln('  /// Deletes $name record.');
     buffer.writeln('  Future<XRPCResponse<EmptyData>> delete({');
     buffer.writeln('    required String rkey,');
     buffer.writeln('    Map<String, dynamic>? \$unknown,');

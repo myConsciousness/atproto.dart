@@ -61,6 +61,7 @@ final class DeclarationRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns declaration record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -73,6 +74,7 @@ final class DeclarationRecordHelper {
         $client: $client,
       );
 
+  /// Returns declaration records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -83,6 +85,7 @@ final class DeclarationRecordHelper {
         $client: $client,
       );
 
+  /// Creates declaration record.
   Future<XRPCResponse<StrongRef>> create({
     required UDeclarationAllowIncoming allowIncoming,
     Map<String, dynamic>? $unknown,
@@ -102,6 +105,7 @@ final class DeclarationRecordHelper {
         $client: $client,
       );
 
+  /// Deletes declaration record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,

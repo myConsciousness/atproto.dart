@@ -493,6 +493,7 @@ final class ListblockRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns listblock record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -505,6 +506,7 @@ final class ListblockRecordHelper {
         $client: $client,
       );
 
+  /// Returns listblock records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -515,6 +517,7 @@ final class ListblockRecordHelper {
         $client: $client,
       );
 
+  /// Creates listblock record.
   Future<XRPCResponse<StrongRef>> create({
     required AtUri subject,
     DateTime? createdAt,
@@ -535,6 +538,7 @@ final class ListblockRecordHelper {
         $client: $client,
       );
 
+  /// Deletes listblock record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
@@ -579,6 +583,7 @@ final class ListitemRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns listitem record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -591,6 +596,7 @@ final class ListitemRecordHelper {
         $client: $client,
       );
 
+  /// Returns listitem records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -601,6 +607,7 @@ final class ListitemRecordHelper {
         $client: $client,
       );
 
+  /// Creates listitem record.
   Future<XRPCResponse<StrongRef>> create({
     required String subject,
     required AtUri list,
@@ -623,6 +630,7 @@ final class ListitemRecordHelper {
         $client: $client,
       );
 
+  /// Deletes listitem record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
@@ -668,6 +676,7 @@ final class FollowRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns follow record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -680,6 +689,7 @@ final class FollowRecordHelper {
         $client: $client,
       );
 
+  /// Returns follow records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -690,6 +700,7 @@ final class FollowRecordHelper {
         $client: $client,
       );
 
+  /// Creates follow record.
   Future<XRPCResponse<StrongRef>> create({
     required String subject,
     DateTime? createdAt,
@@ -710,6 +721,7 @@ final class FollowRecordHelper {
         $client: $client,
       );
 
+  /// Deletes follow record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
@@ -754,6 +766,7 @@ final class BlockRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns block record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -766,6 +779,7 @@ final class BlockRecordHelper {
         $client: $client,
       );
 
+  /// Returns block records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -776,6 +790,7 @@ final class BlockRecordHelper {
         $client: $client,
       );
 
+  /// Creates block record.
   Future<XRPCResponse<StrongRef>> create({
     required String subject,
     DateTime? createdAt,
@@ -796,6 +811,7 @@ final class BlockRecordHelper {
         $client: $client,
       );
 
+  /// Deletes block record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
@@ -840,6 +856,7 @@ final class ListRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns list record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -852,6 +869,7 @@ final class ListRecordHelper {
         $client: $client,
       );
 
+  /// Returns list records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -862,6 +880,7 @@ final class ListRecordHelper {
         $client: $client,
       );
 
+  /// Creates list record.
   Future<XRPCResponse<StrongRef>> create({
     required UListPurpose purpose,
     required String name,
@@ -894,6 +913,7 @@ final class ListRecordHelper {
         $client: $client,
       );
 
+  /// Deletes list record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
@@ -945,6 +965,7 @@ final class StarterpackRecordHelper {
 
   final BlueskyServiceContext _ctx;
 
+  /// Returns starterpack record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     Map<String, String>? $headers,
@@ -957,6 +978,7 @@ final class StarterpackRecordHelper {
         $client: $client,
       );
 
+  /// Returns starterpack records.
   Future<XRPCResponse<ListRecordsOutput>> list({
     Map<String, String>? $headers,
     PostClient? $client,
@@ -967,6 +989,7 @@ final class StarterpackRecordHelper {
         $client: $client,
       );
 
+  /// Creates starterpack record.
   Future<XRPCResponse<StrongRef>> create({
     required String name,
     String? description,
@@ -997,6 +1020,7 @@ final class StarterpackRecordHelper {
         $client: $client,
       );
 
+  /// Deletes starterpack record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
     Map<String, dynamic>? $unknown,
