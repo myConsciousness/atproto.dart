@@ -2,10 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:io';
 
+// 📦 Package imports:
 import 'package:pubspec/pubspec.dart';
 
+// 🌎 Project imports:
 import 'utils.dart';
 
 const _excludePackages = [

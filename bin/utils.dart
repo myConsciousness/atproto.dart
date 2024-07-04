@@ -2,9 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
+// 📦 Package imports:
 import 'package:github/github.dart';
 import 'package:lexicon/lexicon.dart';
 
