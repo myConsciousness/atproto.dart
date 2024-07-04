@@ -15,6 +15,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_interaction_event.freezed.dart';
 
+/// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = KnownInteractionEvent.something.value;
+/// ```
+///
+/// ### Convert to [UInteractionEvent]
+///
+/// ```dart
+/// final union = KnownInteractionEvent.something.toUnion();
+/// ```
 enum KnownInteractionEvent {
   /// Request that less content like the given feed item be shown in
   /// the feed
@@ -167,6 +188,8 @@ extension $KnownInteractionEventExtension on KnownInteractionEvent {
   bool get isNotInteractionShare => !isInteractionShare;
 }
 
+/// ## Overview
+///
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
@@ -179,7 +202,7 @@ extension $KnownInteractionEventExtension on KnownInteractionEvent {
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.

@@ -15,6 +15,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_info_name.freezed.dart';
 
+/// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = KnownInfoName.something.value;
+/// ```
+///
+/// ### Convert to [UInfoName]
+///
+/// ```dart
+/// final union = KnownInfoName.something.toUnion();
+/// ```
 enum KnownInfoName {
   @JsonValue('OutdatedCursor')
   outdatedCursor('OutdatedCursor'),
@@ -50,6 +71,8 @@ extension $KnownInfoNameExtension on KnownInfoName {
   bool get isNotOutdatedCursor => !isOutdatedCursor;
 }
 
+/// ## Overview
+///
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
@@ -62,7 +85,7 @@ extension $KnownInfoNameExtension on KnownInfoName {
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.

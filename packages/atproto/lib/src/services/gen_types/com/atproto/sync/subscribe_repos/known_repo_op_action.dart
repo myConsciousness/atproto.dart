@@ -15,6 +15,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_repo_op_action.freezed.dart';
 
+/// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = KnownRepoOpAction.something.value;
+/// ```
+///
+/// ### Convert to [URepoOpAction]
+///
+/// ```dart
+/// final union = KnownRepoOpAction.something.toUnion();
+/// ```
 enum KnownRepoOpAction {
   @JsonValue('create')
   create('create'),
@@ -66,6 +87,8 @@ extension $KnownRepoOpActionExtension on KnownRepoOpAction {
   bool get isNotDelete => !isDelete;
 }
 
+/// ## Overview
+///
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
@@ -78,7 +101,7 @@ extension $KnownRepoOpActionExtension on KnownRepoOpAction {
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.

@@ -15,6 +15,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_member_role.freezed.dart';
 
+/// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = KnownMemberRole.something.value;
+/// ```
+///
+/// ### Convert to [UMemberRole]
+///
+/// ```dart
+/// final union = KnownMemberRole.something.toUnion();
+/// ```
 enum KnownMemberRole {
   /// Admin role. Highest level of access, can perform all actions.
   @JsonValue('#roleAdmin')
@@ -72,6 +93,8 @@ extension $KnownMemberRoleExtension on KnownMemberRole {
   bool get isNotRoleTriage => !isRoleTriage;
 }
 
+/// ## Overview
+///
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
@@ -84,7 +107,7 @@ extension $KnownMemberRoleExtension on KnownMemberRole {
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.

@@ -15,6 +15,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_reason_type.freezed.dart';
 
+/// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = KnownReasonType.something.value;
+/// ```
+///
+/// ### Convert to [UReasonType]
+///
+/// ```dart
+/// final union = KnownReasonType.something.toUnion();
+/// ```
 enum KnownReasonType {
   /// Spam: frequent unwanted promotion, replies, mentions
   @JsonValue('com.atproto.moderation.defs#reasonSpam')
@@ -111,6 +132,8 @@ extension $KnownReasonTypeExtension on KnownReasonType {
   bool get isNotReasonAppeal => !isReasonAppeal;
 }
 
+/// ## Overview
+///
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
@@ -123,7 +146,7 @@ extension $KnownReasonTypeExtension on KnownReasonType {
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.

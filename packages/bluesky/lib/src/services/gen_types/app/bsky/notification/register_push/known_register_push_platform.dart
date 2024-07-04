@@ -15,6 +15,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_register_push_platform.freezed.dart';
 
+/// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = KnownRegisterPushPlatform.something.value;
+/// ```
+///
+/// ### Convert to [URegisterPushPlatform]
+///
+/// ```dart
+/// final union = KnownRegisterPushPlatform.something.toUnion();
+/// ```
 enum KnownRegisterPushPlatform {
   @JsonValue('ios')
   ios('ios'),
@@ -67,6 +88,8 @@ extension $KnownRegisterPushPlatformExtension on KnownRegisterPushPlatform {
   bool get isNotWeb => !isWeb;
 }
 
+/// ## Overview
+///
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
@@ -79,7 +102,7 @@ extension $KnownRegisterPushPlatformExtension on KnownRegisterPushPlatform {
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.

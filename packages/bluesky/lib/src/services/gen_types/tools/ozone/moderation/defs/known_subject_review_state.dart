@@ -15,6 +15,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_subject_review_state.freezed.dart';
 
+/// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = KnownSubjectReviewState.something.value;
+/// ```
+///
+/// ### Convert to [USubjectReviewState]
+///
+/// ```dart
+/// final union = KnownSubjectReviewState.something.toUnion();
+/// ```
 enum KnownSubjectReviewState {
   /// Moderator review status of a subject: Open. Indicates that the
   /// subject needs to be reviewed by a moderator
@@ -86,6 +107,8 @@ extension $KnownSubjectReviewStateExtension on KnownSubjectReviewState {
   bool get isNotReviewNone => !isReviewNone;
 }
 
+/// ## Overview
+///
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
@@ -98,7 +121,7 @@ extension $KnownSubjectReviewStateExtension on KnownSubjectReviewState {
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.

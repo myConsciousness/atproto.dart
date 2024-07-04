@@ -10,8 +10,31 @@ import 'dart_doc.dart';
 const _kFreezedAnnotationPackage =
     "import 'package:freezed_annotation/freezed_annotation.dart';";
 
-String _getUnionDartDoc(final String name) =>
-    '''/// This is an union object to improve safety and convenience of objects
+String _getKnownValuesDartDoc(final String name) => ''' /// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = Known$name.something.value;
+/// ```
+///
+/// ### Convert to [U$name]
+///
+/// ```dart
+/// final union = Known$name.something.toUnion();
+/// ```''';
+
+String _getUnionDartDoc(final String name) => '''/// ## Overview
+///
+/// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
 /// Enum provides a very powerful type for a specific group of data,
@@ -23,7 +46,7 @@ String _getUnionDartDoc(final String name) =>
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.
@@ -69,7 +92,7 @@ final class LexGenKnownValues {
       ..writeln();
 
     // Known values
-    buffer.writeln(dartDoc.toString());
+    buffer.writeln(_getKnownValuesDartDoc(name));
     buffer.writeln('enum Known$name {');
     for (final element in elements) {
       buffer.write(element.toString());

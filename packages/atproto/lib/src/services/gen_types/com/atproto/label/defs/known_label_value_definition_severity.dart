@@ -15,6 +15,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_label_value_definition_severity.freezed.dart';
 
+/// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = KnownLabelValueDefinitionSeverity.something.value;
+/// ```
+///
+/// ### Convert to [ULabelValueDefinitionSeverity]
+///
+/// ```dart
+/// final union = KnownLabelValueDefinitionSeverity.something.toUnion();
+/// ```
 enum KnownLabelValueDefinitionSeverity {
   @JsonValue('inform')
   inform('inform'),
@@ -68,6 +89,8 @@ extension $KnownLabelValueDefinitionSeverityExtension
   bool get isNotNone => !isNone;
 }
 
+/// ## Overview
+///
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
@@ -80,7 +103,7 @@ extension $KnownLabelValueDefinitionSeverityExtension
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.

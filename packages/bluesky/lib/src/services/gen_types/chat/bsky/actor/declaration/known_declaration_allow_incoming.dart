@@ -15,6 +15,27 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_declaration_allow_incoming.freezed.dart';
 
+/// ## Overview
+///
+/// The object representing `knownValues` defined in Lexicon as an Enum.
+///
+/// Although the `knownValues` defined in Lexicon are not technically Enums,
+/// it is very useful to be able to treat these fields as type safe Enums.
+///
+/// ## Usage
+///
+/// ### Get JSON compatible value
+///
+/// ```dart
+/// // JSON compatible value.
+/// final value = KnownDeclarationAllowIncoming.something.value;
+/// ```
+///
+/// ### Convert to [UDeclarationAllowIncoming]
+///
+/// ```dart
+/// final union = KnownDeclarationAllowIncoming.something.toUnion();
+/// ```
 enum KnownDeclarationAllowIncoming {
   @JsonValue('all')
   all('all'),
@@ -68,6 +89,8 @@ extension $KnownDeclarationAllowIncomingExtension
   bool get isNotFollowing => !isFollowing;
 }
 
+/// ## Overview
+///
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///
@@ -80,7 +103,7 @@ extension $KnownDeclarationAllowIncomingExtension
 /// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
 /// it can handle unknown values while enjoying the type safety of Enum.
 ///
-/// This union object can be used as follows.
+/// ## Usage
 ///
 /// ```dart
 /// // use when syntax.
