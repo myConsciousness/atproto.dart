@@ -41,6 +41,7 @@ Future<XRPCResponse<CreateSessionOutput>> createSession({
   Protocol? $protocol,
   String? $service,
   RetryConfig? $retryConfig,
+  Map<String, String>? $unknown,
   Map<String, String>? $headers,
   PostClient? $client,
 }) async =>
@@ -52,6 +53,7 @@ Future<XRPCResponse<CreateSessionOutput>> createSession({
       identifier: identifier,
       password: password,
       authFactorToken: authFactorToken,
+      $unknown: $unknown,
       $headers: $headers,
       $client: $client,
     );
@@ -64,6 +66,7 @@ Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
   Protocol? $protocol,
   String? $service,
   RetryConfig? $retryConfig,
+  Map<String, String>? $unknown,
   Map<String, String>? $headers,
   PostClient? $client,
 }) async =>
@@ -72,6 +75,7 @@ Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
       service: $service,
       retryConfig: $retryConfig,
     ).refreshSession(
+      $unknown: $unknown,
       $headers: $headers,
       $client: $client,
     );
@@ -83,6 +87,7 @@ Future<XRPCResponse<EmptyData>> deleteSession({
   Protocol? $protocol,
   String? $service,
   RetryConfig? $retryConfig,
+  Map<String, String>? $unknown,
   Map<String, String>? $headers,
   PostClient? $client,
 }) async =>
@@ -91,6 +96,7 @@ Future<XRPCResponse<EmptyData>> deleteSession({
       service: $service,
       retryConfig: $retryConfig,
     ).deleteSession(
+      $unknown: $unknown,
       $headers: $headers,
       $client: $client,
     );
@@ -117,6 +123,7 @@ final class _$Fn {
     required String identifier,
     required String password,
     String? authFactorToken,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -127,6 +134,7 @@ final class _$Fn {
           'identifier': identifier,
           'password': password,
           if (authFactorToken != null) 'authFactorToken': authFactorToken,
+          ...?$unknown,
         },
         to: const CreateSessionOutputConverter().fromJson,
         client: $client,
@@ -137,6 +145,7 @@ final class _$Fn {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
   Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -151,6 +160,7 @@ final class _$Fn {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
   Future<XRPCResponse<EmptyData>> deleteSession({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -173,6 +183,7 @@ final class ServerService {
   Future<XRPCResponse<CreateInviteCodeOutput>> createInviteCode({
     required int useCount,
     String? forAccount,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -182,6 +193,7 @@ final class ServerService {
         body: {
           'useCount': useCount,
           if (forAccount != null) 'forAccount': forAccount,
+          ...?$unknown,
         },
         to: const CreateInviteCodeOutputConverter().fromJson,
         client: $client,
@@ -196,6 +208,7 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/reserveSigningKey
   Future<XRPCResponse<ReserveSigningKeyOutput>> reserveSigningKey({
     String? did,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -204,6 +217,7 @@ final class ServerService {
         headers: $headers,
         body: {
           if (did != null) 'did': did,
+          ...?$unknown,
         },
         to: const ReserveSigningKeyOutputConverter().fromJson,
         client: $client,
@@ -213,6 +227,7 @@ final class ServerService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession
   Future<XRPCResponse<GetSessionOutput>> getSession({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -229,6 +244,7 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth
   Future<XRPCResponse<GetServiceAuthOutput>> getServiceAuth({
     required String aud,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -237,6 +253,7 @@ final class ServerService {
         headers: $headers,
         parameters: {
           'aud': aud,
+          ...?$unknown,
         },
         to: const GetServiceAuthOutputConverter().fromJson,
         client: $client,
@@ -250,6 +267,7 @@ final class ServerService {
     required String did,
     required String password,
     required String token,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -260,6 +278,7 @@ final class ServerService {
           'did': did,
           'password': password,
           'token': token,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -269,6 +288,7 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/revokeAppPassword
   Future<XRPCResponse<EmptyData>> revokeAppPassword({
     required String name,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -277,6 +297,7 @@ final class ServerService {
         headers: $headers,
         body: {
           'name': name,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -286,6 +307,7 @@ final class ServerService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer
   Future<XRPCResponse<DescribeServerOutput>> describeServer({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -309,6 +331,7 @@ final class ServerService {
     String? password,
     String? recoveryKey,
     Map<String, dynamic>? plcOp,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -325,6 +348,7 @@ final class ServerService {
           if (password != null) 'password': password,
           if (recoveryKey != null) 'recoveryKey': recoveryKey,
           if (plcOp != null) 'plcOp': plcOp,
+          ...?$unknown,
         },
         to: const CreateAccountOutputConverter().fromJson,
         client: $client,
@@ -336,6 +360,7 @@ final class ServerService {
   Future<XRPCResponse<AppPassword>> createAppPassword({
     required String name,
     bool? privileged,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -345,6 +370,7 @@ final class ServerService {
         body: {
           'name': name,
           if (privileged != null) 'privileged': privileged,
+          ...?$unknown,
         },
         to: const AppPasswordConverter().fromJson,
         client: $client,
@@ -357,6 +383,7 @@ final class ServerService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
   Future<XRPCResponse<CheckAccountStatusOutput>> checkAccountStatus({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -371,6 +398,7 @@ final class ServerService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailConfirmation
   Future<XRPCResponse<EmptyData>> requestEmailConfirmation({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -384,6 +412,7 @@ final class ServerService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords
   Future<XRPCResponse<ListAppPasswordsOutput>> listAppPasswords({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -401,6 +430,7 @@ final class ServerService {
     required int codeCount,
     required int useCount,
     List<String>? forAccounts,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -411,6 +441,7 @@ final class ServerService {
           'codeCount': codeCount,
           'useCount': useCount,
           if (forAccounts != null) 'forAccounts': forAccounts,
+          ...?$unknown,
         },
         to: const CreateInviteCodesOutputConverter().fromJson,
         client: $client,
@@ -422,6 +453,7 @@ final class ServerService {
   Future<XRPCResponse<EmptyData>> resetPassword({
     required String token,
     required String password,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -431,6 +463,7 @@ final class ServerService {
         body: {
           'token': token,
           'password': password,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -439,6 +472,7 @@ final class ServerService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailUpdate
   Future<XRPCResponse<RequestEmailUpdateOutput>> requestEmailUpdate({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -457,6 +491,7 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/deactivateAccount
   Future<XRPCResponse<EmptyData>> deactivateAccount({
     DateTime? deleteAfter,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -466,6 +501,7 @@ final class ServerService {
         body: {
           if (deleteAfter != null)
             'deleteAfter': _ctx.toUtcIso8601String(deleteAfter),
+          ...?$unknown,
         },
         client: $client,
       );
@@ -476,6 +512,7 @@ final class ServerService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/activateAccount
   Future<XRPCResponse<EmptyData>> activateAccount({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -489,6 +526,7 @@ final class ServerService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestAccountDelete
   Future<XRPCResponse<EmptyData>> requestAccountDelete({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -505,6 +543,7 @@ final class ServerService {
   Future<XRPCResponse<EmptyData>> confirmEmail({
     required String email,
     required String token,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -514,6 +553,7 @@ final class ServerService {
         body: {
           'email': email,
           'token': token,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -525,6 +565,7 @@ final class ServerService {
     required String email,
     bool? emailAuthFactor,
     String? token,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -535,6 +576,7 @@ final class ServerService {
           'email': email,
           if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
           if (token != null) 'token': token,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -544,6 +586,7 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestPasswordReset
   Future<XRPCResponse<EmptyData>> requestPasswordReset({
     required String email,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -552,6 +595,7 @@ final class ServerService {
         headers: $headers,
         body: {
           'email': email,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -562,6 +606,7 @@ final class ServerService {
   Future<XRPCResponse<GetAccountInviteCodesOutput>> getAccountInviteCodes({
     bool? includeUsed,
     bool? createAvailable,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -572,6 +617,7 @@ final class ServerService {
           if (includeUsed != null) 'includeUsed': includeUsed.toString(),
           if (createAvailable != null)
             'createAvailable': createAvailable.toString(),
+          ...?$unknown,
         },
         to: const GetAccountInviteCodesOutputConverter().fromJson,
         client: $client,

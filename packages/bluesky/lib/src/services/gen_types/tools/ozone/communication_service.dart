@@ -37,6 +37,7 @@ final class CommunicationService {
     String? subject,
     String? updatedBy,
     bool? disabled,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -50,6 +51,7 @@ final class CommunicationService {
           if (subject != null) 'subject': subject,
           if (updatedBy != null) 'updatedBy': updatedBy,
           if (disabled != null) 'disabled': disabled,
+          ...?$unknown,
         },
         to: const TemplateViewConverter().fromJson,
         client: $client,
@@ -60,6 +62,7 @@ final class CommunicationService {
   /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/deleteTemplate
   Future<XRPCResponse<EmptyData>> deleteTemplate({
     required String id,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -68,6 +71,7 @@ final class CommunicationService {
         headers: $headers,
         body: {
           'id': id,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -76,6 +80,7 @@ final class CommunicationService {
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/listTemplates
   Future<XRPCResponse<ListTemplatesOutput>> listTemplates({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -95,6 +100,7 @@ final class CommunicationService {
     required String contentMarkdown,
     required String subject,
     String? createdBy,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -106,6 +112,7 @@ final class CommunicationService {
           'contentMarkdown': contentMarkdown,
           'subject': subject,
           if (createdBy != null) 'createdBy': createdBy,
+          ...?$unknown,
         },
         to: const TemplateViewConverter().fromJson,
         client: $client,

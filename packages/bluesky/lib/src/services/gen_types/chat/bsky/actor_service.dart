@@ -29,6 +29,7 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
   Future<XRPCResponse<EmptyData>> exportAccountData({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -40,6 +41,7 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/deleteAccount
   Future<XRPCResponse<EmptyData>> deleteAccount({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -65,6 +67,7 @@ final class DeclarationRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -72,6 +75,7 @@ final class DeclarationRecordHelper {
         collection: ns.chatBskyActorDeclaration,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -83,6 +87,7 @@ final class DeclarationRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -93,6 +98,7 @@ final class DeclarationRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -120,7 +126,6 @@ final class DeclarationRecordHelper {
   /// Deletes declaration record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>

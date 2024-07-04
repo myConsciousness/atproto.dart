@@ -34,6 +34,7 @@ final class TeamService {
     required String did,
     bool? disabled,
     UUpdateMemberRole? role,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -44,6 +45,7 @@ final class TeamService {
           'did': did,
           if (disabled != null) 'disabled': disabled,
           if (role != null) 'role': role.toJson(),
+          ...?$unknown,
         },
         to: const MemberConverter().fromJson,
         client: $client,
@@ -54,6 +56,7 @@ final class TeamService {
   /// https://atprotodart.com/docs/lexicons/tools/ozone/team/deleteMember
   Future<XRPCResponse<EmptyData>> deleteMember({
     required String did,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -62,6 +65,7 @@ final class TeamService {
         headers: $headers,
         body: {
           'did': did,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -72,6 +76,7 @@ final class TeamService {
   Future<XRPCResponse<ListMembersOutput>> listMembers({
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -81,6 +86,7 @@ final class TeamService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const ListMembersOutputConverter().fromJson,
         client: $client,
@@ -92,6 +98,7 @@ final class TeamService {
   Future<XRPCResponse<Member>> addMember({
     required String did,
     required UAddMemberRole role,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -101,6 +108,7 @@ final class TeamService {
         body: {
           'did': did,
           'role': role.toJson(),
+          ...?$unknown,
         },
         to: const MemberConverter().fromJson,
         client: $client,

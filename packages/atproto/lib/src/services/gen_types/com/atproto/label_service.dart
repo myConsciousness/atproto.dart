@@ -33,11 +33,13 @@ final class LabelService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels
   Future<XRPCResponse<Subscription<USubscribeLabelsMessage>>> subscribeLabels({
     int? cursor,
+    Map<String, dynamic>? $unknown,
   }) async =>
       await _ctx.stream(
         ns.comAtprotoLabelSubscribeLabels,
         parameters: {
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         adaptor: subscribeLabelsAdaptor,
         to: const USubscribeLabelsMessageConverter().fromJson,
@@ -53,6 +55,7 @@ final class LabelService {
     List<String>? sources,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -64,6 +67,7 @@ final class LabelService {
           if (sources != null) 'sources': sources,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const QueryLabelsOutputConverter().fromJson,
         client: $client,

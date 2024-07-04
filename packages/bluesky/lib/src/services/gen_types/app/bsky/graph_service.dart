@@ -56,6 +56,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
   Future<XRPCResponse<EmptyData>> unmuteActor({
     required String actor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -64,6 +65,7 @@ final class GraphService {
         headers: $headers,
         body: {
           'actor': actor,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -75,6 +77,7 @@ final class GraphService {
   Future<XRPCResponse<GetBlocksOutput>> getBlocks({
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -84,6 +87,7 @@ final class GraphService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetBlocksOutputConverter().fromJson,
         client: $client,
@@ -95,6 +99,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
   Future<XRPCResponse<EmptyData>> muteActorList({
     required AtUri list,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -103,6 +108,7 @@ final class GraphService {
         headers: $headers,
         body: {
           'list': list.toString(),
+          ...?$unknown,
         },
         client: $client,
       );
@@ -114,6 +120,7 @@ final class GraphService {
   Future<XRPCResponse<GetMutesOutput>> getMutes({
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -123,6 +130,7 @@ final class GraphService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetMutesOutputConverter().fromJson,
         client: $client,
@@ -135,6 +143,7 @@ final class GraphService {
   Future<XRPCResponse<GetListMutesOutput>> getListMutes({
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -144,6 +153,7 @@ final class GraphService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetListMutesOutputConverter().fromJson,
         client: $client,
@@ -156,6 +166,7 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -166,6 +177,7 @@ final class GraphService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetActorStarterPacksOutputConverter().fromJson,
         client: $client,
@@ -185,6 +197,7 @@ final class GraphService {
   Future<XRPCResponse<GetSuggestedFollowsByActorOutput>>
       getSuggestedFollowsByActor({
     required String actor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -193,6 +206,7 @@ final class GraphService {
             headers: $headers,
             parameters: {
               'actor': actor,
+              ...?$unknown,
             },
             to: const GetSuggestedFollowsByActorOutputConverter().fromJson,
             client: $client,
@@ -203,6 +217,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPack
   Future<XRPCResponse<GetStarterPackOutput>> getStarterPack({
     required AtUri starterPack,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -211,6 +226,7 @@ final class GraphService {
         headers: $headers,
         parameters: {
           'starterPack': starterPack.toString(),
+          ...?$unknown,
         },
         to: const GetStarterPackOutputConverter().fromJson,
         client: $client,
@@ -223,6 +239,7 @@ final class GraphService {
   Future<XRPCResponse<GetRelationshipsOutput>> getRelationships({
     required String actor,
     List<String>? others,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -232,6 +249,7 @@ final class GraphService {
         parameters: {
           'actor': actor,
           if (others != null) 'others': others,
+          ...?$unknown,
         },
         to: const GetRelationshipsOutputConverter().fromJson,
         client: $client,
@@ -242,6 +260,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPacks
   Future<XRPCResponse<GetStarterPacksOutput>> getStarterPacks({
     required List<AtUri> uris,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -250,6 +269,7 @@ final class GraphService {
         headers: $headers,
         parameters: {
           'uris': uris.map((e) => e.toString()).toList(),
+          ...?$unknown,
         },
         to: const GetStarterPacksOutputConverter().fromJson,
         client: $client,
@@ -268,6 +288,7 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -278,6 +299,7 @@ final class GraphService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetFollowersOutputConverter().fromJson,
         client: $client,
@@ -289,6 +311,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor
   Future<XRPCResponse<EmptyData>> muteActor({
     required String actor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -297,6 +320,7 @@ final class GraphService {
         headers: $headers,
         body: {
           'actor': actor,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -312,6 +336,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
   Future<XRPCResponse<EmptyData>> unmuteActorList({
     required AtUri list,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -320,6 +345,7 @@ final class GraphService {
         headers: $headers,
         body: {
           'list': list.toString(),
+          ...?$unknown,
         },
         client: $client,
       );
@@ -332,6 +358,7 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -342,6 +369,7 @@ final class GraphService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetKnownFollowersOutputConverter().fromJson,
         client: $client,
@@ -352,6 +380,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteThread
   Future<XRPCResponse<EmptyData>> unmuteThread({
     required AtUri root,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -360,6 +389,7 @@ final class GraphService {
         headers: $headers,
         body: {
           'root': root.toString(),
+          ...?$unknown,
         },
         client: $client,
       );
@@ -388,6 +418,7 @@ final class GraphService {
     required AtUri list,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -398,6 +429,7 @@ final class GraphService {
           'list': list.toString(),
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetListOutputConverter().fromJson,
         client: $client,
@@ -410,6 +442,7 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -420,6 +453,7 @@ final class GraphService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetListsOutputConverter().fromJson,
         client: $client,
@@ -432,6 +466,7 @@ final class GraphService {
   Future<XRPCResponse<GetListBlocksOutput>> getListBlocks({
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -441,6 +476,7 @@ final class GraphService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetListBlocksOutputConverter().fromJson,
         client: $client,
@@ -452,6 +488,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteThread
   Future<XRPCResponse<EmptyData>> muteThread({
     required AtUri root,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -460,6 +497,7 @@ final class GraphService {
         headers: $headers,
         body: {
           'root': root.toString(),
+          ...?$unknown,
         },
         client: $client,
       );
@@ -471,6 +509,7 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -481,6 +520,7 @@ final class GraphService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetFollowsOutputConverter().fromJson,
         client: $client,
@@ -497,6 +537,7 @@ final class ListblockRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -504,6 +545,7 @@ final class ListblockRecordHelper {
         collection: ns.appBskyGraphListblock,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -515,6 +557,7 @@ final class ListblockRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -525,6 +568,7 @@ final class ListblockRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -553,7 +597,6 @@ final class ListblockRecordHelper {
   /// Deletes listblock record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -568,6 +611,7 @@ final class ListblockRecordHelper {
   /// Creates listblock records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ListblockRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -618,6 +662,7 @@ final class ListitemRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -625,6 +670,7 @@ final class ListitemRecordHelper {
         collection: ns.appBskyGraphListitem,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -636,6 +682,7 @@ final class ListitemRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -646,6 +693,7 @@ final class ListitemRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -676,7 +724,6 @@ final class ListitemRecordHelper {
   /// Deletes listitem record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -691,6 +738,7 @@ final class ListitemRecordHelper {
   /// Creates listitem records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ListitemRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -742,6 +790,7 @@ final class FollowRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -749,6 +798,7 @@ final class FollowRecordHelper {
         collection: ns.appBskyGraphFollow,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -760,6 +810,7 @@ final class FollowRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -770,6 +821,7 @@ final class FollowRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -798,7 +850,6 @@ final class FollowRecordHelper {
   /// Deletes follow record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -813,6 +864,7 @@ final class FollowRecordHelper {
   /// Creates follow records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<FollowRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -863,6 +915,7 @@ final class BlockRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -870,6 +923,7 @@ final class BlockRecordHelper {
         collection: ns.appBskyGraphBlock,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -881,6 +935,7 @@ final class BlockRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -891,6 +946,7 @@ final class BlockRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -919,7 +975,6 @@ final class BlockRecordHelper {
   /// Deletes block record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -934,6 +989,7 @@ final class BlockRecordHelper {
   /// Creates block records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<BlockRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -984,6 +1040,7 @@ final class ListRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -991,6 +1048,7 @@ final class ListRecordHelper {
         collection: ns.appBskyGraphList,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -1002,6 +1060,7 @@ final class ListRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -1012,6 +1071,7 @@ final class ListRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -1052,7 +1112,6 @@ final class ListRecordHelper {
   /// Deletes list record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -1067,6 +1126,7 @@ final class ListRecordHelper {
   /// Creates list records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ListRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -1124,6 +1184,7 @@ final class StarterpackRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -1131,6 +1192,7 @@ final class StarterpackRecordHelper {
         collection: ns.appBskyGraphStarterpack,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -1142,6 +1204,7 @@ final class StarterpackRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -1152,6 +1215,7 @@ final class StarterpackRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -1190,7 +1254,6 @@ final class StarterpackRecordHelper {
   /// Deletes starterpack record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -1205,6 +1268,7 @@ final class StarterpackRecordHelper {
   /// Creates starterpack records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<StarterpackRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>

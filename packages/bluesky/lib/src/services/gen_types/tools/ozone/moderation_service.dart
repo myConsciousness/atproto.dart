@@ -37,6 +37,7 @@ final class ModerationService {
   /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getEvent
   Future<XRPCResponse<ModEventViewDetail>> getEvent({
     required int id,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -45,6 +46,7 @@ final class ModerationService {
         headers: $headers,
         parameters: {
           'id': id.toString(),
+          ...?$unknown,
         },
         to: const ModEventViewDetailConverter().fromJson,
         client: $client,
@@ -58,6 +60,7 @@ final class ModerationService {
     required UEmitEventSubject subject,
     List<String>? subjectBlobCids,
     required String createdBy,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -69,6 +72,7 @@ final class ModerationService {
           'subject': subject.toJson(),
           if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
           'createdBy': createdBy,
+          ...?$unknown,
         },
         to: const ModEventViewConverter().fromJson,
         client: $client,
@@ -80,6 +84,7 @@ final class ModerationService {
   Future<XRPCResponse<RecordViewDetail>> getRecord({
     required AtUri uri,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -89,6 +94,7 @@ final class ModerationService {
         parameters: {
           'uri': uri.toString(),
           if (cid != null) 'cid': cid,
+          ...?$unknown,
         },
         to: const RecordViewDetailConverter().fromJson,
         client: $client,
@@ -117,6 +123,7 @@ final class ModerationService {
     List<String>? tags,
     List<String>? excludeTags,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -147,6 +154,7 @@ final class ModerationService {
           if (tags != null) 'tags': tags,
           if (excludeTags != null) 'excludeTags': excludeTags,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const QueryStatusesOutputConverter().fromJson,
         client: $client,
@@ -157,6 +165,7 @@ final class ModerationService {
   /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getRepo
   Future<XRPCResponse<RepoViewDetail>> getRepo({
     required String did,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -165,6 +174,7 @@ final class ModerationService {
         headers: $headers,
         parameters: {
           'did': did,
+          ...?$unknown,
         },
         to: const RepoViewDetailConverter().fromJson,
         client: $client,
@@ -178,6 +188,7 @@ final class ModerationService {
     String? q,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -189,6 +200,7 @@ final class ModerationService {
           if (q != null) 'q': q,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const SearchReposOutputConverter().fromJson,
         client: $client,
@@ -214,6 +226,7 @@ final class ModerationService {
     List<String>? removedTags,
     List<String>? reportTypes,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -240,6 +253,7 @@ final class ModerationService {
           if (removedTags != null) 'removedTags': removedTags,
           if (reportTypes != null) 'reportTypes': reportTypes,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const QueryEventsOutputConverter().fromJson,
         client: $client,

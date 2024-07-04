@@ -28,6 +28,7 @@ final class ServerService {
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/server/getConfig
   Future<XRPCResponse<GetConfigOutput>> getConfig({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>

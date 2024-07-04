@@ -62,6 +62,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
   Future<XRPCResponse<GetPostsOutput>> getPosts({
     required List<AtUri> uris,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -70,6 +71,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'uris': uris.map((e) => e.toString()).toList(),
+          ...?$unknown,
         },
         to: const GetPostsOutputConverter().fromJson,
         client: $client,
@@ -83,6 +85,7 @@ final class FeedService {
     String? algorithm,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -93,6 +96,7 @@ final class FeedService {
           if (algorithm != null) 'algorithm': algorithm,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetTimelineOutputConverter().fromJson,
         client: $client,
@@ -106,6 +110,7 @@ final class FeedService {
     required AtUri feed,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -116,6 +121,7 @@ final class FeedService {
           'feed': feed.toString(),
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetFeedOutputConverter().fromJson,
         client: $client,
@@ -129,6 +135,7 @@ final class FeedService {
     String? cid,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -140,6 +147,7 @@ final class FeedService {
           if (cid != null) 'cid': cid,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetLikesOutputConverter().fromJson,
         client: $client,
@@ -153,6 +161,7 @@ final class FeedService {
     String? cid,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -164,6 +173,7 @@ final class FeedService {
           if (cid != null) 'cid': cid,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetRepostedByOutputConverter().fromJson,
         client: $client,
@@ -177,6 +187,7 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -187,6 +198,7 @@ final class FeedService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetActorFeedsOutputConverter().fromJson,
         client: $client,
@@ -199,6 +211,7 @@ final class FeedService {
   Future<XRPCResponse<GetSuggestedFeedsOutput>> getSuggestedFeeds({
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -208,6 +221,7 @@ final class FeedService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetSuggestedFeedsOutputConverter().fromJson,
         client: $client,
@@ -226,6 +240,7 @@ final class FeedService {
     required AtUri uri,
     int? depth,
     int? parentHeight,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -236,6 +251,7 @@ final class FeedService {
           'uri': uri.toString(),
           if (depth != null) 'depth': depth.toString(),
           if (parentHeight != null) 'parentHeight': parentHeight.toString(),
+          ...?$unknown,
         },
         to: const GetPostThreadOutputConverter().fromJson,
         client: $client,
@@ -258,6 +274,7 @@ final class FeedService {
     List<String>? tag,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -277,6 +294,7 @@ final class FeedService {
           if (tag != null) 'tag': tag,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const SearchPostsOutputConverter().fromJson,
         client: $client,
@@ -288,6 +306,7 @@ final class FeedService {
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
   Future<XRPCResponse<DescribeFeedGeneratorOutput>> describeFeedGenerator({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -305,6 +324,7 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -315,6 +335,7 @@ final class FeedService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetActorLikesOutputConverter().fromJson,
         client: $client,
@@ -326,6 +347,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/sendInteractions
   Future<XRPCResponse<EmptyData>> sendInteractions({
     required List<Interaction> interactions,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -334,6 +356,7 @@ final class FeedService {
         headers: $headers,
         body: {
           'interactions': interactions.map((e) => e.toJson()).toList(),
+          ...?$unknown,
         },
         client: $client,
       );
@@ -347,6 +370,7 @@ final class FeedService {
     int? limit,
     String? cursor,
     UGetAuthorFeedFilter? filter,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -358,6 +382,7 @@ final class FeedService {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           if (filter != null) 'filter': filter.toJson(),
+          ...?$unknown,
         },
         to: const GetAuthorFeedOutputConverter().fromJson,
         client: $client,
@@ -368,6 +393,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
   Future<XRPCResponse<GetFeedGeneratorOutput>> getFeedGenerator({
     required AtUri feed,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -376,6 +402,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'feed': feed.toString(),
+          ...?$unknown,
         },
         to: const GetFeedGeneratorOutputConverter().fromJson,
         client: $client,
@@ -411,6 +438,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators
   Future<XRPCResponse<GetFeedGeneratorsOutput>> getFeedGenerators({
     required List<AtUri> feeds,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -419,6 +447,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'feeds': feeds.map((e) => e.toString()).toList(),
+          ...?$unknown,
         },
         to: const GetFeedGeneratorsOutputConverter().fromJson,
         client: $client,
@@ -432,6 +461,7 @@ final class FeedService {
     required AtUri list,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -442,6 +472,7 @@ final class FeedService {
           'list': list.toString(),
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetListFeedOutputConverter().fromJson,
         client: $client,
@@ -456,6 +487,7 @@ final class FeedService {
     required AtUri feed,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -466,6 +498,7 @@ final class FeedService {
           'feed': feed.toString(),
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetFeedSkeletonOutputConverter().fromJson,
         client: $client,
@@ -482,6 +515,7 @@ final class RepostRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -489,6 +523,7 @@ final class RepostRecordHelper {
         collection: ns.appBskyFeedRepost,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -500,6 +535,7 @@ final class RepostRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -510,6 +546,7 @@ final class RepostRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -538,7 +575,6 @@ final class RepostRecordHelper {
   /// Deletes repost record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -553,6 +589,7 @@ final class RepostRecordHelper {
   /// Creates repost records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<RepostRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -603,6 +640,7 @@ final class ThreadgateRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -610,6 +648,7 @@ final class ThreadgateRecordHelper {
         collection: ns.appBskyFeedThreadgate,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -621,6 +660,7 @@ final class ThreadgateRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -631,6 +671,7 @@ final class ThreadgateRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -662,7 +703,6 @@ final class ThreadgateRecordHelper {
   /// Deletes threadgate record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -685,6 +725,7 @@ final class LikeRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -692,6 +733,7 @@ final class LikeRecordHelper {
         collection: ns.appBskyFeedLike,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -703,6 +745,7 @@ final class LikeRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -713,6 +756,7 @@ final class LikeRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -741,7 +785,6 @@ final class LikeRecordHelper {
   /// Deletes like record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -756,6 +799,7 @@ final class LikeRecordHelper {
   /// Creates like records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<LikeRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -806,6 +850,7 @@ final class PostRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -813,6 +858,7 @@ final class PostRecordHelper {
         collection: ns.appBskyFeedPost,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -824,6 +870,7 @@ final class PostRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -834,6 +881,7 @@ final class PostRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -874,7 +922,6 @@ final class PostRecordHelper {
   /// Deletes post record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -889,6 +936,7 @@ final class PostRecordHelper {
   /// Creates post records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<PostRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -946,6 +994,7 @@ final class GeneratorRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -953,6 +1002,7 @@ final class GeneratorRecordHelper {
         collection: ns.appBskyFeedGenerator,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -964,6 +1014,7 @@ final class GeneratorRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -974,6 +1025,7 @@ final class GeneratorRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -1017,7 +1069,6 @@ final class GeneratorRecordHelper {
   /// Deletes generator record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -1032,6 +1083,7 @@ final class GeneratorRecordHelper {
   /// Creates generator records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<GeneratorRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>

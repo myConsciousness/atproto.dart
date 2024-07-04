@@ -37,6 +37,7 @@ final class LabelerService {
   Future<XRPCResponse<GetServicesOutput>> getServices({
     required List<String> dids,
     bool? detailed,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -46,6 +47,7 @@ final class LabelerService {
         parameters: {
           'dids': dids,
           if (detailed != null) 'detailed': detailed.toString(),
+          ...?$unknown,
         },
         to: const GetServicesOutputConverter().fromJson,
         client: $client,
@@ -67,6 +69,7 @@ final class ServiceRecordHelper {
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
     String? cid,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -74,6 +77,7 @@ final class ServiceRecordHelper {
         collection: ns.appBskyLabelerService,
         rkey: rkey,
         cid: cid,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -85,6 +89,7 @@ final class ServiceRecordHelper {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -95,6 +100,7 @@ final class ServiceRecordHelper {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         reverse: reverse,
+        $unknown: $unknown,
         $headers: $headers,
         $client: $client,
       );
@@ -126,7 +132,6 @@ final class ServiceRecordHelper {
   /// Deletes service record.
   Future<XRPCResponse<EmptyData>> delete({
     required String rkey,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -141,6 +146,7 @@ final class ServiceRecordHelper {
   /// Creates service records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ServiceRecord> records, {
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>

@@ -40,6 +40,7 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/muteConvo
   Future<XRPCResponse<MuteConvoOutput>> muteConvo({
     required String convoId,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -48,6 +49,7 @@ final class ConvoService {
         headers: $headers,
         body: {
           'convoId': convoId,
+          ...?$unknown,
         },
         to: const MuteConvoOutputConverter().fromJson,
         client: $client,
@@ -56,6 +58,7 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers
   Future<XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers({
     required List<String> members,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -64,6 +67,7 @@ final class ConvoService {
         headers: $headers,
         parameters: {
           'members': members,
+          ...?$unknown,
         },
         to: const GetConvoForMembersOutputConverter().fromJson,
         client: $client,
@@ -73,6 +77,7 @@ final class ConvoService {
   Future<XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
     required String convoId,
     required String messageId,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -82,6 +87,7 @@ final class ConvoService {
         body: {
           'convoId': convoId,
           'messageId': messageId,
+          ...?$unknown,
         },
         to: const DeletedMessageViewConverter().fromJson,
         client: $client,
@@ -91,6 +97,7 @@ final class ConvoService {
   Future<XRPCResponse<ListConvosOutput>> listConvos({
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -100,6 +107,7 @@ final class ConvoService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const ListConvosOutputConverter().fromJson,
         client: $client,
@@ -110,6 +118,7 @@ final class ConvoService {
     required String convoId,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -120,6 +129,7 @@ final class ConvoService {
           'convoId': convoId,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetMessagesOutputConverter().fromJson,
         client: $client,
@@ -128,6 +138,7 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch
   Future<XRPCResponse<SendMessageBatchOutput>> sendMessageBatch({
     required List<BatchItem> items,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -136,6 +147,7 @@ final class ConvoService {
         headers: $headers,
         body: {
           'items': items.map((e) => e.toJson()).toList(),
+          ...?$unknown,
         },
         to: const SendMessageBatchOutputConverter().fromJson,
         client: $client,
@@ -145,6 +157,7 @@ final class ConvoService {
   Future<XRPCResponse<MessageView>> sendMessage({
     required String convoId,
     required MessageInput message,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -154,6 +167,7 @@ final class ConvoService {
         body: {
           'convoId': convoId,
           'message': message.toJson(),
+          ...?$unknown,
         },
         to: const MessageViewConverter().fromJson,
         client: $client,
@@ -162,6 +176,7 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvo
   Future<XRPCResponse<GetConvoOutput>> getConvo({
     required String convoId,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -170,6 +185,7 @@ final class ConvoService {
         headers: $headers,
         parameters: {
           'convoId': convoId,
+          ...?$unknown,
         },
         to: const GetConvoOutputConverter().fromJson,
         client: $client,
@@ -179,6 +195,7 @@ final class ConvoService {
   Future<XRPCResponse<UpdateReadOutput>> updateRead({
     required String convoId,
     String? messageId,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -188,6 +205,7 @@ final class ConvoService {
         body: {
           'convoId': convoId,
           if (messageId != null) 'messageId': messageId,
+          ...?$unknown,
         },
         to: const UpdateReadOutputConverter().fromJson,
         client: $client,
@@ -196,6 +214,7 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog
   Future<XRPCResponse<GetLogOutput>> getLog({
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -204,6 +223,7 @@ final class ConvoService {
         headers: $headers,
         parameters: {
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetLogOutputConverter().fromJson,
         client: $client,
@@ -212,6 +232,7 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
   Future<XRPCResponse<UnmuteConvoOutput>> unmuteConvo({
     required String convoId,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -220,6 +241,7 @@ final class ConvoService {
         headers: $headers,
         body: {
           'convoId': convoId,
+          ...?$unknown,
         },
         to: const UnmuteConvoOutputConverter().fromJson,
         client: $client,
@@ -228,6 +250,7 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo
   Future<XRPCResponse<LeaveConvoOutput>> leaveConvo({
     required String convoId,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -236,6 +259,7 @@ final class ConvoService {
         headers: $headers,
         body: {
           'convoId': convoId,
+          ...?$unknown,
         },
         to: const LeaveConvoOutputConverter().fromJson,
         client: $client,

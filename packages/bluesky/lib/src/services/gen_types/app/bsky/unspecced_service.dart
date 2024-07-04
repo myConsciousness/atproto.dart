@@ -46,6 +46,7 @@ final class UnspeccedService {
     String? viewer,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -66,6 +67,7 @@ final class UnspeccedService {
           if (viewer != null) 'viewer': viewer,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const SearchPostsSkeletonOutputConverter().fromJson,
         client: $client,
@@ -79,6 +81,7 @@ final class UnspeccedService {
     int? limit,
     String? cursor,
     String? query,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -89,6 +92,7 @@ final class UnspeccedService {
               if (limit != null) 'limit': limit.toString(),
               if (cursor != null) 'cursor': cursor,
               if (query != null) 'query': query,
+              ...?$unknown,
             },
             to: const GetPopularFeedGeneratorsOutputConverter().fromJson,
             client: $client,
@@ -102,6 +106,7 @@ final class UnspeccedService {
     String? viewer,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -112,6 +117,7 @@ final class UnspeccedService {
           if (viewer != null) 'viewer': viewer,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetSuggestionsSkeletonOutputConverter().fromJson,
         client: $client,
@@ -122,6 +128,7 @@ final class UnspeccedService {
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
   Future<XRPCResponse<GetTaggedSuggestionsOutput>> getTaggedSuggestions({
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -141,6 +148,7 @@ final class UnspeccedService {
     bool? typeahead,
     int? limit,
     String? cursor,
+    Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -153,6 +161,7 @@ final class UnspeccedService {
           if (typeahead != null) 'typeahead': typeahead.toString(),
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const SearchActorsSkeletonOutputConverter().fromJson,
         client: $client,
