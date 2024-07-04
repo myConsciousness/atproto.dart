@@ -496,23 +496,35 @@ final class ListblockRecordHelper {
   /// Returns listblock record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
+    String? cid,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.appBskyGraphListblock,
         rkey: rkey,
+        cid: cid,
         $headers: $headers,
         $client: $client,
       );
 
   /// Returns listblock records.
   Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.listRecords(
         collection: ns.appBskyGraphListblock,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
         $headers: $headers,
         $client: $client,
       );
@@ -553,6 +565,7 @@ final class ListblockRecordHelper {
         $client: $client,
       );
 
+  /// Creates listblock records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ListblockRecord> records, {
     Map<String, String>? $headers,
@@ -575,6 +588,7 @@ final class ListblockRecordHelper {
         $client: $client,
       );
 
+  /// Deletes listblock records in bulk.
   Future<XRPCResponse<EmptyData>> deleteInBulk(
     final List<String> rkeys, {
     Map<String, String>? $headers,
@@ -603,23 +617,35 @@ final class ListitemRecordHelper {
   /// Returns listitem record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
+    String? cid,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.appBskyGraphListitem,
         rkey: rkey,
+        cid: cid,
         $headers: $headers,
         $client: $client,
       );
 
   /// Returns listitem records.
   Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.listRecords(
         collection: ns.appBskyGraphListitem,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
         $headers: $headers,
         $client: $client,
       );
@@ -662,6 +688,7 @@ final class ListitemRecordHelper {
         $client: $client,
       );
 
+  /// Creates listitem records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ListitemRecord> records, {
     Map<String, String>? $headers,
@@ -685,6 +712,7 @@ final class ListitemRecordHelper {
         $client: $client,
       );
 
+  /// Deletes listitem records in bulk.
   Future<XRPCResponse<EmptyData>> deleteInBulk(
     final List<String> rkeys, {
     Map<String, String>? $headers,
@@ -713,23 +741,35 @@ final class FollowRecordHelper {
   /// Returns follow record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
+    String? cid,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.appBskyGraphFollow,
         rkey: rkey,
+        cid: cid,
         $headers: $headers,
         $client: $client,
       );
 
   /// Returns follow records.
   Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.listRecords(
         collection: ns.appBskyGraphFollow,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
         $headers: $headers,
         $client: $client,
       );
@@ -770,6 +810,7 @@ final class FollowRecordHelper {
         $client: $client,
       );
 
+  /// Creates follow records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<FollowRecord> records, {
     Map<String, String>? $headers,
@@ -792,6 +833,7 @@ final class FollowRecordHelper {
         $client: $client,
       );
 
+  /// Deletes follow records in bulk.
   Future<XRPCResponse<EmptyData>> deleteInBulk(
     final List<String> rkeys, {
     Map<String, String>? $headers,
@@ -820,23 +862,35 @@ final class BlockRecordHelper {
   /// Returns block record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
+    String? cid,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.appBskyGraphBlock,
         rkey: rkey,
+        cid: cid,
         $headers: $headers,
         $client: $client,
       );
 
   /// Returns block records.
   Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.listRecords(
         collection: ns.appBskyGraphBlock,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
         $headers: $headers,
         $client: $client,
       );
@@ -877,6 +931,7 @@ final class BlockRecordHelper {
         $client: $client,
       );
 
+  /// Creates block records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<BlockRecord> records, {
     Map<String, String>? $headers,
@@ -899,6 +954,7 @@ final class BlockRecordHelper {
         $client: $client,
       );
 
+  /// Deletes block records in bulk.
   Future<XRPCResponse<EmptyData>> deleteInBulk(
     final List<String> rkeys, {
     Map<String, String>? $headers,
@@ -927,23 +983,35 @@ final class ListRecordHelper {
   /// Returns list record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
+    String? cid,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.appBskyGraphList,
         rkey: rkey,
+        cid: cid,
         $headers: $headers,
         $client: $client,
       );
 
   /// Returns list records.
   Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.listRecords(
         collection: ns.appBskyGraphList,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
         $headers: $headers,
         $client: $client,
       );
@@ -996,6 +1064,7 @@ final class ListRecordHelper {
         $client: $client,
       );
 
+  /// Creates list records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ListRecord> records, {
     Map<String, String>? $headers,
@@ -1025,6 +1094,7 @@ final class ListRecordHelper {
         $client: $client,
       );
 
+  /// Deletes list records in bulk.
   Future<XRPCResponse<EmptyData>> deleteInBulk(
     final List<String> rkeys, {
     Map<String, String>? $headers,
@@ -1053,23 +1123,35 @@ final class StarterpackRecordHelper {
   /// Returns starterpack record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
+    String? cid,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.appBskyGraphStarterpack,
         rkey: rkey,
+        cid: cid,
         $headers: $headers,
         $client: $client,
       );
 
   /// Returns starterpack records.
   Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.listRecords(
         collection: ns.appBskyGraphStarterpack,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
         $headers: $headers,
         $client: $client,
       );
@@ -1120,6 +1202,7 @@ final class StarterpackRecordHelper {
         $client: $client,
       );
 
+  /// Creates starterpack records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<StarterpackRecord> records, {
     Map<String, String>? $headers,
@@ -1149,6 +1232,7 @@ final class StarterpackRecordHelper {
         $client: $client,
       );
 
+  /// Deletes starterpack records in bulk.
   Future<XRPCResponse<EmptyData>> deleteInBulk(
     final List<String> rkeys, {
     Map<String, String>? $headers,

@@ -66,23 +66,35 @@ final class ServiceRecordHelper {
   /// Returns service record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
+    String? cid,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.appBskyLabelerService,
         rkey: rkey,
+        cid: cid,
         $headers: $headers,
         $client: $client,
       );
 
   /// Returns service records.
   Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.listRecords(
         collection: ns.appBskyLabelerService,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
         $headers: $headers,
         $client: $client,
       );
@@ -126,6 +138,7 @@ final class ServiceRecordHelper {
         $client: $client,
       );
 
+  /// Creates service records in bulk.
   Future<XRPCResponse<EmptyData>> createInBulk(
     final List<ServiceRecord> records, {
     Map<String, String>? $headers,
@@ -149,6 +162,7 @@ final class ServiceRecordHelper {
         $client: $client,
       );
 
+  /// Deletes service records in bulk.
   Future<XRPCResponse<EmptyData>> deleteInBulk(
     final List<String> rkeys, {
     Map<String, String>? $headers,

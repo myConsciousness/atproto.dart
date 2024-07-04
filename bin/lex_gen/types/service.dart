@@ -410,12 +410,14 @@ final class LexServiceEndpoint {
     buffer.writeln('  /// Returns $name record associated with [rkey].');
     buffer.writeln('  Future<XRPCResponse<GetRecordOutput>> get({');
     buffer.writeln('    required String rkey,');
+    buffer.writeln('    String? cid,');
     buffer.writeln('    Map<String, String>? \$headers,');
     buffer.writeln('    PostClient? \$client,');
     buffer.writeln('  }) async =>');
     buffer.writeln('    await _ctx.atproto.repo.getRecord(');
     buffer.writeln('      collection: ns.$namespace,');
     buffer.writeln('      rkey: rkey,');
+    buffer.writeln('      cid: cid,');
     buffer.writeln('      \$headers: \$headers,');
     buffer.writeln('      \$client: \$client,');
     buffer.writeln('    );');
@@ -424,11 +426,21 @@ final class LexServiceEndpoint {
     buffer.writeln();
     buffer.writeln('  /// Returns $name records.');
     buffer.writeln('  Future<XRPCResponse<ListRecordsOutput>> list({');
+    buffer.writeln('    int? limit,');
+    buffer.writeln('    String? cursor,');
+    buffer.writeln('    String? rkeyStart,');
+    buffer.writeln('    String? rkeyEnd,');
+    buffer.writeln('    bool? reverse,');
     buffer.writeln('    Map<String, String>? \$headers,');
     buffer.writeln('    PostClient? \$client,');
     buffer.writeln('  }) async =>');
     buffer.writeln('    await _ctx.atproto.repo.listRecords(');
     buffer.writeln('      collection: ns.$namespace,');
+    buffer.writeln('      limit: limit,');
+    buffer.writeln('      cursor: cursor,');
+    buffer.writeln('      rkeyStart: rkeyStart,');
+    buffer.writeln('      rkeyEnd: rkeyEnd,');
+    buffer.writeln('      reverse: reverse,');
     buffer.writeln('      \$headers: \$headers,');
     buffer.writeln('      \$client: \$client,');
     buffer.writeln('    );');
@@ -527,6 +539,7 @@ final class LexServiceEndpoint {
     final buffer = StringBuffer();
 
     // Create
+    buffer.writeln('/// Creates $name records in bulk.');
     buffer.writeln(
         '  Future<XRPCResponse<EmptyData>> createInBulk(final List<${toFirstUpper(name)}Record> records, {');
     buffer.writeln('    Map<String, String>? \$headers,');
@@ -552,6 +565,7 @@ final class LexServiceEndpoint {
 
     // Delete
     buffer.writeln();
+    buffer.writeln('/// Deletes $name records in bulk.');
     buffer.writeln(
         '  Future<XRPCResponse<EmptyData>> deleteInBulk(final List<String> rkeys, {');
     buffer.writeln('    Map<String, String>? \$headers,');

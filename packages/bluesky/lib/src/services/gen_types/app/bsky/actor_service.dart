@@ -189,23 +189,35 @@ final class ProfileRecordHelper {
   /// Returns profile record associated with [rkey].
   Future<XRPCResponse<GetRecordOutput>> get({
     required String rkey,
+    String? cid,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.getRecord(
         collection: ns.appBskyActorProfile,
         rkey: rkey,
+        cid: cid,
         $headers: $headers,
         $client: $client,
       );
 
   /// Returns profile records.
   Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.listRecords(
         collection: ns.appBskyActorProfile,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
         $headers: $headers,
         $client: $client,
       );
