@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/ids.dart';
-import 'package:bluesky/src/services/extensions/graph_service.dart';
+import 'package:bluesky/src/services/extensions/list_record_helper.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/block/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/defs/known_list_purpose.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/follow/record.dart';

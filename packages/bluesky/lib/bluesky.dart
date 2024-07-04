@@ -107,10 +107,6 @@ export 'package:bluesky/src/services/entities/labeler_services.dart';
 export 'package:bluesky/src/services/entities/labeler_service_record.dart';
 export 'package:bluesky/src/services/entities/feed_interaction.dart';
 export 'package:bluesky/src/services/entities/suggestions_skeleton.dart';
-export 'package:bluesky/src/services/extensions/grouped_notification.dart';
-export 'package:bluesky/src/services/extensions/at_uri.dart';
-export 'package:bluesky/src/services/extensions/blob.dart';
-export 'package:bluesky/src/services/extensions/strong_ref.dart';
 export 'package:bluesky/src/services/constants/notification_reason.dart';
 export 'package:bluesky/src/services/utils/notification_reason_filter.dart'
     show NotificationReasonFilter;
@@ -122,3 +118,10 @@ export 'package:bluesky/src/services/gen_types/app/bsky/labeler_service.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/feed_service.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/graph_service.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/notification_service.dart';
+
+export 'package:bluesky/src/services/extensions/at_uri.dart';
+export 'package:bluesky/src/services/extensions/blob.dart';
+export 'package:bluesky/src/services/extensions/grouped_notification.dart';
+export 'package:bluesky/src/services/extensions/list_record_helper.dart';
+export 'package:bluesky/src/services/extensions/notification.dart';
+export 'package:bluesky/src/services/extensions/strong_ref.dart';
