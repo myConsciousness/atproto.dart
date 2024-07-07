@@ -224,6 +224,8 @@ final class LexTypesGen {
       filePath: filePath,
     );
 
+    if (!filePath.replaceAll('/', '.').startsWith(docId.toString())) return;
+
     if (exports.containsKey(docId)) {
       exports[docId]!.add(export);
     } else {
