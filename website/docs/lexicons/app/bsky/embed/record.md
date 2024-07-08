@@ -15,7 +15,7 @@ description: app.bsky.embed.record
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **record** | union of <br/>[#viewRecord](#viewrecord)<br/>[#viewNotFound](#viewnotfound)<br/>[#viewBlocked](#viewblocked)<br/>[app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview)<br/>[app.bsky.graph.defs#listView](../../../../lexicons/app/bsky/graph/defs.md#listview)<br/>[app.bsky.labeler.defs#labelerView](../../../../lexicons/app/bsky/labeler/defs.md#labelerview) | - | ✅ | - |
+| **record** | union of <br/>[#viewRecord](#viewrecord)<br/>[#viewNotFound](#viewnotfound)<br/>[#viewBlocked](#viewblocked)<br/>[app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview)<br/>[app.bsky.graph.defs#listView](../../../../lexicons/app/bsky/graph/defs.md#listview)<br/>[app.bsky.labeler.defs#labelerView](../../../../lexicons/app/bsky/labeler/defs.md#labelerview)<br/>[app.bsky.graph.defs#starterPackViewBasic](../../../../lexicons/app/bsky/graph/defs.md#starterpackviewbasic) | - | ✅ | - |
 
 ## #viewRecord
 
