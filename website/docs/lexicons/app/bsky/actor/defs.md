@@ -97,7 +97,7 @@ The subject's followers whom you also follow
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref)<br/>[#bskyAppStatePref](#bskyappstatepref) | - | ❌ | - |
+| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref)<br/>[#bskyAppStatePref](#bskyappstatepref)<br/>[#labelersPref](#labelerspref) | - | ❌ | - |
 
 ## #adultContentPref
 
