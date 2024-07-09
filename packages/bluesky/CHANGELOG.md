@@ -1,5 +1,9 @@
 # Release Note
 
+## 1.0.0-preview.2
+
+- Optimize exports.
+
 ## 1.0.0-preview.1
 
 - Fix preview version of `atproto`.
