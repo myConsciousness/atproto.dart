@@ -70,7 +70,7 @@ final class NotificationService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
+          if (seenAt != null) 'seenAt': iso8601(seenAt),
           ...?$unknown,
         },
         to: const ListNotificationsOutputConverter().fromJson,
@@ -91,7 +91,7 @@ final class NotificationService {
         ns.appBskyNotificationUpdateSeen,
         headers: $headers,
         body: {
-          'seenAt': _ctx.toUtcIso8601String(seenAt),
+          'seenAt': iso8601(seenAt),
           ...?$unknown,
         },
         client: $client,
@@ -111,7 +111,7 @@ final class NotificationService {
         ns.appBskyNotificationGetUnreadCount,
         headers: $headers,
         parameters: {
-          if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
+          if (seenAt != null) 'seenAt': iso8601(seenAt),
           ...?$unknown,
         },
         to: const GetUnreadCountOutputConverter().fromJson,

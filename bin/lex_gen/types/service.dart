@@ -772,7 +772,7 @@ final class Parameter {
     } else if (arg.type.name == 'String') {
       buffer.writeln("'${arg.name}': ${arg.name},");
     } else if (arg.type.name == 'DateTime') {
-      buffer.writeln("'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),");
+      buffer.writeln("'${arg.name}': iso8601(${arg.name}),");
     } else {
       buffer.writeln("'${arg.name}': ${arg.name}.toString(),");
     }
@@ -796,7 +796,7 @@ final class Payload {
         : '';
 
     if (arg.isRecord && arg.name == 'createdAt') {
-      return "'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}),";
+      return "'${arg.name}': iso8601($prefix${arg.name}),";
     } else if (arg.name == 'repo') {
       return "'${arg.name}': ${prefix}repo ?? _ctx.repo,";
     }
@@ -839,8 +839,7 @@ final class Payload {
     } else if (arg.type.name == 'Blob') {
       buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck.toJson(),");
     } else if (arg.type.name == 'DateTime') {
-      buffer
-          .write("'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}),");
+      buffer.write("'${arg.name}': iso8601($prefix${arg.name}),");
     } else if (!arg.isMap && !arg.isPrimitive) {
       buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck.toJson(),");
     } else {

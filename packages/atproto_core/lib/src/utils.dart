@@ -27,3 +27,7 @@ const _regexAppPassword = r'^[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}$';
 /// Returns `true` if [appPassword] is valid, otherwise returns `false`.
 bool isValidAppPassword(final String appPassword) =>
     RegExp(_regexAppPassword).hasMatch(appPassword);
+
+/// Returns the [dateTime] in UTC time zone and ISO8601 format.
+String iso8601([final DateTime? dateTime]) =>
+    (dateTime ?? DateTime.now()).toUtc().toIso8601String();

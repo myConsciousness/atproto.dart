@@ -133,14 +133,10 @@ final class ModerationService {
         parameters: {
           if (subject != null) 'subject': subject,
           if (comment != null) 'comment': comment,
-          if (reportedAfter != null)
-            'reportedAfter': _ctx.toUtcIso8601String(reportedAfter),
-          if (reportedBefore != null)
-            'reportedBefore': _ctx.toUtcIso8601String(reportedBefore),
-          if (reviewedAfter != null)
-            'reviewedAfter': _ctx.toUtcIso8601String(reviewedAfter),
-          if (reviewedBefore != null)
-            'reviewedBefore': _ctx.toUtcIso8601String(reviewedBefore),
+          if (reportedAfter != null) 'reportedAfter': iso8601(reportedAfter),
+          if (reportedBefore != null) 'reportedBefore': iso8601(reportedBefore),
+          if (reviewedAfter != null) 'reviewedAfter': iso8601(reviewedAfter),
+          if (reviewedBefore != null) 'reviewedBefore': iso8601(reviewedBefore),
           if (includeMuted != null) 'includeMuted': includeMuted.toString(),
           if (onlyMuted != null) 'onlyMuted': onlyMuted.toString(),
           if (reviewState != null) 'reviewState': reviewState,
@@ -237,10 +233,8 @@ final class ModerationService {
           if (types != null) 'types': types,
           if (createdBy != null) 'createdBy': createdBy,
           if (sortDirection != null) 'sortDirection': sortDirection,
-          if (createdAfter != null)
-            'createdAfter': _ctx.toUtcIso8601String(createdAfter),
-          if (createdBefore != null)
-            'createdBefore': _ctx.toUtcIso8601String(createdBefore),
+          if (createdAfter != null) 'createdAfter': iso8601(createdAfter),
+          if (createdBefore != null) 'createdBefore': iso8601(createdBefore),
           if (subject != null) 'subject': subject,
           if (includeAllUserRecords != null)
             'includeAllUserRecords': includeAllUserRecords.toString(),

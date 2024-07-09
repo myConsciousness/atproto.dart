@@ -264,7 +264,7 @@ final class ProfileRecordHelper {
           if (labels != null) 'labels': labels.toJson(),
           if (joinedViaStarterPack != null)
             'joinedViaStarterPack': joinedViaStarterPack.toJson(),
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
         $headers: $headers,
@@ -297,7 +297,7 @@ final class ProfileRecordHelper {
           if (labels != null) 'labels': labels.toJson(),
           if (joinedViaStarterPack != null)
             'joinedViaStarterPack': joinedViaStarterPack.toJson(),
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
         $headers: $headers,

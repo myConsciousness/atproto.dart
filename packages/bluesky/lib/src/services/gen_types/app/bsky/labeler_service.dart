@@ -121,7 +121,7 @@ final class ServiceRecordHelper {
           r'$type': 'app.bsky.labeler.service',
           'policies': policies.toJson(),
           if (labels != null) 'labels': labels.toJson(),
-          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
         $headers: $headers,
@@ -156,7 +156,7 @@ final class ServiceRecordHelper {
                 value: {
                   'policies': e.policies.toJson(),
                   if (e.labels != null) 'labels': e.labels!.toJson(),
-                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  'createdAt': iso8601(e.createdAt),
                   ...?e.$unknown,
                 },
               ),
