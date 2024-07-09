@@ -4145,7 +4145,8 @@ const appBskyActorDefs = <String, dynamic>{
           "#interestsPref",
           "#mutedWordsPref",
           "#hiddenPostsPref",
-          "#bskyAppStatePref"
+          "#bskyAppStatePref",
+          "#labelersPref"
         ]
       }
     },
@@ -5968,7 +5969,8 @@ const appBskyEmbedRecord = <String, dynamic>{
             "#viewBlocked",
             "app.bsky.feed.defs#generatorView",
             "app.bsky.graph.defs#listView",
-            "app.bsky.labeler.defs#labelerView"
+            "app.bsky.labeler.defs#labelerView",
+            "app.bsky.graph.defs#starterPackViewBasic"
           ]
         }
       }
@@ -8765,7 +8767,8 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#modEventUnmuteReporter",
             "#modEventEmail",
             "#modEventResolveAppeal",
-            "#modEventDivert"
+            "#modEventDivert",
+            "#modEventTag"
           ]
         },
         "subject": {
@@ -8814,7 +8817,8 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#modEventUnmuteReporter",
             "#modEventEmail",
             "#modEventResolveAppeal",
-            "#modEventDivert"
+            "#modEventDivert",
+            "#modEventTag"
           ]
         },
         "subject": {
