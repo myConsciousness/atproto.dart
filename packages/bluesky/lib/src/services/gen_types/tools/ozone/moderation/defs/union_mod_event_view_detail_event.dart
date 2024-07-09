@@ -25,6 +25,7 @@ import '../../../../tools/ozone/moderation/defs/mod_event_mute_reporter.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_report.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_resolve_appeal.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_reverse_takedown.dart';
+import '../../../../tools/ozone/moderation/defs/mod_event_tag.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_takedown.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_unmute.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_unmute_reporter.dart';
@@ -88,6 +89,10 @@ class UModEventViewDetailEvent with _$UModEventViewDetailEvent {
   const factory UModEventViewDetailEvent.modEventDivert({
     required ModEventDivert data,
   }) = UModEventViewDetailEventModEventDivert;
+
+  const factory UModEventViewDetailEvent.modEventTag({
+    required ModEventTag data,
+  }) = UModEventViewDetailEventModEventTag;
 
   const factory UModEventViewDetailEvent.unknown({
     required Map<String, dynamic> data,
@@ -171,6 +176,11 @@ final class UModEventViewDetailEventConverter
           data: const ModEventDivertConverter().fromJson(json),
         );
       }
+      if (isModEventTag(json)) {
+        return UModEventViewDetailEvent.modEventTag(
+          data: const ModEventTagConverter().fromJson(json),
+        );
+      }
 
       return UModEventViewDetailEvent.unknown(data: json);
     } catch (_) {
@@ -195,6 +205,7 @@ final class UModEventViewDetailEventConverter
         modEventEmail: const ModEventEmailConverter().toJson,
         modEventResolveAppeal: const ModEventResolveAppealConverter().toJson,
         modEventDivert: const ModEventDivertConverter().toJson,
+        modEventTag: const ModEventTagConverter().toJson,
         unknown: (data) => data,
       );
 }
@@ -294,6 +305,12 @@ extension $UModEventViewDetailEventExtension on UModEventViewDetailEvent {
 
   /// Returns true if this data is not [ModEventDivert], otherwise false.
   bool get isNotModEventDivert => !isModEventDivert;
+
+  /// Returns true if this data is [ModEventTag], otherwise false.
+  bool get isModEventTag => this is UModEventViewDetailEventModEventTag;
+
+  /// Returns true if this data is not [ModEventTag], otherwise false.
+  bool get isNotModEventTag => !isModEventTag;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UModEventViewDetailEventUnknown;
@@ -430,6 +447,14 @@ extension $UModEventViewDetailEventExtension on UModEventViewDetailEvent {
   /// Returns [ModEventDivert] if this data is [ModEventDivert], otherwise null.
   ModEventDivert? get modEventDivertOrNull =>
       isModEventDivert ? modEventDivert : null;
+
+  /// Returns this data as [ModEventTag].
+  ///
+  /// Make sure to check if this object is [ModEventTag] with [isModEventTag].
+  ModEventTag get modEventTag => this.data as ModEventTag;
+
+  /// Returns [ModEventTag] if this data is [ModEventTag], otherwise null.
+  ModEventTag? get modEventTagOrNull => isModEventTag ? modEventTag : null;
 
   /// Returns this data as JSON object.
   ///

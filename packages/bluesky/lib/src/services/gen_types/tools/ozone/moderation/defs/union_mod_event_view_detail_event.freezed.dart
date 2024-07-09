@@ -35,6 +35,7 @@ mixin _$UModEventViewDetailEvent {
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +55,7 @@ mixin _$UModEventViewDetailEvent {
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -73,6 +75,7 @@ mixin _$UModEventViewDetailEvent {
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -111,6 +114,8 @@ mixin _$UModEventViewDetailEvent {
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -143,6 +148,7 @@ mixin _$UModEventViewDetailEvent {
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -175,6 +181,7 @@ mixin _$UModEventViewDetailEvent {
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -297,6 +304,7 @@ class _$UModEventViewDetailEventModEventTakedownImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventTakedown(data);
@@ -319,6 +327,7 @@ class _$UModEventViewDetailEventModEventTakedownImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventTakedown?.call(data);
@@ -341,6 +350,7 @@ class _$UModEventViewDetailEventModEventTakedownImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -385,6 +395,8 @@ class _$UModEventViewDetailEventModEventTakedownImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventTakedown(this);
@@ -420,6 +432,7 @@ class _$UModEventViewDetailEventModEventTakedownImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventTakedown?.call(this);
@@ -455,6 +468,7 @@ class _$UModEventViewDetailEventModEventTakedownImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -582,6 +596,7 @@ class _$UModEventViewDetailEventModEventReverseTakedownImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventReverseTakedown(data);
@@ -604,6 +619,7 @@ class _$UModEventViewDetailEventModEventReverseTakedownImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventReverseTakedown?.call(data);
@@ -626,6 +642,7 @@ class _$UModEventViewDetailEventModEventReverseTakedownImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -670,6 +687,8 @@ class _$UModEventViewDetailEventModEventReverseTakedownImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventReverseTakedown(this);
@@ -705,6 +724,7 @@ class _$UModEventViewDetailEventModEventReverseTakedownImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventReverseTakedown?.call(this);
@@ -740,6 +760,7 @@ class _$UModEventViewDetailEventModEventReverseTakedownImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -861,6 +882,7 @@ class _$UModEventViewDetailEventModEventCommentImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventComment(data);
@@ -883,6 +905,7 @@ class _$UModEventViewDetailEventModEventCommentImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventComment?.call(data);
@@ -905,6 +928,7 @@ class _$UModEventViewDetailEventModEventCommentImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -949,6 +973,8 @@ class _$UModEventViewDetailEventModEventCommentImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventComment(this);
@@ -984,6 +1010,7 @@ class _$UModEventViewDetailEventModEventCommentImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventComment?.call(this);
@@ -1019,6 +1046,7 @@ class _$UModEventViewDetailEventModEventCommentImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1140,6 +1168,7 @@ class _$UModEventViewDetailEventModEventReportImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventReport(data);
@@ -1162,6 +1191,7 @@ class _$UModEventViewDetailEventModEventReportImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventReport?.call(data);
@@ -1184,6 +1214,7 @@ class _$UModEventViewDetailEventModEventReportImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1228,6 +1259,8 @@ class _$UModEventViewDetailEventModEventReportImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventReport(this);
@@ -1263,6 +1296,7 @@ class _$UModEventViewDetailEventModEventReportImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventReport?.call(this);
@@ -1298,6 +1332,7 @@ class _$UModEventViewDetailEventModEventReportImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1418,6 +1453,7 @@ class _$UModEventViewDetailEventModEventLabelImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventLabel(data);
@@ -1440,6 +1476,7 @@ class _$UModEventViewDetailEventModEventLabelImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventLabel?.call(data);
@@ -1462,6 +1499,7 @@ class _$UModEventViewDetailEventModEventLabelImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1506,6 +1544,8 @@ class _$UModEventViewDetailEventModEventLabelImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventLabel(this);
@@ -1541,6 +1581,7 @@ class _$UModEventViewDetailEventModEventLabelImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventLabel?.call(this);
@@ -1576,6 +1617,7 @@ class _$UModEventViewDetailEventModEventLabelImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1701,6 +1743,7 @@ class _$UModEventViewDetailEventModEventAcknowledgeImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventAcknowledge(data);
@@ -1723,6 +1766,7 @@ class _$UModEventViewDetailEventModEventAcknowledgeImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventAcknowledge?.call(data);
@@ -1745,6 +1789,7 @@ class _$UModEventViewDetailEventModEventAcknowledgeImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1789,6 +1834,8 @@ class _$UModEventViewDetailEventModEventAcknowledgeImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventAcknowledge(this);
@@ -1824,6 +1871,7 @@ class _$UModEventViewDetailEventModEventAcknowledgeImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventAcknowledge?.call(this);
@@ -1859,6 +1907,7 @@ class _$UModEventViewDetailEventModEventAcknowledgeImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1980,6 +2029,7 @@ class _$UModEventViewDetailEventModEventEscalateImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventEscalate(data);
@@ -2002,6 +2052,7 @@ class _$UModEventViewDetailEventModEventEscalateImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventEscalate?.call(data);
@@ -2024,6 +2075,7 @@ class _$UModEventViewDetailEventModEventEscalateImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2068,6 +2120,8 @@ class _$UModEventViewDetailEventModEventEscalateImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventEscalate(this);
@@ -2103,6 +2157,7 @@ class _$UModEventViewDetailEventModEventEscalateImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventEscalate?.call(this);
@@ -2138,6 +2193,7 @@ class _$UModEventViewDetailEventModEventEscalateImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2258,6 +2314,7 @@ class _$UModEventViewDetailEventModEventMuteImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventMute(data);
@@ -2280,6 +2337,7 @@ class _$UModEventViewDetailEventModEventMuteImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventMute?.call(data);
@@ -2302,6 +2360,7 @@ class _$UModEventViewDetailEventModEventMuteImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2346,6 +2405,8 @@ class _$UModEventViewDetailEventModEventMuteImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventMute(this);
@@ -2381,6 +2442,7 @@ class _$UModEventViewDetailEventModEventMuteImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventMute?.call(this);
@@ -2416,6 +2478,7 @@ class _$UModEventViewDetailEventModEventMuteImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2537,6 +2600,7 @@ class _$UModEventViewDetailEventModEventUnmuteImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventUnmute(data);
@@ -2559,6 +2623,7 @@ class _$UModEventViewDetailEventModEventUnmuteImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventUnmute?.call(data);
@@ -2581,6 +2646,7 @@ class _$UModEventViewDetailEventModEventUnmuteImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2625,6 +2691,8 @@ class _$UModEventViewDetailEventModEventUnmuteImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventUnmute(this);
@@ -2660,6 +2728,7 @@ class _$UModEventViewDetailEventModEventUnmuteImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventUnmute?.call(this);
@@ -2695,6 +2764,7 @@ class _$UModEventViewDetailEventModEventUnmuteImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2821,6 +2891,7 @@ class _$UModEventViewDetailEventModEventMuteReporterImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventMuteReporter(data);
@@ -2843,6 +2914,7 @@ class _$UModEventViewDetailEventModEventMuteReporterImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventMuteReporter?.call(data);
@@ -2865,6 +2937,7 @@ class _$UModEventViewDetailEventModEventMuteReporterImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2909,6 +2982,8 @@ class _$UModEventViewDetailEventModEventMuteReporterImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventMuteReporter(this);
@@ -2944,6 +3019,7 @@ class _$UModEventViewDetailEventModEventMuteReporterImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventMuteReporter?.call(this);
@@ -2979,6 +3055,7 @@ class _$UModEventViewDetailEventModEventMuteReporterImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -3105,6 +3182,7 @@ class _$UModEventViewDetailEventModEventUnmuteReporterImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventUnmuteReporter(data);
@@ -3127,6 +3205,7 @@ class _$UModEventViewDetailEventModEventUnmuteReporterImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventUnmuteReporter?.call(data);
@@ -3149,6 +3228,7 @@ class _$UModEventViewDetailEventModEventUnmuteReporterImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -3193,6 +3273,8 @@ class _$UModEventViewDetailEventModEventUnmuteReporterImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventUnmuteReporter(this);
@@ -3228,6 +3310,7 @@ class _$UModEventViewDetailEventModEventUnmuteReporterImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventUnmuteReporter?.call(this);
@@ -3263,6 +3346,7 @@ class _$UModEventViewDetailEventModEventUnmuteReporterImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -3383,6 +3467,7 @@ class _$UModEventViewDetailEventModEventEmailImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventEmail(data);
@@ -3405,6 +3490,7 @@ class _$UModEventViewDetailEventModEventEmailImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventEmail?.call(data);
@@ -3427,6 +3513,7 @@ class _$UModEventViewDetailEventModEventEmailImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -3471,6 +3558,8 @@ class _$UModEventViewDetailEventModEventEmailImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventEmail(this);
@@ -3506,6 +3595,7 @@ class _$UModEventViewDetailEventModEventEmailImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventEmail?.call(this);
@@ -3541,6 +3631,7 @@ class _$UModEventViewDetailEventModEventEmailImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -3667,6 +3758,7 @@ class _$UModEventViewDetailEventModEventResolveAppealImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventResolveAppeal(data);
@@ -3689,6 +3781,7 @@ class _$UModEventViewDetailEventModEventResolveAppealImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventResolveAppeal?.call(data);
@@ -3711,6 +3804,7 @@ class _$UModEventViewDetailEventModEventResolveAppealImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -3755,6 +3849,8 @@ class _$UModEventViewDetailEventModEventResolveAppealImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventResolveAppeal(this);
@@ -3790,6 +3886,7 @@ class _$UModEventViewDetailEventModEventResolveAppealImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventResolveAppeal?.call(this);
@@ -3825,6 +3922,7 @@ class _$UModEventViewDetailEventModEventResolveAppealImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -3946,6 +4044,7 @@ class _$UModEventViewDetailEventModEventDivertImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return modEventDivert(data);
@@ -3968,6 +4067,7 @@ class _$UModEventViewDetailEventModEventDivertImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return modEventDivert?.call(data);
@@ -3990,6 +4090,7 @@ class _$UModEventViewDetailEventModEventDivertImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -4034,6 +4135,8 @@ class _$UModEventViewDetailEventModEventDivertImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return modEventDivert(this);
@@ -4069,6 +4172,7 @@ class _$UModEventViewDetailEventModEventDivertImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return modEventDivert?.call(this);
@@ -4104,6 +4208,7 @@ class _$UModEventViewDetailEventModEventDivertImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -4125,6 +4230,291 @@ abstract class UModEventViewDetailEventModEventDivert
   @JsonKey(ignore: true)
   _$$UModEventViewDetailEventModEventDivertImplCopyWith<
           _$UModEventViewDetailEventModEventDivertImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UModEventViewDetailEventModEventTagImplCopyWith<$Res> {
+  factory _$$UModEventViewDetailEventModEventTagImplCopyWith(
+          _$UModEventViewDetailEventModEventTagImpl value,
+          $Res Function(_$UModEventViewDetailEventModEventTagImpl) then) =
+      __$$UModEventViewDetailEventModEventTagImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ModEventTag data});
+
+  $ModEventTagCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UModEventViewDetailEventModEventTagImplCopyWithImpl<$Res>
+    extends _$UModEventViewDetailEventCopyWithImpl<$Res,
+        _$UModEventViewDetailEventModEventTagImpl>
+    implements _$$UModEventViewDetailEventModEventTagImplCopyWith<$Res> {
+  __$$UModEventViewDetailEventModEventTagImplCopyWithImpl(
+      _$UModEventViewDetailEventModEventTagImpl _value,
+      $Res Function(_$UModEventViewDetailEventModEventTagImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UModEventViewDetailEventModEventTagImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ModEventTag,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ModEventTagCopyWith<$Res> get data {
+    return $ModEventTagCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UModEventViewDetailEventModEventTagImpl
+    implements UModEventViewDetailEventModEventTag {
+  const _$UModEventViewDetailEventModEventTagImpl({required this.data});
+
+  @override
+  final ModEventTag data;
+
+  @override
+  String toString() {
+    return 'UModEventViewDetailEvent.modEventTag(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UModEventViewDetailEventModEventTagImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UModEventViewDetailEventModEventTagImplCopyWith<
+          _$UModEventViewDetailEventModEventTagImpl>
+      get copyWith => __$$UModEventViewDetailEventModEventTagImplCopyWithImpl<
+          _$UModEventViewDetailEventModEventTagImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ModEventTakedown data) modEventTakedown,
+    required TResult Function(ModEventReverseTakedown data)
+        modEventReverseTakedown,
+    required TResult Function(ModEventComment data) modEventComment,
+    required TResult Function(ModEventReport data) modEventReport,
+    required TResult Function(ModEventLabel data) modEventLabel,
+    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
+    required TResult Function(ModEventEscalate data) modEventEscalate,
+    required TResult Function(ModEventMute data) modEventMute,
+    required TResult Function(ModEventUnmute data) modEventUnmute,
+    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
+    required TResult Function(ModEventUnmuteReporter data)
+        modEventUnmuteReporter,
+    required TResult Function(ModEventEmail data) modEventEmail,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
+    required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return modEventTag(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ModEventTakedown data)? modEventTakedown,
+    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventComment data)? modEventComment,
+    TResult? Function(ModEventReport data)? modEventReport,
+    TResult? Function(ModEventLabel data)? modEventLabel,
+    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
+    TResult? Function(ModEventEscalate data)? modEventEscalate,
+    TResult? Function(ModEventMute data)? modEventMute,
+    TResult? Function(ModEventUnmute data)? modEventUnmute,
+    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
+    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
+    TResult? Function(ModEventEmail data)? modEventEmail,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
+    TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return modEventTag?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ModEventTakedown data)? modEventTakedown,
+    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventComment data)? modEventComment,
+    TResult Function(ModEventReport data)? modEventReport,
+    TResult Function(ModEventLabel data)? modEventLabel,
+    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
+    TResult Function(ModEventEscalate data)? modEventEscalate,
+    TResult Function(ModEventMute data)? modEventMute,
+    TResult Function(ModEventUnmute data)? modEventUnmute,
+    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
+    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
+    TResult Function(ModEventEmail data)? modEventEmail,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
+    TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (modEventTag != null) {
+      return modEventTag(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UModEventViewDetailEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(
+            UModEventViewDetailEventModEventReverseTakedown value)
+        modEventReverseTakedown,
+    required TResult Function(UModEventViewDetailEventModEventComment value)
+        modEventComment,
+    required TResult Function(UModEventViewDetailEventModEventReport value)
+        modEventReport,
+    required TResult Function(UModEventViewDetailEventModEventLabel value)
+        modEventLabel,
+    required TResult Function(UModEventViewDetailEventModEventAcknowledge value)
+        modEventAcknowledge,
+    required TResult Function(UModEventViewDetailEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UModEventViewDetailEventModEventMute value)
+        modEventMute,
+    required TResult Function(UModEventViewDetailEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(
+            UModEventViewDetailEventModEventMuteReporter value)
+        modEventMuteReporter,
+    required TResult Function(
+            UModEventViewDetailEventModEventUnmuteReporter value)
+        modEventUnmuteReporter,
+    required TResult Function(UModEventViewDetailEventModEventEmail value)
+        modEventEmail,
+    required TResult Function(
+            UModEventViewDetailEventModEventResolveAppeal value)
+        modEventResolveAppeal,
+    required TResult Function(UModEventViewDetailEventModEventDivert value)
+        modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
+    required TResult Function(UModEventViewDetailEventUnknown value) unknown,
+  }) {
+    return modEventTag(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UModEventViewDetailEventModEventTakedown value)?
+        modEventTakedown,
+    TResult? Function(UModEventViewDetailEventModEventReverseTakedown value)?
+        modEventReverseTakedown,
+    TResult? Function(UModEventViewDetailEventModEventComment value)?
+        modEventComment,
+    TResult? Function(UModEventViewDetailEventModEventReport value)?
+        modEventReport,
+    TResult? Function(UModEventViewDetailEventModEventLabel value)?
+        modEventLabel,
+    TResult? Function(UModEventViewDetailEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UModEventViewDetailEventModEventEscalate value)?
+        modEventEscalate,
+    TResult? Function(UModEventViewDetailEventModEventMute value)? modEventMute,
+    TResult? Function(UModEventViewDetailEventModEventUnmute value)?
+        modEventUnmute,
+    TResult? Function(UModEventViewDetailEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UModEventViewDetailEventModEventUnmuteReporter value)?
+        modEventUnmuteReporter,
+    TResult? Function(UModEventViewDetailEventModEventEmail value)?
+        modEventEmail,
+    TResult? Function(UModEventViewDetailEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
+    TResult? Function(UModEventViewDetailEventModEventDivert value)?
+        modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
+    TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
+  }) {
+    return modEventTag?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UModEventViewDetailEventModEventTakedown value)?
+        modEventTakedown,
+    TResult Function(UModEventViewDetailEventModEventReverseTakedown value)?
+        modEventReverseTakedown,
+    TResult Function(UModEventViewDetailEventModEventComment value)?
+        modEventComment,
+    TResult Function(UModEventViewDetailEventModEventReport value)?
+        modEventReport,
+    TResult Function(UModEventViewDetailEventModEventLabel value)?
+        modEventLabel,
+    TResult Function(UModEventViewDetailEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UModEventViewDetailEventModEventEscalate value)?
+        modEventEscalate,
+    TResult Function(UModEventViewDetailEventModEventMute value)? modEventMute,
+    TResult Function(UModEventViewDetailEventModEventUnmute value)?
+        modEventUnmute,
+    TResult Function(UModEventViewDetailEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UModEventViewDetailEventModEventUnmuteReporter value)?
+        modEventUnmuteReporter,
+    TResult Function(UModEventViewDetailEventModEventEmail value)?
+        modEventEmail,
+    TResult Function(UModEventViewDetailEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
+    TResult Function(UModEventViewDetailEventModEventDivert value)?
+        modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
+    TResult Function(UModEventViewDetailEventUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (modEventTag != null) {
+      return modEventTag(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UModEventViewDetailEventModEventTag
+    implements UModEventViewDetailEvent {
+  const factory UModEventViewDetailEventModEventTag(
+          {required final ModEventTag data}) =
+      _$UModEventViewDetailEventModEventTagImpl;
+
+  @override
+  ModEventTag get data;
+  @JsonKey(ignore: true)
+  _$$UModEventViewDetailEventModEventTagImplCopyWith<
+          _$UModEventViewDetailEventModEventTagImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -4222,6 +4612,7 @@ class _$UModEventViewDetailEventUnknownImpl
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventDivert data) modEventDivert,
+    required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -4244,6 +4635,7 @@ class _$UModEventViewDetailEventUnknownImpl
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventDivert data)? modEventDivert,
+    TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -4266,6 +4658,7 @@ class _$UModEventViewDetailEventUnknownImpl
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventDivert data)? modEventDivert,
+    TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -4310,6 +4703,8 @@ class _$UModEventViewDetailEventUnknownImpl
         modEventResolveAppeal,
     required TResult Function(UModEventViewDetailEventModEventDivert value)
         modEventDivert,
+    required TResult Function(UModEventViewDetailEventModEventTag value)
+        modEventTag,
     required TResult Function(UModEventViewDetailEventUnknown value) unknown,
   }) {
     return unknown(this);
@@ -4345,6 +4740,7 @@ class _$UModEventViewDetailEventUnknownImpl
         modEventResolveAppeal,
     TResult? Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult? Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult? Function(UModEventViewDetailEventUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -4380,6 +4776,7 @@ class _$UModEventViewDetailEventUnknownImpl
         modEventResolveAppeal,
     TResult Function(UModEventViewDetailEventModEventDivert value)?
         modEventDivert,
+    TResult Function(UModEventViewDetailEventModEventTag value)? modEventTag,
     TResult Function(UModEventViewDetailEventUnknown value)? unknown,
     required TResult orElse(),
   }) {

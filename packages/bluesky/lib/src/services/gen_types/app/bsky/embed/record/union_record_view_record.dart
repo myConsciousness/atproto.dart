@@ -19,6 +19,7 @@ import '../../../../app/bsky/embed/record/view_not_found.dart';
 import '../../../../app/bsky/embed/record/view_record.dart';
 import '../../../../app/bsky/feed/defs/generator_view.dart';
 import '../../../../app/bsky/graph/defs/list_view.dart';
+import '../../../../app/bsky/graph/defs/starter_pack_view_basic.dart';
 import '../../../../app/bsky/labeler/defs/labeler_view.dart';
 
 part 'union_record_view_record.freezed.dart';
@@ -48,6 +49,10 @@ class URecordViewRecord with _$URecordViewRecord {
   const factory URecordViewRecord.labelerView({
     required LabelerView data,
   }) = URecordViewRecordLabelerView;
+
+  const factory URecordViewRecord.starterPackViewBasic({
+    required StarterPackViewBasic data,
+  }) = URecordViewRecordStarterPackViewBasic;
 
   const factory URecordViewRecord.unknown({
     required Map<String, dynamic> data,
@@ -91,6 +96,11 @@ final class URecordViewRecordConverter
           data: const LabelerViewConverter().fromJson(json),
         );
       }
+      if (isStarterPackViewBasic(json)) {
+        return URecordViewRecord.starterPackViewBasic(
+          data: const StarterPackViewBasicConverter().fromJson(json),
+        );
+      }
 
       return URecordViewRecord.unknown(data: json);
     } catch (_) {
@@ -106,6 +116,7 @@ final class URecordViewRecordConverter
         generatorView: const GeneratorViewConverter().toJson,
         listView: const ListViewConverter().toJson,
         labelerView: const LabelerViewConverter().toJson,
+        starterPackViewBasic: const StarterPackViewBasicConverter().toJson,
         unknown: (data) => data,
       );
 }
@@ -150,6 +161,13 @@ extension $URecordViewRecordExtension on URecordViewRecord {
 
   /// Returns true if this data is not [LabelerView], otherwise false.
   bool get isNotLabelerView => !isLabelerView;
+
+  /// Returns true if this data is [StarterPackViewBasic], otherwise false.
+  bool get isStarterPackViewBasic =>
+      this is URecordViewRecordStarterPackViewBasic;
+
+  /// Returns true if this data is not [StarterPackViewBasic], otherwise false.
+  bool get isNotStarterPackViewBasic => !isStarterPackViewBasic;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is URecordViewRecordUnknown;
@@ -208,6 +226,16 @@ extension $URecordViewRecordExtension on URecordViewRecord {
 
   /// Returns [LabelerView] if this data is [LabelerView], otherwise null.
   LabelerView? get labelerViewOrNull => isLabelerView ? labelerView : null;
+
+  /// Returns this data as [StarterPackViewBasic].
+  ///
+  /// Make sure to check if this object is [StarterPackViewBasic] with [isStarterPackViewBasic].
+  StarterPackViewBasic get starterPackViewBasic =>
+      this.data as StarterPackViewBasic;
+
+  /// Returns [StarterPackViewBasic] if this data is [StarterPackViewBasic], otherwise null.
+  StarterPackViewBasic? get starterPackViewBasicOrNull =>
+      isStarterPackViewBasic ? starterPackViewBasic : null;
 
   /// Returns this data as JSON object.
   ///

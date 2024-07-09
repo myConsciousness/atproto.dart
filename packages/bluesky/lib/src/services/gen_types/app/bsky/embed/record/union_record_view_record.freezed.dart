@@ -25,6 +25,7 @@ mixin _$URecordViewRecord {
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,6 +37,7 @@ mixin _$URecordViewRecord {
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +49,7 @@ mixin _$URecordViewRecord {
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -63,6 +66,8 @@ mixin _$URecordViewRecord {
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
     required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(URecordViewRecordUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -77,6 +82,8 @@ mixin _$URecordViewRecord {
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -90,6 +97,8 @@ mixin _$URecordViewRecord {
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -200,6 +209,7 @@ class _$URecordViewRecordRecordViewRecordImpl
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return recordViewRecord(data);
@@ -214,6 +224,7 @@ class _$URecordViewRecordRecordViewRecordImpl
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return recordViewRecord?.call(data);
@@ -228,6 +239,7 @@ class _$URecordViewRecordRecordViewRecordImpl
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -250,6 +262,8 @@ class _$URecordViewRecordRecordViewRecordImpl
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
     required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return recordViewRecord(this);
@@ -267,6 +281,8 @@ class _$URecordViewRecordRecordViewRecordImpl
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return recordViewRecord?.call(this);
@@ -283,6 +299,8 @@ class _$URecordViewRecordRecordViewRecordImpl
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -392,6 +410,7 @@ class _$URecordViewRecordRecordViewNotFoundImpl
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return recordViewNotFound(data);
@@ -406,6 +425,7 @@ class _$URecordViewRecordRecordViewNotFoundImpl
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return recordViewNotFound?.call(data);
@@ -420,6 +440,7 @@ class _$URecordViewRecordRecordViewNotFoundImpl
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -442,6 +463,8 @@ class _$URecordViewRecordRecordViewNotFoundImpl
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
     required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return recordViewNotFound(this);
@@ -459,6 +482,8 @@ class _$URecordViewRecordRecordViewNotFoundImpl
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return recordViewNotFound?.call(this);
@@ -475,6 +500,8 @@ class _$URecordViewRecordRecordViewNotFoundImpl
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -585,6 +612,7 @@ class _$URecordViewRecordRecordViewBlockedImpl
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return recordViewBlocked(data);
@@ -599,6 +627,7 @@ class _$URecordViewRecordRecordViewBlockedImpl
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return recordViewBlocked?.call(data);
@@ -613,6 +642,7 @@ class _$URecordViewRecordRecordViewBlockedImpl
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -635,6 +665,8 @@ class _$URecordViewRecordRecordViewBlockedImpl
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
     required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return recordViewBlocked(this);
@@ -652,6 +684,8 @@ class _$URecordViewRecordRecordViewBlockedImpl
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return recordViewBlocked?.call(this);
@@ -668,6 +702,8 @@ class _$URecordViewRecordRecordViewBlockedImpl
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -777,6 +813,7 @@ class _$URecordViewRecordGeneratorViewImpl
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return generatorView(data);
@@ -791,6 +828,7 @@ class _$URecordViewRecordGeneratorViewImpl
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return generatorView?.call(data);
@@ -805,6 +843,7 @@ class _$URecordViewRecordGeneratorViewImpl
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -827,6 +866,8 @@ class _$URecordViewRecordGeneratorViewImpl
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
     required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return generatorView(this);
@@ -844,6 +885,8 @@ class _$URecordViewRecordGeneratorViewImpl
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return generatorView?.call(this);
@@ -860,6 +903,8 @@ class _$URecordViewRecordGeneratorViewImpl
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -967,6 +1012,7 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return listView(data);
@@ -981,6 +1027,7 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return listView?.call(data);
@@ -995,6 +1042,7 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1017,6 +1065,8 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
     required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return listView(this);
@@ -1034,6 +1084,8 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return listView?.call(this);
@@ -1050,6 +1102,8 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1157,6 +1211,7 @@ class _$URecordViewRecordLabelerViewImpl
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return labelerView(data);
@@ -1171,6 +1226,7 @@ class _$URecordViewRecordLabelerViewImpl
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return labelerView?.call(data);
@@ -1185,6 +1241,7 @@ class _$URecordViewRecordLabelerViewImpl
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1207,6 +1264,8 @@ class _$URecordViewRecordLabelerViewImpl
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
     required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return labelerView(this);
@@ -1224,6 +1283,8 @@ class _$URecordViewRecordLabelerViewImpl
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return labelerView?.call(this);
@@ -1240,6 +1301,8 @@ class _$URecordViewRecordLabelerViewImpl
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1259,6 +1322,208 @@ abstract class URecordViewRecordLabelerView implements URecordViewRecord {
   @JsonKey(ignore: true)
   _$$URecordViewRecordLabelerViewImplCopyWith<
           _$URecordViewRecordLabelerViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$URecordViewRecordStarterPackViewBasicImplCopyWith<$Res> {
+  factory _$$URecordViewRecordStarterPackViewBasicImplCopyWith(
+          _$URecordViewRecordStarterPackViewBasicImpl value,
+          $Res Function(_$URecordViewRecordStarterPackViewBasicImpl) then) =
+      __$$URecordViewRecordStarterPackViewBasicImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({StarterPackViewBasic data});
+
+  $StarterPackViewBasicCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$URecordViewRecordStarterPackViewBasicImplCopyWithImpl<$Res>
+    extends _$URecordViewRecordCopyWithImpl<$Res,
+        _$URecordViewRecordStarterPackViewBasicImpl>
+    implements _$$URecordViewRecordStarterPackViewBasicImplCopyWith<$Res> {
+  __$$URecordViewRecordStarterPackViewBasicImplCopyWithImpl(
+      _$URecordViewRecordStarterPackViewBasicImpl _value,
+      $Res Function(_$URecordViewRecordStarterPackViewBasicImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$URecordViewRecordStarterPackViewBasicImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as StarterPackViewBasic,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StarterPackViewBasicCopyWith<$Res> get data {
+    return $StarterPackViewBasicCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$URecordViewRecordStarterPackViewBasicImpl
+    implements URecordViewRecordStarterPackViewBasic {
+  const _$URecordViewRecordStarterPackViewBasicImpl({required this.data});
+
+  @override
+  final StarterPackViewBasic data;
+
+  @override
+  String toString() {
+    return 'URecordViewRecord.starterPackViewBasic(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$URecordViewRecordStarterPackViewBasicImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$URecordViewRecordStarterPackViewBasicImplCopyWith<
+          _$URecordViewRecordStarterPackViewBasicImpl>
+      get copyWith => __$$URecordViewRecordStarterPackViewBasicImplCopyWithImpl<
+          _$URecordViewRecordStarterPackViewBasicImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(RecordViewRecord data) recordViewRecord,
+    required TResult Function(RecordViewNotFound data) recordViewNotFound,
+    required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(GeneratorView data) generatorView,
+    required TResult Function(ListView data) listView,
+    required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return starterPackViewBasic(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(RecordViewRecord data)? recordViewRecord,
+    TResult? Function(RecordViewNotFound data)? recordViewNotFound,
+    TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(GeneratorView data)? generatorView,
+    TResult? Function(ListView data)? listView,
+    TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return starterPackViewBasic?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(RecordViewRecord data)? recordViewRecord,
+    TResult Function(RecordViewNotFound data)? recordViewNotFound,
+    TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(GeneratorView data)? generatorView,
+    TResult Function(ListView data)? listView,
+    TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (starterPackViewBasic != null) {
+      return starterPackViewBasic(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(URecordViewRecordRecordViewRecord value)
+        recordViewRecord,
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
+        recordViewNotFound,
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
+        recordViewBlocked,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
+  }) {
+    return starterPackViewBasic(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
+  }) {
+    return starterPackViewBasic?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (starterPackViewBasic != null) {
+      return starterPackViewBasic(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class URecordViewRecordStarterPackViewBasic
+    implements URecordViewRecord {
+  const factory URecordViewRecordStarterPackViewBasic(
+          {required final StarterPackViewBasic data}) =
+      _$URecordViewRecordStarterPackViewBasicImpl;
+
+  @override
+  StarterPackViewBasic get data;
+  @JsonKey(ignore: true)
+  _$$URecordViewRecordStarterPackViewBasicImplCopyWith<
+          _$URecordViewRecordStarterPackViewBasicImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1344,6 +1609,7 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -1358,6 +1624,7 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -1372,6 +1639,7 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1394,6 +1662,8 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
     required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(URecordViewRecordUnknown value) unknown,
   }) {
     return unknown(this);
@@ -1411,6 +1681,8 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(URecordViewRecordUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -1427,6 +1699,8 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(URecordViewRecordUnknown value)? unknown,
     required TResult orElse(),
   }) {

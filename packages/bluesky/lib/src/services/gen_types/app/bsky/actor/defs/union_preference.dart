@@ -20,6 +20,7 @@ import '../../../../app/bsky/actor/defs/content_label_pref.dart';
 import '../../../../app/bsky/actor/defs/feed_view_pref.dart';
 import '../../../../app/bsky/actor/defs/hidden_posts_pref.dart';
 import '../../../../app/bsky/actor/defs/interests_pref.dart';
+import '../../../../app/bsky/actor/defs/labelers_pref.dart';
 import '../../../../app/bsky/actor/defs/muted_words_pref.dart';
 import '../../../../app/bsky/actor/defs/personal_details_pref.dart';
 import '../../../../app/bsky/actor/defs/saved_feeds_pref.dart';
@@ -73,6 +74,10 @@ class UPreference with _$UPreference {
   const factory UPreference.bskyAppStatePref({
     required BskyAppStatePref data,
   }) = UPreferenceBskyAppStatePref;
+
+  const factory UPreference.labelersPref({
+    required LabelersPref data,
+  }) = UPreferenceLabelersPref;
 
   const factory UPreference.unknown({
     required Map<String, dynamic> data,
@@ -141,6 +146,11 @@ final class UPreferenceConverter
           data: const BskyAppStatePrefConverter().fromJson(json),
         );
       }
+      if (isLabelersPref(json)) {
+        return UPreference.labelersPref(
+          data: const LabelersPrefConverter().fromJson(json),
+        );
+      }
 
       return UPreference.unknown(data: json);
     } catch (_) {
@@ -161,6 +171,7 @@ final class UPreferenceConverter
         mutedWordsPref: const MutedWordsPrefConverter().toJson,
         hiddenPostsPref: const HiddenPostsPrefConverter().toJson,
         bskyAppStatePref: const BskyAppStatePrefConverter().toJson,
+        labelersPref: const LabelersPrefConverter().toJson,
         unknown: (data) => data,
       );
 }
@@ -234,6 +245,12 @@ extension $UPreferenceExtension on UPreference {
 
   /// Returns true if this data is not [BskyAppStatePref], otherwise false.
   bool get isNotBskyAppStatePref => !isBskyAppStatePref;
+
+  /// Returns true if this data is [LabelersPref], otherwise false.
+  bool get isLabelersPref => this is UPreferenceLabelersPref;
+
+  /// Returns true if this data is not [LabelersPref], otherwise false.
+  bool get isNotLabelersPref => !isLabelersPref;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UPreferenceUnknown;
@@ -339,6 +356,14 @@ extension $UPreferenceExtension on UPreference {
   /// Returns [BskyAppStatePref] if this data is [BskyAppStatePref], otherwise null.
   BskyAppStatePref? get bskyAppStatePrefOrNull =>
       isBskyAppStatePref ? bskyAppStatePref : null;
+
+  /// Returns this data as [LabelersPref].
+  ///
+  /// Make sure to check if this object is [LabelersPref] with [isLabelersPref].
+  LabelersPref get labelersPref => this.data as LabelersPref;
+
+  /// Returns [LabelersPref] if this data is [LabelersPref], otherwise null.
+  LabelersPref? get labelersPrefOrNull => isLabelersPref ? labelersPref : null;
 
   /// Returns this data as JSON object.
   ///

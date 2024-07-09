@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import '../services/gen_types/app/bsky/actor/defs/content_label_pref.dart';
 import '../services/gen_types/app/bsky/actor/defs/known_content_label_pref_visibility.dart';
-import '../services/gen_types/app/bsky/actor/defs/labelers_pref.dart';
 import '../services/gen_types/app/bsky/actor/defs/muted_word.dart';
 import '../services/gen_types/app/bsky/actor/defs/preferences.dart';
 import '../services/gen_types/app/bsky/actor/defs/union_preference.dart';
@@ -178,13 +177,10 @@ extension PreferencesExtension on Preferences {
         hiddenPosts.addAll(pref.hiddenPostsPref.items);
       } else if (pref.isContentLabelPref) {
         labelPrefs.add(pref.contentLabelPref);
-      } else if (pref.isUnknown) {
-        final unknown = pref.unknown;
-        if (isLabelersPref(unknown)) {
-          labelers.addAll(LabelersPref.fromJson(unknown).labelers.map(
-                (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
-              ));
-        }
+      } else if (pref.isLabelersPref) {
+        labelers.addAll(pref.labelersPref.labelers.map(
+          (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
+        ));
       }
     }
 

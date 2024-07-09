@@ -1,5 +1,9 @@
 # Release Note
 
+## 1.0.0-preview.1
+
+- Remove `Platform` enum from core.
+
 ## 1.0.0-preview.0
 
 > Note: This release has breaking changes.
