@@ -8767,7 +8767,8 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#modEventUnmuteReporter",
             "#modEventEmail",
             "#modEventResolveAppeal",
-            "#modEventDivert"
+            "#modEventDivert",
+            "#modEventTag"
           ]
         },
         "subject": {
@@ -8816,7 +8817,8 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#modEventUnmuteReporter",
             "#modEventEmail",
             "#modEventResolveAppeal",
-            "#modEventDivert"
+            "#modEventDivert",
+            "#modEventTag"
           ]
         },
         "subject": {
