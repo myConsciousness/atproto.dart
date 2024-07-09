@@ -409,12 +409,6 @@ final class LexGenObjectBuilder {
       return false;
     }
 
-    if (typeName == 'DateTime') {
-      if (objectType == ObjectType.record) {
-        return false;
-      }
-    }
-
     return requiredProperties.contains(propertyName) &&
         !nullableProperties.contains(propertyName);
   }

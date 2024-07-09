@@ -54,7 +54,7 @@ class PostRecord with _$PostRecord {
     List<String>? tags,
 
     /// Client-declared timestamp when this post was originally created.
-    DateTime? createdAt,
+    required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -109,12 +109,6 @@ extension $PostRecordExtension on PostRecord {
 
   /// Returns true if [tags] is null, otherwise false.
   bool get hasNotTags => !hasTags;
-
-  /// Returns true if [createdAt] is not null, otherwise false.
-  bool get hasCreatedAt => createdAt != null;
-
-  /// Returns true if [createdAt] is null, otherwise false.
-  bool get hasNotCreatedAt => !hasCreatedAt;
 
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -575,6 +575,7 @@ final class ListblockRecordHelper {
 
   /// Creates listblock record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required AtUri subject,
     DateTime? createdAt,
     Map<String, dynamic>? $unknown,
@@ -584,12 +585,30 @@ final class ListblockRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyGraphListblock,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.graph.listblock',
           'subject': subject.toString(),
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates listblock record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required ListblockRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListblock,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );
@@ -700,6 +719,7 @@ final class ListitemRecordHelper {
 
   /// Creates listitem record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required String subject,
     required AtUri list,
     DateTime? createdAt,
@@ -710,6 +730,7 @@ final class ListitemRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyGraphListitem,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.graph.listitem',
           'subject': subject,
@@ -717,6 +738,23 @@ final class ListitemRecordHelper {
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates listitem record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required ListitemRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListitem,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );
@@ -828,6 +866,7 @@ final class FollowRecordHelper {
 
   /// Creates follow record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required String subject,
     DateTime? createdAt,
     Map<String, dynamic>? $unknown,
@@ -837,12 +876,30 @@ final class FollowRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyGraphFollow,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.graph.follow',
           'subject': subject,
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates follow record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required FollowRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphFollow,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );
@@ -953,6 +1010,7 @@ final class BlockRecordHelper {
 
   /// Creates block record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required String subject,
     DateTime? createdAt,
     Map<String, dynamic>? $unknown,
@@ -962,12 +1020,30 @@ final class BlockRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyGraphBlock,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.graph.block',
           'subject': subject,
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates block record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required BlockRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphBlock,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );
@@ -1078,6 +1154,7 @@ final class ListRecordHelper {
 
   /// Creates list record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required UListPurpose purpose,
     required String name,
     String? description,
@@ -1092,6 +1169,7 @@ final class ListRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyGraphList,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.graph.list',
           'purpose': purpose.toJson(),
@@ -1105,6 +1183,23 @@ final class ListRecordHelper {
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates list record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required ListRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphList,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );
@@ -1222,6 +1317,7 @@ final class StarterpackRecordHelper {
 
   /// Creates starterpack record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required String name,
     String? description,
     List<Facet>? descriptionFacets,
@@ -1235,6 +1331,7 @@ final class StarterpackRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyGraphStarterpack,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.graph.starterpack',
           'name': name,
@@ -1247,6 +1344,23 @@ final class StarterpackRecordHelper {
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates starterpack record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required StarterpackRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphStarterpack,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );

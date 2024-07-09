@@ -29,7 +29,7 @@ mixin _$ListblockRecord {
   /// Reference (AT-URI) to the mod list record.
   @AtUriConverter()
   AtUri get subject => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -50,7 +50,7 @@ abstract class $ListblockRecordCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri subject,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -69,7 +69,7 @@ class _$ListblockRecordCopyWithImpl<$Res, $Val extends ListblockRecord>
   $Res call({
     Object? $type = null,
     Object? subject = null,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -81,10 +81,10 @@ class _$ListblockRecordCopyWithImpl<$Res, $Val extends ListblockRecord>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -104,7 +104,7 @@ abstract class _$$ListblockRecordImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri subject,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -121,7 +121,7 @@ class __$$ListblockRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? subject = null,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$ListblockRecordImpl(
@@ -133,10 +133,10 @@ class __$$ListblockRecordImplCopyWithImpl<$Res>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -152,7 +152,7 @@ class _$ListblockRecordImpl implements _ListblockRecord {
   const _$ListblockRecordImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyGraphListblock,
       @AtUriConverter() required this.subject,
-      this.createdAt,
+      required this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -171,7 +171,7 @@ class _$ListblockRecordImpl implements _ListblockRecord {
   @AtUriConverter()
   final AtUri subject;
   @override
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -228,7 +228,7 @@ abstract class _ListblockRecord implements ListblockRecord {
   const factory _ListblockRecord(
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri subject,
-          final DateTime? createdAt,
+          required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListblockRecordImpl;
 
@@ -248,7 +248,7 @@ abstract class _ListblockRecord implements ListblockRecord {
   @AtUriConverter()
   AtUri get subject;
   @override
-  DateTime? get createdAt;
+  DateTime get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

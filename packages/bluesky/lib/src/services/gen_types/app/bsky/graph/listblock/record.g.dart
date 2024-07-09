@@ -18,8 +18,8 @@ _$ListblockRecordImpl _$$ListblockRecordImplFromJson(Map json) =>
               r'$type', (v) => v as String? ?? appBskyGraphListblock),
           subject: $checkedConvert(
               'subject', (v) => const AtUriConverter().fromJson(v as String)),
-          createdAt: $checkedConvert('createdAt',
-              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -35,6 +35,7 @@ Map<String, dynamic> _$$ListblockRecordImplToJson(
   final val = <String, dynamic>{
     r'$type': instance.$type,
     'subject': const AtUriConverter().toJson(instance.subject),
+    'createdAt': instance.createdAt.toIso8601String(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -43,7 +44,6 @@ Map<String, dynamic> _$$ListblockRecordImplToJson(
     }
   }
 
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

@@ -33,7 +33,12 @@ import 'service_suite.dart';
 void main() {
   testFeed<StrongRef>(
     (m, s) => s.post.create(text: m.text),
-    bulk: (m, s) => s.post.createInBulk([PostRecord(text: m.text)]),
+    bulk: (m, s) => s.post.createInBulk([
+      PostRecord(
+        text: m.text,
+        createdAt: m.createdAt,
+      )
+    ]),
     id: appBskyFeedPost,
   );
 
@@ -42,6 +47,7 @@ void main() {
     bulk: (m, s) => s.repost.createInBulk([
       RepostRecord(
         subject: StrongRef(cid: m.cid, uri: m.uri),
+        createdAt: m.createdAt,
       ),
     ]),
     id: appBskyFeedPost,
@@ -57,6 +63,7 @@ void main() {
     bulk: (m, s) => s.like.createInBulk([
       LikeRecord(
         subject: StrongRef(cid: m.cid, uri: m.uri),
+        createdAt: m.createdAt,
       )
     ]),
     id: appBskyFeedPost,

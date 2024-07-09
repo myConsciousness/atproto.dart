@@ -30,7 +30,7 @@ class LikeRecord with _$LikeRecord {
     /// `app.bsky.feed.like`
     @Default(appBskyFeedLike) @JsonKey(name: r'$type') String $type,
     @StrongRefConverter() required StrongRef subject,
-    DateTime? createdAt,
+    required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -50,12 +50,6 @@ bool isLikeRecord(final Map<String, dynamic>? object) {
 }
 
 extension $LikeRecordExtension on LikeRecord {
-  /// Returns true if [createdAt] is not null, otherwise false.
-  bool get hasCreatedAt => createdAt != null;
-
-  /// Returns true if [createdAt] is null, otherwise false.
-  bool get hasNotCreatedAt => !hasCreatedAt;
-
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;

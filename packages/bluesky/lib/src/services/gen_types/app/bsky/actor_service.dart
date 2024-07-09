@@ -24,6 +24,7 @@ import '../../app/bsky/actor/defs/profile_view_detailed.dart';
 import '../../app/bsky/actor/defs/union_preference.dart';
 import '../../app/bsky/actor/get_profiles/output.dart';
 import '../../app/bsky/actor/get_suggestions/output.dart';
+import '../../app/bsky/actor/profile/record.dart';
 import '../../app/bsky/actor/profile/union_profile_label.dart';
 import '../../app/bsky/actor/search_actors/output.dart';
 import '../../app/bsky/actor/search_actors_typeahead/output.dart';
@@ -240,6 +241,7 @@ final class ProfileRecordHelper {
 
   /// Creates profile record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     String? displayName,
     String? description,
     Blob? avatar,
@@ -254,7 +256,7 @@ final class ProfileRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyActorProfile,
-        rkey: 'self',
+        rkey: rkey ?? 'self',
         record: {
           r'$type': 'app.bsky.actor.profile',
           if (displayName != null) 'displayName': displayName,
@@ -273,13 +275,8 @@ final class ProfileRecordHelper {
 
   /// Updates profile record.
   Future<XRPCResponse<StrongRef>> put({
-    String? displayName,
-    String? description,
-    Blob? avatar,
-    Blob? banner,
-    UProfileLabel? labels,
-    StrongRef? joinedViaStarterPack,
-    DateTime? createdAt,
+    String? rkey,
+    required ProfileRecord record,
     Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
@@ -287,19 +284,8 @@ final class ProfileRecordHelper {
       await _ctx.atproto.repo.putRecord(
         repo: _ctx.repo,
         collection: ns.appBskyActorProfile,
-        rkey: 'self',
-        record: {
-          r'$type': 'app.bsky.actor.profile',
-          if (displayName != null) 'displayName': displayName,
-          if (description != null) 'description': description,
-          if (avatar != null) 'avatar': avatar.toJson(),
-          if (banner != null) 'banner': banner.toJson(),
-          if (labels != null) 'labels': labels.toJson(),
-          if (joinedViaStarterPack != null)
-            'joinedViaStarterPack': joinedViaStarterPack.toJson(),
-          'createdAt': iso8601(createdAt),
-          ...?$unknown,
-        },
+        rkey: rkey ?? 'self',
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );

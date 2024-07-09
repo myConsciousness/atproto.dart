@@ -47,6 +47,7 @@ import '../../app/bsky/feed/post/union_post_label.dart';
 import '../../app/bsky/feed/repost/record.dart';
 import '../../app/bsky/feed/search_posts/known_search_posts_sort.dart';
 import '../../app/bsky/feed/search_posts/output.dart';
+import '../../app/bsky/feed/threadgate/record.dart';
 import '../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
 import '../../app/bsky/richtext/facet/main.dart';
 
@@ -553,6 +554,7 @@ final class RepostRecordHelper {
 
   /// Creates repost record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required StrongRef subject,
     DateTime? createdAt,
     Map<String, dynamic>? $unknown,
@@ -562,12 +564,30 @@ final class RepostRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyFeedRepost,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.feed.repost',
           'subject': subject.toJson(),
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates repost record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required RepostRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedRepost,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );
@@ -678,6 +698,7 @@ final class ThreadgateRecordHelper {
 
   /// Creates threadgate record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required AtUri post,
     List<UThreadgateAllow>? allow,
     DateTime? createdAt,
@@ -688,7 +709,7 @@ final class ThreadgateRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyFeedThreadgate,
-        rkey: post.rkey,
+        rkey: rkey ?? post.rkey,
         record: {
           r'$type': 'app.bsky.feed.threadgate',
           'post': post.toString(),
@@ -696,6 +717,23 @@ final class ThreadgateRecordHelper {
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates threadgate record.
+  Future<XRPCResponse<StrongRef>> put({
+    String? rkey,
+    required ThreadgateRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedThreadgate,
+        rkey: rkey ?? record.post.rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );
@@ -763,6 +801,7 @@ final class LikeRecordHelper {
 
   /// Creates like record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required StrongRef subject,
     DateTime? createdAt,
     Map<String, dynamic>? $unknown,
@@ -772,12 +811,30 @@ final class LikeRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyFeedLike,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.feed.like',
           'subject': subject.toJson(),
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates like record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required LikeRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedLike,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );
@@ -888,6 +945,7 @@ final class PostRecordHelper {
 
   /// Creates post record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required String text,
     List<Facet>? facets,
     ReplyRef? reply,
@@ -903,6 +961,7 @@ final class PostRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyFeedPost,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.feed.post',
           'text': text,
@@ -915,6 +974,23 @@ final class PostRecordHelper {
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates post record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required PostRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedPost,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );
@@ -1032,6 +1108,7 @@ final class GeneratorRecordHelper {
 
   /// Creates generator record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required String did,
     required String displayName,
     String? description,
@@ -1047,6 +1124,7 @@ final class GeneratorRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyFeedGenerator,
+        rkey: rkey,
         record: {
           r'$type': 'app.bsky.feed.generator',
           'did': did,
@@ -1062,6 +1140,23 @@ final class GeneratorRecordHelper {
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates generator record.
+  Future<XRPCResponse<StrongRef>> put({
+    required String rkey,
+    required GeneratorRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedGenerator,
+        rkey: rkey,
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );

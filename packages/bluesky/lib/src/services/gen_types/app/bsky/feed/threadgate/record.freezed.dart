@@ -31,7 +31,7 @@ mixin _$ThreadgateRecord {
   AtUri get post => throw _privateConstructorUsedError;
   @UThreadgateAllowConverter()
   List<UThreadgateAllow>? get allow => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -53,7 +53,7 @@ abstract class $ThreadgateRecordCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -73,7 +73,7 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
     Object? $type = null,
     Object? post = null,
     Object? allow = freezed,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -89,10 +89,10 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
           ? _value.allow
           : allow // ignore: cast_nullable_to_non_nullable
               as List<UThreadgateAllow>?,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -113,7 +113,7 @@ abstract class _$$ThreadgateRecordImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -131,7 +131,7 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? post = null,
     Object? allow = freezed,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$ThreadgateRecordImpl(
@@ -147,10 +147,10 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
           ? _value._allow
           : allow // ignore: cast_nullable_to_non_nullable
               as List<UThreadgateAllow>?,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedThreadgate,
       @AtUriConverter() required this.post,
       @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
-      this.createdAt,
+      required this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _allow = allow,
         _$unknown = $unknown;
@@ -198,7 +198,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   }
 
   @override
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -262,7 +262,7 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri post,
           @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
-          final DateTime? createdAt,
+          required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ThreadgateRecordImpl;
 
@@ -285,7 +285,7 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   @UThreadgateAllowConverter()
   List<UThreadgateAllow>? get allow;
   @override
-  DateTime? get createdAt;
+  DateTime get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

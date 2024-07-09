@@ -24,8 +24,8 @@ _$ServiceRecordImpl _$$ServiceRecordImplFromJson(Map json) => $checkedCreate(
               (v) =>
                   _$JsonConverterFromJson<Map<String, dynamic>, UServiceLabel>(
                       v, const UServiceLabelConverter().fromJson)),
-          createdAt: $checkedConvert('createdAt',
-              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -52,7 +52,7 @@ Map<String, dynamic> _$$ServiceRecordImplToJson(_$ServiceRecordImpl instance) {
       'labels',
       _$JsonConverterToJson<Map<String, dynamic>, UServiceLabel>(
           instance.labels, const UServiceLabelConverter().toJson));
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
+  val['createdAt'] = instance.createdAt.toIso8601String();
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

@@ -43,7 +43,7 @@ class ListRecord with _$ListRecord {
     @FacetConverter() List<Facet>? descriptionFacets,
     @BlobConverter() Blob? avatar,
     @UListLabelConverter() UListLabel? labels,
-    DateTime? createdAt,
+    required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -86,12 +86,6 @@ extension $ListRecordExtension on ListRecord {
 
   /// Returns true if [labels] is null, otherwise false.
   bool get hasNotLabels => !hasLabels;
-
-  /// Returns true if [createdAt] is not null, otherwise false.
-  bool get hasCreatedAt => createdAt != null;
-
-  /// Returns true if [createdAt] is null, otherwise false.
-  bool get hasNotCreatedAt => !hasCreatedAt;
 
   /// Returns true if this object has unknown objects,
   /// otherwise false.

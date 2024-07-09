@@ -38,8 +38,8 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
                   v, const UPostLabelConverter().fromJson)),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
-          createdAt: $checkedConvert('createdAt',
-              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -78,7 +78,7 @@ Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) {
       _$JsonConverterToJson<Map<String, dynamic>, UPostLabel>(
           instance.labels, const UPostLabelConverter().toJson));
   writeNotNull('tags', instance.tags);
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
+  val['createdAt'] = instance.createdAt.toIso8601String();
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

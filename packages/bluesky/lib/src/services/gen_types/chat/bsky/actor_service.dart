@@ -20,6 +20,7 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../chat/bsky/actor/declaration/known_declaration_allow_incoming.dart';
+import '../../chat/bsky/actor/declaration/record.dart';
 
 /// Provides `chat.bsky.actor.*` endpoints.
 final class ActorService {
@@ -104,6 +105,7 @@ final class DeclarationRecordHelper {
 
   /// Creates declaration record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required UDeclarationAllowIncoming allowIncoming,
     Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
@@ -112,12 +114,29 @@ final class DeclarationRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.chatBskyActorDeclaration,
-        rkey: 'self',
+        rkey: rkey ?? 'self',
         record: {
           r'$type': 'chat.bsky.actor.declaration',
           'allowIncoming': allowIncoming.toJson(),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates declaration record.
+  Future<XRPCResponse<StrongRef>> put({
+    String? rkey,
+    required DeclarationRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.chatBskyActorDeclaration,
+        rkey: rkey ?? 'self',
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );

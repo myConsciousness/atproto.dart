@@ -18,8 +18,8 @@ _$ListitemRecordImpl _$$ListitemRecordImplFromJson(Map json) => $checkedCreate(
           subject: $checkedConvert('subject', (v) => v as String),
           list: $checkedConvert(
               'list', (v) => const AtUriConverter().fromJson(v as String)),
-          createdAt: $checkedConvert('createdAt',
-              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -36,6 +36,7 @@ Map<String, dynamic> _$$ListitemRecordImplToJson(
     r'$type': instance.$type,
     'subject': instance.subject,
     'list': const AtUriConverter().toJson(instance.list),
+    'createdAt': instance.createdAt.toIso8601String(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -44,7 +45,6 @@ Map<String, dynamic> _$$ListitemRecordImplToJson(
     }
   }
 
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

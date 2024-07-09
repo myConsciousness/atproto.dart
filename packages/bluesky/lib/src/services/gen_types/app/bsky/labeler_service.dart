@@ -106,6 +106,7 @@ final class ServiceRecordHelper {
 
   /// Creates service record.
   Future<XRPCResponse<StrongRef>> create({
+    String? rkey,
     required LabelerPolicies policies,
     UServiceLabel? labels,
     DateTime? createdAt,
@@ -116,7 +117,7 @@ final class ServiceRecordHelper {
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyLabelerService,
-        rkey: 'self',
+        rkey: rkey ?? 'self',
         record: {
           r'$type': 'app.bsky.labeler.service',
           'policies': policies.toJson(),
@@ -124,6 +125,23 @@ final class ServiceRecordHelper {
           'createdAt': iso8601(createdAt),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates service record.
+  Future<XRPCResponse<StrongRef>> put({
+    String? rkey,
+    required ServiceRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyLabelerService,
+        rkey: rkey ?? 'self',
+        record: record.toJson(),
         $headers: $headers,
         $client: $client,
       );

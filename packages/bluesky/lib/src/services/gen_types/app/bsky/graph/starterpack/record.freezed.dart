@@ -37,7 +37,7 @@ mixin _$StarterpackRecord {
   AtUri get list => throw _privateConstructorUsedError;
   @FeedItemConverter()
   List<FeedItem>? get feeds => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -62,7 +62,7 @@ abstract class $StarterpackRecordCopyWith<$Res> {
       @FacetConverter() List<Facet>? descriptionFacets,
       @AtUriConverter() AtUri list,
       @FeedItemConverter() List<FeedItem>? feeds,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -85,7 +85,7 @@ class _$StarterpackRecordCopyWithImpl<$Res, $Val extends StarterpackRecord>
     Object? descriptionFacets = freezed,
     Object? list = null,
     Object? feeds = freezed,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -113,10 +113,10 @@ class _$StarterpackRecordCopyWithImpl<$Res, $Val extends StarterpackRecord>
           ? _value.feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<FeedItem>?,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -140,7 +140,7 @@ abstract class _$$StarterpackRecordImplCopyWith<$Res>
       @FacetConverter() List<Facet>? descriptionFacets,
       @AtUriConverter() AtUri list,
       @FeedItemConverter() List<FeedItem>? feeds,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -161,7 +161,7 @@ class __$$StarterpackRecordImplCopyWithImpl<$Res>
     Object? descriptionFacets = freezed,
     Object? list = null,
     Object? feeds = freezed,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$StarterpackRecordImpl(
@@ -189,10 +189,10 @@ class __$$StarterpackRecordImplCopyWithImpl<$Res>
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<FeedItem>?,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -212,7 +212,7 @@ class _$StarterpackRecordImpl implements _StarterpackRecord {
       @FacetConverter() final List<Facet>? descriptionFacets,
       @AtUriConverter() required this.list,
       @FeedItemConverter() final List<FeedItem>? feeds,
-      this.createdAt,
+      required this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _descriptionFacets = descriptionFacets,
         _feeds = feeds,
@@ -261,7 +261,7 @@ class _$StarterpackRecordImpl implements _StarterpackRecord {
   }
 
   @override
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -336,7 +336,7 @@ abstract class _StarterpackRecord implements StarterpackRecord {
           @FacetConverter() final List<Facet>? descriptionFacets,
           @AtUriConverter() required final AtUri list,
           @FeedItemConverter() final List<FeedItem>? feeds,
-          final DateTime? createdAt,
+          required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$StarterpackRecordImpl;
 
@@ -368,7 +368,7 @@ abstract class _StarterpackRecord implements StarterpackRecord {
   @FeedItemConverter()
   List<FeedItem>? get feeds;
   @override
-  DateTime? get createdAt;
+  DateTime get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

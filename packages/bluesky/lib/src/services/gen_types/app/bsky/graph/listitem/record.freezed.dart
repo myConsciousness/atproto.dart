@@ -32,7 +32,7 @@ mixin _$ListitemRecord {
   /// Reference (AT-URI) to the list record (app.bsky.graph.list).
   @AtUriConverter()
   AtUri get list => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -54,7 +54,7 @@ abstract class $ListitemRecordCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String subject,
       @AtUriConverter() AtUri list,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -74,7 +74,7 @@ class _$ListitemRecordCopyWithImpl<$Res, $Val extends ListitemRecord>
     Object? $type = null,
     Object? subject = null,
     Object? list = null,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -90,10 +90,10 @@ class _$ListitemRecordCopyWithImpl<$Res, $Val extends ListitemRecord>
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ abstract class _$$ListitemRecordImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String subject,
       @AtUriConverter() AtUri list,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -132,7 +132,7 @@ class __$$ListitemRecordImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? subject = null,
     Object? list = null,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$ListitemRecordImpl(
@@ -148,10 +148,10 @@ class __$$ListitemRecordImplCopyWithImpl<$Res>
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -168,7 +168,7 @@ class _$ListitemRecordImpl implements _ListitemRecord {
       {@JsonKey(name: r'$type') this.$type = appBskyGraphListitem,
       required this.subject,
       @AtUriConverter() required this.list,
-      this.createdAt,
+      required this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -191,7 +191,7 @@ class _$ListitemRecordImpl implements _ListitemRecord {
   @AtUriConverter()
   final AtUri list;
   @override
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -250,7 +250,7 @@ abstract class _ListitemRecord implements ListitemRecord {
           {@JsonKey(name: r'$type') final String $type,
           required final String subject,
           @AtUriConverter() required final AtUri list,
-          final DateTime? createdAt,
+          required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListitemRecordImpl;
 
@@ -274,7 +274,7 @@ abstract class _ListitemRecord implements ListitemRecord {
   @AtUriConverter()
   AtUri get list;
   @override
-  DateTime? get createdAt;
+  DateTime get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

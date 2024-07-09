@@ -43,7 +43,7 @@ class GeneratorRecord with _$GeneratorRecord {
 
     /// Self-label values
     @UGeneratorLabelConverter() UGeneratorLabel? labels,
-    DateTime? createdAt,
+    required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -92,12 +92,6 @@ extension $GeneratorRecordExtension on GeneratorRecord {
 
   /// Returns true if [labels] is null, otherwise false.
   bool get hasNotLabels => !hasLabels;
-
-  /// Returns true if [createdAt] is not null, otherwise false.
-  bool get hasCreatedAt => createdAt != null;
-
-  /// Returns true if [createdAt] is null, otherwise false.
-  bool get hasNotCreatedAt => !hasCreatedAt;
 
   /// Returns true if this object has unknown objects,
   /// otherwise false.

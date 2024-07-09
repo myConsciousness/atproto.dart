@@ -31,7 +31,7 @@ class BlockRecord with _$BlockRecord {
 
     /// DID of the account to be blocked.
     required String subject,
-    DateTime? createdAt,
+    required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -51,12 +51,6 @@ bool isBlockRecord(final Map<String, dynamic>? object) {
 }
 
 extension $BlockRecordExtension on BlockRecord {
-  /// Returns true if [createdAt] is not null, otherwise false.
-  bool get hasCreatedAt => createdAt != null;
-
-  /// Returns true if [createdAt] is null, otherwise false.
-  bool get hasNotCreatedAt => !hasCreatedAt;
-
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;

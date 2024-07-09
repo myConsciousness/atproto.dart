@@ -28,7 +28,7 @@ mixin _$BlockRecord {
 
   /// DID of the account to be blocked.
   String get subject => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -49,7 +49,7 @@ abstract class $BlockRecordCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String subject,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -68,7 +68,7 @@ class _$BlockRecordCopyWithImpl<$Res, $Val extends BlockRecord>
   $Res call({
     Object? $type = null,
     Object? subject = null,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -80,10 +80,10 @@ class _$BlockRecordCopyWithImpl<$Res, $Val extends BlockRecord>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -103,7 +103,7 @@ abstract class _$$BlockRecordImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String subject,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -120,7 +120,7 @@ class __$$BlockRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? subject = null,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$BlockRecordImpl(
@@ -132,10 +132,10 @@ class __$$BlockRecordImplCopyWithImpl<$Res>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -151,7 +151,7 @@ class _$BlockRecordImpl implements _BlockRecord {
   const _$BlockRecordImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyGraphBlock,
       required this.subject,
-      this.createdAt,
+      required this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -169,7 +169,7 @@ class _$BlockRecordImpl implements _BlockRecord {
   @override
   final String subject;
   @override
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -225,7 +225,7 @@ abstract class _BlockRecord implements BlockRecord {
   const factory _BlockRecord(
           {@JsonKey(name: r'$type') final String $type,
           required final String subject,
-          final DateTime? createdAt,
+          required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$BlockRecordImpl;
 
@@ -244,7 +244,7 @@ abstract class _BlockRecord implements BlockRecord {
   /// DID of the account to be blocked.
   String get subject;
   @override
-  DateTime? get createdAt;
+  DateTime get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

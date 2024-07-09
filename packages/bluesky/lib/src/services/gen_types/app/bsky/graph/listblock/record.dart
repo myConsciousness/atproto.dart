@@ -32,7 +32,7 @@ class ListblockRecord with _$ListblockRecord {
 
     /// Reference (AT-URI) to the mod list record.
     @AtUriConverter() required AtUri subject,
-    DateTime? createdAt,
+    required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -52,12 +52,6 @@ bool isListblockRecord(final Map<String, dynamic>? object) {
 }
 
 extension $ListblockRecordExtension on ListblockRecord {
-  /// Returns true if [createdAt] is not null, otherwise false.
-  bool get hasCreatedAt => createdAt != null;
-
-  /// Returns true if [createdAt] is null, otherwise false.
-  bool get hasNotCreatedAt => !hasCreatedAt;
-
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;

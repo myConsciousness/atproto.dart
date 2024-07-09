@@ -29,7 +29,12 @@ import 'service_suite.dart';
 void main() {
   testGraph<StrongRef>(
     (m, s) => s.follow.create(subject: m.did),
-    bulk: (m, s) => s.follow.createInBulk([FollowRecord(subject: m.did)]),
+    bulk: (m, s) => s.follow.createInBulk([
+      FollowRecord(
+        subject: m.did,
+        createdAt: m.createdAt,
+      )
+    ]),
     id: appBskyGraphFollow,
   );
 
@@ -65,7 +70,12 @@ void main() {
 
   testGraph<StrongRef>(
     (m, s) => s.block.create(subject: m.did),
-    bulk: (m, s) => s.block.createInBulk([BlockRecord(subject: m.did)]),
+    bulk: (m, s) => s.block.createInBulk([
+      BlockRecord(
+        subject: m.did,
+        createdAt: m.createdAt,
+      )
+    ]),
     id: appBskyGraphBlock,
   );
 
@@ -78,6 +88,7 @@ void main() {
       ListRecord(
         purpose: KnownListPurpose.modlist.toUnion(),
         name: m.name,
+        createdAt: m.createdAt,
       )
     ]),
     id: appBskyGraphList,
@@ -116,6 +127,7 @@ void main() {
       ListitemRecord(
         subject: m.did,
         list: m.uri,
+        createdAt: m.createdAt,
       )
     ]),
     id: appBskyGraphListitem,

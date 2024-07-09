@@ -1,5 +1,10 @@
 # Release Note
 
+## 1.0.0-preview.3
+
+- Refactor put endpoints for records.
+- `createdAt` property is now required for record objects.
+
 ## 1.0.0-preview.2
 
 - Optimize exports.

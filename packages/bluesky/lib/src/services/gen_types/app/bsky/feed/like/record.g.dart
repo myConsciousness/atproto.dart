@@ -19,8 +19,8 @@ _$LikeRecordImpl _$$LikeRecordImplFromJson(Map json) => $checkedCreate(
               'subject',
               (v) => const StrongRefConverter()
                   .fromJson(v as Map<String, dynamic>)),
-          createdAt: $checkedConvert('createdAt',
-              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -35,6 +35,7 @@ Map<String, dynamic> _$$LikeRecordImplToJson(_$LikeRecordImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.$type,
     'subject': const StrongRefConverter().toJson(instance.subject),
+    'createdAt': instance.createdAt.toIso8601String(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -43,7 +44,6 @@ Map<String, dynamic> _$$LikeRecordImplToJson(_$LikeRecordImpl instance) {
     }
   }
 
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

@@ -34,7 +34,7 @@ class ThreadgateRecord with _$ThreadgateRecord {
     /// Reference (AT-URI) to the post record.
     @AtUriConverter() required AtUri post,
     @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
-    DateTime? createdAt,
+    required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -59,12 +59,6 @@ extension $ThreadgateRecordExtension on ThreadgateRecord {
 
   /// Returns true if [allow] is null, otherwise false.
   bool get hasNotAllow => !hasAllow;
-
-  /// Returns true if [createdAt] is not null, otherwise false.
-  bool get hasCreatedAt => createdAt != null;
-
-  /// Returns true if [createdAt] is null, otherwise false.
-  bool get hasNotCreatedAt => !hasCreatedAt;
 
   /// Returns true if this object has unknown objects,
   /// otherwise false.

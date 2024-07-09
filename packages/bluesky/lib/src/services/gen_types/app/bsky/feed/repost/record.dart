@@ -30,7 +30,7 @@ class RepostRecord with _$RepostRecord {
     /// `app.bsky.feed.repost`
     @Default(appBskyFeedRepost) @JsonKey(name: r'$type') String $type,
     @StrongRefConverter() required StrongRef subject,
-    DateTime? createdAt,
+    required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -50,12 +50,6 @@ bool isRepostRecord(final Map<String, dynamic>? object) {
 }
 
 extension $RepostRecordExtension on RepostRecord {
-  /// Returns true if [createdAt] is not null, otherwise false.
-  bool get hasCreatedAt => createdAt != null;
-
-  /// Returns true if [createdAt] is null, otherwise false.
-  bool get hasNotCreatedAt => !hasCreatedAt;
-
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;

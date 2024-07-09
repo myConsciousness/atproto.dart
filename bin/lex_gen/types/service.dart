@@ -65,7 +65,7 @@ final class LexService {
       return !config.disableInBulk;
     });
 
-    final recordPaths = inBulkRecords.map((e) {
+    final recordPaths = records.map((e) {
       final path = e.docId.toString().replaceAll('.', '/');
       return "../../$path/record.dart";
     }).toList();
@@ -471,6 +471,7 @@ final class LexServiceEndpoint {
     buffer.writeln();
     buffer.writeln('  /// Creates $name record.');
     buffer.writeln('  Future<XRPCResponse<${type.name}>> create({');
+    buffer.writeln('    String? rkey,');
     for (final arg in args) {
       buffer.writeln('    ${arg.toString()},');
     }
@@ -482,9 +483,11 @@ final class LexServiceEndpoint {
     buffer.writeln('        repo: _ctx.repo,');
     buffer.writeln('        collection: ns.$namespace,');
     if (config != null && config.rkey != null) {
-      buffer.writeln('        rkey: ${config.rkey}.rkey,');
+      buffer.writeln('        rkey: rkey ?? ${config.rkey}.rkey,');
     } else if (rkey != null) {
-      buffer.writeln("        rkey: '$rkey',");
+      buffer.writeln("        rkey: rkey ?? '$rkey',");
+    } else {
+      buffer.writeln('        rkey: rkey,');
     }
     buffer.writeln('        record: {');
     buffer.writeln("          r'\$type': '$serviceName.$name',");
@@ -498,36 +501,33 @@ final class LexServiceEndpoint {
     buffer.writeln('      );');
 
     // Put
-    if (config != null && config.usePut) {
-      buffer.writeln();
-      buffer.writeln('  /// Updates $name record.');
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> put({');
-      for (final arg in args) {
-        buffer.writeln('    ${arg.toString()},');
-      }
-      buffer.writeln('    Map<String, dynamic>? \$unknown,');
-      buffer.writeln('    Map<String, String>? \$headers,');
-      buffer.writeln('    PostClient? \$client,');
-      buffer.writeln('  }) async =>');
-      buffer.writeln('    await _ctx.atproto.repo.putRecord(');
-      buffer.writeln('        repo: _ctx.repo,');
-      buffer.writeln('        collection: ns.$namespace,');
-      if (config.rkey != null) {
-        buffer.writeln('        rkey: ${config.rkey}.rkey,');
-      } else if (rkey != null) {
-        buffer.writeln("        rkey: '$rkey',");
-      }
-      buffer.writeln('        record: {');
-      buffer.writeln("          r'\$type': '$serviceName.$name',");
-      for (final arg in args) {
-        buffer.writeln(Payload(arg).toString());
-      }
-      buffer.writeln('          ...?\$unknown,');
-      buffer.writeln('        },');
-      buffer.writeln('        \$headers: \$headers,');
-      buffer.writeln('        \$client: \$client,');
-      buffer.writeln('      );');
+    buffer.writeln();
+    buffer.writeln('  /// Updates $name record.');
+    buffer.writeln('  Future<XRPCResponse<${type.name}>> put({');
+    if (config?.rkey == null && rkey == null) {
+      buffer.writeln('    required String rkey,');
+    } else {
+      buffer.writeln('    String? rkey,');
     }
+    buffer.writeln('    required $recordName record,');
+    buffer.writeln('    Map<String, dynamic>? \$unknown,');
+    buffer.writeln('    Map<String, String>? \$headers,');
+    buffer.writeln('    PostClient? \$client,');
+    buffer.writeln('  }) async =>');
+    buffer.writeln('    await _ctx.atproto.repo.putRecord(');
+    buffer.writeln('        repo: _ctx.repo,');
+    buffer.writeln('        collection: ns.$namespace,');
+    if (config != null && config.rkey != null) {
+      buffer.writeln('        rkey: rkey ?? record.${config.rkey}.rkey,');
+    } else if (rkey != null) {
+      buffer.writeln("        rkey: rkey ?? '$rkey',");
+    } else {
+      buffer.writeln('        rkey: rkey,');
+    }
+    buffer.writeln('        record: record.toJson(),');
+    buffer.writeln('        \$headers: \$headers,');
+    buffer.writeln('        \$client: \$client,');
+    buffer.writeln('      );');
 
     // Delete
     buffer.writeln();
@@ -718,7 +718,7 @@ final class LexServiceEndpointArg {
   String _toString(final String typeName) {
     final buffer = StringBuffer();
 
-    if (isRequired) {
+    if (isRequired && !(objectType.isRecord && name == 'createdAt')) {
       buffer.write('required $typeName');
     } else {
       buffer.write('$typeName?');

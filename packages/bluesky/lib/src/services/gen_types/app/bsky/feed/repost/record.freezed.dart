@@ -27,7 +27,7 @@ mixin _$RepostRecord {
   String get $type => throw _privateConstructorUsedError;
   @StrongRefConverter()
   StrongRef get subject => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -48,7 +48,7 @@ abstract class $RepostRecordCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @StrongRefConverter() StrongRef subject,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $StrongRefCopyWith<$Res> get subject;
@@ -69,7 +69,7 @@ class _$RepostRecordCopyWithImpl<$Res, $Val extends RepostRecord>
   $Res call({
     Object? $type = null,
     Object? subject = null,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -81,10 +81,10 @@ class _$RepostRecordCopyWithImpl<$Res, $Val extends RepostRecord>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as StrongRef,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -112,7 +112,7 @@ abstract class _$$RepostRecordImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @StrongRefConverter() StrongRef subject,
-      DateTime? createdAt,
+      DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
@@ -132,7 +132,7 @@ class __$$RepostRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? subject = null,
-    Object? createdAt = freezed,
+    Object? createdAt = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$RepostRecordImpl(
@@ -144,10 +144,10 @@ class __$$RepostRecordImplCopyWithImpl<$Res>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as StrongRef,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -163,7 +163,7 @@ class _$RepostRecordImpl implements _RepostRecord {
   const _$RepostRecordImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedRepost,
       @StrongRefConverter() required this.subject,
-      this.createdAt,
+      required this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -180,7 +180,7 @@ class _$RepostRecordImpl implements _RepostRecord {
   @StrongRefConverter()
   final StrongRef subject;
   @override
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -236,7 +236,7 @@ abstract class _RepostRecord implements RepostRecord {
   const factory _RepostRecord(
           {@JsonKey(name: r'$type') final String $type,
           @StrongRefConverter() required final StrongRef subject,
-          final DateTime? createdAt,
+          required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RepostRecordImpl;
 
@@ -254,7 +254,7 @@ abstract class _RepostRecord implements RepostRecord {
   @StrongRefConverter()
   StrongRef get subject;
   @override
-  DateTime? get createdAt;
+  DateTime get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.
