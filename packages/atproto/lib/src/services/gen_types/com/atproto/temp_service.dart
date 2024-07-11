@@ -24,6 +24,21 @@ final class TempService {
 
   final ATProtoServiceContext _ctx;
 
+  /// Check accounts location in signup queue.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/temp/checkSignupQueue
+  Future<XRPCResponse<CheckSignupQueueOutput>> checkSignupQueue({
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<CheckSignupQueueOutput>(
+        ns.comAtprotoTempCheckSignupQueue,
+        headers: $headers,
+        to: const CheckSignupQueueOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Request a verification code to be sent to the supplied phone
   /// number
   ///
@@ -41,21 +56,6 @@ final class TempService {
           'phoneNumber': phoneNumber,
           ...?$unknown,
         },
-        client: $client,
-      );
-
-  /// Check accounts location in signup queue.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/temp/checkSignupQueue
-  Future<XRPCResponse<CheckSignupQueueOutput>> checkSignupQueue({
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<CheckSignupQueueOutput>(
-        ns.comAtprotoTempCheckSignupQueue,
-        headers: $headers,
-        to: const CheckSignupQueueOutputConverter().fromJson,
         client: $client,
       );
 }

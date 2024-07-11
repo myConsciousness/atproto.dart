@@ -25,6 +25,24 @@ final class ModerationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata
+  Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata({
+    required String actor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetActorMetadataOutput>(
+        ns.chatBskyModerationGetActorMetadata,
+        headers: $headers,
+        parameters: {
+          'actor': actor,
+          ...?$unknown,
+        },
+        to: const GetActorMetadataOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getMessageContext
   Future<XRPCResponse<GetMessageContextOutput>> getMessageContext({
     String? convoId,
@@ -67,24 +85,6 @@ final class ModerationService {
           if (ref != null) 'ref': ref,
           ...?$unknown,
         },
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata
-  Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata({
-    required String actor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetActorMetadataOutput>(
-        ns.chatBskyModerationGetActorMetadata,
-        headers: $headers,
-        parameters: {
-          'actor': actor,
-          ...?$unknown,
-        },
-        to: const GetActorMetadataOutputConverter().fromJson,
         client: $client,
       );
 }

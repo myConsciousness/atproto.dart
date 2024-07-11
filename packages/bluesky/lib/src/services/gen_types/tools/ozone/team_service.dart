@@ -27,6 +27,28 @@ final class TeamService {
 
   final BlueskyServiceContext _ctx;
 
+  /// List all members with access to the ozone service.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/listMembers
+  Future<XRPCResponse<ListMembersOutput>> listMembers({
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ListMembersOutput>(
+        ns.toolsOzoneTeamListMembers,
+        headers: $headers,
+        parameters: {
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const ListMembersOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Update a member in the ozone service. Requires admin role.
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/team/updateMember
@@ -67,28 +89,6 @@ final class TeamService {
           'did': did,
           ...?$unknown,
         },
-        client: $client,
-      );
-
-  /// List all members with access to the ozone service.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/listMembers
-  Future<XRPCResponse<ListMembersOutput>> listMembers({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ListMembersOutput>(
-        ns.toolsOzoneTeamListMembers,
-        headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const ListMembersOutputConverter().fromJson,
         client: $client,
       );
 

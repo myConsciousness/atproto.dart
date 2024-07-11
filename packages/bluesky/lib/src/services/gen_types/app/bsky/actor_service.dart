@@ -62,29 +62,59 @@ final class ActorService {
         client: $client,
       );
 
-  /// Find actor suggestions for a prefix search term. Expected use is
-  /// for auto-completion during text field entry. Does not require
-  /// auth.
+  /// Get private preferences attached to the current account. Expected
+  /// use is synchronization between multiple devices, and
+  /// import/export during account migration. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
-  Future<XRPCResponse<SearchActorsTypeaheadOutput>> searchActorsTypeahead({
-    String? term,
-    String? q,
-    int? limit,
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
+  Future<XRPCResponse<Preferences>> getPreferences({
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<SearchActorsTypeaheadOutput>(
-        ns.appBskyActorSearchActorsTypeahead,
+      await _ctx.get<Preferences>(
+        ns.appBskyActorGetPreferences,
         headers: $headers,
-        parameters: {
-          if (term != null) 'term': term,
-          if (q != null) 'q': q,
-          if (limit != null) 'limit': limit.toString(),
+        to: const PreferencesConverter().fromJson,
+        client: $client,
+      );
+
+  /// Set the private preferences attached to the account.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
+  Future<XRPCResponse<EmptyData>> putPreferences({
+    required List<UPreference> preferences,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyActorPutPreferences,
+        headers: $headers,
+        body: {
+          'preferences': preferences.map((e) => e.toJson()).toList(),
           ...?$unknown,
         },
-        to: const SearchActorsTypeaheadOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get detailed profile views of multiple actors.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
+  Future<XRPCResponse<GetProfilesOutput>> getProfiles({
+    required List<String> actors,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetProfilesOutput>(
+        ns.appBskyActorGetProfiles,
+        headers: $headers,
+        parameters: {
+          'actors': actors,
+          ...?$unknown,
+        },
+        to: const GetProfilesOutputConverter().fromJson,
         client: $client,
       );
 
@@ -109,6 +139,11 @@ final class ActorService {
         client: $client,
       );
 
+  /// A declaration of a Bluesky account profile.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
+  ProfileRecordHelper get profile => ProfileRecordHelper(_ctx);
+
   /// Get a list of suggested actors. Expected use is discovery of
   /// accounts to follow during new account onboarding.
   ///
@@ -132,64 +167,29 @@ final class ActorService {
         client: $client,
       );
 
-  /// Set the private preferences attached to the account.
+  /// Find actor suggestions for a prefix search term. Expected use is
+  /// for auto-completion during text field entry. Does not require
+  /// auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
-  Future<XRPCResponse<EmptyData>> putPreferences({
-    required List<UPreference> preferences,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyActorPutPreferences,
-        headers: $headers,
-        body: {
-          'preferences': preferences.map((e) => e.toJson()).toList(),
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// A declaration of a Bluesky account profile.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
-  ProfileRecordHelper get profile => ProfileRecordHelper(_ctx);
-
-  /// Get detailed profile views of multiple actors.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
-  Future<XRPCResponse<GetProfilesOutput>> getProfiles({
-    required List<String> actors,
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
+  Future<XRPCResponse<SearchActorsTypeaheadOutput>> searchActorsTypeahead({
+    String? term,
+    String? q,
+    int? limit,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetProfilesOutput>(
-        ns.appBskyActorGetProfiles,
+      await _ctx.get<SearchActorsTypeaheadOutput>(
+        ns.appBskyActorSearchActorsTypeahead,
         headers: $headers,
         parameters: {
-          'actors': actors,
+          if (term != null) 'term': term,
+          if (q != null) 'q': q,
+          if (limit != null) 'limit': limit.toString(),
           ...?$unknown,
         },
-        to: const GetProfilesOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get private preferences attached to the current account. Expected
-  /// use is synchronization between multiple devices, and
-  /// import/export during account migration. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
-  Future<XRPCResponse<Preferences>> getPreferences({
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<Preferences>(
-        ns.appBskyActorGetPreferences,
-        headers: $headers,
-        to: const PreferencesConverter().fromJson,
+        to: const SearchActorsTypeaheadOutputConverter().fromJson,
         client: $client,
       );
 }

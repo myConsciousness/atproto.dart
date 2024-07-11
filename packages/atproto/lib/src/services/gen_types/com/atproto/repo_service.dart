@@ -33,36 +33,29 @@ final class RepoService {
 
   final ATProtoServiceContext _ctx;
 
-  /// List a range of records in a repository, matching a specific
-  /// collection. Does not require auth.
+  /// Get a single record from a repository. Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords
-  Future<XRPCResponse<ListRecordsOutput>> listRecords({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord
+  Future<XRPCResponse<GetRecordOutput>> getRecord({
     String? repo,
     required NSID collection,
-    int? limit,
-    String? cursor,
-    String? rkeyStart,
-    String? rkeyEnd,
-    bool? reverse,
+    required String rkey,
+    String? cid,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<ListRecordsOutput>(
-        ns.comAtprotoRepoListRecords,
+      await _ctx.get<GetRecordOutput>(
+        ns.comAtprotoRepoGetRecord,
         headers: $headers,
         parameters: {
           'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          if (rkeyStart != null) 'rkeyStart': rkeyStart,
-          if (rkeyEnd != null) 'rkeyEnd': rkeyEnd,
-          if (reverse != null) 'reverse': reverse.toString(),
+          'rkey': rkey,
+          if (cid != null) 'cid': cid,
           ...?$unknown,
         },
-        to: const ListRecordsOutputConverter().fromJson,
+        to: const GetRecordOutputConverter().fromJson,
         client: $client,
       );
 
@@ -94,109 +87,36 @@ final class RepoService {
         client: $client,
       );
 
-  /// Get information about an account and repository, including the
-  /// list of collections. Does not require auth.
+  /// List a range of records in a repository, matching a specific
+  /// collection. Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
-  Future<XRPCResponse<DescribeRepoOutput>> describeRepo({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords
+  Future<XRPCResponse<ListRecordsOutput>> listRecords({
     String? repo,
+    required NSID collection,
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<DescribeRepoOutput>(
-        ns.comAtprotoRepoDescribeRepo,
-        headers: $headers,
-        parameters: {
-          'repo': repo ?? _ctx.repo,
-          ...?$unknown,
-        },
-        to: const DescribeRepoOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Write a repository record, creating or updating it as needed.
-  /// Requires auth, implemented by PDS.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/putRecord
-  Future<XRPCResponse<StrongRef>> putRecord({
-    String? repo,
-    required NSID collection,
-    required String rkey,
-    bool? validate,
-    required Map<String, dynamic> record,
-    String? swapRecord,
-    String? swapCommit,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<StrongRef>(
-        ns.comAtprotoRepoPutRecord,
-        headers: $headers,
-        body: {
-          'repo': repo ?? _ctx.repo,
-          'collection': collection.toString(),
-          'rkey': rkey,
-          if (validate != null) 'validate': validate,
-          'record': record,
-          if (swapRecord != null) 'swapRecord': swapRecord,
-          if (swapCommit != null) 'swapCommit': swapCommit,
-          ...?$unknown,
-        },
-        to: const StrongRefConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get a single record from a repository. Does not require auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord
-  Future<XRPCResponse<GetRecordOutput>> getRecord({
-    String? repo,
-    required NSID collection,
-    required String rkey,
-    String? cid,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetRecordOutput>(
-        ns.comAtprotoRepoGetRecord,
+      await _ctx.get<ListRecordsOutput>(
+        ns.comAtprotoRepoListRecords,
         headers: $headers,
         parameters: {
           'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
-          'rkey': rkey,
-          if (cid != null) 'cid': cid,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          if (rkeyStart != null) 'rkeyStart': rkeyStart,
+          if (rkeyEnd != null) 'rkeyEnd': rkeyEnd,
+          if (reverse != null) 'reverse': reverse.toString(),
           ...?$unknown,
         },
-        to: const GetRecordOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Apply a batch transaction of repository creates, updates, and
-  /// deletes. Requires auth, implemented by PDS.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites
-  Future<XRPCResponse<EmptyData>> applyWrites({
-    String? repo,
-    bool? validate,
-    required List<UApplyWritesWrite> writes,
-    String? swapCommit,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoRepoApplyWrites,
-        headers: $headers,
-        body: {
-          'repo': repo ?? _ctx.repo,
-          if (validate != null) 'validate': validate,
-          'writes': writes.map((e) => e.toJson()).toList(),
-          if (swapCommit != null) 'swapCommit': swapCommit,
-          ...?$unknown,
-        },
+        to: const ListRecordsOutputConverter().fromJson,
         client: $client,
       );
 
@@ -252,6 +172,27 @@ final class RepoService {
         client: $client,
       );
 
+  /// Get information about an account and repository, including the
+  /// list of collections. Does not require auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
+  Future<XRPCResponse<DescribeRepoOutput>> describeRepo({
+    String? repo,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<DescribeRepoOutput>(
+        ns.comAtprotoRepoDescribeRepo,
+        headers: $headers,
+        parameters: {
+          'repo': repo ?? _ctx.repo,
+          ...?$unknown,
+        },
+        to: const DescribeRepoOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Returns a list of missing blobs for the requesting account.
   /// Intended to be used in the account migration flow.
   ///
@@ -272,6 +213,65 @@ final class RepoService {
           ...?$unknown,
         },
         to: const ListMissingBlobsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Write a repository record, creating or updating it as needed.
+  /// Requires auth, implemented by PDS.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/putRecord
+  Future<XRPCResponse<StrongRef>> putRecord({
+    String? repo,
+    required NSID collection,
+    required String rkey,
+    bool? validate,
+    required Map<String, dynamic> record,
+    String? swapRecord,
+    String? swapCommit,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<StrongRef>(
+        ns.comAtprotoRepoPutRecord,
+        headers: $headers,
+        body: {
+          'repo': repo ?? _ctx.repo,
+          'collection': collection.toString(),
+          'rkey': rkey,
+          if (validate != null) 'validate': validate,
+          'record': record,
+          if (swapRecord != null) 'swapRecord': swapRecord,
+          if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
+        },
+        to: const StrongRefConverter().fromJson,
+        client: $client,
+      );
+
+  /// Apply a batch transaction of repository creates, updates, and
+  /// deletes. Requires auth, implemented by PDS.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites
+  Future<XRPCResponse<EmptyData>> applyWrites({
+    String? repo,
+    bool? validate,
+    required List<UApplyWritesWrite> writes,
+    String? swapCommit,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoRepoApplyWrites,
+        headers: $headers,
+        body: {
+          'repo': repo ?? _ctx.repo,
+          if (validate != null) 'validate': validate,
+          'writes': writes.map((e) => e.toJson()).toList(),
+          if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
+        },
         client: $client,
       );
 

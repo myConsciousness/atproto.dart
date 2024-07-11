@@ -31,6 +31,11 @@ final class LabelerService {
 
   final BlueskyServiceContext _ctx;
 
+  /// A declaration of the existence of labeler service.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/service
+  ServiceRecordHelper get service => ServiceRecordHelper(_ctx);
+
   /// Get information about a list of labeler services.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/getServices
@@ -52,11 +57,6 @@ final class LabelerService {
         to: const GetServicesOutputConverter().fromJson,
         client: $client,
       );
-
-  /// A declaration of the existence of labeler service.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/service
-  ServiceRecordHelper get service => ServiceRecordHelper(_ctx);
 }
 
 /// Useful helper for `app.bsky.labeler.service`.

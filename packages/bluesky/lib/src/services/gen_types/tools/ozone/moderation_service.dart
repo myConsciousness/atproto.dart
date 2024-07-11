@@ -32,52 +32,6 @@ final class ModerationService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Get details about a moderation event.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getEvent
-  Future<XRPCResponse<ModEventViewDetail>> getEvent({
-    required int id,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ModEventViewDetail>(
-        ns.toolsOzoneModerationGetEvent,
-        headers: $headers,
-        parameters: {
-          'id': id.toString(),
-          ...?$unknown,
-        },
-        to: const ModEventViewDetailConverter().fromJson,
-        client: $client,
-      );
-
-  /// Take a moderation action on an actor.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/emitEvent
-  Future<XRPCResponse<ModEventView>> emitEvent({
-    required UEmitEventEvent event,
-    required UEmitEventSubject subject,
-    List<String>? subjectBlobCids,
-    required String createdBy,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<ModEventView>(
-        ns.toolsOzoneModerationEmitEvent,
-        headers: $headers,
-        body: {
-          'event': event.toJson(),
-          'subject': subject.toJson(),
-          if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
-          'createdBy': createdBy,
-          ...?$unknown,
-        },
-        to: const ModEventViewConverter().fromJson,
-        client: $client,
-      );
-
   /// Get details about a record.
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getRecord
@@ -97,6 +51,83 @@ final class ModerationService {
           ...?$unknown,
         },
         to: const RecordViewDetailConverter().fromJson,
+        client: $client,
+      );
+
+  /// List moderation events related to a subject.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/queryEvents
+  Future<XRPCResponse<QueryEventsOutput>> queryEvents({
+    List<String>? types,
+    String? createdBy,
+    String? sortDirection,
+    DateTime? createdAfter,
+    DateTime? createdBefore,
+    String? subject,
+    bool? includeAllUserRecords,
+    int? limit,
+    bool? hasComment,
+    String? comment,
+    List<String>? addedLabels,
+    List<String>? removedLabels,
+    List<String>? addedTags,
+    List<String>? removedTags,
+    List<String>? reportTypes,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<QueryEventsOutput>(
+        ns.toolsOzoneModerationQueryEvents,
+        headers: $headers,
+        parameters: {
+          if (types != null) 'types': types,
+          if (createdBy != null) 'createdBy': createdBy,
+          if (sortDirection != null) 'sortDirection': sortDirection,
+          if (createdAfter != null) 'createdAfter': iso8601(createdAfter),
+          if (createdBefore != null) 'createdBefore': iso8601(createdBefore),
+          if (subject != null) 'subject': subject,
+          if (includeAllUserRecords != null)
+            'includeAllUserRecords': includeAllUserRecords.toString(),
+          if (limit != null) 'limit': limit.toString(),
+          if (hasComment != null) 'hasComment': hasComment.toString(),
+          if (comment != null) 'comment': comment,
+          if (addedLabels != null) 'addedLabels': addedLabels,
+          if (removedLabels != null) 'removedLabels': removedLabels,
+          if (addedTags != null) 'addedTags': addedTags,
+          if (removedTags != null) 'removedTags': removedTags,
+          if (reportTypes != null) 'reportTypes': reportTypes,
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const QueryEventsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Find repositories based on a search term.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/searchRepos
+  Future<XRPCResponse<SearchReposOutput>> searchRepos({
+    String? term,
+    String? q,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<SearchReposOutput>(
+        ns.toolsOzoneModerationSearchRepos,
+        headers: $headers,
+        parameters: {
+          if (term != null) 'term': term,
+          if (q != null) 'q': q,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const SearchReposOutputConverter().fromJson,
         client: $client,
       );
 
@@ -156,6 +187,32 @@ final class ModerationService {
         client: $client,
       );
 
+  /// Take a moderation action on an actor.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/emitEvent
+  Future<XRPCResponse<ModEventView>> emitEvent({
+    required UEmitEventEvent event,
+    required UEmitEventSubject subject,
+    List<String>? subjectBlobCids,
+    required String createdBy,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<ModEventView>(
+        ns.toolsOzoneModerationEmitEvent,
+        headers: $headers,
+        body: {
+          'event': event.toJson(),
+          'subject': subject.toJson(),
+          if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
+          'createdBy': createdBy,
+          ...?$unknown,
+        },
+        to: const ModEventViewConverter().fromJson,
+        client: $client,
+      );
+
   /// Get details about a repository.
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getRepo
@@ -176,80 +233,23 @@ final class ModerationService {
         client: $client,
       );
 
-  /// Find repositories based on a search term.
+  /// Get details about a moderation event.
   ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/searchRepos
-  Future<XRPCResponse<SearchReposOutput>> searchRepos({
-    String? term,
-    String? q,
-    int? limit,
-    String? cursor,
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getEvent
+  Future<XRPCResponse<ModEventViewDetail>> getEvent({
+    required int id,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<SearchReposOutput>(
-        ns.toolsOzoneModerationSearchRepos,
+      await _ctx.get<ModEventViewDetail>(
+        ns.toolsOzoneModerationGetEvent,
         headers: $headers,
         parameters: {
-          if (term != null) 'term': term,
-          if (q != null) 'q': q,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
+          'id': id.toString(),
           ...?$unknown,
         },
-        to: const SearchReposOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// List moderation events related to a subject.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/queryEvents
-  Future<XRPCResponse<QueryEventsOutput>> queryEvents({
-    List<String>? types,
-    String? createdBy,
-    String? sortDirection,
-    DateTime? createdAfter,
-    DateTime? createdBefore,
-    String? subject,
-    bool? includeAllUserRecords,
-    int? limit,
-    bool? hasComment,
-    String? comment,
-    List<String>? addedLabels,
-    List<String>? removedLabels,
-    List<String>? addedTags,
-    List<String>? removedTags,
-    List<String>? reportTypes,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<QueryEventsOutput>(
-        ns.toolsOzoneModerationQueryEvents,
-        headers: $headers,
-        parameters: {
-          if (types != null) 'types': types,
-          if (createdBy != null) 'createdBy': createdBy,
-          if (sortDirection != null) 'sortDirection': sortDirection,
-          if (createdAfter != null) 'createdAfter': iso8601(createdAfter),
-          if (createdBefore != null) 'createdBefore': iso8601(createdBefore),
-          if (subject != null) 'subject': subject,
-          if (includeAllUserRecords != null)
-            'includeAllUserRecords': includeAllUserRecords.toString(),
-          if (limit != null) 'limit': limit.toString(),
-          if (hasComment != null) 'hasComment': hasComment.toString(),
-          if (comment != null) 'comment': comment,
-          if (addedLabels != null) 'addedLabels': addedLabels,
-          if (removedLabels != null) 'removedLabels': removedLabels,
-          if (addedTags != null) 'addedTags': addedTags,
-          if (removedTags != null) 'removedTags': removedTags,
-          if (reportTypes != null) 'reportTypes': reportTypes,
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const QueryEventsOutputConverter().fromJson,
+        to: const ModEventViewDetailConverter().fromJson,
         client: $client,
       );
 }

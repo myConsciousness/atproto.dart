@@ -25,6 +25,25 @@ final class CommunicationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// Delete a communication template.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/deleteTemplate
+  Future<XRPCResponse<EmptyData>> deleteTemplate({
+    required String id,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.toolsOzoneCommunicationDeleteTemplate,
+        headers: $headers,
+        body: {
+          'id': id,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
   /// Administrative action to update an existing communication
   /// template. Allows passing partial fields to patch specific fields
   /// only.
@@ -54,25 +73,6 @@ final class CommunicationService {
           ...?$unknown,
         },
         to: const TemplateViewConverter().fromJson,
-        client: $client,
-      );
-
-  /// Delete a communication template.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/deleteTemplate
-  Future<XRPCResponse<EmptyData>> deleteTemplate({
-    required String id,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.toolsOzoneCommunicationDeleteTemplate,
-        headers: $headers,
-        body: {
-          'id': id,
-          ...?$unknown,
-        },
         client: $client,
       );
 
