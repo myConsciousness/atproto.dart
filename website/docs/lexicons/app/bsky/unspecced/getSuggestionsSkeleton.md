@@ -16,6 +16,7 @@ Get a skeleton of suggested actors. Intended to be called and then hydrated thro
 | **viewer** | string ([did](https://atproto.com/specs/did)) | - | ❌ | DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
+| **relativeToDid** | string ([did](https://atproto.com/specs/did)) | - | ❌ | DID of the account to get suggestions relative to. If not provided, suggestions will be based on the viewer. |
 
 ### Output
 
