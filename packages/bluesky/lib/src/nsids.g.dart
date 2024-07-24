@@ -291,6 +291,10 @@ const appBskyNotificationListNotifications =
 const appBskyNotificationListNotificationsNotification =
     NSID(ids.appBskyNotificationListNotificationsNotification);
 
+/// `app.bsky.notification.putPreferences`
+const appBskyNotificationPutPreferences =
+    NSID(ids.appBskyNotificationPutPreferences);
+
 /// `app.bsky.notification.registerPush`
 const appBskyNotificationRegisterPush =
     NSID(ids.appBskyNotificationRegisterPush);
