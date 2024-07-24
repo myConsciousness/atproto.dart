@@ -14,6 +14,7 @@ Enumerate notifications for the requesting account. Requires auth.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **limit** | integer | - | ❌ | - |
+| **priority** | boolean | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 | **seenAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
@@ -25,6 +26,7 @@ Enumerate notifications for the requesting account. Requires auth.
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
 | **notifications** | array of [#notification](#notification) | - | ✅ | - |
+| **priority** | boolean | - | ❌ | - |
 | **seenAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ## #notification
