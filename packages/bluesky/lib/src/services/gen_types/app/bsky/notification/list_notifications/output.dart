@@ -26,6 +26,7 @@ class ListNotificationsOutput with _$ListNotificationsOutput {
   const factory ListNotificationsOutput({
     String? cursor,
     @NotificationConverter() required List<Notification> notifications,
+    @Default(false) bool priority,
     DateTime? seenAt,
 
     /// Contains unknown objects not defined in Lexicon.
@@ -42,6 +43,12 @@ extension $ListNotificationsOutputExtension on ListNotificationsOutput {
 
   /// Returns true if [cursor] is null, otherwise false.
   bool get hasNotCursor => !hasCursor;
+
+  /// Returns true or false from [priority].
+  bool get isPriority => priority;
+
+  /// Returns negated true or false from [priority].
+  bool get isNotPriority => !isPriority;
 
   /// Returns true if [seenAt] is not null, otherwise false.
   bool get hasSeenAt => seenAt != null;
@@ -61,6 +68,7 @@ extension $ListNotificationsOutputExtension on ListNotificationsOutput {
 const _kLexCompatibleProperties = <String>[
   'cursor',
   'notifications',
+  'priority',
   'seenAt',
 ];
 

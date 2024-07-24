@@ -1,5 +1,9 @@
 # Release Note
 
+## 1.0.0-preview.4
+
+- Lex gen. ([#1594](https://github.com/myConsciousness/atproto.dart/pull/1594))
+
 ## 1.0.0-preview.3
 
 - Refactor put endpoints for records.

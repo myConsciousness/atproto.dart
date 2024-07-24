@@ -51,6 +51,7 @@ final class NotificationService {
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
   Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount({
+    bool? priority,
     DateTime? seenAt,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
@@ -60,6 +61,7 @@ final class NotificationService {
         ns.appBskyNotificationGetUnreadCount,
         headers: $headers,
         parameters: {
+          if (priority != null) 'priority': priority.toString(),
           if (seenAt != null) 'seenAt': iso8601(seenAt),
           ...?$unknown,
         },
@@ -93,12 +95,33 @@ final class NotificationService {
         client: $client,
       );
 
+  /// Set notification-related preferences for an account. Requires
+  /// auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/putPreferences
+  Future<XRPCResponse<EmptyData>> putPreferences({
+    required bool priority,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyNotificationPutPreferences,
+        headers: $headers,
+        body: {
+          'priority': priority,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
   /// Enumerate notifications for the requesting account. Requires
   /// auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
   Future<XRPCResponse<ListNotificationsOutput>> listNotifications({
     int? limit,
+    bool? priority,
     String? cursor,
     DateTime? seenAt,
     Map<String, String>? $unknown,
@@ -110,6 +133,7 @@ final class NotificationService {
         headers: $headers,
         parameters: {
           if (limit != null) 'limit': limit.toString(),
+          if (priority != null) 'priority': priority.toString(),
           if (cursor != null) 'cursor': cursor,
           if (seenAt != null) 'seenAt': iso8601(seenAt),
           ...?$unknown,
