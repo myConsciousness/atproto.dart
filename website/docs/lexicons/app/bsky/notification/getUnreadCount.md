@@ -13,6 +13,7 @@ Count the number of unread notifications for the requesting account. Requires au
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **priority** | boolean | - | ❌ | - |
 | **seenAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ### Output

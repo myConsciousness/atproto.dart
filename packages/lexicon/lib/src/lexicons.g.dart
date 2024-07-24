@@ -6266,6 +6266,7 @@ const appBskyNotificationGetUnreadCount = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
+          "priority": {"type": "boolean"},
           "seenAt": {"type": "string", "format": "datetime"}
         }
       },
@@ -6312,6 +6313,29 @@ const appBskyNotificationRegisterPush = <String, dynamic>{
   }
 };
 
+/// `app.bsky.notification.putPreferences`
+const appBskyNotificationPutPreferences = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.notification.putPreferences",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Set notification-related preferences for an account. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["priority"],
+          "properties": {
+            "priority": {"type": "boolean"}
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.notification.listNotifications`
 const appBskyNotificationListNotifications = <String, dynamic>{
   "lexicon": 1,
@@ -6330,6 +6354,7 @@ const appBskyNotificationListNotifications = <String, dynamic>{
             "minimum": 1,
             "maximum": 100
           },
+          "priority": {"type": "boolean"},
           "cursor": {"type": "string"},
           "seenAt": {"type": "string", "format": "datetime"}
         }
@@ -6345,6 +6370,7 @@ const appBskyNotificationListNotifications = <String, dynamic>{
               "type": "array",
               "items": {"type": "ref", "ref": "#notification"}
             },
+            "priority": {"type": "boolean"},
             "seenAt": {"type": "string", "format": "datetime"}
           }
         }
@@ -9763,6 +9789,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyNotificationUpdateSeen,
   appBskyNotificationGetUnreadCount,
   appBskyNotificationRegisterPush,
+  appBskyNotificationPutPreferences,
   appBskyNotificationListNotifications,
   appBskyGraphGetBlocks,
   appBskyGraphUnmuteActorList,
