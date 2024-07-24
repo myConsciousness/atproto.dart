@@ -508,6 +508,10 @@ const appBskyNotificationListNotifications =
 const appBskyNotificationListNotificationsNotification =
     'app.bsky.notification.listNotifications#notification';
 
+/// `app.bsky.notification.putPreferences`
+const appBskyNotificationPutPreferences =
+    'app.bsky.notification.putPreferences';
+
 /// `app.bsky.notification.registerPush`
 const appBskyNotificationRegisterPush = 'app.bsky.notification.registerPush';
 
