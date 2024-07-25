@@ -13,8 +13,8 @@ _$ByteSliceImpl _$$ByteSliceImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ByteSliceImpl(
-          byteStart: $checkedConvert('byteStart', (v) => v as int),
-          byteEnd: $checkedConvert('byteEnd', (v) => v as int),
+          byteStart: $checkedConvert('byteStart', (v) => (v as num).toInt()),
+          byteEnd: $checkedConvert('byteEnd', (v) => (v as num).toInt()),
         );
         return val;
       },

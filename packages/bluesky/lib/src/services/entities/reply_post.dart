@@ -6,14 +6,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'blocked_post.dart';
-import 'not_found_post.dart';
+import '../gen_types/app/bsky/feed/defs/blocked_post.dart';
+import '../gen_types/app/bsky/feed/defs/not_found_post.dart';
 import 'post.dart';
 
 part 'reply_post.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
+@Deprecated('Use URoot or UParent')
 class ReplyPost with _$ReplyPost {
   const factory ReplyPost.record({
     required Post data,

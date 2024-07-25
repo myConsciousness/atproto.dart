@@ -14,8 +14,10 @@ _$SignupQueueImpl _$$SignupQueueImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$SignupQueueImpl(
           activated: $checkedConvert('activated', (v) => v as bool),
-          placeInQueue: $checkedConvert('placeInQueue', (v) => v as int?),
-          estimatedTimeMs: $checkedConvert('estimatedTimeMs', (v) => v as int?),
+          placeInQueue:
+              $checkedConvert('placeInQueue', (v) => (v as num?)?.toInt()),
+          estimatedTimeMs:
+              $checkedConvert('estimatedTimeMs', (v) => (v as num?)?.toInt()),
         );
         return val;
       },

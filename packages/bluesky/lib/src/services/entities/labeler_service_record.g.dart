@@ -19,12 +19,12 @@ _$LabelerServiceRecordImpl _$$LabelerServiceRecordImplFromJson(Map json) =>
           policies: $checkedConvert(
               'policies',
               (v) => LabelerPolicies.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+                  Map<String, dynamic>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
               (v) => v == null
                   ? null
-                  : SelfLabels.fromJson(Map<String, Object?>.from(v as Map))),
+                  : SelfLabels.fromJson(Map<String, dynamic>.from(v as Map))),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );

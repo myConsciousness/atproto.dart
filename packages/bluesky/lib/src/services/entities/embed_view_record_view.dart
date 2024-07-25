@@ -2,22 +2,23 @@
 /// Redistribution and use in source and binary forms, with or without
 /// modification, are permitted provided the conditions.
 
-// ignore_for_file: invalid_annotation_target
+// ignore_for_file: invalid_annotation_target, deprecated_member_use_from_same_package, lines_longer_than_80_chars
 
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../gen_types/app/bsky/graph/defs/list_view.dart';
 import 'embed_view_record_view_blocked.dart';
 import 'embed_view_record_view_not_found.dart';
 import 'embed_view_record_view_record.dart';
 import 'feed_generator_view.dart';
-import 'list_view.dart';
 
 part 'embed_view_record_view.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
+@Deprecated('Use URecordViewRecord')
 class EmbedViewRecordView with _$EmbedViewRecordView {
   const factory EmbedViewRecordView.record({
     required EmbedViewRecordViewRecord data,

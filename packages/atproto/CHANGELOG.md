@@ -1,5 +1,18 @@
 # Release Note
 
+## 1.0.0-preview.1
+
+- Remove `Platform` enum from core.
+
+## 1.0.0-preview.0
+
+> Note: This release has breaking changes.
+
+- Expose automatically generated objects based on Lexicon definitions.
+- All previous entities have been deprecated.
+- All `knownValues` are now implemented as union types of `Enum` and `String`.
+- Useful extensions have been added for union type objects.
+
 ## v0.12.7
 
 - Fixed a bug that prevented `RepoService.deleteRecord` from working.

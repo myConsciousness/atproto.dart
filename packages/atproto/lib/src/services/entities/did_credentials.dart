@@ -10,6 +10,7 @@ part 'did_credentials.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/GetRecommendedDidCredentials#output
 @freezed
+@Deprecated('Use GetRecommendedDidCredentialsOutput')
 class DidCredentials with _$DidCredentials {
   const factory DidCredentials({
     List<String>? rotationKeys,

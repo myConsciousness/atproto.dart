@@ -1,37 +1,38 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
+// Copyright 2024 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/count.dart';
-import 'package:bluesky/src/services/entities/notifications.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/get_unread_count/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/register_push/known_register_push_platform.dart';
 import 'service_suite.dart';
 
 void main() {
-  testNotification<Notifications>(
+  testNotification<ListNotificationsOutput>(
     (m, s) => s.listNotifications(),
     id: appBskyNotificationListNotifications,
   );
 
-  testNotification<Count>(
+  testNotification<GetUnreadCountOutput>(
     (m, s) => s.getUnreadCount(),
     id: appBskyNotificationGetUnreadCount,
   );
 
-  testNotification<core.EmptyData>(
-    (m, s) => s.updateSeen(),
+  testNotification<EmptyData>(
+    (m, s) => s.updateSeen(seenAt: DateTime.now()),
     id: appBskyNotificationUpdateSeen,
   );
 
-  testNotification<core.EmptyData>(
+  testNotification<EmptyData>(
     (m, s) => s.registerPush(
       serviceDid: 'did:web:bob.test',
       token: 'fake',
-      platform: core.Platform.web,
+      platform: KnownRegisterPushPlatform.web.toUnion(),
       appId: 'fake id',
     ),
     id: appBskyNotificationRegisterPush,

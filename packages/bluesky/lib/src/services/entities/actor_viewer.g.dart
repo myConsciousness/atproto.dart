@@ -20,13 +20,13 @@ _$ActorViewerImpl _$$ActorViewerImplFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : ListViewBasic.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                      Map<String, dynamic>.from(v as Map))),
           blockingByList: $checkedConvert(
               'blockingByList',
               (v) => v == null
                   ? null
                   : ListViewBasic.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                      Map<String, dynamic>.from(v as Map))),
           blocking: $checkedConvert(
               'blocking',
               (v) => _$JsonConverterFromJson<String, AtUri>(

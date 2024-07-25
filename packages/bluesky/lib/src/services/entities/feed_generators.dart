@@ -16,6 +16,7 @@ part 'feed_generators.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getfeedgenerators/#output
 @freezed
+@Deprecated('Use GetFeedGeneratorsOutput')
 class FeedGenerators with _$FeedGenerators {
   @jsonSerializable
   const factory FeedGenerators({

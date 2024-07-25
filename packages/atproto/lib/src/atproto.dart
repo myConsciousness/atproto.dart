@@ -6,13 +6,15 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'services/identity_service.dart';
-import 'services/label_service.dart';
-import 'services/moderation_service.dart';
-import 'services/repo_service.dart';
-import 'services/server_service.dart';
-import 'services/sync_service.dart';
-import 'services/temp_service.dart';
+import 'services/gen_types/com/atproto/admin_service.dart';
+import 'services/gen_types/com/atproto/identity_service.dart';
+import 'services/gen_types/com/atproto/label_service.dart';
+import 'services/gen_types/com/atproto/moderation_service.dart';
+import 'services/gen_types/com/atproto/repo_service.dart';
+import 'services/gen_types/com/atproto/server_service.dart';
+import 'services/gen_types/com/atproto/sync_service.dart';
+import 'services/gen_types/com/atproto/temp_service.dart';
+import 'services/service_context.dart';
 
 /// Provides `com.atproto.*` services.
 sealed class ATProto {
@@ -29,7 +31,7 @@ sealed class ATProto {
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        core.ServiceContext(
+        ATProtoServiceContext(
           headers: headers,
           protocol: protocol,
           service: service,
@@ -54,7 +56,7 @@ sealed class ATProto {
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        core.ServiceContext(
+        ATProtoServiceContext(
           headers: headers,
           protocol: protocol,
           service: service,
@@ -83,7 +85,11 @@ sealed class ATProto {
   /// Defaults to `bsky.network`.
   String get relayService;
 
-  /// Returns the servers service.
+  /// Returns the admin service.
+  /// This service represents `com.atproto.admin.*`.
+  AdminService get admin;
+
+  /// Returns the server service.
   /// This service represents `com.atproto.server.*`.
   ServerService get server;
 
@@ -91,7 +97,7 @@ sealed class ATProto {
   /// This service represents `com.atproto.identity.*`.
   IdentityService get identity;
 
-  /// Returns the repositories service.
+  /// Returns the repo service.
   /// This service represents `com.atproto.repo.*`.
   RepoService get repo;
 
@@ -103,7 +109,7 @@ sealed class ATProto {
   /// This service represents `com.atproto.sync.*`.
   SyncService get sync;
 
-  /// Returns the labels service.
+  /// Returns the label service.
   /// This service represents `com.atproto.label.*`.
   LabelService get label;
 
@@ -154,8 +160,9 @@ sealed class ATProto {
 }
 
 final class _ATProto implements ATProto {
-  _ATProto(final core.ServiceContext ctx)
-      : server = ServerService(ctx),
+  _ATProto(final ATProtoServiceContext ctx)
+      : admin = AdminService(ctx),
+        server = ServerService(ctx),
         identity = IdentityService(ctx),
         repo = RepoService(ctx),
         moderation = ModerationService(ctx),
@@ -175,6 +182,9 @@ final class _ATProto implements ATProto {
 
   @override
   String get relayService => _ctx.relayService;
+
+  @override
+  final AdminService admin;
 
   @override
   final ServerService server;

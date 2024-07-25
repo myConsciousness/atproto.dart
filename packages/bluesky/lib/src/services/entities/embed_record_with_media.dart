@@ -19,6 +19,7 @@ part 'embed_record_with_media.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
+@Deprecated('Use RecordWithMedia')
 class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
   const factory EmbedRecordWithMedia({
     @typeKey @Default(appBskyEmbedRecordWithMedia) String type,

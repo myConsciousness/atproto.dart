@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_server_create_session.dart';
 import 'package:atproto/core.dart';
 
 /// https://atprotodart.com/docs/packages/atproto
@@ -10,7 +11,7 @@ Future<void> main() async {
   try {
     //! First you need to establish session with ATP server.
     final session = await createSession(
-      service: 'SERVICE_NAME', //! The default is `bsky.social`
+      $service: 'SERVICE_NAME', //! The default is `bsky.social`
       identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
       password: 'YOUR_PASSWORD',
     );
@@ -18,7 +19,7 @@ Future<void> main() async {
     print(session);
 
     final atproto = ATProto.fromSession(
-      session.data,
+      session.data.toSession(),
 
       //! The default is `bsky.social`, or resolve dynamically based on session
       service: 'SERVICE_NAME',
@@ -45,7 +46,8 @@ Future<void> main() async {
     );
 
     //! Create a record to specific service.
-    final createdRecord = await atproto.repo.createRecord(
+    final record = await atproto.repo.createRecord(
+      repo: atproto.session!.did,
       collection: NSID.create(
         'feed.bsky.app',
         'post',
@@ -58,7 +60,9 @@ Future<void> main() async {
 
     //! And delete it.
     await atproto.repo.deleteRecord(
-      uri: createdRecord.data.uri,
+      repo: record.data.uri.hostname,
+      collection: record.data.uri.collection,
+      rkey: record.data.uri.rkey,
     );
 
     //! You can use Stream API easily.
@@ -68,9 +72,6 @@ Future<void> main() async {
         commit: print,
         identity: print,
         account: print,
-        handle: print,
-        migrate: print,
-        tombstone: print,
         info: print,
         unknown: print,
       );

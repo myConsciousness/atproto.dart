@@ -2,15 +2,17 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../repo_ref.dart';
+import '../../gen_types/com/atproto/admin/defs/repo_ref.dart';
+import '../../gen_types/com/atproto/repo/strong_ref/main.dart';
 import '../report_subject.dart';
-import '../strong_ref.dart';
 
 const reportSubjectConverter = _ReportSubjectConverter();
 

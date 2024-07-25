@@ -3,12 +3,19 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
-import 'package:atproto/core.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
-import '../../../../bluesky.dart';
-import '../../../services/entities/embed_view_record_view_record.dart';
+import '../../../services/gen_types/app/bsky/actor/defs/muted_word.dart';
+import '../../../services/gen_types/app/bsky/embed/record/union_record_view_record.dart';
+import '../../../services/gen_types/app/bsky/embed/record/view_blocked.dart';
+import '../../../services/gen_types/app/bsky/embed/record/view_record.dart';
+import '../../../services/gen_types/app/bsky/embed/record_with_media/union_record_with_media_media.dart';
+import '../../../services/gen_types/app/bsky/embed/record_with_media/union_record_with_media_view_media.dart';
+import '../../../services/gen_types/app/bsky/feed/defs/union_post_view_embed.dart';
+import '../../../services/gen_types/app/bsky/feed/post/record.dart';
+import '../../../services/gen_types/app/bsky/feed/post/union_post_embed.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';
@@ -51,21 +58,21 @@ ModerationDecision decidePost(
 
   ModerationDecision? embedDecision;
   if (embed != null) {
-    if (embed is UEmbedViewRecord) {
-      final record = embed.data.record;
+    if (embed.isRecordView) {
+      final record = embed.recordView.record;
 
-      if (record is UEmbedViewRecordViewRecord) {
-        embedDecision = decideQuotedPost(record.data, opts);
-      } else if (record is UEmbedViewRecordViewBlocked) {
-        embedDecision = decideBlockedQuotedPost(record.data, opts);
+      if (record.isRecordViewRecord) {
+        embedDecision = decideQuotedPost(record.recordViewRecord, opts);
+      } else if (record.isRecordViewBlocked) {
+        embedDecision = decideBlockedQuotedPost(record.recordViewBlocked, opts);
       }
-    } else if (embed is UEmbedViewRecordWithMedia) {
-      final record = embed.data.record.record;
+    } else if (embed.isRecordWithMediaView) {
+      final record = embed.recordWithMediaView.record.record;
 
-      if (record is UEmbedViewRecordViewRecord) {
-        embedDecision = decideQuotedPost(record.data, opts);
-      } else if (record is UEmbedViewRecordViewBlocked) {
-        embedDecision = decideBlockedQuotedPost(record.data, opts);
+      if (record.isRecordViewRecord) {
+        embedDecision = decideQuotedPost(record.recordViewRecord, opts);
+      } else if (record.isRecordViewBlocked) {
+        embedDecision = decideBlockedQuotedPost(record.recordViewBlocked, opts);
       }
     }
   }
@@ -83,7 +90,7 @@ ModerationDecision decidePost(
 }
 
 ModerationDecision decideQuotedPost(
-  final EmbedViewRecordViewRecord subject,
+  final RecordViewRecord subject,
   final ModerationOpts opts,
 ) {
   final decision = ModerationDecision.init(
@@ -107,7 +114,7 @@ ModerationDecision decideQuotedPost(
 }
 
 ModerationDecision decideBlockedQuotedPost(
-  final EmbedViewRecordViewBlocked subject,
+  final RecordViewBlocked subject,
   final ModerationOpts opts,
 ) {
   final decision = ModerationDecision.init(
@@ -115,23 +122,23 @@ ModerationDecision decideBlockedQuotedPost(
     me: subject.author.did == opts.userDid,
   );
 
-  if (subject.author.viewer.isMuted) {
-    if (subject.author.viewer.isMutedByList) {
+  if (subject.author.viewer.muted) {
+    if (subject.author.viewer.mutedByList != null) {
       decision.addMutedByList(subject.author.viewer.mutedByList!);
     } else {
       decision.addMuted();
     }
   }
 
-  if (subject.author.viewer.isBlocking) {
-    if (subject.author.viewer.isBlockingByList) {
+  if (subject.author.viewer.blocking != null) {
+    if (subject.author.viewer.blockingByList != null) {
       decision.addBlockingByList(subject.author.viewer.blockingByList!);
     } else {
       decision.addBlocking();
     }
   }
 
-  if (subject.author.viewer.isBlockedBy) {
+  if (subject.author.viewer.blockedBy) {
     decision.addBlockedBy();
   }
 
@@ -140,29 +147,26 @@ ModerationDecision decideBlockedQuotedPost(
 
 bool _hasHiddenPost(
   final AtUri uri,
-  final EmbedView? embed,
+  final UPostViewEmbed? embed,
   final List<AtUri> hiddenPosts,
 ) {
   if (hiddenPosts.isEmpty) return false;
   if (hiddenPosts.contains(uri)) return true;
   if (embed == null) return false;
 
-  if (embed is UEmbedViewRecord) {
-    final uri = embed.data.record.whenOrNull(
-      record: (data) => data.uri,
-    );
+  if (embed.isRecordView) {
+    final uri = embed.recordView.record.recordViewRecordOrNull?.uri;
 
-    if (hiddenPosts.contains(uri)) {
+    if (uri != null && hiddenPosts.contains(uri)) {
       return true;
     }
   }
 
-  if (embed is UEmbedViewRecordWithMedia) {
-    final uri = embed.data.record.record.whenOrNull(
-      record: (data) => data.uri,
-    );
+  if (embed.isRecordWithMediaView) {
+    final uri =
+        embed.recordWithMediaView.record.record.recordViewRecordOrNull?.uri;
 
-    if (hiddenPosts.contains(uri)) {
+    if (uri != null && hiddenPosts.contains(uri)) {
       return true;
     }
   }
@@ -172,7 +176,7 @@ bool _hasHiddenPost(
 
 bool _hasMutedWords(
   final PostRecord record,
-  final EmbedView? embed,
+  final UPostViewEmbed? embed,
   final List<MutedWord> mutedWords,
 ) {
   if (mutedWords.isEmpty) return false;
@@ -190,8 +194,8 @@ bool _hasMutedWords(
   if (embed == null) return false; // No quote.
 
   // quote post
-  if (embed is UEmbedViewImages) {
-    for (final image in embed.data.images) {
+  if (embed.isImagesView) {
+    for (final image in embed.imagesView.images) {
       if (hasMutedWord(
         mutedWords: mutedWords,
         text: image.alt,
@@ -202,10 +206,8 @@ bool _hasMutedWords(
     }
   }
 
-  if (embed is UEmbedViewRecord) {
-    final embeddedPost = embed.data.record.whenOrNull(
-      record: (data) => data.value,
-    );
+  if (embed.isRecordView) {
+    final embeddedPost = embed.recordView.record.recordViewRecordOrNull?.value;
 
     // quoted post text
     if (embeddedPost != null &&
@@ -222,8 +224,8 @@ bool _hasMutedWords(
     final embeddedPostEmbed = embeddedPost?.embed;
 
     // quoted post's images
-    if (embeddedPostEmbed != null && embeddedPostEmbed is UEmbedImages) {
-      for (final image in embeddedPostEmbed.data.images) {
+    if (embeddedPostEmbed != null && embeddedPostEmbed.isImages) {
+      for (final image in embeddedPostEmbed.images.images) {
         if (hasMutedWord(
           mutedWords: mutedWords,
           text: image.alt,
@@ -235,8 +237,8 @@ bool _hasMutedWords(
     }
 
     // quoted post's link card
-    if (embeddedPostEmbed != null && embeddedPostEmbed is UEmbedExternal) {
-      final external = embeddedPostEmbed.data.external;
+    if (embeddedPostEmbed != null && embeddedPostEmbed.isExternal) {
+      final external = embeddedPostEmbed.external.external;
       if (hasMutedWord(
         mutedWords: mutedWords,
         text: '${external.title} ${external.description}',
@@ -246,13 +248,12 @@ bool _hasMutedWords(
       }
     }
 
-    if (embeddedPostEmbed != null &&
-        embeddedPostEmbed is UEmbedRecordWithMedia) {
-      final embeddedPostEmbedMedia = embeddedPostEmbed.data.media;
+    if (embeddedPostEmbed != null && embeddedPostEmbed.isRecordWithMedia) {
+      final embeddedPostEmbedMedia = embeddedPostEmbed.recordWithMedia.media;
 
       // quoted post's link card when it did a quote + media
-      if (embeddedPostEmbedMedia is UEmbedMediaExternal) {
-        final external = embeddedPostEmbedMedia.data.external;
+      if (embeddedPostEmbedMedia.isExternal) {
+        final external = embeddedPostEmbedMedia.external.external;
         if (hasMutedWord(
           mutedWords: mutedWords,
           text: '${external.title} ${external.description}',
@@ -263,8 +264,8 @@ bool _hasMutedWords(
       }
 
       // quoted post's images when it did a quote + media
-      if (embeddedPostEmbedMedia is UEmbedMediaImages) {
-        for (final image in embeddedPostEmbedMedia.data.images) {
+      if (embeddedPostEmbedMedia.isImages) {
+        for (final image in embeddedPostEmbedMedia.images.images) {
           if (hasMutedWord(
             mutedWords: mutedWords,
             text: image.alt,
@@ -277,8 +278,8 @@ bool _hasMutedWords(
     }
   }
   // link card
-  else if (embed is UEmbedViewExternal) {
-    final external = embed.data.external;
+  else if (embed.isExternalView) {
+    final external = embed.externalView.external;
     if (hasMutedWord(
       mutedWords: mutedWords,
       text: '${external.title} ${external.description}',
@@ -288,11 +289,11 @@ bool _hasMutedWords(
     }
   }
   // quote post with media
-  else if (embed is UEmbedViewRecordWithMedia) {
+  else if (embed.isRecordWithMediaView) {
     // quoted post text
-    final embeddedPostRecordRecord = embed.data.record.record;
-    if (embeddedPostRecordRecord is UEmbedViewRecordViewRecord) {
-      final post = embeddedPostRecordRecord.data.value;
+    final embeddedPostRecordRecord = embed.recordWithMediaView.record.record;
+    if (embeddedPostRecordRecord.isRecordViewRecord) {
+      final post = embeddedPostRecordRecord.recordViewRecord.value;
       if (hasMutedWord(
         mutedWords: mutedWords,
         text: post.text,
@@ -305,9 +306,9 @@ bool _hasMutedWords(
     }
 
     // quoted post images
-    final embeddedPostMedia = embed.data.media;
-    if (embeddedPostMedia is UEmbedViewMediaImages) {
-      for (final image in embeddedPostMedia.data.images) {
+    final embeddedPostMedia = embed.recordWithMediaView.media;
+    if (embeddedPostMedia.isImagesView) {
+      for (final image in embeddedPostMedia.imagesView.images) {
         if (hasMutedWord(
           mutedWords: mutedWords,
           text: image.alt,

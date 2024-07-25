@@ -3,13 +3,13 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/entities/embed_record.dart';
 import 'package:bluesky/src/services/extensions/strong_ref.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/embed/record/main.dart';
 
 void main() {
   test('.toEmbedRecord', () {
@@ -25,7 +25,7 @@ void main() {
       unknown: (data) => null,
     );
 
-    expect(embedRecord, isA<EmbedRecord>());
-    expect(embedRecord?.ref == ref, isTrue);
+    expect(embedRecord, isA<Record>());
+    expect(embedRecord?.record == ref, isTrue);
   });
 }

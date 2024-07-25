@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 
 // 🌎 Project imports:
 import '../../decision.dart';
@@ -19,7 +19,7 @@ ModerationDecision decideFeedGenerator(
   final ModerationOpts opts,
 ) {
   final (creator, labels) = subject.when(
-    generatorView: (data) => (data.createdBy, data.labels),
+    generatorView: (data) => (data.creator, data.labels),
   );
 
   final decision = ModerationDecision.init(

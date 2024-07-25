@@ -10,13 +10,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import 'blocked_author.dart';
+import '../gen_types/app/bsky/feed/defs/blocked_author.dart';
 
 part 'embed_view_record_view_blocked.freezed.dart';
 part 'embed_view_record_view_blocked.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewblocked
 @freezed
+@Deprecated('Use RecordViewBlocked')
 class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
   const factory EmbedViewRecordViewBlocked({
     @typeKey @Default(appBskyEmbedRecordViewBlocked) String type,

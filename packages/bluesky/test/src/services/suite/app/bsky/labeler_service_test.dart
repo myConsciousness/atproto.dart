@@ -3,24 +3,25 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/labeler_policies.dart';
-import 'package:bluesky/src/services/entities/labeler_services.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/labeler/defs/labeler_policies.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/labeler/get_services/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testLabeler<LabelerServices>(
+  testLabeler<GetServicesOutput>(
     (m, s) => s.getServices(dids: [m.did]),
     id: appBskyLabelerGetServices,
   );
 
   testLabeler<StrongRef>(
-    (m, s) => s.service(
+    (m, s) => s.service.create(
       policies: LabelerPolicies(
-        labelValues: ['!hide'],
+        labelValues: [KnownLabelValue.hide.toUnion()],
       ),
     ),
     id: appBskyLabelerService,

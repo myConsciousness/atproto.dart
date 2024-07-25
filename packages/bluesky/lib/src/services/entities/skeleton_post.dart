@@ -15,6 +15,7 @@ part 'skeleton_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchpost
 @freezed
+@Deprecated('Use SkeletonSearchPost')
 class SkeletonPost with _$SkeletonPost {
   const factory SkeletonPost({
     @AtUriConverter() required AtUri uri,

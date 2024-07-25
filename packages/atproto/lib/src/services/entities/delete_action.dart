@@ -16,6 +16,7 @@ part 'delete_action.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#delete
 @freezed
+@Deprecated('Use Delete')
 class DeleteAction with _$DeleteAction {
   @jsonSerializable
   const factory DeleteAction({

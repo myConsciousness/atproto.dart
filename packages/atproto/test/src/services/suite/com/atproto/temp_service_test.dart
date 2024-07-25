@@ -3,20 +3,20 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/signup_queue.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/temp/check_signup_queue/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testTemp<SignupQueue>(
+  testTemp<CheckSignupQueueOutput>(
     (m, s) => s.checkSignupQueue(),
     id: comAtprotoTempCheckSignupQueue,
   );
 
-  testTemp<core.EmptyData>(
+  testTemp<EmptyData>(
     (m, s) => s.requestPhoneVerification(phoneNumber: '+xxxxxxxxxxx'),
     id: comAtprotoTempRequestPhoneVerification,
   );

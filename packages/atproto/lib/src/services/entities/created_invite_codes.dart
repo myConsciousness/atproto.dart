@@ -6,13 +6,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'account_codes.dart';
+import '../gen_types/com/atproto/server/create_invite_codes/account_codes.dart';
 
 part 'created_invite_codes.freezed.dart';
 part 'created_invite_codes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#output
 @freezed
+@Deprecated('Use CreateInviteCodesOutput')
 class CreatedInviteCodes with _$CreatedInviteCodes {
   const factory CreatedInviteCodes({
     required List<AccountCodes> codes,

@@ -17,6 +17,7 @@ part 'content_label_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#contentlabelpref
 @freezed
+@Deprecated('Use ContentLabelPref')
 class ContentLabelPreference with _$ContentLabelPreference {
   @jsonSerializable
   const factory ContentLabelPreference({
