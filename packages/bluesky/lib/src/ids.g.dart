@@ -265,6 +265,9 @@ const appBskyFeedDescribeFeedGeneratorFeed =
 const appBskyFeedDescribeFeedGeneratorLinks =
     'app.bsky.feed.describeFeedGenerator#links';
 
+/// `app.bsky.feed.detach`
+const appBskyFeedDetach = 'app.bsky.feed.detach';
+
 /// `app.bsky.feed.generator`
 const appBskyFeedGenerator = 'app.bsky.feed.generator';
 

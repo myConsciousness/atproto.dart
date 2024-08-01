@@ -4774,6 +4774,7 @@ const appBskyActorDefs = <String, dynamic>{
       "description": "A word that the account owner has muted.",
       "required": ["value", "targets"],
       "properties": {
+        "id": {"type": "string"},
         "value": {
           "type": "string",
           "description": "The muted word itself.",
@@ -4784,6 +4785,19 @@ const appBskyActorDefs = <String, dynamic>{
           "type": "array",
           "description": "The intended targets of the muted word.",
           "items": {"type": "ref", "ref": "app.bsky.actor.defs#mutedWordTarget"}
+        },
+        "actorTarget": {
+          "type": "string",
+          "description":
+              "Groups of users to apply the muted word to. If undefined, applies to all users.",
+          "default": "all",
+          "knownValues": ["all", "exclude-following"]
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "The date and time at which the muted word will expire and no longer be applied."
         }
       }
     },
@@ -5539,6 +5553,38 @@ const appBskyFeedGetTimeline = <String, dynamic>{
               "items": {"type": "ref", "ref": "app.bsky.feed.defs#feedViewPost"}
             }
           }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.feed.detach`
+const appBskyFeedDetach = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.detach",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record defining post URIs detached from a root post. The record key (rkey) of the detach record must match the record key of the root post in question, and that record must be in the same repository.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["post", "targets", "updatedAt"],
+        "properties": {
+          "post": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) to the post record."
+          },
+          "targets": {
+            "type": "array",
+            "description": "List of detached post URIs.",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 50
+          },
+          "updatedAt": {"type": "string", "format": "datetime"}
         }
       }
     }
@@ -9779,6 +9825,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyFeedDefs,
   appBskyFeedGetActorLikes,
   appBskyFeedGetTimeline,
+  appBskyFeedDetach,
   appBskyFeedGetSuggestedFeeds,
   appBskyFeedGetFeed,
   appBskyFeedGetFeedGenerator,

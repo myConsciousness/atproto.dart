@@ -181,6 +181,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | --- | --- | :---: | :---: |
 | **[app.bsky.feed.getActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getActorLikes.html)** | [Reference](lexicons/app/bsky/feed/getActorLikes.md) | ✅ | ✅ |
 | **[app.bsky.feed.getTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getTimeline.html)** | [Reference](lexicons/app/bsky/feed/getTimeline.md) | ✅ | ✅ |
+| **[app.bsky.feed.detach](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/detach.html)** | [Reference](lexicons/app/bsky/feed/detach.md) | ❌ | ❌ |
 | **[app.bsky.feed.getSuggestedFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getSuggestedFeeds.html)** | [Reference](lexicons/app/bsky/feed/getSuggestedFeeds.md) | ✅ | ✅ |
 | **[app.bsky.feed.getFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getFeed.html)** | [Reference](lexicons/app/bsky/feed/getFeed.md) | ✅ | ✅ |
 | **[app.bsky.feed.getFeedGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getFeedGenerator.html)** | [Reference](lexicons/app/bsky/feed/getFeedGenerator.md) | ✅ | ❌ |
