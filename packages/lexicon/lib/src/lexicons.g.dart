@@ -4817,38 +4817,6 @@ const appBskyFeedThreadgate = <String, dynamic>{
   }
 };
 
-/// `app.bsky.feed.detach`
-const appBskyFeedDetach = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.feed.detach",
-  "defs": {
-    "main": {
-      "type": "record",
-      "description":
-          "Record defining post URIs detached from a root post. The record key (rkey) of the detach record must match the record key of the root post in question, and that record must be in the same repository.",
-      "key": "tid",
-      "record": {
-        "type": "object",
-        "required": ["post", "targets", "updatedAt"],
-        "properties": {
-          "post": {
-            "type": "string",
-            "format": "at-uri",
-            "description": "Reference (AT-URI) to the post record."
-          },
-          "targets": {
-            "type": "array",
-            "description": "List of detached post URIs.",
-            "items": {"type": "string", "format": "at-uri"},
-            "maxLength": 50
-          },
-          "updatedAt": {"type": "string", "format": "datetime"}
-        }
-      }
-    }
-  }
-};
-
 /// `app.bsky.feed.getFeedGenerator`
 const appBskyFeedGetFeedGenerator = <String, dynamic>{
   "lexicon": 1,
@@ -9809,7 +9777,6 @@ const lexicons = <Map<String, dynamic>>[
   appBskyFeedLike,
   appBskyFeedGetActorLikes,
   appBskyFeedThreadgate,
-  appBskyFeedDetach,
   appBskyFeedGetFeedGenerator,
   appBskyFeedGenerator,
   appBskyFeedGetListFeed,
