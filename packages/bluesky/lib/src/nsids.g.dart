@@ -103,9 +103,6 @@ const appBskyFeedDescribeFeedGeneratorFeed =
 const appBskyFeedDescribeFeedGeneratorLinks =
     NSID(ids.appBskyFeedDescribeFeedGeneratorLinks);
 
-/// `app.bsky.feed.detach`
-const appBskyFeedDetach = NSID(ids.appBskyFeedDetach);
-
 /// `app.bsky.feed.generator`
 const appBskyFeedGenerator = NSID(ids.appBskyFeedGenerator);
 

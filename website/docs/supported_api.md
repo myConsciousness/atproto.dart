@@ -153,7 +153,6 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.feed.like](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/like.html)** | [Reference](lexicons/app/bsky/feed/like.md) | ✅ | ❌ |
 | **[app.bsky.feed.getActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getActorLikes.html)** | [Reference](lexicons/app/bsky/feed/getActorLikes.md) | ✅ | ✅ |
 | **[app.bsky.feed.threadgate](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/threadgate.html)** | [Reference](lexicons/app/bsky/feed/threadgate.md) | ✅ | ❌ |
-| **[app.bsky.feed.detach](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/detach.html)** | [Reference](lexicons/app/bsky/feed/detach.md) | ❌ | ❌ |
 | **[app.bsky.feed.getFeedGenerator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getFeedGenerator.html)** | [Reference](lexicons/app/bsky/feed/getFeedGenerator.md) | ✅ | ❌ |
 | **[app.bsky.feed.generator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/generator.html)** | [Reference](lexicons/app/bsky/feed/generator.md) | ✅ | ❌ |
 | **[app.bsky.feed.getListFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getListFeed.html)** | [Reference](lexicons/app/bsky/feed/getListFeed.md) | ✅ | ✅ |
