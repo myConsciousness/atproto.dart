@@ -3103,7 +3103,7 @@ const comAtprotoLabelDefs = <String, dynamic>{
     "labelValueDefinition": {
       "type": "object",
       "description":
-          "Declares a label value and its expected interpertations and behaviors.",
+          "Declares a label value and its expected interpretations and behaviors.",
       "required": ["identifier", "severity", "blurs", "locales"],
       "properties": {
         "identifier": {
@@ -4514,7 +4514,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "feedContext": {
           "type": "string",
           "description":
-              "Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.",
+              "Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton.",
           "maxLength": 2000
         }
       }
