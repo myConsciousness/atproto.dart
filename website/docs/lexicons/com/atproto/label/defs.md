@@ -39,7 +39,7 @@ Metadata tag on an atproto record, published by the author within the record. No
 
 ## #labelValueDefinition
 
-Declares a label value and its expected interpertations and behaviors.
+Declares a label value and its expected interpretations and behaviors.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
