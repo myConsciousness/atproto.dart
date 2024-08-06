@@ -1996,6 +1996,17 @@ const comAtprotoServerGetServiceAuth = <String, dynamic>{
             "format": "did",
             "description":
                 "The DID of the service that the token will be used to authenticate with"
+          },
+          "exp": {
+            "type": "integer",
+            "description":
+                "The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope."
+          },
+          "lxm": {
+            "type": "string",
+            "format": "nsid",
+            "description":
+                "Lexicon (XRPC) method to bind the requested token to"
           }
         }
       },
@@ -2008,7 +2019,14 @@ const comAtprotoServerGetServiceAuth = <String, dynamic>{
             "token": {"type": "string"}
           }
         }
-      }
+      },
+      "errors": [
+        {
+          "name": "BadExpiration",
+          "description":
+              "Indicates that the requested expiration date is not a valid. May be in the past or may be reliant on the requested scopes."
+        }
+      ]
     }
   }
 };
@@ -3103,7 +3121,7 @@ const comAtprotoLabelDefs = <String, dynamic>{
     "labelValueDefinition": {
       "type": "object",
       "description":
-          "Declares a label value and its expected interpertations and behaviors.",
+          "Declares a label value and its expected interpretations and behaviors.",
       "required": ["identifier", "severity", "blurs", "locales"],
       "properties": {
         "identifier": {
@@ -4514,7 +4532,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "feedContext": {
           "type": "string",
           "description":
-              "Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.",
+              "Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton.",
           "maxLength": 2000
         }
       }
