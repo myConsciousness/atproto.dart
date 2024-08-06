@@ -140,7 +140,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | --- | --- | --- | :---: | --- |
 | **item** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **event** | string | [app.bsky.feed.defs#requestLess](../../../../lexicons/app/bsky/feed/defs.md#requestless)<br/>[app.bsky.feed.defs#requestMore](../../../../lexicons/app/bsky/feed/defs.md#requestmore)<br/>[app.bsky.feed.defs#clickthroughItem](../../../../lexicons/app/bsky/feed/defs.md#clickthroughitem)<br/>[app.bsky.feed.defs#clickthroughAuthor](../../../../lexicons/app/bsky/feed/defs.md#clickthroughauthor)<br/>[app.bsky.feed.defs#clickthroughReposter](../../../../lexicons/app/bsky/feed/defs.md#clickthroughreposter)<br/>[app.bsky.feed.defs#clickthroughEmbed](../../../../lexicons/app/bsky/feed/defs.md#clickthroughembed)<br/>[app.bsky.feed.defs#interactionSeen](../../../../lexicons/app/bsky/feed/defs.md#interactionseen)<br/>[app.bsky.feed.defs#interactionLike](../../../../lexicons/app/bsky/feed/defs.md#interactionlike)<br/>[app.bsky.feed.defs#interactionRepost](../../../../lexicons/app/bsky/feed/defs.md#interactionrepost)<br/>[app.bsky.feed.defs#interactionReply](../../../../lexicons/app/bsky/feed/defs.md#interactionreply)<br/>[app.bsky.feed.defs#interactionQuote](../../../../lexicons/app/bsky/feed/defs.md#interactionquote)<br/>[app.bsky.feed.defs#interactionShare](../../../../lexicons/app/bsky/feed/defs.md#interactionshare) | ❌ | - |
-| **feedContext** | string | - | ❌ | Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton. |
+| **feedContext** | string | - | ❌ | Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton. |
 
 ## #requestLess
 
