@@ -154,6 +154,9 @@ const appBskyEmbedRecordView = 'app.bsky.embed.record#view';
 /// `app.bsky.embed.record#viewBlocked`
 const appBskyEmbedRecordViewBlocked = 'app.bsky.embed.record#viewBlocked';
 
+/// `app.bsky.embed.record#viewDetached`
+const appBskyEmbedRecordViewDetached = 'app.bsky.embed.record#viewDetached';
+
 /// `app.bsky.embed.record#viewNotFound`
 const appBskyEmbedRecordViewNotFound = 'app.bsky.embed.record#viewNotFound';
 
@@ -304,6 +307,9 @@ const appBskyFeedGetPostThread = 'app.bsky.feed.getPostThread';
 /// `app.bsky.feed.getPosts`
 const appBskyFeedGetPosts = 'app.bsky.feed.getPosts';
 
+/// `app.bsky.feed.getQuotes`
+const appBskyFeedGetQuotes = 'app.bsky.feed.getQuotes';
+
 /// `app.bsky.feed.getRepostedBy`
 const appBskyFeedGetRepostedBy = 'app.bsky.feed.getRepostedBy';
 
@@ -327,6 +333,12 @@ const appBskyFeedPostReplyRef = 'app.bsky.feed.post#replyRef';
 
 /// `app.bsky.feed.post#textSlice`
 const appBskyFeedPostTextSlice = 'app.bsky.feed.post#textSlice';
+
+/// `app.bsky.feed.postgate`
+const appBskyFeedPostgate = 'app.bsky.feed.postgate';
+
+/// `app.bsky.feed.postgate#disableRule`
+const appBskyFeedPostgateDisableRule = 'app.bsky.feed.postgate#disableRule';
 
 /// `app.bsky.feed.repost`
 const appBskyFeedRepost = 'app.bsky.feed.repost';
