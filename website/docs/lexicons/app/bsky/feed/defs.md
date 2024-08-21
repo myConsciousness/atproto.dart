@@ -17,6 +17,7 @@ description: app.bsky.feed.defs
 | **replyCount** | integer | - | ❌ | - |
 | **repostCount** | integer | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
+| **quoteCount** | integer | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |

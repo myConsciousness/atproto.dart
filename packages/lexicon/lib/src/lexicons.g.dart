@@ -5862,6 +5862,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "replyCount": {"type": "integer"},
         "repostCount": {"type": "integer"},
         "likeCount": {"type": "integer"},
+        "quoteCount": {"type": "integer"},
         "indexedAt": {"type": "string", "format": "datetime"},
         "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
@@ -6953,7 +6954,7 @@ const appBskyFeedGetActorLikes = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "Get a list of posts liked by an actor. Does not require auth.",
+          "Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.",
       "parameters": {
         "type": "params",
         "required": ["actor"],
@@ -6986,6 +6987,58 @@ const appBskyFeedGetActorLikes = <String, dynamic>{
         {"name": "BlockedActor"},
         {"name": "BlockedByActor"}
       ]
+    }
+  }
+};
+
+/// `app.bsky.feed.getQuotes`
+const appBskyFeedGetQuotes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getQuotes",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of quotes for a given post.",
+      "parameters": {
+        "type": "params",
+        "required": ["uri"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) of post record"
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid",
+            "description":
+                "If supplied, filters to quotes of specific version (by CID) of the post record."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "posts"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "cursor": {"type": "string"},
+            "posts": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#postView"}
+            }
+          }
+        }
+      }
     }
   }
 };
@@ -9838,6 +9891,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyFeedThreadgate,
   appBskyFeedGetListFeed,
   appBskyFeedGetActorLikes,
+  appBskyFeedGetQuotes,
   appBskyFeedGetTimeline,
   appBskyUnspeccedSearchActorsSkeleton,
   appBskyUnspeccedDefs,

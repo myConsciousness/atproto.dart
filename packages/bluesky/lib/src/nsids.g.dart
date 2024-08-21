@@ -142,6 +142,9 @@ const appBskyFeedGetPostThread = NSID(ids.appBskyFeedGetPostThread);
 /// `app.bsky.feed.getPosts`
 const appBskyFeedGetPosts = NSID(ids.appBskyFeedGetPosts);
 
+/// `app.bsky.feed.getQuotes`
+const appBskyFeedGetQuotes = NSID(ids.appBskyFeedGetQuotes);
+
 /// `app.bsky.feed.getRepostedBy`
 const appBskyFeedGetRepostedBy = NSID(ids.appBskyFeedGetRepostedBy);
 

@@ -304,6 +304,9 @@ const appBskyFeedGetPostThread = 'app.bsky.feed.getPostThread';
 /// `app.bsky.feed.getPosts`
 const appBskyFeedGetPosts = 'app.bsky.feed.getPosts';
 
+/// `app.bsky.feed.getQuotes`
+const appBskyFeedGetQuotes = 'app.bsky.feed.getQuotes';
+
 /// `app.bsky.feed.getRepostedBy`
 const appBskyFeedGetRepostedBy = 'app.bsky.feed.getRepostedBy';
 

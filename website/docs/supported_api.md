@@ -207,6 +207,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.feed.threadgate](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/threadgate.html)** | [Reference](lexicons/app/bsky/feed/threadgate.md) | ✅ | ❌ |
 | **[app.bsky.feed.getListFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getListFeed.html)** | [Reference](lexicons/app/bsky/feed/getListFeed.md) | ✅ | ✅ |
 | **[app.bsky.feed.getActorLikes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getActorLikes.html)** | [Reference](lexicons/app/bsky/feed/getActorLikes.md) | ✅ | ✅ |
+| **[app.bsky.feed.getQuotes](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getQuotes.html)** | [Reference](lexicons/app/bsky/feed/getQuotes.md) | ❌ | ✅ |
 | **[app.bsky.feed.getTimeline](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getTimeline.html)** | [Reference](lexicons/app/bsky/feed/getTimeline.md) | ✅ | ✅ |
 
 ### app.bsky.unspecced
