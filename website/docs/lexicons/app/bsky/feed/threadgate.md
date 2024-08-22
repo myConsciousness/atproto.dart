@@ -18,6 +18,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | Reference (AT-URI) to the post record. |
 | **allow** | array of union<br/>[#mentionRule](#mentionrule)<br/>[#followingRule](#followingrule)<br/>[#listRule](#listrule) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **hiddenReplies** | array of string | - | ❌ | List of hidden reply URIs. |
 
 ### Output
 
