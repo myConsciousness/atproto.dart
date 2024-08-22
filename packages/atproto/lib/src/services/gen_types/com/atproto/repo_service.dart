@@ -33,32 +33,6 @@ final class RepoService {
 
   final ATProtoServiceContext _ctx;
 
-  /// Get a single record from a repository. Does not require auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord
-  Future<XRPCResponse<GetRecordOutput>> getRecord({
-    String? repo,
-    required NSID collection,
-    required String rkey,
-    String? cid,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetRecordOutput>(
-        ns.comAtprotoRepoGetRecord,
-        headers: $headers,
-        parameters: {
-          'repo': repo ?? _ctx.repo,
-          'collection': collection.toString(),
-          'rkey': rkey,
-          if (cid != null) 'cid': cid,
-          ...?$unknown,
-        },
-        to: const GetRecordOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Delete a repository record, or ensure it doesn't exist. Requires
   /// auth, implemented by PDS.
   ///
@@ -84,91 +58,6 @@ final class RepoService {
           if (swapCommit != null) 'swapCommit': swapCommit,
           ...?$unknown,
         },
-        client: $client,
-      );
-
-  /// List a range of records in a repository, matching a specific
-  /// collection. Does not require auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords
-  Future<XRPCResponse<ListRecordsOutput>> listRecords({
-    String? repo,
-    required NSID collection,
-    int? limit,
-    String? cursor,
-    String? rkeyStart,
-    String? rkeyEnd,
-    bool? reverse,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ListRecordsOutput>(
-        ns.comAtprotoRepoListRecords,
-        headers: $headers,
-        parameters: {
-          'repo': repo ?? _ctx.repo,
-          'collection': collection.toString(),
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          if (rkeyStart != null) 'rkeyStart': rkeyStart,
-          if (rkeyEnd != null) 'rkeyEnd': rkeyEnd,
-          if (reverse != null) 'reverse': reverse.toString(),
-          ...?$unknown,
-        },
-        to: const ListRecordsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Create a single new repository record. Requires auth, implemented
-  /// by PDS.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord
-  Future<XRPCResponse<StrongRef>> createRecord({
-    String? repo,
-    required NSID collection,
-    String? rkey,
-    bool? validate,
-    required Map<String, dynamic> record,
-    String? swapCommit,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<StrongRef>(
-        ns.comAtprotoRepoCreateRecord,
-        headers: $headers,
-        body: {
-          'repo': repo ?? _ctx.repo,
-          'collection': collection.toString(),
-          if (rkey != null) 'rkey': rkey,
-          if (validate != null) 'validate': validate,
-          'record': record,
-          if (swapCommit != null) 'swapCommit': swapCommit,
-          ...?$unknown,
-        },
-        to: const StrongRefConverter().fromJson,
-        client: $client,
-      );
-
-  /// Upload a new blob, to be referenced from a repository record. The
-  /// blob will be deleted if it is not referenced within a time window
-  /// (eg, minutes). Blob restrictions (mimetype, size, etc) are
-  /// enforced when the reference is created. Requires auth,
-  /// implemented by PDS.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
-  Future<XRPCResponse<UploadBlobOutput>> uploadBlob({
-    required Uint8List bytes,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<UploadBlobOutput>(
-        ns.comAtprotoRepoUploadBlob,
-        headers: $headers,
-        body: bytes,
-        to: const UploadBlobOutputConverter().fromJson,
         client: $client,
       );
 
@@ -216,6 +105,117 @@ final class RepoService {
         client: $client,
       );
 
+  /// List a range of records in a repository, matching a specific
+  /// collection. Does not require auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords
+  Future<XRPCResponse<ListRecordsOutput>> listRecords({
+    String? repo,
+    required NSID collection,
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ListRecordsOutput>(
+        ns.comAtprotoRepoListRecords,
+        headers: $headers,
+        parameters: {
+          'repo': repo ?? _ctx.repo,
+          'collection': collection.toString(),
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          if (rkeyStart != null) 'rkeyStart': rkeyStart,
+          if (rkeyEnd != null) 'rkeyEnd': rkeyEnd,
+          if (reverse != null) 'reverse': reverse.toString(),
+          ...?$unknown,
+        },
+        to: const ListRecordsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Apply a batch transaction of repository creates, updates, and
+  /// deletes. Requires auth, implemented by PDS.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites
+  Future<XRPCResponse<EmptyData>> applyWrites({
+    String? repo,
+    bool? validate,
+    required List<UApplyWritesWrite> writes,
+    String? swapCommit,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoRepoApplyWrites,
+        headers: $headers,
+        body: {
+          'repo': repo ?? _ctx.repo,
+          if (validate != null) 'validate': validate,
+          'writes': writes.map((e) => e.toJson()).toList(),
+          if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Upload a new blob, to be referenced from a repository record. The
+  /// blob will be deleted if it is not referenced within a time window
+  /// (eg, minutes). Blob restrictions (mimetype, size, etc) are
+  /// enforced when the reference is created. Requires auth,
+  /// implemented by PDS.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
+  Future<XRPCResponse<UploadBlobOutput>> uploadBlob({
+    required Uint8List bytes,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<UploadBlobOutput>(
+        ns.comAtprotoRepoUploadBlob,
+        headers: $headers,
+        body: bytes,
+        to: const UploadBlobOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Create a single new repository record. Requires auth, implemented
+  /// by PDS.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord
+  Future<XRPCResponse<StrongRef>> createRecord({
+    String? repo,
+    required NSID collection,
+    String? rkey,
+    bool? validate,
+    required Map<String, dynamic> record,
+    String? swapCommit,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<StrongRef>(
+        ns.comAtprotoRepoCreateRecord,
+        headers: $headers,
+        body: {
+          'repo': repo ?? _ctx.repo,
+          'collection': collection.toString(),
+          if (rkey != null) 'rkey': rkey,
+          if (validate != null) 'validate': validate,
+          'record': record,
+          if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
+        },
+        to: const StrongRefConverter().fromJson,
+        client: $client,
+      );
+
   /// Write a repository record, creating or updating it as needed.
   /// Requires auth, implemented by PDS.
   ///
@@ -249,32 +249,6 @@ final class RepoService {
         client: $client,
       );
 
-  /// Apply a batch transaction of repository creates, updates, and
-  /// deletes. Requires auth, implemented by PDS.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites
-  Future<XRPCResponse<EmptyData>> applyWrites({
-    String? repo,
-    bool? validate,
-    required List<UApplyWritesWrite> writes,
-    String? swapCommit,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoRepoApplyWrites,
-        headers: $headers,
-        body: {
-          'repo': repo ?? _ctx.repo,
-          if (validate != null) 'validate': validate,
-          'writes': writes.map((e) => e.toJson()).toList(),
-          if (swapCommit != null) 'swapCommit': swapCommit,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
   /// Import a repo in the form of a CAR file. Requires Content-Length
   /// HTTP header to be set.
   ///
@@ -289,6 +263,32 @@ final class RepoService {
         ns.comAtprotoRepoImportRepo,
         headers: $headers,
         body: bytes,
+        client: $client,
+      );
+
+  /// Get a single record from a repository. Does not require auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord
+  Future<XRPCResponse<GetRecordOutput>> getRecord({
+    String? repo,
+    required NSID collection,
+    required String rkey,
+    String? cid,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetRecordOutput>(
+        ns.comAtprotoRepoGetRecord,
+        headers: $headers,
+        parameters: {
+          'repo': repo ?? _ctx.repo,
+          'collection': collection.toString(),
+          'rkey': rkey,
+          if (cid != null) 'cid': cid,
+          ...?$unknown,
+        },
+        to: const GetRecordOutputConverter().fromJson,
         client: $client,
       );
 }

@@ -33,6 +33,10 @@ mixin _$ThreadgateRecord {
   List<UThreadgateAllow>? get allow => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// List of hidden reply URIs.
+  @AtUriConverter()
+  List<AtUri>? get hiddenReplies => throw _privateConstructorUsedError;
+
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
   Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ abstract class $ThreadgateRecordCopyWith<$Res> {
       @AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
       DateTime createdAt,
+      @AtUriConverter() List<AtUri>? hiddenReplies,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -74,6 +79,7 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
     Object? post = null,
     Object? allow = freezed,
     Object? createdAt = null,
+    Object? hiddenReplies = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -93,6 +99,10 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      hiddenReplies: freezed == hiddenReplies
+          ? _value.hiddenReplies
+          : hiddenReplies // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -114,6 +124,7 @@ abstract class _$$ThreadgateRecordImplCopyWith<$Res>
       @AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
       DateTime createdAt,
+      @AtUriConverter() List<AtUri>? hiddenReplies,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -132,6 +143,7 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
     Object? post = null,
     Object? allow = freezed,
     Object? createdAt = null,
+    Object? hiddenReplies = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$ThreadgateRecordImpl(
@@ -151,6 +163,10 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      hiddenReplies: freezed == hiddenReplies
+          ? _value._hiddenReplies
+          : hiddenReplies // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -168,8 +184,10 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
       @AtUriConverter() required this.post,
       @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
       required this.createdAt,
+      @AtUriConverter() final List<AtUri>? hiddenReplies,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _allow = allow,
+        _hiddenReplies = hiddenReplies,
         _$unknown = $unknown;
 
   factory _$ThreadgateRecordImpl.fromJson(Map<String, dynamic> json) =>
@@ -200,6 +218,20 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   @override
   final DateTime createdAt;
 
+  /// List of hidden reply URIs.
+  final List<AtUri>? _hiddenReplies;
+
+  /// List of hidden reply URIs.
+  @override
+  @AtUriConverter()
+  List<AtUri>? get hiddenReplies {
+    final value = _hiddenReplies;
+    if (value == null) return null;
+    if (_hiddenReplies is EqualUnmodifiableListView) return _hiddenReplies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
 
@@ -216,7 +248,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
 
   @override
   String toString() {
-    return 'ThreadgateRecord(\$type: ${$type}, post: $post, allow: $allow, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'ThreadgateRecord(\$type: ${$type}, post: $post, allow: $allow, createdAt: $createdAt, hiddenReplies: $hiddenReplies, \$unknown: ${$unknown})';
   }
 
   @override
@@ -229,6 +261,8 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
             const DeepCollectionEquality().equals(other._allow, _allow) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._hiddenReplies, _hiddenReplies) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
@@ -240,6 +274,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
       post,
       const DeepCollectionEquality().hash(_allow),
       createdAt,
+      const DeepCollectionEquality().hash(_hiddenReplies),
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -263,6 +298,7 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
           @AtUriConverter() required final AtUri post,
           @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
           required final DateTime createdAt,
+          @AtUriConverter() final List<AtUri>? hiddenReplies,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ThreadgateRecordImpl;
 
@@ -286,6 +322,11 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   List<UThreadgateAllow>? get allow;
   @override
   DateTime get createdAt;
+  @override
+
+  /// List of hidden reply URIs.
+  @AtUriConverter()
+  List<AtUri>? get hiddenReplies;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

@@ -37,6 +37,7 @@ mixin _$PostView {
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
+  int get quoteCount => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
   @ViewerStateConverter()
   ViewerState get viewer => throw _privateConstructorUsedError;
@@ -70,6 +71,7 @@ abstract class $PostViewCopyWith<$Res> {
       int replyCount,
       int repostCount,
       int likeCount,
+      int quoteCount,
       DateTime indexedAt,
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
@@ -105,6 +107,7 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? quoteCount = null,
     Object? indexedAt = null,
     Object? viewer = null,
     Object? labels = freezed,
@@ -147,6 +150,10 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
       likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      quoteCount: null == quoteCount
+          ? _value.quoteCount
+          : quoteCount // ignore: cast_nullable_to_non_nullable
               as int,
       indexedAt: null == indexedAt
           ? _value.indexedAt
@@ -234,6 +241,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
       int replyCount,
       int repostCount,
       int likeCount,
+      int quoteCount,
       DateTime indexedAt,
       @ViewerStateConverter() ViewerState viewer,
       @LabelConverter() List<Label>? labels,
@@ -272,6 +280,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? quoteCount = null,
     Object? indexedAt = null,
     Object? viewer = null,
     Object? labels = freezed,
@@ -315,6 +324,10 @@ class __$$PostViewImplCopyWithImpl<$Res>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      quoteCount: null == quoteCount
+          ? _value.quoteCount
+          : quoteCount // ignore: cast_nullable_to_non_nullable
+              as int,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -353,6 +366,7 @@ class _$PostViewImpl implements _PostView {
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
+      this.quoteCount = 0,
       required this.indexedAt,
       @ViewerStateConverter() this.viewer = const ViewerState(),
       @LabelConverter() final List<Label>? labels,
@@ -394,6 +408,9 @@ class _$PostViewImpl implements _PostView {
   @JsonKey()
   final int likeCount;
   @override
+  @JsonKey()
+  final int quoteCount;
+  @override
   final DateTime indexedAt;
   @override
   @JsonKey()
@@ -431,7 +448,7 @@ class _$PostViewImpl implements _PostView {
 
   @override
   String toString() {
-    return 'PostView(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, record: $record, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, indexedAt: $indexedAt, viewer: $viewer, labels: $labels, threadgate: $threadgate, \$unknown: ${$unknown})';
+    return 'PostView(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, record: $record, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, indexedAt: $indexedAt, viewer: $viewer, labels: $labels, threadgate: $threadgate, \$unknown: ${$unknown})';
   }
 
   @override
@@ -451,6 +468,8 @@ class _$PostViewImpl implements _PostView {
                 other.repostCount == repostCount) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount) &&
+            (identical(other.quoteCount, quoteCount) ||
+                other.quoteCount == quoteCount) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
@@ -473,6 +492,7 @@ class _$PostViewImpl implements _PostView {
       replyCount,
       repostCount,
       likeCount,
+      quoteCount,
       indexedAt,
       viewer,
       const DeepCollectionEquality().hash(_labels),
@@ -504,6 +524,7 @@ abstract class _PostView implements PostView {
           final int replyCount,
           final int repostCount,
           final int likeCount,
+          final int quoteCount,
           required final DateTime indexedAt,
           @ViewerStateConverter() final ViewerState viewer,
           @LabelConverter() final List<Label>? labels,
@@ -541,6 +562,8 @@ abstract class _PostView implements PostView {
   int get repostCount;
   @override
   int get likeCount;
+  @override
+  int get quoteCount;
   @override
   DateTime get indexedAt;
   @override

@@ -32,50 +32,22 @@ final class SyncService {
 
   final ATProtoServiceContext _ctx;
 
-  /// Get data blocks needed to prove the existence or non-existence of
-  /// record in the current version of repo. Does not require auth.
+  /// Request a service to persistently crawl hosted repos. Expected
+  /// use is new PDS instances declaring their existence to Relays.
+  /// Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRecord
-  Future<XRPCResponse<Uint8List>> getRecord({
-    required String did,
-    required NSID collection,
-    required String rkey,
-    String? commit,
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/requestCrawl
+  Future<XRPCResponse<EmptyData>> requestCrawl({
+    required String hostname,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
-    GetClient? $client,
+    PostClient? $client,
   }) async =>
-      await _ctx.get<Uint8List>(
-        ns.comAtprotoSyncGetRecord,
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoSyncRequestCrawl,
         headers: $headers,
-        parameters: {
-          'did': did,
-          'collection': collection.toString(),
-          'rkey': rkey,
-          if (commit != null) 'commit': commit,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Get data blocks from a given repo, by CID. For example,
-  /// intermediate MST nodes, or records. Does not require auth;
-  /// implemented by PDS.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlocks
-  Future<XRPCResponse<Uint8List>> getBlocks({
-    required String did,
-    required List<String> cids,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<Uint8List>(
-        ns.comAtprotoSyncGetBlocks,
-        headers: $headers,
-        parameters: {
-          'did': did,
-          'cids': cids,
+        body: {
+          'hostname': hostname,
           ...?$unknown,
         },
         client: $client,
@@ -103,24 +75,23 @@ final class SyncService {
         to: const USubscribeReposMessageConverter().fromJson,
       );
 
-  /// Get a blob associated with a given account. Returns the full blob
-  /// as originally uploaded. Does not require auth; implemented by
-  /// PDS.
+  /// Notify a crawling service of a recent update, and that crawling
+  /// should resume. Intended use is after a gap between repo stream
+  /// events caused the crawling service to disconnect. Does not
+  /// require auth; implemented by Relay.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlob
-  Future<XRPCResponse<Uint8List>> getBlob({
-    required String did,
-    required String cid,
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/notifyOfUpdate
+  Future<XRPCResponse<EmptyData>> notifyOfUpdate({
+    required String hostname,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
-    GetClient? $client,
+    PostClient? $client,
   }) async =>
-      await _ctx.get<Uint8List>(
-        ns.comAtprotoSyncGetBlob,
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoSyncNotifyOfUpdate,
         headers: $headers,
-        parameters: {
-          'did': did,
-          'cid': cid,
+        body: {
+          'hostname': hostname,
           ...?$unknown,
         },
         client: $client,
@@ -149,22 +120,47 @@ final class SyncService {
         client: $client,
       );
 
-  /// Request a service to persistently crawl hosted repos. Expected
-  /// use is new PDS instances declaring their existence to Relays.
-  /// Does not require auth.
+  /// Get a blob associated with a given account. Returns the full blob
+  /// as originally uploaded. Does not require auth; implemented by
+  /// PDS.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/requestCrawl
-  Future<XRPCResponse<EmptyData>> requestCrawl({
-    required String hostname,
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlob
+  Future<XRPCResponse<Uint8List>> getBlob({
+    required String did,
+    required String cid,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
-    PostClient? $client,
+    GetClient? $client,
   }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoSyncRequestCrawl,
+      await _ctx.get<Uint8List>(
+        ns.comAtprotoSyncGetBlob,
         headers: $headers,
-        body: {
-          'hostname': hostname,
+        parameters: {
+          'did': did,
+          'cid': cid,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Get data blocks from a given repo, by CID. For example,
+  /// intermediate MST nodes, or records. Does not require auth;
+  /// implemented by PDS.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlocks
+  Future<XRPCResponse<Uint8List>> getBlocks({
+    required String did,
+    required List<String> cids,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<Uint8List>(
+        ns.comAtprotoSyncGetBlocks,
+        headers: $headers,
+        parameters: {
+          'did': did,
+          'cids': cids,
           ...?$unknown,
         },
         client: $client,
@@ -194,28 +190,6 @@ final class SyncService {
           ...?$unknown,
         },
         to: const ListBlobsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Notify a crawling service of a recent update, and that crawling
-  /// should resume. Intended use is after a gap between repo stream
-  /// events caused the crawling service to disconnect. Does not
-  /// require auth; implemented by Relay.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/notifyOfUpdate
-  Future<XRPCResponse<EmptyData>> notifyOfUpdate({
-    required String hostname,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoSyncNotifyOfUpdate,
-        headers: $headers,
-        body: {
-          'hostname': hostname,
-          ...?$unknown,
-        },
         client: $client,
       );
 
@@ -258,6 +232,32 @@ final class SyncService {
           ...?$unknown,
         },
         to: const GetRepoStatusOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get data blocks needed to prove the existence or non-existence of
+  /// record in the current version of repo. Does not require auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRecord
+  Future<XRPCResponse<Uint8List>> getRecord({
+    required String did,
+    required NSID collection,
+    required String rkey,
+    String? commit,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<Uint8List>(
+        ns.comAtprotoSyncGetRecord,
+        headers: $headers,
+        parameters: {
+          'did': did,
+          'collection': collection.toString(),
+          'rkey': rkey,
+          if (commit != null) 'commit': commit,
+          ...?$unknown,
+        },
         client: $client,
       );
 

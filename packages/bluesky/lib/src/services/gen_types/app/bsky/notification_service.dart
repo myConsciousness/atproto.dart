@@ -26,6 +26,33 @@ final class NotificationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// Enumerate notifications for the requesting account. Requires
+  /// auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
+  Future<XRPCResponse<ListNotificationsOutput>> listNotifications({
+    int? limit,
+    bool? priority,
+    String? cursor,
+    DateTime? seenAt,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ListNotificationsOutput>(
+        ns.appBskyNotificationListNotifications,
+        headers: $headers,
+        parameters: {
+          if (limit != null) 'limit': limit.toString(),
+          if (priority != null) 'priority': priority.toString(),
+          if (cursor != null) 'cursor': cursor,
+          if (seenAt != null) 'seenAt': iso8601(seenAt),
+          ...?$unknown,
+        },
+        to: const ListNotificationsOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Notify server that the requesting account has seen notifications.
   /// Requires auth.
   ///
@@ -41,6 +68,26 @@ final class NotificationService {
         headers: $headers,
         body: {
           'seenAt': iso8601(seenAt),
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Set notification-related preferences for an account. Requires
+  /// auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/putPreferences
+  Future<XRPCResponse<EmptyData>> putPreferences({
+    required bool priority,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyNotificationPutPreferences,
+        headers: $headers,
+        body: {
+          'priority': priority,
           ...?$unknown,
         },
         client: $client,
@@ -92,53 +139,6 @@ final class NotificationService {
           'appId': appId,
           ...?$unknown,
         },
-        client: $client,
-      );
-
-  /// Set notification-related preferences for an account. Requires
-  /// auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/putPreferences
-  Future<XRPCResponse<EmptyData>> putPreferences({
-    required bool priority,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyNotificationPutPreferences,
-        headers: $headers,
-        body: {
-          'priority': priority,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Enumerate notifications for the requesting account. Requires
-  /// auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
-  Future<XRPCResponse<ListNotificationsOutput>> listNotifications({
-    int? limit,
-    bool? priority,
-    String? cursor,
-    DateTime? seenAt,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ListNotificationsOutput>(
-        ns.appBskyNotificationListNotifications,
-        headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit.toString(),
-          if (priority != null) 'priority': priority.toString(),
-          if (cursor != null) 'cursor': cursor,
-          if (seenAt != null) 'seenAt': iso8601(seenAt),
-          ...?$unknown,
-        },
-        to: const ListNotificationsOutputConverter().fromJson,
         client: $client,
       );
 }

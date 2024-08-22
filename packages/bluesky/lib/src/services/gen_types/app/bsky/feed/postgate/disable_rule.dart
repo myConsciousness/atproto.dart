@@ -11,64 +11,45 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
 
-part 'record.freezed.dart';
-part 'record.g.dart';
+part 'disable_rule.freezed.dart';
+part 'disable_rule.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate#main
+/// Disables embedding of this post.
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/postgate#disablerule
 @freezed
-class ThreadgateRecord with _$ThreadgateRecord {
+class DisableRule with _$DisableRule {
   @JsonSerializable(includeIfNull: false)
-  const factory ThreadgateRecord({
+  const factory DisableRule({
     /// The unique namespace for this lex object.
     ///
-    /// `app.bsky.feed.threadgate`
-    @Default(appBskyFeedThreadgate) @JsonKey(name: r'$type') String $type,
-
-    /// Reference (AT-URI) to the post record.
-    @AtUriConverter() required AtUri post,
-    @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
-    required DateTime createdAt,
-
-    /// List of hidden reply URIs.
-    @AtUriConverter() List<AtUri>? hiddenReplies,
+    /// `app.bsky.feed.postgate#disableRule`
+    @Default(appBskyFeedPostgateDisableRule)
+    @JsonKey(name: r'$type')
+    String $type,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
-  }) = _ThreadgateRecord;
+  }) = _DisableRule;
 
-  factory ThreadgateRecord.fromJson(Map<String, dynamic> json) =>
-      _$ThreadgateRecordFromJson(json);
+  factory DisableRule.fromJson(Map<String, dynamic> json) =>
+      _$DisableRuleFromJson(json);
 }
 
-/// Returns true if [object] is [ThreadgateRecord], otherwise false.
-bool isThreadgateRecord(final Map<String, dynamic>? object) {
+/// Returns true if [object] is [DisableRule], otherwise false.
+bool isDisableRule(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'app.bsky.feed.threadgate#main' ||
-      object[r'$type'] == 'app.bsky.feed.threadgate';
+  return object[r'$type'] == 'app.bsky.feed.postgate#disableRule';
 }
 
-extension $ThreadgateRecordExtension on ThreadgateRecord {
-  /// Returns true if [allow] is not null, otherwise false.
-  bool get hasAllow => allow != null;
-
-  /// Returns true if [allow] is null, otherwise false.
-  bool get hasNotAllow => !hasAllow;
-
-  /// Returns true if [hiddenReplies] is not null, otherwise false.
-  bool get hasHiddenReplies => hiddenReplies != null;
-
-  /// Returns true if [hiddenReplies] is null, otherwise false.
-  bool get hasNotHiddenReplies => !hasHiddenReplies;
-
+extension $DisableRuleExtension on DisableRule {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -80,18 +61,14 @@ extension $ThreadgateRecordExtension on ThreadgateRecord {
 
 const _kLexCompatibleProperties = <String>[
   r'$type',
-  'post',
-  'allow',
-  'createdAt',
-  'hiddenReplies',
 ];
 
-final class ThreadgateRecordConverter
-    implements JsonConverter<ThreadgateRecord, Map<String, dynamic>> {
-  const ThreadgateRecordConverter();
+final class DisableRuleConverter
+    implements JsonConverter<DisableRule, Map<String, dynamic>> {
+  const DisableRuleConverter();
 
   @override
-  ThreadgateRecord fromJson(Map<String, dynamic> json) {
+  DisableRule fromJson(Map<String, dynamic> json) {
     final props = <String, dynamic>{};
     for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
@@ -106,11 +83,11 @@ final class ThreadgateRecordConverter
       }
     }
 
-    return ThreadgateRecord.fromJson(props);
+    return DisableRule.fromJson(props);
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadgateRecord object) {
+  Map<String, dynamic> toJson(DisableRule object) {
     if (object.hasNotUnknown) {
       return object.toJson();
     }

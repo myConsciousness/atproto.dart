@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../app/bsky/embed/record/view_blocked.dart';
+import '../../../../app/bsky/embed/record/view_detached.dart';
 import '../../../../app/bsky/embed/record/view_not_found.dart';
 import '../../../../app/bsky/embed/record/view_record.dart';
 import '../../../../app/bsky/feed/defs/generator_view.dart';
@@ -37,6 +38,10 @@ class URecordViewRecord with _$URecordViewRecord {
   const factory URecordViewRecord.recordViewBlocked({
     required RecordViewBlocked data,
   }) = URecordViewRecordRecordViewBlocked;
+
+  const factory URecordViewRecord.recordViewDetached({
+    required RecordViewDetached data,
+  }) = URecordViewRecordRecordViewDetached;
 
   const factory URecordViewRecord.generatorView({
     required GeneratorView data,
@@ -81,6 +86,11 @@ final class URecordViewRecordConverter
           data: const RecordViewBlockedConverter().fromJson(json),
         );
       }
+      if (isRecordViewDetached(json)) {
+        return URecordViewRecord.recordViewDetached(
+          data: const RecordViewDetachedConverter().fromJson(json),
+        );
+      }
       if (isGeneratorView(json)) {
         return URecordViewRecord.generatorView(
           data: const GeneratorViewConverter().fromJson(json),
@@ -113,6 +123,7 @@ final class URecordViewRecordConverter
         recordViewRecord: const RecordViewRecordConverter().toJson,
         recordViewNotFound: const RecordViewNotFoundConverter().toJson,
         recordViewBlocked: const RecordViewBlockedConverter().toJson,
+        recordViewDetached: const RecordViewDetachedConverter().toJson,
         generatorView: const GeneratorViewConverter().toJson,
         listView: const ListViewConverter().toJson,
         labelerView: const LabelerViewConverter().toJson,
@@ -143,6 +154,12 @@ extension $URecordViewRecordExtension on URecordViewRecord {
 
   /// Returns true if this data is not [RecordViewBlocked], otherwise false.
   bool get isNotRecordViewBlocked => !isRecordViewBlocked;
+
+  /// Returns true if this data is [RecordViewDetached], otherwise false.
+  bool get isRecordViewDetached => this is URecordViewRecordRecordViewDetached;
+
+  /// Returns true if this data is not [RecordViewDetached], otherwise false.
+  bool get isNotRecordViewDetached => !isRecordViewDetached;
 
   /// Returns true if this data is [GeneratorView], otherwise false.
   bool get isGeneratorView => this is URecordViewRecordGeneratorView;
@@ -201,6 +218,15 @@ extension $URecordViewRecordExtension on URecordViewRecord {
   /// Returns [RecordViewBlocked] if this data is [RecordViewBlocked], otherwise null.
   RecordViewBlocked? get recordViewBlockedOrNull =>
       isRecordViewBlocked ? recordViewBlocked : null;
+
+  /// Returns this data as [RecordViewDetached].
+  ///
+  /// Make sure to check if this object is [RecordViewDetached] with [isRecordViewDetached].
+  RecordViewDetached get recordViewDetached => this.data as RecordViewDetached;
+
+  /// Returns [RecordViewDetached] if this data is [RecordViewDetached], otherwise null.
+  RecordViewDetached? get recordViewDetachedOrNull =>
+      isRecordViewDetached ? recordViewDetached : null;
 
   /// Returns this data as [GeneratorView].
   ///

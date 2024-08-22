@@ -29,32 +29,58 @@ final class UnspeccedService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Get a skeleton of suggested actors. Intended to be called and
-  /// then hydrated through app.bsky.actor.getSuggestions
+  /// Backend Actors (profile) search, returns only skeleton.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton
-  Future<XRPCResponse<GetSuggestionsSkeletonOutput>> getSuggestionsSkeleton({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton
+  Future<XRPCResponse<SearchActorsSkeletonOutput>> searchActorsSkeleton({
+    required String q,
     String? viewer,
+    bool? typeahead,
     int? limit,
     String? cursor,
-    String? relativeToDid,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetSuggestionsSkeletonOutput>(
-        ns.appBskyUnspeccedGetSuggestionsSkeleton,
+      await _ctx.get<SearchActorsSkeletonOutput>(
+        ns.appBskyUnspeccedSearchActorsSkeleton,
         headers: $headers,
         parameters: {
+          'q': q,
           if (viewer != null) 'viewer': viewer,
+          if (typeahead != null) 'typeahead': typeahead.toString(),
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          if (relativeToDid != null) 'relativeToDid': relativeToDid,
           ...?$unknown,
         },
-        to: const GetSuggestionsSkeletonOutputConverter().fromJson,
+        to: const SearchActorsSkeletonOutputConverter().fromJson,
         client: $client,
       );
+
+  /// An unspecced view of globally popular feed generators.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators
+  Future<XRPCResponse<GetPopularFeedGeneratorsOutput>>
+      getPopularFeedGenerators({
+    int? limit,
+    String? cursor,
+    String? query,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+          await _ctx.get<GetPopularFeedGeneratorsOutput>(
+            ns.appBskyUnspeccedGetPopularFeedGenerators,
+            headers: $headers,
+            parameters: {
+              if (limit != null) 'limit': limit.toString(),
+              if (cursor != null) 'cursor': cursor,
+              if (query != null) 'query': query,
+              ...?$unknown,
+            },
+            to: const GetPopularFeedGeneratorsOutputConverter().fromJson,
+            client: $client,
+          );
 
   /// Backend Posts search, returns only skeleton
   ///
@@ -100,34 +126,6 @@ final class UnspeccedService {
         client: $client,
       );
 
-  /// Backend Actors (profile) search, returns only skeleton.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton
-  Future<XRPCResponse<SearchActorsSkeletonOutput>> searchActorsSkeleton({
-    required String q,
-    String? viewer,
-    bool? typeahead,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<SearchActorsSkeletonOutput>(
-        ns.appBskyUnspeccedSearchActorsSkeleton,
-        headers: $headers,
-        parameters: {
-          'q': q,
-          if (viewer != null) 'viewer': viewer,
-          if (typeahead != null) 'typeahead': typeahead.toString(),
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const SearchActorsSkeletonOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Get a list of suggestions (feeds and users) tagged with
   /// categories
   ///
@@ -144,28 +142,30 @@ final class UnspeccedService {
         client: $client,
       );
 
-  /// An unspecced view of globally popular feed generators.
+  /// Get a skeleton of suggested actors. Intended to be called and
+  /// then hydrated through app.bsky.actor.getSuggestions
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators
-  Future<XRPCResponse<GetPopularFeedGeneratorsOutput>>
-      getPopularFeedGenerators({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton
+  Future<XRPCResponse<GetSuggestionsSkeletonOutput>> getSuggestionsSkeleton({
+    String? viewer,
     int? limit,
     String? cursor,
-    String? query,
+    String? relativeToDid,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-          await _ctx.get<GetPopularFeedGeneratorsOutput>(
-            ns.appBskyUnspeccedGetPopularFeedGenerators,
-            headers: $headers,
-            parameters: {
-              if (limit != null) 'limit': limit.toString(),
-              if (cursor != null) 'cursor': cursor,
-              if (query != null) 'query': query,
-              ...?$unknown,
-            },
-            to: const GetPopularFeedGeneratorsOutputConverter().fromJson,
-            client: $client,
-          );
+      await _ctx.get<GetSuggestionsSkeletonOutput>(
+        ns.appBskyUnspeccedGetSuggestionsSkeleton,
+        headers: $headers,
+        parameters: {
+          if (viewer != null) 'viewer': viewer,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          if (relativeToDid != null) 'relativeToDid': relativeToDid,
+          ...?$unknown,
+        },
+        to: const GetSuggestionsSkeletonOutputConverter().fromJson,
+        client: $client,
+      );
 }

@@ -33,6 +33,27 @@ final class AdminService {
 
   final ATProtoServiceContext _ctx;
 
+  /// Administrative action to update an account's handle.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateAccountHandle
+  Future<XRPCResponse<EmptyData>> updateAccountHandle({
+    required String did,
+    required String handle,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoAdminUpdateAccountHandle,
+        headers: $headers,
+        body: {
+          'did': did,
+          'handle': handle,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
   /// Get an admin view of invite codes.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getInviteCodes
@@ -54,6 +75,25 @@ final class AdminService {
           ...?$unknown,
         },
         to: const GetInviteCodesOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Delete a user account as an administrator.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/deleteAccount
+  Future<XRPCResponse<EmptyData>> deleteAccount({
+    required String did,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoAdminDeleteAccount,
+        headers: $headers,
+        body: {
+          'did': did,
+          ...?$unknown,
+        },
         client: $client,
       );
 
@@ -85,71 +125,6 @@ final class AdminService {
         client: $client,
       );
 
-  /// Delete a user account as an administrator.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/deleteAccount
-  Future<XRPCResponse<EmptyData>> deleteAccount({
-    required String did,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoAdminDeleteAccount,
-        headers: $headers,
-        body: {
-          'did': did,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Administrative action to update an account's email.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateAccountEmail
-  Future<XRPCResponse<EmptyData>> updateAccountEmail({
-    required String account,
-    required String email,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoAdminUpdateAccountEmail,
-        headers: $headers,
-        body: {
-          'account': account,
-          'email': email,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Get the service-specific admin status of a subject (account,
-  /// record, or blob).
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getSubjectStatus
-  Future<XRPCResponse<GetSubjectStatusOutput>> getSubjectStatus({
-    String? did,
-    AtUri? uri,
-    String? blob,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetSubjectStatusOutput>(
-        ns.comAtprotoAdminGetSubjectStatus,
-        headers: $headers,
-        parameters: {
-          if (did != null) 'did': did,
-          if (uri != null) 'uri': uri.toString(),
-          if (blob != null) 'blob': blob,
-          ...?$unknown,
-        },
-        to: const GetSubjectStatusOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Get details about some accounts.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfos
@@ -167,31 +142,6 @@ final class AdminService {
           ...?$unknown,
         },
         to: const GetAccountInfosOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Update the service-specific admin status of a subject (account,
-  /// record, or blob).
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateSubjectStatus
-  Future<XRPCResponse<UpdateSubjectStatusOutput>> updateSubjectStatus({
-    required UUpdateSubjectStatusSubject subject,
-    StatusAttr? takedown,
-    StatusAttr? deactivated,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<UpdateSubjectStatusOutput>(
-        ns.comAtprotoAdminUpdateSubjectStatus,
-        headers: $headers,
-        body: {
-          'subject': subject.toJson(),
-          if (takedown != null) 'takedown': takedown.toJson(),
-          if (deactivated != null) 'deactivated': deactivated.toJson(),
-          ...?$unknown,
-        },
-        to: const UpdateSubjectStatusOutputConverter().fromJson,
         client: $client,
       );
 
@@ -215,28 +165,6 @@ final class AdminService {
         client: $client,
       );
 
-  /// Disable some set of codes and/or all codes associated with a set
-  /// of users.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/disableInviteCodes
-  Future<XRPCResponse<EmptyData>> disableInviteCodes({
-    List<String>? codes,
-    List<String>? accounts,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoAdminDisableInviteCodes,
-        headers: $headers,
-        body: {
-          if (codes != null) 'codes': codes,
-          if (accounts != null) 'accounts': accounts,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
   /// Update the password for a user account as an administrator.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateAccountPassword
@@ -253,27 +181,6 @@ final class AdminService {
         body: {
           'did': did,
           'password': password,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Re-enable an account's ability to receive invite codes.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/enableAccountInvites
-  Future<XRPCResponse<EmptyData>> enableAccountInvites({
-    required String account,
-    String? note,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoAdminEnableAccountInvites,
-        headers: $headers,
-        body: {
-          'account': account,
-          if (note != null) 'note': note,
           ...?$unknown,
         },
         client: $client,
@@ -303,22 +210,43 @@ final class AdminService {
         client: $client,
       );
 
-  /// Administrative action to update an account's handle.
+  /// Administrative action to update an account's email.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateAccountHandle
-  Future<XRPCResponse<EmptyData>> updateAccountHandle({
-    required String did,
-    required String handle,
+  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateAccountEmail
+  Future<XRPCResponse<EmptyData>> updateAccountEmail({
+    required String account,
+    required String email,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
-        ns.comAtprotoAdminUpdateAccountHandle,
+        ns.comAtprotoAdminUpdateAccountEmail,
         headers: $headers,
         body: {
-          'did': did,
-          'handle': handle,
+          'account': account,
+          'email': email,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Re-enable an account's ability to receive invite codes.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/enableAccountInvites
+  Future<XRPCResponse<EmptyData>> enableAccountInvites({
+    required String account,
+    String? note,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoAdminEnableAccountInvites,
+        headers: $headers,
+        body: {
+          'account': account,
+          if (note != null) 'note': note,
           ...?$unknown,
         },
         client: $client,
@@ -343,6 +271,78 @@ final class AdminService {
           if (note != null) 'note': note,
           ...?$unknown,
         },
+        client: $client,
+      );
+
+  /// Disable some set of codes and/or all codes associated with a set
+  /// of users.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/disableInviteCodes
+  Future<XRPCResponse<EmptyData>> disableInviteCodes({
+    List<String>? codes,
+    List<String>? accounts,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoAdminDisableInviteCodes,
+        headers: $headers,
+        body: {
+          if (codes != null) 'codes': codes,
+          if (accounts != null) 'accounts': accounts,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Update the service-specific admin status of a subject (account,
+  /// record, or blob).
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateSubjectStatus
+  Future<XRPCResponse<UpdateSubjectStatusOutput>> updateSubjectStatus({
+    required UUpdateSubjectStatusSubject subject,
+    StatusAttr? takedown,
+    StatusAttr? deactivated,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<UpdateSubjectStatusOutput>(
+        ns.comAtprotoAdminUpdateSubjectStatus,
+        headers: $headers,
+        body: {
+          'subject': subject.toJson(),
+          if (takedown != null) 'takedown': takedown.toJson(),
+          if (deactivated != null) 'deactivated': deactivated.toJson(),
+          ...?$unknown,
+        },
+        to: const UpdateSubjectStatusOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get the service-specific admin status of a subject (account,
+  /// record, or blob).
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getSubjectStatus
+  Future<XRPCResponse<GetSubjectStatusOutput>> getSubjectStatus({
+    String? did,
+    AtUri? uri,
+    String? blob,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetSubjectStatusOutput>(
+        ns.comAtprotoAdminGetSubjectStatus,
+        headers: $headers,
+        parameters: {
+          if (did != null) 'did': did,
+          if (uri != null) 'uri': uri.toString(),
+          if (blob != null) 'blob': blob,
+          ...?$unknown,
+        },
+        to: const GetSubjectStatusOutputConverter().fromJson,
         client: $client,
       );
 }

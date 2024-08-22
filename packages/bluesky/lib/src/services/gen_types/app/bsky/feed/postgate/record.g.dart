@@ -8,28 +8,27 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ThreadgateRecordImpl',
+_$PostgateRecordImpl _$$PostgateRecordImplFromJson(Map json) => $checkedCreate(
+      r'_$PostgateRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$ThreadgateRecordImpl(
+        final val = _$PostgateRecordImpl(
           $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyFeedThreadgate),
-          post: $checkedConvert(
-              'post', (v) => const AtUriConverter().fromJson(v as String)),
-          allow: $checkedConvert(
-              'allow',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => const UThreadgateAllowConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
+              r'$type', (v) => v as String? ?? appBskyFeedPostgate),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-          hiddenReplies: $checkedConvert(
-              'hiddenReplies',
+          post: $checkedConvert(
+              'post', (v) => const AtUriConverter().fromJson(v as String)),
+          detachedEmbeddingUris: $checkedConvert(
+              'detachedEmbeddingUris',
               (v) => (v as List<dynamic>?)
                   ?.map((e) => const AtUriConverter().fromJson(e as String))
+                  .toList()),
+          embeddingRules: $checkedConvert(
+              'embeddingRules',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => const UPostgateEmbeddingRuleConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -41,10 +40,11 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ThreadgateRecordImplToJson(
-    _$ThreadgateRecordImpl instance) {
+Map<String, dynamic> _$$PostgateRecordImplToJson(
+    _$PostgateRecordImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.$type,
+    'createdAt': instance.createdAt.toIso8601String(),
     'post': const AtUriConverter().toJson(instance.post),
   };
 
@@ -54,11 +54,16 @@ Map<String, dynamic> _$$ThreadgateRecordImplToJson(
     }
   }
 
-  writeNotNull('allow',
-      instance.allow?.map(const UThreadgateAllowConverter().toJson).toList());
-  val['createdAt'] = instance.createdAt.toIso8601String();
-  writeNotNull('hiddenReplies',
-      instance.hiddenReplies?.map(const AtUriConverter().toJson).toList());
+  writeNotNull(
+      'detachedEmbeddingUris',
+      instance.detachedEmbeddingUris
+          ?.map(const AtUriConverter().toJson)
+          .toList());
+  writeNotNull(
+      'embeddingRules',
+      instance.embeddingRules
+          ?.map(const UPostgateEmbeddingRuleConverter().toJson)
+          .toList());
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

@@ -16,58 +16,60 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
+import '../../../../app/bsky/feed/postgate/union_postgate_embedding_rule.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/postgate#main
 @freezed
-class ThreadgateRecord with _$ThreadgateRecord {
+class PostgateRecord with _$PostgateRecord {
   @JsonSerializable(includeIfNull: false)
-  const factory ThreadgateRecord({
+  const factory PostgateRecord({
     /// The unique namespace for this lex object.
     ///
-    /// `app.bsky.feed.threadgate`
-    @Default(appBskyFeedThreadgate) @JsonKey(name: r'$type') String $type,
+    /// `app.bsky.feed.postgate`
+    @Default(appBskyFeedPostgate) @JsonKey(name: r'$type') String $type,
+    required DateTime createdAt,
 
     /// Reference (AT-URI) to the post record.
     @AtUriConverter() required AtUri post,
-    @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
-    required DateTime createdAt,
 
-    /// List of hidden reply URIs.
-    @AtUriConverter() List<AtUri>? hiddenReplies,
+    /// List of AT-URIs embedding this post that the author has detached
+    /// from.
+    @AtUriConverter() List<AtUri>? detachedEmbeddingUris,
+    @UPostgateEmbeddingRuleConverter()
+    List<UPostgateEmbeddingRule>? embeddingRules,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
-  }) = _ThreadgateRecord;
+  }) = _PostgateRecord;
 
-  factory ThreadgateRecord.fromJson(Map<String, dynamic> json) =>
-      _$ThreadgateRecordFromJson(json);
+  factory PostgateRecord.fromJson(Map<String, dynamic> json) =>
+      _$PostgateRecordFromJson(json);
 }
 
-/// Returns true if [object] is [ThreadgateRecord], otherwise false.
-bool isThreadgateRecord(final Map<String, dynamic>? object) {
+/// Returns true if [object] is [PostgateRecord], otherwise false.
+bool isPostgateRecord(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'app.bsky.feed.threadgate#main' ||
-      object[r'$type'] == 'app.bsky.feed.threadgate';
+  return object[r'$type'] == 'app.bsky.feed.postgate#main' ||
+      object[r'$type'] == 'app.bsky.feed.postgate';
 }
 
-extension $ThreadgateRecordExtension on ThreadgateRecord {
-  /// Returns true if [allow] is not null, otherwise false.
-  bool get hasAllow => allow != null;
+extension $PostgateRecordExtension on PostgateRecord {
+  /// Returns true if [detachedEmbeddingUris] is not null, otherwise false.
+  bool get hasDetachedEmbeddingUris => detachedEmbeddingUris != null;
 
-  /// Returns true if [allow] is null, otherwise false.
-  bool get hasNotAllow => !hasAllow;
+  /// Returns true if [detachedEmbeddingUris] is null, otherwise false.
+  bool get hasNotDetachedEmbeddingUris => !hasDetachedEmbeddingUris;
 
-  /// Returns true if [hiddenReplies] is not null, otherwise false.
-  bool get hasHiddenReplies => hiddenReplies != null;
+  /// Returns true if [embeddingRules] is not null, otherwise false.
+  bool get hasEmbeddingRules => embeddingRules != null;
 
-  /// Returns true if [hiddenReplies] is null, otherwise false.
-  bool get hasNotHiddenReplies => !hasHiddenReplies;
+  /// Returns true if [embeddingRules] is null, otherwise false.
+  bool get hasNotEmbeddingRules => !hasEmbeddingRules;
 
   /// Returns true if this object has unknown objects,
   /// otherwise false.
@@ -80,18 +82,18 @@ extension $ThreadgateRecordExtension on ThreadgateRecord {
 
 const _kLexCompatibleProperties = <String>[
   r'$type',
-  'post',
-  'allow',
   'createdAt',
-  'hiddenReplies',
+  'post',
+  'detachedEmbeddingUris',
+  'embeddingRules',
 ];
 
-final class ThreadgateRecordConverter
-    implements JsonConverter<ThreadgateRecord, Map<String, dynamic>> {
-  const ThreadgateRecordConverter();
+final class PostgateRecordConverter
+    implements JsonConverter<PostgateRecord, Map<String, dynamic>> {
+  const PostgateRecordConverter();
 
   @override
-  ThreadgateRecord fromJson(Map<String, dynamic> json) {
+  PostgateRecord fromJson(Map<String, dynamic> json) {
     final props = <String, dynamic>{};
     for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
@@ -106,11 +108,11 @@ final class ThreadgateRecordConverter
       }
     }
 
-    return ThreadgateRecord.fromJson(props);
+    return PostgateRecord.fromJson(props);
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadgateRecord object) {
+  Map<String, dynamic> toJson(PostgateRecord object) {
     if (object.hasNotUnknown) {
       return object.toJson();
     }

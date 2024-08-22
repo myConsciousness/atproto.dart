@@ -49,30 +49,6 @@ final class TeamService {
         client: $client,
       );
 
-  /// Update a member in the ozone service. Requires admin role.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/updateMember
-  Future<XRPCResponse<Member>> updateMember({
-    required String did,
-    bool? disabled,
-    UUpdateMemberRole? role,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<Member>(
-        ns.toolsOzoneTeamUpdateMember,
-        headers: $headers,
-        body: {
-          'did': did,
-          if (disabled != null) 'disabled': disabled,
-          if (role != null) 'role': role.toJson(),
-          ...?$unknown,
-        },
-        to: const MemberConverter().fromJson,
-        client: $client,
-      );
-
   /// Delete a member from ozone team. Requires admin role.
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/team/deleteMember
@@ -108,6 +84,30 @@ final class TeamService {
         body: {
           'did': did,
           'role': role.toJson(),
+          ...?$unknown,
+        },
+        to: const MemberConverter().fromJson,
+        client: $client,
+      );
+
+  /// Update a member in the ozone service. Requires admin role.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/updateMember
+  Future<XRPCResponse<Member>> updateMember({
+    required String did,
+    bool? disabled,
+    UUpdateMemberRole? role,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<Member>(
+        ns.toolsOzoneTeamUpdateMember,
+        headers: $headers,
+        body: {
+          'did': did,
+          if (disabled != null) 'disabled': disabled,
+          if (role != null) 'role': role.toJson(),
           ...?$unknown,
         },
         to: const MemberConverter().fromJson,

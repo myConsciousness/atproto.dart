@@ -35,6 +35,120 @@ final class ActorService {
 
   final BlueskyServiceContext _ctx;
 
+  /// A declaration of a Bluesky account profile.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
+  ProfileRecordHelper get profile => ProfileRecordHelper(_ctx);
+
+  /// Get detailed profile views of multiple actors.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
+  Future<XRPCResponse<GetProfilesOutput>> getProfiles({
+    required List<String> actors,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetProfilesOutput>(
+        ns.appBskyActorGetProfiles,
+        headers: $headers,
+        parameters: {
+          'actors': actors,
+          ...?$unknown,
+        },
+        to: const GetProfilesOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Set the private preferences attached to the account.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
+  Future<XRPCResponse<EmptyData>> putPreferences({
+    required List<UPreference> preferences,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyActorPutPreferences,
+        headers: $headers,
+        body: {
+          'preferences': preferences.map((e) => e.toJson()).toList(),
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Find actor suggestions for a prefix search term. Expected use is
+  /// for auto-completion during text field entry. Does not require
+  /// auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
+  Future<XRPCResponse<SearchActorsTypeaheadOutput>> searchActorsTypeahead({
+    String? term,
+    String? q,
+    int? limit,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<SearchActorsTypeaheadOutput>(
+        ns.appBskyActorSearchActorsTypeahead,
+        headers: $headers,
+        parameters: {
+          if (term != null) 'term': term,
+          if (q != null) 'q': q,
+          if (limit != null) 'limit': limit.toString(),
+          ...?$unknown,
+        },
+        to: const SearchActorsTypeaheadOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get detailed profile view of an actor. Does not require auth, but
+  /// contains relevant metadata with auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
+  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
+    required String actor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ProfileViewDetailed>(
+        ns.appBskyActorGetProfile,
+        headers: $headers,
+        parameters: {
+          'actor': actor,
+          ...?$unknown,
+        },
+        to: const ProfileViewDetailedConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get a list of suggested actors. Expected use is discovery of
+  /// accounts to follow during new account onboarding.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
+  Future<XRPCResponse<GetSuggestionsOutput>> getSuggestions({
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetSuggestionsOutput>(
+        ns.appBskyActorGetSuggestions,
+        headers: $headers,
+        parameters: {
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const GetSuggestionsOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Find actors (profiles) matching search criteria. Does not require
   /// auth.
   ///
@@ -76,120 +190,6 @@ final class ActorService {
         ns.appBskyActorGetPreferences,
         headers: $headers,
         to: const PreferencesConverter().fromJson,
-        client: $client,
-      );
-
-  /// Set the private preferences attached to the account.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
-  Future<XRPCResponse<EmptyData>> putPreferences({
-    required List<UPreference> preferences,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyActorPutPreferences,
-        headers: $headers,
-        body: {
-          'preferences': preferences.map((e) => e.toJson()).toList(),
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Get detailed profile views of multiple actors.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
-  Future<XRPCResponse<GetProfilesOutput>> getProfiles({
-    required List<String> actors,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetProfilesOutput>(
-        ns.appBskyActorGetProfiles,
-        headers: $headers,
-        parameters: {
-          'actors': actors,
-          ...?$unknown,
-        },
-        to: const GetProfilesOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get detailed profile view of an actor. Does not require auth, but
-  /// contains relevant metadata with auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
-  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
-    required String actor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ProfileViewDetailed>(
-        ns.appBskyActorGetProfile,
-        headers: $headers,
-        parameters: {
-          'actor': actor,
-          ...?$unknown,
-        },
-        to: const ProfileViewDetailedConverter().fromJson,
-        client: $client,
-      );
-
-  /// A declaration of a Bluesky account profile.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
-  ProfileRecordHelper get profile => ProfileRecordHelper(_ctx);
-
-  /// Get a list of suggested actors. Expected use is discovery of
-  /// accounts to follow during new account onboarding.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
-  Future<XRPCResponse<GetSuggestionsOutput>> getSuggestions({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetSuggestionsOutput>(
-        ns.appBskyActorGetSuggestions,
-        headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const GetSuggestionsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Find actor suggestions for a prefix search term. Expected use is
-  /// for auto-completion during text field entry. Does not require
-  /// auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
-  Future<XRPCResponse<SearchActorsTypeaheadOutput>> searchActorsTypeahead({
-    String? term,
-    String? q,
-    int? limit,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<SearchActorsTypeaheadOutput>(
-        ns.appBskyActorSearchActorsTypeahead,
-        headers: $headers,
-        parameters: {
-          if (term != null) 'term': term,
-          if (q != null) 'q': q,
-          if (limit != null) 'limit': limit.toString(),
-          ...?$unknown,
-        },
-        to: const SearchActorsTypeaheadOutputConverter().fromJson,
         client: $client,
       );
 }

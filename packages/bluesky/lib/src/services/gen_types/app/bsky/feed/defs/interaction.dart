@@ -33,7 +33,7 @@ class Interaction with _$Interaction {
     @AtUriConverter() AtUri? item,
     @UInteractionEventConverter() UInteractionEvent? event,
 
-    /// Context on a feed item that was orginally supplied by the feed
+    /// Context on a feed item that was originally supplied by the feed
     /// generator on getFeedSkeleton.
     String? feedContext,
 

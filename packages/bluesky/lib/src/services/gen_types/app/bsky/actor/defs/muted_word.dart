@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
+import '../../../../app/bsky/actor/defs/known_muted_word_actor_target.dart';
 import '../../../../app/bsky/actor/defs/known_muted_word_target.dart';
 
 part 'muted_word.freezed.dart';
@@ -31,12 +32,21 @@ class MutedWord with _$MutedWord {
     ///
     /// `app.bsky.actor.defs#mutedWord`
     @Default(appBskyActorDefsMutedWord) @JsonKey(name: r'$type') String $type,
+    String? id,
 
     /// The muted word itself.
     required String value,
 
     /// The intended targets of the muted word.
     @UMutedWordTargetConverter() required List<UMutedWordTarget> targets,
+
+    /// Groups of users to apply the muted word to. If undefined, applies
+    /// to all users.
+    @UMutedWordActorTargetConverter() UMutedWordActorTarget? actorTarget,
+
+    /// The date and time at which the muted word will expire and no
+    /// longer be applied.
+    DateTime? expiresAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -55,6 +65,24 @@ bool isMutedWord(final Map<String, dynamic>? object) {
 }
 
 extension $MutedWordExtension on MutedWord {
+  /// Returns true if [id] is not null, otherwise false.
+  bool get hasId => id != null;
+
+  /// Returns true if [id] is null, otherwise false.
+  bool get hasNotId => !hasId;
+
+  /// Returns true if [actorTarget] is not null, otherwise false.
+  bool get hasActorTarget => actorTarget != null;
+
+  /// Returns true if [actorTarget] is null, otherwise false.
+  bool get hasNotActorTarget => !hasActorTarget;
+
+  /// Returns true if [expiresAt] is not null, otherwise false.
+  bool get hasExpiresAt => expiresAt != null;
+
+  /// Returns true if [expiresAt] is null, otherwise false.
+  bool get hasNotExpiresAt => !hasExpiresAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -66,8 +94,11 @@ extension $MutedWordExtension on MutedWord {
 
 const _kLexCompatibleProperties = <String>[
   r'$type',
+  'id',
   'value',
   'targets',
+  'actorTarget',
+  'expiresAt',
 ];
 
 final class MutedWordConverter

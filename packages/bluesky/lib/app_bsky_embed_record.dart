@@ -17,3 +17,4 @@ export 'package:bluesky/src/services/gen_types/app/bsky/embed/record/view_record
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/record/union_record_view_record_embed.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/record/view_not_found.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/record/view_blocked.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/embed/record/view_detached.dart';

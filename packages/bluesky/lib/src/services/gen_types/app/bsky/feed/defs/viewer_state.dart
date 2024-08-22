@@ -36,6 +36,7 @@ class ViewerState with _$ViewerState {
     @AtUriConverter() AtUri? like,
     @Default(false) bool threadMuted,
     @Default(false) bool replyDisabled,
+    @Default(false) bool embeddingDisabled,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -78,6 +79,12 @@ extension $ViewerStateExtension on ViewerState {
   /// Returns negated true or false from [replyDisabled].
   bool get isNotReplyDisabled => !isReplyDisabled;
 
+  /// Returns true or false from [embeddingDisabled].
+  bool get isEmbeddingDisabled => embeddingDisabled;
+
+  /// Returns negated true or false from [embeddingDisabled].
+  bool get isNotEmbeddingDisabled => !isEmbeddingDisabled;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -93,6 +100,7 @@ const _kLexCompatibleProperties = <String>[
   'like',
   'threadMuted',
   'replyDisabled',
+  'embeddingDisabled',
 ];
 
 final class ViewerStateConverter

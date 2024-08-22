@@ -25,6 +25,48 @@ final class CommunicationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// Get list of all communication templates.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/listTemplates
+  Future<XRPCResponse<ListTemplatesOutput>> listTemplates({
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ListTemplatesOutput>(
+        ns.toolsOzoneCommunicationListTemplates,
+        headers: $headers,
+        to: const ListTemplatesOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Administrative action to create a new, re-usable communication
+  /// (email for now) template.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/createTemplate
+  Future<XRPCResponse<TemplateView>> createTemplate({
+    required String name,
+    required String contentMarkdown,
+    required String subject,
+    String? createdBy,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<TemplateView>(
+        ns.toolsOzoneCommunicationCreateTemplate,
+        headers: $headers,
+        body: {
+          'name': name,
+          'contentMarkdown': contentMarkdown,
+          'subject': subject,
+          if (createdBy != null) 'createdBy': createdBy,
+          ...?$unknown,
+        },
+        to: const TemplateViewConverter().fromJson,
+        client: $client,
+      );
+
   /// Delete a communication template.
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/deleteTemplate
@@ -70,48 +112,6 @@ final class CommunicationService {
           if (subject != null) 'subject': subject,
           if (updatedBy != null) 'updatedBy': updatedBy,
           if (disabled != null) 'disabled': disabled,
-          ...?$unknown,
-        },
-        to: const TemplateViewConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get list of all communication templates.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/listTemplates
-  Future<XRPCResponse<ListTemplatesOutput>> listTemplates({
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ListTemplatesOutput>(
-        ns.toolsOzoneCommunicationListTemplates,
-        headers: $headers,
-        to: const ListTemplatesOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Administrative action to create a new, re-usable communication
-  /// (email for now) template.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/createTemplate
-  Future<XRPCResponse<TemplateView>> createTemplate({
-    required String name,
-    required String contentMarkdown,
-    required String subject,
-    String? createdBy,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<TemplateView>(
-        ns.toolsOzoneCommunicationCreateTemplate,
-        headers: $headers,
-        body: {
-          'name': name,
-          'contentMarkdown': contentMarkdown,
-          'subject': subject,
-          if (createdBy != null) 'createdBy': createdBy,
           ...?$unknown,
         },
         to: const TemplateViewConverter().fromJson,

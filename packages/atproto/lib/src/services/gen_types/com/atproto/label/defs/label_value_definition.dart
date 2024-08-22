@@ -23,7 +23,7 @@ import '../../../../com/atproto/label/defs/label_value_definition_strings.dart';
 part 'label_value_definition.freezed.dart';
 part 'label_value_definition.g.dart';
 
-/// Declares a label value and its expected interpertations and
+/// Declares a label value and its expected interpretations and
 /// behaviors.
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinition

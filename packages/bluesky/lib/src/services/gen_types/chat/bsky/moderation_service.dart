@@ -25,6 +25,27 @@ final class ModerationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/updateActorAccess
+  Future<XRPCResponse<EmptyData>> updateActorAccess({
+    required String actor,
+    required bool allowAccess,
+    String? ref,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.chatBskyModerationUpdateActorAccess,
+        headers: $headers,
+        body: {
+          'actor': actor,
+          'allowAccess': allowAccess,
+          if (ref != null) 'ref': ref,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata
   Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata({
     required String actor,
@@ -64,27 +85,6 @@ final class ModerationService {
           ...?$unknown,
         },
         to: const GetMessageContextOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/updateActorAccess
-  Future<XRPCResponse<EmptyData>> updateActorAccess({
-    required String actor,
-    required bool allowAccess,
-    String? ref,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.chatBskyModerationUpdateActorAccess,
-        headers: $headers,
-        body: {
-          'actor': actor,
-          'allowAccess': allowAccess,
-          if (ref != null) 'ref': ref,
-          ...?$unknown,
-        },
         client: $client,
       );
 }

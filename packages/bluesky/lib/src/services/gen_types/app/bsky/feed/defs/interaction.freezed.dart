@@ -30,7 +30,7 @@ mixin _$Interaction {
   @UInteractionEventConverter()
   UInteractionEvent? get event => throw _privateConstructorUsedError;
 
-  /// Context on a feed item that was orginally supplied by the feed
+  /// Context on a feed item that was originally supplied by the feed
   /// generator on getFeedSkeleton.
   String? get feedContext => throw _privateConstructorUsedError;
 
@@ -205,7 +205,7 @@ class _$InteractionImpl implements _Interaction {
   @UInteractionEventConverter()
   final UInteractionEvent? event;
 
-  /// Context on a feed item that was orginally supplied by the feed
+  /// Context on a feed item that was originally supplied by the feed
   /// generator on getFeedSkeleton.
   @override
   final String? feedContext;
@@ -288,7 +288,7 @@ abstract class _Interaction implements Interaction {
   UInteractionEvent? get event;
   @override
 
-  /// Context on a feed item that was orginally supplied by the feed
+  /// Context on a feed item that was originally supplied by the feed
   /// generator on getFeedSkeleton.
   String? get feedContext;
   @override

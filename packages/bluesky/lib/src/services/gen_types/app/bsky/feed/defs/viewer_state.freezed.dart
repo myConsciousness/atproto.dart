@@ -31,6 +31,7 @@ mixin _$ViewerState {
   AtUri? get like => throw _privateConstructorUsedError;
   bool get threadMuted => throw _privateConstructorUsedError;
   bool get replyDisabled => throw _privateConstructorUsedError;
+  bool get embeddingDisabled => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -54,6 +55,7 @@ abstract class $ViewerStateCopyWith<$Res> {
       @AtUriConverter() AtUri? like,
       bool threadMuted,
       bool replyDisabled,
+      bool embeddingDisabled,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -75,6 +77,7 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
     Object? like = freezed,
     Object? threadMuted = null,
     Object? replyDisabled = null,
+    Object? embeddingDisabled = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -98,6 +101,10 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
           ? _value.replyDisabled
           : replyDisabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      embeddingDisabled: null == embeddingDisabled
+          ? _value.embeddingDisabled
+          : embeddingDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -120,6 +127,7 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
       @AtUriConverter() AtUri? like,
       bool threadMuted,
       bool replyDisabled,
+      bool embeddingDisabled,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -139,6 +147,7 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
     Object? like = freezed,
     Object? threadMuted = null,
     Object? replyDisabled = null,
+    Object? embeddingDisabled = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$ViewerStateImpl(
@@ -162,6 +171,10 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
           ? _value.replyDisabled
           : replyDisabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      embeddingDisabled: null == embeddingDisabled
+          ? _value.embeddingDisabled
+          : embeddingDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -180,6 +193,7 @@ class _$ViewerStateImpl implements _ViewerState {
       @AtUriConverter() this.like,
       this.threadMuted = false,
       this.replyDisabled = false,
+      this.embeddingDisabled = false,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -204,6 +218,9 @@ class _$ViewerStateImpl implements _ViewerState {
   @override
   @JsonKey()
   final bool replyDisabled;
+  @override
+  @JsonKey()
+  final bool embeddingDisabled;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -221,7 +238,7 @@ class _$ViewerStateImpl implements _ViewerState {
 
   @override
   String toString() {
-    return 'ViewerState(\$type: ${$type}, repost: $repost, like: $like, threadMuted: $threadMuted, replyDisabled: $replyDisabled, \$unknown: ${$unknown})';
+    return 'ViewerState(\$type: ${$type}, repost: $repost, like: $like, threadMuted: $threadMuted, replyDisabled: $replyDisabled, embeddingDisabled: $embeddingDisabled, \$unknown: ${$unknown})';
   }
 
   @override
@@ -236,13 +253,22 @@ class _$ViewerStateImpl implements _ViewerState {
                 other.threadMuted == threadMuted) &&
             (identical(other.replyDisabled, replyDisabled) ||
                 other.replyDisabled == replyDisabled) &&
+            (identical(other.embeddingDisabled, embeddingDisabled) ||
+                other.embeddingDisabled == embeddingDisabled) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, repost, like, threadMuted,
-      replyDisabled, const DeepCollectionEquality().hash(_$unknown));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      repost,
+      like,
+      threadMuted,
+      replyDisabled,
+      embeddingDisabled,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -265,6 +291,7 @@ abstract class _ViewerState implements ViewerState {
           @AtUriConverter() final AtUri? like,
           final bool threadMuted,
           final bool replyDisabled,
+          final bool embeddingDisabled,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ViewerStateImpl;
 
@@ -288,6 +315,8 @@ abstract class _ViewerState implements ViewerState {
   bool get threadMuted;
   @override
   bool get replyDisabled;
+  @override
+  bool get embeddingDisabled;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

@@ -10,8 +10,6 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/preferences.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/union_preference.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view_basic.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view_detailed.dart';
@@ -34,9 +32,12 @@ export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/known_thread_
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/interests_pref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/known_muted_word_target.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/muted_word.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/known_muted_word_actor_target.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/muted_words_pref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/hidden_posts_pref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/labelers_pref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/labeler_pref_item.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/bsky_app_state_pref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/bsky_app_progress_guide.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/preferences.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/union_preference.dart';

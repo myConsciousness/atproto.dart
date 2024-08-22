@@ -1,5 +1,9 @@
 # Release Note
 
+## 1.0.0-preview.2
+
+- Lex gen.
+
 ## 1.0.0-preview.1
 
 - Remove `Platform` enum from core.

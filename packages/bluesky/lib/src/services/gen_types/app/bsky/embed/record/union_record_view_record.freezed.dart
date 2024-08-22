@@ -22,6 +22,7 @@ mixin _$URecordViewRecord {
     required TResult Function(RecordViewRecord data) recordViewRecord,
     required TResult Function(RecordViewNotFound data) recordViewNotFound,
     required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
@@ -34,6 +35,7 @@ mixin _$URecordViewRecord {
     TResult? Function(RecordViewRecord data)? recordViewRecord,
     TResult? Function(RecordViewNotFound data)? recordViewNotFound,
     TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
@@ -46,6 +48,7 @@ mixin _$URecordViewRecord {
     TResult Function(RecordViewRecord data)? recordViewRecord,
     TResult Function(RecordViewNotFound data)? recordViewNotFound,
     TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
@@ -62,6 +65,8 @@ mixin _$URecordViewRecord {
         recordViewNotFound,
     required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
     required TResult Function(URecordViewRecordGeneratorView value)
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
@@ -79,6 +84,8 @@ mixin _$URecordViewRecord {
         recordViewNotFound,
     TResult? Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
@@ -94,6 +101,8 @@ mixin _$URecordViewRecord {
         recordViewNotFound,
     TResult Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
@@ -206,6 +215,7 @@ class _$URecordViewRecordRecordViewRecordImpl
     required TResult Function(RecordViewRecord data) recordViewRecord,
     required TResult Function(RecordViewNotFound data) recordViewNotFound,
     required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
@@ -221,6 +231,7 @@ class _$URecordViewRecordRecordViewRecordImpl
     TResult? Function(RecordViewRecord data)? recordViewRecord,
     TResult? Function(RecordViewNotFound data)? recordViewNotFound,
     TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
@@ -236,6 +247,7 @@ class _$URecordViewRecordRecordViewRecordImpl
     TResult Function(RecordViewRecord data)? recordViewRecord,
     TResult Function(RecordViewNotFound data)? recordViewNotFound,
     TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
@@ -258,6 +270,8 @@ class _$URecordViewRecordRecordViewRecordImpl
         recordViewNotFound,
     required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
     required TResult Function(URecordViewRecordGeneratorView value)
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
@@ -278,6 +292,8 @@ class _$URecordViewRecordRecordViewRecordImpl
         recordViewNotFound,
     TResult? Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
@@ -296,6 +312,8 @@ class _$URecordViewRecordRecordViewRecordImpl
         recordViewNotFound,
     TResult Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
@@ -407,6 +425,7 @@ class _$URecordViewRecordRecordViewNotFoundImpl
     required TResult Function(RecordViewRecord data) recordViewRecord,
     required TResult Function(RecordViewNotFound data) recordViewNotFound,
     required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
@@ -422,6 +441,7 @@ class _$URecordViewRecordRecordViewNotFoundImpl
     TResult? Function(RecordViewRecord data)? recordViewRecord,
     TResult? Function(RecordViewNotFound data)? recordViewNotFound,
     TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
@@ -437,6 +457,7 @@ class _$URecordViewRecordRecordViewNotFoundImpl
     TResult Function(RecordViewRecord data)? recordViewRecord,
     TResult Function(RecordViewNotFound data)? recordViewNotFound,
     TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
@@ -459,6 +480,8 @@ class _$URecordViewRecordRecordViewNotFoundImpl
         recordViewNotFound,
     required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
     required TResult Function(URecordViewRecordGeneratorView value)
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
@@ -479,6 +502,8 @@ class _$URecordViewRecordRecordViewNotFoundImpl
         recordViewNotFound,
     TResult? Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
@@ -497,6 +522,8 @@ class _$URecordViewRecordRecordViewNotFoundImpl
         recordViewNotFound,
     TResult Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
@@ -609,6 +636,7 @@ class _$URecordViewRecordRecordViewBlockedImpl
     required TResult Function(RecordViewRecord data) recordViewRecord,
     required TResult Function(RecordViewNotFound data) recordViewNotFound,
     required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
@@ -624,6 +652,7 @@ class _$URecordViewRecordRecordViewBlockedImpl
     TResult? Function(RecordViewRecord data)? recordViewRecord,
     TResult? Function(RecordViewNotFound data)? recordViewNotFound,
     TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
@@ -639,6 +668,7 @@ class _$URecordViewRecordRecordViewBlockedImpl
     TResult Function(RecordViewRecord data)? recordViewRecord,
     TResult Function(RecordViewNotFound data)? recordViewNotFound,
     TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
@@ -661,6 +691,8 @@ class _$URecordViewRecordRecordViewBlockedImpl
         recordViewNotFound,
     required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
     required TResult Function(URecordViewRecordGeneratorView value)
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
@@ -681,6 +713,8 @@ class _$URecordViewRecordRecordViewBlockedImpl
         recordViewNotFound,
     TResult? Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
@@ -699,6 +733,8 @@ class _$URecordViewRecordRecordViewBlockedImpl
         recordViewNotFound,
     TResult Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
@@ -724,6 +760,217 @@ abstract class URecordViewRecordRecordViewBlocked implements URecordViewRecord {
   @JsonKey(ignore: true)
   _$$URecordViewRecordRecordViewBlockedImplCopyWith<
           _$URecordViewRecordRecordViewBlockedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$URecordViewRecordRecordViewDetachedImplCopyWith<$Res> {
+  factory _$$URecordViewRecordRecordViewDetachedImplCopyWith(
+          _$URecordViewRecordRecordViewDetachedImpl value,
+          $Res Function(_$URecordViewRecordRecordViewDetachedImpl) then) =
+      __$$URecordViewRecordRecordViewDetachedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({RecordViewDetached data});
+
+  $RecordViewDetachedCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$URecordViewRecordRecordViewDetachedImplCopyWithImpl<$Res>
+    extends _$URecordViewRecordCopyWithImpl<$Res,
+        _$URecordViewRecordRecordViewDetachedImpl>
+    implements _$$URecordViewRecordRecordViewDetachedImplCopyWith<$Res> {
+  __$$URecordViewRecordRecordViewDetachedImplCopyWithImpl(
+      _$URecordViewRecordRecordViewDetachedImpl _value,
+      $Res Function(_$URecordViewRecordRecordViewDetachedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$URecordViewRecordRecordViewDetachedImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as RecordViewDetached,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RecordViewDetachedCopyWith<$Res> get data {
+    return $RecordViewDetachedCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$URecordViewRecordRecordViewDetachedImpl
+    implements URecordViewRecordRecordViewDetached {
+  const _$URecordViewRecordRecordViewDetachedImpl({required this.data});
+
+  @override
+  final RecordViewDetached data;
+
+  @override
+  String toString() {
+    return 'URecordViewRecord.recordViewDetached(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$URecordViewRecordRecordViewDetachedImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$URecordViewRecordRecordViewDetachedImplCopyWith<
+          _$URecordViewRecordRecordViewDetachedImpl>
+      get copyWith => __$$URecordViewRecordRecordViewDetachedImplCopyWithImpl<
+          _$URecordViewRecordRecordViewDetachedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(RecordViewRecord data) recordViewRecord,
+    required TResult Function(RecordViewNotFound data) recordViewNotFound,
+    required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
+    required TResult Function(GeneratorView data) generatorView,
+    required TResult Function(ListView data) listView,
+    required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return recordViewDetached(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(RecordViewRecord data)? recordViewRecord,
+    TResult? Function(RecordViewNotFound data)? recordViewNotFound,
+    TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
+    TResult? Function(GeneratorView data)? generatorView,
+    TResult? Function(ListView data)? listView,
+    TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return recordViewDetached?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(RecordViewRecord data)? recordViewRecord,
+    TResult Function(RecordViewNotFound data)? recordViewNotFound,
+    TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
+    TResult Function(GeneratorView data)? generatorView,
+    TResult Function(ListView data)? listView,
+    TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (recordViewDetached != null) {
+      return recordViewDetached(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(URecordViewRecordRecordViewRecord value)
+        recordViewRecord,
+    required TResult Function(URecordViewRecordRecordViewNotFound value)
+        recordViewNotFound,
+    required TResult Function(URecordViewRecordRecordViewBlocked value)
+        recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
+    required TResult Function(URecordViewRecordGeneratorView value)
+        generatorView,
+    required TResult Function(URecordViewRecordListView value) listView,
+    required TResult Function(URecordViewRecordLabelerView value) labelerView,
+    required TResult Function(URecordViewRecordStarterPackViewBasic value)
+        starterPackViewBasic,
+    required TResult Function(URecordViewRecordUnknown value) unknown,
+  }) {
+    return recordViewDetached(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(URecordViewRecordRecordViewRecord value)?
+        recordViewRecord,
+    TResult? Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult? Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
+    TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult? Function(URecordViewRecordListView value)? listView,
+    TResult? Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult? Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
+    TResult? Function(URecordViewRecordUnknown value)? unknown,
+  }) {
+    return recordViewDetached?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(URecordViewRecordRecordViewRecord value)? recordViewRecord,
+    TResult Function(URecordViewRecordRecordViewNotFound value)?
+        recordViewNotFound,
+    TResult Function(URecordViewRecordRecordViewBlocked value)?
+        recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
+    TResult Function(URecordViewRecordGeneratorView value)? generatorView,
+    TResult Function(URecordViewRecordListView value)? listView,
+    TResult Function(URecordViewRecordLabelerView value)? labelerView,
+    TResult Function(URecordViewRecordStarterPackViewBasic value)?
+        starterPackViewBasic,
+    TResult Function(URecordViewRecordUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (recordViewDetached != null) {
+      return recordViewDetached(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class URecordViewRecordRecordViewDetached
+    implements URecordViewRecord {
+  const factory URecordViewRecordRecordViewDetached(
+          {required final RecordViewDetached data}) =
+      _$URecordViewRecordRecordViewDetachedImpl;
+
+  @override
+  RecordViewDetached get data;
+  @JsonKey(ignore: true)
+  _$$URecordViewRecordRecordViewDetachedImplCopyWith<
+          _$URecordViewRecordRecordViewDetachedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -810,6 +1057,7 @@ class _$URecordViewRecordGeneratorViewImpl
     required TResult Function(RecordViewRecord data) recordViewRecord,
     required TResult Function(RecordViewNotFound data) recordViewNotFound,
     required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
@@ -825,6 +1073,7 @@ class _$URecordViewRecordGeneratorViewImpl
     TResult? Function(RecordViewRecord data)? recordViewRecord,
     TResult? Function(RecordViewNotFound data)? recordViewNotFound,
     TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
@@ -840,6 +1089,7 @@ class _$URecordViewRecordGeneratorViewImpl
     TResult Function(RecordViewRecord data)? recordViewRecord,
     TResult Function(RecordViewNotFound data)? recordViewNotFound,
     TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
@@ -862,6 +1112,8 @@ class _$URecordViewRecordGeneratorViewImpl
         recordViewNotFound,
     required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
     required TResult Function(URecordViewRecordGeneratorView value)
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
@@ -882,6 +1134,8 @@ class _$URecordViewRecordGeneratorViewImpl
         recordViewNotFound,
     TResult? Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
@@ -900,6 +1154,8 @@ class _$URecordViewRecordGeneratorViewImpl
         recordViewNotFound,
     TResult Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
@@ -1009,6 +1265,7 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
     required TResult Function(RecordViewRecord data) recordViewRecord,
     required TResult Function(RecordViewNotFound data) recordViewNotFound,
     required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
@@ -1024,6 +1281,7 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
     TResult? Function(RecordViewRecord data)? recordViewRecord,
     TResult? Function(RecordViewNotFound data)? recordViewNotFound,
     TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
@@ -1039,6 +1297,7 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
     TResult Function(RecordViewRecord data)? recordViewRecord,
     TResult Function(RecordViewNotFound data)? recordViewNotFound,
     TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
@@ -1061,6 +1320,8 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
         recordViewNotFound,
     required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
     required TResult Function(URecordViewRecordGeneratorView value)
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
@@ -1081,6 +1342,8 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
         recordViewNotFound,
     TResult? Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
@@ -1099,6 +1362,8 @@ class _$URecordViewRecordListViewImpl implements URecordViewRecordListView {
         recordViewNotFound,
     TResult Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
@@ -1208,6 +1473,7 @@ class _$URecordViewRecordLabelerViewImpl
     required TResult Function(RecordViewRecord data) recordViewRecord,
     required TResult Function(RecordViewNotFound data) recordViewNotFound,
     required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
@@ -1223,6 +1489,7 @@ class _$URecordViewRecordLabelerViewImpl
     TResult? Function(RecordViewRecord data)? recordViewRecord,
     TResult? Function(RecordViewNotFound data)? recordViewNotFound,
     TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
@@ -1238,6 +1505,7 @@ class _$URecordViewRecordLabelerViewImpl
     TResult Function(RecordViewRecord data)? recordViewRecord,
     TResult Function(RecordViewNotFound data)? recordViewNotFound,
     TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
@@ -1260,6 +1528,8 @@ class _$URecordViewRecordLabelerViewImpl
         recordViewNotFound,
     required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
     required TResult Function(URecordViewRecordGeneratorView value)
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
@@ -1280,6 +1550,8 @@ class _$URecordViewRecordLabelerViewImpl
         recordViewNotFound,
     TResult? Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
@@ -1298,6 +1570,8 @@ class _$URecordViewRecordLabelerViewImpl
         recordViewNotFound,
     TResult Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
@@ -1408,6 +1682,7 @@ class _$URecordViewRecordStarterPackViewBasicImpl
     required TResult Function(RecordViewRecord data) recordViewRecord,
     required TResult Function(RecordViewNotFound data) recordViewNotFound,
     required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
@@ -1423,6 +1698,7 @@ class _$URecordViewRecordStarterPackViewBasicImpl
     TResult? Function(RecordViewRecord data)? recordViewRecord,
     TResult? Function(RecordViewNotFound data)? recordViewNotFound,
     TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
@@ -1438,6 +1714,7 @@ class _$URecordViewRecordStarterPackViewBasicImpl
     TResult Function(RecordViewRecord data)? recordViewRecord,
     TResult Function(RecordViewNotFound data)? recordViewNotFound,
     TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
@@ -1460,6 +1737,8 @@ class _$URecordViewRecordStarterPackViewBasicImpl
         recordViewNotFound,
     required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
     required TResult Function(URecordViewRecordGeneratorView value)
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
@@ -1480,6 +1759,8 @@ class _$URecordViewRecordStarterPackViewBasicImpl
         recordViewNotFound,
     TResult? Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
@@ -1498,6 +1779,8 @@ class _$URecordViewRecordStarterPackViewBasicImpl
         recordViewNotFound,
     TResult Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,
@@ -1606,6 +1889,7 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
     required TResult Function(RecordViewRecord data) recordViewRecord,
     required TResult Function(RecordViewNotFound data) recordViewNotFound,
     required TResult Function(RecordViewBlocked data) recordViewBlocked,
+    required TResult Function(RecordViewDetached data) recordViewDetached,
     required TResult Function(GeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
@@ -1621,6 +1905,7 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
     TResult? Function(RecordViewRecord data)? recordViewRecord,
     TResult? Function(RecordViewNotFound data)? recordViewNotFound,
     TResult? Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult? Function(RecordViewDetached data)? recordViewDetached,
     TResult? Function(GeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
@@ -1636,6 +1921,7 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
     TResult Function(RecordViewRecord data)? recordViewRecord,
     TResult Function(RecordViewNotFound data)? recordViewNotFound,
     TResult Function(RecordViewBlocked data)? recordViewBlocked,
+    TResult Function(RecordViewDetached data)? recordViewDetached,
     TResult Function(GeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
@@ -1658,6 +1944,8 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
         recordViewNotFound,
     required TResult Function(URecordViewRecordRecordViewBlocked value)
         recordViewBlocked,
+    required TResult Function(URecordViewRecordRecordViewDetached value)
+        recordViewDetached,
     required TResult Function(URecordViewRecordGeneratorView value)
         generatorView,
     required TResult Function(URecordViewRecordListView value) listView,
@@ -1678,6 +1966,8 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
         recordViewNotFound,
     TResult? Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult? Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult? Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult? Function(URecordViewRecordListView value)? listView,
     TResult? Function(URecordViewRecordLabelerView value)? labelerView,
@@ -1696,6 +1986,8 @@ class _$URecordViewRecordUnknownImpl implements URecordViewRecordUnknown {
         recordViewNotFound,
     TResult Function(URecordViewRecordRecordViewBlocked value)?
         recordViewBlocked,
+    TResult Function(URecordViewRecordRecordViewDetached value)?
+        recordViewDetached,
     TResult Function(URecordViewRecordGeneratorView value)? generatorView,
     TResult Function(URecordViewRecordListView value)? listView,
     TResult Function(URecordViewRecordLabelerView value)? labelerView,

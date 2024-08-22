@@ -26,42 +26,6 @@ final class IdentityService {
 
   final ATProtoServiceContext _ctx;
 
-  /// Updates the current account's handle. Verifies handle validity,
-  /// and updates did:plc document if necessary. Implemented by PDS,
-  /// and requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
-  Future<XRPCResponse<EmptyData>> updateHandle({
-    required String handle,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoIdentityUpdateHandle,
-        headers: $headers,
-        body: {
-          'handle': handle,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Request an email with a code to in order to request a signed PLC
-  /// operation. Requires Auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
-  Future<XRPCResponse<EmptyData>> requestPlcOperationSignature({
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoIdentityRequestPlcOperationSignature,
-        headers: $headers,
-        client: $client,
-      );
-
   /// Describe the credentials that should be included in the DID doc
   /// of an account that is migrating to this service.
   ///
@@ -79,22 +43,22 @@ final class IdentityService {
             client: $client,
           );
 
-  /// Validates a PLC operation to ensure that it doesn't violate a
-  /// service's constraints or get the identity into a bad state, then
-  /// submits it to the PLC registry
+  /// Updates the current account's handle. Verifies handle validity,
+  /// and updates did:plc document if necessary. Implemented by PDS,
+  /// and requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
-  Future<XRPCResponse<EmptyData>> submitPlcOperation({
-    required Map<String, dynamic> operation,
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
+  Future<XRPCResponse<EmptyData>> updateHandle({
+    required String handle,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
-        ns.comAtprotoIdentitySubmitPlcOperation,
+        ns.comAtprotoIdentityUpdateHandle,
         headers: $headers,
         body: {
-          'operation': operation,
+          'handle': handle,
           ...?$unknown,
         },
         client: $client,
@@ -117,6 +81,21 @@ final class IdentityService {
           ...?$unknown,
         },
         to: const ResolveHandleOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Request an email with a code to in order to request a signed PLC
+  /// operation. Requires Auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
+  Future<XRPCResponse<EmptyData>> requestPlcOperationSignature({
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoIdentityRequestPlcOperationSignature,
+        headers: $headers,
         client: $client,
       );
 
@@ -147,6 +126,27 @@ final class IdentityService {
           ...?$unknown,
         },
         to: const SignPlcOperationOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Validates a PLC operation to ensure that it doesn't violate a
+  /// service's constraints or get the identity into a bad state, then
+  /// submits it to the PLC registry
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
+  Future<XRPCResponse<EmptyData>> submitPlcOperation({
+    required Map<String, dynamic> operation,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoIdentitySubmitPlcOperation,
+        headers: $headers,
+        body: {
+          'operation': operation,
+          ...?$unknown,
+        },
         client: $client,
       );
 }

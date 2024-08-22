@@ -16,59 +16,41 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
 
-part 'record.freezed.dart';
-part 'record.g.dart';
+part 'view_detached.freezed.dart';
+part 'view_detached.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewdetached
 @freezed
-class ThreadgateRecord with _$ThreadgateRecord {
+class RecordViewDetached with _$RecordViewDetached {
   @JsonSerializable(includeIfNull: false)
-  const factory ThreadgateRecord({
+  const factory RecordViewDetached({
     /// The unique namespace for this lex object.
     ///
-    /// `app.bsky.feed.threadgate`
-    @Default(appBskyFeedThreadgate) @JsonKey(name: r'$type') String $type,
-
-    /// Reference (AT-URI) to the post record.
-    @AtUriConverter() required AtUri post,
-    @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
-    required DateTime createdAt,
-
-    /// List of hidden reply URIs.
-    @AtUriConverter() List<AtUri>? hiddenReplies,
+    /// `app.bsky.embed.record#viewDetached`
+    @Default(appBskyEmbedRecordViewDetached)
+    @JsonKey(name: r'$type')
+    String $type,
+    @AtUriConverter() required AtUri uri,
+    required bool detached,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
-  }) = _ThreadgateRecord;
+  }) = _RecordViewDetached;
 
-  factory ThreadgateRecord.fromJson(Map<String, dynamic> json) =>
-      _$ThreadgateRecordFromJson(json);
+  factory RecordViewDetached.fromJson(Map<String, dynamic> json) =>
+      _$RecordViewDetachedFromJson(json);
 }
 
-/// Returns true if [object] is [ThreadgateRecord], otherwise false.
-bool isThreadgateRecord(final Map<String, dynamic>? object) {
+/// Returns true if [object] is [RecordViewDetached], otherwise false.
+bool isRecordViewDetached(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'app.bsky.feed.threadgate#main' ||
-      object[r'$type'] == 'app.bsky.feed.threadgate';
+  return object[r'$type'] == 'app.bsky.embed.record#viewDetached';
 }
 
-extension $ThreadgateRecordExtension on ThreadgateRecord {
-  /// Returns true if [allow] is not null, otherwise false.
-  bool get hasAllow => allow != null;
-
-  /// Returns true if [allow] is null, otherwise false.
-  bool get hasNotAllow => !hasAllow;
-
-  /// Returns true if [hiddenReplies] is not null, otherwise false.
-  bool get hasHiddenReplies => hiddenReplies != null;
-
-  /// Returns true if [hiddenReplies] is null, otherwise false.
-  bool get hasNotHiddenReplies => !hasHiddenReplies;
-
+extension $RecordViewDetachedExtension on RecordViewDetached {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -80,18 +62,16 @@ extension $ThreadgateRecordExtension on ThreadgateRecord {
 
 const _kLexCompatibleProperties = <String>[
   r'$type',
-  'post',
-  'allow',
-  'createdAt',
-  'hiddenReplies',
+  'uri',
+  'detached',
 ];
 
-final class ThreadgateRecordConverter
-    implements JsonConverter<ThreadgateRecord, Map<String, dynamic>> {
-  const ThreadgateRecordConverter();
+final class RecordViewDetachedConverter
+    implements JsonConverter<RecordViewDetached, Map<String, dynamic>> {
+  const RecordViewDetachedConverter();
 
   @override
-  ThreadgateRecord fromJson(Map<String, dynamic> json) {
+  RecordViewDetached fromJson(Map<String, dynamic> json) {
     final props = <String, dynamic>{};
     for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
@@ -106,11 +86,11 @@ final class ThreadgateRecordConverter
       }
     }
 
-    return ThreadgateRecord.fromJson(props);
+    return RecordViewDetached.fromJson(props);
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadgateRecord object) {
+  Map<String, dynamic> toJson(RecordViewDetached object) {
     if (object.hasNotUnknown) {
       return object.toJson();
     }

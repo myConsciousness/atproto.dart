@@ -37,6 +37,8 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
               $checkedConvert('repostCount', (v) => (v as num?)?.toInt() ?? 0),
           likeCount:
               $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
+          quoteCount:
+              $checkedConvert('quoteCount', (v) => (v as num?)?.toInt() ?? 0),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           viewer: $checkedConvert(
@@ -89,6 +91,7 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;
+  val['quoteCount'] = instance.quoteCount;
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   val['viewer'] = const ViewerStateConverter().toJson(instance.viewer);
   writeNotNull(
