@@ -78,6 +78,9 @@ const appBskyEmbedRecordView = NSID(ids.appBskyEmbedRecordView);
 /// `app.bsky.embed.record#viewBlocked`
 const appBskyEmbedRecordViewBlocked = NSID(ids.appBskyEmbedRecordViewBlocked);
 
+/// `app.bsky.embed.record#viewDetached`
+const appBskyEmbedRecordViewDetached = NSID(ids.appBskyEmbedRecordViewDetached);
+
 /// `app.bsky.embed.record#viewNotFound`
 const appBskyEmbedRecordViewNotFound = NSID(ids.appBskyEmbedRecordViewNotFound);
 
@@ -142,6 +145,9 @@ const appBskyFeedGetPostThread = NSID(ids.appBskyFeedGetPostThread);
 /// `app.bsky.feed.getPosts`
 const appBskyFeedGetPosts = NSID(ids.appBskyFeedGetPosts);
 
+/// `app.bsky.feed.getQuotes`
+const appBskyFeedGetQuotes = NSID(ids.appBskyFeedGetQuotes);
+
 /// `app.bsky.feed.getRepostedBy`
 const appBskyFeedGetRepostedBy = NSID(ids.appBskyFeedGetRepostedBy);
 
@@ -165,6 +171,12 @@ const appBskyFeedPostReplyRef = NSID(ids.appBskyFeedPostReplyRef);
 
 /// `app.bsky.feed.post#textSlice`
 const appBskyFeedPostTextSlice = NSID(ids.appBskyFeedPostTextSlice);
+
+/// `app.bsky.feed.postgate`
+const appBskyFeedPostgate = NSID(ids.appBskyFeedPostgate);
+
+/// `app.bsky.feed.postgate#disableRule`
+const appBskyFeedPostgateDisableRule = NSID(ids.appBskyFeedPostgateDisableRule);
 
 /// `app.bsky.feed.repost`
 const appBskyFeedRepost = NSID(ids.appBskyFeedRepost);

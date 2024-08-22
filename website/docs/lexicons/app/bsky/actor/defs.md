@@ -178,8 +178,11 @@ A word that the account owner has muted.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **id** | string | - | ❌ | - |
 | **value** | string | - | ✅ | The muted word itself. |
 | **targets** | array of [app.bsky.actor.defs#mutedWordTarget](../../../../lexicons/app/bsky/actor/defs.md#mutedwordtarget) | - | ✅ | The intended targets of the muted word. |
+| **actorTarget** | string | all<br/>exclude-following | ❌ | Groups of users to apply the muted word to. If undefined, applies to all users. |
+| **expiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | The date and time at which the muted word will expire and no longer be applied. |
 
 ## #mutedWordsPref
 
