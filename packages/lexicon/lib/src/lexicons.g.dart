@@ -3468,6 +3468,7 @@ const appBskyEmbedRecord = <String, dynamic>{
             "#viewRecord",
             "#viewNotFound",
             "#viewBlocked",
+            "#viewDetached",
             "app.bsky.feed.defs#generatorView",
             "app.bsky.graph.defs#listView",
             "app.bsky.labeler.defs#labelerView",
@@ -3524,6 +3525,14 @@ const appBskyEmbedRecord = <String, dynamic>{
         "uri": {"type": "string", "format": "at-uri"},
         "blocked": {"type": "boolean", "const": true},
         "author": {"type": "ref", "ref": "app.bsky.feed.defs#blockedAuthor"}
+      }
+    },
+    "viewDetached": {
+      "type": "object",
+      "required": ["uri", "detached"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "detached": {"type": "boolean", "const": true}
       }
     }
   }
@@ -5862,6 +5871,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "replyCount": {"type": "integer"},
         "repostCount": {"type": "integer"},
         "likeCount": {"type": "integer"},
+        "quoteCount": {"type": "integer"},
         "indexedAt": {"type": "string", "format": "datetime"},
         "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
@@ -5879,7 +5889,8 @@ const appBskyFeedDefs = <String, dynamic>{
         "repost": {"type": "string", "format": "at-uri"},
         "like": {"type": "string", "format": "at-uri"},
         "threadMuted": {"type": "boolean"},
-        "replyDisabled": {"type": "boolean"}
+        "replyDisabled": {"type": "boolean"},
+        "embeddingDisabled": {"type": "boolean"}
       }
     },
     "feedViewPost": {
@@ -6872,7 +6883,13 @@ const appBskyFeedThreadgate = <String, dynamic>{
             },
             "maxLength": 5
           },
-          "createdAt": {"type": "string", "format": "datetime"}
+          "createdAt": {"type": "string", "format": "datetime"},
+          "hiddenReplies": {
+            "type": "array",
+            "description": "List of hidden reply URIs.",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 50
+          }
         }
       }
     },
@@ -6953,7 +6970,7 @@ const appBskyFeedGetActorLikes = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "Get a list of posts liked by an actor. Does not require auth.",
+          "Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.",
       "parameters": {
         "type": "params",
         "required": ["actor"],
@@ -6986,6 +7003,104 @@ const appBskyFeedGetActorLikes = <String, dynamic>{
         {"name": "BlockedActor"},
         {"name": "BlockedByActor"}
       ]
+    }
+  }
+};
+
+/// `app.bsky.feed.postgate`
+const appBskyFeedPostgate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.postgate",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record defining interaction rules for a post. The record key (rkey) of the postgate record must match the record key of the post, and that record must be in the same repository.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["post", "createdAt"],
+        "properties": {
+          "createdAt": {"type": "string", "format": "datetime"},
+          "post": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) to the post record."
+          },
+          "detachedEmbeddingUris": {
+            "type": "array",
+            "description":
+                "List of AT-URIs embedding this post that the author has detached from.",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 50
+          },
+          "embeddingRules": {
+            "type": "array",
+            "items": {
+              "type": "union",
+              "refs": ["#disableRule"]
+            },
+            "maxLength": 5
+          }
+        }
+      }
+    },
+    "disableRule": {
+      "type": "object",
+      "description": "Disables embedding of this post.",
+      "properties": {}
+    }
+  }
+};
+
+/// `app.bsky.feed.getQuotes`
+const appBskyFeedGetQuotes = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getQuotes",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of quotes for a given post.",
+      "parameters": {
+        "type": "params",
+        "required": ["uri"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) of post record"
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid",
+            "description":
+                "If supplied, filters to quotes of specific version (by CID) of the post record."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "posts"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "cid": {"type": "string", "format": "cid"},
+            "cursor": {"type": "string"},
+            "posts": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#postView"}
+            }
+          }
+        }
+      }
     }
   }
 };
@@ -9838,6 +9953,8 @@ const lexicons = <Map<String, dynamic>>[
   appBskyFeedThreadgate,
   appBskyFeedGetListFeed,
   appBskyFeedGetActorLikes,
+  appBskyFeedPostgate,
+  appBskyFeedGetQuotes,
   appBskyFeedGetTimeline,
   appBskyUnspeccedSearchActorsSkeleton,
   appBskyUnspeccedDefs,
