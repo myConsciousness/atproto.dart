@@ -24,3 +24,4 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **thread** | union of <br/>[app.bsky.feed.defs#threadViewPost](../../../../lexicons/app/bsky/feed/defs.md#threadviewpost)<br/>[app.bsky.feed.defs#notFoundPost](../../../../lexicons/app/bsky/feed/defs.md#notfoundpost)<br/>[app.bsky.feed.defs#blockedPost](../../../../lexicons/app/bsky/feed/defs.md#blockedpost) | - | ✅ | - |
+| **threadgate** | [app.bsky.feed.defs#threadgateView](../../../../lexicons/app/bsky/feed/defs.md#threadgateview) | - | ❌ | - |
