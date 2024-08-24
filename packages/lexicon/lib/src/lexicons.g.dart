@@ -3495,6 +3495,7 @@ const appBskyEmbedRecord = <String, dynamic>{
         "replyCount": {"type": "integer"},
         "repostCount": {"type": "integer"},
         "likeCount": {"type": "integer"},
+        "quoteCount": {"type": "integer"},
         "embeds": {
           "type": "array",
           "items": {
@@ -6845,6 +6846,10 @@ const appBskyFeedGetPostThread = <String, dynamic>{
                 "app.bsky.feed.defs#notFoundPost",
                 "app.bsky.feed.defs#blockedPost"
               ]
+            },
+            "threadgate": {
+              "type": "ref",
+              "ref": "app.bsky.feed.defs#threadgateView"
             }
           }
         }
