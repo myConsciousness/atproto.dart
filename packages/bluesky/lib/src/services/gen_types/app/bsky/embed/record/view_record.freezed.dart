@@ -39,6 +39,7 @@ mixin _$RecordViewRecord {
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
+  int get quoteCount => throw _privateConstructorUsedError;
   @URecordViewRecordEmbedConverter()
   List<URecordViewRecordEmbed>? get embeds =>
       throw _privateConstructorUsedError;
@@ -70,6 +71,7 @@ abstract class $RecordViewRecordCopyWith<$Res> {
       int replyCount,
       int repostCount,
       int likeCount,
+      int quoteCount,
       @URecordViewRecordEmbedConverter() List<URecordViewRecordEmbed>? embeds,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -100,6 +102,7 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? quoteCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
     Object? $unknown = freezed,
@@ -140,6 +143,10 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
       likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      quoteCount: null == quoteCount
+          ? _value.quoteCount
+          : quoteCount // ignore: cast_nullable_to_non_nullable
               as int,
       embeds: freezed == embeds
           ? _value.embeds
@@ -191,6 +198,7 @@ abstract class _$$RecordViewRecordImplCopyWith<$Res>
       int replyCount,
       int repostCount,
       int likeCount,
+      int quoteCount,
       @URecordViewRecordEmbedConverter() List<URecordViewRecordEmbed>? embeds,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -221,6 +229,7 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? quoteCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
     Object? $unknown = freezed,
@@ -262,6 +271,10 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      quoteCount: null == quoteCount
+          ? _value.quoteCount
+          : quoteCount // ignore: cast_nullable_to_non_nullable
+              as int,
       embeds: freezed == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -292,6 +305,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
+      this.quoteCount = 0,
       @URecordViewRecordEmbedConverter()
       final List<URecordViewRecordEmbed>? embeds,
       required this.indexedAt,
@@ -342,6 +356,9 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
   @override
   @JsonKey()
   final int likeCount;
+  @override
+  @JsonKey()
+  final int quoteCount;
   final List<URecordViewRecordEmbed>? _embeds;
   @override
   @URecordViewRecordEmbedConverter()
@@ -372,7 +389,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
 
   @override
   String toString() {
-    return 'RecordViewRecord(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, embeds: $embeds, indexedAt: $indexedAt, \$unknown: ${$unknown})';
+    return 'RecordViewRecord(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, embeds: $embeds, indexedAt: $indexedAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -392,6 +409,8 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
                 other.repostCount == repostCount) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount) &&
+            (identical(other.quoteCount, quoteCount) ||
+                other.quoteCount == quoteCount) &&
             const DeepCollectionEquality().equals(other._embeds, _embeds) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt) &&
@@ -411,6 +430,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       replyCount,
       repostCount,
       likeCount,
+      quoteCount,
       const DeepCollectionEquality().hash(_embeds),
       indexedAt,
       const DeepCollectionEquality().hash(_$unknown));
@@ -441,6 +461,7 @@ abstract class _RecordViewRecord implements RecordViewRecord {
           final int replyCount,
           final int repostCount,
           final int likeCount,
+          final int quoteCount,
           @URecordViewRecordEmbedConverter()
           final List<URecordViewRecordEmbed>? embeds,
           required final DateTime indexedAt,
@@ -479,6 +500,8 @@ abstract class _RecordViewRecord implements RecordViewRecord {
   int get repostCount;
   @override
   int get likeCount;
+  @override
+  int get quoteCount;
   @override
   @URecordViewRecordEmbedConverter()
   List<URecordViewRecordEmbed>? get embeds;

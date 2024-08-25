@@ -18,6 +18,12 @@ _$GetPostThreadOutputImpl _$$GetPostThreadOutputImplFromJson(Map json) =>
               'thread',
               (v) => const UGetPostThreadThreadConverter()
                   .fromJson(v as Map<String, dynamic>)),
+          threadgate: $checkedConvert(
+              'threadgate',
+              (v) => v == null
+                  ? const ThreadgateView()
+                  : const ThreadgateViewConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -32,6 +38,7 @@ Map<String, dynamic> _$$GetPostThreadOutputImplToJson(
     _$GetPostThreadOutputImpl instance) {
   final val = <String, dynamic>{
     'thread': const UGetPostThreadThreadConverter().toJson(instance.thread),
+    'threadgate': const ThreadgateViewConverter().toJson(instance.threadgate),
   };
 
   void writeNotNull(String key, dynamic value) {

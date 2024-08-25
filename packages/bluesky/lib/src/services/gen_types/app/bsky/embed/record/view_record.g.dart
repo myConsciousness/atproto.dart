@@ -39,6 +39,8 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
               $checkedConvert('repostCount', (v) => (v as num?)?.toInt() ?? 0),
           likeCount:
               $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
+          quoteCount:
+              $checkedConvert('quoteCount', (v) => (v as num?)?.toInt() ?? 0),
           embeds: $checkedConvert(
               'embeds',
               (v) => (v as List<dynamic>?)
@@ -78,6 +80,7 @@ Map<String, dynamic> _$$RecordViewRecordImplToJson(
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;
+  val['quoteCount'] = instance.quoteCount;
   writeNotNull(
       'embeds',
       instance.embeds

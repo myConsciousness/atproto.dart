@@ -45,6 +45,7 @@ class RecordViewRecord with _$RecordViewRecord {
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,
+    @Default(0) int quoteCount,
     @URecordViewRecordEmbedConverter() List<URecordViewRecordEmbed>? embeds,
     required DateTime indexedAt,
 
@@ -96,6 +97,7 @@ const _kLexCompatibleProperties = <String>[
   'replyCount',
   'repostCount',
   'likeCount',
+  'quoteCount',
   'embeds',
   'indexedAt',
 ];

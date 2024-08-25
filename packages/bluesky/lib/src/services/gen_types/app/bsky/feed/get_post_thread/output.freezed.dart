@@ -22,6 +22,8 @@ GetPostThreadOutput _$GetPostThreadOutputFromJson(Map<String, dynamic> json) {
 mixin _$GetPostThreadOutput {
   @UGetPostThreadThreadConverter()
   UGetPostThreadThread get thread => throw _privateConstructorUsedError;
+  @ThreadgateViewConverter()
+  ThreadgateView get threadgate => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -41,9 +43,11 @@ abstract class $GetPostThreadOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@UGetPostThreadThreadConverter() UGetPostThreadThread thread,
+      @ThreadgateViewConverter() ThreadgateView threadgate,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $UGetPostThreadThreadCopyWith<$Res> get thread;
+  $ThreadgateViewCopyWith<$Res> get threadgate;
 }
 
 /// @nodoc
@@ -60,6 +64,7 @@ class _$GetPostThreadOutputCopyWithImpl<$Res, $Val extends GetPostThreadOutput>
   @override
   $Res call({
     Object? thread = null,
+    Object? threadgate = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -67,6 +72,10 @@ class _$GetPostThreadOutputCopyWithImpl<$Res, $Val extends GetPostThreadOutput>
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
               as UGetPostThreadThread,
+      threadgate: null == threadgate
+          ? _value.threadgate
+          : threadgate // ignore: cast_nullable_to_non_nullable
+              as ThreadgateView,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -81,6 +90,14 @@ class _$GetPostThreadOutputCopyWithImpl<$Res, $Val extends GetPostThreadOutput>
       return _then(_value.copyWith(thread: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ThreadgateViewCopyWith<$Res> get threadgate {
+    return $ThreadgateViewCopyWith<$Res>(_value.threadgate, (value) {
+      return _then(_value.copyWith(threadgate: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -93,10 +110,13 @@ abstract class _$$GetPostThreadOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@UGetPostThreadThreadConverter() UGetPostThreadThread thread,
+      @ThreadgateViewConverter() ThreadgateView threadgate,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $UGetPostThreadThreadCopyWith<$Res> get thread;
+  @override
+  $ThreadgateViewCopyWith<$Res> get threadgate;
 }
 
 /// @nodoc
@@ -111,6 +131,7 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? thread = null,
+    Object? threadgate = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$GetPostThreadOutputImpl(
@@ -118,6 +139,10 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
               as UGetPostThreadThread,
+      threadgate: null == threadgate
+          ? _value.threadgate
+          : threadgate // ignore: cast_nullable_to_non_nullable
+              as ThreadgateView,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -132,6 +157,7 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
 class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
   const _$GetPostThreadOutputImpl(
       {@UGetPostThreadThreadConverter() required this.thread,
+      @ThreadgateViewConverter() this.threadgate = const ThreadgateView(),
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -141,6 +167,10 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
   @override
   @UGetPostThreadThreadConverter()
   final UGetPostThreadThread thread;
+  @override
+  @JsonKey()
+  @ThreadgateViewConverter()
+  final ThreadgateView threadgate;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -158,7 +188,7 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
 
   @override
   String toString() {
-    return 'GetPostThreadOutput(thread: $thread, \$unknown: ${$unknown})';
+    return 'GetPostThreadOutput(thread: $thread, threadgate: $threadgate, \$unknown: ${$unknown})';
   }
 
   @override
@@ -167,13 +197,15 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetPostThreadOutputImpl &&
             (identical(other.thread, thread) || other.thread == thread) &&
+            (identical(other.threadgate, threadgate) ||
+                other.threadgate == threadgate) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, thread, const DeepCollectionEquality().hash(_$unknown));
+  int get hashCode => Object.hash(runtimeType, thread, threadgate,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -194,6 +226,7 @@ abstract class _GetPostThreadOutput implements GetPostThreadOutput {
   const factory _GetPostThreadOutput(
           {@UGetPostThreadThreadConverter()
           required final UGetPostThreadThread thread,
+          @ThreadgateViewConverter() final ThreadgateView threadgate,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetPostThreadOutputImpl;
 
@@ -203,6 +236,9 @@ abstract class _GetPostThreadOutput implements GetPostThreadOutput {
   @override
   @UGetPostThreadThreadConverter()
   UGetPostThreadThread get thread;
+  @override
+  @ThreadgateViewConverter()
+  ThreadgateView get threadgate;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

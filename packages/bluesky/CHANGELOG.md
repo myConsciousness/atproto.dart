@@ -1,5 +1,9 @@
 # Release Note
 
+## 1.0.0-preview.6
+
+- Lex gen. ([#1688](https://github.com/myConsciousness/atproto.dart/pull/1688))
+
 ## 1.0.0-preview.5
 
 - Lex gen.

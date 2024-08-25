@@ -14,6 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../app/bsky/feed/defs/threadgate_view.dart';
 import '../../../../app/bsky/feed/get_post_thread/union_get_post_thread_thread.dart';
 
 part 'output.freezed.dart';
@@ -25,6 +26,9 @@ class GetPostThreadOutput with _$GetPostThreadOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetPostThreadOutput({
     @UGetPostThreadThreadConverter() required UGetPostThreadThread thread,
+    @ThreadgateViewConverter()
+    @Default(ThreadgateView())
+    ThreadgateView threadgate,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -46,6 +50,7 @@ extension $GetPostThreadOutputExtension on GetPostThreadOutput {
 
 const _kLexCompatibleProperties = <String>[
   'thread',
+  'threadgate',
 ];
 
 final class GetPostThreadOutputConverter
