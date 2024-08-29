@@ -13,7 +13,7 @@ description: app.bsky.feed.defs
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
 | **author** | [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 | **record** | unknown | - | ✅ | - |
-| **embed** | union of <br/>[app.bsky.embed.images#view](../../../../lexicons/app/bsky/embed/images.md#view)<br/>[app.bsky.embed.external#view](../../../../lexicons/app/bsky/embed/external.md#view)<br/>[app.bsky.embed.record#view](../../../../lexicons/app/bsky/embed/record.md#view)<br/>[app.bsky.embed.recordWithMedia#view](../../../../lexicons/app/bsky/embed/recordWithMedia.md#view) | - | ❌ | - |
+| **embed** | union of <br/>[app.bsky.embed.images#view](../../../../lexicons/app/bsky/embed/images.md#view)<br/>[app.bsky.embed.video#view](../../../../lexicons/app/bsky/embed/video.md#view)<br/>[app.bsky.embed.external#view](../../../../lexicons/app/bsky/embed/external.md#view)<br/>[app.bsky.embed.record#view](../../../../lexicons/app/bsky/embed/record.md#view)<br/>[app.bsky.embed.recordWithMedia#view](../../../../lexicons/app/bsky/embed/recordWithMedia.md#view) | - | ❌ | - |
 | **replyCount** | integer | - | ❌ | - |
 | **repostCount** | integer | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
