@@ -1197,8 +1197,7 @@ const comAtprotoRepoApplyWrites = <String, dynamic>{
             "validate": {
               "type": "boolean",
               "description":
-                  "Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.",
-              "default": true
+                  "Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons."
             },
             "writes": {
               "type": "array",
@@ -1213,6 +1212,23 @@ const comAtprotoRepoApplyWrites = <String, dynamic>{
               "format": "cid",
               "description":
                   "If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations."
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [],
+          "properties": {
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": ["#createResult", "#updateResult", "#deleteResult"],
+                "closed": true
+              }
             }
           }
         }
@@ -1253,7 +1269,32 @@ const comAtprotoRepoApplyWrites = <String, dynamic>{
         "collection": {"type": "string", "format": "nsid"},
         "rkey": {"type": "string"}
       }
-    }
+    },
+    "createResult": {
+      "type": "object",
+      "required": ["uri", "cid"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "validationStatus": {
+          "type": "string",
+          "knownValues": ["valid", "unknown"]
+        }
+      }
+    },
+    "updateResult": {
+      "type": "object",
+      "required": ["uri", "cid"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "validationStatus": {
+          "type": "string",
+          "knownValues": ["valid", "unknown"]
+        }
+      }
+    },
+    "deleteResult": {"type": "object", "required": [], "properties": {}}
   }
 };
 
@@ -1315,8 +1356,7 @@ const comAtprotoRepoCreateRecord = <String, dynamic>{
             "validate": {
               "type": "boolean",
               "description":
-                  "Can be set to 'false' to skip Lexicon schema validation of record data.",
-              "default": true
+                  "Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons."
             },
             "record": {
               "type": "unknown",
@@ -1337,7 +1377,11 @@ const comAtprotoRepoCreateRecord = <String, dynamic>{
           "required": ["uri", "cid"],
           "properties": {
             "uri": {"type": "string", "format": "at-uri"},
-            "cid": {"type": "string", "format": "cid"}
+            "cid": {"type": "string", "format": "cid"},
+            "validationStatus": {
+              "type": "string",
+              "knownValues": ["valid", "unknown"]
+            }
           }
         }
       },
@@ -1387,8 +1431,7 @@ const comAtprotoRepoPutRecord = <String, dynamic>{
             "validate": {
               "type": "boolean",
               "description":
-                  "Can be set to 'false' to skip Lexicon schema validation of record data.",
-              "default": true
+                  "Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons."
             },
             "record": {
               "type": "unknown",
@@ -1415,7 +1458,11 @@ const comAtprotoRepoPutRecord = <String, dynamic>{
           "required": ["uri", "cid"],
           "properties": {
             "uri": {"type": "string", "format": "at-uri"},
-            "cid": {"type": "string", "format": "cid"}
+            "cid": {"type": "string", "format": "cid"},
+            "validationStatus": {
+              "type": "string",
+              "knownValues": ["valid", "unknown"]
+            }
           }
         }
       },
@@ -3502,6 +3549,7 @@ const appBskyEmbedRecord = <String, dynamic>{
             "type": "union",
             "refs": [
               "app.bsky.embed.images#view",
+              "app.bsky.embed.video#view",
               "app.bsky.embed.external#view",
               "app.bsky.embed.record#view",
               "app.bsky.embed.recordWithMedia#view"
@@ -3539,6 +3587,62 @@ const appBskyEmbedRecord = <String, dynamic>{
   }
 };
 
+/// `app.bsky.embed.video`
+const appBskyEmbedVideo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.embed.video",
+  "description": "A video embedded in a Bluesky record (eg, a post).",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["video"],
+      "properties": {
+        "video": {
+          "type": "blob",
+          "accept": ["video/mp4"],
+          "maxSize": 50000000
+        },
+        "captions": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#caption"},
+          "maxLength": 20
+        },
+        "alt": {
+          "type": "string",
+          "description":
+              "Alt text description of the video, for accessibility.",
+          "maxLength": 10000,
+          "maxGraphemes": 1000
+        },
+        "aspectRatio": {"type": "ref", "ref": "app.bsky.embed.defs#aspectRatio"}
+      }
+    },
+    "caption": {
+      "type": "object",
+      "required": ["lang", "file"],
+      "properties": {
+        "lang": {"type": "string", "format": "language"},
+        "file": {
+          "type": "blob",
+          "accept": ["text/vtt"],
+          "maxSize": 20000
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "required": ["cid", "playlist"],
+      "properties": {
+        "cid": {"type": "string", "format": "cid"},
+        "playlist": {"type": "string", "format": "uri"},
+        "thumbnail": {"type": "string", "format": "uri"},
+        "alt": {"type": "string", "maxLength": 10000, "maxGraphemes": 1000},
+        "aspectRatio": {"type": "ref", "ref": "app.bsky.embed.defs#aspectRatio"}
+      }
+    }
+  }
+};
+
 /// `app.bsky.embed.recordWithMedia`
 const appBskyEmbedRecordWithMedia = <String, dynamic>{
   "lexicon": 1,
@@ -3553,7 +3657,11 @@ const appBskyEmbedRecordWithMedia = <String, dynamic>{
         "record": {"type": "ref", "ref": "app.bsky.embed.record"},
         "media": {
           "type": "union",
-          "refs": ["app.bsky.embed.images", "app.bsky.embed.external"]
+          "refs": [
+            "app.bsky.embed.images",
+            "app.bsky.embed.video",
+            "app.bsky.embed.external"
+          ]
         }
       }
     },
@@ -3564,8 +3672,30 @@ const appBskyEmbedRecordWithMedia = <String, dynamic>{
         "record": {"type": "ref", "ref": "app.bsky.embed.record#view"},
         "media": {
           "type": "union",
-          "refs": ["app.bsky.embed.images#view", "app.bsky.embed.external#view"]
+          "refs": [
+            "app.bsky.embed.images#view",
+            "app.bsky.embed.video#view",
+            "app.bsky.embed.external#view"
+          ]
         }
+      }
+    }
+  }
+};
+
+/// `app.bsky.embed.defs`
+const appBskyEmbedDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.embed.defs",
+  "defs": {
+    "aspectRatio": {
+      "type": "object",
+      "description":
+          "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
+      "required": ["width", "height"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1}
       }
     }
   }
@@ -3601,17 +3731,7 @@ const appBskyEmbedImages = <String, dynamic>{
           "type": "string",
           "description": "Alt text description of the image, for accessibility."
         },
-        "aspectRatio": {"type": "ref", "ref": "#aspectRatio"}
-      }
-    },
-    "aspectRatio": {
-      "type": "object",
-      "description":
-          "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
-      "required": ["width", "height"],
-      "properties": {
-        "width": {"type": "integer", "minimum": 1},
-        "height": {"type": "integer", "minimum": 1}
+        "aspectRatio": {"type": "ref", "ref": "app.bsky.embed.defs#aspectRatio"}
       }
     },
     "view": {
@@ -3645,7 +3765,7 @@ const appBskyEmbedImages = <String, dynamic>{
           "type": "string",
           "description": "Alt text description of the image, for accessibility."
         },
-        "aspectRatio": {"type": "ref", "ref": "#aspectRatio"}
+        "aspectRatio": {"type": "ref", "ref": "app.bsky.embed.defs#aspectRatio"}
       }
     }
   }
@@ -5864,6 +5984,7 @@ const appBskyFeedDefs = <String, dynamic>{
           "type": "union",
           "refs": [
             "app.bsky.embed.images#view",
+            "app.bsky.embed.video#view",
             "app.bsky.embed.external#view",
             "app.bsky.embed.record#view",
             "app.bsky.embed.recordWithMedia#view"
@@ -6636,6 +6757,7 @@ const appBskyFeedPost = <String, dynamic>{
             "type": "union",
             "refs": [
               "app.bsky.embed.images",
+              "app.bsky.embed.video",
               "app.bsky.embed.external",
               "app.bsky.embed.record",
               "app.bsky.embed.recordWithMedia"
@@ -7676,6 +7798,115 @@ const appBskyNotificationRegisterPush = <String, dynamic>{
               "knownValues": ["ios", "android", "web"]
             },
             "appId": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.video.defs`
+const appBskyVideoDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.video.defs",
+  "defs": {
+    "jobStatus": {
+      "type": "object",
+      "required": ["jobId", "did", "state"],
+      "properties": {
+        "jobId": {"type": "string"},
+        "did": {"type": "string", "format": "did"},
+        "state": {
+          "type": "string",
+          "description":
+              "The state of the video processing job. All values not listed as a known value indicate that the job is in process.",
+          "knownValues": ["JOB_STATE_COMPLETED", "JOB_STATE_FAILED"]
+        },
+        "progress": {
+          "type": "integer",
+          "description": "Progress within the current processing state.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "blob": {"type": "blob"},
+        "error": {"type": "string"},
+        "message": {"type": "string"}
+      }
+    }
+  }
+};
+
+/// `app.bsky.video.getJobStatus`
+const appBskyVideoGetJobStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.video.getJobStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get status details for a video processing job.",
+      "parameters": {
+        "type": "params",
+        "required": ["jobId"],
+        "properties": {
+          "jobId": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["jobStatus"],
+          "properties": {
+            "jobStatus": {"type": "ref", "ref": "app.bsky.video.defs#jobStatus"}
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.video.uploadVideo`
+const appBskyVideoUploadVideo = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.video.uploadVideo",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Upload a video to be processed then stored on the PDS.",
+      "input": {"encoding": "video/mp4"},
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["jobStatus"],
+          "properties": {
+            "jobStatus": {"type": "ref", "ref": "app.bsky.video.defs#jobStatus"}
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.video.getUploadLimits`
+const appBskyVideoGetUploadLimits = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.video.getUploadLimits",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get video upload limits for the authenticated user.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["canUpload"],
+          "properties": {
+            "canUpload": {"type": "boolean"},
+            "remainingDailyVideos": {"type": "integer"},
+            "remainingDailyBytes": {"type": "integer"},
+            "message": {"type": "string"},
+            "error": {"type": "string"}
           }
         }
       }
@@ -9894,7 +10125,9 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoTempCheckSignupQueue,
   appBskyRichtextFacet,
   appBskyEmbedRecord,
+  appBskyEmbedVideo,
   appBskyEmbedRecordWithMedia,
+  appBskyEmbedDefs,
   appBskyEmbedImages,
   appBskyEmbedExternal,
   appBskyGraphGetRelationships,
@@ -9972,6 +10205,10 @@ const lexicons = <Map<String, dynamic>>[
   appBskyNotificationPutPreferences,
   appBskyNotificationGetUnreadCount,
   appBskyNotificationRegisterPush,
+  appBskyVideoDefs,
+  appBskyVideoGetJobStatus,
+  appBskyVideoUploadVideo,
+  appBskyVideoGetUploadLimits,
   chatBskyModerationUpdateActorAccess,
   chatBskyModerationGetActorMetadata,
   chatBskyModerationGetMessageContext,

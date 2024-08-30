@@ -18,7 +18,7 @@ Write a repository record, creating or updating it as needed. Requires auth, imp
 | **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo (aka, current account). |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | The NSID of the record collection. |
 | **rkey** | string | - | ✅ | The Record Key. |
-| **validate** | boolean | - | ❌ | Can be set to 'false' to skip Lexicon schema validation of record data. |
+| **validate** | boolean | - | ❌ | Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons. |
 | **record** | unknown | - | ✅ | The record to write. |
 | **swapRecord** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation |
 | **swapCommit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous commit by CID. |
@@ -31,3 +31,4 @@ Write a repository record, creating or updating it as needed. Requires auth, imp
 | --- | --- | --- | :---: | --- |
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
+| **validationStatus** | string | valid<br/>unknown | ❌ | - |

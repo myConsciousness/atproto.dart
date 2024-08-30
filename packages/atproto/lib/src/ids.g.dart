@@ -177,11 +177,23 @@ const comAtprotoRepoApplyWrites = 'com.atproto.repo.applyWrites';
 /// `com.atproto.repo.applyWrites#create`
 const comAtprotoRepoApplyWritesCreate = 'com.atproto.repo.applyWrites#create';
 
+/// `com.atproto.repo.applyWrites#createResult`
+const comAtprotoRepoApplyWritesCreateResult =
+    'com.atproto.repo.applyWrites#createResult';
+
 /// `com.atproto.repo.applyWrites#delete`
 const comAtprotoRepoApplyWritesDelete = 'com.atproto.repo.applyWrites#delete';
 
+/// `com.atproto.repo.applyWrites#deleteResult`
+const comAtprotoRepoApplyWritesDeleteResult =
+    'com.atproto.repo.applyWrites#deleteResult';
+
 /// `com.atproto.repo.applyWrites#update`
 const comAtprotoRepoApplyWritesUpdate = 'com.atproto.repo.applyWrites#update';
+
+/// `com.atproto.repo.applyWrites#updateResult`
+const comAtprotoRepoApplyWritesUpdateResult =
+    'com.atproto.repo.applyWrites#updateResult';
 
 /// `com.atproto.repo.createRecord`
 const comAtprotoRepoCreateRecord = 'com.atproto.repo.createRecord';
