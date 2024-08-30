@@ -231,6 +231,14 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.notification.getUnreadCount](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/getUnreadCount.html)** | [Reference](lexicons/app/bsky/notification/getUnreadCount.md) | ✅ | ❌ |
 | **[app.bsky.notification.registerPush](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/registerPush.html)** | [Reference](lexicons/app/bsky/notification/registerPush.md) | ✅ | ❌ |
 
+### app.bsky.video
+
+| Method | Docs | Auth Required | Paging (cursor) |
+| --- | --- | :---: | :---: |
+| **[app.bsky.video.getJobStatus](https://pub.dev/documentation/bluesky/latest/bluesky/VideoService/getJobStatus.html)** | [Reference](lexicons/app/bsky/video/getJobStatus.md) | ❌ | ❌ |
+| **[app.bsky.video.uploadVideo](https://pub.dev/documentation/bluesky/latest/bluesky/VideoService/uploadVideo.html)** | [Reference](lexicons/app/bsky/video/uploadVideo.md) | ❌ | ❌ |
+| **[app.bsky.video.getUploadLimits](https://pub.dev/documentation/bluesky/latest/bluesky/VideoService/getUploadLimits.html)** | [Reference](lexicons/app/bsky/video/getUploadLimits.md) | ❌ | ❌ |
+
 ### chat.bsky.moderation
 
 | Method | Docs | Auth Required | Paging (cursor) |
