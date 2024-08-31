@@ -114,13 +114,25 @@ const comAtprotoRepoApplyWrites = NSID(ids.comAtprotoRepoApplyWrites);
 const comAtprotoRepoApplyWritesCreate =
     NSID(ids.comAtprotoRepoApplyWritesCreate);
 
+/// `com.atproto.repo.applyWrites#createResult`
+const comAtprotoRepoApplyWritesCreateResult =
+    NSID(ids.comAtprotoRepoApplyWritesCreateResult);
+
 /// `com.atproto.repo.applyWrites#delete`
 const comAtprotoRepoApplyWritesDelete =
     NSID(ids.comAtprotoRepoApplyWritesDelete);
 
+/// `com.atproto.repo.applyWrites#deleteResult`
+const comAtprotoRepoApplyWritesDeleteResult =
+    NSID(ids.comAtprotoRepoApplyWritesDeleteResult);
+
 /// `com.atproto.repo.applyWrites#update`
 const comAtprotoRepoApplyWritesUpdate =
     NSID(ids.comAtprotoRepoApplyWritesUpdate);
+
+/// `com.atproto.repo.applyWrites#updateResult`
+const comAtprotoRepoApplyWritesUpdateResult =
+    NSID(ids.comAtprotoRepoApplyWritesUpdateResult);
 
 /// `com.atproto.repo.createRecord`
 const comAtprotoRepoCreateRecord = NSID(ids.comAtprotoRepoCreateRecord);
