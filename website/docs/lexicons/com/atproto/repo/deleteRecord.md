@@ -20,3 +20,11 @@ Delete a repository record, or ensure it doesn't exist. Requires auth, implement
 | **rkey** | string | - | ✅ | The Record Key. |
 | **swapRecord** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous record by CID. |
 | **swapCommit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous commit by CID. |
+
+### Output
+
+- **Encoding**: application/json
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **commit** | [com.atproto.repo.defs#commitMeta](../../../../lexicons/com/atproto/repo/defs.md#commitmeta) | - | ❌ | - |
