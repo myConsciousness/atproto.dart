@@ -17,16 +17,7 @@ description: app.bsky.embed.images
 | --- | --- | --- | :---: | --- |
 | **image** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ✅ | - |
 | **alt** | string | - | ✅ | Alt text description of the image, for accessibility. |
-| **aspectRatio** | [#aspectRatio](#aspectratio) | - | ❌ | - |
-
-## #aspectRatio
-
-width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.
-
-| Property | Type | Known Values | Required | Description |
-| --- | --- | --- | :---: | --- |
-| **width** | integer | - | ✅ | - |
-| **height** | integer | - | ✅ | - |
+| **aspectRatio** | [app.bsky.embed.defs#aspectRatio](../../../../lexicons/app/bsky/embed/defs.md#aspectratio) | - | ❌ | - |
 
 ## #view
 
@@ -41,4 +32,4 @@ width:height represents an aspect ratio. It may be approximate, and may not corr
 | **thumb** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View. |
 | **fullsize** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View. |
 | **alt** | string | - | ✅ | Alt text description of the image, for accessibility. |
-| **aspectRatio** | [#aspectRatio](#aspectratio) | - | ❌ | - |
+| **aspectRatio** | [app.bsky.embed.defs#aspectRatio](../../../../lexicons/app/bsky/embed/defs.md#aspectratio) | - | ❌ | - |
