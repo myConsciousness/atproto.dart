@@ -57,9 +57,6 @@ const appBskyEmbedExternalViewExternal =
 /// `app.bsky.embed.images`
 const appBskyEmbedImages = NSID(ids.appBskyEmbedImages);
 
-/// `app.bsky.embed.images#aspectRatio`
-const appBskyEmbedImagesAspectRatio = NSID(ids.appBskyEmbedImagesAspectRatio);
-
 /// `app.bsky.embed.images#image`
 const appBskyEmbedImagesImage = NSID(ids.appBskyEmbedImagesImage);
 
@@ -93,6 +90,15 @@ const appBskyEmbedRecordWithMedia = NSID(ids.appBskyEmbedRecordWithMedia);
 /// `app.bsky.embed.recordWithMedia#view`
 const appBskyEmbedRecordWithMediaView =
     NSID(ids.appBskyEmbedRecordWithMediaView);
+
+/// `app.bsky.embed.video`
+const appBskyEmbedVideo = NSID(ids.appBskyEmbedVideo);
+
+/// `app.bsky.embed.video#caption`
+const appBskyEmbedVideoCaption = NSID(ids.appBskyEmbedVideoCaption);
+
+/// `app.bsky.embed.video#view`
+const appBskyEmbedVideoView = NSID(ids.appBskyEmbedVideoView);
 
 /// `app.bsky.feed.describeFeedGenerator`
 const appBskyFeedDescribeFeedGenerator =
@@ -352,6 +358,15 @@ const appBskyUnspeccedSearchActorsSkeleton =
 /// `app.bsky.unspecced.searchPostsSkeleton`
 const appBskyUnspeccedSearchPostsSkeleton =
     NSID(ids.appBskyUnspeccedSearchPostsSkeleton);
+
+/// `app.bsky.video.getJobStatus`
+const appBskyVideoGetJobStatus = NSID(ids.appBskyVideoGetJobStatus);
+
+/// `app.bsky.video.getUploadLimits`
+const appBskyVideoGetUploadLimits = NSID(ids.appBskyVideoGetUploadLimits);
+
+/// `app.bsky.video.uploadVideo`
+const appBskyVideoUploadVideo = NSID(ids.appBskyVideoUploadVideo);
 
 /// `chat.bsky.actor.declaration`
 const chatBskyActorDeclaration = NSID(ids.chatBskyActorDeclaration);
