@@ -118,6 +118,12 @@ const appBskyActorSearchActors = 'app.bsky.actor.searchActors';
 const appBskyActorSearchActorsTypeahead =
     'app.bsky.actor.searchActorsTypeahead';
 
+/// `app.bsky.embed.defs`
+const appBskyEmbedDefs = 'app.bsky.embed.defs';
+
+/// `app.bsky.embed.defs#aspectRatio`
+const appBskyEmbedDefsAspectRatio = 'app.bsky.embed.defs#aspectRatio';
+
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = 'app.bsky.embed.external';
 
@@ -132,9 +138,6 @@ const appBskyEmbedExternalViewExternal = 'app.bsky.embed.external#viewExternal';
 
 /// `app.bsky.embed.images`
 const appBskyEmbedImages = 'app.bsky.embed.images';
-
-/// `app.bsky.embed.images#aspectRatio`
-const appBskyEmbedImagesAspectRatio = 'app.bsky.embed.images#aspectRatio';
 
 /// `app.bsky.embed.images#image`
 const appBskyEmbedImagesImage = 'app.bsky.embed.images#image';
@@ -168,6 +171,15 @@ const appBskyEmbedRecordWithMedia = 'app.bsky.embed.recordWithMedia';
 
 /// `app.bsky.embed.recordWithMedia#view`
 const appBskyEmbedRecordWithMediaView = 'app.bsky.embed.recordWithMedia#view';
+
+/// `app.bsky.embed.video`
+const appBskyEmbedVideo = 'app.bsky.embed.video';
+
+/// `app.bsky.embed.video#caption`
+const appBskyEmbedVideoCaption = 'app.bsky.embed.video#caption';
+
+/// `app.bsky.embed.video#view`
+const appBskyEmbedVideoView = 'app.bsky.embed.video#view';
 
 /// `app.bsky.feed.defs`
 const appBskyFeedDefs = 'app.bsky.feed.defs';
@@ -579,6 +591,21 @@ const appBskyUnspeccedSearchActorsSkeleton =
 /// `app.bsky.unspecced.searchPostsSkeleton`
 const appBskyUnspeccedSearchPostsSkeleton =
     'app.bsky.unspecced.searchPostsSkeleton';
+
+/// `app.bsky.video.defs`
+const appBskyVideoDefs = 'app.bsky.video.defs';
+
+/// `app.bsky.video.defs#jobStatus`
+const appBskyVideoDefsJobStatus = 'app.bsky.video.defs#jobStatus';
+
+/// `app.bsky.video.getJobStatus`
+const appBskyVideoGetJobStatus = 'app.bsky.video.getJobStatus';
+
+/// `app.bsky.video.getUploadLimits`
+const appBskyVideoGetUploadLimits = 'app.bsky.video.getUploadLimits';
+
+/// `app.bsky.video.uploadVideo`
+const appBskyVideoUploadVideo = 'app.bsky.video.uploadVideo';
 
 /// `chat.bsky.actor.declaration`
 const chatBskyActorDeclaration = 'chat.bsky.actor.declaration';
