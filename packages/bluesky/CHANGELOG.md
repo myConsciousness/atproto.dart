@@ -1,5 +1,14 @@
 # Release Note
 
+## 1.0.0-preview.7
+
+- Lex gen.
+- The following methods on `RepoService` have changed the return type.
+  - `createRecord`: use `.toStrongRef()` to convert to `StrongRef`
+  - `putRecord`: use `.toStrongRef()` to convert to `StrongRef`
+  - `deleteRecord`
+  - `applyWrites`
+
 ## 1.0.0-preview.6
 
 - Lex gen. ([#1688](https://github.com/myConsciousness/atproto.dart/pull/1688))
