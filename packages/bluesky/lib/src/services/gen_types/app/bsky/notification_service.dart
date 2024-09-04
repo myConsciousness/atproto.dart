@@ -26,6 +26,29 @@ final class NotificationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// Count the number of unread notifications for the requesting
+  /// account. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
+  Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount({
+    bool? priority,
+    DateTime? seenAt,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetUnreadCountOutput>(
+        ns.appBskyNotificationGetUnreadCount,
+        headers: $headers,
+        parameters: {
+          if (priority != null) 'priority': priority.toString(),
+          if (seenAt != null) 'seenAt': iso8601(seenAt),
+          ...?$unknown,
+        },
+        to: const GetUnreadCountOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Enumerate notifications for the requesting account. Requires
   /// auth.
   ///
@@ -90,29 +113,6 @@ final class NotificationService {
           'priority': priority,
           ...?$unknown,
         },
-        client: $client,
-      );
-
-  /// Count the number of unread notifications for the requesting
-  /// account. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
-  Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount({
-    bool? priority,
-    DateTime? seenAt,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetUnreadCountOutput>(
-        ns.appBskyNotificationGetUnreadCount,
-        headers: $headers,
-        parameters: {
-          if (priority != null) 'priority': priority.toString(),
-          if (seenAt != null) 'seenAt': iso8601(seenAt),
-          ...?$unknown,
-        },
-        to: const GetUnreadCountOutputConverter().fromJson,
         client: $client,
       );
 

@@ -37,8 +37,8 @@ mixin _$ImagesViewImage {
 
   /// Alt text description of the image, for accessibility.
   String get alt => throw _privateConstructorUsedError;
-  @ImagesAspectRatioConverter()
-  ImagesAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
+  @AspectRatioConverter()
+  AspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -61,10 +61,10 @@ abstract class $ImagesViewImageCopyWith<$Res> {
       String thumb,
       String fullsize,
       String alt,
-      @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
+      @AspectRatioConverter() AspectRatio? aspectRatio,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
-  $ImagesAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -107,7 +107,7 @@ class _$ImagesViewImageCopyWithImpl<$Res, $Val extends ImagesViewImage>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImagesAspectRatio?,
+              as AspectRatio?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -117,12 +117,12 @@ class _$ImagesViewImageCopyWithImpl<$Res, $Val extends ImagesViewImage>
 
   @override
   @pragma('vm:prefer-inline')
-  $ImagesAspectRatioCopyWith<$Res>? get aspectRatio {
+  $AspectRatioCopyWith<$Res>? get aspectRatio {
     if (_value.aspectRatio == null) {
       return null;
     }
 
-    return $ImagesAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+    return $AspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
       return _then(_value.copyWith(aspectRatio: value) as $Val);
     });
   }
@@ -141,11 +141,11 @@ abstract class _$$ImagesViewImageImplCopyWith<$Res>
       String thumb,
       String fullsize,
       String alt,
-      @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
+      @AspectRatioConverter() AspectRatio? aspectRatio,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
-  $ImagesAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -186,7 +186,7 @@ class __$$ImagesViewImageImplCopyWithImpl<$Res>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImagesAspectRatio?,
+              as AspectRatio?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -204,7 +204,7 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
       required this.thumb,
       required this.fullsize,
       required this.alt,
-      @ImagesAspectRatioConverter() this.aspectRatio,
+      @AspectRatioConverter() this.aspectRatio,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -233,8 +233,8 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
   @override
   final String alt;
   @override
-  @ImagesAspectRatioConverter()
-  final ImagesAspectRatio? aspectRatio;
+  @AspectRatioConverter()
+  final AspectRatio? aspectRatio;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -296,7 +296,7 @@ abstract class _ImagesViewImage implements ImagesViewImage {
           required final String thumb,
           required final String fullsize,
           required final String alt,
-          @ImagesAspectRatioConverter() final ImagesAspectRatio? aspectRatio,
+          @AspectRatioConverter() final AspectRatio? aspectRatio,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ImagesViewImageImpl;
 
@@ -326,8 +326,8 @@ abstract class _ImagesViewImage implements ImagesViewImage {
   /// Alt text description of the image, for accessibility.
   String get alt;
   @override
-  @ImagesAspectRatioConverter()
-  ImagesAspectRatio? get aspectRatio;
+  @AspectRatioConverter()
+  AspectRatio? get aspectRatio;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

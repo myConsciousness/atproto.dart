@@ -18,6 +18,7 @@ import '../../../../app/bsky/embed/external/view.dart';
 import '../../../../app/bsky/embed/images/view.dart';
 import '../../../../app/bsky/embed/record/view.dart';
 import '../../../../app/bsky/embed/record_with_media/view.dart';
+import '../../../../app/bsky/embed/video/view.dart';
 
 part 'union_post_view_embed.freezed.dart';
 
@@ -26,6 +27,10 @@ class UPostViewEmbed with _$UPostViewEmbed {
   const factory UPostViewEmbed.imagesView({
     required ImagesView data,
   }) = UPostViewEmbedImagesView;
+
+  const factory UPostViewEmbed.videoView({
+    required VideoView data,
+  }) = UPostViewEmbedVideoView;
 
   const factory UPostViewEmbed.externalView({
     required ExternalView data,
@@ -56,6 +61,11 @@ final class UPostViewEmbedConverter
           data: const ImagesViewConverter().fromJson(json),
         );
       }
+      if (isVideoView(json)) {
+        return UPostViewEmbed.videoView(
+          data: const VideoViewConverter().fromJson(json),
+        );
+      }
       if (isExternalView(json)) {
         return UPostViewEmbed.externalView(
           data: const ExternalViewConverter().fromJson(json),
@@ -81,6 +91,7 @@ final class UPostViewEmbedConverter
   @override
   Map<String, dynamic> toJson(UPostViewEmbed object) => object.when(
         imagesView: const ImagesViewConverter().toJson,
+        videoView: const VideoViewConverter().toJson,
         externalView: const ExternalViewConverter().toJson,
         recordView: const RecordViewConverter().toJson,
         recordWithMediaView: const RecordWithMediaViewConverter().toJson,
@@ -97,6 +108,12 @@ extension $UPostViewEmbedExtension on UPostViewEmbed {
 
   /// Returns true if this data is not [ImagesView], otherwise false.
   bool get isNotImagesView => !isImagesView;
+
+  /// Returns true if this data is [VideoView], otherwise false.
+  bool get isVideoView => this is UPostViewEmbedVideoView;
+
+  /// Returns true if this data is not [VideoView], otherwise false.
+  bool get isNotVideoView => !isVideoView;
 
   /// Returns true if this data is [ExternalView], otherwise false.
   bool get isExternalView => this is UPostViewEmbedExternalView;
@@ -129,6 +146,14 @@ extension $UPostViewEmbedExtension on UPostViewEmbed {
 
   /// Returns [ImagesView] if this data is [ImagesView], otherwise null.
   ImagesView? get imagesViewOrNull => isImagesView ? imagesView : null;
+
+  /// Returns this data as [VideoView].
+  ///
+  /// Make sure to check if this object is [VideoView] with [isVideoView].
+  VideoView get videoView => this.data as VideoView;
+
+  /// Returns [VideoView] if this data is [VideoView], otherwise null.
+  VideoView? get videoViewOrNull => isVideoView ? videoView : null;
 
   /// Returns this data as [ExternalView].
   ///

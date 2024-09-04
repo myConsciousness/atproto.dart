@@ -37,6 +37,15 @@ const _kAtproto = Package(
         NSID('com.atproto.server.refreshSession'),
       ],
     ),
+    Variant(
+      name: 'StrongRef',
+      importPath:
+          'package:atproto/src/services/gen_types/com/atproto/repo/strong_ref/main.dart',
+      subjects: [
+        NSID('com.atproto.repo.createRecord'),
+        NSID('com.atproto.repo.putRecord'),
+      ],
+    ),
   ],
 );
 

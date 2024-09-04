@@ -14,15 +14,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ImagesAspectRatio _$ImagesAspectRatioFromJson(Map<String, dynamic> json) {
-  return _ImagesAspectRatio.fromJson(json);
+AspectRatio _$AspectRatioFromJson(Map<String, dynamic> json) {
+  return _AspectRatio.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ImagesAspectRatio {
+mixin _$AspectRatio {
   /// The unique namespace for this lex object.
   ///
-  /// `app.bsky.embed.images#aspectRatio`
+  /// `app.bsky.embed.defs#aspectRatio`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
   int get width => throw _privateConstructorUsedError;
@@ -34,15 +34,15 @@ mixin _$ImagesAspectRatio {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ImagesAspectRatioCopyWith<ImagesAspectRatio> get copyWith =>
+  $AspectRatioCopyWith<AspectRatio> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ImagesAspectRatioCopyWith<$Res> {
-  factory $ImagesAspectRatioCopyWith(
-          ImagesAspectRatio value, $Res Function(ImagesAspectRatio) then) =
-      _$ImagesAspectRatioCopyWithImpl<$Res, ImagesAspectRatio>;
+abstract class $AspectRatioCopyWith<$Res> {
+  factory $AspectRatioCopyWith(
+          AspectRatio value, $Res Function(AspectRatio) then) =
+      _$AspectRatioCopyWithImpl<$Res, AspectRatio>;
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
@@ -52,9 +52,9 @@ abstract class $ImagesAspectRatioCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ImagesAspectRatioCopyWithImpl<$Res, $Val extends ImagesAspectRatio>
-    implements $ImagesAspectRatioCopyWith<$Res> {
-  _$ImagesAspectRatioCopyWithImpl(this._value, this._then);
+class _$AspectRatioCopyWithImpl<$Res, $Val extends AspectRatio>
+    implements $AspectRatioCopyWith<$Res> {
+  _$AspectRatioCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -91,11 +91,11 @@ class _$ImagesAspectRatioCopyWithImpl<$Res, $Val extends ImagesAspectRatio>
 }
 
 /// @nodoc
-abstract class _$$ImagesAspectRatioImplCopyWith<$Res>
-    implements $ImagesAspectRatioCopyWith<$Res> {
-  factory _$$ImagesAspectRatioImplCopyWith(_$ImagesAspectRatioImpl value,
-          $Res Function(_$ImagesAspectRatioImpl) then) =
-      __$$ImagesAspectRatioImplCopyWithImpl<$Res>;
+abstract class _$$AspectRatioImplCopyWith<$Res>
+    implements $AspectRatioCopyWith<$Res> {
+  factory _$$AspectRatioImplCopyWith(
+          _$AspectRatioImpl value, $Res Function(_$AspectRatioImpl) then) =
+      __$$AspectRatioImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -106,11 +106,11 @@ abstract class _$$ImagesAspectRatioImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ImagesAspectRatioImplCopyWithImpl<$Res>
-    extends _$ImagesAspectRatioCopyWithImpl<$Res, _$ImagesAspectRatioImpl>
-    implements _$$ImagesAspectRatioImplCopyWith<$Res> {
-  __$$ImagesAspectRatioImplCopyWithImpl(_$ImagesAspectRatioImpl _value,
-      $Res Function(_$ImagesAspectRatioImpl) _then)
+class __$$AspectRatioImplCopyWithImpl<$Res>
+    extends _$AspectRatioCopyWithImpl<$Res, _$AspectRatioImpl>
+    implements _$$AspectRatioImplCopyWith<$Res> {
+  __$$AspectRatioImplCopyWithImpl(
+      _$AspectRatioImpl _value, $Res Function(_$AspectRatioImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +121,7 @@ class __$$ImagesAspectRatioImplCopyWithImpl<$Res>
     Object? height = null,
     Object? $unknown = freezed,
   }) {
-    return _then(_$ImagesAspectRatioImpl(
+    return _then(_$AspectRatioImpl(
       $type: null == $type
           ? _value.$type
           : $type // ignore: cast_nullable_to_non_nullable
@@ -145,20 +145,20 @@ class __$$ImagesAspectRatioImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
-  const _$ImagesAspectRatioImpl(
-      {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesAspectRatio,
+class _$AspectRatioImpl implements _AspectRatio {
+  const _$AspectRatioImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedDefsAspectRatio,
       required this.width,
       required this.height,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
-  factory _$ImagesAspectRatioImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ImagesAspectRatioImplFromJson(json);
+  factory _$AspectRatioImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AspectRatioImplFromJson(json);
 
   /// The unique namespace for this lex object.
   ///
-  /// `app.bsky.embed.images#aspectRatio`
+  /// `app.bsky.embed.defs#aspectRatio`
   @override
   @JsonKey(name: r'$type')
   final String $type;
@@ -183,14 +183,14 @@ class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
 
   @override
   String toString() {
-    return 'ImagesAspectRatio(\$type: ${$type}, width: $width, height: $height, \$unknown: ${$unknown})';
+    return 'AspectRatio(\$type: ${$type}, width: $width, height: $height, \$unknown: ${$unknown})';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ImagesAspectRatioImpl &&
+            other is _$AspectRatioImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height) &&
@@ -205,34 +205,33 @@ class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ImagesAspectRatioImplCopyWith<_$ImagesAspectRatioImpl> get copyWith =>
-      __$$ImagesAspectRatioImplCopyWithImpl<_$ImagesAspectRatioImpl>(
-          this, _$identity);
+  _$$AspectRatioImplCopyWith<_$AspectRatioImpl> get copyWith =>
+      __$$AspectRatioImplCopyWithImpl<_$AspectRatioImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ImagesAspectRatioImplToJson(
+    return _$$AspectRatioImplToJson(
       this,
     );
   }
 }
 
-abstract class _ImagesAspectRatio implements ImagesAspectRatio {
-  const factory _ImagesAspectRatio(
+abstract class _AspectRatio implements AspectRatio {
+  const factory _AspectRatio(
           {@JsonKey(name: r'$type') final String $type,
           required final int width,
           required final int height,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
-      _$ImagesAspectRatioImpl;
+      _$AspectRatioImpl;
 
-  factory _ImagesAspectRatio.fromJson(Map<String, dynamic> json) =
-      _$ImagesAspectRatioImpl.fromJson;
+  factory _AspectRatio.fromJson(Map<String, dynamic> json) =
+      _$AspectRatioImpl.fromJson;
 
   @override
 
   /// The unique namespace for this lex object.
   ///
-  /// `app.bsky.embed.images#aspectRatio`
+  /// `app.bsky.embed.defs#aspectRatio`
   @JsonKey(name: r'$type')
   String get $type;
   @override
@@ -246,6 +245,6 @@ abstract class _ImagesAspectRatio implements ImagesAspectRatio {
   Map<String, dynamic>? get $unknown;
   @override
   @JsonKey(ignore: true)
-  _$$ImagesAspectRatioImplCopyWith<_$ImagesAspectRatioImpl> get copyWith =>
+  _$$AspectRatioImplCopyWith<_$AspectRatioImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

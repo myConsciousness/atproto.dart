@@ -30,8 +30,8 @@ mixin _$ImagesImage {
 
   /// Alt text description of the image, for accessibility.
   String get alt => throw _privateConstructorUsedError;
-  @ImagesAspectRatioConverter()
-  ImagesAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
+  @AspectRatioConverter()
+  AspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -53,11 +53,11 @@ abstract class $ImagesImageCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @BlobConverter() Blob image,
       String alt,
-      @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
+      @AspectRatioConverter() AspectRatio? aspectRatio,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $BlobCopyWith<$Res> get image;
-  $ImagesAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ class _$ImagesImageCopyWithImpl<$Res, $Val extends ImagesImage>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImagesAspectRatio?,
+              as AspectRatio?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -113,12 +113,12 @@ class _$ImagesImageCopyWithImpl<$Res, $Val extends ImagesImage>
 
   @override
   @pragma('vm:prefer-inline')
-  $ImagesAspectRatioCopyWith<$Res>? get aspectRatio {
+  $AspectRatioCopyWith<$Res>? get aspectRatio {
     if (_value.aspectRatio == null) {
       return null;
     }
 
-    return $ImagesAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+    return $AspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
       return _then(_value.copyWith(aspectRatio: value) as $Val);
     });
   }
@@ -136,13 +136,13 @@ abstract class _$$ImagesImageImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @BlobConverter() Blob image,
       String alt,
-      @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
+      @AspectRatioConverter() AspectRatio? aspectRatio,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
   $BlobCopyWith<$Res> get image;
   @override
-  $ImagesAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -178,7 +178,7 @@ class __$$ImagesImageImplCopyWithImpl<$Res>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImagesAspectRatio?,
+              as AspectRatio?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -195,7 +195,7 @@ class _$ImagesImageImpl implements _ImagesImage {
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesImage,
       @BlobConverter() required this.image,
       required this.alt,
-      @ImagesAspectRatioConverter() this.aspectRatio,
+      @AspectRatioConverter() this.aspectRatio,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -216,8 +216,8 @@ class _$ImagesImageImpl implements _ImagesImage {
   @override
   final String alt;
   @override
-  @ImagesAspectRatioConverter()
-  final ImagesAspectRatio? aspectRatio;
+  @AspectRatioConverter()
+  final AspectRatio? aspectRatio;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
@@ -275,7 +275,7 @@ abstract class _ImagesImage implements ImagesImage {
           {@JsonKey(name: r'$type') final String $type,
           @BlobConverter() required final Blob image,
           required final String alt,
-          @ImagesAspectRatioConverter() final ImagesAspectRatio? aspectRatio,
+          @AspectRatioConverter() final AspectRatio? aspectRatio,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ImagesImageImpl;
 
@@ -297,8 +297,8 @@ abstract class _ImagesImage implements ImagesImage {
   /// Alt text description of the image, for accessibility.
   String get alt;
   @override
-  @ImagesAspectRatioConverter()
-  ImagesAspectRatio? get aspectRatio;
+  @AspectRatioConverter()
+  AspectRatio? get aspectRatio;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

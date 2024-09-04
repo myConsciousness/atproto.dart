@@ -18,6 +18,7 @@ import '../../../../app/bsky/embed/external/main.dart';
 import '../../../../app/bsky/embed/images/main.dart';
 import '../../../../app/bsky/embed/record/main.dart';
 import '../../../../app/bsky/embed/record_with_media/main.dart';
+import '../../../../app/bsky/embed/video/main.dart';
 
 part 'union_post_embed.freezed.dart';
 
@@ -26,6 +27,10 @@ class UPostEmbed with _$UPostEmbed {
   const factory UPostEmbed.images({
     required Images data,
   }) = UPostEmbedImages;
+
+  const factory UPostEmbed.video({
+    required Video data,
+  }) = UPostEmbedVideo;
 
   const factory UPostEmbed.external({
     required External data,
@@ -56,6 +61,11 @@ final class UPostEmbedConverter
           data: const ImagesConverter().fromJson(json),
         );
       }
+      if (isVideo(json)) {
+        return UPostEmbed.video(
+          data: const VideoConverter().fromJson(json),
+        );
+      }
       if (isExternal(json)) {
         return UPostEmbed.external(
           data: const ExternalConverter().fromJson(json),
@@ -81,6 +91,7 @@ final class UPostEmbedConverter
   @override
   Map<String, dynamic> toJson(UPostEmbed object) => object.when(
         images: const ImagesConverter().toJson,
+        video: const VideoConverter().toJson,
         external: const ExternalConverter().toJson,
         record: const RecordConverter().toJson,
         recordWithMedia: const RecordWithMediaConverter().toJson,
@@ -97,6 +108,12 @@ extension $UPostEmbedExtension on UPostEmbed {
 
   /// Returns true if this data is not [Images], otherwise false.
   bool get isNotImages => !isImages;
+
+  /// Returns true if this data is [Video], otherwise false.
+  bool get isVideo => this is UPostEmbedVideo;
+
+  /// Returns true if this data is not [Video], otherwise false.
+  bool get isNotVideo => !isVideo;
 
   /// Returns true if this data is [External], otherwise false.
   bool get isExternal => this is UPostEmbedExternal;
@@ -129,6 +146,14 @@ extension $UPostEmbedExtension on UPostEmbed {
 
   /// Returns [Images] if this data is [Images], otherwise null.
   Images? get imagesOrNull => isImages ? images : null;
+
+  /// Returns this data as [Video].
+  ///
+  /// Make sure to check if this object is [Video] with [isVideo].
+  Video get video => this.data as Video;
+
+  /// Returns [Video] if this data is [Video], otherwise null.
+  Video? get videoOrNull => isVideo ? video : null;
 
   /// Returns this data as [External].
   ///

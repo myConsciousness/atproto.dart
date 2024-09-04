@@ -18,6 +18,7 @@ import '../../../../app/bsky/embed/external/view.dart';
 import '../../../../app/bsky/embed/images/view.dart';
 import '../../../../app/bsky/embed/record/view.dart';
 import '../../../../app/bsky/embed/record_with_media/view.dart';
+import '../../../../app/bsky/embed/video/view.dart';
 
 part 'union_record_view_record_embed.freezed.dart';
 
@@ -26,6 +27,10 @@ class URecordViewRecordEmbed with _$URecordViewRecordEmbed {
   const factory URecordViewRecordEmbed.imagesView({
     required ImagesView data,
   }) = URecordViewRecordEmbedImagesView;
+
+  const factory URecordViewRecordEmbed.videoView({
+    required VideoView data,
+  }) = URecordViewRecordEmbedVideoView;
 
   const factory URecordViewRecordEmbed.externalView({
     required ExternalView data,
@@ -56,6 +61,11 @@ final class URecordViewRecordEmbedConverter
           data: const ImagesViewConverter().fromJson(json),
         );
       }
+      if (isVideoView(json)) {
+        return URecordViewRecordEmbed.videoView(
+          data: const VideoViewConverter().fromJson(json),
+        );
+      }
       if (isExternalView(json)) {
         return URecordViewRecordEmbed.externalView(
           data: const ExternalViewConverter().fromJson(json),
@@ -81,6 +91,7 @@ final class URecordViewRecordEmbedConverter
   @override
   Map<String, dynamic> toJson(URecordViewRecordEmbed object) => object.when(
         imagesView: const ImagesViewConverter().toJson,
+        videoView: const VideoViewConverter().toJson,
         externalView: const ExternalViewConverter().toJson,
         recordView: const RecordViewConverter().toJson,
         recordWithMediaView: const RecordWithMediaViewConverter().toJson,
@@ -98,6 +109,12 @@ extension $URecordViewRecordEmbedExtension on URecordViewRecordEmbed {
 
   /// Returns true if this data is not [ImagesView], otherwise false.
   bool get isNotImagesView => !isImagesView;
+
+  /// Returns true if this data is [VideoView], otherwise false.
+  bool get isVideoView => this is URecordViewRecordEmbedVideoView;
+
+  /// Returns true if this data is not [VideoView], otherwise false.
+  bool get isNotVideoView => !isVideoView;
 
   /// Returns true if this data is [ExternalView], otherwise false.
   bool get isExternalView => this is URecordViewRecordEmbedExternalView;
@@ -131,6 +148,14 @@ extension $URecordViewRecordEmbedExtension on URecordViewRecordEmbed {
 
   /// Returns [ImagesView] if this data is [ImagesView], otherwise null.
   ImagesView? get imagesViewOrNull => isImagesView ? imagesView : null;
+
+  /// Returns this data as [VideoView].
+  ///
+  /// Make sure to check if this object is [VideoView] with [isVideoView].
+  VideoView get videoView => this.data as VideoView;
+
+  /// Returns [VideoView] if this data is [VideoView], otherwise null.
+  VideoView? get videoViewOrNull => isVideoView ? videoView : null;
 
   /// Returns this data as [ExternalView].
   ///

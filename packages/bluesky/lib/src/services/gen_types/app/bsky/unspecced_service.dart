@@ -29,6 +29,93 @@ final class UnspeccedService {
 
   final BlueskyServiceContext _ctx;
 
+  /// Get a list of suggestions (feeds and users) tagged with
+  /// categories
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
+  Future<XRPCResponse<GetTaggedSuggestionsOutput>> getTaggedSuggestions({
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetTaggedSuggestionsOutput>(
+        ns.appBskyUnspeccedGetTaggedSuggestions,
+        headers: $headers,
+        to: const GetTaggedSuggestionsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Backend Posts search, returns only skeleton
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
+  Future<XRPCResponse<SearchPostsSkeletonOutput>> searchPostsSkeleton({
+    required String q,
+    USearchPostsSkeletonSort? sort,
+    String? since,
+    String? until,
+    String? mentions,
+    String? author,
+    String? lang,
+    String? domain,
+    String? url,
+    List<String>? tag,
+    String? viewer,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<SearchPostsSkeletonOutput>(
+        ns.appBskyUnspeccedSearchPostsSkeleton,
+        headers: $headers,
+        parameters: {
+          'q': q,
+          if (sort != null) 'sort': sort.toJson(),
+          if (since != null) 'since': since,
+          if (until != null) 'until': until,
+          if (mentions != null) 'mentions': mentions,
+          if (author != null) 'author': author,
+          if (lang != null) 'lang': lang,
+          if (domain != null) 'domain': domain,
+          if (url != null) 'url': url,
+          if (tag != null) 'tag': tag,
+          if (viewer != null) 'viewer': viewer,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const SearchPostsSkeletonOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get a skeleton of suggested actors. Intended to be called and
+  /// then hydrated through app.bsky.actor.getSuggestions
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton
+  Future<XRPCResponse<GetSuggestionsSkeletonOutput>> getSuggestionsSkeleton({
+    String? viewer,
+    int? limit,
+    String? cursor,
+    String? relativeToDid,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetSuggestionsSkeletonOutput>(
+        ns.appBskyUnspeccedGetSuggestionsSkeleton,
+        headers: $headers,
+        parameters: {
+          if (viewer != null) 'viewer': viewer,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          if (relativeToDid != null) 'relativeToDid': relativeToDid,
+          ...?$unknown,
+        },
+        to: const GetSuggestionsSkeletonOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Backend Actors (profile) search, returns only skeleton.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton
@@ -81,91 +168,4 @@ final class UnspeccedService {
             to: const GetPopularFeedGeneratorsOutputConverter().fromJson,
             client: $client,
           );
-
-  /// Backend Posts search, returns only skeleton
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
-  Future<XRPCResponse<SearchPostsSkeletonOutput>> searchPostsSkeleton({
-    required String q,
-    USearchPostsSkeletonSort? sort,
-    String? since,
-    String? until,
-    String? mentions,
-    String? author,
-    String? lang,
-    String? domain,
-    String? url,
-    List<String>? tag,
-    String? viewer,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<SearchPostsSkeletonOutput>(
-        ns.appBskyUnspeccedSearchPostsSkeleton,
-        headers: $headers,
-        parameters: {
-          'q': q,
-          if (sort != null) 'sort': sort.toJson(),
-          if (since != null) 'since': since,
-          if (until != null) 'until': until,
-          if (mentions != null) 'mentions': mentions,
-          if (author != null) 'author': author,
-          if (lang != null) 'lang': lang,
-          if (domain != null) 'domain': domain,
-          if (url != null) 'url': url,
-          if (tag != null) 'tag': tag,
-          if (viewer != null) 'viewer': viewer,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const SearchPostsSkeletonOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get a list of suggestions (feeds and users) tagged with
-  /// categories
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
-  Future<XRPCResponse<GetTaggedSuggestionsOutput>> getTaggedSuggestions({
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetTaggedSuggestionsOutput>(
-        ns.appBskyUnspeccedGetTaggedSuggestions,
-        headers: $headers,
-        to: const GetTaggedSuggestionsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get a skeleton of suggested actors. Intended to be called and
-  /// then hydrated through app.bsky.actor.getSuggestions
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton
-  Future<XRPCResponse<GetSuggestionsSkeletonOutput>> getSuggestionsSkeleton({
-    String? viewer,
-    int? limit,
-    String? cursor,
-    String? relativeToDid,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetSuggestionsSkeletonOutput>(
-        ns.appBskyUnspeccedGetSuggestionsSkeleton,
-        headers: $headers,
-        parameters: {
-          if (viewer != null) 'viewer': viewer,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          if (relativeToDid != null) 'relativeToDid': relativeToDid,
-          ...?$unknown,
-        },
-        to: const GetSuggestionsSkeletonOutputConverter().fromJson,
-        client: $client,
-      );
 }

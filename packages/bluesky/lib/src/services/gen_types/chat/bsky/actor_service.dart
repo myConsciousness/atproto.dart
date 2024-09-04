@@ -11,9 +11,11 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_repo_create_record.dart';
+import 'package:atproto/com_atproto_repo_delete_record.dart';
 import 'package:atproto/com_atproto_repo_get_record.dart';
 import 'package:atproto/com_atproto_repo_list_records.dart';
-import 'package:atproto/com_atproto_repo_strong_ref.dart';
+import 'package:atproto/com_atproto_repo_put_record.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
@@ -28,17 +30,10 @@ final class ActorService {
 
   final BlueskyServiceContext _ctx;
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
-  Future<XRPCResponse<EmptyData>> exportAccountData({
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<EmptyData>(
-        ns.chatBskyActorExportAccountData,
-        headers: $headers,
-        client: $client,
-      );
+  /// A declaration of a Bluesky chat account.
+  ///
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
+  DeclarationRecordHelper get declaration => DeclarationRecordHelper(_ctx);
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/deleteAccount
   Future<XRPCResponse<EmptyData>> deleteAccount({
@@ -52,10 +47,17 @@ final class ActorService {
         client: $client,
       );
 
-  /// A declaration of a Bluesky chat account.
-  ///
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
-  DeclarationRecordHelper get declaration => DeclarationRecordHelper(_ctx);
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
+  Future<XRPCResponse<EmptyData>> exportAccountData({
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<EmptyData>(
+        ns.chatBskyActorExportAccountData,
+        headers: $headers,
+        client: $client,
+      );
 }
 
 /// Useful helper for `chat.bsky.actor.declaration`.
@@ -104,7 +106,7 @@ final class DeclarationRecordHelper {
       );
 
   /// Creates declaration record.
-  Future<XRPCResponse<StrongRef>> create({
+  Future<XRPCResponse<CreateRecordOutput>> create({
     String? rkey,
     required UDeclarationAllowIncoming allowIncoming,
     Map<String, dynamic>? $unknown,
@@ -125,7 +127,7 @@ final class DeclarationRecordHelper {
       );
 
   /// Updates declaration record.
-  Future<XRPCResponse<StrongRef>> put({
+  Future<XRPCResponse<PutRecordOutput>> put({
     String? rkey,
     required DeclarationRecord record,
     Map<String, dynamic>? $unknown,
@@ -142,7 +144,7 @@ final class DeclarationRecordHelper {
       );
 
   /// Deletes declaration record.
-  Future<XRPCResponse<EmptyData>> delete({
+  Future<XRPCResponse<DeleteRecordOutput>> delete({
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>

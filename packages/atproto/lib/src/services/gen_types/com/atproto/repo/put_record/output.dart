@@ -11,48 +11,52 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../../../ids.g.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/repo/strong_ref/main.dart';
+import '../../../../com/atproto/repo/defs/commit_meta.dart';
+import '../../../../com/atproto/repo/put_record/known_put_record_validation_status.dart';
 
-part 'aspect_ratio.freezed.dart';
-part 'aspect_ratio.g.dart';
+part 'output.freezed.dart';
+part 'output.g.dart';
 
-/// width:height represents an aspect ratio. It may be approximate,
-/// and may not correspond to absolute dimensions in any given unit.
-///
-/// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#aspectratio
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/putRecord#main
 @freezed
-class ImagesAspectRatio with _$ImagesAspectRatio {
+class PutRecordOutput with _$PutRecordOutput {
   @JsonSerializable(includeIfNull: false)
-  const factory ImagesAspectRatio({
-    /// The unique namespace for this lex object.
-    ///
-    /// `app.bsky.embed.images#aspectRatio`
-    @Default(appBskyEmbedImagesAspectRatio)
-    @JsonKey(name: r'$type')
-    String $type,
-    required int width,
-    required int height,
+  const factory PutRecordOutput({
+    @AtUriConverter() required AtUri uri,
+    required String cid,
+    @CommitMetaConverter() CommitMeta? commit,
+    @UPutRecordValidationStatusConverter()
+    UPutRecordValidationStatus? validationStatus,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
-  }) = _ImagesAspectRatio;
+  }) = _PutRecordOutput;
 
-  factory ImagesAspectRatio.fromJson(Map<String, dynamic> json) =>
-      _$ImagesAspectRatioFromJson(json);
+  factory PutRecordOutput.fromJson(Map<String, dynamic> json) =>
+      _$PutRecordOutputFromJson(json);
 }
 
-/// Returns true if [object] is [ImagesAspectRatio], otherwise false.
-bool isImagesAspectRatio(final Map<String, dynamic>? object) {
-  if (object == null) return false;
-  if (object[r'$type'] == null) return false;
+extension $PutRecordOutputExtension on PutRecordOutput {
+  /// Returns this object as [StrongRef].
+  StrongRef toStrongRef() => StrongRef.fromJson(toJson());
 
-  return object[r'$type'] == 'app.bsky.embed.images#aspectRatio';
-}
+  /// Returns true if [commit] is not null, otherwise false.
+  bool get hasCommit => commit != null;
 
-extension $ImagesAspectRatioExtension on ImagesAspectRatio {
+  /// Returns true if [commit] is null, otherwise false.
+  bool get hasNotCommit => !hasCommit;
+
+  /// Returns true if [validationStatus] is not null, otherwise false.
+  bool get hasValidationStatus => validationStatus != null;
+
+  /// Returns true if [validationStatus] is null, otherwise false.
+  bool get hasNotValidationStatus => !hasValidationStatus;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -63,17 +67,18 @@ extension $ImagesAspectRatioExtension on ImagesAspectRatio {
 }
 
 const _kLexCompatibleProperties = <String>[
-  r'$type',
-  'width',
-  'height',
+  'uri',
+  'cid',
+  'commit',
+  'validationStatus',
 ];
 
-final class ImagesAspectRatioConverter
-    implements JsonConverter<ImagesAspectRatio, Map<String, dynamic>> {
-  const ImagesAspectRatioConverter();
+final class PutRecordOutputConverter
+    implements JsonConverter<PutRecordOutput, Map<String, dynamic>> {
+  const PutRecordOutputConverter();
 
   @override
-  ImagesAspectRatio fromJson(Map<String, dynamic> json) {
+  PutRecordOutput fromJson(Map<String, dynamic> json) {
     final props = <String, dynamic>{};
     for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
@@ -88,11 +93,11 @@ final class ImagesAspectRatioConverter
       }
     }
 
-    return ImagesAspectRatio.fromJson(props);
+    return PutRecordOutput.fromJson(props);
   }
 
   @override
-  Map<String, dynamic> toJson(ImagesAspectRatio object) {
+  Map<String, dynamic> toJson(PutRecordOutput object) {
     if (object.hasNotUnknown) {
       return object.toJson();
     }

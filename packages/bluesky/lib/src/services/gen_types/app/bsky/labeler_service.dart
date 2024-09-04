@@ -12,9 +12,11 @@
 
 // 📦 Package imports:
 import 'package:atproto/com_atproto_repo_apply_writes.dart';
+import 'package:atproto/com_atproto_repo_create_record.dart';
+import 'package:atproto/com_atproto_repo_delete_record.dart';
 import 'package:atproto/com_atproto_repo_get_record.dart';
 import 'package:atproto/com_atproto_repo_list_records.dart';
-import 'package:atproto/com_atproto_repo_strong_ref.dart';
+import 'package:atproto/com_atproto_repo_put_record.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
@@ -105,7 +107,7 @@ final class ServiceRecordHelper {
       );
 
   /// Creates service record.
-  Future<XRPCResponse<StrongRef>> create({
+  Future<XRPCResponse<CreateRecordOutput>> create({
     String? rkey,
     required LabelerPolicies policies,
     UServiceLabel? labels,
@@ -130,7 +132,7 @@ final class ServiceRecordHelper {
       );
 
   /// Updates service record.
-  Future<XRPCResponse<StrongRef>> put({
+  Future<XRPCResponse<PutRecordOutput>> put({
     String? rkey,
     required ServiceRecord record,
     Map<String, dynamic>? $unknown,
@@ -147,7 +149,7 @@ final class ServiceRecordHelper {
       );
 
   /// Deletes service record.
-  Future<XRPCResponse<EmptyData>> delete({
+  Future<XRPCResponse<DeleteRecordOutput>> delete({
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -160,7 +162,7 @@ final class ServiceRecordHelper {
       );
 
   /// Creates service records in bulk.
-  Future<XRPCResponse<EmptyData>> createInBulk(
+  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(
     final List<ServiceRecord> records, {
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
@@ -185,7 +187,7 @@ final class ServiceRecordHelper {
       );
 
   /// Deletes service records in bulk.
-  Future<XRPCResponse<EmptyData>> deleteInBulk(
+  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(
     final List<String> rkeys, {
     Map<String, String>? $headers,
     PostClient? $client,

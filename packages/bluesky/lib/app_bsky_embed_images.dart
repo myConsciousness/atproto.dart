@@ -12,6 +12,5 @@
 
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/images/main.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/images/image.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/embed/images/aspect_ratio.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/images/view.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/embed/images/view_image.dart';

@@ -7,6 +7,7 @@ import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
+import 'package:bluesky/com_atproto_repo_create_record.dart';
 import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/defs/interaction.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/describe_feed_generator/output.dart';
@@ -24,32 +25,17 @@ import 'package:bluesky/src/services/gen_types/app/bsky/feed/get_posts/output.da
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/get_reposted_by/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/get_suggested_feeds/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/get_timeline/output.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/feed/like/record.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/feed/post/record.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/feed/repost/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/search_posts/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testFeed<StrongRef>(
+  testFeed<CreateRecordOutput>(
     (m, s) => s.post.create(text: m.text),
-    bulk: (m, s) => s.post.createInBulk([
-      PostRecord(
-        text: m.text,
-        createdAt: m.createdAt,
-      )
-    ]),
     id: appBskyFeedPost,
   );
 
-  testFeed<StrongRef>(
+  testFeed<CreateRecordOutput>(
     (m, s) => s.repost.create(subject: StrongRef(uri: m.uri, cid: m.cid)),
-    bulk: (m, s) => s.repost.createInBulk([
-      RepostRecord(
-        subject: StrongRef(cid: m.cid, uri: m.uri),
-        createdAt: m.createdAt,
-      ),
-    ]),
     id: appBskyFeedPost,
   );
 
@@ -58,14 +44,8 @@ void main() {
     id: appBskyFeedGetTimeline,
   );
 
-  testFeed<StrongRef>(
+  testFeed<CreateRecordOutput>(
     (m, s) => s.like.create(subject: StrongRef(uri: m.uri, cid: m.cid)),
-    bulk: (m, s) => s.like.createInBulk([
-      LikeRecord(
-        subject: StrongRef(cid: m.cid, uri: m.uri),
-        createdAt: m.createdAt,
-      )
-    ]),
     id: appBskyFeedPost,
   );
 
@@ -109,7 +89,7 @@ void main() {
     id: appBskyFeedGetPosts,
   );
 
-  testFeed<StrongRef>(
+  testFeed<CreateRecordOutput>(
     (m, s) => s.generator.create(did: m.did, displayName: m.displayName),
     id: appBskyFeedGenerator,
   );
@@ -144,7 +124,7 @@ void main() {
     id: appBskyFeedGetListFeed,
   );
 
-  testFeed<StrongRef>(
+  testFeed<CreateRecordOutput>(
     (m, s) => s.threadgate.create(post: m.uri),
     id: appBskyFeedThreadgate,
   );

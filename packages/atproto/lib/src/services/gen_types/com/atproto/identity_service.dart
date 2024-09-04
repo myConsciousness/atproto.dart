@@ -26,6 +26,26 @@ final class IdentityService {
 
   final ATProtoServiceContext _ctx;
 
+  /// Resolves a handle (domain name) to a DID.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
+  Future<XRPCResponse<ResolveHandleOutput>> resolveHandle({
+    required String handle,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ResolveHandleOutput>(
+        ns.comAtprotoIdentityResolveHandle,
+        headers: $headers,
+        parameters: {
+          'handle': handle,
+          ...?$unknown,
+        },
+        to: const ResolveHandleOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Describe the credentials that should be included in the DID doc
   /// of an account that is migrating to this service.
   ///
@@ -42,6 +62,27 @@ final class IdentityService {
             to: const GetRecommendedDidCredentialsOutputConverter().fromJson,
             client: $client,
           );
+
+  /// Validates a PLC operation to ensure that it doesn't violate a
+  /// service's constraints or get the identity into a bad state, then
+  /// submits it to the PLC registry
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
+  Future<XRPCResponse<EmptyData>> submitPlcOperation({
+    required Map<String, dynamic> operation,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.comAtprotoIdentitySubmitPlcOperation,
+        headers: $headers,
+        body: {
+          'operation': operation,
+          ...?$unknown,
+        },
+        client: $client,
+      );
 
   /// Updates the current account's handle. Verifies handle validity,
   /// and updates did:plc document if necessary. Implemented by PDS,
@@ -61,26 +102,6 @@ final class IdentityService {
           'handle': handle,
           ...?$unknown,
         },
-        client: $client,
-      );
-
-  /// Resolves a handle (domain name) to a DID.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
-  Future<XRPCResponse<ResolveHandleOutput>> resolveHandle({
-    required String handle,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ResolveHandleOutput>(
-        ns.comAtprotoIdentityResolveHandle,
-        headers: $headers,
-        parameters: {
-          'handle': handle,
-          ...?$unknown,
-        },
-        to: const ResolveHandleOutputConverter().fromJson,
         client: $client,
       );
 
@@ -126,27 +147,6 @@ final class IdentityService {
           ...?$unknown,
         },
         to: const SignPlcOperationOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Validates a PLC operation to ensure that it doesn't violate a
-  /// service's constraints or get the identity into a bad state, then
-  /// submits it to the PLC registry
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
-  Future<XRPCResponse<EmptyData>> submitPlcOperation({
-    required Map<String, dynamic> operation,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.comAtprotoIdentitySubmitPlcOperation,
-        headers: $headers,
-        body: {
-          'operation': operation,
-          ...?$unknown,
-        },
         client: $client,
       );
 }

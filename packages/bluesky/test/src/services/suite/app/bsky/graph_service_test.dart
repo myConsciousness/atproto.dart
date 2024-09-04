@@ -3,15 +3,13 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
+import 'package:bluesky/com_atproto_repo_create_record.dart';
 import 'package:bluesky/ids.dart';
 import 'package:bluesky/src/services/extensions/list_record_helper.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/graph/block/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/defs/known_list_purpose.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/graph/follow/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_blocks/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_followers/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_follows/output.dart';
@@ -22,19 +20,11 @@ import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_lists/output.d
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_mutes/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_relationships/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_suggested_follows_by_actor/output.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/graph/list/record.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/graph/listitem/record.dart';
 import 'service_suite.dart';
 
 void main() {
-  testGraph<StrongRef>(
+  testGraph<CreateRecordOutput>(
     (m, s) => s.follow.create(subject: m.did),
-    bulk: (m, s) => s.follow.createInBulk([
-      FollowRecord(
-        subject: m.did,
-        createdAt: m.createdAt,
-      )
-    ]),
     id: appBskyGraphFollow,
   );
 
@@ -68,39 +58,26 @@ void main() {
     id: appBskyGraphGetBlocks,
   );
 
-  testGraph<StrongRef>(
+  testGraph<CreateRecordOutput>(
     (m, s) => s.block.create(subject: m.did),
-    bulk: (m, s) => s.block.createInBulk([
-      BlockRecord(
-        subject: m.did,
-        createdAt: m.createdAt,
-      )
-    ]),
     id: appBskyGraphBlock,
   );
 
-  testGraph<StrongRef>(
+  testGraph<CreateRecordOutput>(
     (m, s) => s.list.create(
       purpose: KnownListPurpose.curatelist.toUnion(),
       name: m.name,
     ),
-    bulk: (m, s) => s.list.createInBulk([
-      ListRecord(
-        purpose: KnownListPurpose.modlist.toUnion(),
-        name: m.name,
-        createdAt: m.createdAt,
-      )
-    ]),
     id: appBskyGraphList,
   );
 
-  testGraph<StrongRef>(
+  testGraph<CreateRecordOutput>(
     (m, s) => s.list.createMod(name: m.name),
     id: appBskyGraphList,
     label: 'Moderation',
   );
 
-  testGraph<StrongRef>(
+  testGraph<CreateRecordOutput>(
     (m, s) => s.list.createCurate(name: m.name),
     id: appBskyGraphList,
     label: 'Curation',
@@ -121,15 +98,8 @@ void main() {
     id: appBskyGraphGetList,
   );
 
-  testGraph<StrongRef>(
+  testGraph<CreateRecordOutput>(
     (m, s) => s.listitem.create(subject: m.did, list: m.uri),
-    bulk: (m, s) => s.listitem.createInBulk([
-      ListitemRecord(
-        subject: m.did,
-        list: m.uri,
-        createdAt: m.createdAt,
-      )
-    ]),
     id: appBskyGraphListitem,
   );
 
@@ -153,7 +123,7 @@ void main() {
     id: appBskyGraphGetSuggestedFollowsByActor,
   );
 
-  testGraph<StrongRef>(
+  testGraph<CreateRecordOutput>(
     (m, s) => s.listblock.create(subject: m.uri),
     id: appBskyGraphListblock,
   );

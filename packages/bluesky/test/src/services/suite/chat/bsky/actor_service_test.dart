@@ -3,16 +3,16 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import 'package:bluesky/com_atproto_repo_create_record.dart';
 import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/gen_types/chat/bsky/actor/declaration/known_declaration_allow_incoming.dart';
 import 'service_suite.dart';
 
 void main() {
-  testActor<StrongRef>(
+  testActor<CreateRecordOutput>(
     (m, s) => s.declaration.create(
       allowIncoming: KnownDeclarationAllowIncoming.following.toUnion(),
     ),

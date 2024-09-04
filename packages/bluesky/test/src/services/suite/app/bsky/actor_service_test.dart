@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/com_atproto_repo_strong_ref.dart';
+import 'package:atproto/com_atproto_repo_create_record.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
@@ -45,7 +45,7 @@ void main() {
     id: appBskyActorSearchActorsTypeahead,
   );
 
-  testActor<StrongRef>(
+  testActor<CreateRecordOutput>(
     (m, s) => s.profile.create(),
     id: appBskyActorProfile,
   );

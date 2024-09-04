@@ -79,6 +79,9 @@ final class LexService {
     if (records.isNotEmpty) {
       recordPaths.add('package:atproto/com_atproto_repo_get_record.dart');
       recordPaths.add('package:atproto/com_atproto_repo_list_records.dart');
+      recordPaths.add('package:atproto/com_atproto_repo_create_record.dart');
+      recordPaths.add('package:atproto/com_atproto_repo_put_record.dart');
+      recordPaths.add('package:atproto/com_atproto_repo_delete_record.dart');
     }
 
     return {
@@ -470,7 +473,7 @@ final class LexServiceEndpoint {
     // Create
     buffer.writeln();
     buffer.writeln('  /// Creates $name record.');
-    buffer.writeln('  Future<XRPCResponse<${type.name}>> create({');
+    buffer.writeln('  Future<XRPCResponse<CreateRecordOutput>> create({');
     buffer.writeln('    String? rkey,');
     for (final arg in args) {
       buffer.writeln('    ${arg.toString()},');
@@ -503,7 +506,7 @@ final class LexServiceEndpoint {
     // Put
     buffer.writeln();
     buffer.writeln('  /// Updates $name record.');
-    buffer.writeln('  Future<XRPCResponse<${type.name}>> put({');
+    buffer.writeln('  Future<XRPCResponse<PutRecordOutput>> put({');
     if (config?.rkey == null && rkey == null) {
       buffer.writeln('    required String rkey,');
     } else {
@@ -532,7 +535,7 @@ final class LexServiceEndpoint {
     // Delete
     buffer.writeln();
     buffer.writeln('  /// Deletes $name record.');
-    buffer.writeln('  Future<XRPCResponse<EmptyData>> delete({');
+    buffer.writeln('  Future<XRPCResponse<DeleteRecordOutput>> delete({');
     if (rkey == null) {
       buffer.writeln('    required String rkey,');
     }
@@ -568,7 +571,7 @@ final class LexServiceEndpoint {
     // Create
     buffer.writeln('/// Creates $name records in bulk.');
     buffer.writeln(
-        '  Future<XRPCResponse<EmptyData>> createInBulk(final List<${toFirstUpper(name)}Record> records, {');
+        '  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(final List<${toFirstUpper(name)}Record> records, {');
     buffer.writeln('    Map<String, String>? \$unknown,');
     buffer.writeln('    Map<String, String>? \$headers,');
     buffer.writeln('    PostClient? \$client,');
@@ -595,7 +598,7 @@ final class LexServiceEndpoint {
     buffer.writeln();
     buffer.writeln('/// Deletes $name records in bulk.');
     buffer.writeln(
-        '  Future<XRPCResponse<EmptyData>> deleteInBulk(final List<String> rkeys, {');
+        '  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(final List<String> rkeys, {');
     buffer.writeln('    Map<String, String>? \$headers,');
     buffer.writeln('    PostClient? \$client,');
     buffer.writeln('  }) async =>');

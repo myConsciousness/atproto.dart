@@ -6,7 +6,7 @@
 import 'package:atproto/core.dart';
 
 // 🌎 Project imports:
-import '../gen_types/app/bsky/embed/images/aspect_ratio.dart';
+import '../gen_types/app/bsky/embed/defs/aspect_ratio.dart';
 import '../gen_types/app/bsky/embed/images/image.dart';
 import '../gen_types/app/bsky/embed/images/main.dart';
 import '../gen_types/app/bsky/feed/post/union_post_embed.dart';
@@ -15,7 +15,7 @@ extension BlobExtension on Blob {
   /// Returns the [ImagesImage] representation of this blob.
   ImagesImage toImage({
     required String alt,
-    ImagesAspectRatio? aspectRatio,
+    AspectRatio? aspectRatio,
   }) =>
       ImagesImage(
         alt: alt,
@@ -26,7 +26,7 @@ extension BlobExtension on Blob {
   /// Returns the single [UPostEmbed] image representation of this blob.
   UPostEmbed toEmbedImage({
     required String alt,
-    ImagesAspectRatio? aspectRatio,
+    AspectRatio? aspectRatio,
   }) =>
       UPostEmbed.images(
         data: Images(

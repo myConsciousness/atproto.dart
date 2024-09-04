@@ -16,6 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../app/bsky/embed/external/main.dart';
 import '../../../../app/bsky/embed/images/main.dart';
+import '../../../../app/bsky/embed/video/main.dart';
 
 part 'union_record_with_media_media.freezed.dart';
 
@@ -24,6 +25,10 @@ class URecordWithMediaMedia with _$URecordWithMediaMedia {
   const factory URecordWithMediaMedia.images({
     required Images data,
   }) = URecordWithMediaMediaImages;
+
+  const factory URecordWithMediaMedia.video({
+    required Video data,
+  }) = URecordWithMediaMediaVideo;
 
   const factory URecordWithMediaMedia.external({
     required External data,
@@ -46,6 +51,11 @@ final class URecordWithMediaMediaConverter
           data: const ImagesConverter().fromJson(json),
         );
       }
+      if (isVideo(json)) {
+        return URecordWithMediaMedia.video(
+          data: const VideoConverter().fromJson(json),
+        );
+      }
       if (isExternal(json)) {
         return URecordWithMediaMedia.external(
           data: const ExternalConverter().fromJson(json),
@@ -61,6 +71,7 @@ final class URecordWithMediaMediaConverter
   @override
   Map<String, dynamic> toJson(URecordWithMediaMedia object) => object.when(
         images: const ImagesConverter().toJson,
+        video: const VideoConverter().toJson,
         external: const ExternalConverter().toJson,
         unknown: (data) => data,
       );
@@ -76,6 +87,12 @@ extension $URecordWithMediaMediaExtension on URecordWithMediaMedia {
 
   /// Returns true if this data is not [Images], otherwise false.
   bool get isNotImages => !isImages;
+
+  /// Returns true if this data is [Video], otherwise false.
+  bool get isVideo => this is URecordWithMediaMediaVideo;
+
+  /// Returns true if this data is not [Video], otherwise false.
+  bool get isNotVideo => !isVideo;
 
   /// Returns true if this data is [External], otherwise false.
   bool get isExternal => this is URecordWithMediaMediaExternal;
@@ -96,6 +113,14 @@ extension $URecordWithMediaMediaExtension on URecordWithMediaMedia {
 
   /// Returns [Images] if this data is [Images], otherwise null.
   Images? get imagesOrNull => isImages ? images : null;
+
+  /// Returns this data as [Video].
+  ///
+  /// Make sure to check if this object is [Video] with [isVideo].
+  Video get video => this.data as Video;
+
+  /// Returns [Video] if this data is [Video], otherwise null.
+  Video? get videoOrNull => isVideo ? video : null;
 
   /// Returns this data as [External].
   ///

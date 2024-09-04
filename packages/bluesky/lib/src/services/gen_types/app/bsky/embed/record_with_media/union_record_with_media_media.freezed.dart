@@ -20,6 +20,7 @@ mixin _$URecordWithMediaMedia {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
@@ -27,6 +28,7 @@ mixin _$URecordWithMediaMedia {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
@@ -34,6 +36,7 @@ mixin _$URecordWithMediaMedia {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -42,6 +45,7 @@ mixin _$URecordWithMediaMedia {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(URecordWithMediaMediaImages value) images,
+    required TResult Function(URecordWithMediaMediaVideo value) video,
     required TResult Function(URecordWithMediaMediaExternal value) external,
     required TResult Function(URecordWithMediaMediaUnknown value) unknown,
   }) =>
@@ -49,6 +53,7 @@ mixin _$URecordWithMediaMedia {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(URecordWithMediaMediaImages value)? images,
+    TResult? Function(URecordWithMediaMediaVideo value)? video,
     TResult? Function(URecordWithMediaMediaExternal value)? external,
     TResult? Function(URecordWithMediaMediaUnknown value)? unknown,
   }) =>
@@ -56,6 +61,7 @@ mixin _$URecordWithMediaMedia {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(URecordWithMediaMediaImages value)? images,
+    TResult Function(URecordWithMediaMediaVideo value)? video,
     TResult Function(URecordWithMediaMediaExternal value)? external,
     TResult Function(URecordWithMediaMediaUnknown value)? unknown,
     required TResult orElse(),
@@ -161,6 +167,7 @@ class _$URecordWithMediaMediaImagesImpl implements URecordWithMediaMediaImages {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -171,6 +178,7 @@ class _$URecordWithMediaMediaImagesImpl implements URecordWithMediaMediaImages {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -181,6 +189,7 @@ class _$URecordWithMediaMediaImagesImpl implements URecordWithMediaMediaImages {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -195,6 +204,7 @@ class _$URecordWithMediaMediaImagesImpl implements URecordWithMediaMediaImages {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(URecordWithMediaMediaImages value) images,
+    required TResult Function(URecordWithMediaMediaVideo value) video,
     required TResult Function(URecordWithMediaMediaExternal value) external,
     required TResult Function(URecordWithMediaMediaUnknown value) unknown,
   }) {
@@ -205,6 +215,7 @@ class _$URecordWithMediaMediaImagesImpl implements URecordWithMediaMediaImages {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(URecordWithMediaMediaImages value)? images,
+    TResult? Function(URecordWithMediaMediaVideo value)? video,
     TResult? Function(URecordWithMediaMediaExternal value)? external,
     TResult? Function(URecordWithMediaMediaUnknown value)? unknown,
   }) {
@@ -215,6 +226,7 @@ class _$URecordWithMediaMediaImagesImpl implements URecordWithMediaMediaImages {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(URecordWithMediaMediaImages value)? images,
+    TResult Function(URecordWithMediaMediaVideo value)? video,
     TResult Function(URecordWithMediaMediaExternal value)? external,
     TResult Function(URecordWithMediaMediaUnknown value)? unknown,
     required TResult orElse(),
@@ -234,6 +246,167 @@ abstract class URecordWithMediaMediaImages implements URecordWithMediaMedia {
   Images get data;
   @JsonKey(ignore: true)
   _$$URecordWithMediaMediaImagesImplCopyWith<_$URecordWithMediaMediaImagesImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$URecordWithMediaMediaVideoImplCopyWith<$Res> {
+  factory _$$URecordWithMediaMediaVideoImplCopyWith(
+          _$URecordWithMediaMediaVideoImpl value,
+          $Res Function(_$URecordWithMediaMediaVideoImpl) then) =
+      __$$URecordWithMediaMediaVideoImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Video data});
+
+  $VideoCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$URecordWithMediaMediaVideoImplCopyWithImpl<$Res>
+    extends _$URecordWithMediaMediaCopyWithImpl<$Res,
+        _$URecordWithMediaMediaVideoImpl>
+    implements _$$URecordWithMediaMediaVideoImplCopyWith<$Res> {
+  __$$URecordWithMediaMediaVideoImplCopyWithImpl(
+      _$URecordWithMediaMediaVideoImpl _value,
+      $Res Function(_$URecordWithMediaMediaVideoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$URecordWithMediaMediaVideoImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Video,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $VideoCopyWith<$Res> get data {
+    return $VideoCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$URecordWithMediaMediaVideoImpl implements URecordWithMediaMediaVideo {
+  const _$URecordWithMediaMediaVideoImpl({required this.data});
+
+  @override
+  final Video data;
+
+  @override
+  String toString() {
+    return 'URecordWithMediaMedia.video(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$URecordWithMediaMediaVideoImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$URecordWithMediaMediaVideoImplCopyWith<_$URecordWithMediaMediaVideoImpl>
+      get copyWith => __$$URecordWithMediaMediaVideoImplCopyWithImpl<
+          _$URecordWithMediaMediaVideoImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
+    required TResult Function(External data) external,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return video(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
+    TResult? Function(External data)? external,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return video?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
+    TResult Function(External data)? external,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (video != null) {
+      return video(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(URecordWithMediaMediaImages value) images,
+    required TResult Function(URecordWithMediaMediaVideo value) video,
+    required TResult Function(URecordWithMediaMediaExternal value) external,
+    required TResult Function(URecordWithMediaMediaUnknown value) unknown,
+  }) {
+    return video(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(URecordWithMediaMediaImages value)? images,
+    TResult? Function(URecordWithMediaMediaVideo value)? video,
+    TResult? Function(URecordWithMediaMediaExternal value)? external,
+    TResult? Function(URecordWithMediaMediaUnknown value)? unknown,
+  }) {
+    return video?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(URecordWithMediaMediaImages value)? images,
+    TResult Function(URecordWithMediaMediaVideo value)? video,
+    TResult Function(URecordWithMediaMediaExternal value)? external,
+    TResult Function(URecordWithMediaMediaUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (video != null) {
+      return video(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class URecordWithMediaMediaVideo implements URecordWithMediaMedia {
+  const factory URecordWithMediaMediaVideo({required final Video data}) =
+      _$URecordWithMediaMediaVideoImpl;
+
+  @override
+  Video get data;
+  @JsonKey(ignore: true)
+  _$$URecordWithMediaMediaVideoImplCopyWith<_$URecordWithMediaMediaVideoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -318,6 +491,7 @@ class _$URecordWithMediaMediaExternalImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -328,6 +502,7 @@ class _$URecordWithMediaMediaExternalImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -338,6 +513,7 @@ class _$URecordWithMediaMediaExternalImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -352,6 +528,7 @@ class _$URecordWithMediaMediaExternalImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(URecordWithMediaMediaImages value) images,
+    required TResult Function(URecordWithMediaMediaVideo value) video,
     required TResult Function(URecordWithMediaMediaExternal value) external,
     required TResult Function(URecordWithMediaMediaUnknown value) unknown,
   }) {
@@ -362,6 +539,7 @@ class _$URecordWithMediaMediaExternalImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(URecordWithMediaMediaImages value)? images,
+    TResult? Function(URecordWithMediaMediaVideo value)? video,
     TResult? Function(URecordWithMediaMediaExternal value)? external,
     TResult? Function(URecordWithMediaMediaUnknown value)? unknown,
   }) {
@@ -372,6 +550,7 @@ class _$URecordWithMediaMediaExternalImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(URecordWithMediaMediaImages value)? images,
+    TResult Function(URecordWithMediaMediaVideo value)? video,
     TResult Function(URecordWithMediaMediaExternal value)? external,
     TResult Function(URecordWithMediaMediaUnknown value)? unknown,
     required TResult orElse(),
@@ -474,6 +653,7 @@ class _$URecordWithMediaMediaUnknownImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -484,6 +664,7 @@ class _$URecordWithMediaMediaUnknownImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -494,6 +675,7 @@ class _$URecordWithMediaMediaUnknownImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -508,6 +690,7 @@ class _$URecordWithMediaMediaUnknownImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(URecordWithMediaMediaImages value) images,
+    required TResult Function(URecordWithMediaMediaVideo value) video,
     required TResult Function(URecordWithMediaMediaExternal value) external,
     required TResult Function(URecordWithMediaMediaUnknown value) unknown,
   }) {
@@ -518,6 +701,7 @@ class _$URecordWithMediaMediaUnknownImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(URecordWithMediaMediaImages value)? images,
+    TResult? Function(URecordWithMediaMediaVideo value)? video,
     TResult? Function(URecordWithMediaMediaExternal value)? external,
     TResult? Function(URecordWithMediaMediaUnknown value)? unknown,
   }) {
@@ -528,6 +712,7 @@ class _$URecordWithMediaMediaUnknownImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(URecordWithMediaMediaImages value)? images,
+    TResult Function(URecordWithMediaMediaVideo value)? video,
     TResult Function(URecordWithMediaMediaExternal value)? external,
     TResult Function(URecordWithMediaMediaUnknown value)? unknown,
     required TResult orElse(),

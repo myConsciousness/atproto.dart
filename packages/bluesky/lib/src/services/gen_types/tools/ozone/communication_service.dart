@@ -25,21 +25,6 @@ final class CommunicationService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Get list of all communication templates.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/listTemplates
-  Future<XRPCResponse<ListTemplatesOutput>> listTemplates({
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ListTemplatesOutput>(
-        ns.toolsOzoneCommunicationListTemplates,
-        headers: $headers,
-        to: const ListTemplatesOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Administrative action to create a new, re-usable communication
   /// (email for now) template.
   ///
@@ -64,25 +49,6 @@ final class CommunicationService {
           ...?$unknown,
         },
         to: const TemplateViewConverter().fromJson,
-        client: $client,
-      );
-
-  /// Delete a communication template.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/deleteTemplate
-  Future<XRPCResponse<EmptyData>> deleteTemplate({
-    required String id,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.toolsOzoneCommunicationDeleteTemplate,
-        headers: $headers,
-        body: {
-          'id': id,
-          ...?$unknown,
-        },
         client: $client,
       );
 
@@ -115,6 +81,40 @@ final class CommunicationService {
           ...?$unknown,
         },
         to: const TemplateViewConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get list of all communication templates.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/listTemplates
+  Future<XRPCResponse<ListTemplatesOutput>> listTemplates({
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ListTemplatesOutput>(
+        ns.toolsOzoneCommunicationListTemplates,
+        headers: $headers,
+        to: const ListTemplatesOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Delete a communication template.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/deleteTemplate
+  Future<XRPCResponse<EmptyData>> deleteTemplate({
+    required String id,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.toolsOzoneCommunicationDeleteTemplate,
+        headers: $headers,
+        body: {
+          'id': id,
+          ...?$unknown,
+        },
         client: $client,
       );
 }

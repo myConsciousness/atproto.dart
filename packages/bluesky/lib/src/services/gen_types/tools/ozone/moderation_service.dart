@@ -32,29 +32,45 @@ final class ModerationService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Find repositories based on a search term.
+  /// Get details about a repository.
   ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/searchRepos
-  Future<XRPCResponse<SearchReposOutput>> searchRepos({
-    String? term,
-    String? q,
-    int? limit,
-    String? cursor,
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getRepo
+  Future<XRPCResponse<RepoViewDetail>> getRepo({
+    required String did,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<SearchReposOutput>(
-        ns.toolsOzoneModerationSearchRepos,
+      await _ctx.get<RepoViewDetail>(
+        ns.toolsOzoneModerationGetRepo,
         headers: $headers,
         parameters: {
-          if (term != null) 'term': term,
-          if (q != null) 'q': q,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
+          'did': did,
           ...?$unknown,
         },
-        to: const SearchReposOutputConverter().fromJson,
+        to: const RepoViewDetailConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get details about a record.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getRecord
+  Future<XRPCResponse<RecordViewDetail>> getRecord({
+    required AtUri uri,
+    String? cid,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<RecordViewDetail>(
+        ns.toolsOzoneModerationGetRecord,
+        headers: $headers,
+        parameters: {
+          'uri': uri.toString(),
+          if (cid != null) 'cid': cid,
+          ...?$unknown,
+        },
+        to: const RecordViewDetailConverter().fromJson,
         client: $client,
       );
 
@@ -106,72 +122,6 @@ final class ModerationService {
           ...?$unknown,
         },
         to: const QueryEventsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get details about a moderation event.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getEvent
-  Future<XRPCResponse<ModEventViewDetail>> getEvent({
-    required int id,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ModEventViewDetail>(
-        ns.toolsOzoneModerationGetEvent,
-        headers: $headers,
-        parameters: {
-          'id': id.toString(),
-          ...?$unknown,
-        },
-        to: const ModEventViewDetailConverter().fromJson,
-        client: $client,
-      );
-
-  /// Take a moderation action on an actor.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/emitEvent
-  Future<XRPCResponse<ModEventView>> emitEvent({
-    required UEmitEventEvent event,
-    required UEmitEventSubject subject,
-    List<String>? subjectBlobCids,
-    required String createdBy,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<ModEventView>(
-        ns.toolsOzoneModerationEmitEvent,
-        headers: $headers,
-        body: {
-          'event': event.toJson(),
-          'subject': subject.toJson(),
-          if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
-          'createdBy': createdBy,
-          ...?$unknown,
-        },
-        to: const ModEventViewConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get details about a repository.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getRepo
-  Future<XRPCResponse<RepoViewDetail>> getRepo({
-    required String did,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<RepoViewDetail>(
-        ns.toolsOzoneModerationGetRepo,
-        headers: $headers,
-        parameters: {
-          'did': did,
-          ...?$unknown,
-        },
-        to: const RepoViewDetailConverter().fromJson,
         client: $client,
       );
 
@@ -231,25 +181,75 @@ final class ModerationService {
         client: $client,
       );
 
-  /// Get details about a record.
+  /// Find repositories based on a search term.
   ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getRecord
-  Future<XRPCResponse<RecordViewDetail>> getRecord({
-    required AtUri uri,
-    String? cid,
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/searchRepos
+  Future<XRPCResponse<SearchReposOutput>> searchRepos({
+    String? term,
+    String? q,
+    int? limit,
+    String? cursor,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<RecordViewDetail>(
-        ns.toolsOzoneModerationGetRecord,
+      await _ctx.get<SearchReposOutput>(
+        ns.toolsOzoneModerationSearchRepos,
         headers: $headers,
         parameters: {
-          'uri': uri.toString(),
-          if (cid != null) 'cid': cid,
+          if (term != null) 'term': term,
+          if (q != null) 'q': q,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
-        to: const RecordViewDetailConverter().fromJson,
+        to: const SearchReposOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get details about a moderation event.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/getEvent
+  Future<XRPCResponse<ModEventViewDetail>> getEvent({
+    required int id,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ModEventViewDetail>(
+        ns.toolsOzoneModerationGetEvent,
+        headers: $headers,
+        parameters: {
+          'id': id.toString(),
+          ...?$unknown,
+        },
+        to: const ModEventViewDetailConverter().fromJson,
+        client: $client,
+      );
+
+  /// Take a moderation action on an actor.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/moderation/emitEvent
+  Future<XRPCResponse<ModEventView>> emitEvent({
+    required UEmitEventEvent event,
+    required UEmitEventSubject subject,
+    List<String>? subjectBlobCids,
+    required String createdBy,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<ModEventView>(
+        ns.toolsOzoneModerationEmitEvent,
+        headers: $headers,
+        body: {
+          'event': event.toJson(),
+          'subject': subject.toJson(),
+          if (subjectBlobCids != null) 'subjectBlobCids': subjectBlobCids,
+          'createdBy': createdBy,
+          ...?$unknown,
+        },
+        to: const ModEventViewConverter().fromJson,
         client: $client,
       );
 }

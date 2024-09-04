@@ -25,6 +25,30 @@ final class ModerationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getMessageContext
+  Future<XRPCResponse<GetMessageContextOutput>> getMessageContext({
+    String? convoId,
+    required String messageId,
+    int? before,
+    int? after,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetMessageContextOutput>(
+        ns.chatBskyModerationGetMessageContext,
+        headers: $headers,
+        parameters: {
+          if (convoId != null) 'convoId': convoId,
+          'messageId': messageId,
+          if (before != null) 'before': before.toString(),
+          if (after != null) 'after': after.toString(),
+          ...?$unknown,
+        },
+        to: const GetMessageContextOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/updateActorAccess
   Future<XRPCResponse<EmptyData>> updateActorAccess({
     required String actor,
@@ -61,30 +85,6 @@ final class ModerationService {
           ...?$unknown,
         },
         to: const GetActorMetadataOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getMessageContext
-  Future<XRPCResponse<GetMessageContextOutput>> getMessageContext({
-    String? convoId,
-    required String messageId,
-    int? before,
-    int? after,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetMessageContextOutput>(
-        ns.chatBskyModerationGetMessageContext,
-        headers: $headers,
-        parameters: {
-          if (convoId != null) 'convoId': convoId,
-          'messageId': messageId,
-          if (before != null) 'before': before.toString(),
-          if (after != null) 'after': after.toString(),
-          ...?$unknown,
-        },
-        to: const GetMessageContextOutputConverter().fromJson,
         client: $client,
       );
 }

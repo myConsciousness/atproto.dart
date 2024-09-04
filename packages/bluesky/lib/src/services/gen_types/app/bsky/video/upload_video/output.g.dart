@@ -2,22 +2,22 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'aspect_ratio.dart';
+part of 'output.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ImagesAspectRatioImpl _$$ImagesAspectRatioImplFromJson(Map json) =>
+_$UploadVideoOutputImpl _$$UploadVideoOutputImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ImagesAspectRatioImpl',
+      r'_$UploadVideoOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ImagesAspectRatioImpl(
-          $type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyEmbedImagesAspectRatio),
-          width: $checkedConvert('width', (v) => (v as num).toInt()),
-          height: $checkedConvert('height', (v) => (v as num).toInt()),
+        final val = _$UploadVideoOutputImpl(
+          jobStatus: $checkedConvert(
+              'jobStatus',
+              (v) => const JobStatusConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -28,12 +28,10 @@ _$ImagesAspectRatioImpl _$$ImagesAspectRatioImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ImagesAspectRatioImplToJson(
-    _$ImagesAspectRatioImpl instance) {
+Map<String, dynamic> _$$UploadVideoOutputImplToJson(
+    _$UploadVideoOutputImpl instance) {
   final val = <String, dynamic>{
-    r'$type': instance.$type,
-    'width': instance.width,
-    'height': instance.height,
+    'jobStatus': const JobStatusConverter().toJson(instance.jobStatus),
   };
 
   void writeNotNull(String key, dynamic value) {

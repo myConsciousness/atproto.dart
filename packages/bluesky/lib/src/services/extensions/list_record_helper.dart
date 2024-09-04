@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/com_atproto_repo_strong_ref.dart';
+import 'package:atproto/com_atproto_repo_create_record.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
@@ -13,7 +13,7 @@ import '../gen_types/app/bsky/graph_service.dart';
 import '../gen_types/app/bsky/richtext/facet/main.dart';
 
 extension ListRecordHelperExtension on ListRecordHelper {
-  Future<XRPCResponse<StrongRef>> createMod({
+  Future<XRPCResponse<CreateRecordOutput>> createMod({
     required String name,
     String? description,
     List<Facet>? descriptionFacets,
@@ -32,7 +32,7 @@ extension ListRecordHelperExtension on ListRecordHelper {
         createdAt: createdAt,
       );
 
-  Future<XRPCResponse<StrongRef>> createCurate({
+  Future<XRPCResponse<CreateRecordOutput>> createCurate({
     required String name,
     String? description,
     List<Facet>? descriptionFacets,

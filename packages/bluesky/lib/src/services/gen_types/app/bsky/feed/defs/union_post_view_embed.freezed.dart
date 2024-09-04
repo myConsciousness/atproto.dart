@@ -20,6 +20,7 @@ mixin _$UPostViewEmbed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ImagesView data) imagesView,
+    required TResult Function(VideoView data) videoView,
     required TResult Function(ExternalView data) externalView,
     required TResult Function(RecordView data) recordView,
     required TResult Function(RecordWithMediaView data) recordWithMediaView,
@@ -29,6 +30,7 @@ mixin _$UPostViewEmbed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ImagesView data)? imagesView,
+    TResult? Function(VideoView data)? videoView,
     TResult? Function(ExternalView data)? externalView,
     TResult? Function(RecordView data)? recordView,
     TResult? Function(RecordWithMediaView data)? recordWithMediaView,
@@ -38,6 +40,7 @@ mixin _$UPostViewEmbed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ImagesView data)? imagesView,
+    TResult Function(VideoView data)? videoView,
     TResult Function(ExternalView data)? externalView,
     TResult Function(RecordView data)? recordView,
     TResult Function(RecordWithMediaView data)? recordWithMediaView,
@@ -48,6 +51,7 @@ mixin _$UPostViewEmbed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedVideoView value) videoView,
     required TResult Function(UPostViewEmbedExternalView value) externalView,
     required TResult Function(UPostViewEmbedRecordView value) recordView,
     required TResult Function(UPostViewEmbedRecordWithMediaView value)
@@ -58,6 +62,7 @@ mixin _$UPostViewEmbed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedVideoView value)? videoView,
     TResult? Function(UPostViewEmbedExternalView value)? externalView,
     TResult? Function(UPostViewEmbedRecordView value)? recordView,
     TResult? Function(UPostViewEmbedRecordWithMediaView value)?
@@ -68,6 +73,7 @@ mixin _$UPostViewEmbed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedVideoView value)? videoView,
     TResult Function(UPostViewEmbedExternalView value)? externalView,
     TResult Function(UPostViewEmbedRecordView value)? recordView,
     TResult Function(UPostViewEmbedRecordWithMediaView value)?
@@ -174,6 +180,7 @@ class _$UPostViewEmbedImagesViewImpl implements UPostViewEmbedImagesView {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ImagesView data) imagesView,
+    required TResult Function(VideoView data) videoView,
     required TResult Function(ExternalView data) externalView,
     required TResult Function(RecordView data) recordView,
     required TResult Function(RecordWithMediaView data) recordWithMediaView,
@@ -186,6 +193,7 @@ class _$UPostViewEmbedImagesViewImpl implements UPostViewEmbedImagesView {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ImagesView data)? imagesView,
+    TResult? Function(VideoView data)? videoView,
     TResult? Function(ExternalView data)? externalView,
     TResult? Function(RecordView data)? recordView,
     TResult? Function(RecordWithMediaView data)? recordWithMediaView,
@@ -198,6 +206,7 @@ class _$UPostViewEmbedImagesViewImpl implements UPostViewEmbedImagesView {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ImagesView data)? imagesView,
+    TResult Function(VideoView data)? videoView,
     TResult Function(ExternalView data)? externalView,
     TResult Function(RecordView data)? recordView,
     TResult Function(RecordWithMediaView data)? recordWithMediaView,
@@ -214,6 +223,7 @@ class _$UPostViewEmbedImagesViewImpl implements UPostViewEmbedImagesView {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedVideoView value) videoView,
     required TResult Function(UPostViewEmbedExternalView value) externalView,
     required TResult Function(UPostViewEmbedRecordView value) recordView,
     required TResult Function(UPostViewEmbedRecordWithMediaView value)
@@ -227,6 +237,7 @@ class _$UPostViewEmbedImagesViewImpl implements UPostViewEmbedImagesView {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedVideoView value)? videoView,
     TResult? Function(UPostViewEmbedExternalView value)? externalView,
     TResult? Function(UPostViewEmbedRecordView value)? recordView,
     TResult? Function(UPostViewEmbedRecordWithMediaView value)?
@@ -240,6 +251,7 @@ class _$UPostViewEmbedImagesViewImpl implements UPostViewEmbedImagesView {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedVideoView value)? videoView,
     TResult Function(UPostViewEmbedExternalView value)? externalView,
     TResult Function(UPostViewEmbedRecordView value)? recordView,
     TResult Function(UPostViewEmbedRecordWithMediaView value)?
@@ -262,6 +274,181 @@ abstract class UPostViewEmbedImagesView implements UPostViewEmbed {
   ImagesView get data;
   @JsonKey(ignore: true)
   _$$UPostViewEmbedImagesViewImplCopyWith<_$UPostViewEmbedImagesViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPostViewEmbedVideoViewImplCopyWith<$Res> {
+  factory _$$UPostViewEmbedVideoViewImplCopyWith(
+          _$UPostViewEmbedVideoViewImpl value,
+          $Res Function(_$UPostViewEmbedVideoViewImpl) then) =
+      __$$UPostViewEmbedVideoViewImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({VideoView data});
+
+  $VideoViewCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPostViewEmbedVideoViewImplCopyWithImpl<$Res>
+    extends _$UPostViewEmbedCopyWithImpl<$Res, _$UPostViewEmbedVideoViewImpl>
+    implements _$$UPostViewEmbedVideoViewImplCopyWith<$Res> {
+  __$$UPostViewEmbedVideoViewImplCopyWithImpl(
+      _$UPostViewEmbedVideoViewImpl _value,
+      $Res Function(_$UPostViewEmbedVideoViewImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPostViewEmbedVideoViewImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as VideoView,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $VideoViewCopyWith<$Res> get data {
+    return $VideoViewCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPostViewEmbedVideoViewImpl implements UPostViewEmbedVideoView {
+  const _$UPostViewEmbedVideoViewImpl({required this.data});
+
+  @override
+  final VideoView data;
+
+  @override
+  String toString() {
+    return 'UPostViewEmbed.videoView(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPostViewEmbedVideoViewImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPostViewEmbedVideoViewImplCopyWith<_$UPostViewEmbedVideoViewImpl>
+      get copyWith => __$$UPostViewEmbedVideoViewImplCopyWithImpl<
+          _$UPostViewEmbedVideoViewImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ImagesView data) imagesView,
+    required TResult Function(VideoView data) videoView,
+    required TResult Function(ExternalView data) externalView,
+    required TResult Function(RecordView data) recordView,
+    required TResult Function(RecordWithMediaView data) recordWithMediaView,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return videoView(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ImagesView data)? imagesView,
+    TResult? Function(VideoView data)? videoView,
+    TResult? Function(ExternalView data)? externalView,
+    TResult? Function(RecordView data)? recordView,
+    TResult? Function(RecordWithMediaView data)? recordWithMediaView,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return videoView?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ImagesView data)? imagesView,
+    TResult Function(VideoView data)? videoView,
+    TResult Function(ExternalView data)? externalView,
+    TResult Function(RecordView data)? recordView,
+    TResult Function(RecordWithMediaView data)? recordWithMediaView,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (videoView != null) {
+      return videoView(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedVideoView value) videoView,
+    required TResult Function(UPostViewEmbedExternalView value) externalView,
+    required TResult Function(UPostViewEmbedRecordView value) recordView,
+    required TResult Function(UPostViewEmbedRecordWithMediaView value)
+        recordWithMediaView,
+    required TResult Function(UPostViewEmbedUnknown value) unknown,
+  }) {
+    return videoView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedVideoView value)? videoView,
+    TResult? Function(UPostViewEmbedExternalView value)? externalView,
+    TResult? Function(UPostViewEmbedRecordView value)? recordView,
+    TResult? Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult? Function(UPostViewEmbedUnknown value)? unknown,
+  }) {
+    return videoView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedVideoView value)? videoView,
+    TResult Function(UPostViewEmbedExternalView value)? externalView,
+    TResult Function(UPostViewEmbedRecordView value)? recordView,
+    TResult Function(UPostViewEmbedRecordWithMediaView value)?
+        recordWithMediaView,
+    TResult Function(UPostViewEmbedUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (videoView != null) {
+      return videoView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPostViewEmbedVideoView implements UPostViewEmbed {
+  const factory UPostViewEmbedVideoView({required final VideoView data}) =
+      _$UPostViewEmbedVideoViewImpl;
+
+  @override
+  VideoView get data;
+  @JsonKey(ignore: true)
+  _$$UPostViewEmbedVideoViewImplCopyWith<_$UPostViewEmbedVideoViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -343,6 +530,7 @@ class _$UPostViewEmbedExternalViewImpl implements UPostViewEmbedExternalView {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ImagesView data) imagesView,
+    required TResult Function(VideoView data) videoView,
     required TResult Function(ExternalView data) externalView,
     required TResult Function(RecordView data) recordView,
     required TResult Function(RecordWithMediaView data) recordWithMediaView,
@@ -355,6 +543,7 @@ class _$UPostViewEmbedExternalViewImpl implements UPostViewEmbedExternalView {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ImagesView data)? imagesView,
+    TResult? Function(VideoView data)? videoView,
     TResult? Function(ExternalView data)? externalView,
     TResult? Function(RecordView data)? recordView,
     TResult? Function(RecordWithMediaView data)? recordWithMediaView,
@@ -367,6 +556,7 @@ class _$UPostViewEmbedExternalViewImpl implements UPostViewEmbedExternalView {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ImagesView data)? imagesView,
+    TResult Function(VideoView data)? videoView,
     TResult Function(ExternalView data)? externalView,
     TResult Function(RecordView data)? recordView,
     TResult Function(RecordWithMediaView data)? recordWithMediaView,
@@ -383,6 +573,7 @@ class _$UPostViewEmbedExternalViewImpl implements UPostViewEmbedExternalView {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedVideoView value) videoView,
     required TResult Function(UPostViewEmbedExternalView value) externalView,
     required TResult Function(UPostViewEmbedRecordView value) recordView,
     required TResult Function(UPostViewEmbedRecordWithMediaView value)
@@ -396,6 +587,7 @@ class _$UPostViewEmbedExternalViewImpl implements UPostViewEmbedExternalView {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedVideoView value)? videoView,
     TResult? Function(UPostViewEmbedExternalView value)? externalView,
     TResult? Function(UPostViewEmbedRecordView value)? recordView,
     TResult? Function(UPostViewEmbedRecordWithMediaView value)?
@@ -409,6 +601,7 @@ class _$UPostViewEmbedExternalViewImpl implements UPostViewEmbedExternalView {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedVideoView value)? videoView,
     TResult Function(UPostViewEmbedExternalView value)? externalView,
     TResult Function(UPostViewEmbedRecordView value)? recordView,
     TResult Function(UPostViewEmbedRecordWithMediaView value)?
@@ -512,6 +705,7 @@ class _$UPostViewEmbedRecordViewImpl implements UPostViewEmbedRecordView {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ImagesView data) imagesView,
+    required TResult Function(VideoView data) videoView,
     required TResult Function(ExternalView data) externalView,
     required TResult Function(RecordView data) recordView,
     required TResult Function(RecordWithMediaView data) recordWithMediaView,
@@ -524,6 +718,7 @@ class _$UPostViewEmbedRecordViewImpl implements UPostViewEmbedRecordView {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ImagesView data)? imagesView,
+    TResult? Function(VideoView data)? videoView,
     TResult? Function(ExternalView data)? externalView,
     TResult? Function(RecordView data)? recordView,
     TResult? Function(RecordWithMediaView data)? recordWithMediaView,
@@ -536,6 +731,7 @@ class _$UPostViewEmbedRecordViewImpl implements UPostViewEmbedRecordView {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ImagesView data)? imagesView,
+    TResult Function(VideoView data)? videoView,
     TResult Function(ExternalView data)? externalView,
     TResult Function(RecordView data)? recordView,
     TResult Function(RecordWithMediaView data)? recordWithMediaView,
@@ -552,6 +748,7 @@ class _$UPostViewEmbedRecordViewImpl implements UPostViewEmbedRecordView {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedVideoView value) videoView,
     required TResult Function(UPostViewEmbedExternalView value) externalView,
     required TResult Function(UPostViewEmbedRecordView value) recordView,
     required TResult Function(UPostViewEmbedRecordWithMediaView value)
@@ -565,6 +762,7 @@ class _$UPostViewEmbedRecordViewImpl implements UPostViewEmbedRecordView {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedVideoView value)? videoView,
     TResult? Function(UPostViewEmbedExternalView value)? externalView,
     TResult? Function(UPostViewEmbedRecordView value)? recordView,
     TResult? Function(UPostViewEmbedRecordWithMediaView value)?
@@ -578,6 +776,7 @@ class _$UPostViewEmbedRecordViewImpl implements UPostViewEmbedRecordView {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedVideoView value)? videoView,
     TResult Function(UPostViewEmbedExternalView value)? externalView,
     TResult Function(UPostViewEmbedRecordView value)? recordView,
     TResult Function(UPostViewEmbedRecordWithMediaView value)?
@@ -684,6 +883,7 @@ class _$UPostViewEmbedRecordWithMediaViewImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ImagesView data) imagesView,
+    required TResult Function(VideoView data) videoView,
     required TResult Function(ExternalView data) externalView,
     required TResult Function(RecordView data) recordView,
     required TResult Function(RecordWithMediaView data) recordWithMediaView,
@@ -696,6 +896,7 @@ class _$UPostViewEmbedRecordWithMediaViewImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ImagesView data)? imagesView,
+    TResult? Function(VideoView data)? videoView,
     TResult? Function(ExternalView data)? externalView,
     TResult? Function(RecordView data)? recordView,
     TResult? Function(RecordWithMediaView data)? recordWithMediaView,
@@ -708,6 +909,7 @@ class _$UPostViewEmbedRecordWithMediaViewImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ImagesView data)? imagesView,
+    TResult Function(VideoView data)? videoView,
     TResult Function(ExternalView data)? externalView,
     TResult Function(RecordView data)? recordView,
     TResult Function(RecordWithMediaView data)? recordWithMediaView,
@@ -724,6 +926,7 @@ class _$UPostViewEmbedRecordWithMediaViewImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedVideoView value) videoView,
     required TResult Function(UPostViewEmbedExternalView value) externalView,
     required TResult Function(UPostViewEmbedRecordView value) recordView,
     required TResult Function(UPostViewEmbedRecordWithMediaView value)
@@ -737,6 +940,7 @@ class _$UPostViewEmbedRecordWithMediaViewImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedVideoView value)? videoView,
     TResult? Function(UPostViewEmbedExternalView value)? externalView,
     TResult? Function(UPostViewEmbedRecordView value)? recordView,
     TResult? Function(UPostViewEmbedRecordWithMediaView value)?
@@ -750,6 +954,7 @@ class _$UPostViewEmbedRecordWithMediaViewImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedVideoView value)? videoView,
     TResult Function(UPostViewEmbedExternalView value)? externalView,
     TResult Function(UPostViewEmbedRecordView value)? recordView,
     TResult Function(UPostViewEmbedRecordWithMediaView value)?
@@ -851,6 +1056,7 @@ class _$UPostViewEmbedUnknownImpl implements UPostViewEmbedUnknown {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ImagesView data) imagesView,
+    required TResult Function(VideoView data) videoView,
     required TResult Function(ExternalView data) externalView,
     required TResult Function(RecordView data) recordView,
     required TResult Function(RecordWithMediaView data) recordWithMediaView,
@@ -863,6 +1069,7 @@ class _$UPostViewEmbedUnknownImpl implements UPostViewEmbedUnknown {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ImagesView data)? imagesView,
+    TResult? Function(VideoView data)? videoView,
     TResult? Function(ExternalView data)? externalView,
     TResult? Function(RecordView data)? recordView,
     TResult? Function(RecordWithMediaView data)? recordWithMediaView,
@@ -875,6 +1082,7 @@ class _$UPostViewEmbedUnknownImpl implements UPostViewEmbedUnknown {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ImagesView data)? imagesView,
+    TResult Function(VideoView data)? videoView,
     TResult Function(ExternalView data)? externalView,
     TResult Function(RecordView data)? recordView,
     TResult Function(RecordWithMediaView data)? recordWithMediaView,
@@ -891,6 +1099,7 @@ class _$UPostViewEmbedUnknownImpl implements UPostViewEmbedUnknown {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostViewEmbedImagesView value) imagesView,
+    required TResult Function(UPostViewEmbedVideoView value) videoView,
     required TResult Function(UPostViewEmbedExternalView value) externalView,
     required TResult Function(UPostViewEmbedRecordView value) recordView,
     required TResult Function(UPostViewEmbedRecordWithMediaView value)
@@ -904,6 +1113,7 @@ class _$UPostViewEmbedUnknownImpl implements UPostViewEmbedUnknown {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult? Function(UPostViewEmbedVideoView value)? videoView,
     TResult? Function(UPostViewEmbedExternalView value)? externalView,
     TResult? Function(UPostViewEmbedRecordView value)? recordView,
     TResult? Function(UPostViewEmbedRecordWithMediaView value)?
@@ -917,6 +1127,7 @@ class _$UPostViewEmbedUnknownImpl implements UPostViewEmbedUnknown {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostViewEmbedImagesView value)? imagesView,
+    TResult Function(UPostViewEmbedVideoView value)? videoView,
     TResult Function(UPostViewEmbedExternalView value)? externalView,
     TResult Function(UPostViewEmbedRecordView value)? recordView,
     TResult Function(UPostViewEmbedRecordWithMediaView value)?

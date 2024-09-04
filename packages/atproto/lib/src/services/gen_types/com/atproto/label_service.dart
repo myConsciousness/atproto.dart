@@ -26,25 +26,6 @@ final class LabelService {
 
   final ATProtoServiceContext _ctx;
 
-  /// Subscribe to stream of labels (and negations). Public endpoint
-  /// implemented by mod services. Uses same sequencing scheme as repo
-  /// event stream.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels
-  Future<XRPCResponse<Subscription<USubscribeLabelsMessage>>> subscribeLabels({
-    int? cursor,
-    Map<String, dynamic>? $unknown,
-  }) async =>
-      await _ctx.stream(
-        ns.comAtprotoLabelSubscribeLabels,
-        parameters: {
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        adaptor: subscribeLabelsAdaptor,
-        to: const USubscribeLabelsMessageConverter().fromJson,
-      );
-
   /// Find labels relevant to the provided AT-URI patterns. Public
   /// endpoint for moderation services, though may return different or
   /// additional results with auth.
@@ -71,5 +52,24 @@ final class LabelService {
         },
         to: const QueryLabelsOutputConverter().fromJson,
         client: $client,
+      );
+
+  /// Subscribe to stream of labels (and negations). Public endpoint
+  /// implemented by mod services. Uses same sequencing scheme as repo
+  /// event stream.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels
+  Future<XRPCResponse<Subscription<USubscribeLabelsMessage>>> subscribeLabels({
+    int? cursor,
+    Map<String, dynamic>? $unknown,
+  }) async =>
+      await _ctx.stream(
+        ns.comAtprotoLabelSubscribeLabels,
+        parameters: {
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        adaptor: subscribeLabelsAdaptor,
+        to: const USubscribeLabelsMessageConverter().fromJson,
       );
 }

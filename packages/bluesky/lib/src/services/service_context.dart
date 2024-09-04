@@ -29,7 +29,7 @@ final class BlueskyServiceContext extends core.ServiceContext {
   /// Authenticated repo.
   String? get repo => session?.did;
 
-  Future<core.XRPCResponse<core.EmptyData>> createRecordInBulk({
+  Future<core.XRPCResponse<ApplyWritesOutput>> createRecordInBulk({
     String? repo,
     required List<Create> writes,
     bool? validate,
@@ -46,7 +46,7 @@ final class BlueskyServiceContext extends core.ServiceContext {
         $client: $client,
       );
 
-  Future<core.XRPCResponse<core.EmptyData>> deleteRecordInBulk({
+  Future<core.XRPCResponse<ApplyWritesOutput>> deleteRecordInBulk({
     String? repo,
     required List<Delete> writes,
     bool? validate,

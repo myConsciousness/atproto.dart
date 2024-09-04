@@ -10,7 +10,7 @@ import '../../../com_atproto_repo_apply_writes.dart';
 import '../gen_types/com/atproto/repo_service.dart';
 
 extension RepoServiceExtension on RepoService {
-  Future<XRPCResponse<EmptyData>> createRecordInBulk({
+  Future<XRPCResponse<ApplyWritesOutput>> createRecordInBulk({
     String? repo,
     required List<Create> writes,
     bool? validate,
@@ -27,7 +27,7 @@ extension RepoServiceExtension on RepoService {
         $client: $client,
       );
 
-  Future<XRPCResponse<EmptyData>> updateRecordInBulk({
+  Future<XRPCResponse<ApplyWritesOutput>> updateRecordInBulk({
     String? repo,
     required List<Update> writes,
     bool? validate,
@@ -44,7 +44,7 @@ extension RepoServiceExtension on RepoService {
         $client: $client,
       );
 
-  Future<XRPCResponse<EmptyData>> deleteRecordInBulk({
+  Future<XRPCResponse<ApplyWritesOutput>> deleteRecordInBulk({
     String? repo,
     required List<Delete> writes,
     bool? validate,

@@ -20,6 +20,7 @@ mixin _$UPostEmbed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Record data) record,
     required TResult Function(RecordWithMedia data) recordWithMedia,
@@ -29,6 +30,7 @@ mixin _$UPostEmbed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Record data)? record,
     TResult? Function(RecordWithMedia data)? recordWithMedia,
@@ -38,6 +40,7 @@ mixin _$UPostEmbed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Record data)? record,
     TResult Function(RecordWithMedia data)? recordWithMedia,
@@ -48,6 +51,7 @@ mixin _$UPostEmbed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostEmbedImages value) images,
+    required TResult Function(UPostEmbedVideo value) video,
     required TResult Function(UPostEmbedExternal value) external,
     required TResult Function(UPostEmbedRecord value) record,
     required TResult Function(UPostEmbedRecordWithMedia value) recordWithMedia,
@@ -57,6 +61,7 @@ mixin _$UPostEmbed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostEmbedImages value)? images,
+    TResult? Function(UPostEmbedVideo value)? video,
     TResult? Function(UPostEmbedExternal value)? external,
     TResult? Function(UPostEmbedRecord value)? record,
     TResult? Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -66,6 +71,7 @@ mixin _$UPostEmbed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostEmbedImages value)? images,
+    TResult Function(UPostEmbedVideo value)? video,
     TResult Function(UPostEmbedExternal value)? external,
     TResult Function(UPostEmbedRecord value)? record,
     TResult Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -169,6 +175,7 @@ class _$UPostEmbedImagesImpl implements UPostEmbedImages {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Record data) record,
     required TResult Function(RecordWithMedia data) recordWithMedia,
@@ -181,6 +188,7 @@ class _$UPostEmbedImagesImpl implements UPostEmbedImages {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Record data)? record,
     TResult? Function(RecordWithMedia data)? recordWithMedia,
@@ -193,6 +201,7 @@ class _$UPostEmbedImagesImpl implements UPostEmbedImages {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Record data)? record,
     TResult Function(RecordWithMedia data)? recordWithMedia,
@@ -209,6 +218,7 @@ class _$UPostEmbedImagesImpl implements UPostEmbedImages {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostEmbedImages value) images,
+    required TResult Function(UPostEmbedVideo value) video,
     required TResult Function(UPostEmbedExternal value) external,
     required TResult Function(UPostEmbedRecord value) record,
     required TResult Function(UPostEmbedRecordWithMedia value) recordWithMedia,
@@ -221,6 +231,7 @@ class _$UPostEmbedImagesImpl implements UPostEmbedImages {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostEmbedImages value)? images,
+    TResult? Function(UPostEmbedVideo value)? video,
     TResult? Function(UPostEmbedExternal value)? external,
     TResult? Function(UPostEmbedRecord value)? record,
     TResult? Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -233,6 +244,7 @@ class _$UPostEmbedImagesImpl implements UPostEmbedImages {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostEmbedImages value)? images,
+    TResult Function(UPostEmbedVideo value)? video,
     TResult Function(UPostEmbedExternal value)? external,
     TResult Function(UPostEmbedRecord value)? record,
     TResult Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -254,6 +266,176 @@ abstract class UPostEmbedImages implements UPostEmbed {
   Images get data;
   @JsonKey(ignore: true)
   _$$UPostEmbedImagesImplCopyWith<_$UPostEmbedImagesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPostEmbedVideoImplCopyWith<$Res> {
+  factory _$$UPostEmbedVideoImplCopyWith(_$UPostEmbedVideoImpl value,
+          $Res Function(_$UPostEmbedVideoImpl) then) =
+      __$$UPostEmbedVideoImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Video data});
+
+  $VideoCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPostEmbedVideoImplCopyWithImpl<$Res>
+    extends _$UPostEmbedCopyWithImpl<$Res, _$UPostEmbedVideoImpl>
+    implements _$$UPostEmbedVideoImplCopyWith<$Res> {
+  __$$UPostEmbedVideoImplCopyWithImpl(
+      _$UPostEmbedVideoImpl _value, $Res Function(_$UPostEmbedVideoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPostEmbedVideoImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Video,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $VideoCopyWith<$Res> get data {
+    return $VideoCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPostEmbedVideoImpl implements UPostEmbedVideo {
+  const _$UPostEmbedVideoImpl({required this.data});
+
+  @override
+  final Video data;
+
+  @override
+  String toString() {
+    return 'UPostEmbed.video(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPostEmbedVideoImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPostEmbedVideoImplCopyWith<_$UPostEmbedVideoImpl> get copyWith =>
+      __$$UPostEmbedVideoImplCopyWithImpl<_$UPostEmbedVideoImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
+    required TResult Function(External data) external,
+    required TResult Function(Record data) record,
+    required TResult Function(RecordWithMedia data) recordWithMedia,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return video(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
+    TResult? Function(External data)? external,
+    TResult? Function(Record data)? record,
+    TResult? Function(RecordWithMedia data)? recordWithMedia,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return video?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
+    TResult Function(External data)? external,
+    TResult Function(Record data)? record,
+    TResult Function(RecordWithMedia data)? recordWithMedia,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (video != null) {
+      return video(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPostEmbedImages value) images,
+    required TResult Function(UPostEmbedVideo value) video,
+    required TResult Function(UPostEmbedExternal value) external,
+    required TResult Function(UPostEmbedRecord value) record,
+    required TResult Function(UPostEmbedRecordWithMedia value) recordWithMedia,
+    required TResult Function(UPostEmbedUnknown value) unknown,
+  }) {
+    return video(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPostEmbedImages value)? images,
+    TResult? Function(UPostEmbedVideo value)? video,
+    TResult? Function(UPostEmbedExternal value)? external,
+    TResult? Function(UPostEmbedRecord value)? record,
+    TResult? Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
+    TResult? Function(UPostEmbedUnknown value)? unknown,
+  }) {
+    return video?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPostEmbedImages value)? images,
+    TResult Function(UPostEmbedVideo value)? video,
+    TResult Function(UPostEmbedExternal value)? external,
+    TResult Function(UPostEmbedRecord value)? record,
+    TResult Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
+    TResult Function(UPostEmbedUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (video != null) {
+      return video(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPostEmbedVideo implements UPostEmbed {
+  const factory UPostEmbedVideo({required final Video data}) =
+      _$UPostEmbedVideoImpl;
+
+  @override
+  Video get data;
+  @JsonKey(ignore: true)
+  _$$UPostEmbedVideoImplCopyWith<_$UPostEmbedVideoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -333,6 +515,7 @@ class _$UPostEmbedExternalImpl implements UPostEmbedExternal {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Record data) record,
     required TResult Function(RecordWithMedia data) recordWithMedia,
@@ -345,6 +528,7 @@ class _$UPostEmbedExternalImpl implements UPostEmbedExternal {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Record data)? record,
     TResult? Function(RecordWithMedia data)? recordWithMedia,
@@ -357,6 +541,7 @@ class _$UPostEmbedExternalImpl implements UPostEmbedExternal {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Record data)? record,
     TResult Function(RecordWithMedia data)? recordWithMedia,
@@ -373,6 +558,7 @@ class _$UPostEmbedExternalImpl implements UPostEmbedExternal {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostEmbedImages value) images,
+    required TResult Function(UPostEmbedVideo value) video,
     required TResult Function(UPostEmbedExternal value) external,
     required TResult Function(UPostEmbedRecord value) record,
     required TResult Function(UPostEmbedRecordWithMedia value) recordWithMedia,
@@ -385,6 +571,7 @@ class _$UPostEmbedExternalImpl implements UPostEmbedExternal {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostEmbedImages value)? images,
+    TResult? Function(UPostEmbedVideo value)? video,
     TResult? Function(UPostEmbedExternal value)? external,
     TResult? Function(UPostEmbedRecord value)? record,
     TResult? Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -397,6 +584,7 @@ class _$UPostEmbedExternalImpl implements UPostEmbedExternal {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostEmbedImages value)? images,
+    TResult Function(UPostEmbedVideo value)? video,
     TResult Function(UPostEmbedExternal value)? external,
     TResult Function(UPostEmbedRecord value)? record,
     TResult Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -497,6 +685,7 @@ class _$UPostEmbedRecordImpl implements UPostEmbedRecord {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Record data) record,
     required TResult Function(RecordWithMedia data) recordWithMedia,
@@ -509,6 +698,7 @@ class _$UPostEmbedRecordImpl implements UPostEmbedRecord {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Record data)? record,
     TResult? Function(RecordWithMedia data)? recordWithMedia,
@@ -521,6 +711,7 @@ class _$UPostEmbedRecordImpl implements UPostEmbedRecord {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Record data)? record,
     TResult Function(RecordWithMedia data)? recordWithMedia,
@@ -537,6 +728,7 @@ class _$UPostEmbedRecordImpl implements UPostEmbedRecord {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostEmbedImages value) images,
+    required TResult Function(UPostEmbedVideo value) video,
     required TResult Function(UPostEmbedExternal value) external,
     required TResult Function(UPostEmbedRecord value) record,
     required TResult Function(UPostEmbedRecordWithMedia value) recordWithMedia,
@@ -549,6 +741,7 @@ class _$UPostEmbedRecordImpl implements UPostEmbedRecord {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostEmbedImages value)? images,
+    TResult? Function(UPostEmbedVideo value)? video,
     TResult? Function(UPostEmbedExternal value)? external,
     TResult? Function(UPostEmbedRecord value)? record,
     TResult? Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -561,6 +754,7 @@ class _$UPostEmbedRecordImpl implements UPostEmbedRecord {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostEmbedImages value)? images,
+    TResult Function(UPostEmbedVideo value)? video,
     TResult Function(UPostEmbedExternal value)? external,
     TResult Function(UPostEmbedRecord value)? record,
     TResult Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -663,6 +857,7 @@ class _$UPostEmbedRecordWithMediaImpl implements UPostEmbedRecordWithMedia {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Record data) record,
     required TResult Function(RecordWithMedia data) recordWithMedia,
@@ -675,6 +870,7 @@ class _$UPostEmbedRecordWithMediaImpl implements UPostEmbedRecordWithMedia {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Record data)? record,
     TResult? Function(RecordWithMedia data)? recordWithMedia,
@@ -687,6 +883,7 @@ class _$UPostEmbedRecordWithMediaImpl implements UPostEmbedRecordWithMedia {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Record data)? record,
     TResult Function(RecordWithMedia data)? recordWithMedia,
@@ -703,6 +900,7 @@ class _$UPostEmbedRecordWithMediaImpl implements UPostEmbedRecordWithMedia {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostEmbedImages value) images,
+    required TResult Function(UPostEmbedVideo value) video,
     required TResult Function(UPostEmbedExternal value) external,
     required TResult Function(UPostEmbedRecord value) record,
     required TResult Function(UPostEmbedRecordWithMedia value) recordWithMedia,
@@ -715,6 +913,7 @@ class _$UPostEmbedRecordWithMediaImpl implements UPostEmbedRecordWithMedia {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostEmbedImages value)? images,
+    TResult? Function(UPostEmbedVideo value)? video,
     TResult? Function(UPostEmbedExternal value)? external,
     TResult? Function(UPostEmbedRecord value)? record,
     TResult? Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -727,6 +926,7 @@ class _$UPostEmbedRecordWithMediaImpl implements UPostEmbedRecordWithMedia {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostEmbedImages value)? images,
+    TResult Function(UPostEmbedVideo value)? video,
     TResult Function(UPostEmbedExternal value)? external,
     TResult Function(UPostEmbedRecord value)? record,
     TResult Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -824,6 +1024,7 @@ class _$UPostEmbedUnknownImpl implements UPostEmbedUnknown {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Images data) images,
+    required TResult Function(Video data) video,
     required TResult Function(External data) external,
     required TResult Function(Record data) record,
     required TResult Function(RecordWithMedia data) recordWithMedia,
@@ -836,6 +1037,7 @@ class _$UPostEmbedUnknownImpl implements UPostEmbedUnknown {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Images data)? images,
+    TResult? Function(Video data)? video,
     TResult? Function(External data)? external,
     TResult? Function(Record data)? record,
     TResult? Function(RecordWithMedia data)? recordWithMedia,
@@ -848,6 +1050,7 @@ class _$UPostEmbedUnknownImpl implements UPostEmbedUnknown {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Images data)? images,
+    TResult Function(Video data)? video,
     TResult Function(External data)? external,
     TResult Function(Record data)? record,
     TResult Function(RecordWithMedia data)? recordWithMedia,
@@ -864,6 +1067,7 @@ class _$UPostEmbedUnknownImpl implements UPostEmbedUnknown {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UPostEmbedImages value) images,
+    required TResult Function(UPostEmbedVideo value) video,
     required TResult Function(UPostEmbedExternal value) external,
     required TResult Function(UPostEmbedRecord value) record,
     required TResult Function(UPostEmbedRecordWithMedia value) recordWithMedia,
@@ -876,6 +1080,7 @@ class _$UPostEmbedUnknownImpl implements UPostEmbedUnknown {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UPostEmbedImages value)? images,
+    TResult? Function(UPostEmbedVideo value)? video,
     TResult? Function(UPostEmbedExternal value)? external,
     TResult? Function(UPostEmbedRecord value)? record,
     TResult? Function(UPostEmbedRecordWithMedia value)? recordWithMedia,
@@ -888,6 +1093,7 @@ class _$UPostEmbedUnknownImpl implements UPostEmbedUnknown {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UPostEmbedImages value)? images,
+    TResult Function(UPostEmbedVideo value)? video,
     TResult Function(UPostEmbedExternal value)? external,
     TResult Function(UPostEmbedRecord value)? record,
     TResult Function(UPostEmbedRecordWithMedia value)? recordWithMedia,

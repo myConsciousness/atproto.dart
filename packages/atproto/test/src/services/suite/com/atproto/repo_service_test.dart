@@ -13,18 +13,21 @@ import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/extensions/repo_service.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/create.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/delete.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/union_apply_writes_write.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/update.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/repo/create_record/output.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/repo/delete_record/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/describe_repo/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/get_record/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/list_missing_blobs/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/list_records/output.dart';
-import 'package:atproto/src/services/gen_types/com/atproto/repo/strong_ref/main.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/repo/put_record/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/repo/upload_blob/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testRepo<StrongRef>(
+  testRepo<CreateRecordOutput>(
     (m, s) => s.createRecord(collection: m.collection, record: {}),
     id: comAtprotoRepoCreateRecord,
   );
@@ -45,7 +48,7 @@ void main() {
     id: comAtprotoRepoListRecords,
   );
 
-  testRepo<EmptyData>(
+  testRepo<DeleteRecordOutput>(
     (m, s) => s.deleteRecord(
       collection: m.uri.collection,
       rkey: m.uri.rkey,
@@ -53,7 +56,7 @@ void main() {
     id: comAtprotoRepoDeleteRecord,
   );
 
-  testRepo<StrongRef>(
+  testRepo<PutRecordOutput>(
     (m, s) => s.putRecord(
       collection: m.uri.collection,
       rkey: m.uri.rkey,
@@ -76,7 +79,7 @@ void main() {
     id: comAtprotoRepoDescribeRepo,
   );
 
-  testRepo<EmptyData>(
+  testRepo<ApplyWritesOutput>(
     (m, s) => s.applyWrites(writes: [
       UApplyWritesWrite.create(
         data: Create(
@@ -88,7 +91,7 @@ void main() {
     id: comAtprotoRepoApplyWrites,
   );
 
-  testRepo<EmptyData>(
+  testRepo<ApplyWritesOutput>(
     (m, s) => s.createRecordInBulk(writes: [
       Create(
         collection: m.collection,
@@ -99,7 +102,7 @@ void main() {
     label: 'Create',
   );
 
-  testRepo<EmptyData>(
+  testRepo<ApplyWritesOutput>(
     (m, s) => s.updateRecordInBulk(writes: [
       Update(
         collection: m.collection,
@@ -111,7 +114,7 @@ void main() {
     label: 'Update',
   );
 
-  testRepo<EmptyData>(
+  testRepo<ApplyWritesOutput>(
     (m, s) => s.deleteRecordInBulk(writes: [
       Delete(
         collection: m.collection,

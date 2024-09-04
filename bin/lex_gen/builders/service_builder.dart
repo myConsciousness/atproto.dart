@@ -188,7 +188,7 @@ final class ServiceBuilder {
         converter: 'U${toFirstUpper(methodName)}MessageConverter',
       );
     } else if (def is ULexUserTypeRecord) {
-      return _kStrongRefDataType;
+      return DataType();
     }
 
     throw UnsupportedError('Unsupported endpoint: $endpoint');

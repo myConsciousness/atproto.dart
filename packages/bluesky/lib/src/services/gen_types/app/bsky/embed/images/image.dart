@@ -16,7 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/embed/images/aspect_ratio.dart';
+import '../../../../app/bsky/embed/defs/aspect_ratio.dart';
 
 part 'image.freezed.dart';
 part 'image.g.dart';
@@ -34,7 +34,7 @@ class ImagesImage with _$ImagesImage {
 
     /// Alt text description of the image, for accessibility.
     required String alt,
-    @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
+    @AspectRatioConverter() AspectRatio? aspectRatio,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,

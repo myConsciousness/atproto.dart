@@ -27,25 +27,25 @@ final class TeamService {
 
   final BlueskyServiceContext _ctx;
 
-  /// List all members with access to the ozone service.
+  /// Add a member to the ozone team. Requires admin role.
   ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/listMembers
-  Future<XRPCResponse<ListMembersOutput>> listMembers({
-    int? limit,
-    String? cursor,
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/addMember
+  Future<XRPCResponse<Member>> addMember({
+    required String did,
+    required UAddMemberRole role,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
-    GetClient? $client,
+    PostClient? $client,
   }) async =>
-      await _ctx.get<ListMembersOutput>(
-        ns.toolsOzoneTeamListMembers,
+      await _ctx.post<Member>(
+        ns.toolsOzoneTeamAddMember,
         headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
+        body: {
+          'did': did,
+          'role': role.toJson(),
           ...?$unknown,
         },
-        to: const ListMembersOutputConverter().fromJson,
+        to: const MemberConverter().fromJson,
         client: $client,
       );
 
@@ -68,25 +68,25 @@ final class TeamService {
         client: $client,
       );
 
-  /// Add a member to the ozone team. Requires admin role.
+  /// List all members with access to the ozone service.
   ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/addMember
-  Future<XRPCResponse<Member>> addMember({
-    required String did,
-    required UAddMemberRole role,
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/listMembers
+  Future<XRPCResponse<ListMembersOutput>> listMembers({
+    int? limit,
+    String? cursor,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
-    PostClient? $client,
+    GetClient? $client,
   }) async =>
-      await _ctx.post<Member>(
-        ns.toolsOzoneTeamAddMember,
+      await _ctx.get<ListMembersOutput>(
+        ns.toolsOzoneTeamListMembers,
         headers: $headers,
-        body: {
-          'did': did,
-          'role': role.toJson(),
+        parameters: {
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
-        to: const MemberConverter().fromJson,
+        to: const ListMembersOutputConverter().fromJson,
         client: $client,
       );
 

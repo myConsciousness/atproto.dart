@@ -4,9 +4,9 @@
 
 // 📦 Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
-import 'package:atproto/com_atproto_repo_strong_ref.dart';
 
 // 🌎 Project imports:
+import 'package:bluesky/com_atproto_repo_create_record.dart';
 import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/labeler/defs/labeler_policies.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/labeler/get_services/output.dart';
@@ -18,7 +18,7 @@ void main() {
     id: appBskyLabelerGetServices,
   );
 
-  testLabeler<StrongRef>(
+  testLabeler<CreateRecordOutput>(
     (m, s) => s.service.create(
       policies: LabelerPolicies(
         labelValues: [KnownLabelValue.hide.toUnion()],

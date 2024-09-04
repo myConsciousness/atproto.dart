@@ -11,6 +11,13 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/union_apply_writes_write.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/output.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/union_apply_writes_result.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/create.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/update.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/delete.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/create_result.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/known_create_result_validation_status.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/update_result.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/known_update_result_validation_status.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/repo/apply_writes/delete_result.dart';

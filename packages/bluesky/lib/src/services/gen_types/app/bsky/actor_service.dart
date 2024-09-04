@@ -11,8 +11,11 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_repo_create_record.dart';
+import 'package:atproto/com_atproto_repo_delete_record.dart';
 import 'package:atproto/com_atproto_repo_get_record.dart';
 import 'package:atproto/com_atproto_repo_list_records.dart';
+import 'package:atproto/com_atproto_repo_put_record.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
@@ -35,76 +38,6 @@ final class ActorService {
 
   final BlueskyServiceContext _ctx;
 
-  /// A declaration of a Bluesky account profile.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
-  ProfileRecordHelper get profile => ProfileRecordHelper(_ctx);
-
-  /// Get detailed profile views of multiple actors.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
-  Future<XRPCResponse<GetProfilesOutput>> getProfiles({
-    required List<String> actors,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetProfilesOutput>(
-        ns.appBskyActorGetProfiles,
-        headers: $headers,
-        parameters: {
-          'actors': actors,
-          ...?$unknown,
-        },
-        to: const GetProfilesOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Set the private preferences attached to the account.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
-  Future<XRPCResponse<EmptyData>> putPreferences({
-    required List<UPreference> preferences,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyActorPutPreferences,
-        headers: $headers,
-        body: {
-          'preferences': preferences.map((e) => e.toJson()).toList(),
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Find actor suggestions for a prefix search term. Expected use is
-  /// for auto-completion during text field entry. Does not require
-  /// auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
-  Future<XRPCResponse<SearchActorsTypeaheadOutput>> searchActorsTypeahead({
-    String? term,
-    String? q,
-    int? limit,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<SearchActorsTypeaheadOutput>(
-        ns.appBskyActorSearchActorsTypeahead,
-        headers: $headers,
-        parameters: {
-          if (term != null) 'term': term,
-          if (q != null) 'q': q,
-          if (limit != null) 'limit': limit.toString(),
-          ...?$unknown,
-        },
-        to: const SearchActorsTypeaheadOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Get detailed profile view of an actor. Does not require auth, but
   /// contains relevant metadata with auth.
   ///
@@ -123,29 +56,6 @@ final class ActorService {
           ...?$unknown,
         },
         to: const ProfileViewDetailedConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get a list of suggested actors. Expected use is discovery of
-  /// accounts to follow during new account onboarding.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
-  Future<XRPCResponse<GetSuggestionsOutput>> getSuggestions({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetSuggestionsOutput>(
-        ns.appBskyActorGetSuggestions,
-        headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const GetSuggestionsOutputConverter().fromJson,
         client: $client,
       );
 
@@ -176,6 +86,60 @@ final class ActorService {
         client: $client,
       );
 
+  /// A declaration of a Bluesky account profile.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
+  ProfileRecordHelper get profile => ProfileRecordHelper(_ctx);
+
+  /// Find actor suggestions for a prefix search term. Expected use is
+  /// for auto-completion during text field entry. Does not require
+  /// auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
+  Future<XRPCResponse<SearchActorsTypeaheadOutput>> searchActorsTypeahead({
+    String? term,
+    String? q,
+    int? limit,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<SearchActorsTypeaheadOutput>(
+        ns.appBskyActorSearchActorsTypeahead,
+        headers: $headers,
+        parameters: {
+          if (term != null) 'term': term,
+          if (q != null) 'q': q,
+          if (limit != null) 'limit': limit.toString(),
+          ...?$unknown,
+        },
+        to: const SearchActorsTypeaheadOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get a list of suggested actors. Expected use is discovery of
+  /// accounts to follow during new account onboarding.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
+  Future<XRPCResponse<GetSuggestionsOutput>> getSuggestions({
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetSuggestionsOutput>(
+        ns.appBskyActorGetSuggestions,
+        headers: $headers,
+        parameters: {
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const GetSuggestionsOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Get private preferences attached to the current account. Expected
   /// use is synchronization between multiple devices, and
   /// import/export during account migration. Requires auth.
@@ -190,6 +154,45 @@ final class ActorService {
         ns.appBskyActorGetPreferences,
         headers: $headers,
         to: const PreferencesConverter().fromJson,
+        client: $client,
+      );
+
+  /// Set the private preferences attached to the account.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
+  Future<XRPCResponse<EmptyData>> putPreferences({
+    required List<UPreference> preferences,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyActorPutPreferences,
+        headers: $headers,
+        body: {
+          'preferences': preferences.map((e) => e.toJson()).toList(),
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Get detailed profile views of multiple actors.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
+  Future<XRPCResponse<GetProfilesOutput>> getProfiles({
+    required List<String> actors,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetProfilesOutput>(
+        ns.appBskyActorGetProfiles,
+        headers: $headers,
+        parameters: {
+          'actors': actors,
+          ...?$unknown,
+        },
+        to: const GetProfilesOutputConverter().fromJson,
         client: $client,
       );
 }
@@ -240,7 +243,7 @@ final class ProfileRecordHelper {
       );
 
   /// Creates profile record.
-  Future<XRPCResponse<StrongRef>> create({
+  Future<XRPCResponse<CreateRecordOutput>> create({
     String? rkey,
     String? displayName,
     String? description,
@@ -274,7 +277,7 @@ final class ProfileRecordHelper {
       );
 
   /// Updates profile record.
-  Future<XRPCResponse<StrongRef>> put({
+  Future<XRPCResponse<PutRecordOutput>> put({
     String? rkey,
     required ProfileRecord record,
     Map<String, dynamic>? $unknown,
@@ -291,7 +294,7 @@ final class ProfileRecordHelper {
       );
 
   /// Deletes profile record.
-  Future<XRPCResponse<EmptyData>> delete({
+  Future<XRPCResponse<DeleteRecordOutput>> delete({
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
