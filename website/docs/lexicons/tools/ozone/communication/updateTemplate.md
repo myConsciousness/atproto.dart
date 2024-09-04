@@ -17,6 +17,7 @@ Administrative action to update an existing communication template. Allows passi
 | --- | --- | --- | :---: | --- |
 | **id** | string | - | ✅ | ID of the template to be updated. |
 | **name** | string | - | ❌ | Name of the template. |
+| **lang** | string ([language](https://atproto.com/specs/lexicon#language)) | - | ❌ | Message language. |
 | **contentMarkdown** | string | - | ❌ | Content of the template, markdown supported, can contain variable placeholders. |
 | **subject** | string | - | ❌ | Subject of the message, used in emails. |
 | **updatedBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | DID of the user who is updating the template. |
