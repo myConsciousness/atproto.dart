@@ -9669,6 +9669,7 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
                 "tools.ozone.moderation.defs#modEventMuteReporter",
                 "tools.ozone.moderation.defs#modEventUnmuteReporter",
                 "tools.ozone.moderation.defs#modEventReverseTakedown",
+                "tools.ozone.moderation.defs#modEventResolveAppeal",
                 "tools.ozone.moderation.defs#modEventEmail",
                 "tools.ozone.moderation.defs#modEventTag"
               ]
@@ -9920,6 +9921,11 @@ const toolsOzoneCommunicationCreateTemplate = <String, dynamic>{
               "type": "string",
               "description": "Subject of the message, used in emails."
             },
+            "lang": {
+              "type": "string",
+              "format": "language",
+              "description": "Message language."
+            },
             "createdBy": {
               "type": "string",
               "format": "did",
@@ -9934,7 +9940,10 @@ const toolsOzoneCommunicationCreateTemplate = <String, dynamic>{
           "type": "ref",
           "ref": "tools.ozone.communication.defs#templateView"
         }
-      }
+      },
+      "errors": [
+        {"name": "DuplicateTemplateName"}
+      ]
     }
   }
 };
@@ -9959,6 +9968,11 @@ const toolsOzoneCommunicationUpdateTemplate = <String, dynamic>{
               "description": "ID of the template to be updated."
             },
             "name": {"type": "string", "description": "Name of the template."},
+            "lang": {
+              "type": "string",
+              "format": "language",
+              "description": "Message language."
+            },
             "contentMarkdown": {
               "type": "string",
               "description":
@@ -9983,7 +9997,10 @@ const toolsOzoneCommunicationUpdateTemplate = <String, dynamic>{
           "type": "ref",
           "ref": "tools.ozone.communication.defs#templateView"
         }
-      }
+      },
+      "errors": [
+        {"name": "DuplicateTemplateName"}
+      ]
     }
   }
 };
@@ -10067,6 +10084,11 @@ const toolsOzoneCommunicationDefs = <String, dynamic>{
           "description": "Subject of the message, used in emails."
         },
         "disabled": {"type": "boolean"},
+        "lang": {
+          "type": "string",
+          "format": "language",
+          "description": "Message language."
+        },
         "lastUpdatedBy": {
           "type": "string",
           "format": "did",

@@ -18,6 +18,7 @@ Administrative action to create a new, re-usable communication (email for now) t
 | **name** | string | - | ✅ | Name of the template. |
 | **contentMarkdown** | string | - | ✅ | Content of the template, markdown supported, can contain variable placeholders. |
 | **subject** | string | - | ✅ | Subject of the message, used in emails. |
+| **lang** | string ([language](https://atproto.com/specs/lexicon#language)) | - | ❌ | Message language. |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ❌ | DID of the user who is creating the template. |
 
 ### Output
