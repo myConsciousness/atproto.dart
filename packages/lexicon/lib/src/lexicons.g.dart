@@ -8915,7 +8915,16 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
-          "subject": {"type": "string", "format": "uri"},
+          "includeAllUserRecords": {
+            "type": "boolean",
+            "description":
+                "All subjects belonging to the account specified in the 'subject' param will be returned."
+          },
+          "subject": {
+            "type": "string",
+            "format": "uri",
+            "description": "The subject to get the status for."
+          },
           "comment": {
             "type": "string",
             "description": "Search subjects by keyword from comments"
@@ -9292,6 +9301,11 @@ const toolsOzoneModerationDefs = <String, dynamic>{
           "type": "integer",
           "description":
               "Indicates how long the takedown should be in effect before automatically expiring."
+        },
+        "acknowledgeAccountSubjects": {
+          "type": "boolean",
+          "description":
+              "If true, all other reports on content authored by this account will be resolved (acknowledged)."
         }
       }
     },

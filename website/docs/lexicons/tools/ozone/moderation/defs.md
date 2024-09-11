@@ -82,6 +82,7 @@ Take down a subject permanently or temporarily
 | --- | --- | --- | :---: | --- |
 | **comment** | string | - | ❌ | - |
 | **durationInHours** | integer | - | ❌ | Indicates how long the takedown should be in effect before automatically expiring. |
+| **acknowledgeAccountSubjects** | boolean | - | ❌ | If true, all other reports on content authored by this account will be resolved (acknowledged). |
 
 ## #modEventReverseTakedown
 
