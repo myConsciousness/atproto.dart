@@ -216,6 +216,7 @@ A grab bag of state that's specific to the bsky.app program. Third-party apps sh
 | --- | --- | --- | :---: | --- |
 | **activeProgressGuide** | [#bskyAppProgressGuide](#bskyappprogressguide) | - | ❌ | - |
 | **queuedNudges** | array of string | - | ❌ | An array of tokens which identify nudges (modals, popups, tours, highlight dots) that should be shown to the user. |
+| **nuxs** | array of [app.bsky.actor.defs#nux](../../../../lexicons/app/bsky/actor/defs.md#nux) | - | ❌ | Storage for NUXs the user has encountered. |
 
 ## #bskyAppProgressGuide
 
@@ -224,3 +225,14 @@ If set, an active progress guide. Once completed, can be set to undefined. Shoul
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **guide** | string | - | ✅ | - |
+
+## #nux
+
+A new user experiences (NUX) storage object
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **id** | string | - | ✅ | - |
+| **completed** | boolean | - | ✅ | - |
+| **data** | string | - | ❌ | Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters. |
+| **expiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | The date and time at which the NUX will expire and should be considered completed. |
