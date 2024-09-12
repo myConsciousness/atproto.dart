@@ -7837,6 +7837,12 @@ const appBskyActorDefs = <String, dynamic>{
               "An array of tokens which identify nudges (modals, popups, tours, highlight dots) that should be shown to the user.",
           "items": {"type": "string", "maxLength": 100},
           "maxLength": 1000
+        },
+        "nuxs": {
+          "type": "array",
+          "description": "Storage for NUXs the user has encountered.",
+          "items": {"type": "ref", "ref": "app.bsky.actor.defs#nux"},
+          "maxLength": 100
         }
       }
     },
@@ -7847,6 +7853,28 @@ const appBskyActorDefs = <String, dynamic>{
       "required": ["guide"],
       "properties": {
         "guide": {"type": "string", "maxLength": 100}
+      }
+    },
+    "nux": {
+      "type": "object",
+      "description": "A new user experiences (NUX) storage object",
+      "required": ["id", "completed"],
+      "properties": {
+        "id": {"type": "string", "maxLength": 100},
+        "completed": {"type": "boolean", "default": false},
+        "data": {
+          "type": "string",
+          "description":
+              "Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.",
+          "maxLength": 3000,
+          "maxGraphemes": 300
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "The date and time at which the NUX will expire and should be considered completed."
+        }
       }
     }
   }
@@ -8915,7 +8943,16 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
-          "subject": {"type": "string", "format": "uri"},
+          "includeAllUserRecords": {
+            "type": "boolean",
+            "description":
+                "All subjects belonging to the account specified in the 'subject' param will be returned."
+          },
+          "subject": {
+            "type": "string",
+            "format": "uri",
+            "description": "The subject to get the status for."
+          },
           "comment": {
             "type": "string",
             "description": "Search subjects by keyword from comments"
@@ -9292,6 +9329,11 @@ const toolsOzoneModerationDefs = <String, dynamic>{
           "type": "integer",
           "description":
               "Indicates how long the takedown should be in effect before automatically expiring."
+        },
+        "acknowledgeAccountSubjects": {
+          "type": "boolean",
+          "description":
+              "If true, all other reports on content authored by this account will be resolved (acknowledged)."
         }
       }
     },
