@@ -13,7 +13,8 @@ View moderation statuses of subjects (record or repo).
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **subject** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **includeAllUserRecords** | boolean | - | ❌ | All subjects belonging to the account specified in the 'subject' param will be returned. |
+| **subject** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | The subject to get the status for. |
 | **comment** | string | - | ❌ | Search subjects by keyword from comments |
 | **reportedAfter** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects reported after a given timestamp |
 | **reportedBefore** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects reported before a given timestamp |
