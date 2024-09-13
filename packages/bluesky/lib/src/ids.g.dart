@@ -53,6 +53,9 @@ const appBskyActorDefsMutedWordTarget = 'app.bsky.actor.defs#mutedWordTarget';
 /// `app.bsky.actor.defs#mutedWordsPref`
 const appBskyActorDefsMutedWordsPref = 'app.bsky.actor.defs#mutedWordsPref';
 
+/// `app.bsky.actor.defs#nux`
+const appBskyActorDefsNux = 'app.bsky.actor.defs#nux';
+
 /// `app.bsky.actor.defs#personalDetailsPref`
 const appBskyActorDefsPersonalDetailsPref =
     'app.bsky.actor.defs#personalDetailsPref';
