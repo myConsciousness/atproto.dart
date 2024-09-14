@@ -5609,6 +5609,12 @@ const appBskyUnspeccedGetSuggestionsSkeleton = <String, dynamic>{
                 "type": "ref",
                 "ref": "app.bsky.unspecced.defs#skeletonSearchActor"
               }
+            },
+            "relativeToDid": {
+              "type": "string",
+              "format": "did",
+              "description":
+                  "DID of the account these suggestions are relative to. If this is returned undefined, suggestions are based on the viewer."
             }
           }
         }
@@ -6349,6 +6355,12 @@ const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
             "suggestions": {
               "type": "array",
               "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
+            },
+            "isFallback": {
+              "type": "boolean",
+              "description":
+                  "If true, response has fallen-back to generic results, and is not scoped using relativeToDid",
+              "default": false
             }
           }
         }

@@ -26,3 +26,4 @@ Get a skeleton of suggested actors. Intended to be called and then hydrated thro
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
 | **actors** | array of [app.bsky.unspecced.defs#skeletonSearchActor](../../../../lexicons/app/bsky/unspecced/defs.md#skeletonsearchactor) | - | ✅ | - |
+| **relativeToDid** | string ([did](https://atproto.com/specs/did)) | - | ❌ | DID of the account these suggestions are relative to. If this is returned undefined, suggestions are based on the viewer. |
