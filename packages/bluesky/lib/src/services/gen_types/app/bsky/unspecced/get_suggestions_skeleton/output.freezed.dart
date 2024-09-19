@@ -25,6 +25,10 @@ mixin _$GetSuggestionsSkeletonOutput {
   @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors => throw _privateConstructorUsedError;
 
+  /// DID of the account these suggestions are relative to. If this is
+  /// returned undefined, suggestions are based on the viewer.
+  String? get relativeToDid => throw _privateConstructorUsedError;
+
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
   Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
@@ -46,6 +50,7 @@ abstract class $GetSuggestionsSkeletonOutputCopyWith<$Res> {
   $Res call(
       {String? cursor,
       @SkeletonSearchActorConverter() List<SkeletonSearchActor> actors,
+      String? relativeToDid,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -65,6 +70,7 @@ class _$GetSuggestionsSkeletonOutputCopyWithImpl<$Res,
   $Res call({
     Object? cursor = freezed,
     Object? actors = null,
+    Object? relativeToDid = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -76,6 +82,10 @@ class _$GetSuggestionsSkeletonOutputCopyWithImpl<$Res,
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<SkeletonSearchActor>,
+      relativeToDid: freezed == relativeToDid
+          ? _value.relativeToDid
+          : relativeToDid // ignore: cast_nullable_to_non_nullable
+              as String?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -96,6 +106,7 @@ abstract class _$$GetSuggestionsSkeletonOutputImplCopyWith<$Res>
   $Res call(
       {String? cursor,
       @SkeletonSearchActorConverter() List<SkeletonSearchActor> actors,
+      String? relativeToDid,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -114,6 +125,7 @@ class __$$GetSuggestionsSkeletonOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? actors = null,
+    Object? relativeToDid = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$GetSuggestionsSkeletonOutputImpl(
@@ -125,6 +137,10 @@ class __$$GetSuggestionsSkeletonOutputImplCopyWithImpl<$Res>
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<SkeletonSearchActor>,
+      relativeToDid: freezed == relativeToDid
+          ? _value.relativeToDid
+          : relativeToDid // ignore: cast_nullable_to_non_nullable
+              as String?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -142,6 +158,7 @@ class _$GetSuggestionsSkeletonOutputImpl
       {this.cursor,
       @SkeletonSearchActorConverter()
       required final List<SkeletonSearchActor> actors,
+      this.relativeToDid,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _actors = actors,
         _$unknown = $unknown;
@@ -161,6 +178,11 @@ class _$GetSuggestionsSkeletonOutputImpl
     return EqualUnmodifiableListView(_actors);
   }
 
+  /// DID of the account these suggestions are relative to. If this is
+  /// returned undefined, suggestions are based on the viewer.
+  @override
+  final String? relativeToDid;
+
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
 
@@ -177,7 +199,7 @@ class _$GetSuggestionsSkeletonOutputImpl
 
   @override
   String toString() {
-    return 'GetSuggestionsSkeletonOutput(cursor: $cursor, actors: $actors, \$unknown: ${$unknown})';
+    return 'GetSuggestionsSkeletonOutput(cursor: $cursor, actors: $actors, relativeToDid: $relativeToDid, \$unknown: ${$unknown})';
   }
 
   @override
@@ -187,6 +209,8 @@ class _$GetSuggestionsSkeletonOutputImpl
             other is _$GetSuggestionsSkeletonOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             const DeepCollectionEquality().equals(other._actors, _actors) &&
+            (identical(other.relativeToDid, relativeToDid) ||
+                other.relativeToDid == relativeToDid) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
@@ -196,6 +220,7 @@ class _$GetSuggestionsSkeletonOutputImpl
       runtimeType,
       cursor,
       const DeepCollectionEquality().hash(_actors),
+      relativeToDid,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -220,6 +245,7 @@ abstract class _GetSuggestionsSkeletonOutput
           {final String? cursor,
           @SkeletonSearchActorConverter()
           required final List<SkeletonSearchActor> actors,
+          final String? relativeToDid,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetSuggestionsSkeletonOutputImpl;
 
@@ -231,6 +257,11 @@ abstract class _GetSuggestionsSkeletonOutput
   @override
   @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors;
+  @override
+
+  /// DID of the account these suggestions are relative to. If this is
+  /// returned undefined, suggestions are based on the viewer.
+  String? get relativeToDid;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

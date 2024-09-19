@@ -37,6 +37,44 @@ final class ConvoService {
 
   final BlueskyServiceContext _ctx;
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos
+  Future<XRPCResponse<ListConvosOutput>> listConvos({
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<ListConvosOutput>(
+        ns.chatBskyConvoListConvos,
+        headers: $headers,
+        parameters: {
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const ListConvosOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers
+  Future<XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers({
+    required List<String> members,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetConvoForMembersOutput>(
+        ns.chatBskyConvoGetConvoForMembers,
+        headers: $headers,
+        parameters: {
+          'members': members,
+          ...?$unknown,
+        },
+        to: const GetConvoForMembersOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch
   Future<XRPCResponse<SendMessageBatchOutput>> sendMessageBatch({
     required List<BatchItem> items,
@@ -73,79 +111,21 @@ final class ConvoService {
         client: $client,
       );
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers
-  Future<XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers({
-    required List<String> members,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetConvoForMembersOutput>(
-        ns.chatBskyConvoGetConvoForMembers,
-        headers: $headers,
-        parameters: {
-          'members': members,
-          ...?$unknown,
-        },
-        to: const GetConvoForMembersOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos
-  Future<XRPCResponse<ListConvosOutput>> listConvos({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<ListConvosOutput>(
-        ns.chatBskyConvoListConvos,
-        headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const ListConvosOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/updateRead
-  Future<XRPCResponse<UpdateReadOutput>> updateRead({
-    required String convoId,
-    String? messageId,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<UpdateReadOutput>(
-        ns.chatBskyConvoUpdateRead,
-        headers: $headers,
-        body: {
-          'convoId': convoId,
-          if (messageId != null) 'messageId': messageId,
-          ...?$unknown,
-        },
-        to: const UpdateReadOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
-  Future<XRPCResponse<UnmuteConvoOutput>> unmuteConvo({
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/muteConvo
+  Future<XRPCResponse<MuteConvoOutput>> muteConvo({
     required String convoId,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
-      await _ctx.post<UnmuteConvoOutput>(
-        ns.chatBskyConvoUnmuteConvo,
+      await _ctx.post<MuteConvoOutput>(
+        ns.chatBskyConvoMuteConvo,
         headers: $headers,
         body: {
           'convoId': convoId,
           ...?$unknown,
         },
-        to: const UnmuteConvoOutputConverter().fromJson,
+        to: const MuteConvoOutputConverter().fromJson,
         client: $client,
       );
 
@@ -164,44 +144,6 @@ final class ConvoService {
           ...?$unknown,
         },
         to: const GetConvoOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteMessageForSelf
-  Future<XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
-    required String convoId,
-    required String messageId,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<DeletedMessageView>(
-        ns.chatBskyConvoDeleteMessageForSelf,
-        headers: $headers,
-        body: {
-          'convoId': convoId,
-          'messageId': messageId,
-          ...?$unknown,
-        },
-        to: const DeletedMessageViewConverter().fromJson,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/muteConvo
-  Future<XRPCResponse<MuteConvoOutput>> muteConvo({
-    required String convoId,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<MuteConvoOutput>(
-        ns.chatBskyConvoMuteConvo,
-        headers: $headers,
-        body: {
-          'convoId': convoId,
-          ...?$unknown,
-        },
-        to: const MuteConvoOutputConverter().fromJson,
         client: $client,
       );
 
@@ -227,6 +169,26 @@ final class ConvoService {
         client: $client,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage
+  Future<XRPCResponse<MessageView>> sendMessage({
+    required String convoId,
+    required MessageInput message,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<MessageView>(
+        ns.chatBskyConvoSendMessage,
+        headers: $headers,
+        body: {
+          'convoId': convoId,
+          'message': message.toJson(),
+          ...?$unknown,
+        },
+        to: const MessageViewConverter().fromJson,
+        client: $client,
+      );
+
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog
   Future<XRPCResponse<GetLogOutput>> getLog({
     String? cursor,
@@ -245,23 +207,61 @@ final class ConvoService {
         client: $client,
       );
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage
-  Future<XRPCResponse<MessageView>> sendMessage({
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteMessageForSelf
+  Future<XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
     required String convoId,
-    required MessageInput message,
+    required String messageId,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
-      await _ctx.post<MessageView>(
-        ns.chatBskyConvoSendMessage,
+      await _ctx.post<DeletedMessageView>(
+        ns.chatBskyConvoDeleteMessageForSelf,
         headers: $headers,
         body: {
           'convoId': convoId,
-          'message': message.toJson(),
+          'messageId': messageId,
           ...?$unknown,
         },
-        to: const MessageViewConverter().fromJson,
+        to: const DeletedMessageViewConverter().fromJson,
+        client: $client,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
+  Future<XRPCResponse<UnmuteConvoOutput>> unmuteConvo({
+    required String convoId,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<UnmuteConvoOutput>(
+        ns.chatBskyConvoUnmuteConvo,
+        headers: $headers,
+        body: {
+          'convoId': convoId,
+          ...?$unknown,
+        },
+        to: const UnmuteConvoOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/updateRead
+  Future<XRPCResponse<UpdateReadOutput>> updateRead({
+    required String convoId,
+    String? messageId,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<UpdateReadOutput>(
+        ns.chatBskyConvoUpdateRead,
+        headers: $headers,
+        body: {
+          'convoId': convoId,
+          if (messageId != null) 'messageId': messageId,
+          ...?$unknown,
+        },
+        to: const UpdateReadOutputConverter().fromJson,
         client: $client,
       );
 }

@@ -1,5 +1,9 @@
 # Release Note
 
+## 1.0.0-preview.8
+
+- Lex gen.
+
 ## 1.0.0-preview.7
 
 - Lex gen.

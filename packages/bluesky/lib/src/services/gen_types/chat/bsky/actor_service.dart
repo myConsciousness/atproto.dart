@@ -30,6 +30,18 @@ final class ActorService {
 
   final BlueskyServiceContext _ctx;
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
+  Future<XRPCResponse<EmptyData>> exportAccountData({
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<EmptyData>(
+        ns.chatBskyActorExportAccountData,
+        headers: $headers,
+        client: $client,
+      );
+
   /// A declaration of a Bluesky chat account.
   ///
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
@@ -43,18 +55,6 @@ final class ActorService {
   }) async =>
       await _ctx.post<EmptyData>(
         ns.chatBskyActorDeleteAccount,
-        headers: $headers,
-        client: $client,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
-  Future<XRPCResponse<EmptyData>> exportAccountData({
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<EmptyData>(
-        ns.chatBskyActorExportAccountData,
         headers: $headers,
         client: $client,
       );

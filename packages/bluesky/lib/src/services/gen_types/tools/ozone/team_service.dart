@@ -27,47 +27,6 @@ final class TeamService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Add a member to the ozone team. Requires admin role.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/addMember
-  Future<XRPCResponse<Member>> addMember({
-    required String did,
-    required UAddMemberRole role,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<Member>(
-        ns.toolsOzoneTeamAddMember,
-        headers: $headers,
-        body: {
-          'did': did,
-          'role': role.toJson(),
-          ...?$unknown,
-        },
-        to: const MemberConverter().fromJson,
-        client: $client,
-      );
-
-  /// Delete a member from ozone team. Requires admin role.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/deleteMember
-  Future<XRPCResponse<EmptyData>> deleteMember({
-    required String did,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.toolsOzoneTeamDeleteMember,
-        headers: $headers,
-        body: {
-          'did': did,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
   /// List all members with access to the ozone service.
   ///
   /// https://atprotodart.com/docs/lexicons/tools/ozone/team/listMembers
@@ -108,6 +67,47 @@ final class TeamService {
           'did': did,
           if (disabled != null) 'disabled': disabled,
           if (role != null) 'role': role.toJson(),
+          ...?$unknown,
+        },
+        to: const MemberConverter().fromJson,
+        client: $client,
+      );
+
+  /// Delete a member from ozone team. Requires admin role.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/deleteMember
+  Future<XRPCResponse<EmptyData>> deleteMember({
+    required String did,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.toolsOzoneTeamDeleteMember,
+        headers: $headers,
+        body: {
+          'did': did,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Add a member to the ozone team. Requires admin role.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/team/addMember
+  Future<XRPCResponse<Member>> addMember({
+    required String did,
+    required UAddMemberRole role,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<Member>(
+        ns.toolsOzoneTeamAddMember,
+        headers: $headers,
+        body: {
+          'did': did,
+          'role': role.toJson(),
           ...?$unknown,
         },
         to: const MemberConverter().fromJson,

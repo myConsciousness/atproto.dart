@@ -26,18 +26,18 @@ final class VideoService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Upload a video to be processed then stored on the PDS.
+  /// Get video upload limits for the authenticated user.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/video/uploadVideo
-  Future<XRPCResponse<UploadVideoOutput>> uploadVideo({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/video/getUploadLimits
+  Future<XRPCResponse<GetUploadLimitsOutput>> getUploadLimits({
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
-    PostClient? $client,
+    GetClient? $client,
   }) async =>
-      await _ctx.post<UploadVideoOutput>(
-        ns.appBskyVideoUploadVideo,
+      await _ctx.get<GetUploadLimitsOutput>(
+        ns.appBskyVideoGetUploadLimits,
         headers: $headers,
-        to: const UploadVideoOutputConverter().fromJson,
+        to: const GetUploadLimitsOutputConverter().fromJson,
         client: $client,
       );
 
@@ -61,18 +61,18 @@ final class VideoService {
         client: $client,
       );
 
-  /// Get video upload limits for the authenticated user.
+  /// Upload a video to be processed then stored on the PDS.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/video/getUploadLimits
-  Future<XRPCResponse<GetUploadLimitsOutput>> getUploadLimits({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/video/uploadVideo
+  Future<XRPCResponse<UploadVideoOutput>> uploadVideo({
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
-    GetClient? $client,
+    PostClient? $client,
   }) async =>
-      await _ctx.get<GetUploadLimitsOutput>(
-        ns.appBskyVideoGetUploadLimits,
+      await _ctx.post<UploadVideoOutput>(
+        ns.appBskyVideoUploadVideo,
         headers: $headers,
-        to: const GetUploadLimitsOutputConverter().fromJson,
+        to: const UploadVideoOutputConverter().fromJson,
         client: $client,
       );
 }

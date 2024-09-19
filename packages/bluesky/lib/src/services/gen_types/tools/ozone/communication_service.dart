@@ -25,6 +25,25 @@ final class CommunicationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// Delete a communication template.
+  ///
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/deleteTemplate
+  Future<XRPCResponse<EmptyData>> deleteTemplate({
+    required String id,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.toolsOzoneCommunicationDeleteTemplate,
+        headers: $headers,
+        body: {
+          'id': id,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
   /// Administrative action to create a new, re-usable communication
   /// (email for now) template.
   ///
@@ -33,6 +52,7 @@ final class CommunicationService {
     required String name,
     required String contentMarkdown,
     required String subject,
+    String? lang,
     String? createdBy,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
@@ -45,39 +65,8 @@ final class CommunicationService {
           'name': name,
           'contentMarkdown': contentMarkdown,
           'subject': subject,
+          if (lang != null) 'lang': lang,
           if (createdBy != null) 'createdBy': createdBy,
-          ...?$unknown,
-        },
-        to: const TemplateViewConverter().fromJson,
-        client: $client,
-      );
-
-  /// Administrative action to update an existing communication
-  /// template. Allows passing partial fields to patch specific fields
-  /// only.
-  ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/updateTemplate
-  Future<XRPCResponse<TemplateView>> updateTemplate({
-    required String id,
-    String? name,
-    String? contentMarkdown,
-    String? subject,
-    String? updatedBy,
-    bool? disabled,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<TemplateView>(
-        ns.toolsOzoneCommunicationUpdateTemplate,
-        headers: $headers,
-        body: {
-          'id': id,
-          if (name != null) 'name': name,
-          if (contentMarkdown != null) 'contentMarkdown': contentMarkdown,
-          if (subject != null) 'subject': subject,
-          if (updatedBy != null) 'updatedBy': updatedBy,
-          if (disabled != null) 'disabled': disabled,
           ...?$unknown,
         },
         to: const TemplateViewConverter().fromJson,
@@ -99,22 +88,37 @@ final class CommunicationService {
         client: $client,
       );
 
-  /// Delete a communication template.
+  /// Administrative action to update an existing communication
+  /// template. Allows passing partial fields to patch specific fields
+  /// only.
   ///
-  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/deleteTemplate
-  Future<XRPCResponse<EmptyData>> deleteTemplate({
+  /// https://atprotodart.com/docs/lexicons/tools/ozone/communication/updateTemplate
+  Future<XRPCResponse<TemplateView>> updateTemplate({
     required String id,
+    String? name,
+    String? lang,
+    String? contentMarkdown,
+    String? subject,
+    String? updatedBy,
+    bool? disabled,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
-      await _ctx.post<EmptyData>(
-        ns.toolsOzoneCommunicationDeleteTemplate,
+      await _ctx.post<TemplateView>(
+        ns.toolsOzoneCommunicationUpdateTemplate,
         headers: $headers,
         body: {
           'id': id,
+          if (name != null) 'name': name,
+          if (lang != null) 'lang': lang,
+          if (contentMarkdown != null) 'contentMarkdown': contentMarkdown,
+          if (subject != null) 'subject': subject,
+          if (updatedBy != null) 'updatedBy': updatedBy,
+          if (disabled != null) 'disabled': disabled,
           ...?$unknown,
         },
+        to: const TemplateViewConverter().fromJson,
         client: $client,
       );
 }

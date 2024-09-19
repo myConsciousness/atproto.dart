@@ -24,6 +24,10 @@ mixin _$GetSuggestedFollowsByActorOutput {
   @ProfileViewConverter()
   List<ProfileView> get suggestions => throw _privateConstructorUsedError;
 
+  /// If true, response has fallen-back to generic results, and is not
+  /// scoped using relativeToDid
+  bool get isFallback => throw _privateConstructorUsedError;
+
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
   Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
@@ -44,6 +48,7 @@ abstract class $GetSuggestedFollowsByActorOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@ProfileViewConverter() List<ProfileView> suggestions,
+      bool isFallback,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -62,6 +67,7 @@ class _$GetSuggestedFollowsByActorOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? suggestions = null,
+    Object? isFallback = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -69,6 +75,10 @@ class _$GetSuggestedFollowsByActorOutputCopyWithImpl<$Res,
           ? _value.suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      isFallback: null == isFallback
+          ? _value.isFallback
+          : isFallback // ignore: cast_nullable_to_non_nullable
+              as bool,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -88,6 +98,7 @@ abstract class _$$GetSuggestedFollowsByActorOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@ProfileViewConverter() List<ProfileView> suggestions,
+      bool isFallback,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -105,6 +116,7 @@ class __$$GetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? suggestions = null,
+    Object? isFallback = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$GetSuggestedFollowsByActorOutputImpl(
@@ -112,6 +124,10 @@ class __$$GetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>
           ? _value._suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      isFallback: null == isFallback
+          ? _value.isFallback
+          : isFallback // ignore: cast_nullable_to_non_nullable
+              as bool,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -127,6 +143,7 @@ class _$GetSuggestedFollowsByActorOutputImpl
     implements _GetSuggestedFollowsByActorOutput {
   const _$GetSuggestedFollowsByActorOutputImpl(
       {@ProfileViewConverter() required final List<ProfileView> suggestions,
+      this.isFallback = false,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _suggestions = suggestions,
         _$unknown = $unknown;
@@ -144,6 +161,12 @@ class _$GetSuggestedFollowsByActorOutputImpl
     return EqualUnmodifiableListView(_suggestions);
   }
 
+  /// If true, response has fallen-back to generic results, and is not
+  /// scoped using relativeToDid
+  @override
+  @JsonKey()
+  final bool isFallback;
+
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
 
@@ -160,7 +183,7 @@ class _$GetSuggestedFollowsByActorOutputImpl
 
   @override
   String toString() {
-    return 'GetSuggestedFollowsByActorOutput(suggestions: $suggestions, \$unknown: ${$unknown})';
+    return 'GetSuggestedFollowsByActorOutput(suggestions: $suggestions, isFallback: $isFallback, \$unknown: ${$unknown})';
   }
 
   @override
@@ -170,6 +193,8 @@ class _$GetSuggestedFollowsByActorOutputImpl
             other is _$GetSuggestedFollowsByActorOutputImpl &&
             const DeepCollectionEquality()
                 .equals(other._suggestions, _suggestions) &&
+            (identical(other.isFallback, isFallback) ||
+                other.isFallback == isFallback) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
@@ -178,6 +203,7 @@ class _$GetSuggestedFollowsByActorOutputImpl
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_suggestions),
+      isFallback,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -200,6 +226,7 @@ abstract class _GetSuggestedFollowsByActorOutput
     implements GetSuggestedFollowsByActorOutput {
   const factory _GetSuggestedFollowsByActorOutput(
           {@ProfileViewConverter() required final List<ProfileView> suggestions,
+          final bool isFallback,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$GetSuggestedFollowsByActorOutputImpl;
 
@@ -210,6 +237,11 @@ abstract class _GetSuggestedFollowsByActorOutput
   @override
   @ProfileViewConverter()
   List<ProfileView> get suggestions;
+  @override
+
+  /// If true, response has fallen-back to generic results, and is not
+  /// scoped using relativeToDid
+  bool get isFallback;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

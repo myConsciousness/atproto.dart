@@ -32,6 +32,7 @@ mixin _$UEmitEventEvent {
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -50,6 +51,7 @@ mixin _$UEmitEventEvent {
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -68,6 +70,7 @@ mixin _$UEmitEventEvent {
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -96,6 +99,8 @@ mixin _$UEmitEventEvent {
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -118,6 +123,8 @@ mixin _$UEmitEventEvent {
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -140,6 +147,8 @@ mixin _$UEmitEventEvent {
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -259,6 +268,7 @@ class _$UEmitEventEventModEventTakedownImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -280,6 +290,7 @@ class _$UEmitEventEventModEventTakedownImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -301,6 +312,7 @@ class _$UEmitEventEventModEventTakedownImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -335,6 +347,8 @@ class _$UEmitEventEventModEventTakedownImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -360,6 +374,8 @@ class _$UEmitEventEventModEventTakedownImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -385,6 +401,8 @@ class _$UEmitEventEventModEventTakedownImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -503,6 +521,7 @@ class _$UEmitEventEventModEventAcknowledgeImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -524,6 +543,7 @@ class _$UEmitEventEventModEventAcknowledgeImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -545,6 +565,7 @@ class _$UEmitEventEventModEventAcknowledgeImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -579,6 +600,8 @@ class _$UEmitEventEventModEventAcknowledgeImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -604,6 +627,8 @@ class _$UEmitEventEventModEventAcknowledgeImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -629,6 +654,8 @@ class _$UEmitEventEventModEventAcknowledgeImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -747,6 +774,7 @@ class _$UEmitEventEventModEventEscalateImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -768,6 +796,7 @@ class _$UEmitEventEventModEventEscalateImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -789,6 +818,7 @@ class _$UEmitEventEventModEventEscalateImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -823,6 +853,8 @@ class _$UEmitEventEventModEventEscalateImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -848,6 +880,8 @@ class _$UEmitEventEventModEventEscalateImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -873,6 +907,8 @@ class _$UEmitEventEventModEventEscalateImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -991,6 +1027,7 @@ class _$UEmitEventEventModEventCommentImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -1012,6 +1049,7 @@ class _$UEmitEventEventModEventCommentImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -1033,6 +1071,7 @@ class _$UEmitEventEventModEventCommentImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -1067,6 +1106,8 @@ class _$UEmitEventEventModEventCommentImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -1092,6 +1133,8 @@ class _$UEmitEventEventModEventCommentImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -1117,6 +1160,8 @@ class _$UEmitEventEventModEventCommentImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -1235,6 +1280,7 @@ class _$UEmitEventEventModEventLabelImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -1256,6 +1302,7 @@ class _$UEmitEventEventModEventLabelImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -1277,6 +1324,7 @@ class _$UEmitEventEventModEventLabelImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -1311,6 +1359,8 @@ class _$UEmitEventEventModEventLabelImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -1336,6 +1386,8 @@ class _$UEmitEventEventModEventLabelImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -1361,6 +1413,8 @@ class _$UEmitEventEventModEventLabelImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -1478,6 +1532,7 @@ class _$UEmitEventEventModEventReportImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -1499,6 +1554,7 @@ class _$UEmitEventEventModEventReportImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -1520,6 +1576,7 @@ class _$UEmitEventEventModEventReportImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -1554,6 +1611,8 @@ class _$UEmitEventEventModEventReportImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -1579,6 +1638,8 @@ class _$UEmitEventEventModEventReportImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -1604,6 +1665,8 @@ class _$UEmitEventEventModEventReportImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -1720,6 +1783,7 @@ class _$UEmitEventEventModEventMuteImpl implements UEmitEventEventModEventMute {
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -1741,6 +1805,7 @@ class _$UEmitEventEventModEventMuteImpl implements UEmitEventEventModEventMute {
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -1762,6 +1827,7 @@ class _$UEmitEventEventModEventMuteImpl implements UEmitEventEventModEventMute {
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -1796,6 +1862,8 @@ class _$UEmitEventEventModEventMuteImpl implements UEmitEventEventModEventMute {
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -1821,6 +1889,8 @@ class _$UEmitEventEventModEventMuteImpl implements UEmitEventEventModEventMute {
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -1846,6 +1916,8 @@ class _$UEmitEventEventModEventMuteImpl implements UEmitEventEventModEventMute {
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -1962,6 +2034,7 @@ class _$UEmitEventEventModEventUnmuteImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -1983,6 +2056,7 @@ class _$UEmitEventEventModEventUnmuteImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -2004,6 +2078,7 @@ class _$UEmitEventEventModEventUnmuteImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -2038,6 +2113,8 @@ class _$UEmitEventEventModEventUnmuteImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -2063,6 +2140,8 @@ class _$UEmitEventEventModEventUnmuteImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -2088,6 +2167,8 @@ class _$UEmitEventEventModEventUnmuteImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -2206,6 +2287,7 @@ class _$UEmitEventEventModEventMuteReporterImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -2227,6 +2309,7 @@ class _$UEmitEventEventModEventMuteReporterImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -2248,6 +2331,7 @@ class _$UEmitEventEventModEventMuteReporterImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -2282,6 +2366,8 @@ class _$UEmitEventEventModEventMuteReporterImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -2307,6 +2393,8 @@ class _$UEmitEventEventModEventMuteReporterImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -2332,6 +2420,8 @@ class _$UEmitEventEventModEventMuteReporterImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -2450,6 +2540,7 @@ class _$UEmitEventEventModEventUnmuteReporterImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -2471,6 +2562,7 @@ class _$UEmitEventEventModEventUnmuteReporterImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -2492,6 +2584,7 @@ class _$UEmitEventEventModEventUnmuteReporterImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -2526,6 +2619,8 @@ class _$UEmitEventEventModEventUnmuteReporterImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -2551,6 +2646,8 @@ class _$UEmitEventEventModEventUnmuteReporterImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -2576,6 +2673,8 @@ class _$UEmitEventEventModEventUnmuteReporterImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -2696,6 +2795,7 @@ class _$UEmitEventEventModEventReverseTakedownImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -2717,6 +2817,7 @@ class _$UEmitEventEventModEventReverseTakedownImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -2738,6 +2839,7 @@ class _$UEmitEventEventModEventReverseTakedownImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -2772,6 +2874,8 @@ class _$UEmitEventEventModEventReverseTakedownImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -2797,6 +2901,8 @@ class _$UEmitEventEventModEventReverseTakedownImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -2822,6 +2928,8 @@ class _$UEmitEventEventModEventReverseTakedownImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -2845,6 +2953,259 @@ abstract class UEmitEventEventModEventReverseTakedown
   @JsonKey(ignore: true)
   _$$UEmitEventEventModEventReverseTakedownImplCopyWith<
           _$UEmitEventEventModEventReverseTakedownImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UEmitEventEventModEventResolveAppealImplCopyWith<$Res> {
+  factory _$$UEmitEventEventModEventResolveAppealImplCopyWith(
+          _$UEmitEventEventModEventResolveAppealImpl value,
+          $Res Function(_$UEmitEventEventModEventResolveAppealImpl) then) =
+      __$$UEmitEventEventModEventResolveAppealImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ModEventResolveAppeal data});
+
+  $ModEventResolveAppealCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UEmitEventEventModEventResolveAppealImplCopyWithImpl<$Res>
+    extends _$UEmitEventEventCopyWithImpl<$Res,
+        _$UEmitEventEventModEventResolveAppealImpl>
+    implements _$$UEmitEventEventModEventResolveAppealImplCopyWith<$Res> {
+  __$$UEmitEventEventModEventResolveAppealImplCopyWithImpl(
+      _$UEmitEventEventModEventResolveAppealImpl _value,
+      $Res Function(_$UEmitEventEventModEventResolveAppealImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UEmitEventEventModEventResolveAppealImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ModEventResolveAppeal,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ModEventResolveAppealCopyWith<$Res> get data {
+    return $ModEventResolveAppealCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UEmitEventEventModEventResolveAppealImpl
+    implements UEmitEventEventModEventResolveAppeal {
+  const _$UEmitEventEventModEventResolveAppealImpl({required this.data});
+
+  @override
+  final ModEventResolveAppeal data;
+
+  @override
+  String toString() {
+    return 'UEmitEventEvent.modEventResolveAppeal(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UEmitEventEventModEventResolveAppealImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UEmitEventEventModEventResolveAppealImplCopyWith<
+          _$UEmitEventEventModEventResolveAppealImpl>
+      get copyWith => __$$UEmitEventEventModEventResolveAppealImplCopyWithImpl<
+          _$UEmitEventEventModEventResolveAppealImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ModEventTakedown data) modEventTakedown,
+    required TResult Function(ModEventAcknowledge data) modEventAcknowledge,
+    required TResult Function(ModEventEscalate data) modEventEscalate,
+    required TResult Function(ModEventComment data) modEventComment,
+    required TResult Function(ModEventLabel data) modEventLabel,
+    required TResult Function(ModEventReport data) modEventReport,
+    required TResult Function(ModEventMute data) modEventMute,
+    required TResult Function(ModEventUnmute data) modEventUnmute,
+    required TResult Function(ModEventMuteReporter data) modEventMuteReporter,
+    required TResult Function(ModEventUnmuteReporter data)
+        modEventUnmuteReporter,
+    required TResult Function(ModEventReverseTakedown data)
+        modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
+    required TResult Function(ModEventEmail data) modEventEmail,
+    required TResult Function(ModEventTag data) modEventTag,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return modEventResolveAppeal(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ModEventTakedown data)? modEventTakedown,
+    TResult? Function(ModEventAcknowledge data)? modEventAcknowledge,
+    TResult? Function(ModEventEscalate data)? modEventEscalate,
+    TResult? Function(ModEventComment data)? modEventComment,
+    TResult? Function(ModEventLabel data)? modEventLabel,
+    TResult? Function(ModEventReport data)? modEventReport,
+    TResult? Function(ModEventMute data)? modEventMute,
+    TResult? Function(ModEventUnmute data)? modEventUnmute,
+    TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
+    TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
+    TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
+    TResult? Function(ModEventEmail data)? modEventEmail,
+    TResult? Function(ModEventTag data)? modEventTag,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return modEventResolveAppeal?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ModEventTakedown data)? modEventTakedown,
+    TResult Function(ModEventAcknowledge data)? modEventAcknowledge,
+    TResult Function(ModEventEscalate data)? modEventEscalate,
+    TResult Function(ModEventComment data)? modEventComment,
+    TResult Function(ModEventLabel data)? modEventLabel,
+    TResult Function(ModEventReport data)? modEventReport,
+    TResult Function(ModEventMute data)? modEventMute,
+    TResult Function(ModEventUnmute data)? modEventUnmute,
+    TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
+    TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
+    TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
+    TResult Function(ModEventEmail data)? modEventEmail,
+    TResult Function(ModEventTag data)? modEventTag,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (modEventResolveAppeal != null) {
+      return modEventResolveAppeal(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UEmitEventEventModEventTakedown value)
+        modEventTakedown,
+    required TResult Function(UEmitEventEventModEventAcknowledge value)
+        modEventAcknowledge,
+    required TResult Function(UEmitEventEventModEventEscalate value)
+        modEventEscalate,
+    required TResult Function(UEmitEventEventModEventComment value)
+        modEventComment,
+    required TResult Function(UEmitEventEventModEventLabel value) modEventLabel,
+    required TResult Function(UEmitEventEventModEventReport value)
+        modEventReport,
+    required TResult Function(UEmitEventEventModEventMute value) modEventMute,
+    required TResult Function(UEmitEventEventModEventUnmute value)
+        modEventUnmute,
+    required TResult Function(UEmitEventEventModEventMuteReporter value)
+        modEventMuteReporter,
+    required TResult Function(UEmitEventEventModEventUnmuteReporter value)
+        modEventUnmuteReporter,
+    required TResult Function(UEmitEventEventModEventReverseTakedown value)
+        modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
+    required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
+    required TResult Function(UEmitEventEventModEventTag value) modEventTag,
+    required TResult Function(UEmitEventEventUnknown value) unknown,
+  }) {
+    return modEventResolveAppeal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult? Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult? Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult? Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult? Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult? Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult? Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult? Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult? Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult? Function(UEmitEventEventModEventUnmuteReporter value)?
+        modEventUnmuteReporter,
+    TResult? Function(UEmitEventEventModEventReverseTakedown value)?
+        modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
+    TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult? Function(UEmitEventEventUnknown value)? unknown,
+  }) {
+    return modEventResolveAppeal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UEmitEventEventModEventTakedown value)? modEventTakedown,
+    TResult Function(UEmitEventEventModEventAcknowledge value)?
+        modEventAcknowledge,
+    TResult Function(UEmitEventEventModEventEscalate value)? modEventEscalate,
+    TResult Function(UEmitEventEventModEventComment value)? modEventComment,
+    TResult Function(UEmitEventEventModEventLabel value)? modEventLabel,
+    TResult Function(UEmitEventEventModEventReport value)? modEventReport,
+    TResult Function(UEmitEventEventModEventMute value)? modEventMute,
+    TResult Function(UEmitEventEventModEventUnmute value)? modEventUnmute,
+    TResult Function(UEmitEventEventModEventMuteReporter value)?
+        modEventMuteReporter,
+    TResult Function(UEmitEventEventModEventUnmuteReporter value)?
+        modEventUnmuteReporter,
+    TResult Function(UEmitEventEventModEventReverseTakedown value)?
+        modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
+    TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
+    TResult Function(UEmitEventEventModEventTag value)? modEventTag,
+    TResult Function(UEmitEventEventUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (modEventResolveAppeal != null) {
+      return modEventResolveAppeal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UEmitEventEventModEventResolveAppeal implements UEmitEventEvent {
+  const factory UEmitEventEventModEventResolveAppeal(
+          {required final ModEventResolveAppeal data}) =
+      _$UEmitEventEventModEventResolveAppealImpl;
+
+  @override
+  ModEventResolveAppeal get data;
+  @JsonKey(ignore: true)
+  _$$UEmitEventEventModEventResolveAppealImplCopyWith<
+          _$UEmitEventEventModEventResolveAppealImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -2941,6 +3302,7 @@ class _$UEmitEventEventModEventEmailImpl
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -2962,6 +3324,7 @@ class _$UEmitEventEventModEventEmailImpl
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -2983,6 +3346,7 @@ class _$UEmitEventEventModEventEmailImpl
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -3017,6 +3381,8 @@ class _$UEmitEventEventModEventEmailImpl
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -3042,6 +3408,8 @@ class _$UEmitEventEventModEventEmailImpl
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -3067,6 +3435,8 @@ class _$UEmitEventEventModEventEmailImpl
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -3182,6 +3552,7 @@ class _$UEmitEventEventModEventTagImpl implements UEmitEventEventModEventTag {
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -3203,6 +3574,7 @@ class _$UEmitEventEventModEventTagImpl implements UEmitEventEventModEventTag {
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -3224,6 +3596,7 @@ class _$UEmitEventEventModEventTagImpl implements UEmitEventEventModEventTag {
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -3258,6 +3631,8 @@ class _$UEmitEventEventModEventTagImpl implements UEmitEventEventModEventTag {
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -3283,6 +3658,8 @@ class _$UEmitEventEventModEventTagImpl implements UEmitEventEventModEventTag {
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -3308,6 +3685,8 @@ class _$UEmitEventEventModEventTagImpl implements UEmitEventEventModEventTag {
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,
@@ -3418,6 +3797,7 @@ class _$UEmitEventEventUnknownImpl implements UEmitEventEventUnknown {
         modEventUnmuteReporter,
     required TResult Function(ModEventReverseTakedown data)
         modEventReverseTakedown,
+    required TResult Function(ModEventResolveAppeal data) modEventResolveAppeal,
     required TResult Function(ModEventEmail data) modEventEmail,
     required TResult Function(ModEventTag data) modEventTag,
     required TResult Function(Map<String, dynamic> data) unknown,
@@ -3439,6 +3819,7 @@ class _$UEmitEventEventUnknownImpl implements UEmitEventEventUnknown {
     TResult? Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult? Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult? Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult? Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult? Function(ModEventEmail data)? modEventEmail,
     TResult? Function(ModEventTag data)? modEventTag,
     TResult? Function(Map<String, dynamic> data)? unknown,
@@ -3460,6 +3841,7 @@ class _$UEmitEventEventUnknownImpl implements UEmitEventEventUnknown {
     TResult Function(ModEventMuteReporter data)? modEventMuteReporter,
     TResult Function(ModEventUnmuteReporter data)? modEventUnmuteReporter,
     TResult Function(ModEventReverseTakedown data)? modEventReverseTakedown,
+    TResult Function(ModEventResolveAppeal data)? modEventResolveAppeal,
     TResult Function(ModEventEmail data)? modEventEmail,
     TResult Function(ModEventTag data)? modEventTag,
     TResult Function(Map<String, dynamic> data)? unknown,
@@ -3494,6 +3876,8 @@ class _$UEmitEventEventUnknownImpl implements UEmitEventEventUnknown {
         modEventUnmuteReporter,
     required TResult Function(UEmitEventEventModEventReverseTakedown value)
         modEventReverseTakedown,
+    required TResult Function(UEmitEventEventModEventResolveAppeal value)
+        modEventResolveAppeal,
     required TResult Function(UEmitEventEventModEventEmail value) modEventEmail,
     required TResult Function(UEmitEventEventModEventTag value) modEventTag,
     required TResult Function(UEmitEventEventUnknown value) unknown,
@@ -3519,6 +3903,8 @@ class _$UEmitEventEventUnknownImpl implements UEmitEventEventUnknown {
         modEventUnmuteReporter,
     TResult? Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult? Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult? Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult? Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult? Function(UEmitEventEventUnknown value)? unknown,
@@ -3544,6 +3930,8 @@ class _$UEmitEventEventUnknownImpl implements UEmitEventEventUnknown {
         modEventUnmuteReporter,
     TResult Function(UEmitEventEventModEventReverseTakedown value)?
         modEventReverseTakedown,
+    TResult Function(UEmitEventEventModEventResolveAppeal value)?
+        modEventResolveAppeal,
     TResult Function(UEmitEventEventModEventEmail value)? modEventEmail,
     TResult Function(UEmitEventEventModEventTag value)? modEventTag,
     TResult Function(UEmitEventEventUnknown value)? unknown,

@@ -38,6 +38,9 @@ mixin _$TemplateView {
   String get contentMarkdown => throw _privateConstructorUsedError;
   bool get disabled => throw _privateConstructorUsedError;
 
+  /// Message language.
+  String? get lang => throw _privateConstructorUsedError;
+
   /// DID of the user who last updated the template.
   String get lastUpdatedBy => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -66,6 +69,7 @@ abstract class $TemplateViewCopyWith<$Res> {
       String? subject,
       String contentMarkdown,
       bool disabled,
+      String? lang,
       String lastUpdatedBy,
       DateTime createdAt,
       DateTime updatedAt,
@@ -91,6 +95,7 @@ class _$TemplateViewCopyWithImpl<$Res, $Val extends TemplateView>
     Object? subject = freezed,
     Object? contentMarkdown = null,
     Object? disabled = null,
+    Object? lang = freezed,
     Object? lastUpdatedBy = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -121,6 +126,10 @@ class _$TemplateViewCopyWithImpl<$Res, $Val extends TemplateView>
           ? _value.disabled
           : disabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      lang: freezed == lang
+          ? _value.lang
+          : lang // ignore: cast_nullable_to_non_nullable
+              as String?,
       lastUpdatedBy: null == lastUpdatedBy
           ? _value.lastUpdatedBy
           : lastUpdatedBy // ignore: cast_nullable_to_non_nullable
@@ -156,6 +165,7 @@ abstract class _$$TemplateViewImplCopyWith<$Res>
       String? subject,
       String contentMarkdown,
       bool disabled,
+      String? lang,
       String lastUpdatedBy,
       DateTime createdAt,
       DateTime updatedAt,
@@ -179,6 +189,7 @@ class __$$TemplateViewImplCopyWithImpl<$Res>
     Object? subject = freezed,
     Object? contentMarkdown = null,
     Object? disabled = null,
+    Object? lang = freezed,
     Object? lastUpdatedBy = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -209,6 +220,10 @@ class __$$TemplateViewImplCopyWithImpl<$Res>
           ? _value.disabled
           : disabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      lang: freezed == lang
+          ? _value.lang
+          : lang // ignore: cast_nullable_to_non_nullable
+              as String?,
       lastUpdatedBy: null == lastUpdatedBy
           ? _value.lastUpdatedBy
           : lastUpdatedBy // ignore: cast_nullable_to_non_nullable
@@ -241,6 +256,7 @@ class _$TemplateViewImpl implements _TemplateView {
       this.subject,
       required this.contentMarkdown,
       required this.disabled,
+      this.lang,
       required this.lastUpdatedBy,
       required this.createdAt,
       required this.updatedAt,
@@ -274,6 +290,10 @@ class _$TemplateViewImpl implements _TemplateView {
   @override
   final bool disabled;
 
+  /// Message language.
+  @override
+  final String? lang;
+
   /// DID of the user who last updated the template.
   @override
   final String lastUpdatedBy;
@@ -298,7 +318,7 @@ class _$TemplateViewImpl implements _TemplateView {
 
   @override
   String toString() {
-    return 'TemplateView(\$type: ${$type}, id: $id, name: $name, subject: $subject, contentMarkdown: $contentMarkdown, disabled: $disabled, lastUpdatedBy: $lastUpdatedBy, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
+    return 'TemplateView(\$type: ${$type}, id: $id, name: $name, subject: $subject, contentMarkdown: $contentMarkdown, disabled: $disabled, lang: $lang, lastUpdatedBy: $lastUpdatedBy, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -314,6 +334,7 @@ class _$TemplateViewImpl implements _TemplateView {
                 other.contentMarkdown == contentMarkdown) &&
             (identical(other.disabled, disabled) ||
                 other.disabled == disabled) &&
+            (identical(other.lang, lang) || other.lang == lang) &&
             (identical(other.lastUpdatedBy, lastUpdatedBy) ||
                 other.lastUpdatedBy == lastUpdatedBy) &&
             (identical(other.createdAt, createdAt) ||
@@ -333,6 +354,7 @@ class _$TemplateViewImpl implements _TemplateView {
       subject,
       contentMarkdown,
       disabled,
+      lang,
       lastUpdatedBy,
       createdAt,
       updatedAt,
@@ -360,6 +382,7 @@ abstract class _TemplateView implements TemplateView {
           final String? subject,
           required final String contentMarkdown,
           required final bool disabled,
+          final String? lang,
           required final String lastUpdatedBy,
           required final DateTime createdAt,
           required final DateTime updatedAt,
@@ -393,6 +416,10 @@ abstract class _TemplateView implements TemplateView {
   String get contentMarkdown;
   @override
   bool get disabled;
+  @override
+
+  /// Message language.
+  String? get lang;
   @override
 
   /// DID of the user who last updated the template.

@@ -31,6 +31,10 @@ mixin _$ModEventTakedown {
   /// automatically expiring.
   int get durationInHours => throw _privateConstructorUsedError;
 
+  /// If true, all other reports on content authored by this account
+  /// will be resolved (acknowledged).
+  bool get acknowledgeAccountSubjects => throw _privateConstructorUsedError;
+
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
   Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
@@ -51,6 +55,7 @@ abstract class $ModEventTakedownCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String? comment,
       int durationInHours,
+      bool acknowledgeAccountSubjects,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -70,6 +75,7 @@ class _$ModEventTakedownCopyWithImpl<$Res, $Val extends ModEventTakedown>
     Object? $type = null,
     Object? comment = freezed,
     Object? durationInHours = null,
+    Object? acknowledgeAccountSubjects = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -85,6 +91,10 @@ class _$ModEventTakedownCopyWithImpl<$Res, $Val extends ModEventTakedown>
           ? _value.durationInHours
           : durationInHours // ignore: cast_nullable_to_non_nullable
               as int,
+      acknowledgeAccountSubjects: null == acknowledgeAccountSubjects
+          ? _value.acknowledgeAccountSubjects
+          : acknowledgeAccountSubjects // ignore: cast_nullable_to_non_nullable
+              as bool,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -105,6 +115,7 @@ abstract class _$$ModEventTakedownImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String? comment,
       int durationInHours,
+      bool acknowledgeAccountSubjects,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
 
@@ -122,6 +133,7 @@ class __$$ModEventTakedownImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? comment = freezed,
     Object? durationInHours = null,
+    Object? acknowledgeAccountSubjects = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$ModEventTakedownImpl(
@@ -137,6 +149,10 @@ class __$$ModEventTakedownImplCopyWithImpl<$Res>
           ? _value.durationInHours
           : durationInHours // ignore: cast_nullable_to_non_nullable
               as int,
+      acknowledgeAccountSubjects: null == acknowledgeAccountSubjects
+          ? _value.acknowledgeAccountSubjects
+          : acknowledgeAccountSubjects // ignore: cast_nullable_to_non_nullable
+              as bool,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -154,6 +170,7 @@ class _$ModEventTakedownImpl implements _ModEventTakedown {
       this.$type = toolsOzoneModerationDefsModEventTakedown,
       this.comment,
       this.durationInHours = 0,
+      this.acknowledgeAccountSubjects = false,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
@@ -175,6 +192,12 @@ class _$ModEventTakedownImpl implements _ModEventTakedown {
   @JsonKey()
   final int durationInHours;
 
+  /// If true, all other reports on content authored by this account
+  /// will be resolved (acknowledged).
+  @override
+  @JsonKey()
+  final bool acknowledgeAccountSubjects;
+
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
 
@@ -191,7 +214,7 @@ class _$ModEventTakedownImpl implements _ModEventTakedown {
 
   @override
   String toString() {
-    return 'ModEventTakedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, \$unknown: ${$unknown})';
+    return 'ModEventTakedown(\$type: ${$type}, comment: $comment, durationInHours: $durationInHours, acknowledgeAccountSubjects: $acknowledgeAccountSubjects, \$unknown: ${$unknown})';
   }
 
   @override
@@ -203,12 +226,21 @@ class _$ModEventTakedownImpl implements _ModEventTakedown {
             (identical(other.comment, comment) || other.comment == comment) &&
             (identical(other.durationInHours, durationInHours) ||
                 other.durationInHours == durationInHours) &&
+            (identical(other.acknowledgeAccountSubjects,
+                    acknowledgeAccountSubjects) ||
+                other.acknowledgeAccountSubjects ==
+                    acknowledgeAccountSubjects) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, comment, durationInHours,
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      comment,
+      durationInHours,
+      acknowledgeAccountSubjects,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -231,6 +263,7 @@ abstract class _ModEventTakedown implements ModEventTakedown {
           {@JsonKey(name: r'$type') final String $type,
           final String? comment,
           final int durationInHours,
+          final bool acknowledgeAccountSubjects,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ModEventTakedownImpl;
 
@@ -251,6 +284,11 @@ abstract class _ModEventTakedown implements ModEventTakedown {
   /// Indicates how long the takedown should be in effect before
   /// automatically expiring.
   int get durationInHours;
+  @override
+
+  /// If true, all other reports on content authored by this account
+  /// will be resolved (acknowledged).
+  bool get acknowledgeAccountSubjects;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

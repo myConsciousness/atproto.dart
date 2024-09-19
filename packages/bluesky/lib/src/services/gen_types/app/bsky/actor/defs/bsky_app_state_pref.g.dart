@@ -23,6 +23,12 @@ _$BskyAppStatePrefImpl _$$BskyAppStatePrefImplFromJson(Map json) =>
                   v, const BskyAppProgressGuideConverter().fromJson)),
           queuedNudges: $checkedConvert('queuedNudges',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          nuxs: $checkedConvert(
+              'nuxs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      const NuxConverter().fromJson(e as Map<String, dynamic>))
+                  .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -51,6 +57,8 @@ Map<String, dynamic> _$$BskyAppStatePrefImplToJson(
           instance.activeProgressGuide,
           const BskyAppProgressGuideConverter().toJson));
   writeNotNull('queuedNudges', instance.queuedNudges);
+  writeNotNull(
+      'nuxs', instance.nuxs?.map(const NuxConverter().toJson).toList());
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

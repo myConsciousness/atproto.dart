@@ -27,6 +27,10 @@ class GetSuggestionsSkeletonOutput with _$GetSuggestionsSkeletonOutput {
     String? cursor,
     @SkeletonSearchActorConverter() required List<SkeletonSearchActor> actors,
 
+    /// DID of the account these suggestions are relative to. If this is
+    /// returned undefined, suggestions are based on the viewer.
+    String? relativeToDid,
+
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
   }) = _GetSuggestionsSkeletonOutput;
@@ -43,6 +47,12 @@ extension $GetSuggestionsSkeletonOutputExtension
   /// Returns true if [cursor] is null, otherwise false.
   bool get hasNotCursor => !hasCursor;
 
+  /// Returns true if [relativeToDid] is not null, otherwise false.
+  bool get hasRelativeToDid => relativeToDid != null;
+
+  /// Returns true if [relativeToDid] is null, otherwise false.
+  bool get hasNotRelativeToDid => !hasRelativeToDid;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -55,6 +65,7 @@ extension $GetSuggestionsSkeletonOutputExtension
 const _kLexCompatibleProperties = <String>[
   'cursor',
   'actors',
+  'relativeToDid',
 ];
 
 final class GetSuggestionsSkeletonOutputConverter

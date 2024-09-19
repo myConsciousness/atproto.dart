@@ -53,6 +53,127 @@ final class GraphService {
 
   final BlueskyServiceContext _ctx;
 
+  /// Record representing a list of accounts (actors). Scope includes
+  /// both moderation-oriented lists and curration-oriented lists.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
+  ListRecordHelper get list => ListRecordHelper(_ctx);
+
+  /// Unmutes the specified account. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
+  Future<XRPCResponse<EmptyData>> unmuteActor({
+    required String actor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyGraphUnmuteActor,
+        headers: $headers,
+        body: {
+          'actor': actor,
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Enumerates follows similar to a given account (actor). Expected
+  /// use is to recommend additional accounts immediately after
+  /// following one account.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
+  Future<XRPCResponse<GetSuggestedFollowsByActorOutput>>
+      getSuggestedFollowsByActor({
+    required String actor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+          await _ctx.get<GetSuggestedFollowsByActorOutput>(
+            ns.appBskyGraphGetSuggestedFollowsByActor,
+            headers: $headers,
+            parameters: {
+              'actor': actor,
+              ...?$unknown,
+            },
+            to: const GetSuggestedFollowsByActorOutputConverter().fromJson,
+            client: $client,
+          );
+
+  /// Record declaring a social 'follow' relationship of another
+  /// account. Duplicate follows will be ignored by the AppView.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
+  FollowRecordHelper get follow => FollowRecordHelper(_ctx);
+
+  /// Unmutes the specified list of accounts. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
+  Future<XRPCResponse<EmptyData>> unmuteActorList({
+    required AtUri list,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyGraphUnmuteActorList,
+        headers: $headers,
+        body: {
+          'list': list.toString(),
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
+  /// Get a list of starter packs created by the actor.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getActorStarterPacks
+  Future<XRPCResponse<GetActorStarterPacksOutput>> getActorStarterPacks({
+    required String actor,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetActorStarterPacksOutput>(
+        ns.appBskyGraphGetActorStarterPacks,
+        headers: $headers,
+        parameters: {
+          'actor': actor,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const GetActorStarterPacksOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Enumerates accounts which a specified account (actor) follows.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows
+  Future<XRPCResponse<GetFollowsOutput>> getFollows({
+    required String actor,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetFollowsOutput>(
+        ns.appBskyGraphGetFollows,
+        headers: $headers,
+        parameters: {
+          'actor': actor,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const GetFollowsOutputConverter().fromJson,
+        client: $client,
+      );
+
   /// Enumerates mod lists that the requesting account (actor)
   /// currently has muted. Requires auth.
   ///
@@ -76,56 +197,26 @@ final class GraphService {
         client: $client,
       );
 
-  /// Record representing an account's inclusion on a specific list.
-  /// The AppView will ignore duplicate listitem records.
+  /// Enumerates public relationships between one account, and a list
+  /// of other accounts. Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
-  ListitemRecordHelper get listitem => ListitemRecordHelper(_ctx);
-
-  /// Enumerates accounts that the requesting account (actor) currently
-  /// has muted. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes
-  Future<XRPCResponse<GetMutesOutput>> getMutes({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetMutesOutput>(
-        ns.appBskyGraphGetMutes,
-        headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const GetMutesOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Enumerates the lists created by a specified account (actor).
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists
-  Future<XRPCResponse<GetListsOutput>> getLists({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
+  Future<XRPCResponse<GetRelationshipsOutput>> getRelationships({
     required String actor,
-    int? limit,
-    String? cursor,
+    List<String>? others,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetListsOutput>(
-        ns.appBskyGraphGetLists,
+      await _ctx.get<GetRelationshipsOutput>(
+        ns.appBskyGraphGetRelationships,
         headers: $headers,
         parameters: {
           'actor': actor,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
+          if (others != null) 'others': others,
           ...?$unknown,
         },
-        to: const GetListsOutputConverter().fromJson,
+        to: const GetRelationshipsOutputConverter().fromJson,
         client: $client,
       );
 
@@ -140,26 +231,6 @@ final class GraphService {
   }) async =>
       await _ctx.post<EmptyData>(
         ns.appBskyGraphUnmuteThread,
-        headers: $headers,
-        body: {
-          'root': root.toString(),
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Mutes a thread preventing notifications from the thread and any
-  /// of its children. Mutes are private in Bluesky. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteThread
-  Future<XRPCResponse<EmptyData>> muteThread({
-    required AtUri root,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyGraphMuteThread,
         headers: $headers,
         body: {
           'root': root.toString(),
@@ -188,48 +259,11 @@ final class GraphService {
         client: $client,
       );
 
-  /// Creates a mute relationship for the specified list of accounts.
-  /// Mutes are private in Bluesky. Requires auth.
+  /// Record declaring a 'block' relationship against another account.
+  /// NOTE: blocks are public in Bluesky; see blog posts for details.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
-  Future<XRPCResponse<EmptyData>> muteActorList({
-    required AtUri list,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyGraphMuteActorList,
-        headers: $headers,
-        body: {
-          'list': list.toString(),
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Enumerates follows similar to a given account (actor). Expected
-  /// use is to recommend additional accounts immediately after
-  /// following one account.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
-  Future<XRPCResponse<GetSuggestedFollowsByActorOutput>>
-      getSuggestedFollowsByActor({
-    required String actor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-          await _ctx.get<GetSuggestedFollowsByActorOutput>(
-            ns.appBskyGraphGetSuggestedFollowsByActor,
-            headers: $headers,
-            parameters: {
-              'actor': actor,
-              ...?$unknown,
-            },
-            to: const GetSuggestedFollowsByActorOutputConverter().fromJson,
-            client: $client,
-          );
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
+  BlockRecordHelper get block => BlockRecordHelper(_ctx);
 
   /// Get mod lists that the requesting account (actor) is blocking.
   /// Requires auth.
@@ -279,11 +313,102 @@ final class GraphService {
         client: $client,
       );
 
-  /// Record declaring a 'block' relationship against another account.
-  /// NOTE: blocks are public in Bluesky; see blog posts for details.
+  /// Record defining a starter pack of actors and feeds for new users.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
-  BlockRecordHelper get block => BlockRecordHelper(_ctx);
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/starterpack
+  StarterpackRecordHelper get starterpack => StarterpackRecordHelper(_ctx);
+
+  /// Enumerates which accounts the requesting account is currently
+  /// blocking. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks
+  Future<XRPCResponse<GetBlocksOutput>> getBlocks({
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetBlocksOutput>(
+        ns.appBskyGraphGetBlocks,
+        headers: $headers,
+        parameters: {
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const GetBlocksOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get views for a list of starter packs.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPacks
+  Future<XRPCResponse<GetStarterPacksOutput>> getStarterPacks({
+    required List<AtUri> uris,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetStarterPacksOutput>(
+        ns.appBskyGraphGetStarterPacks,
+        headers: $headers,
+        parameters: {
+          'uris': uris.map((e) => e.toString()).toList(),
+          ...?$unknown,
+        },
+        to: const GetStarterPacksOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Enumerates accounts that the requesting account (actor) currently
+  /// has muted. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes
+  Future<XRPCResponse<GetMutesOutput>> getMutes({
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetMutesOutput>(
+        ns.appBskyGraphGetMutes,
+        headers: $headers,
+        parameters: {
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const GetMutesOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Record representing an account's inclusion on a specific list.
+  /// The AppView will ignore duplicate listitem records.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
+  ListitemRecordHelper get listitem => ListitemRecordHelper(_ctx);
+
+  /// Creates a mute relationship for the specified list of accounts.
+  /// Mutes are private in Bluesky. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
+  Future<XRPCResponse<EmptyData>> muteActorList({
+    required AtUri list,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyGraphMuteActorList,
+        headers: $headers,
+        body: {
+          'list': list.toString(),
+          ...?$unknown,
+        },
+        client: $client,
+      );
 
   /// Enumerates accounts which follow a specified account (actor).
   ///
@@ -309,52 +434,10 @@ final class GraphService {
         client: $client,
       );
 
-  /// Enumerates which accounts the requesting account is currently
-  /// blocking. Requires auth.
+  /// Enumerates the lists created by a specified account (actor).
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks
-  Future<XRPCResponse<GetBlocksOutput>> getBlocks({
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetBlocksOutput>(
-        ns.appBskyGraphGetBlocks,
-        headers: $headers,
-        parameters: {
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const GetBlocksOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Unmutes the specified list of accounts. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
-  Future<XRPCResponse<EmptyData>> unmuteActorList({
-    required AtUri list,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyGraphUnmuteActorList,
-        headers: $headers,
-        body: {
-          'list': list.toString(),
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Get a list of starter packs created by the actor.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getActorStarterPacks
-  Future<XRPCResponse<GetActorStarterPacksOutput>> getActorStarterPacks({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists
+  Future<XRPCResponse<GetListsOutput>> getLists({
     required String actor,
     int? limit,
     String? cursor,
@@ -362,8 +445,8 @@ final class GraphService {
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetActorStarterPacksOutput>(
-        ns.appBskyGraphGetActorStarterPacks,
+      await _ctx.get<GetListsOutput>(
+        ns.appBskyGraphGetLists,
         headers: $headers,
         parameters: {
           'actor': actor,
@@ -371,127 +454,15 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
-        to: const GetActorStarterPacksOutputConverter().fromJson,
+        to: const GetListsOutputConverter().fromJson,
         client: $client,
       );
-
-  /// Get views for a list of starter packs.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPacks
-  Future<XRPCResponse<GetStarterPacksOutput>> getStarterPacks({
-    required List<AtUri> uris,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetStarterPacksOutput>(
-        ns.appBskyGraphGetStarterPacks,
-        headers: $headers,
-        parameters: {
-          'uris': uris.map((e) => e.toString()).toList(),
-          ...?$unknown,
-        },
-        to: const GetStarterPacksOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Unmutes the specified account. Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
-  Future<XRPCResponse<EmptyData>> unmuteActor({
-    required String actor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyGraphUnmuteActor,
-        headers: $headers,
-        body: {
-          'actor': actor,
-          ...?$unknown,
-        },
-        client: $client,
-      );
-
-  /// Gets a view of a starter pack.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPack
-  Future<XRPCResponse<GetStarterPackOutput>> getStarterPack({
-    required AtUri starterPack,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetStarterPackOutput>(
-        ns.appBskyGraphGetStarterPack,
-        headers: $headers,
-        parameters: {
-          'starterPack': starterPack.toString(),
-          ...?$unknown,
-        },
-        to: const GetStarterPackOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Record representing a list of accounts (actors). Scope includes
-  /// both moderation-oriented lists and curration-oriented lists.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
-  ListRecordHelper get list => ListRecordHelper(_ctx);
 
   /// Record representing a block relationship against an entire an
   /// entire list of accounts (actors).
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
   ListblockRecordHelper get listblock => ListblockRecordHelper(_ctx);
-
-  /// Enumerates accounts which a specified account (actor) follows.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows
-  Future<XRPCResponse<GetFollowsOutput>> getFollows({
-    required String actor,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetFollowsOutput>(
-        ns.appBskyGraphGetFollows,
-        headers: $headers,
-        parameters: {
-          'actor': actor,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const GetFollowsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Enumerates public relationships between one account, and a list
-  /// of other accounts. Does not require auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
-  Future<XRPCResponse<GetRelationshipsOutput>> getRelationships({
-    required String actor,
-    List<String>? others,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetRelationshipsOutput>(
-        ns.appBskyGraphGetRelationships,
-        headers: $headers,
-        parameters: {
-          'actor': actor,
-          if (others != null) 'others': others,
-          ...?$unknown,
-        },
-        to: const GetRelationshipsOutputConverter().fromJson,
-        client: $client,
-      );
 
   /// Gets a 'view' (with additional context) of a specified list.
   ///
@@ -517,306 +488,44 @@ final class GraphService {
         client: $client,
       );
 
-  /// Record declaring a social 'follow' relationship of another
-  /// account. Duplicate follows will be ignored by the AppView.
+  /// Gets a view of a starter pack.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
-  FollowRecordHelper get follow => FollowRecordHelper(_ctx);
-
-  /// Record defining a starter pack of actors and feeds for new users.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/starterpack
-  StarterpackRecordHelper get starterpack => StarterpackRecordHelper(_ctx);
-}
-
-/// Useful helper for `app.bsky.graph.listitem`.
-final class ListitemRecordHelper {
-  const ListitemRecordHelper(this._ctx);
-
-  final BlueskyServiceContext _ctx;
-
-  /// Returns listitem record associated with [rkey].
-  Future<XRPCResponse<GetRecordOutput>> get({
-    required String rkey,
-    String? cid,
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPack
+  Future<XRPCResponse<GetStarterPackOutput>> getStarterPack({
+    required AtUri starterPack,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
-    PostClient? $client,
+    GetClient? $client,
   }) async =>
-      await _ctx.atproto.repo.getRecord(
-        collection: ns.appBskyGraphListitem,
-        rkey: rkey,
-        cid: cid,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Returns listitem records.
-  Future<XRPCResponse<ListRecordsOutput>> list({
-    int? limit,
-    String? cursor,
-    String? rkeyStart,
-    String? rkeyEnd,
-    bool? reverse,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.listRecords(
-        collection: ns.appBskyGraphListitem,
-        limit: limit,
-        cursor: cursor,
-        rkeyStart: rkeyStart,
-        rkeyEnd: rkeyEnd,
-        reverse: reverse,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Creates listitem record.
-  Future<XRPCResponse<CreateRecordOutput>> create({
-    String? rkey,
-    required String subject,
-    required AtUri list,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphListitem,
-        rkey: rkey,
-        record: {
-          r'$type': 'app.bsky.graph.listitem',
-          'subject': subject,
-          'list': list.toString(),
-          'createdAt': iso8601(createdAt),
+      await _ctx.get<GetStarterPackOutput>(
+        ns.appBskyGraphGetStarterPack,
+        headers: $headers,
+        parameters: {
+          'starterPack': starterPack.toString(),
           ...?$unknown,
         },
-        $headers: $headers,
-        $client: $client,
+        to: const GetStarterPackOutputConverter().fromJson,
+        client: $client,
       );
 
-  /// Updates listitem record.
-  Future<XRPCResponse<PutRecordOutput>> put({
-    required String rkey,
-    required ListitemRecord record,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.putRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphListitem,
-        rkey: rkey,
-        record: record.toJson(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Deletes listitem record.
-  Future<XRPCResponse<DeleteRecordOutput>> delete({
-    required String rkey,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphListitem,
-        rkey: rkey,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Creates listitem records in bulk.
-  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(
-    final List<ListitemRecord> records, {
+  /// Mutes a thread preventing notifications from the thread and any
+  /// of its children. Mutes are private in Bluesky. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteThread
+  Future<XRPCResponse<EmptyData>> muteThread({
+    required AtUri root,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
-      await _ctx.createRecordInBulk(
-        writes: records
-            .map<Create>(
-              (e) => Create(
-                collection: ns.appBskyGraphListitem,
-                value: {
-                  'subject': e.subject,
-                  'list': e.list.toString(),
-                  'createdAt': iso8601(e.createdAt),
-                  ...?e.$unknown,
-                },
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Deletes listitem records in bulk.
-  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(
-    final List<String> rkeys, {
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.deleteRecordInBulk(
-        writes: rkeys
-            .map<Delete>(
-              (e) => Delete(
-                collection: ns.appBskyGraphListitem,
-                rkey: e,
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-}
-
-/// Useful helper for `app.bsky.graph.block`.
-final class BlockRecordHelper {
-  const BlockRecordHelper(this._ctx);
-
-  final BlueskyServiceContext _ctx;
-
-  /// Returns block record associated with [rkey].
-  Future<XRPCResponse<GetRecordOutput>> get({
-    required String rkey,
-    String? cid,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.getRecord(
-        collection: ns.appBskyGraphBlock,
-        rkey: rkey,
-        cid: cid,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Returns block records.
-  Future<XRPCResponse<ListRecordsOutput>> list({
-    int? limit,
-    String? cursor,
-    String? rkeyStart,
-    String? rkeyEnd,
-    bool? reverse,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.listRecords(
-        collection: ns.appBskyGraphBlock,
-        limit: limit,
-        cursor: cursor,
-        rkeyStart: rkeyStart,
-        rkeyEnd: rkeyEnd,
-        reverse: reverse,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Creates block record.
-  Future<XRPCResponse<CreateRecordOutput>> create({
-    String? rkey,
-    required String subject,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphBlock,
-        rkey: rkey,
-        record: {
-          r'$type': 'app.bsky.graph.block',
-          'subject': subject,
-          'createdAt': iso8601(createdAt),
+      await _ctx.post<EmptyData>(
+        ns.appBskyGraphMuteThread,
+        headers: $headers,
+        body: {
+          'root': root.toString(),
           ...?$unknown,
         },
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Updates block record.
-  Future<XRPCResponse<PutRecordOutput>> put({
-    required String rkey,
-    required BlockRecord record,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.putRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphBlock,
-        rkey: rkey,
-        record: record.toJson(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Deletes block record.
-  Future<XRPCResponse<DeleteRecordOutput>> delete({
-    required String rkey,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphBlock,
-        rkey: rkey,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Creates block records in bulk.
-  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(
-    final List<BlockRecord> records, {
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.createRecordInBulk(
-        writes: records
-            .map<Create>(
-              (e) => Create(
-                collection: ns.appBskyGraphBlock,
-                value: {
-                  'subject': e.subject,
-                  'createdAt': iso8601(e.createdAt),
-                  ...?e.$unknown,
-                },
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Deletes block records in bulk.
-  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(
-    final List<String> rkeys, {
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.deleteRecordInBulk(
-        writes: rkeys
-            .map<Delete>(
-              (e) => Delete(
-                collection: ns.appBskyGraphBlock,
-                rkey: e,
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
+        client: $client,
       );
 }
 
@@ -983,150 +692,6 @@ final class ListRecordHelper {
       );
 }
 
-/// Useful helper for `app.bsky.graph.listblock`.
-final class ListblockRecordHelper {
-  const ListblockRecordHelper(this._ctx);
-
-  final BlueskyServiceContext _ctx;
-
-  /// Returns listblock record associated with [rkey].
-  Future<XRPCResponse<GetRecordOutput>> get({
-    required String rkey,
-    String? cid,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.getRecord(
-        collection: ns.appBskyGraphListblock,
-        rkey: rkey,
-        cid: cid,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Returns listblock records.
-  Future<XRPCResponse<ListRecordsOutput>> list({
-    int? limit,
-    String? cursor,
-    String? rkeyStart,
-    String? rkeyEnd,
-    bool? reverse,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.listRecords(
-        collection: ns.appBskyGraphListblock,
-        limit: limit,
-        cursor: cursor,
-        rkeyStart: rkeyStart,
-        rkeyEnd: rkeyEnd,
-        reverse: reverse,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Creates listblock record.
-  Future<XRPCResponse<CreateRecordOutput>> create({
-    String? rkey,
-    required AtUri subject,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphListblock,
-        rkey: rkey,
-        record: {
-          r'$type': 'app.bsky.graph.listblock',
-          'subject': subject.toString(),
-          'createdAt': iso8601(createdAt),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Updates listblock record.
-  Future<XRPCResponse<PutRecordOutput>> put({
-    required String rkey,
-    required ListblockRecord record,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.putRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphListblock,
-        rkey: rkey,
-        record: record.toJson(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Deletes listblock record.
-  Future<XRPCResponse<DeleteRecordOutput>> delete({
-    required String rkey,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyGraphListblock,
-        rkey: rkey,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Creates listblock records in bulk.
-  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(
-    final List<ListblockRecord> records, {
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.createRecordInBulk(
-        writes: records
-            .map<Create>(
-              (e) => Create(
-                collection: ns.appBskyGraphListblock,
-                value: {
-                  'subject': e.subject.toString(),
-                  'createdAt': iso8601(e.createdAt),
-                  ...?e.$unknown,
-                },
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Deletes listblock records in bulk.
-  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(
-    final List<String> rkeys, {
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.deleteRecordInBulk(
-        writes: rkeys
-            .map<Delete>(
-              (e) => Delete(
-                collection: ns.appBskyGraphListblock,
-                rkey: e,
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-}
-
 /// Useful helper for `app.bsky.graph.follow`.
 final class FollowRecordHelper {
   const FollowRecordHelper(this._ctx);
@@ -1262,6 +827,150 @@ final class FollowRecordHelper {
             .map<Delete>(
               (e) => Delete(
                 collection: ns.appBskyGraphFollow,
+                rkey: e,
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.graph.block`.
+final class BlockRecordHelper {
+  const BlockRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  /// Returns block record associated with [rkey].
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    String? cid,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyGraphBlock,
+        rkey: rkey,
+        cid: cid,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Returns block records.
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyGraphBlock,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Creates block record.
+  Future<XRPCResponse<CreateRecordOutput>> create({
+    String? rkey,
+    required String subject,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphBlock,
+        rkey: rkey,
+        record: {
+          r'$type': 'app.bsky.graph.block',
+          'subject': subject,
+          'createdAt': iso8601(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates block record.
+  Future<XRPCResponse<PutRecordOutput>> put({
+    required String rkey,
+    required BlockRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphBlock,
+        rkey: rkey,
+        record: record.toJson(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Deletes block record.
+  Future<XRPCResponse<DeleteRecordOutput>> delete({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphBlock,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Creates block records in bulk.
+  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(
+    final List<BlockRecord> records, {
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyGraphBlock,
+                value: {
+                  'subject': e.subject,
+                  'createdAt': iso8601(e.createdAt),
+                  ...?e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Deletes block records in bulk.
+  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(
+    final List<String> rkeys, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.deleteRecordInBulk(
+        writes: rkeys
+            .map<Delete>(
+              (e) => Delete(
+                collection: ns.appBskyGraphBlock,
                 rkey: e,
               ),
             )
@@ -1423,6 +1132,297 @@ final class StarterpackRecordHelper {
             .map<Delete>(
               (e) => Delete(
                 collection: ns.appBskyGraphStarterpack,
+                rkey: e,
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.graph.listitem`.
+final class ListitemRecordHelper {
+  const ListitemRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  /// Returns listitem record associated with [rkey].
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    String? cid,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyGraphListitem,
+        rkey: rkey,
+        cid: cid,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Returns listitem records.
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyGraphListitem,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Creates listitem record.
+  Future<XRPCResponse<CreateRecordOutput>> create({
+    String? rkey,
+    required String subject,
+    required AtUri list,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListitem,
+        rkey: rkey,
+        record: {
+          r'$type': 'app.bsky.graph.listitem',
+          'subject': subject,
+          'list': list.toString(),
+          'createdAt': iso8601(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates listitem record.
+  Future<XRPCResponse<PutRecordOutput>> put({
+    required String rkey,
+    required ListitemRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListitem,
+        rkey: rkey,
+        record: record.toJson(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Deletes listitem record.
+  Future<XRPCResponse<DeleteRecordOutput>> delete({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListitem,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Creates listitem records in bulk.
+  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(
+    final List<ListitemRecord> records, {
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyGraphListitem,
+                value: {
+                  'subject': e.subject,
+                  'list': e.list.toString(),
+                  'createdAt': iso8601(e.createdAt),
+                  ...?e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Deletes listitem records in bulk.
+  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(
+    final List<String> rkeys, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.deleteRecordInBulk(
+        writes: rkeys
+            .map<Delete>(
+              (e) => Delete(
+                collection: ns.appBskyGraphListitem,
+                rkey: e,
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.graph.listblock`.
+final class ListblockRecordHelper {
+  const ListblockRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  /// Returns listblock record associated with [rkey].
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    String? cid,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyGraphListblock,
+        rkey: rkey,
+        cid: cid,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Returns listblock records.
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyGraphListblock,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Creates listblock record.
+  Future<XRPCResponse<CreateRecordOutput>> create({
+    String? rkey,
+    required AtUri subject,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListblock,
+        rkey: rkey,
+        record: {
+          r'$type': 'app.bsky.graph.listblock',
+          'subject': subject.toString(),
+          'createdAt': iso8601(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates listblock record.
+  Future<XRPCResponse<PutRecordOutput>> put({
+    required String rkey,
+    required ListblockRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListblock,
+        rkey: rkey,
+        record: record.toJson(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Deletes listblock record.
+  Future<XRPCResponse<DeleteRecordOutput>> delete({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyGraphListblock,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Creates listblock records in bulk.
+  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(
+    final List<ListblockRecord> records, {
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyGraphListblock,
+                value: {
+                  'subject': e.subject.toString(),
+                  'createdAt': iso8601(e.createdAt),
+                  ...?e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Deletes listblock records in bulk.
+  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(
+    final List<String> rkeys, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.deleteRecordInBulk(
+        writes: rkeys
+            .map<Delete>(
+              (e) => Delete(
+                collection: ns.appBskyGraphListblock,
                 rkey: e,
               ),
             )

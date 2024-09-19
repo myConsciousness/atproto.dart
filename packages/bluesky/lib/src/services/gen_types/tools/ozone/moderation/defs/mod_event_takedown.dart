@@ -38,6 +38,10 @@ class ModEventTakedown with _$ModEventTakedown {
     /// automatically expiring.
     @Default(0) int durationInHours,
 
+    /// If true, all other reports on content authored by this account
+    /// will be resolved (acknowledged).
+    @Default(false) bool acknowledgeAccountSubjects,
+
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
   }) = _ModEventTakedown;
@@ -61,6 +65,12 @@ extension $ModEventTakedownExtension on ModEventTakedown {
   /// Returns true if [comment] is null, otherwise false.
   bool get hasNotComment => !hasComment;
 
+  /// Returns true or false from [acknowledgeAccountSubjects].
+  bool get isAcknowledgeAccountSubjects => acknowledgeAccountSubjects;
+
+  /// Returns negated true or false from [acknowledgeAccountSubjects].
+  bool get isNotAcknowledgeAccountSubjects => !isAcknowledgeAccountSubjects;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -74,6 +84,7 @@ const _kLexCompatibleProperties = <String>[
   r'$type',
   'comment',
   'durationInHours',
+  'acknowledgeAccountSubjects',
 ];
 
 final class ModEventTakedownConverter

@@ -14,33 +14,61 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/actor/defs/profile_view.dart';
+import '../../../../../../ids.g.dart';
 
-part 'output.freezed.dart';
-part 'output.g.dart';
+part 'nux.freezed.dart';
+part 'nux.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor#main
+/// A new user experiences (NUX) storage object
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#nux
 @freezed
-class GetSuggestedFollowsByActorOutput with _$GetSuggestedFollowsByActorOutput {
+class Nux with _$Nux {
   @JsonSerializable(includeIfNull: false)
-  const factory GetSuggestedFollowsByActorOutput({
-    @ProfileViewConverter() required List<ProfileView> suggestions,
+  const factory Nux({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#nux`
+    @Default(appBskyActorDefsNux) @JsonKey(name: r'$type') String $type,
+    required String id,
+    required bool completed,
 
-    /// If true, response has fallen-back to generic results, and is not
-    /// scoped using relativeToDid
-    @Default(false) bool isFallback,
+    /// Arbitrary data for the NUX. The structure is defined by the NUX
+    /// itself. Limited to 300 characters.
+    String? data,
+
+    /// The date and time at which the NUX will expire and should be
+    /// considered completed.
+    DateTime? expiresAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
-  }) = _GetSuggestedFollowsByActorOutput;
+  }) = _Nux;
 
-  factory GetSuggestedFollowsByActorOutput.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetSuggestedFollowsByActorOutputFromJson(json);
+  factory Nux.fromJson(Map<String, dynamic> json) => _$NuxFromJson(json);
 }
 
-extension $GetSuggestedFollowsByActorOutputExtension
-    on GetSuggestedFollowsByActorOutput {
+/// Returns true if [object] is [Nux], otherwise false.
+bool isNux(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#nux';
+}
+
+extension $NuxExtension on Nux {
+  /// Returns true if [data] is not null, otherwise false.
+  bool get hasData => data != null;
+
+  /// Returns true if [data] is null, otherwise false.
+  bool get hasNotData => !hasData;
+
+  /// Returns true if [expiresAt] is not null, otherwise false.
+  bool get hasExpiresAt => expiresAt != null;
+
+  /// Returns true if [expiresAt] is null, otherwise false.
+  bool get hasNotExpiresAt => !hasExpiresAt;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -51,17 +79,18 @@ extension $GetSuggestedFollowsByActorOutputExtension
 }
 
 const _kLexCompatibleProperties = <String>[
-  'suggestions',
-  'isFallback',
+  r'$type',
+  'id',
+  'completed',
+  'data',
+  'expiresAt',
 ];
 
-final class GetSuggestedFollowsByActorOutputConverter
-    implements
-        JsonConverter<GetSuggestedFollowsByActorOutput, Map<String, dynamic>> {
-  const GetSuggestedFollowsByActorOutputConverter();
+final class NuxConverter implements JsonConverter<Nux, Map<String, dynamic>> {
+  const NuxConverter();
 
   @override
-  GetSuggestedFollowsByActorOutput fromJson(Map<String, dynamic> json) {
+  Nux fromJson(Map<String, dynamic> json) {
     final props = <String, dynamic>{};
     for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
@@ -76,11 +105,11 @@ final class GetSuggestedFollowsByActorOutputConverter
       }
     }
 
-    return GetSuggestedFollowsByActorOutput.fromJson(props);
+    return Nux.fromJson(props);
   }
 
   @override
-  Map<String, dynamic> toJson(GetSuggestedFollowsByActorOutput object) {
+  Map<String, dynamic> toJson(Nux object) {
     if (object.hasNotUnknown) {
       return object.toJson();
     }

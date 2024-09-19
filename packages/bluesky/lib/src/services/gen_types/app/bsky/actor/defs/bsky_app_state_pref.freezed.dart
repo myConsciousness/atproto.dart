@@ -33,6 +33,10 @@ mixin _$BskyAppStatePref {
   /// highlight dots) that should be shown to the user.
   List<String>? get queuedNudges => throw _privateConstructorUsedError;
 
+  /// Storage for NUXs the user has encountered.
+  @NuxConverter()
+  List<Nux>? get nuxs => throw _privateConstructorUsedError;
+
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
   Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ abstract class $BskyAppStatePrefCopyWith<$Res> {
       @BskyAppProgressGuideConverter()
       BskyAppProgressGuide? activeProgressGuide,
       List<String>? queuedNudges,
+      @NuxConverter() List<Nux>? nuxs,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   $BskyAppProgressGuideCopyWith<$Res>? get activeProgressGuide;
@@ -75,6 +80,7 @@ class _$BskyAppStatePrefCopyWithImpl<$Res, $Val extends BskyAppStatePref>
     Object? $type = null,
     Object? activeProgressGuide = freezed,
     Object? queuedNudges = freezed,
+    Object? nuxs = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
@@ -90,6 +96,10 @@ class _$BskyAppStatePrefCopyWithImpl<$Res, $Val extends BskyAppStatePref>
           ? _value.queuedNudges
           : queuedNudges // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      nuxs: freezed == nuxs
+          ? _value.nuxs
+          : nuxs // ignore: cast_nullable_to_non_nullable
+              as List<Nux>?,
       $unknown: freezed == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -124,6 +134,7 @@ abstract class _$$BskyAppStatePrefImplCopyWith<$Res>
       @BskyAppProgressGuideConverter()
       BskyAppProgressGuide? activeProgressGuide,
       List<String>? queuedNudges,
+      @NuxConverter() List<Nux>? nuxs,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
   @override
@@ -144,6 +155,7 @@ class __$$BskyAppStatePrefImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? activeProgressGuide = freezed,
     Object? queuedNudges = freezed,
+    Object? nuxs = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$BskyAppStatePrefImpl(
@@ -159,6 +171,10 @@ class __$$BskyAppStatePrefImplCopyWithImpl<$Res>
           ? _value._queuedNudges
           : queuedNudges // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      nuxs: freezed == nuxs
+          ? _value._nuxs
+          : nuxs // ignore: cast_nullable_to_non_nullable
+              as List<Nux>?,
       $unknown: freezed == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -175,8 +191,10 @@ class _$BskyAppStatePrefImpl implements _BskyAppStatePref {
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsBskyAppStatePref,
       @BskyAppProgressGuideConverter() this.activeProgressGuide,
       final List<String>? queuedNudges,
+      @NuxConverter() final List<Nux>? nuxs,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _queuedNudges = queuedNudges,
+        _nuxs = nuxs,
         _$unknown = $unknown;
 
   factory _$BskyAppStatePrefImpl.fromJson(Map<String, dynamic> json) =>
@@ -207,6 +225,20 @@ class _$BskyAppStatePrefImpl implements _BskyAppStatePref {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Storage for NUXs the user has encountered.
+  final List<Nux>? _nuxs;
+
+  /// Storage for NUXs the user has encountered.
+  @override
+  @NuxConverter()
+  List<Nux>? get nuxs {
+    final value = _nuxs;
+    if (value == null) return null;
+    if (_nuxs is EqualUnmodifiableListView) return _nuxs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic>? _$unknown;
 
@@ -223,7 +255,7 @@ class _$BskyAppStatePrefImpl implements _BskyAppStatePref {
 
   @override
   String toString() {
-    return 'BskyAppStatePref(\$type: ${$type}, activeProgressGuide: $activeProgressGuide, queuedNudges: $queuedNudges, \$unknown: ${$unknown})';
+    return 'BskyAppStatePref(\$type: ${$type}, activeProgressGuide: $activeProgressGuide, queuedNudges: $queuedNudges, nuxs: $nuxs, \$unknown: ${$unknown})';
   }
 
   @override
@@ -236,6 +268,7 @@ class _$BskyAppStatePrefImpl implements _BskyAppStatePref {
                 other.activeProgressGuide == activeProgressGuide) &&
             const DeepCollectionEquality()
                 .equals(other._queuedNudges, _queuedNudges) &&
+            const DeepCollectionEquality().equals(other._nuxs, _nuxs) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
@@ -246,6 +279,7 @@ class _$BskyAppStatePrefImpl implements _BskyAppStatePref {
       $type,
       activeProgressGuide,
       const DeepCollectionEquality().hash(_queuedNudges),
+      const DeepCollectionEquality().hash(_nuxs),
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -269,6 +303,7 @@ abstract class _BskyAppStatePref implements BskyAppStatePref {
           @BskyAppProgressGuideConverter()
           final BskyAppProgressGuide? activeProgressGuide,
           final List<String>? queuedNudges,
+          @NuxConverter() final List<Nux>? nuxs,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$BskyAppStatePrefImpl;
 
@@ -290,6 +325,11 @@ abstract class _BskyAppStatePref implements BskyAppStatePref {
   /// An array of tokens which identify nudges (modals, popups, tours,
   /// highlight dots) that should be shown to the user.
   List<String>? get queuedNudges;
+  @override
+
+  /// Storage for NUXs the user has encountered.
+  @NuxConverter()
+  List<Nux>? get nuxs;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

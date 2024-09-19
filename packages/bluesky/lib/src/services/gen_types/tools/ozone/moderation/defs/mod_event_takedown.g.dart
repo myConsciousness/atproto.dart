@@ -19,6 +19,8 @@ _$ModEventTakedownImpl _$$ModEventTakedownImplFromJson(Map json) =>
           comment: $checkedConvert('comment', (v) => v as String?),
           durationInHours: $checkedConvert(
               'durationInHours', (v) => (v as num?)?.toInt() ?? 0),
+          acknowledgeAccountSubjects: $checkedConvert(
+              'acknowledgeAccountSubjects', (v) => v as bool? ?? false),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -43,6 +45,7 @@ Map<String, dynamic> _$$ModEventTakedownImplToJson(
 
   writeNotNull('comment', instance.comment);
   val['durationInHours'] = instance.durationInHours;
+  val['acknowledgeAccountSubjects'] = instance.acknowledgeAccountSubjects;
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }

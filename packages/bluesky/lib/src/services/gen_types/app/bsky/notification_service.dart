@@ -26,6 +26,26 @@ final class NotificationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// Notify server that the requesting account has seen notifications.
+  /// Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
+  Future<XRPCResponse<EmptyData>> updateSeen({
+    required DateTime seenAt,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyNotificationUpdateSeen,
+        headers: $headers,
+        body: {
+          'seenAt': iso8601(seenAt),
+          ...?$unknown,
+        },
+        client: $client,
+      );
+
   /// Count the number of unread notifications for the requesting
   /// account. Requires auth.
   ///
@@ -73,26 +93,6 @@ final class NotificationService {
           ...?$unknown,
         },
         to: const ListNotificationsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Notify server that the requesting account has seen notifications.
-  /// Requires auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
-  Future<XRPCResponse<EmptyData>> updateSeen({
-    required DateTime seenAt,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.post<EmptyData>(
-        ns.appBskyNotificationUpdateSeen,
-        headers: $headers,
-        body: {
-          'seenAt': iso8601(seenAt),
-          ...?$unknown,
-        },
         client: $client,
       );
 

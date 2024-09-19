@@ -16,6 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/bsky_app_progress_guide.dart';
+import '../../../../app/bsky/actor/defs/nux.dart';
 
 part 'bsky_app_state_pref.freezed.dart';
 part 'bsky_app_state_pref.g.dart';
@@ -39,6 +40,9 @@ class BskyAppStatePref with _$BskyAppStatePref {
     /// An array of tokens which identify nudges (modals, popups, tours,
     /// highlight dots) that should be shown to the user.
     List<String>? queuedNudges,
+
+    /// Storage for NUXs the user has encountered.
+    @NuxConverter() List<Nux>? nuxs,
 
     /// Contains unknown objects not defined in Lexicon.
     @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown,
@@ -69,6 +73,12 @@ extension $BskyAppStatePrefExtension on BskyAppStatePref {
   /// Returns true if [queuedNudges] is null, otherwise false.
   bool get hasNotQueuedNudges => !hasQueuedNudges;
 
+  /// Returns true if [nuxs] is not null, otherwise false.
+  bool get hasNuxs => nuxs != null;
+
+  /// Returns true if [nuxs] is null, otherwise false.
+  bool get hasNotNuxs => !hasNuxs;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -82,6 +92,7 @@ const _kLexCompatibleProperties = <String>[
   r'$type',
   'activeProgressGuide',
   'queuedNudges',
+  'nuxs',
 ];
 
 final class BskyAppStatePrefConverter

@@ -22,6 +22,7 @@ import '../../../../tools/ozone/moderation/defs/mod_event_label.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_mute.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_mute_reporter.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_report.dart';
+import '../../../../tools/ozone/moderation/defs/mod_event_resolve_appeal.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_reverse_takedown.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_tag.dart';
 import '../../../../tools/ozone/moderation/defs/mod_event_takedown.dart';
@@ -75,6 +76,10 @@ class UEmitEventEvent with _$UEmitEventEvent {
   const factory UEmitEventEvent.modEventReverseTakedown({
     required ModEventReverseTakedown data,
   }) = UEmitEventEventModEventReverseTakedown;
+
+  const factory UEmitEventEvent.modEventResolveAppeal({
+    required ModEventResolveAppeal data,
+  }) = UEmitEventEventModEventResolveAppeal;
 
   const factory UEmitEventEvent.modEventEmail({
     required ModEventEmail data,
@@ -151,6 +156,11 @@ final class UEmitEventEventConverter
           data: const ModEventReverseTakedownConverter().fromJson(json),
         );
       }
+      if (isModEventResolveAppeal(json)) {
+        return UEmitEventEvent.modEventResolveAppeal(
+          data: const ModEventResolveAppealConverter().fromJson(json),
+        );
+      }
       if (isModEventEmail(json)) {
         return UEmitEventEvent.modEventEmail(
           data: const ModEventEmailConverter().fromJson(json),
@@ -182,6 +192,7 @@ final class UEmitEventEventConverter
         modEventUnmuteReporter: const ModEventUnmuteReporterConverter().toJson,
         modEventReverseTakedown:
             const ModEventReverseTakedownConverter().toJson,
+        modEventResolveAppeal: const ModEventResolveAppealConverter().toJson,
         modEventEmail: const ModEventEmailConverter().toJson,
         modEventTag: const ModEventTagConverter().toJson,
         unknown: (data) => data,
@@ -261,6 +272,13 @@ extension $UEmitEventEventExtension on UEmitEventEvent {
 
   /// Returns true if this data is not [ModEventReverseTakedown], otherwise false.
   bool get isNotModEventReverseTakedown => !isModEventReverseTakedown;
+
+  /// Returns true if this data is [ModEventResolveAppeal], otherwise false.
+  bool get isModEventResolveAppeal =>
+      this is UEmitEventEventModEventResolveAppeal;
+
+  /// Returns true if this data is not [ModEventResolveAppeal], otherwise false.
+  bool get isNotModEventResolveAppeal => !isModEventResolveAppeal;
 
   /// Returns true if this data is [ModEventEmail], otherwise false.
   bool get isModEventEmail => this is UEmitEventEventModEventEmail;
@@ -381,6 +399,16 @@ extension $UEmitEventEventExtension on UEmitEventEvent {
   /// Returns [ModEventReverseTakedown] if this data is [ModEventReverseTakedown], otherwise null.
   ModEventReverseTakedown? get modEventReverseTakedownOrNull =>
       isModEventReverseTakedown ? modEventReverseTakedown : null;
+
+  /// Returns this data as [ModEventResolveAppeal].
+  ///
+  /// Make sure to check if this object is [ModEventResolveAppeal] with [isModEventResolveAppeal].
+  ModEventResolveAppeal get modEventResolveAppeal =>
+      this.data as ModEventResolveAppeal;
+
+  /// Returns [ModEventResolveAppeal] if this data is [ModEventResolveAppeal], otherwise null.
+  ModEventResolveAppeal? get modEventResolveAppealOrNull =>
+      isModEventResolveAppeal ? modEventResolveAppeal : null;
 
   /// Returns this data as [ModEventEmail].
   ///

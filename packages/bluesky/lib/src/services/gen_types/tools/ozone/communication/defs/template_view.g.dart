@@ -21,6 +21,7 @@ _$TemplateViewImpl _$$TemplateViewImplFromJson(Map json) => $checkedCreate(
           contentMarkdown:
               $checkedConvert('contentMarkdown', (v) => v as String),
           disabled: $checkedConvert('disabled', (v) => v as bool),
+          lang: $checkedConvert('lang', (v) => v as String?),
           lastUpdatedBy: $checkedConvert('lastUpdatedBy', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
@@ -52,6 +53,7 @@ Map<String, dynamic> _$$TemplateViewImplToJson(_$TemplateViewImpl instance) {
   writeNotNull('subject', instance.subject);
   val['contentMarkdown'] = instance.contentMarkdown;
   val['disabled'] = instance.disabled;
+  writeNotNull('lang', instance.lang);
   val['lastUpdatedBy'] = instance.lastUpdatedBy;
   val['createdAt'] = instance.createdAt.toIso8601String();
   val['updatedAt'] = instance.updatedAt.toIso8601String();

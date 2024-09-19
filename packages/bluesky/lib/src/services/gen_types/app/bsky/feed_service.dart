@@ -63,13 +63,6 @@ final class FeedService {
 
   final BlueskyServiceContext _ctx;
 
-  /// Record declaring of the existence of a feed generator, and
-  /// containing metadata about it. The record can exist in any
-  /// repository.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/generator
-  GeneratorRecordHelper get generator => GeneratorRecordHelper(_ctx);
-
   /// Send information about interactions with feed items back to the
   /// feed generator that served them.
   ///
@@ -90,45 +83,159 @@ final class FeedService {
         client: $client,
       );
 
-  /// Record declaring a 'like' of a piece of subject content.
+  /// Get a list of suggested feeds (feed generators) for the
+  /// requesting account.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/like
-  LikeRecordHelper get like => LikeRecordHelper(_ctx);
-
-  /// Get a view of an actor's 'author feed' (post and reposts by the
-  /// author). Does not require auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getAuthorFeed
-  Future<XRPCResponse<GetAuthorFeedOutput>> getAuthorFeed({
-    required String actor,
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getSuggestedFeeds
+  Future<XRPCResponse<GetSuggestedFeedsOutput>> getSuggestedFeeds({
     int? limit,
     String? cursor,
-    UGetAuthorFeedFilter? filter,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetAuthorFeedOutput>(
-        ns.appBskyFeedGetAuthorFeed,
+      await _ctx.get<GetSuggestedFeedsOutput>(
+        ns.appBskyFeedGetSuggestedFeeds,
+        headers: $headers,
+        parameters: {
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const GetSuggestedFeedsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get a list of quotes for a given post.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getQuotes
+  Future<XRPCResponse<GetQuotesOutput>> getQuotes({
+    required AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetQuotesOutput>(
+        ns.appBskyFeedGetQuotes,
+        headers: $headers,
+        parameters: {
+          'uri': uri.toString(),
+          if (cid != null) 'cid': cid,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const GetQuotesOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Record declaring of the existence of a feed generator, and
+  /// containing metadata about it. The record can exist in any
+  /// repository.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/generator
+  GeneratorRecordHelper get generator => GeneratorRecordHelper(_ctx);
+
+  /// Get a feed of recent posts from a list (posts and reposts from
+  /// any actors on the list). Does not require auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getListFeed
+  Future<XRPCResponse<GetListFeedOutput>> getListFeed({
+    required AtUri list,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetListFeedOutput>(
+        ns.appBskyFeedGetListFeed,
+        headers: $headers,
+        parameters: {
+          'list': list.toString(),
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const GetListFeedOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get a list of posts liked by an actor. Requires auth, actor must
+  /// be the requesting account.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorLikes
+  Future<XRPCResponse<GetActorLikesOutput>> getActorLikes({
+    required String actor,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetActorLikesOutput>(
+        ns.appBskyFeedGetActorLikes,
         headers: $headers,
         parameters: {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          if (filter != null) 'filter': filter.toJson(),
           ...?$unknown,
         },
-        to: const GetAuthorFeedOutputConverter().fromJson,
+        to: const GetActorLikesOutputConverter().fromJson,
         client: $client,
       );
 
-  /// Record defining interaction gating rules for a thread (aka, reply
-  /// controls). The record key (rkey) of the threadgate record must
-  /// match the record key of the thread's root post, and that record
-  /// must be in the same repository..
+  /// Find posts matching search criteria, returning views of those
+  /// posts.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate
-  ThreadgateRecordHelper get threadgate => ThreadgateRecordHelper(_ctx);
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
+  Future<XRPCResponse<SearchPostsOutput>> searchPosts({
+    required String q,
+    USearchPostsSort? sort,
+    String? since,
+    String? until,
+    String? mentions,
+    String? author,
+    String? lang,
+    String? domain,
+    String? url,
+    List<String>? tag,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<SearchPostsOutput>(
+        ns.appBskyFeedSearchPosts,
+        headers: $headers,
+        parameters: {
+          'q': q,
+          if (sort != null) 'sort': sort.toJson(),
+          if (since != null) 'since': since,
+          if (until != null) 'until': until,
+          if (mentions != null) 'mentions': mentions,
+          if (author != null) 'author': author,
+          if (lang != null) 'lang': lang,
+          if (domain != null) 'domain': domain,
+          if (url != null) 'url': url,
+          if (tag != null) 'tag': tag,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
+        },
+        to: const SearchPostsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Record declaring a 'like' of a piece of subject content.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/like
+  LikeRecordHelper get like => LikeRecordHelper(_ctx);
 
   /// Get posts in a thread. Does not require auth, but additional
   /// metadata and filtering will be applied for authed requests.
@@ -180,30 +287,6 @@ final class FeedService {
         client: $client,
       );
 
-  /// Record defining interaction rules for a post. The record key
-  /// (rkey) of the postgate record must match the record key of the
-  /// post, and that record must be in the same repository.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/postgate
-  PostgateRecordHelper get postgate => PostgateRecordHelper(_ctx);
-
-  /// Get information about a feed generator, including policies and
-  /// offered feed URIs. Does not require auth; implemented by Feed
-  /// Generator services (not App View).
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
-  Future<XRPCResponse<DescribeFeedGeneratorOutput>> describeFeedGenerator({
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<DescribeFeedGeneratorOutput>(
-        ns.appBskyFeedDescribeFeedGenerator,
-        headers: $headers,
-        to: const DescribeFeedGeneratorOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Get like records which reference a subject (by AT-URI and CID).
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getLikes
@@ -227,196 +310,6 @@ final class FeedService {
           ...?$unknown,
         },
         to: const GetLikesOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get a feed of recent posts from a list (posts and reposts from
-  /// any actors on the list). Does not require auth.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getListFeed
-  Future<XRPCResponse<GetListFeedOutput>> getListFeed({
-    required AtUri list,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetListFeedOutput>(
-        ns.appBskyFeedGetListFeed,
-        headers: $headers,
-        parameters: {
-          'list': list.toString(),
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const GetListFeedOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Record representing a 'repost' of an existing Bluesky post.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/repost
-  RepostRecordHelper get repost => RepostRecordHelper(_ctx);
-
-  /// Get a view of the requesting account's home timeline. This is
-  /// expected to be some form of reverse-chronological feed.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getTimeline
-  Future<XRPCResponse<GetTimelineOutput>> getTimeline({
-    String? algorithm,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetTimelineOutput>(
-        ns.appBskyFeedGetTimeline,
-        headers: $headers,
-        parameters: {
-          if (algorithm != null) 'algorithm': algorithm,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const GetTimelineOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get a list of reposts for a given post.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getRepostedBy
-  Future<XRPCResponse<GetRepostedByOutput>> getRepostedBy({
-    required AtUri uri,
-    String? cid,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetRepostedByOutput>(
-        ns.appBskyFeedGetRepostedBy,
-        headers: $headers,
-        parameters: {
-          'uri': uri.toString(),
-          if (cid != null) 'cid': cid,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const GetRepostedByOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Find posts matching search criteria, returning views of those
-  /// posts.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
-  Future<XRPCResponse<SearchPostsOutput>> searchPosts({
-    required String q,
-    USearchPostsSort? sort,
-    String? since,
-    String? until,
-    String? mentions,
-    String? author,
-    String? lang,
-    String? domain,
-    String? url,
-    List<String>? tag,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<SearchPostsOutput>(
-        ns.appBskyFeedSearchPosts,
-        headers: $headers,
-        parameters: {
-          'q': q,
-          if (sort != null) 'sort': sort.toJson(),
-          if (since != null) 'since': since,
-          if (until != null) 'until': until,
-          if (mentions != null) 'mentions': mentions,
-          if (author != null) 'author': author,
-          if (lang != null) 'lang': lang,
-          if (domain != null) 'domain': domain,
-          if (url != null) 'url': url,
-          if (tag != null) 'tag': tag,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const SearchPostsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get a list of posts liked by an actor. Requires auth, actor must
-  /// be the requesting account.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorLikes
-  Future<XRPCResponse<GetActorLikesOutput>> getActorLikes({
-    required String actor,
-    int? limit,
-    String? cursor,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetActorLikesOutput>(
-        ns.appBskyFeedGetActorLikes,
-        headers: $headers,
-        parameters: {
-          'actor': actor,
-          if (limit != null) 'limit': limit.toString(),
-          if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
-        },
-        to: const GetActorLikesOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Get information about a list of feed generators.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators
-  Future<XRPCResponse<GetFeedGeneratorsOutput>> getFeedGenerators({
-    required List<AtUri> feeds,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetFeedGeneratorsOutput>(
-        ns.appBskyFeedGetFeedGenerators,
-        headers: $headers,
-        parameters: {
-          'feeds': feeds.map((e) => e.toString()).toList(),
-          ...?$unknown,
-        },
-        to: const GetFeedGeneratorsOutputConverter().fromJson,
-        client: $client,
-      );
-
-  /// Gets post views for a specified list of posts (by AT-URI). This
-  /// is sometimes referred to as 'hydrating' a 'feed skeleton'.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
-  Future<XRPCResponse<GetPostsOutput>> getPosts({
-    required List<AtUri> uris,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetPostsOutput>(
-        ns.appBskyFeedGetPosts,
-        headers: $headers,
-        parameters: {
-          'uris': uris.map((e) => e.toString()).toList(),
-          ...?$unknown,
-        },
-        to: const GetPostsOutputConverter().fromJson,
         client: $client,
       );
 
@@ -446,33 +339,89 @@ final class FeedService {
         client: $client,
       );
 
-  /// Record containing a Bluesky post.
+  /// Get a view of the requesting account's home timeline. This is
+  /// expected to be some form of reverse-chronological feed.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
-  PostRecordHelper get post => PostRecordHelper(_ctx);
-
-  /// Get a list of suggested feeds (feed generators) for the
-  /// requesting account.
-  ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getSuggestedFeeds
-  Future<XRPCResponse<GetSuggestedFeedsOutput>> getSuggestedFeeds({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getTimeline
+  Future<XRPCResponse<GetTimelineOutput>> getTimeline({
+    String? algorithm,
     int? limit,
     String? cursor,
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetSuggestedFeedsOutput>(
-        ns.appBskyFeedGetSuggestedFeeds,
+      await _ctx.get<GetTimelineOutput>(
+        ns.appBskyFeedGetTimeline,
         headers: $headers,
         parameters: {
+          if (algorithm != null) 'algorithm': algorithm,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
-        to: const GetSuggestedFeedsOutputConverter().fromJson,
+        to: const GetTimelineOutputConverter().fromJson,
         client: $client,
       );
+
+  /// Record defining interaction rules for a post. The record key
+  /// (rkey) of the postgate record must match the record key of the
+  /// post, and that record must be in the same repository.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/postgate
+  PostgateRecordHelper get postgate => PostgateRecordHelper(_ctx);
+
+  /// Get a view of an actor's 'author feed' (post and reposts by the
+  /// author). Does not require auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getAuthorFeed
+  Future<XRPCResponse<GetAuthorFeedOutput>> getAuthorFeed({
+    required String actor,
+    int? limit,
+    String? cursor,
+    UGetAuthorFeedFilter? filter,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetAuthorFeedOutput>(
+        ns.appBskyFeedGetAuthorFeed,
+        headers: $headers,
+        parameters: {
+          'actor': actor,
+          if (limit != null) 'limit': limit.toString(),
+          if (cursor != null) 'cursor': cursor,
+          if (filter != null) 'filter': filter.toJson(),
+          ...?$unknown,
+        },
+        to: const GetAuthorFeedOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get information about a feed generator. Implemented by AppView.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
+  Future<XRPCResponse<GetFeedGeneratorOutput>> getFeedGenerator({
+    required AtUri feed,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetFeedGeneratorOutput>(
+        ns.appBskyFeedGetFeedGenerator,
+        headers: $headers,
+        parameters: {
+          'feed': feed.toString(),
+          ...?$unknown,
+        },
+        to: const GetFeedGeneratorOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Record containing a Bluesky post.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
+  PostRecordHelper get post => PostRecordHelper(_ctx);
 
   /// Get a list of feeds (feed generator records) created by the actor
   /// (in the actor's repo).
@@ -499,30 +448,68 @@ final class FeedService {
         client: $client,
       );
 
-  /// Get information about a feed generator. Implemented by AppView.
+  /// Get information about a feed generator, including policies and
+  /// offered feed URIs. Does not require auth; implemented by Feed
+  /// Generator services (not App View).
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
-  Future<XRPCResponse<GetFeedGeneratorOutput>> getFeedGenerator({
-    required AtUri feed,
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
+  Future<XRPCResponse<DescribeFeedGeneratorOutput>> describeFeedGenerator({
     Map<String, String>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetFeedGeneratorOutput>(
-        ns.appBskyFeedGetFeedGenerator,
+      await _ctx.get<DescribeFeedGeneratorOutput>(
+        ns.appBskyFeedDescribeFeedGenerator,
         headers: $headers,
-        parameters: {
-          'feed': feed.toString(),
-          ...?$unknown,
-        },
-        to: const GetFeedGeneratorOutputConverter().fromJson,
+        to: const DescribeFeedGeneratorOutputConverter().fromJson,
         client: $client,
       );
 
-  /// Get a list of quotes for a given post.
+  /// Gets post views for a specified list of posts (by AT-URI). This
+  /// is sometimes referred to as 'hydrating' a 'feed skeleton'.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getQuotes
-  Future<XRPCResponse<GetQuotesOutput>> getQuotes({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
+  Future<XRPCResponse<GetPostsOutput>> getPosts({
+    required List<AtUri> uris,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetPostsOutput>(
+        ns.appBskyFeedGetPosts,
+        headers: $headers,
+        parameters: {
+          'uris': uris.map((e) => e.toString()).toList(),
+          ...?$unknown,
+        },
+        to: const GetPostsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get information about a list of feed generators.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators
+  Future<XRPCResponse<GetFeedGeneratorsOutput>> getFeedGenerators({
+    required List<AtUri> feeds,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    GetClient? $client,
+  }) async =>
+      await _ctx.get<GetFeedGeneratorsOutput>(
+        ns.appBskyFeedGetFeedGenerators,
+        headers: $headers,
+        parameters: {
+          'feeds': feeds.map((e) => e.toString()).toList(),
+          ...?$unknown,
+        },
+        to: const GetFeedGeneratorsOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Get a list of reposts for a given post.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getRepostedBy
+  Future<XRPCResponse<GetRepostedByOutput>> getRepostedBy({
     required AtUri uri,
     String? cid,
     int? limit,
@@ -531,8 +518,8 @@ final class FeedService {
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
-      await _ctx.get<GetQuotesOutput>(
-        ns.appBskyFeedGetQuotes,
+      await _ctx.get<GetRepostedByOutput>(
+        ns.appBskyFeedGetRepostedBy,
         headers: $headers,
         parameters: {
           'uri': uri.toString(),
@@ -541,9 +528,22 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
-        to: const GetQuotesOutputConverter().fromJson,
+        to: const GetRepostedByOutputConverter().fromJson,
         client: $client,
       );
+
+  /// Record representing a 'repost' of an existing Bluesky post.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/repost
+  RepostRecordHelper get repost => RepostRecordHelper(_ctx);
+
+  /// Record defining interaction gating rules for a thread (aka, reply
+  /// controls). The record key (rkey) of the threadgate record must
+  /// match the record key of the thread's root post, and that record
+  /// must be in the same repository..
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate
+  ThreadgateRecordHelper get threadgate => ThreadgateRecordHelper(_ctx);
 }
 
 /// Useful helper for `app.bsky.feed.generator`.
@@ -857,112 +857,6 @@ final class LikeRecordHelper {
       );
 }
 
-/// Useful helper for `app.bsky.feed.threadgate`.
-final class ThreadgateRecordHelper {
-  const ThreadgateRecordHelper(this._ctx);
-
-  final BlueskyServiceContext _ctx;
-
-  /// Returns threadgate record associated with [rkey].
-  Future<XRPCResponse<GetRecordOutput>> get({
-    required String rkey,
-    String? cid,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.getRecord(
-        collection: ns.appBskyFeedThreadgate,
-        rkey: rkey,
-        cid: cid,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Returns threadgate records.
-  Future<XRPCResponse<ListRecordsOutput>> list({
-    int? limit,
-    String? cursor,
-    String? rkeyStart,
-    String? rkeyEnd,
-    bool? reverse,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.listRecords(
-        collection: ns.appBskyFeedThreadgate,
-        limit: limit,
-        cursor: cursor,
-        rkeyStart: rkeyStart,
-        rkeyEnd: rkeyEnd,
-        reverse: reverse,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Creates threadgate record.
-  Future<XRPCResponse<CreateRecordOutput>> create({
-    String? rkey,
-    required AtUri post,
-    List<UThreadgateAllow>? allow,
-    DateTime? createdAt,
-    List<AtUri>? hiddenReplies,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedThreadgate,
-        rkey: rkey ?? post.rkey,
-        record: {
-          r'$type': 'app.bsky.feed.threadgate',
-          'post': post.toString(),
-          if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
-          'createdAt': iso8601(createdAt),
-          if (hiddenReplies != null)
-            'hiddenReplies': hiddenReplies.map((e) => e.toString()).toList(),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Updates threadgate record.
-  Future<XRPCResponse<PutRecordOutput>> put({
-    String? rkey,
-    required ThreadgateRecord record,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.putRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedThreadgate,
-        rkey: rkey ?? record.post.rkey,
-        record: record.toJson(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Deletes threadgate record.
-  Future<XRPCResponse<DeleteRecordOutput>> delete({
-    required String rkey,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedThreadgate,
-        rkey: rkey,
-        $headers: $headers,
-        $client: $client,
-      );
-}
-
 /// Useful helper for `app.bsky.feed.postgate`.
 final class PostgateRecordHelper {
   const PostgateRecordHelper(this._ctx);
@@ -1112,150 +1006,6 @@ final class PostgateRecordHelper {
             .map<Delete>(
               (e) => Delete(
                 collection: ns.appBskyFeedPostgate,
-                rkey: e,
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-}
-
-/// Useful helper for `app.bsky.feed.repost`.
-final class RepostRecordHelper {
-  const RepostRecordHelper(this._ctx);
-
-  final BlueskyServiceContext _ctx;
-
-  /// Returns repost record associated with [rkey].
-  Future<XRPCResponse<GetRecordOutput>> get({
-    required String rkey,
-    String? cid,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.getRecord(
-        collection: ns.appBskyFeedRepost,
-        rkey: rkey,
-        cid: cid,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Returns repost records.
-  Future<XRPCResponse<ListRecordsOutput>> list({
-    int? limit,
-    String? cursor,
-    String? rkeyStart,
-    String? rkeyEnd,
-    bool? reverse,
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.listRecords(
-        collection: ns.appBskyFeedRepost,
-        limit: limit,
-        cursor: cursor,
-        rkeyStart: rkeyStart,
-        rkeyEnd: rkeyEnd,
-        reverse: reverse,
-        $unknown: $unknown,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Creates repost record.
-  Future<XRPCResponse<CreateRecordOutput>> create({
-    String? rkey,
-    required StrongRef subject,
-    DateTime? createdAt,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.createRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedRepost,
-        rkey: rkey,
-        record: {
-          r'$type': 'app.bsky.feed.repost',
-          'subject': subject.toJson(),
-          'createdAt': iso8601(createdAt),
-          ...?$unknown,
-        },
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Updates repost record.
-  Future<XRPCResponse<PutRecordOutput>> put({
-    required String rkey,
-    required RepostRecord record,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.putRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedRepost,
-        rkey: rkey,
-        record: record.toJson(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Deletes repost record.
-  Future<XRPCResponse<DeleteRecordOutput>> delete({
-    required String rkey,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.atproto.repo.deleteRecord(
-        repo: _ctx.repo,
-        collection: ns.appBskyFeedRepost,
-        rkey: rkey,
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Creates repost records in bulk.
-  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(
-    final List<RepostRecord> records, {
-    Map<String, String>? $unknown,
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.createRecordInBulk(
-        writes: records
-            .map<Create>(
-              (e) => Create(
-                collection: ns.appBskyFeedRepost,
-                value: {
-                  'subject': e.subject.toJson(),
-                  'createdAt': iso8601(e.createdAt),
-                  ...?e.$unknown,
-                },
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// Deletes repost records in bulk.
-  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(
-    final List<String> rkeys, {
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.deleteRecordInBulk(
-        writes: rkeys
-            .map<Delete>(
-              (e) => Delete(
-                collection: ns.appBskyFeedRepost,
                 rkey: e,
               ),
             )
@@ -1423,6 +1173,256 @@ final class PostRecordHelper {
               ),
             )
             .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.feed.repost`.
+final class RepostRecordHelper {
+  const RepostRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  /// Returns repost record associated with [rkey].
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    String? cid,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyFeedRepost,
+        rkey: rkey,
+        cid: cid,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Returns repost records.
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyFeedRepost,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Creates repost record.
+  Future<XRPCResponse<CreateRecordOutput>> create({
+    String? rkey,
+    required StrongRef subject,
+    DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedRepost,
+        rkey: rkey,
+        record: {
+          r'$type': 'app.bsky.feed.repost',
+          'subject': subject.toJson(),
+          'createdAt': iso8601(createdAt),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates repost record.
+  Future<XRPCResponse<PutRecordOutput>> put({
+    required String rkey,
+    required RepostRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedRepost,
+        rkey: rkey,
+        record: record.toJson(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Deletes repost record.
+  Future<XRPCResponse<DeleteRecordOutput>> delete({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedRepost,
+        rkey: rkey,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Creates repost records in bulk.
+  Future<XRPCResponse<ApplyWritesOutput>> createInBulk(
+    final List<RepostRecord> records, {
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyFeedRepost,
+                value: {
+                  'subject': e.subject.toJson(),
+                  'createdAt': iso8601(e.createdAt),
+                  ...?e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Deletes repost records in bulk.
+  Future<XRPCResponse<ApplyWritesOutput>> deleteInBulk(
+    final List<String> rkeys, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.deleteRecordInBulk(
+        writes: rkeys
+            .map<Delete>(
+              (e) => Delete(
+                collection: ns.appBskyFeedRepost,
+                rkey: e,
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+/// Useful helper for `app.bsky.feed.threadgate`.
+final class ThreadgateRecordHelper {
+  const ThreadgateRecordHelper(this._ctx);
+
+  final BlueskyServiceContext _ctx;
+
+  /// Returns threadgate record associated with [rkey].
+  Future<XRPCResponse<GetRecordOutput>> get({
+    required String rkey,
+    String? cid,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.getRecord(
+        collection: ns.appBskyFeedThreadgate,
+        rkey: rkey,
+        cid: cid,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Returns threadgate records.
+  Future<XRPCResponse<ListRecordsOutput>> list({
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
+    Map<String, String>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.listRecords(
+        collection: ns.appBskyFeedThreadgate,
+        limit: limit,
+        cursor: cursor,
+        rkeyStart: rkeyStart,
+        rkeyEnd: rkeyEnd,
+        reverse: reverse,
+        $unknown: $unknown,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Creates threadgate record.
+  Future<XRPCResponse<CreateRecordOutput>> create({
+    String? rkey,
+    required AtUri post,
+    List<UThreadgateAllow>? allow,
+    DateTime? createdAt,
+    List<AtUri>? hiddenReplies,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedThreadgate,
+        rkey: rkey ?? post.rkey,
+        record: {
+          r'$type': 'app.bsky.feed.threadgate',
+          'post': post.toString(),
+          if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
+          'createdAt': iso8601(createdAt),
+          if (hiddenReplies != null)
+            'hiddenReplies': hiddenReplies.map((e) => e.toString()).toList(),
+          ...?$unknown,
+        },
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Updates threadgate record.
+  Future<XRPCResponse<PutRecordOutput>> put({
+    String? rkey,
+    required ThreadgateRecord record,
+    Map<String, dynamic>? $unknown,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.putRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedThreadgate,
+        rkey: rkey ?? record.post.rkey,
+        record: record.toJson(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// Deletes threadgate record.
+  Future<XRPCResponse<DeleteRecordOutput>> delete({
+    required String rkey,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.atproto.repo.deleteRecord(
+        repo: _ctx.repo,
+        collection: ns.appBskyFeedThreadgate,
+        rkey: rkey,
         $headers: $headers,
         $client: $client,
       );

@@ -43,6 +43,9 @@ class TemplateView with _$TemplateView {
     required String contentMarkdown,
     required bool disabled,
 
+    /// Message language.
+    String? lang,
+
     /// DID of the user who last updated the template.
     required String lastUpdatedBy,
     required DateTime createdAt,
@@ -71,6 +74,12 @@ extension $TemplateViewExtension on TemplateView {
   /// Returns true if [subject] is null, otherwise false.
   bool get hasNotSubject => !hasSubject;
 
+  /// Returns true if [lang] is not null, otherwise false.
+  bool get hasLang => lang != null;
+
+  /// Returns true if [lang] is null, otherwise false.
+  bool get hasNotLang => !hasLang;
+
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown != null;
@@ -87,6 +96,7 @@ const _kLexCompatibleProperties = <String>[
   'subject',
   'contentMarkdown',
   'disabled',
+  'lang',
   'lastUpdatedBy',
   'createdAt',
   'updatedAt',

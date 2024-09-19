@@ -22,6 +22,7 @@ _$GetSuggestionsSkeletonOutputImpl _$$GetSuggestionsSkeletonOutputImplFromJson(
                   .map((e) => const SkeletonSearchActorConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
+          relativeToDid: $checkedConvert('relativeToDid', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) => (v as Map?)?.map(
@@ -45,6 +46,7 @@ Map<String, dynamic> _$$GetSuggestionsSkeletonOutputImplToJson(
   writeNotNull('cursor', instance.cursor);
   val['actors'] =
       instance.actors.map(const SkeletonSearchActorConverter().toJson).toList();
+  writeNotNull('relativeToDid', instance.relativeToDid);
   writeNotNull(r'$unknown', instance.$unknown);
   return val;
 }
