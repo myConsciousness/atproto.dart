@@ -37,9 +37,7 @@ void main() {
 
     for (final lexicon in entry.value) {
       for (final field in fields) {
-        if (!field.value.startsWith(lexicon)) {
-          continue;
-        }
+        if (!field.value.startsWith(lexicon)) continue;
 
         ids
           ..writeln()
