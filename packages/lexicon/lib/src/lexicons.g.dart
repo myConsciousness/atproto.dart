@@ -4038,7 +4038,8 @@ const appBskyActorDefs = <String, dynamic>{
         "labels": {
           "type": "array",
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
-        }
+        },
+        "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"}
       }
     },
     "profileAssociated": {
@@ -4595,6 +4596,7 @@ const appBskyActorProfile = <String, dynamic>{
             "type": "ref",
             "ref": "com.atproto.repo.strongRef"
           },
+          "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
           "createdAt": {"type": "string", "format": "datetime"}
         }
       }
@@ -6618,7 +6620,8 @@ const appBskyFeedDefs = <String, dynamic>{
         "like": {"type": "string", "format": "at-uri"},
         "threadMuted": {"type": "boolean"},
         "replyDisabled": {"type": "boolean"},
-        "embeddingDisabled": {"type": "boolean"}
+        "embeddingDisabled": {"type": "boolean"},
+        "pinned": {"type": "boolean"}
       }
     },
     "feedViewPost": {
@@ -6629,7 +6632,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "reply": {"type": "ref", "ref": "#replyRef"},
         "reason": {
           "type": "union",
-          "refs": ["#reasonRepost"]
+          "refs": ["#reasonRepost", "#reasonPin"]
         },
         "feedContext": {
           "type": "string",
@@ -6667,6 +6670,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "indexedAt": {"type": "string", "format": "datetime"}
       }
     },
+    "reasonPin": {"type": "object", "properties": {}},
     "threadViewPost": {
       "type": "object",
       "required": ["post"],
@@ -6752,7 +6756,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "post": {"type": "string", "format": "at-uri"},
         "reason": {
           "type": "union",
-          "refs": ["#skeletonReasonRepost"]
+          "refs": ["#skeletonReasonRepost", "#skeletonReasonPin"]
         },
         "feedContext": {
           "type": "string",
@@ -6769,6 +6773,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "repost": {"type": "string", "format": "at-uri"}
       }
     },
+    "skeletonReasonPin": {"type": "object", "properties": {}},
     "threadgateView": {
       "type": "object",
       "properties": {
@@ -7382,7 +7387,8 @@ const appBskyFeedGetAuthorFeed = <String, dynamic>{
               "posts_with_media",
               "posts_and_author_threads"
             ]
-          }
+          },
+          "includePins": {"type": "boolean", "default": false}
         }
       },
       "output": {
@@ -7800,7 +7806,7 @@ const appBskyFeedThreadgate = <String, dynamic>{
     "main": {
       "type": "record",
       "description":
-          "Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository..",
+          "Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.",
       "key": "tid",
       "record": {
         "type": "object",
