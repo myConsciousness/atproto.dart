@@ -34,6 +34,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | **threadMuted** | boolean | - | ❌ | - |
 | **replyDisabled** | boolean | - | ❌ | - |
 | **embeddingDisabled** | boolean | - | ❌ | - |
+| **pinned** | boolean | - | ❌ | - |
 
 ## #feedViewPost
 
@@ -41,7 +42,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | --- | --- | --- | :---: | --- |
 | **post** | [#postView](#postview) | - | ✅ | - |
 | **reply** | [#replyRef](#replyref) | - | ❌ | - |
-| **reason** | union of <br/>[#reasonRepost](#reasonrepost) | - | ❌ | - |
+| **reason** | union of <br/>[#reasonRepost](#reasonrepost)<br/>[#reasonPin](#reasonpin) | - | ❌ | - |
 | **feedContext** | string | - | ❌ | Context provided by feed generator that may be passed back alongside interactions. |
 
 ## #replyRef
@@ -58,6 +59,8 @@ Metadata about the requesting account's relationship with the subject content. O
 | --- | --- | --- | :---: | --- |
 | **by** | [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
+## #reasonPin
 
 ## #threadViewPost
 
@@ -118,7 +121,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
-| **reason** | union of <br/>[#skeletonReasonRepost](#skeletonreasonrepost) | - | ❌ | - |
+| **reason** | union of <br/>[#skeletonReasonRepost](#skeletonreasonrepost)<br/>[#skeletonReasonPin](#skeletonreasonpin) | - | ❌ | - |
 | **feedContext** | string | - | ❌ | Context that will be passed through to client and may be passed to feed generator back alongside interactions. |
 
 ## #skeletonReasonRepost
@@ -126,6 +129,8 @@ Metadata about the requesting account's relationship with the subject content. O
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **repost** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+
+## #skeletonReasonPin
 
 ## #threadgateView
 
