@@ -277,6 +277,8 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | Method | Docs | Auth Required | Paging (cursor) |
 | --- | --- | :---: | :---: |
 | **[tools.ozone.moderation.queryEvents](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/queryEvents.html)** | [Reference](lexicons/tools/ozone/moderation/queryEvents.md) | ✅ | ✅ |
+| **[tools.ozone.moderation.getRecords](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/getRecords.html)** | [Reference](lexicons/tools/ozone/moderation/getRecords.md) | ❌ | ❌ |
+| **[tools.ozone.moderation.getRepos](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/getRepos.html)** | [Reference](lexicons/tools/ozone/moderation/getRepos.md) | ❌ | ❌ |
 | **[tools.ozone.moderation.getRecord](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/getRecord.html)** | [Reference](lexicons/tools/ozone/moderation/getRecord.md) | ✅ | ❌ |
 | **[tools.ozone.moderation.getRepo](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/getRepo.html)** | [Reference](lexicons/tools/ozone/moderation/getRepo.md) | ✅ | ❌ |
 | **[tools.ozone.moderation.queryStatuses](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/queryStatuses.html)** | [Reference](lexicons/tools/ozone/moderation/queryStatuses.md) | ✅ | ✅ |
