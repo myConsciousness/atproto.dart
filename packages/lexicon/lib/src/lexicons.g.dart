@@ -427,7 +427,10 @@ const comAtprotoRepoGetRecord = <String, dynamic>{
             "value": {"type": "unknown"}
           }
         }
-      }
+      },
+      "errors": [
+        {"name": "RecordNotFound"}
+      ]
     }
   }
 };
@@ -8847,6 +8850,90 @@ const toolsOzoneModerationQueryEvents = <String, dynamic>{
   }
 };
 
+/// `tools.ozone.moderation.getRecords`
+const toolsOzoneModerationGetRecords = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getRecords",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about some records.",
+      "parameters": {
+        "type": "params",
+        "required": ["uris"],
+        "properties": {
+          "uris": {
+            "type": "array",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 100
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["records"],
+          "properties": {
+            "records": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "tools.ozone.moderation.defs#recordViewDetail",
+                  "tools.ozone.moderation.defs#recordViewNotFound"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.moderation.getRepos`
+const toolsOzoneModerationGetRepos = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getRepos",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about some repositories.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"},
+            "maxLength": 100
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repos"],
+          "properties": {
+            "repos": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "tools.ozone.moderation.defs#repoViewDetail",
+                  "tools.ozone.moderation.defs#repoViewNotFound"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `tools.ozone.moderation.getRecord`
 const toolsOzoneModerationGetRecord = <String, dynamic>{
   "lexicon": 1,
@@ -10350,6 +10437,8 @@ const lexicons = <Map<String, dynamic>>[
   chatBskyModerationUpdateActorAccess,
   chatBskyModerationGetActorMetadata,
   toolsOzoneModerationQueryEvents,
+  toolsOzoneModerationGetRecords,
+  toolsOzoneModerationGetRepos,
   toolsOzoneModerationGetRecord,
   toolsOzoneModerationDefs,
   toolsOzoneModerationGetRepo,
