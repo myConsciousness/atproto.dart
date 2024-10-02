@@ -10,7 +10,7 @@ dependencies:
   github: ^9.12.0
   http: ^1.2.1
   lexicon: ^0.2.0
-  pub_api_client: ^2.6.0
+  pub_api_client: ^3.0.0
   pubspec: ^2.3.0
   xrpc: ^0.5.2
 
