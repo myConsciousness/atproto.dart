@@ -8741,6 +8741,163 @@ const chatBskyModerationGetActorMetadata = <String, dynamic>{
   }
 };
 
+/// `tools.ozone.signature.findRelatedAccounts`
+const toolsOzoneSignatureFindRelatedAccounts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.findRelatedAccounts",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get accounts that share some matching threat signatures with the root account.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+          "cursor": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["accounts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "accounts": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#relatedAccount"}
+            }
+          }
+        }
+      }
+    },
+    "relatedAccount": {
+      "type": "object",
+      "required": ["account"],
+      "properties": {
+        "account": {"type": "ref", "ref": "com.atproto.admin.defs#accountView"},
+        "similarities": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "tools.ozone.signature.defs#sigDetail"
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.signature.defs`
+const toolsOzoneSignatureDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.defs",
+  "defs": {
+    "sigDetail": {
+      "type": "object",
+      "required": ["property", "value"],
+      "properties": {
+        "property": {"type": "string"},
+        "value": {"type": "string"}
+      }
+    }
+  }
+};
+
+/// `tools.ozone.signature.searchAccounts`
+const toolsOzoneSignatureSearchAccounts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.searchAccounts",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Search for accounts that match one or more threat signature values.",
+      "parameters": {
+        "type": "params",
+        "required": ["values"],
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "cursor": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["accounts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "accounts": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.admin.defs#accountView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.signature.findCorrelation`
+const toolsOzoneSignatureFindCorrelation = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.findCorrelation",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Find all correlated threat signatures between 2 or more accounts.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"}
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["details"],
+          "properties": {
+            "details": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.signature.defs#sigDetail"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `tools.ozone.moderation.queryEvents`
 const toolsOzoneModerationQueryEvents = <String, dynamic>{
   "lexicon": 1,
@@ -10436,6 +10593,10 @@ const lexicons = <Map<String, dynamic>>[
   chatBskyModerationGetMessageContext,
   chatBskyModerationUpdateActorAccess,
   chatBskyModerationGetActorMetadata,
+  toolsOzoneSignatureFindRelatedAccounts,
+  toolsOzoneSignatureDefs,
+  toolsOzoneSignatureSearchAccounts,
+  toolsOzoneSignatureFindCorrelation,
   toolsOzoneModerationQueryEvents,
   toolsOzoneModerationGetRecords,
   toolsOzoneModerationGetRepos,

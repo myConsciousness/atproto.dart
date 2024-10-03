@@ -272,6 +272,14 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[chat.bsky.moderation.updateActorAccess](https://pub.dev/documentation/bluesky/latest/bluesky_chat/ModerationService/updateActorAccess.html)** | [Reference](lexicons/chat/bsky/moderation/updateActorAccess.md) | ✅ | ❌ |
 | **[chat.bsky.moderation.getActorMetadata](https://pub.dev/documentation/bluesky/latest/bluesky_chat/ModerationService/getActorMetadata.html)** | [Reference](lexicons/chat/bsky/moderation/getActorMetadata.md) | ✅ | ❌ |
 
+### tools.ozone.signature
+
+| Method | Docs | Auth Required | Paging (cursor) |
+| --- | --- | :---: | :---: |
+| **[tools.ozone.signature.findRelatedAccounts](https://pub.dev/documentation/bluesky/latest/ozone/SignatureService/findRelatedAccounts.html)** | [Reference](lexicons/tools/ozone/signature/findRelatedAccounts.md) | ❌ | ✅ |
+| **[tools.ozone.signature.searchAccounts](https://pub.dev/documentation/bluesky/latest/ozone/SignatureService/searchAccounts.html)** | [Reference](lexicons/tools/ozone/signature/searchAccounts.md) | ❌ | ✅ |
+| **[tools.ozone.signature.findCorrelation](https://pub.dev/documentation/bluesky/latest/ozone/SignatureService/findCorrelation.html)** | [Reference](lexicons/tools/ozone/signature/findCorrelation.md) | ❌ | ❌ |
+
 ### tools.ozone.moderation
 
 | Method | Docs | Auth Required | Paging (cursor) |
