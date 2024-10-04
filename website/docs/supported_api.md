@@ -272,11 +272,21 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[chat.bsky.moderation.updateActorAccess](https://pub.dev/documentation/bluesky/latest/bluesky_chat/ModerationService/updateActorAccess.html)** | [Reference](lexicons/chat/bsky/moderation/updateActorAccess.md) | ✅ | ❌ |
 | **[chat.bsky.moderation.getActorMetadata](https://pub.dev/documentation/bluesky/latest/bluesky_chat/ModerationService/getActorMetadata.html)** | [Reference](lexicons/chat/bsky/moderation/getActorMetadata.md) | ✅ | ❌ |
 
+### tools.ozone.signature
+
+| Method | Docs | Auth Required | Paging (cursor) |
+| --- | --- | :---: | :---: |
+| **[tools.ozone.signature.findRelatedAccounts](https://pub.dev/documentation/bluesky/latest/ozone/SignatureService/findRelatedAccounts.html)** | [Reference](lexicons/tools/ozone/signature/findRelatedAccounts.md) | ❌ | ✅ |
+| **[tools.ozone.signature.searchAccounts](https://pub.dev/documentation/bluesky/latest/ozone/SignatureService/searchAccounts.html)** | [Reference](lexicons/tools/ozone/signature/searchAccounts.md) | ❌ | ✅ |
+| **[tools.ozone.signature.findCorrelation](https://pub.dev/documentation/bluesky/latest/ozone/SignatureService/findCorrelation.html)** | [Reference](lexicons/tools/ozone/signature/findCorrelation.md) | ❌ | ❌ |
+
 ### tools.ozone.moderation
 
 | Method | Docs | Auth Required | Paging (cursor) |
 | --- | --- | :---: | :---: |
 | **[tools.ozone.moderation.queryEvents](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/queryEvents.html)** | [Reference](lexicons/tools/ozone/moderation/queryEvents.md) | ✅ | ✅ |
+| **[tools.ozone.moderation.getRecords](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/getRecords.html)** | [Reference](lexicons/tools/ozone/moderation/getRecords.md) | ❌ | ❌ |
+| **[tools.ozone.moderation.getRepos](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/getRepos.html)** | [Reference](lexicons/tools/ozone/moderation/getRepos.md) | ❌ | ❌ |
 | **[tools.ozone.moderation.getRecord](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/getRecord.html)** | [Reference](lexicons/tools/ozone/moderation/getRecord.md) | ✅ | ❌ |
 | **[tools.ozone.moderation.getRepo](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/getRepo.html)** | [Reference](lexicons/tools/ozone/moderation/getRepo.md) | ✅ | ❌ |
 | **[tools.ozone.moderation.queryStatuses](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/queryStatuses.html)** | [Reference](lexicons/tools/ozone/moderation/queryStatuses.md) | ✅ | ✅ |

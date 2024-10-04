@@ -427,7 +427,10 @@ const comAtprotoRepoGetRecord = <String, dynamic>{
             "value": {"type": "unknown"}
           }
         }
-      }
+      },
+      "errors": [
+        {"name": "RecordNotFound"}
+      ]
     }
   }
 };
@@ -4038,7 +4041,8 @@ const appBskyActorDefs = <String, dynamic>{
         "labels": {
           "type": "array",
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
-        }
+        },
+        "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"}
       }
     },
     "profileAssociated": {
@@ -4595,6 +4599,7 @@ const appBskyActorProfile = <String, dynamic>{
             "type": "ref",
             "ref": "com.atproto.repo.strongRef"
           },
+          "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
           "createdAt": {"type": "string", "format": "datetime"}
         }
       }
@@ -6618,7 +6623,8 @@ const appBskyFeedDefs = <String, dynamic>{
         "like": {"type": "string", "format": "at-uri"},
         "threadMuted": {"type": "boolean"},
         "replyDisabled": {"type": "boolean"},
-        "embeddingDisabled": {"type": "boolean"}
+        "embeddingDisabled": {"type": "boolean"},
+        "pinned": {"type": "boolean"}
       }
     },
     "feedViewPost": {
@@ -6629,7 +6635,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "reply": {"type": "ref", "ref": "#replyRef"},
         "reason": {
           "type": "union",
-          "refs": ["#reasonRepost"]
+          "refs": ["#reasonRepost", "#reasonPin"]
         },
         "feedContext": {
           "type": "string",
@@ -6667,6 +6673,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "indexedAt": {"type": "string", "format": "datetime"}
       }
     },
+    "reasonPin": {"type": "object", "properties": {}},
     "threadViewPost": {
       "type": "object",
       "required": ["post"],
@@ -6752,7 +6759,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "post": {"type": "string", "format": "at-uri"},
         "reason": {
           "type": "union",
-          "refs": ["#skeletonReasonRepost"]
+          "refs": ["#skeletonReasonRepost", "#skeletonReasonPin"]
         },
         "feedContext": {
           "type": "string",
@@ -6769,6 +6776,7 @@ const appBskyFeedDefs = <String, dynamic>{
         "repost": {"type": "string", "format": "at-uri"}
       }
     },
+    "skeletonReasonPin": {"type": "object", "properties": {}},
     "threadgateView": {
       "type": "object",
       "properties": {
@@ -7382,7 +7390,8 @@ const appBskyFeedGetAuthorFeed = <String, dynamic>{
               "posts_with_media",
               "posts_and_author_threads"
             ]
-          }
+          },
+          "includePins": {"type": "boolean", "default": false}
         }
       },
       "output": {
@@ -7800,7 +7809,7 @@ const appBskyFeedThreadgate = <String, dynamic>{
     "main": {
       "type": "record",
       "description":
-          "Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository..",
+          "Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.",
       "key": "tid",
       "record": {
         "type": "object",
@@ -8732,6 +8741,163 @@ const chatBskyModerationGetActorMetadata = <String, dynamic>{
   }
 };
 
+/// `tools.ozone.signature.findRelatedAccounts`
+const toolsOzoneSignatureFindRelatedAccounts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.findRelatedAccounts",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get accounts that share some matching threat signatures with the root account.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {"type": "string", "format": "did"},
+          "cursor": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["accounts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "accounts": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#relatedAccount"}
+            }
+          }
+        }
+      }
+    },
+    "relatedAccount": {
+      "type": "object",
+      "required": ["account"],
+      "properties": {
+        "account": {"type": "ref", "ref": "com.atproto.admin.defs#accountView"},
+        "similarities": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "tools.ozone.signature.defs#sigDetail"
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.signature.defs`
+const toolsOzoneSignatureDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.defs",
+  "defs": {
+    "sigDetail": {
+      "type": "object",
+      "required": ["property", "value"],
+      "properties": {
+        "property": {"type": "string"},
+        "value": {"type": "string"}
+      }
+    }
+  }
+};
+
+/// `tools.ozone.signature.searchAccounts`
+const toolsOzoneSignatureSearchAccounts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.searchAccounts",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Search for accounts that match one or more threat signature values.",
+      "parameters": {
+        "type": "params",
+        "required": ["values"],
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "cursor": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["accounts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "accounts": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.admin.defs#accountView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.signature.findCorrelation`
+const toolsOzoneSignatureFindCorrelation = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.signature.findCorrelation",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Find all correlated threat signatures between 2 or more accounts.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"}
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["details"],
+          "properties": {
+            "details": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.signature.defs#sigDetail"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `tools.ozone.moderation.queryEvents`
 const toolsOzoneModerationQueryEvents = <String, dynamic>{
   "lexicon": 1,
@@ -8832,6 +8998,90 @@ const toolsOzoneModerationQueryEvents = <String, dynamic>{
               "items": {
                 "type": "ref",
                 "ref": "tools.ozone.moderation.defs#modEventView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.moderation.getRecords`
+const toolsOzoneModerationGetRecords = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getRecords",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about some records.",
+      "parameters": {
+        "type": "params",
+        "required": ["uris"],
+        "properties": {
+          "uris": {
+            "type": "array",
+            "items": {"type": "string", "format": "at-uri"},
+            "maxLength": 100
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["records"],
+          "properties": {
+            "records": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "tools.ozone.moderation.defs#recordViewDetail",
+                  "tools.ozone.moderation.defs#recordViewNotFound"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.moderation.getRepos`
+const toolsOzoneModerationGetRepos = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getRepos",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about some repositories.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"},
+            "maxLength": 100
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repos"],
+          "properties": {
+            "repos": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "tools.ozone.moderation.defs#repoViewDetail",
+                  "tools.ozone.moderation.defs#repoViewNotFound"
+                ]
               }
             }
           }
@@ -10343,7 +10593,13 @@ const lexicons = <Map<String, dynamic>>[
   chatBskyModerationGetMessageContext,
   chatBskyModerationUpdateActorAccess,
   chatBskyModerationGetActorMetadata,
+  toolsOzoneSignatureFindRelatedAccounts,
+  toolsOzoneSignatureDefs,
+  toolsOzoneSignatureSearchAccounts,
+  toolsOzoneSignatureFindCorrelation,
   toolsOzoneModerationQueryEvents,
+  toolsOzoneModerationGetRecords,
+  toolsOzoneModerationGetRepos,
   toolsOzoneModerationGetRecord,
   toolsOzoneModerationDefs,
   toolsOzoneModerationGetRepo,
