@@ -280,6 +280,17 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[tools.ozone.signature.searchAccounts](https://pub.dev/documentation/bluesky/latest/ozone/SignatureService/searchAccounts.html)** | [Reference](lexicons/tools/ozone/signature/searchAccounts.md) | ❌ | ✅ |
 | **[tools.ozone.signature.findCorrelation](https://pub.dev/documentation/bluesky/latest/ozone/SignatureService/findCorrelation.html)** | [Reference](lexicons/tools/ozone/signature/findCorrelation.md) | ❌ | ❌ |
 
+### tools.ozone.set
+
+| Method | Docs | Auth Required | Paging (cursor) |
+| --- | --- | :---: | :---: |
+| **[tools.ozone.set.querySets](https://pub.dev/documentation/bluesky/latest/ozone/SetService/querySets.html)** | [Reference](lexicons/tools/ozone/set/querySets.md) | ❌ | ✅ |
+| **[tools.ozone.set.getValues](https://pub.dev/documentation/bluesky/latest/ozone/SetService/getValues.html)** | [Reference](lexicons/tools/ozone/set/getValues.md) | ❌ | ✅ |
+| **[tools.ozone.set.deleteValues](https://pub.dev/documentation/bluesky/latest/ozone/SetService/deleteValues.html)** | [Reference](lexicons/tools/ozone/set/deleteValues.md) | ❌ | ❌ |
+| **[tools.ozone.set.upsertSet](https://pub.dev/documentation/bluesky/latest/ozone/SetService/upsertSet.html)** | [Reference](lexicons/tools/ozone/set/upsertSet.md) | ❌ | ❌ |
+| **[tools.ozone.set.deleteSet](https://pub.dev/documentation/bluesky/latest/ozone/SetService/deleteSet.html)** | [Reference](lexicons/tools/ozone/set/deleteSet.md) | ❌ | ❌ |
+| **[tools.ozone.set.addValues](https://pub.dev/documentation/bluesky/latest/ozone/SetService/addValues.html)** | [Reference](lexicons/tools/ozone/set/addValues.md) | ❌ | ❌ |
+
 ### tools.ozone.moderation
 
 | Method | Docs | Auth Required | Paging (cursor) |
