@@ -8898,6 +8898,265 @@ const toolsOzoneSignatureFindCorrelation = <String, dynamic>{
   }
 };
 
+/// `tools.ozone.set.querySets`
+const toolsOzoneSetQuerySets = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.querySets",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Query available sets",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {"type": "string"},
+          "namePrefix": {"type": "string"},
+          "sortBy": {
+            "type": "string",
+            "default": "name",
+            "enum": ["name", "createdAt", "updatedAt"]
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Defaults to ascending order of name field.",
+            "default": "asc",
+            "enum": ["asc", "desc"]
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["sets"],
+          "properties": {
+            "sets": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "tools.ozone.set.defs#setView"}
+            },
+            "cursor": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.set.defs`
+const toolsOzoneSetDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.defs",
+  "defs": {
+    "set": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string", "minLength": 3, "maxLength": 128},
+        "description": {
+          "type": "string",
+          "maxLength": 10240,
+          "maxGraphemes": 1024
+        }
+      }
+    },
+    "setView": {
+      "type": "object",
+      "required": ["name", "setSize", "createdAt", "updatedAt"],
+      "properties": {
+        "name": {"type": "string", "minLength": 3, "maxLength": 128},
+        "description": {
+          "type": "string",
+          "maxLength": 10240,
+          "maxGraphemes": 1024
+        },
+        "setSize": {"type": "integer"},
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"}
+      }
+    }
+  }
+};
+
+/// `tools.ozone.set.getValues`
+const toolsOzoneSetGetValues = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.getValues",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a specific set and its values",
+      "parameters": {
+        "type": "params",
+        "required": ["name"],
+        "properties": {
+          "name": {"type": "string"},
+          "limit": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["set", "values"],
+          "properties": {
+            "set": {"type": "ref", "ref": "tools.ozone.set.defs#setView"},
+            "values": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "cursor": {"type": "string"}
+          }
+        }
+      },
+      "errors": [
+        {
+          "name": "SetNotFound",
+          "description": "set with the given name does not exist"
+        }
+      ]
+    }
+  }
+};
+
+/// `tools.ozone.set.deleteValues`
+const toolsOzoneSetDeleteValues = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.deleteValues",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["name", "values"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the set to delete values from"
+            },
+            "values": {
+              "type": "array",
+              "description": "Array of string values to delete from the set",
+              "items": {"type": "string"},
+              "minLength": 1
+            }
+          }
+        }
+      },
+      "errors": [
+        {
+          "name": "SetNotFound",
+          "description": "set with the given name does not exist"
+        }
+      ]
+    }
+  }
+};
+
+/// `tools.ozone.set.upsertSet`
+const toolsOzoneSetUpsertSet = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.upsertSet",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Create or update set metadata",
+      "input": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.set.defs#set"}
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "ref", "ref": "tools.ozone.set.defs#setView"}
+      }
+    }
+  }
+};
+
+/// `tools.ozone.set.deleteSet`
+const toolsOzoneSetDeleteSet = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.deleteSet",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Delete an entire set. Attempting to delete a set that does not exist will result in an error.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the set to delete"
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {"type": "object", "properties": {}}
+      },
+      "errors": [
+        {
+          "name": "SetNotFound",
+          "description": "set with the given name does not exist"
+        }
+      ]
+    }
+  }
+};
+
+/// `tools.ozone.set.addValues`
+const toolsOzoneSetAddValues = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.set.addValues",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Add values to a specific set. Attempting to add values to a set that does not exist will result in an error.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["name", "values"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the set to add values to"
+            },
+            "values": {
+              "type": "array",
+              "description": "Array of string values to add to the set",
+              "items": {"type": "string"},
+              "minLength": 1,
+              "maxLength": 1000
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `tools.ozone.moderation.queryEvents`
 const toolsOzoneModerationQueryEvents = <String, dynamic>{
   "lexicon": 1,
@@ -10597,6 +10856,13 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneSignatureDefs,
   toolsOzoneSignatureSearchAccounts,
   toolsOzoneSignatureFindCorrelation,
+  toolsOzoneSetQuerySets,
+  toolsOzoneSetDefs,
+  toolsOzoneSetGetValues,
+  toolsOzoneSetDeleteValues,
+  toolsOzoneSetUpsertSet,
+  toolsOzoneSetDeleteSet,
+  toolsOzoneSetAddValues,
   toolsOzoneModerationQueryEvents,
   toolsOzoneModerationGetRecords,
   toolsOzoneModerationGetRepos,
