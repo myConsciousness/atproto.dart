@@ -18,6 +18,7 @@ part 'embed.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post/#input
 @freezed
+@Deprecated('Use UPostEmbed')
 class Embed with _$Embed {
   const Embed._();
 

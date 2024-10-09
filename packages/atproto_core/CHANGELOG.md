@@ -1,5 +1,13 @@
 # Release Note
 
+## v1.0.0-preview.1
+
+- Remove `Platform` enum.
+
+## v1.0.0-preview.0
+
+- Bump to apply automatic generation of Lexicon-based objects.
+
 ## v0.10.5
 
 - Expose `NsidConverter`.

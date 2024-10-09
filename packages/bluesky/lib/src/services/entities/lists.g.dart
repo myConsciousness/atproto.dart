@@ -17,7 +17,7 @@ _$ListsImpl _$$ListsImplFromJson(Map json) => $checkedCreate(
               'lists',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      ListView.fromJson(Map<String, Object?>.from(e as Map)))
+                      ListView.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );

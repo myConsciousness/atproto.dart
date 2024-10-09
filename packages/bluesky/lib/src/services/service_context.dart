@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/com_atproto_repo_apply_writes.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -23,14 +24,54 @@ final class BlueskyServiceContext extends core.ServiceContext {
     super.mockedPostClient,
   });
 
-  /// The client of AT Protocol.
   final atp.ATProto atproto;
+
+  /// Authenticated repo.
+  String? get repo => session?.did;
+
+  Future<core.XRPCResponse<ApplyWritesOutput>> createRecordInBulk({
+    String? repo,
+    required List<Create> writes,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    core.PostClient? $client,
+  }) async =>
+      await atproto.repo.createRecordInBulk(
+        repo: repo,
+        writes: writes,
+        validate: validate,
+        swapCommit: swapCommit,
+        $headers: $headers,
+        $client: $client,
+      );
+
+  Future<core.XRPCResponse<ApplyWritesOutput>> deleteRecordInBulk({
+    String? repo,
+    required List<Delete> writes,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    core.PostClient? $client,
+  }) async =>
+      await atproto.repo.deleteRecordInBulk(
+        repo: repo,
+        writes: writes,
+        validate: validate,
+        swapCommit: swapCommit,
+        $headers: $headers,
+        $client: $client,
+      );
 
   Future<core.XRPCResponse<T>> findRecord<T>(
     final core.AtUri uri, [
     core.ResponseDataBuilder<T>? to,
   ]) async {
-    final record = await atproto.repo.getRecord(uri: uri);
+    final record = await atproto.repo.getRecord(
+      repo: uri.hostname,
+      collection: uri.collection,
+      rkey: uri.rkey,
+    );
 
     return core.XRPCResponse(
       headers: record.headers,

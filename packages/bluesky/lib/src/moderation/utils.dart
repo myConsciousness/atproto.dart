@@ -3,17 +3,18 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
-import '../services/constants/content_label_visibility.dart';
-import '../services/entities/content_label_preference.dart';
-import '../services/entities/labeler_service_view.dart';
-import '../services/entities/labeler_view_detailed.dart';
-import '../services/entities/muted_word.dart';
-import '../services/entities/preference.dart';
-import '../services/entities/preferences.dart';
-import '../services/labeler_service.dart';
+import '../services/gen_types/app/bsky/actor/defs/content_label_pref.dart';
+import '../services/gen_types/app/bsky/actor/defs/known_content_label_pref_visibility.dart';
+import '../services/gen_types/app/bsky/actor/defs/muted_word.dart';
+import '../services/gen_types/app/bsky/actor/defs/preferences.dart';
+import '../services/gen_types/app/bsky/actor/defs/union_preference.dart';
+import '../services/gen_types/app/bsky/labeler/defs/labeler_view_detailed.dart';
+import '../services/gen_types/app/bsky/labeler/get_services/union_get_services_view.dart';
+import '../services/gen_types/app/bsky/labeler_service.dart';
 import 'types/behaviors/moderation_prefs.dart';
 import 'types/behaviors/moderation_prefs_labeler.dart';
 import 'types/const/labels.dart';
@@ -116,10 +117,11 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
   return labelerView.policies.labelValueDefinitions
           ?.map((e) => getInterpretedLabelValueDefinition(
                 identifier: e.identifier,
-                defaultSetting: LabelPreference.valueOf(e.defaultSetting) ??
-                    LabelPreference.warn,
-                severity: e.severity,
-                blurs: e.blurs,
+                defaultSetting:
+                    LabelPreference.valueOf(e.defaultSetting?.toJson()) ??
+                        LabelPreference.warn,
+                severity: e.severity.toJson(),
+                blurs: e.blurs.toJson(),
                 adultOnly: e.adultOnly,
                 definedBy: labelerView.creator.did,
               ))
@@ -138,16 +140,17 @@ extension LabelerServiceExtension on LabelerService {
     final labelers = await getServices(
       dids: dids,
       detailed: true,
-      headers: getLabelerHeaders(prefs),
+      $headers: getLabelerHeaders(prefs),
     );
 
     final labelDefs = <String, List<InterpretedLabelValueDefinition>>{};
     for (final labeler in labelers.data.views) {
-      if (labeler is! ULabelerServiceViewLabelerViewDetailed) continue;
+      if (labeler.isLabelerViewDetailed) {
+        final data = labeler.labelerViewDetailed;
+        final did = data.creator.did;
 
-      labelDefs[labeler.data.creator.did] = getInterpretedLabelValueDefinitions(
-        labeler.data,
-      );
+        labelDefs[did] = getInterpretedLabelValueDefinitions(data);
+      }
     }
 
     return labelDefs;
@@ -164,26 +167,20 @@ extension PreferencesExtension on Preferences {
     final hiddenPosts = <AtUri>[];
 
     final labelers = <Map<String, dynamic>>[];
-    final labelPrefs = <ContentLabelPreference>[];
-    for (final preference in preferences) {
-      switch (preference) {
-        case UPreferenceAdultContent():
-          adultContentEnabled = preference.data.isEnabled;
-          break;
-        case UPreferenceLabelersPref():
-          labelers.addAll(preference.data.labelers.map(
-            (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
-          ));
-          break;
-        case UPreferenceMutedWords():
-          mutedWords.addAll(preference.data.items);
-          break;
-        case UPreferenceHiddenPosts():
-          hiddenPosts.addAll(preference.data.items);
-          break;
-        case UPreferenceContentLabel():
-          labelPrefs.add(preference.data);
-          break;
+    final labelPrefs = <ContentLabelPref>[];
+    for (final pref in preferences) {
+      if (pref.isAdultContentPref) {
+        adultContentEnabled = pref.adultContentPref.enabled;
+      } else if (pref.isMutedWordsPref) {
+        mutedWords.addAll(pref.mutedWordsPref.items);
+      } else if (pref.isHiddenPostsPref) {
+        hiddenPosts.addAll(pref.hiddenPostsPref.items);
+      } else if (pref.isContentLabelPref) {
+        labelPrefs.add(pref.contentLabelPref);
+      } else if (pref.isLabelersPref) {
+        labelers.addAll(pref.labelersPref.labelers.map(
+          (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
+        ));
       }
     }
 
@@ -226,13 +223,16 @@ extension PreferencesExtension on Preferences {
   }
 
   LabelPreference _getModerationLabelPreference(
-    final ContentLabelVisibility visibility,
+    final UContentLabelPrefVisibility visibility,
   ) {
-    if (visibility == ContentLabelVisibility.show) {
+    if (visibility.isUnknownValue) return LabelPreference.warn;
+
+    final knownVisibility = visibility.knownValue;
+    if (knownVisibility == KnownContentLabelPrefVisibility.show) {
       return LabelPreference.ignore;
     }
 
-    final preference = LabelPreference.valueOf(visibility.name);
+    final preference = LabelPreference.valueOf(knownVisibility.value);
 
     return preference ?? LabelPreference.warn;
   }

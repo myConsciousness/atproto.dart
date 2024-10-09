@@ -10,6 +10,7 @@ part 'get_repo_status_output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepoStatus/#output
 @freezed
+@Deprecated('Use GetRepoStatusOutput')
 class GetRepoStatusOutput with _$GetRepoStatusOutput {
   const factory GetRepoStatusOutput({
     required String did,

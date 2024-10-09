@@ -2,18 +2,20 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../gen_types/app/bsky/graph/defs/list_view.dart';
 import '../embed_view_record_view.dart';
 import '../embed_view_record_view_blocked.dart';
 import '../embed_view_record_view_not_found.dart';
 import '../embed_view_record_view_record.dart';
 import '../feed_generator_view.dart';
-import '../list_view.dart';
 
 const embedViewRecordViewConverter = _EmbedViewRecordViewConverter();
 

@@ -5,23 +5,24 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../gen_types/app/bsky/feed/post/record.dart';
 import 'actor_basic.dart';
 import 'converter/embed_view_converter.dart';
 import 'converter/post_record_converter.dart';
 import 'embed_view.dart';
-import 'post_record.dart';
 
 part 'embed_view_record_view_record.freezed.dart';
 part 'embed_view_record_view_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewrecord
 @freezed
+@Deprecated('Use RecordViewRecord')
 class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
   @jsonSerializable
   const factory EmbedViewRecordViewRecord({

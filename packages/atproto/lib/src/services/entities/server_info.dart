@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -15,6 +17,7 @@ part 'server_info.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeserver/#output
 @freezed
+@Deprecated('Use DescribeServerOutput')
 class ServerInfo with _$ServerInfo {
   @jsonSerializable
   const factory ServerInfo({

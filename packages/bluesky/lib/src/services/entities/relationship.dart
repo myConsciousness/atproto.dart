@@ -6,14 +6,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../gen_types/app/bsky/graph/defs/not_found_actor.dart';
 import 'actor_relationship.dart';
 import 'converter/relationship_converter.dart';
-import 'not_found_actor.dart';
 
 part 'relationship.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships#output
 @freezed
+@Deprecated('Use URelationship')
 class Relationship with _$Relationship {
   // ignore: unused_element
   const Relationship._();

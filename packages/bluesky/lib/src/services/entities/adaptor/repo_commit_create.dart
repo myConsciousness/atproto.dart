@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 final class RepoCommitCreate<T> {
@@ -31,8 +31,8 @@ final class RepoCommitCreate<T> {
   /// The current cursor.
   final int cursor;
 
-  /// Returns the [atp.StrongRef] representation.
-  atp.StrongRef toStrongRef() => atp.StrongRef(cid: cid, uri: uri);
+  /// Returns the [StrongRef] representation.
+  StrongRef toStrongRef() => StrongRef(cid: cid, uri: uri);
 
   @override
   String toString() =>

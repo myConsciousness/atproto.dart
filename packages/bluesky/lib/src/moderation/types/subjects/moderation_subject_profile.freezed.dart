@@ -19,23 +19,23 @@ mixin _$ModerationSubjectProfile {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ActorBasic data) profileViewBasic,
-    required TResult Function(Actor data) profileView,
-    required TResult Function(ActorProfile data) profileViewDetailed,
+    required TResult Function(ProfileViewBasic data) profileViewBasic,
+    required TResult Function(ProfileView data) profileView,
+    required TResult Function(ProfileViewDetailed data) profileViewDetailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorBasic data)? profileViewBasic,
-    TResult? Function(Actor data)? profileView,
-    TResult? Function(ActorProfile data)? profileViewDetailed,
+    TResult? Function(ProfileViewBasic data)? profileViewBasic,
+    TResult? Function(ProfileView data)? profileView,
+    TResult? Function(ProfileViewDetailed data)? profileViewDetailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorBasic data)? profileViewBasic,
-    TResult Function(Actor data)? profileView,
-    TResult Function(ActorProfile data)? profileViewDetailed,
+    TResult Function(ProfileViewBasic data)? profileViewBasic,
+    TResult Function(ProfileView data)? profileView,
+    TResult Function(ProfileViewDetailed data)? profileViewDetailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -97,9 +97,9 @@ abstract class _$$UModerationSubjectProfileProfileViewBasicImplCopyWith<$Res> {
           $Res Function(_$UModerationSubjectProfileProfileViewBasicImpl) then) =
       __$$UModerationSubjectProfileProfileViewBasicImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ActorBasic data});
+  $Res call({ProfileViewBasic data});
 
-  $ActorBasicCopyWith<$Res> get data;
+  $ProfileViewBasicCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -121,14 +121,14 @@ class __$$UModerationSubjectProfileProfileViewBasicImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ActorBasic,
+              as ProfileViewBasic,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorBasicCopyWith<$Res> get data {
-    return $ActorBasicCopyWith<$Res>(_value.data, (value) {
+  $ProfileViewBasicCopyWith<$Res> get data {
+    return $ProfileViewBasicCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -141,7 +141,7 @@ class _$UModerationSubjectProfileProfileViewBasicImpl
   const _$UModerationSubjectProfileProfileViewBasicImpl({required this.data});
 
   @override
-  final ActorBasic data;
+  final ProfileViewBasic data;
 
   @override
   String toString() {
@@ -172,9 +172,9 @@ class _$UModerationSubjectProfileProfileViewBasicImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ActorBasic data) profileViewBasic,
-    required TResult Function(Actor data) profileView,
-    required TResult Function(ActorProfile data) profileViewDetailed,
+    required TResult Function(ProfileViewBasic data) profileViewBasic,
+    required TResult Function(ProfileView data) profileView,
+    required TResult Function(ProfileViewDetailed data) profileViewDetailed,
   }) {
     return profileViewBasic(data);
   }
@@ -182,9 +182,9 @@ class _$UModerationSubjectProfileProfileViewBasicImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorBasic data)? profileViewBasic,
-    TResult? Function(Actor data)? profileView,
-    TResult? Function(ActorProfile data)? profileViewDetailed,
+    TResult? Function(ProfileViewBasic data)? profileViewBasic,
+    TResult? Function(ProfileView data)? profileView,
+    TResult? Function(ProfileViewDetailed data)? profileViewDetailed,
   }) {
     return profileViewBasic?.call(data);
   }
@@ -192,9 +192,9 @@ class _$UModerationSubjectProfileProfileViewBasicImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorBasic data)? profileViewBasic,
-    TResult Function(Actor data)? profileView,
-    TResult Function(ActorProfile data)? profileViewDetailed,
+    TResult Function(ProfileViewBasic data)? profileViewBasic,
+    TResult Function(ProfileView data)? profileView,
+    TResult Function(ProfileViewDetailed data)? profileViewDetailed,
     required TResult orElse(),
   }) {
     if (profileViewBasic != null) {
@@ -249,11 +249,11 @@ class _$UModerationSubjectProfileProfileViewBasicImpl
 abstract class UModerationSubjectProfileProfileViewBasic
     implements ModerationSubjectProfile {
   const factory UModerationSubjectProfileProfileViewBasic(
-          {required final ActorBasic data}) =
+          {required final ProfileViewBasic data}) =
       _$UModerationSubjectProfileProfileViewBasicImpl;
 
   @override
-  ActorBasic get data;
+  ProfileViewBasic get data;
   @JsonKey(ignore: true)
   _$$UModerationSubjectProfileProfileViewBasicImplCopyWith<
           _$UModerationSubjectProfileProfileViewBasicImpl>
@@ -267,9 +267,9 @@ abstract class _$$UModerationSubjectProfileProfileViewImplCopyWith<$Res> {
           $Res Function(_$UModerationSubjectProfileProfileViewImpl) then) =
       __$$UModerationSubjectProfileProfileViewImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Actor data});
+  $Res call({ProfileView data});
 
-  $ActorCopyWith<$Res> get data;
+  $ProfileViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -291,14 +291,14 @@ class __$$UModerationSubjectProfileProfileViewImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Actor,
+              as ProfileView,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorCopyWith<$Res> get data {
-    return $ActorCopyWith<$Res>(_value.data, (value) {
+  $ProfileViewCopyWith<$Res> get data {
+    return $ProfileViewCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -311,7 +311,7 @@ class _$UModerationSubjectProfileProfileViewImpl
   const _$UModerationSubjectProfileProfileViewImpl({required this.data});
 
   @override
-  final Actor data;
+  final ProfileView data;
 
   @override
   String toString() {
@@ -340,9 +340,9 @@ class _$UModerationSubjectProfileProfileViewImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ActorBasic data) profileViewBasic,
-    required TResult Function(Actor data) profileView,
-    required TResult Function(ActorProfile data) profileViewDetailed,
+    required TResult Function(ProfileViewBasic data) profileViewBasic,
+    required TResult Function(ProfileView data) profileView,
+    required TResult Function(ProfileViewDetailed data) profileViewDetailed,
   }) {
     return profileView(data);
   }
@@ -350,9 +350,9 @@ class _$UModerationSubjectProfileProfileViewImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorBasic data)? profileViewBasic,
-    TResult? Function(Actor data)? profileView,
-    TResult? Function(ActorProfile data)? profileViewDetailed,
+    TResult? Function(ProfileViewBasic data)? profileViewBasic,
+    TResult? Function(ProfileView data)? profileView,
+    TResult? Function(ProfileViewDetailed data)? profileViewDetailed,
   }) {
     return profileView?.call(data);
   }
@@ -360,9 +360,9 @@ class _$UModerationSubjectProfileProfileViewImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorBasic data)? profileViewBasic,
-    TResult Function(Actor data)? profileView,
-    TResult Function(ActorProfile data)? profileViewDetailed,
+    TResult Function(ProfileViewBasic data)? profileViewBasic,
+    TResult Function(ProfileView data)? profileView,
+    TResult Function(ProfileViewDetailed data)? profileViewDetailed,
     required TResult orElse(),
   }) {
     if (profileView != null) {
@@ -417,10 +417,11 @@ class _$UModerationSubjectProfileProfileViewImpl
 abstract class UModerationSubjectProfileProfileView
     implements ModerationSubjectProfile {
   const factory UModerationSubjectProfileProfileView(
-      {required final Actor data}) = _$UModerationSubjectProfileProfileViewImpl;
+          {required final ProfileView data}) =
+      _$UModerationSubjectProfileProfileViewImpl;
 
   @override
-  Actor get data;
+  ProfileView get data;
   @JsonKey(ignore: true)
   _$$UModerationSubjectProfileProfileViewImplCopyWith<
           _$UModerationSubjectProfileProfileViewImpl>
@@ -436,9 +437,9 @@ abstract class _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith<
               then) =
       __$$UModerationSubjectProfileProfileViewDetailedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ActorProfile data});
+  $Res call({ProfileViewDetailed data});
 
-  $ActorProfileCopyWith<$Res> get data;
+  $ProfileViewDetailedCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -461,14 +462,14 @@ class __$$UModerationSubjectProfileProfileViewDetailedImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ActorProfile,
+              as ProfileViewDetailed,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorProfileCopyWith<$Res> get data {
-    return $ActorProfileCopyWith<$Res>(_value.data, (value) {
+  $ProfileViewDetailedCopyWith<$Res> get data {
+    return $ProfileViewDetailedCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -482,7 +483,7 @@ class _$UModerationSubjectProfileProfileViewDetailedImpl
       {required this.data});
 
   @override
-  final ActorProfile data;
+  final ProfileViewDetailed data;
 
   @override
   String toString() {
@@ -513,9 +514,9 @@ class _$UModerationSubjectProfileProfileViewDetailedImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ActorBasic data) profileViewBasic,
-    required TResult Function(Actor data) profileView,
-    required TResult Function(ActorProfile data) profileViewDetailed,
+    required TResult Function(ProfileViewBasic data) profileViewBasic,
+    required TResult Function(ProfileView data) profileView,
+    required TResult Function(ProfileViewDetailed data) profileViewDetailed,
   }) {
     return profileViewDetailed(data);
   }
@@ -523,9 +524,9 @@ class _$UModerationSubjectProfileProfileViewDetailedImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorBasic data)? profileViewBasic,
-    TResult? Function(Actor data)? profileView,
-    TResult? Function(ActorProfile data)? profileViewDetailed,
+    TResult? Function(ProfileViewBasic data)? profileViewBasic,
+    TResult? Function(ProfileView data)? profileView,
+    TResult? Function(ProfileViewDetailed data)? profileViewDetailed,
   }) {
     return profileViewDetailed?.call(data);
   }
@@ -533,9 +534,9 @@ class _$UModerationSubjectProfileProfileViewDetailedImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorBasic data)? profileViewBasic,
-    TResult Function(Actor data)? profileView,
-    TResult Function(ActorProfile data)? profileViewDetailed,
+    TResult Function(ProfileViewBasic data)? profileViewBasic,
+    TResult Function(ProfileView data)? profileView,
+    TResult Function(ProfileViewDetailed data)? profileViewDetailed,
     required TResult orElse(),
   }) {
     if (profileViewDetailed != null) {
@@ -590,11 +591,11 @@ class _$UModerationSubjectProfileProfileViewDetailedImpl
 abstract class UModerationSubjectProfileProfileViewDetailed
     implements ModerationSubjectProfile {
   const factory UModerationSubjectProfileProfileViewDetailed(
-          {required final ActorProfile data}) =
+          {required final ProfileViewDetailed data}) =
       _$UModerationSubjectProfileProfileViewDetailedImpl;
 
   @override
-  ActorProfile get data;
+  ProfileViewDetailed get data;
   @JsonKey(ignore: true)
   _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith<
           _$UModerationSubjectProfileProfileViewDetailedImpl>

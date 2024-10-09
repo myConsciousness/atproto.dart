@@ -16,6 +16,7 @@ part 'personal_details_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#personaldetailspref
 @freezed
+@Deprecated('Use PersonalDetailsPref')
 class PersonalDetailsPreference with _$PersonalDetailsPreference {
   @jsonSerializable
   const factory PersonalDetailsPreference({

@@ -3,9 +3,11 @@
 // modification, are permitted provided the conditions.
 
 import 'package:bluesky/atproto.dart';
-import 'package:bluesky/core.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
+import 'package:bluesky/chat_bsky_convo_defs.dart';
+import 'package:bluesky/com_atproto_server_create_session.dart';
+import 'package:bluesky/core.dart';
 import 'package:bluesky/moderation.dart';
 
 /// https://atprotodart.com/docs/packages/bluesky
@@ -64,7 +66,7 @@ Future<void> main() async {
 
     //! Let's get home timeline!
     final feeds = await bsky.feed.getTimeline(
-      headers: getLabelerHeaders(moderationPrefs),
+      $headers: getLabelerHeaders(moderationPrefs),
     );
 
     for (final feed in feeds.data.feed) {
@@ -81,16 +83,9 @@ Future<void> main() async {
     print(feeds);
 
     //! Let's post cool stuff!
-    final createdRecord = await bsky.feed.post(
-      text: 'Hello, Bluesky!',
-    );
-
-    print(createdRecord);
-
+    final record = await bsky.feed.post.create(text: 'Hello, Bluesky!');
     //! And delete it.
-    await bsky.atproto.repo.deleteRecord(
-      uri: createdRecord.data.uri,
-    );
+    await bsky.feed.post.delete(rkey: record.data.uri.rkey);
 
     //! You can use Stream API easily.
     final subscription = await bsky.atproto.sync.subscribeRepos();
@@ -112,9 +107,6 @@ Future<void> main() async {
         ).execute,
         identity: print,
         account: print,
-        handle: print,
-        migrate: print,
-        tombstone: print,
         info: print,
         unknown: print,
       );
@@ -128,10 +120,10 @@ Future<void> main() async {
 
 Future<Session> get _session async {
   final session = await createSession(
-    service: 'SERVICE_NAME', //! The default is `bsky.social`
+    $service: 'SERVICE_NAME', //! The default is `bsky.social`
     identifier: 'YOUR_HANDLE_OR_EMAIL', //! Like `shinyakato.bsky.social`
     password: 'YOUR_PASSWORD',
   );
 
-  return session.data;
+  return session.data.toSession();
 }

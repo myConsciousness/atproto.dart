@@ -1,42 +1,43 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
+// Copyright 2024 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto/com_atproto_repo_create_record.dart';
+import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/actor_profile.dart';
-import 'package:bluesky/src/services/entities/actor_profiles.dart';
-import 'package:bluesky/src/services/entities/actors.dart';
-import 'package:bluesky/src/services/entities/actors_typeahead.dart';
-import 'package:bluesky/src/services/entities/preferences.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/preferences.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view_detailed.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/get_profiles/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/get_suggestions/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/search_actors/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/search_actors_typeahead/output.dart';
 import 'service_suite.dart';
 
 void main() {
-  testActor<Actors>(
+  testActor<SearchActorsOutput>(
     (m, s) => s.searchActors(term: m.query),
     id: appBskyActorSearchActors,
   );
 
-  testActor<ActorProfile>(
+  testActor<ProfileViewDetailed>(
     (m, s) => s.getProfile(actor: m.actor),
     id: appBskyActorGetProfile,
   );
 
-  testActor<ActorProfiles>(
+  testActor<GetProfilesOutput>(
     (m, s) => s.getProfiles(actors: [m.actor]),
     id: appBskyActorGetProfiles,
   );
 
-  testActor<Actors>(
+  testActor<GetSuggestionsOutput>(
     (m, s) => s.getSuggestions(),
     id: appBskyActorGetSuggestions,
   );
 
-  testActor<ActorsTypeahead>(
+  testActor<SearchActorsTypeaheadOutput>(
     (m, s) => s.searchActorsTypeahead(
       term: m.query,
       limit: m.limit,
@@ -44,8 +45,8 @@ void main() {
     id: appBskyActorSearchActorsTypeahead,
   );
 
-  testActor<atp.StrongRef>(
-    (m, s) => s.profile(),
+  testActor<CreateRecordOutput>(
+    (m, s) => s.profile.create(),
     id: appBskyActorProfile,
   );
 
@@ -54,8 +55,8 @@ void main() {
     id: appBskyActorGetPreferences,
   );
 
-  testActor<core.EmptyData>(
-    (m, s) => s.putPreferences([]),
+  testActor<EmptyData>(
+    (m, s) => s.putPreferences(preferences: []),
     id: appBskyActorPutPreferences,
   );
 }

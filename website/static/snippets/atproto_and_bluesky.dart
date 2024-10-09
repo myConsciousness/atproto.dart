@@ -6,6 +6,8 @@
 
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/atproto.dart';
+import 'package:bluesky/com_atproto_repo_strong_ref.dart';
+import 'package:bluesky/com_atproto_server_create_session.dart';
 import 'package:bluesky/moderation.dart' as mod;
 
 Future<void> main(List<String> args) async {
@@ -14,7 +16,7 @@ Future<void> main(List<String> args) async {
     password: 'xxxxxxxx',
   );
 
-  final bsky = Bluesky.fromSession(session.data);
+  final bsky = Bluesky.fromSession(session.data.toSession());
 
   /* SNIPPET START */
   //! Moderation Stuffs
@@ -29,14 +31,16 @@ Future<void> main(List<String> args) async {
     labelDefs: labelDefs,
   );
 
-  final timeline = await bsky.feed.getTimeline(headers: labelerHeaders);
+  final timeline = await bsky.feed.getTimeline($headers: labelerHeaders);
   for (final feed in timeline.data.feed) {
     final text = feed.post.record.text.toLowerCase();
 
     if (text.contains('bluesky')) {
-      await bsky.feed.like(
-        cid: feed.post.cid,
-        uri: feed.post.uri,
+      await bsky.feed.like.create(
+        subject: StrongRef(
+          uri: feed.post.uri,
+          cid: feed.post.cid,
+        ),
       );
     }
 

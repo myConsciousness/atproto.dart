@@ -19,6 +19,7 @@ final class MockValues {
   String get email => 'info@shinyakato.dev';
   String get password => 'fake';
   String get token => 'fake';
+  DateTime get createdAt => DateTime.now().toUtc();
 
   String get did => 'did:web:shinyakato.dev';
   String get actor => 'shinyakato.dev';

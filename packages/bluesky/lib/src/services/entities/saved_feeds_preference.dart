@@ -16,6 +16,7 @@ part 'saved_feeds_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#savedfeedspref
 @freezed
+@Deprecated('Use SavedFeedsPref')
 class SavedFeedsPreference with _$SavedFeedsPreference {
   @jsonSerializable
   const factory SavedFeedsPreference({

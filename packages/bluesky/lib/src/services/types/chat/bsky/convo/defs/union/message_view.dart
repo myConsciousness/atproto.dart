@@ -8,8 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../../ids.g.dart' as ids;
-import '../deleted_message_view.dart';
-import '../message_view.dart';
+import '../../../../../../gen_types/chat/bsky/convo/defs/deleted_message_view.dart';
+import '../../../../../../gen_types/chat/bsky/convo/defs/message_view.dart';
 
 part 'message_view.freezed.dart';
 

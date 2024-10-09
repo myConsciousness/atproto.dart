@@ -15,6 +15,7 @@ part 'skeleton_actors_by_query.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchactorsskeleton/#output
 @freezed
+@Deprecated('Use SearchActorsSkeletonOutput')
 class SkeletonActorsByQuery with _$SkeletonActorsByQuery {
   const factory SkeletonActorsByQuery({
     required List<SkeletonActor> actors,

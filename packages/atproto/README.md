@@ -78,12 +78,14 @@ See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packag
 See **[official documents](https://atprotodart.com/docs/supported_api)** from following links.
 
 - **[com.atproto.*](https://atprotodart.com/docs/supported_api#atproto)**
-  - **[com.atproto.server.*](https://atprotodart.com/docs/supported_api#server-service)**
-  - **[com.atproto.identity.*](https://atprotodart.com/docs/supported_api#identity-service)**
-  - **[com.atproto.repo.*](https://atprotodart.com/docs/supported_api#repo-service)**
-  - **[com.atproto.moderation.*](https://atprotodart.com/docs/supported_api#moderation-service)**
-  - **[com.atproto.sync.*](https://atprotodart.com/docs/supported_api#sync-service)**
-  - **[com.atproto.label.*](https://atprotodart.com/docs/supported_api#label-service)**
+  - **[com.atproto.admin.*](https://atprotodart.com/docs/supported_api#comatprotoadmin)**
+  - **[com.atproto.server.*](https://atprotodart.com/docs/supported_api#comatprotoserver)**
+  - **[com.atproto.identity.*](https://atprotodart.com/docs/supported_api#comatprotoidentity)**
+  - **[com.atproto.repo.*](https://atprotodart.com/docs/supported_api#comatprotorepo)**
+  - **[com.atproto.moderation.*](https://atprotodart.com/docs/supported_api#comatprotomoderation)**
+  - **[com.atproto.sync.*](https://atprotodart.com/docs/supported_api#comatprotosync)**
+  - **[com.atproto.label.*](https://atprotodart.com/docs/supported_api#comatprotolabel)**
+  - **[com.atproto.temp.*](https://atprotodart.com/docs/supported_api#comatprototemp)**
 
 ## 1.4. More Tips 🏄
 
