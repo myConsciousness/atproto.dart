@@ -10,6 +10,7 @@ part 'account.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createaccount/#output
 @freezed
+@Deprecated('Use CreateAccountOutput')
 class CreateAccountOutput with _$CreateAccountOutput {
   const factory CreateAccountOutput({
     required String accessJwt,

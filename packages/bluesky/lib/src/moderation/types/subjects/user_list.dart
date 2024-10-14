@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 
 // 🌎 Project imports:
 import '../../decision.dart';
@@ -17,7 +17,7 @@ ModerationDecision decideUserList(
 ) {
   final (creator, labels, uri) = subject.when(
     listViewBasic: (data) => (null, data.labels, data.uri),
-    listView: (data) => (data.createdBy, data.labels, null),
+    listView: (data) => (data.creator, data.labels, null),
   );
 
   if (creator != null) {

@@ -13,6 +13,7 @@ part 'generator_links.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describefeedgenerator/#links
 @freezed
+@Deprecated('Use Links')
 class GeneratorLinks with _$GeneratorLinks {
   @jsonSerializable
   const factory GeneratorLinks({

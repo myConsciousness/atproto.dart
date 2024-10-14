@@ -8,6 +8,7 @@
 
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/atproto.dart';
+import 'package:bluesky/com_atproto_server_create_session.dart';
 
 Future<void> main(List<String> args) async {
   final session = await createSession(
@@ -15,9 +16,9 @@ Future<void> main(List<String> args) async {
     password: 'xxxxxxxx',
   );
 
-  final bsky = Bluesky.fromSession(session.data);
+  final bsky = Bluesky.fromSession(session.data.toSession());
 
-  final strongRef = await bsky.feed.post(
+  final strongRef = await bsky.feed.post.create(
     text: 'Hello, Bluesky!',
   );
 }

@@ -12,6 +12,7 @@ part 'blob_refs.g.dart';
 
 /// Hold a reference links to blobs.
 @freezed
+@Deprecated('Use ListBlobsOutput')
 class BlobRefs with _$BlobRefs {
   /// Creates an instance of [BlobRefs] using a factory constructor.
   const factory BlobRefs({

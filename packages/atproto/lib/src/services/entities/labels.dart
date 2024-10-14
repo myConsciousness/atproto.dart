@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'self_labels.dart';
+import '../gen_types/com/atproto/label/defs/self_labels.dart';
 
 part 'labels.freezed.dart';
 

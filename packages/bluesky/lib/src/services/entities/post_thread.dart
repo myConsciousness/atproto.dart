@@ -14,6 +14,7 @@ part 'post_thread.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getpostthread/#output
 @freezed
+@Deprecated('Use GetPostThreadOutput')
 class PostThread with _$PostThread {
   const factory PostThread({
     @postThreadViewConverter required PostThreadView thread,

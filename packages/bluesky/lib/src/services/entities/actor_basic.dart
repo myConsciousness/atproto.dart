@@ -5,21 +5,22 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../gen_types/app/bsky/actor/defs/profile_associated.dart';
 import 'actor.dart';
 import 'actor_viewer.dart';
 import 'defaults.dart';
-import 'profile_associated.dart';
 
 part 'actor_basic.freezed.dart';
 part 'actor_basic.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileviewbasic
 @freezed
+@Deprecated('Use ProfileViewBasic')
 class ActorBasic with _$ActorBasic {
   // ignore: unused_element
   const ActorBasic._();

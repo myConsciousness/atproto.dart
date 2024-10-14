@@ -8,8 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../gen_types/com/atproto/label/defs/self_labels.dart';
 import '../labels.dart';
-import '../self_labels.dart';
 
 const labelsConverter = _LabelsConverter();
 

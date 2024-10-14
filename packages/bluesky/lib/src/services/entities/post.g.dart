@@ -41,14 +41,14 @@ _$PostImpl _$$PostImplFromJson(Map json) => $checkedCreate(
               'labels',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      Label.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           threadgate: $checkedConvert(
               'threadgate',
               (v) => v == null
                   ? null
                   : ThreadgateView.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                      Map<String, dynamic>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );

@@ -8,9 +8,15 @@ import 'dart:io';
 
 // 📦 Package imports:
 import 'package:actions_toolkit_dart/core.dart' as core;
+import 'package:bluesky/app_bsky_embed_external.dart';
+import 'package:bluesky/app_bsky_embed_images.dart';
+import 'package:bluesky/app_bsky_feed_post.dart';
+import 'package:bluesky/app_bsky_richtext_facet.dart';
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/cardyb.dart' as cardyb;
+import 'package:bluesky/com_atproto_label_defs.dart';
+import 'package:bluesky/com_atproto_repo_upload_blob.dart';
 import 'package:bluesky/core.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:http/http.dart' as http;
@@ -33,11 +39,11 @@ Future<void> post() async {
 
   final facets = await text.entities.toFacets(service: _service);
 
-  final createdPost = await bluesky.feed.post(
+  final createdPost = await bluesky.feed.post.create(
     text: text.value,
     facets: facets.map(Facet.fromJson).toList(),
     embed: await _getEmbed(bluesky),
-    languageTags: _langs,
+    langs: _langs,
     labels: _labels,
     tags: _tags,
   );
@@ -47,14 +53,14 @@ Future<void> post() async {
   core.info(message: 'uri = [${createdPost.data.uri}]');
 }
 
-Future<Embed?> _getEmbed(final Bluesky bluesky) async {
+Future<UPostEmbed?> _getEmbed(final Bluesky bluesky) async {
   try {
     final uploadedMedia = await _uploadMedia(bluesky);
     if (uploadedMedia != null) {
-      return Embed.images(
-        data: EmbedImages(
+      return UPostEmbed.images(
+        data: Images(
           images: [
-            Image(
+            ImagesImage(
               alt: core.getInput(
                 name: 'media-alt',
                 options: core.InputOptions(trimWhitespace: true),
@@ -76,13 +82,13 @@ Future<Embed?> _getEmbed(final Bluesky bluesky) async {
       preview.data.image,
     );
 
-    return Embed.external(
-      data: EmbedExternal(
-        external: EmbedExternalThumbnail(
+    return UPostEmbed.external(
+      data: External(
+        external: ExternalExternal(
           uri: preview.data.url,
           title: preview.data.title,
           description: preview.data.description,
-          blob: uploadedPreview?.blob,
+          thumb: uploadedPreview?.blob,
         ),
       ),
     );
@@ -96,7 +102,7 @@ Future<Session> _getSession(
   final RetryConfig retryConfig,
 ) async {
   final session = await createSession(
-    service: service,
+    $service: service,
     identifier: core.getInput(
       name: 'identifier',
       options: core.InputOptions(
@@ -111,10 +117,10 @@ Future<Session> _getSession(
         trimWhitespace: true,
       ),
     ),
-    retryConfig: retryConfig,
+    $retryConfig: retryConfig,
   );
 
-  return session.data;
+  return Session.fromJson(session.data.toJson());
 }
 
 Future<Bluesky> get _bluesky async {
@@ -141,7 +147,7 @@ String get _service {
   return service.isEmpty ? 'social' : service;
 }
 
-Future<BlobData?> _uploadMedia(final Bluesky bluesky) async {
+Future<UploadBlobOutput?> _uploadMedia(final Bluesky bluesky) async {
   final mediaPath = core.getInput(
     name: 'media',
     options: core.InputOptions(trimWhitespace: true),
@@ -152,13 +158,13 @@ Future<BlobData?> _uploadMedia(final Bluesky bluesky) async {
   }
 
   final uploaded = await bluesky.atproto.repo.uploadBlob(
-    File(mediaPath).readAsBytesSync(),
+    bytes: File(mediaPath).readAsBytesSync(),
   );
 
   return uploaded.data;
 }
 
-Future<BlobData?> _uploadLinkPreview(
+Future<UploadBlobOutput?> _uploadLinkPreview(
   final Bluesky bluesky,
   final String previewImage,
 ) async {
@@ -169,7 +175,8 @@ Future<BlobData?> _uploadLinkPreview(
   final image = await http.get(Uri.parse(previewImage));
   if (image.statusCode != 200) return null;
 
-  final uploaded = await bluesky.atproto.repo.uploadBlob(image.bodyBytes);
+  final uploaded =
+      await bluesky.atproto.repo.uploadBlob(bytes: image.bodyBytes);
 
   return uploaded.data;
 }
@@ -187,7 +194,7 @@ List<String>? get _langs {
   return langs.split(',');
 }
 
-Labels? get _labels {
+UPostLabel? get _labels {
   final labels = core.getInput(
     name: 'labels',
     options: core.InputOptions(trimWhitespace: true),
@@ -197,9 +204,9 @@ Labels? get _labels {
     return null;
   }
 
-  return Labels.selfLabels(
+  return UPostLabel.selfLabels(
     data: SelfLabels(
-      values: labels.split(',').map((e) => SelfLabel(value: e)).toList(),
+      values: labels.split(',').map((e) => SelfLabel(val: e)).toList(),
     ),
   );
 }

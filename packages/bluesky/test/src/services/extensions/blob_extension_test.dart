@@ -7,9 +7,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/entities/embed.dart';
-import 'package:bluesky/src/services/entities/image.dart';
 import 'package:bluesky/src/services/extensions/blob.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/embed/images/image.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/post/union_post_embed.dart';
 
 void main() {
   test('.toImage', () {
@@ -21,7 +21,7 @@ void main() {
 
     final image = blob.toImage(alt: 'test');
 
-    expect(image, isA<Image>());
+    expect(image, isA<ImagesImage>());
     expect(image.alt, 'test');
     expect(image.image == blob, isTrue);
   });
@@ -35,13 +35,14 @@ void main() {
 
     final embedImage = blob.toEmbedImage(alt: 'test');
 
-    expect(embedImage, isA<Embed>());
+    expect(embedImage, isA<UPostEmbed>());
 
     final image = embedImage.when(
       record: (data) => null,
       images: (data) => data.images.first,
       external: (data) => null,
       recordWithMedia: (data) => null,
+      video: (data) => null,
       unknown: (data) => null,
     );
 

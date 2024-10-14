@@ -16,6 +16,7 @@ part 'image.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#image
 @freezed
+@Deprecated('Use ImagesImage')
 class Image with _$Image {
   @jsonSerializable
   const factory Image({

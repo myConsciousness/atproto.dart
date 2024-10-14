@@ -1,5 +1,52 @@
 # Release Note
 
+## 1.0.0-preview.8
+
+- Lex gen.
+
+## 1.0.0-preview.7
+
+- Lex gen.
+- The following methods on `RepoService` have changed the return type.
+  - `createRecord`: use `.toStrongRef()` to convert to `StrongRef`
+  - `putRecord`: use `.toStrongRef()` to convert to `StrongRef`
+  - `deleteRecord`
+  - `applyWrites`
+
+## 1.0.0-preview.6
+
+- Lex gen. ([#1688](https://github.com/myConsciousness/atproto.dart/pull/1688))
+
+## 1.0.0-preview.5
+
+- Lex gen.
+
+## 1.0.0-preview.4
+
+- Lex gen. ([#1594](https://github.com/myConsciousness/atproto.dart/pull/1594))
+
+## 1.0.0-preview.3
+
+- Refactor put endpoints for records.
+- `createdAt` property is now required for record objects.
+
+## 1.0.0-preview.2
+
+- Optimize exports.
+
+## 1.0.0-preview.1
+
+- Fix preview version of `atproto`.
+
+## 1.0.0-preview.0
+
+> Note: This release has breaking changes.
+
+- Expose automatically generated objects based on Lexicon definitions.
+- All previous entities have been deprecated.
+- All `knownValues` are now implemented as union types of `Enum` and `String`.
+- Useful extensions have been added for union type objects.
+
 ## v0.16.12
 
 - Fixed a bug that prevented `RepoService.deleteRecord` from working.

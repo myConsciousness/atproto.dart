@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: deprecated_member_use_from_same_package
+
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,6 +17,7 @@ part 'report.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#output
 @freezed
+@Deprecated('Use CreateReportOutput')
 class Report with _$Report {
   const factory Report({
     required int id,

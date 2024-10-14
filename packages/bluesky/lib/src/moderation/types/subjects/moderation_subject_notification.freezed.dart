@@ -35,18 +35,20 @@ mixin _$ModerationSubjectNotification {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectNotification value)
+    required TResult Function(UModerationSubjectNotificationNotification value)
         notification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectNotification value)? notification,
+    TResult? Function(UModerationSubjectNotificationNotification value)?
+        notification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectNotification value)? notification,
+    TResult Function(UModerationSubjectNotificationNotification value)?
+        notification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -103,12 +105,13 @@ class _$ModerationSubjectNotificationCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectNotificationImplCopyWith<$Res>
+abstract class _$$UModerationSubjectNotificationNotificationImplCopyWith<$Res>
     implements $ModerationSubjectNotificationCopyWith<$Res> {
-  factory _$$UModerationSubjectNotificationImplCopyWith(
-          _$UModerationSubjectNotificationImpl value,
-          $Res Function(_$UModerationSubjectNotificationImpl) then) =
-      __$$UModerationSubjectNotificationImplCopyWithImpl<$Res>;
+  factory _$$UModerationSubjectNotificationNotificationImplCopyWith(
+          _$UModerationSubjectNotificationNotificationImpl value,
+          $Res Function(_$UModerationSubjectNotificationNotificationImpl)
+              then) =
+      __$$UModerationSubjectNotificationNotificationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Notification data});
@@ -118,13 +121,13 @@ abstract class _$$UModerationSubjectNotificationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UModerationSubjectNotificationImplCopyWithImpl<$Res>
+class __$$UModerationSubjectNotificationNotificationImplCopyWithImpl<$Res>
     extends _$ModerationSubjectNotificationCopyWithImpl<$Res,
-        _$UModerationSubjectNotificationImpl>
-    implements _$$UModerationSubjectNotificationImplCopyWith<$Res> {
-  __$$UModerationSubjectNotificationImplCopyWithImpl(
-      _$UModerationSubjectNotificationImpl _value,
-      $Res Function(_$UModerationSubjectNotificationImpl) _then)
+        _$UModerationSubjectNotificationNotificationImpl>
+    implements _$$UModerationSubjectNotificationNotificationImplCopyWith<$Res> {
+  __$$UModerationSubjectNotificationNotificationImplCopyWithImpl(
+      _$UModerationSubjectNotificationNotificationImpl _value,
+      $Res Function(_$UModerationSubjectNotificationNotificationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -132,7 +135,7 @@ class __$$UModerationSubjectNotificationImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationSubjectNotificationImpl(
+    return _then(_$UModerationSubjectNotificationNotificationImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -143,9 +146,9 @@ class __$$UModerationSubjectNotificationImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationSubjectNotificationImpl
-    implements UModerationSubjectNotification {
-  const _$UModerationSubjectNotificationImpl({required this.data});
+class _$UModerationSubjectNotificationNotificationImpl
+    implements UModerationSubjectNotificationNotification {
+  const _$UModerationSubjectNotificationNotificationImpl({required this.data});
 
   @override
   final Notification data;
@@ -159,7 +162,7 @@ class _$UModerationSubjectNotificationImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectNotificationImpl &&
+            other is _$UModerationSubjectNotificationNotificationImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -169,10 +172,12 @@ class _$UModerationSubjectNotificationImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationSubjectNotificationImplCopyWith<
-          _$UModerationSubjectNotificationImpl>
-      get copyWith => __$$UModerationSubjectNotificationImplCopyWithImpl<
-          _$UModerationSubjectNotificationImpl>(this, _$identity);
+  _$$UModerationSubjectNotificationNotificationImplCopyWith<
+          _$UModerationSubjectNotificationNotificationImpl>
+      get copyWith =>
+          __$$UModerationSubjectNotificationNotificationImplCopyWithImpl<
+                  _$UModerationSubjectNotificationNotificationImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -205,7 +210,7 @@ class _$UModerationSubjectNotificationImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectNotification value)
+    required TResult Function(UModerationSubjectNotificationNotification value)
         notification,
   }) {
     return notification(this);
@@ -214,7 +219,8 @@ class _$UModerationSubjectNotificationImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectNotification value)? notification,
+    TResult? Function(UModerationSubjectNotificationNotification value)?
+        notification,
   }) {
     return notification?.call(this);
   }
@@ -222,7 +228,8 @@ class _$UModerationSubjectNotificationImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectNotification value)? notification,
+    TResult Function(UModerationSubjectNotificationNotification value)?
+        notification,
     required TResult orElse(),
   }) {
     if (notification != null) {
@@ -232,17 +239,17 @@ class _$UModerationSubjectNotificationImpl
   }
 }
 
-abstract class UModerationSubjectNotification
+abstract class UModerationSubjectNotificationNotification
     implements ModerationSubjectNotification {
-  const factory UModerationSubjectNotification(
+  const factory UModerationSubjectNotificationNotification(
           {required final Notification data}) =
-      _$UModerationSubjectNotificationImpl;
+      _$UModerationSubjectNotificationNotificationImpl;
 
   @override
   Notification get data;
   @override
   @JsonKey(ignore: true)
-  _$$UModerationSubjectNotificationImplCopyWith<
-          _$UModerationSubjectNotificationImpl>
+  _$$UModerationSubjectNotificationNotificationImplCopyWith<
+          _$UModerationSubjectNotificationNotificationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
