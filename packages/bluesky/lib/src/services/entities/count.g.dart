@@ -13,7 +13,7 @@ _$CountImpl _$$CountImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$CountImpl(
-          count: $checkedConvert('count', (v) => v as int? ?? 0),
+          count: $checkedConvert('count', (v) => (v as num?)?.toInt() ?? 0),
         );
         return val;
       },
