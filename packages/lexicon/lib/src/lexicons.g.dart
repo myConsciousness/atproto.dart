@@ -9304,10 +9304,23 @@ const toolsOzoneModerationQueryEvents = <String, dynamic>{
             "description": "Retrieve events created before a given timestamp"
           },
           "subject": {"type": "string", "format": "uri"},
+          "collections": {
+            "type": "array",
+            "description":
+                "If specified, only events where the subject belongs to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
+            "items": {"type": "string", "format": "nsid"},
+            "maxLength": 20
+          },
+          "subjectType": {
+            "type": "string",
+            "description":
+                "If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
+            "knownValues": ["account", "record"]
+          },
           "includeAllUserRecords": {
             "type": "boolean",
             "description":
-                "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned",
+                "If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.",
             "default": false
           },
           "limit": {
@@ -9391,7 +9404,7 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
           "includeAllUserRecords": {
             "type": "boolean",
             "description":
-                "All subjects belonging to the account specified in the 'subject' param will be returned."
+                "All subjects, or subjects from given 'collections' param, belonging to the account specified in the 'subject' param will be returned."
           },
           "subject": {
             "type": "string",
@@ -9478,7 +9491,20 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
             "type": "array",
             "items": {"type": "string"}
           },
-          "cursor": {"type": "string"}
+          "cursor": {"type": "string"},
+          "collections": {
+            "type": "array",
+            "description":
+                "If specified, subjects belonging to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
+            "items": {"type": "string", "format": "nsid"},
+            "maxLength": 20
+          },
+          "subjectType": {
+            "type": "string",
+            "description":
+                "If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
+            "knownValues": ["account", "record"]
+          }
         }
       },
       "output": {
