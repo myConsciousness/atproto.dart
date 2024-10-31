@@ -217,6 +217,7 @@ Add/Remove a tag on a subject
 | **invitesDisabled** | boolean | - | ❌ | - |
 | **inviteNote** | string | - | ❌ | - |
 | **deactivatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **threatSignatures** | array of [com.atproto.admin.defs#threatSignature](../../../../lexicons/com/atproto/admin/defs.md#threatsignature) | - | ❌ | - |
 
 ## #repoViewDetail
 
@@ -235,6 +236,7 @@ Add/Remove a tag on a subject
 | **inviteNote** | string | - | ❌ | - |
 | **emailConfirmedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **deactivatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **threatSignatures** | array of [com.atproto.admin.defs#threatSignature](../../../../lexicons/com/atproto/admin/defs.md#threatsignature) | - | ❌ | - |
 
 ## #repoViewNotFound
 

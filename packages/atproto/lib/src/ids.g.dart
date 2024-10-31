@@ -25,6 +25,10 @@ const comAtprotoAdminDefsRepoRef = 'com.atproto.admin.defs#repoRef';
 /// `com.atproto.admin.defs#statusAttr`
 const comAtprotoAdminDefsStatusAttr = 'com.atproto.admin.defs#statusAttr';
 
+/// `com.atproto.admin.defs#threatSignature`
+const comAtprotoAdminDefsThreatSignature =
+    'com.atproto.admin.defs#threatSignature';
+
 /// `com.atproto.admin.deleteAccount`
 const comAtprotoAdminDeleteAccount = 'com.atproto.admin.deleteAccount';
 
