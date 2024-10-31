@@ -448,7 +448,11 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "invitesDisabled": {"type": "boolean"},
         "emailConfirmedAt": {"type": "string", "format": "datetime"},
         "inviteNote": {"type": "string"},
-        "deactivatedAt": {"type": "string", "format": "datetime"}
+        "deactivatedAt": {"type": "string", "format": "datetime"},
+        "threatSignatures": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#threatSignature"}
+        }
       }
     },
     "repoRef": {
@@ -465,6 +469,14 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "did": {"type": "string", "format": "did"},
         "cid": {"type": "string", "format": "cid"},
         "recordUri": {"type": "string", "format": "at-uri"}
+      }
+    },
+    "threatSignature": {
+      "type": "object",
+      "required": ["property", "value"],
+      "properties": {
+        "property": {"type": "string"},
+        "value": {"type": "string"}
       }
     }
   }
@@ -7978,6 +7990,28 @@ const appBskyUnspeccedGetSuggestionsSkeleton = <String, dynamic>{
   }
 };
 
+/// `app.bsky.unspecced.getConfig`
+const appBskyUnspeccedGetConfig = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getConfig",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get miscellaneous runtime configuration.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [],
+          "properties": {
+            "checkEmailConfirmed": {"type": "boolean"}
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.unspecced.defs`
 const appBskyUnspeccedDefs = <String, dynamic>{
   "lexicon": 1,
@@ -9304,10 +9338,23 @@ const toolsOzoneModerationQueryEvents = <String, dynamic>{
             "description": "Retrieve events created before a given timestamp"
           },
           "subject": {"type": "string", "format": "uri"},
+          "collections": {
+            "type": "array",
+            "description":
+                "If specified, only events where the subject belongs to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
+            "items": {"type": "string", "format": "nsid"},
+            "maxLength": 20
+          },
+          "subjectType": {
+            "type": "string",
+            "description":
+                "If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
+            "knownValues": ["account", "record"]
+          },
           "includeAllUserRecords": {
             "type": "boolean",
             "description":
-                "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned",
+                "If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.",
             "default": false
           },
           "limit": {
@@ -9391,7 +9438,7 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
           "includeAllUserRecords": {
             "type": "boolean",
             "description":
-                "All subjects belonging to the account specified in the 'subject' param will be returned."
+                "All subjects, or subjects from given 'collections' param, belonging to the account specified in the 'subject' param will be returned."
           },
           "subject": {
             "type": "string",
@@ -9478,7 +9525,20 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
             "type": "array",
             "items": {"type": "string"}
           },
-          "cursor": {"type": "string"}
+          "cursor": {"type": "string"},
+          "collections": {
+            "type": "array",
+            "description":
+                "If specified, subjects belonging to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
+            "items": {"type": "string", "format": "nsid"},
+            "maxLength": 20
+          },
+          "subjectType": {
+            "type": "string",
+            "description":
+                "If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
+            "knownValues": ["account", "record"]
+          }
         }
       },
       "output": {
@@ -9929,7 +9989,14 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         },
         "invitesDisabled": {"type": "boolean"},
         "inviteNote": {"type": "string"},
-        "deactivatedAt": {"type": "string", "format": "datetime"}
+        "deactivatedAt": {"type": "string", "format": "datetime"},
+        "threatSignatures": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "com.atproto.admin.defs#threatSignature"
+          }
+        }
       }
     },
     "repoViewDetail": {
@@ -9966,7 +10033,14 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         "invitesDisabled": {"type": "boolean"},
         "inviteNote": {"type": "string"},
         "emailConfirmedAt": {"type": "string", "format": "datetime"},
-        "deactivatedAt": {"type": "string", "format": "datetime"}
+        "deactivatedAt": {"type": "string", "format": "datetime"},
+        "threatSignatures": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "com.atproto.admin.defs#threatSignature"
+          }
+        }
       }
     },
     "repoViewNotFound": {
@@ -10831,6 +10905,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyUnspeccedSearchPostsSkeleton,
   appBskyUnspeccedGetTaggedSuggestions,
   appBskyUnspeccedGetSuggestionsSkeleton,
+  appBskyUnspeccedGetConfig,
   appBskyUnspeccedDefs,
   chatBskyConvoUpdateRead,
   chatBskyConvoGetConvo,
