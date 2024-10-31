@@ -577,6 +577,9 @@ const appBskyUnspeccedDefsSkeletonSearchActor =
 const appBskyUnspeccedDefsSkeletonSearchPost =
     'app.bsky.unspecced.defs#skeletonSearchPost';
 
+/// `app.bsky.unspecced.getConfig`
+const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     'app.bsky.unspecced.getPopularFeedGenerators';
