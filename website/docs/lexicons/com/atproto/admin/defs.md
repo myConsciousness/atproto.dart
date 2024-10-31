@@ -27,6 +27,7 @@ description: com.atproto.admin.defs
 | **emailConfirmedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **inviteNote** | string | - | ❌ | - |
 | **deactivatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **threatSignatures** | array of [#threatSignature](#threatsignature) | - | ❌ | - |
 
 ## #repoRef
 
@@ -41,3 +42,10 @@ description: com.atproto.admin.defs
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
 | **recordUri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
+
+## #threatSignature
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **property** | string | - | ✅ | - |
+| **value** | string | - | ✅ | - |

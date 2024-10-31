@@ -13,7 +13,7 @@ View moderation statuses of subjects (record or repo).
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **includeAllUserRecords** | boolean | - | ❌ | All subjects belonging to the account specified in the 'subject' param will be returned. |
+| **includeAllUserRecords** | boolean | - | ❌ | All subjects, or subjects from given 'collections' param, belonging to the account specified in the 'subject' param will be returned. |
 | **subject** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | The subject to get the status for. |
 | **comment** | string | - | ❌ | Search subjects by keyword from comments |
 | **reportedAfter** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects reported after a given timestamp |
@@ -33,6 +33,8 @@ View moderation statuses of subjects (record or repo).
 | **tags** | array | - | ❌ | - |
 | **excludeTags** | array | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
+| **collections** | array of [nsid](https://atproto.com/specs/nsid) | - | ❌ | - |
+| **subjectType** | string | account<br/>record | ❌ | If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored. |
 
 ### Output
 
