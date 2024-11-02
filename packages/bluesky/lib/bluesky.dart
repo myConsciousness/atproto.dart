@@ -168,3 +168,4 @@ export 'package:bluesky/src/services/params/strong_ref_param.dart';
 export 'package:bluesky/src/services/params/thread_param.dart';
 export 'package:bluesky/src/services/unspecced_service.dart';
 export 'package:bluesky/src/services/labeler_service.dart';
+export 'package:bluesky/src/services/video_service.dart';
