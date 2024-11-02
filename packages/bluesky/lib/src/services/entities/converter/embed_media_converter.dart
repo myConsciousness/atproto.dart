@@ -49,6 +49,7 @@ final class _EmbedMediaConverter
   Map<String, dynamic> toJson(EmbedMedia object) => object.when(
         images: (data) => data.toJson(),
         external: (data) => data.toJson(),
+        video: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }
