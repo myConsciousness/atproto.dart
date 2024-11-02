@@ -23,8 +23,12 @@ mixin _$AccountCodes {
   String get account => throw _privateConstructorUsedError;
   List<String> get codes => throw _privateConstructorUsedError;
 
+  /// Serializes this AccountCodes to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AccountCodes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AccountCodesCopyWith<AccountCodes> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$AccountCodesCopyWithImpl<$Res, $Val extends AccountCodes>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AccountCodes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$AccountCodesImplCopyWithImpl<$Res>
       _$AccountCodesImpl _value, $Res Function(_$AccountCodesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AccountCodes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,12 +147,14 @@ class _$AccountCodesImpl implements _AccountCodes {
             const DeepCollectionEquality().equals(other._codes, _codes));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, account, const DeepCollectionEquality().hash(_codes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AccountCodes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AccountCodesImplCopyWith<_$AccountCodesImpl> get copyWith =>
@@ -170,8 +180,11 @@ abstract class _AccountCodes implements AccountCodes {
   String get account;
   @override
   List<String> get codes;
+
+  /// Create a copy of AccountCodes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AccountCodesImplCopyWith<_$AccountCodesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

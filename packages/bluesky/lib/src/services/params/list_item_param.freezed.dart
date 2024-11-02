@@ -26,8 +26,12 @@ mixin _$ListItemParam {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
+  /// Serializes this ListItemParam to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ListItemParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ListItemParamCopyWith<ListItemParam> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$ListItemParamCopyWithImpl<$Res, $Val extends ListItemParam>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ListItemParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,6 +113,8 @@ class __$$ListItemParamImplCopyWithImpl<$Res>
       _$ListItemParamImpl _value, $Res Function(_$ListItemParamImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ListItemParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -184,12 +192,14 @@ class _$ListItemParamImpl implements _ListItemParam {
                 .equals(other._unspecced, _unspecced));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, subject, list, createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ListItemParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ListItemParamImplCopyWith<_$ListItemParamImpl> get copyWith =>
@@ -222,8 +232,11 @@ abstract class _ListItemParam implements ListItemParam {
   DateTime? get createdAt;
   @override
   Map<String, dynamic> get unspecced;
+
+  /// Create a copy of ListItemParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ListItemParamImplCopyWith<_$ListItemParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

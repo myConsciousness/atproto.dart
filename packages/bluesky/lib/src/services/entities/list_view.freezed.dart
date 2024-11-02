@@ -36,8 +36,12 @@ mixin _$ListView {
   ListViewer get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this ListView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ListView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ListViewCopyWith<ListView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -75,6 +79,8 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ListView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -143,6 +149,8 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
     ) as $Val);
   }
 
+  /// Create a copy of ListView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ActorCopyWith<$Res> get createdBy {
@@ -151,6 +159,8 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
     });
   }
 
+  /// Create a copy of ListView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ListViewerCopyWith<$Res> get viewer {
@@ -196,6 +206,8 @@ class __$$ListViewImplCopyWithImpl<$Res>
       _$ListViewImpl _value, $Res Function(_$ListViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ListView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -363,7 +375,7 @@ class _$ListViewImpl extends _ListView {
                 other.indexedAt == indexedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -380,7 +392,9 @@ class _$ListViewImpl extends _ListView {
       viewer,
       indexedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ListView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ListViewImplCopyWith<_$ListViewImpl> get copyWith =>
@@ -440,8 +454,11 @@ abstract class _ListView extends ListView {
   ListViewer get viewer;
   @override
   DateTime get indexedAt;
+
+  /// Create a copy of ListView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ListViewImplCopyWith<_$ListViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

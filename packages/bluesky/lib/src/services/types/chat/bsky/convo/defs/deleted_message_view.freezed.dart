@@ -25,8 +25,12 @@ mixin _$DeletedMessageView {
   MessageViewSender get sender => throw _privateConstructorUsedError;
   DateTime get sentAt => throw _privateConstructorUsedError;
 
+  /// Serializes this DeletedMessageView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DeletedMessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DeletedMessageViewCopyWith<DeletedMessageView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$DeletedMessageViewCopyWithImpl<$Res, $Val extends DeletedMessageView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DeletedMessageView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class _$DeletedMessageViewCopyWithImpl<$Res, $Val extends DeletedMessageView>
     ) as $Val);
   }
 
+  /// Create a copy of DeletedMessageView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MessageViewSenderCopyWith<$Res> get sender {
@@ -111,6 +119,8 @@ class __$$DeletedMessageViewImplCopyWithImpl<$Res>
       $Res Function(_$DeletedMessageViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DeletedMessageView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -178,11 +188,13 @@ class _$DeletedMessageViewImpl implements _DeletedMessageView {
             (identical(other.sentAt, sentAt) || other.sentAt == sentAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, rev, sender, sentAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DeletedMessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeletedMessageViewImplCopyWith<_$DeletedMessageViewImpl> get copyWith =>
@@ -215,8 +227,11 @@ abstract class _DeletedMessageView implements DeletedMessageView {
   MessageViewSender get sender;
   @override
   DateTime get sentAt;
+
+  /// Create a copy of DeletedMessageView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeletedMessageViewImplCopyWith<_$DeletedMessageViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

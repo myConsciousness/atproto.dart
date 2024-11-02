@@ -24,8 +24,12 @@ mixin _$Tombstone {
   String get type => throw _privateConstructorUsedError;
   String get prev => throw _privateConstructorUsedError;
 
+  /// Serializes this Tombstone to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Tombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TombstoneCopyWith<Tombstone> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$TombstoneCopyWithImpl<$Res, $Val extends Tombstone>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Tombstone
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$TombstoneImplCopyWithImpl<$Res>
       _$TombstoneImpl _value, $Res Function(_$TombstoneImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Tombstone
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -148,11 +156,13 @@ class _$TombstoneImpl implements _Tombstone {
             (identical(other.prev, prev) || other.prev == prev));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, sig, type, prev);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Tombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TombstoneImplCopyWith<_$TombstoneImpl> get copyWith =>
@@ -181,8 +191,11 @@ abstract class _Tombstone implements Tombstone {
   String get type;
   @override
   String get prev;
+
+  /// Create a copy of Tombstone
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TombstoneImplCopyWith<_$TombstoneImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

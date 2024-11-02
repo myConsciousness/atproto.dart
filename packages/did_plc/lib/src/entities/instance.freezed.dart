@@ -22,8 +22,12 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) {
 mixin _$Instance {
   String get version => throw _privateConstructorUsedError;
 
+  /// Serializes this Instance to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Instance
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InstanceCopyWith<Instance> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,6 +50,8 @@ class _$InstanceCopyWithImpl<$Res, $Val extends Instance>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Instance
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,6 +85,8 @@ class __$$InstanceImplCopyWithImpl<$Res>
       _$InstanceImpl _value, $Res Function(_$InstanceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Instance
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,11 +126,13 @@ class _$InstanceImpl implements _Instance {
             (identical(other.version, version) || other.version == version));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, version);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Instance
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InstanceImplCopyWith<_$InstanceImpl> get copyWith =>
@@ -144,8 +154,11 @@ abstract class _Instance implements Instance {
 
   @override
   String get version;
+
+  /// Create a copy of Instance
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InstanceImplCopyWith<_$InstanceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

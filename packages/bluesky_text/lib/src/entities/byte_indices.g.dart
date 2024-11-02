@@ -13,8 +13,8 @@ _$ByteIndicesImpl _$$ByteIndicesImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ByteIndicesImpl(
-          start: $checkedConvert('start', (v) => v as int),
-          end: $checkedConvert('end', (v) => v as int),
+          start: $checkedConvert('start', (v) => (v as num).toInt()),
+          end: $checkedConvert('end', (v) => (v as num).toInt()),
         );
         return val;
       },

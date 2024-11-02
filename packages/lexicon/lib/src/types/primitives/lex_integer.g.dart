@@ -15,12 +15,15 @@ _$LexIntegerImpl _$$LexIntegerImplFromJson(Map json) => $checkedCreate(
         final val = _$LexIntegerImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'integer'),
           description: $checkedConvert('description', (v) => v as String?),
-          defaultValue: $checkedConvert('default', (v) => v as int?),
-          minimum: $checkedConvert('minimum', (v) => v as int?),
-          maximum: $checkedConvert('maximum', (v) => v as int?),
-          enumValues: $checkedConvert('enum',
-              (v) => (v as List<dynamic>?)?.map((e) => e as int).toList()),
-          constValue: $checkedConvert('const', (v) => v as int?),
+          defaultValue: $checkedConvert('default', (v) => (v as num?)?.toInt()),
+          minimum: $checkedConvert('minimum', (v) => (v as num?)?.toInt()),
+          maximum: $checkedConvert('maximum', (v) => (v as num?)?.toInt()),
+          enumValues: $checkedConvert(
+              'enum',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => (e as num).toInt())
+                  .toList()),
+          constValue: $checkedConvert('const', (v) => (v as num?)?.toInt()),
         );
         return val;
       },

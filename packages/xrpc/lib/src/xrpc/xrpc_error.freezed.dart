@@ -23,8 +23,12 @@ mixin _$XRPCError {
   String get error => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
 
+  /// Serializes this XRPCError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of XRPCError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $XRPCErrorCopyWith<XRPCError> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$XRPCErrorCopyWithImpl<$Res, $Val extends XRPCError>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of XRPCError
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$XRPCErrorImplCopyWithImpl<$Res>
       _$XRPCErrorImpl _value, $Res Function(_$XRPCErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of XRPCError
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,11 +139,13 @@ class _$XRPCErrorImpl implements _XRPCError {
             (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, error, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of XRPCError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$XRPCErrorImplCopyWith<_$XRPCErrorImpl> get copyWith =>
@@ -161,8 +171,11 @@ abstract class _XRPCError implements XRPCError {
   String get error;
   @override
   String get message;
+
+  /// Create a copy of XRPCError
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$XRPCErrorImplCopyWith<_$XRPCErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -27,8 +27,12 @@ mixin _$EmbedViewRecordWithMedia {
   @embedViewMediaConverter
   EmbedViewMedia get media => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbedViewRecordWithMedia to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbedViewRecordWithMediaCopyWith<EmbedViewRecordWithMedia> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$EmbedViewRecordWithMediaCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbedViewRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -82,6 +88,8 @@ class _$EmbedViewRecordWithMediaCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of EmbedViewRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewRecordCopyWith<$Res> get record {
@@ -90,6 +98,8 @@ class _$EmbedViewRecordWithMediaCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of EmbedViewRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewMediaCopyWith<$Res> get media {
@@ -129,6 +139,8 @@ class __$$EmbedViewRecordWithMediaImplCopyWithImpl<$Res>
       $Res Function(_$EmbedViewRecordWithMediaImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -188,11 +200,13 @@ class _$EmbedViewRecordWithMediaImpl implements _EmbedViewRecordWithMedia {
             (identical(other.media, media) || other.media == media));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, record, media);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmbedViewRecordWithMediaImplCopyWith<_$EmbedViewRecordWithMediaImpl>
@@ -225,8 +239,11 @@ abstract class _EmbedViewRecordWithMedia implements EmbedViewRecordWithMedia {
   @override
   @embedViewMediaConverter
   EmbedViewMedia get media;
+
+  /// Create a copy of EmbedViewRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmbedViewRecordWithMediaImplCopyWith<_$EmbedViewRecordWithMediaImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

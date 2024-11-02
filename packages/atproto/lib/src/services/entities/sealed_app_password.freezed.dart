@@ -23,8 +23,12 @@ mixin _$SealedAppPassword {
   String get name => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this SealedAppPassword to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SealedAppPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SealedAppPasswordCopyWith<SealedAppPassword> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$SealedAppPasswordCopyWithImpl<$Res, $Val extends SealedAppPassword>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SealedAppPassword
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$SealedAppPasswordImplCopyWithImpl<$Res>
       $Res Function(_$SealedAppPasswordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SealedAppPassword
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +141,13 @@ class _$SealedAppPasswordImpl implements _SealedAppPassword {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SealedAppPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SealedAppPasswordImplCopyWith<_$SealedAppPasswordImpl> get copyWith =>
@@ -164,8 +174,11 @@ abstract class _SealedAppPassword implements SealedAppPassword {
   String get name;
   @override
   DateTime get createdAt;
+
+  /// Create a copy of SealedAppPassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SealedAppPasswordImplCopyWith<_$SealedAppPasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

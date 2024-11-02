@@ -25,8 +25,12 @@ mixin _$SavedFeed {
   String get value => throw _privateConstructorUsedError;
   bool get pinned => throw _privateConstructorUsedError;
 
+  /// Serializes this SavedFeed to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SavedFeed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SavedFeedCopyWith<SavedFeed> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SavedFeed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -97,6 +103,8 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
       _$SavedFeedImpl _value, $Res Function(_$SavedFeedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SavedFeed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -163,11 +171,13 @@ class _$SavedFeedImpl implements _SavedFeed {
             (identical(other.pinned, pinned) || other.pinned == pinned));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, type, value, pinned);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SavedFeed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SavedFeedImplCopyWith<_$SavedFeedImpl> get copyWith =>
@@ -199,8 +209,11 @@ abstract class _SavedFeed implements SavedFeed {
   String get value;
   @override
   bool get pinned;
+
+  /// Create a copy of SavedFeed
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SavedFeedImplCopyWith<_$SavedFeedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

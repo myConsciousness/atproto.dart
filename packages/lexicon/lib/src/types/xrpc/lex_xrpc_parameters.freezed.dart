@@ -28,8 +28,12 @@ mixin _$LexXrpcParameters {
   Map<String, LexXrpcParametersProperty>? get properties =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this LexXrpcParameters to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexXrpcParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexXrpcParametersCopyWith<LexXrpcParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$LexXrpcParametersCopyWithImpl<$Res, $Val extends LexXrpcParameters>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexXrpcParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -111,6 +117,8 @@ class __$$LexXrpcParametersImplCopyWithImpl<$Res>
       $Res Function(_$LexXrpcParametersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexXrpcParameters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -203,7 +211,7 @@ class _$LexXrpcParametersImpl implements _LexXrpcParameters {
                 .equals(other._properties, _properties));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -212,7 +220,9 @@ class _$LexXrpcParametersImpl implements _LexXrpcParameters {
       const DeepCollectionEquality().hash(_requiredProperties),
       const DeepCollectionEquality().hash(_properties));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexXrpcParameters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexXrpcParametersImplCopyWith<_$LexXrpcParametersImpl> get copyWith =>
@@ -249,8 +259,11 @@ abstract class _LexXrpcParameters implements LexXrpcParameters {
   @override
   @lexXrpcParametersPropertyConverter
   Map<String, LexXrpcParametersProperty>? get properties;
+
+  /// Create a copy of LexXrpcParameters
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexXrpcParametersImplCopyWith<_$LexXrpcParametersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

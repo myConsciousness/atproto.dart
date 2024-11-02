@@ -80,6 +80,9 @@ class _$ModerationCauseSourceCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -104,6 +107,8 @@ class __$$UModerationCauseSourceUserImplCopyWithImpl<$Res>
       $Res Function(_$UModerationCauseSourceUserImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -117,6 +122,8 @@ class __$$UModerationCauseSourceUserImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ModerationCauseSourceUserCopyWith<$Res> get data {
@@ -150,7 +157,9 @@ class _$UModerationCauseSourceUserImpl implements UModerationCauseSourceUser {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UModerationCauseSourceUserImplCopyWith<_$UModerationCauseSourceUserImpl>
@@ -233,7 +242,10 @@ abstract class UModerationCauseSourceUser implements ModerationCauseSource {
 
   @override
   ModerationCauseSourceUser get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationCauseSourceUserImplCopyWith<_$UModerationCauseSourceUserImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -260,6 +272,8 @@ class __$$UModerationCauseSourceListImplCopyWithImpl<$Res>
       $Res Function(_$UModerationCauseSourceListImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -273,6 +287,8 @@ class __$$UModerationCauseSourceListImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ModerationCauseSourceListCopyWith<$Res> get data {
@@ -306,7 +322,9 @@ class _$UModerationCauseSourceListImpl implements UModerationCauseSourceList {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UModerationCauseSourceListImplCopyWith<_$UModerationCauseSourceListImpl>
@@ -389,7 +407,10 @@ abstract class UModerationCauseSourceList implements ModerationCauseSource {
 
   @override
   ModerationCauseSourceList get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationCauseSourceListImplCopyWith<_$UModerationCauseSourceListImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -416,6 +437,8 @@ class __$$UModerationCauseSourceLabelerImplCopyWithImpl<$Res>
       $Res Function(_$UModerationCauseSourceLabelerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -429,6 +452,8 @@ class __$$UModerationCauseSourceLabelerImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ModerationCauseSourceLabelerCopyWith<$Res> get data {
@@ -463,7 +488,9 @@ class _$UModerationCauseSourceLabelerImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UModerationCauseSourceLabelerImplCopyWith<
@@ -547,7 +574,10 @@ abstract class UModerationCauseSourceLabeler implements ModerationCauseSource {
 
   @override
   ModerationCauseSourceLabeler get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ModerationCauseSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationCauseSourceLabelerImplCopyWith<
           _$UModerationCauseSourceLabelerImpl>
       get copyWith => throw _privateConstructorUsedError;

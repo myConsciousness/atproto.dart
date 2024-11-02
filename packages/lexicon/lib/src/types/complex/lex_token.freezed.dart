@@ -23,8 +23,12 @@ mixin _$LexToken {
   String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
+  /// Serializes this LexToken to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexToken
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexTokenCopyWith<LexToken> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$LexTokenCopyWithImpl<$Res, $Val extends LexToken>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexToken
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$LexTokenImplCopyWithImpl<$Res>
       _$LexTokenImpl _value, $Res Function(_$LexTokenImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexToken
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,11 +142,13 @@ class _$LexTokenImpl implements _LexToken {
                 other.description == description));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexToken
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexTokenImplCopyWith<_$LexTokenImpl> get copyWith =>
@@ -163,8 +173,11 @@ abstract class _LexToken implements LexToken {
   String get type;
   @override
   String? get description;
+
+  /// Create a copy of LexToken
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexTokenImplCopyWith<_$LexTokenImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

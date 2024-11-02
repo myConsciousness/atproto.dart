@@ -27,8 +27,12 @@ mixin _$PostsByQuery {
   int get hitsTotal => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this PostsByQuery to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PostsByQueryCopyWith<PostsByQuery> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$PostsByQueryCopyWithImpl<$Res, $Val extends PostsByQuery>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -95,6 +101,8 @@ class __$$PostsByQueryImplCopyWithImpl<$Res>
       _$PostsByQueryImpl _value, $Res Function(_$PostsByQueryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,12 +169,14 @@ class _$PostsByQueryImpl implements _PostsByQuery {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_posts), hitsTotal, cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PostsByQueryImplCopyWith<_$PostsByQueryImpl> get copyWith =>
@@ -191,15 +201,18 @@ abstract class _PostsByQuery implements PostsByQuery {
 
   @override
   List<Post> get posts;
-  @override
 
   /// Count of search hits. Optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
+  @override
   int get hitsTotal;
   @override
   String? get cursor;
+
+  /// Create a copy of PostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PostsByQueryImplCopyWith<_$PostsByQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

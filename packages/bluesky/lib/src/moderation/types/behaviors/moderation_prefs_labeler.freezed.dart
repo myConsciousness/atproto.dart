@@ -19,7 +19,9 @@ mixin _$ModerationPrefsLabeler {
   String get did => throw _privateConstructorUsedError;
   Map<String, LabelPreference> get labels => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationPrefsLabeler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModerationPrefsLabelerCopyWith<ModerationPrefsLabeler> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,6 +46,8 @@ class _$ModerationPrefsLabelerCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModerationPrefsLabeler
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +89,8 @@ class __$$ModerationPrefsLabelerImplCopyWithImpl<$Res>
       $Res Function(_$ModerationPrefsLabelerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationPrefsLabeler
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,7 +145,9 @@ class _$ModerationPrefsLabelerImpl implements _ModerationPrefsLabeler {
   int get hashCode => Object.hash(
       runtimeType, did, const DeepCollectionEquality().hash(_labels));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationPrefsLabeler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModerationPrefsLabelerImplCopyWith<_$ModerationPrefsLabelerImpl>
@@ -157,8 +165,11 @@ abstract class _ModerationPrefsLabeler implements ModerationPrefsLabeler {
   String get did;
   @override
   Map<String, LabelPreference> get labels;
+
+  /// Create a copy of ModerationPrefsLabeler
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModerationPrefsLabelerImplCopyWith<_$ModerationPrefsLabelerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

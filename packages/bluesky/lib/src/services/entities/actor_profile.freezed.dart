@@ -34,8 +34,12 @@ mixin _$ActorProfile {
   List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this ActorProfile to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ActorProfileCopyWith<ActorProfile> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -75,6 +79,8 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -148,6 +154,8 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
     ) as $Val);
   }
 
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ProfileAssociatedCopyWith<$Res>? get associated {
@@ -160,6 +168,8 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
     });
   }
 
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ActorViewerCopyWith<$Res> get viewer {
@@ -206,6 +216,8 @@ class __$$ActorProfileImplCopyWithImpl<$Res>
       _$ActorProfileImpl _value, $Res Function(_$ActorProfileImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -375,7 +387,7 @@ class _$ActorProfileImpl extends _ActorProfile {
                 other.indexedAt == indexedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -393,7 +405,9 @@ class _$ActorProfileImpl extends _ActorProfile {
       const DeepCollectionEquality().hash(_labels),
       indexedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ActorProfileImplCopyWith<_$ActorProfileImpl> get copyWith =>
@@ -453,8 +467,11 @@ abstract class _ActorProfile extends ActorProfile {
   List<Label>? get labels;
   @override
   DateTime? get indexedAt;
+
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ActorProfileImplCopyWith<_$ActorProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

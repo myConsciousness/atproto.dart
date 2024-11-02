@@ -22,8 +22,12 @@ Posts _$PostsFromJson(Map<String, dynamic> json) {
 mixin _$Posts {
   List<Post> get posts => throw _privateConstructorUsedError;
 
+  /// Serializes this Posts to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Posts
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PostsCopyWith<Posts> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -45,6 +49,8 @@ class _$PostsCopyWithImpl<$Res, $Val extends Posts>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Posts
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -77,6 +83,8 @@ class __$$PostsImplCopyWithImpl<$Res>
       _$PostsImpl _value, $Res Function(_$PostsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Posts
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -120,12 +128,14 @@ class _$PostsImpl implements _Posts {
             const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_posts));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Posts
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PostsImplCopyWith<_$PostsImpl> get copyWith =>
@@ -146,8 +156,11 @@ abstract class _Posts implements Posts {
 
   @override
   List<Post> get posts;
+
+  /// Create a copy of Posts
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PostsImplCopyWith<_$PostsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

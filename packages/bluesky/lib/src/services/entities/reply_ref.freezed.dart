@@ -23,8 +23,12 @@ mixin _$ReplyRef {
   StrongRef get root => throw _privateConstructorUsedError;
   StrongRef get parent => throw _privateConstructorUsedError;
 
+  /// Serializes this ReplyRef to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ReplyRefCopyWith<ReplyRef> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -68,6 +74,8 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
     ) as $Val);
   }
 
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $StrongRefCopyWith<$Res> get root {
@@ -76,6 +84,8 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
     });
   }
 
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $StrongRefCopyWith<$Res> get parent {
@@ -109,6 +119,8 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
       _$ReplyRefImpl _value, $Res Function(_$ReplyRefImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -155,11 +167,13 @@ class _$ReplyRefImpl implements _ReplyRef {
             (identical(other.parent, parent) || other.parent == parent));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, root, parent);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>
@@ -185,8 +199,11 @@ abstract class _ReplyRef implements ReplyRef {
   StrongRef get root;
   @override
   StrongRef get parent;
+
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

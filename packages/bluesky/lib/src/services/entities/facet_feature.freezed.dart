@@ -85,6 +85,9 @@ class _$FacetFeatureCopyWithImpl<$Res, $Val extends FacetFeature>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,6 +109,8 @@ class __$$UFacetFeatureMentionImplCopyWithImpl<$Res>
       $Res Function(_$UFacetFeatureMentionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +124,8 @@ class __$$UFacetFeatureMentionImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FacetMentionCopyWith<$Res> get data {
@@ -152,7 +159,9 @@ class _$UFacetFeatureMentionImpl implements UFacetFeatureMention {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UFacetFeatureMentionImplCopyWith<_$UFacetFeatureMentionImpl>
@@ -241,7 +250,10 @@ abstract class UFacetFeatureMention implements FacetFeature {
 
   @override
   FacetMention get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UFacetFeatureMentionImplCopyWith<_$UFacetFeatureMentionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -265,6 +277,8 @@ class __$$UFacetFeatureLinkImplCopyWithImpl<$Res>
       $Res Function(_$UFacetFeatureLinkImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -278,6 +292,8 @@ class __$$UFacetFeatureLinkImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FacetLinkCopyWith<$Res> get data {
@@ -311,7 +327,9 @@ class _$UFacetFeatureLinkImpl implements UFacetFeatureLink {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UFacetFeatureLinkImplCopyWith<_$UFacetFeatureLinkImpl> get copyWith =>
@@ -399,7 +417,10 @@ abstract class UFacetFeatureLink implements FacetFeature {
 
   @override
   FacetLink get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UFacetFeatureLinkImplCopyWith<_$UFacetFeatureLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -423,6 +444,8 @@ class __$$UFacetFeatureTagImplCopyWithImpl<$Res>
       $Res Function(_$UFacetFeatureTagImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -436,6 +459,8 @@ class __$$UFacetFeatureTagImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FacetTagCopyWith<$Res> get data {
@@ -469,7 +494,9 @@ class _$UFacetFeatureTagImpl implements UFacetFeatureTag {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UFacetFeatureTagImplCopyWith<_$UFacetFeatureTagImpl> get copyWith =>
@@ -557,7 +584,10 @@ abstract class UFacetFeatureTag implements FacetFeature {
 
   @override
   FacetTag get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UFacetFeatureTagImplCopyWith<_$UFacetFeatureTagImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -579,6 +609,8 @@ class __$$UFacetFeatureUnknownImplCopyWithImpl<$Res>
       $Res Function(_$UFacetFeatureUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -624,7 +656,9 @@ class _$UFacetFeatureUnknownImpl implements UFacetFeatureUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UFacetFeatureUnknownImplCopyWith<_$UFacetFeatureUnknownImpl>
@@ -713,7 +747,10 @@ abstract class UFacetFeatureUnknown implements FacetFeature {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UFacetFeatureUnknownImplCopyWith<_$UFacetFeatureUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -20,7 +20,9 @@ mixin _$ModerationCauseHidden {
   int get priority => throw _privateConstructorUsedError;
   bool get downgraded => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationCauseHidden
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModerationCauseHiddenCopyWith<ModerationCauseHidden> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +49,8 @@ class _$ModerationCauseHiddenCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModerationCauseHidden
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -70,6 +74,8 @@ class _$ModerationCauseHiddenCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of ModerationCauseHidden
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ModerationCauseSourceCopyWith<$Res> get source {
@@ -103,6 +109,8 @@ class __$$ModerationCauseHiddenImplCopyWithImpl<$Res>
       $Res Function(_$ModerationCauseHiddenImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationCauseHidden
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -162,7 +170,9 @@ class _$ModerationCauseHiddenImpl implements _ModerationCauseHidden {
   @override
   int get hashCode => Object.hash(runtimeType, source, priority, downgraded);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationCauseHidden
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModerationCauseHiddenImplCopyWith<_$ModerationCauseHiddenImpl>
@@ -182,8 +192,11 @@ abstract class _ModerationCauseHidden implements ModerationCauseHidden {
   int get priority;
   @override
   bool get downgraded;
+
+  /// Create a copy of ModerationCauseHidden
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModerationCauseHiddenImplCopyWith<_$ModerationCauseHiddenImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -27,8 +27,12 @@ mixin _$GetUploadLimitsOutput {
   String? get message => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
+  /// Serializes this GetUploadLimitsOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetUploadLimitsOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetUploadLimitsOutputCopyWith<GetUploadLimitsOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$GetUploadLimitsOutputCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetUploadLimitsOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,6 +124,8 @@ class __$$GetUploadLimitsOutputImplCopyWithImpl<$Res>
       $Res Function(_$GetUploadLimitsOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetUploadLimitsOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -197,12 +205,14 @@ class _$GetUploadLimitsOutputImpl implements _GetUploadLimitsOutput {
             (identical(other.error, error) || other.error == error));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, canUpload, remainingDailyVideos,
       remainingDailyBytes, message, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetUploadLimitsOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetUploadLimitsOutputImplCopyWith<_$GetUploadLimitsOutputImpl>
@@ -238,8 +248,11 @@ abstract class _GetUploadLimitsOutput implements GetUploadLimitsOutput {
   String? get message;
   @override
   String? get error;
+
+  /// Create a copy of GetUploadLimitsOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetUploadLimitsOutputImplCopyWith<_$GetUploadLimitsOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

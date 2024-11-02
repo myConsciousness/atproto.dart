@@ -85,6 +85,9 @@ class _$ThreadRuleCopyWithImpl<$Res, $Val extends ThreadRule>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,6 +109,8 @@ class __$$UThreadRuleMentionImplCopyWithImpl<$Res>
       $Res Function(_$UThreadRuleMentionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +124,8 @@ class __$$UThreadRuleMentionImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ThreadMentionRuleCopyWith<$Res> get data {
@@ -152,7 +159,9 @@ class _$UThreadRuleMentionImpl extends UThreadRuleMention {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UThreadRuleMentionImplCopyWith<_$UThreadRuleMentionImpl> get copyWith =>
@@ -241,7 +250,10 @@ abstract class UThreadRuleMention extends ThreadRule {
 
   @override
   ThreadMentionRule get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UThreadRuleMentionImplCopyWith<_$UThreadRuleMentionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -265,6 +277,8 @@ class __$$UThreadRuleFollowingImplCopyWithImpl<$Res>
       $Res Function(_$UThreadRuleFollowingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -278,6 +292,8 @@ class __$$UThreadRuleFollowingImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ThreadFollowingRuleCopyWith<$Res> get data {
@@ -311,7 +327,9 @@ class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UThreadRuleFollowingImplCopyWith<_$UThreadRuleFollowingImpl>
@@ -401,7 +419,10 @@ abstract class UThreadRuleFollowing extends ThreadRule {
 
   @override
   ThreadFollowingRule get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UThreadRuleFollowingImplCopyWith<_$UThreadRuleFollowingImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -425,6 +446,8 @@ class __$$UThreadRuleListImplCopyWithImpl<$Res>
       _$UThreadRuleListImpl _value, $Res Function(_$UThreadRuleListImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -438,6 +461,8 @@ class __$$UThreadRuleListImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ThreadListRuleCopyWith<$Res> get data {
@@ -471,7 +496,9 @@ class _$UThreadRuleListImpl extends UThreadRuleList {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UThreadRuleListImplCopyWith<_$UThreadRuleListImpl> get copyWith =>
@@ -560,7 +587,10 @@ abstract class UThreadRuleList extends ThreadRule {
 
   @override
   ThreadListRule get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UThreadRuleListImplCopyWith<_$UThreadRuleListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -582,6 +612,8 @@ class __$$UThreadRuleUnknownImplCopyWithImpl<$Res>
       $Res Function(_$UThreadRuleUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -628,7 +660,9 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UThreadRuleUnknownImplCopyWith<_$UThreadRuleUnknownImpl> get copyWith =>
@@ -717,7 +751,10 @@ abstract class UThreadRuleUnknown extends ThreadRule {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UThreadRuleUnknownImplCopyWith<_$UThreadRuleUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

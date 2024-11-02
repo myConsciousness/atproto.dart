@@ -34,6 +34,9 @@ class _$ModerationCauseSourceUserCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ModerationCauseSourceUser
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -53,6 +56,9 @@ class __$$ModerationCauseSourceUserImplCopyWithImpl<$Res>
       _$ModerationCauseSourceUserImpl _value,
       $Res Function(_$ModerationCauseSourceUserImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ModerationCauseSourceUser
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

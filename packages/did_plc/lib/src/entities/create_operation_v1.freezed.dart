@@ -28,8 +28,12 @@ mixin _$CreateOperationV1 {
   String get service => throw _privateConstructorUsedError;
   String? get prev => throw _privateConstructorUsedError;
 
+  /// Serializes this CreateOperationV1 to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateOperationV1
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateOperationV1CopyWith<CreateOperationV1> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$CreateOperationV1CopyWithImpl<$Res, $Val extends CreateOperationV1>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateOperationV1
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,6 +136,8 @@ class __$$CreateOperationV1ImplCopyWithImpl<$Res>
       $Res Function(_$CreateOperationV1Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateOperationV1
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -227,12 +235,14 @@ class _$CreateOperationV1Impl implements _CreateOperationV1 {
             (identical(other.prev, prev) || other.prev == prev));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, sig, type, signingKey, recoveryKey, handle, service, prev);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateOperationV1
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateOperationV1ImplCopyWith<_$CreateOperationV1Impl> get copyWith =>
@@ -274,8 +284,11 @@ abstract class _CreateOperationV1 implements CreateOperationV1 {
   String get service;
   @override
   String? get prev;
+
+  /// Create a copy of CreateOperationV1
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateOperationV1ImplCopyWith<_$CreateOperationV1Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }

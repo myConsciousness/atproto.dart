@@ -25,8 +25,12 @@ mixin _$GetActorMetadataOutput {
   Metadata get month => throw _privateConstructorUsedError;
   Metadata get all => throw _privateConstructorUsedError;
 
+  /// Serializes this GetActorMetadataOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetActorMetadataOutputCopyWith<GetActorMetadataOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,6 +84,8 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MetadataCopyWith<$Res> get day {
@@ -86,6 +94,8 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MetadataCopyWith<$Res> get month {
@@ -94,6 +104,8 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MetadataCopyWith<$Res> get all {
@@ -132,6 +144,8 @@ class __$$GetActorMetadataOutputImplCopyWithImpl<$Res>
       $Res Function(_$GetActorMetadataOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -188,11 +202,13 @@ class _$GetActorMetadataOutputImpl implements _GetActorMetadataOutput {
             (identical(other.all, all) || other.all == all));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, day, month, all);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetActorMetadataOutputImplCopyWith<_$GetActorMetadataOutputImpl>
@@ -222,8 +238,11 @@ abstract class _GetActorMetadataOutput implements GetActorMetadataOutput {
   Metadata get month;
   @override
   Metadata get all;
+
+  /// Create a copy of GetActorMetadataOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetActorMetadataOutputImplCopyWith<_$GetActorMetadataOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

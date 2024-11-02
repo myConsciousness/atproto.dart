@@ -27,8 +27,12 @@ mixin _$NotFoundPost {
   @JsonKey(name: 'notFound')
   bool get isNotFound => throw _privateConstructorUsedError;
 
+  /// Serializes this NotFoundPost to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of NotFoundPost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $NotFoundPostCopyWith<NotFoundPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of NotFoundPost
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -101,6 +107,8 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
       _$NotFoundPostImpl _value, $Res Function(_$NotFoundPostImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NotFoundPost
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -162,11 +170,13 @@ class _$NotFoundPostImpl implements _NotFoundPost {
                 other.isNotFound == isNotFound));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, uri, isNotFound);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NotFoundPost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NotFoundPostImplCopyWith<_$NotFoundPostImpl> get copyWith =>
@@ -198,8 +208,11 @@ abstract class _NotFoundPost implements NotFoundPost {
   @override
   @JsonKey(name: 'notFound')
   bool get isNotFound;
+
+  /// Create a copy of NotFoundPost
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NotFoundPostImplCopyWith<_$NotFoundPostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

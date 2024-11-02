@@ -30,8 +30,12 @@ mixin _$GeneratorParam {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
+  /// Serializes this GeneratorParam to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GeneratorParamCopyWith<GeneratorParam> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -66,6 +70,8 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
     ) as $Val);
   }
 
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get avatar {
@@ -126,6 +134,8 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
     });
   }
 
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
@@ -171,6 +181,8 @@ class __$$GeneratorParamImplCopyWithImpl<$Res>
       _$GeneratorParamImpl _value, $Res Function(_$GeneratorParamImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -297,7 +309,7 @@ class _$GeneratorParamImpl implements _GeneratorParam {
                 .equals(other._unspecced, _unspecced));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -310,7 +322,9 @@ class _$GeneratorParamImpl implements _GeneratorParam {
       createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GeneratorParamImplCopyWith<_$GeneratorParamImpl> get copyWith =>
@@ -356,8 +370,11 @@ abstract class _GeneratorParam implements GeneratorParam {
   DateTime? get createdAt;
   @override
   Map<String, dynamic> get unspecced;
+
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GeneratorParamImplCopyWith<_$GeneratorParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

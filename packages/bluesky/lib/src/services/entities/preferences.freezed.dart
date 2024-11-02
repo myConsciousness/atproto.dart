@@ -23,8 +23,12 @@ mixin _$Preferences {
   @preferenceConverter
   List<Preference> get preferences => throw _privateConstructorUsedError;
 
+  /// Serializes this Preferences to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Preferences
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PreferencesCopyWith<Preferences> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$PreferencesCopyWithImpl<$Res, $Val extends Preferences>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Preferences
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +87,8 @@ class __$$PreferencesImplCopyWithImpl<$Res>
       _$PreferencesImpl _value, $Res Function(_$PreferencesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Preferences
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,12 +136,14 @@ class _$PreferencesImpl implements _Preferences {
                 .equals(other._preferences, _preferences));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_preferences));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Preferences
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
@@ -158,8 +168,11 @@ abstract class _Preferences implements Preferences {
   @override
   @preferenceConverter
   List<Preference> get preferences;
+
+  /// Create a copy of Preferences
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

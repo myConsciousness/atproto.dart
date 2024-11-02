@@ -27,8 +27,12 @@ mixin _$ServerInfo {
   ServerInfoContact? get contact => throw _privateConstructorUsedError;
   ServerInfoLinks? get links => throw _privateConstructorUsedError;
 
+  /// Serializes this ServerInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ServerInfoCopyWith<ServerInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +99,8 @@ class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
     ) as $Val);
   }
 
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ServerInfoContactCopyWith<$Res>? get contact {
@@ -105,6 +113,8 @@ class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
     });
   }
 
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ServerInfoLinksCopyWith<$Res>? get links {
@@ -147,6 +157,8 @@ class __$$ServerInfoImplCopyWithImpl<$Res>
       _$ServerInfoImpl _value, $Res Function(_$ServerInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -234,7 +246,7 @@ class _$ServerInfoImpl implements _ServerInfo {
             (identical(other.links, links) || other.links == links));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -244,7 +256,9 @@ class _$ServerInfoImpl implements _ServerInfo {
       contact,
       links);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ServerInfoImplCopyWith<_$ServerInfoImpl> get copyWith =>
@@ -280,8 +294,11 @@ abstract class _ServerInfo implements ServerInfo {
   ServerInfoContact? get contact;
   @override
   ServerInfoLinks? get links;
+
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServerInfoImplCopyWith<_$ServerInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

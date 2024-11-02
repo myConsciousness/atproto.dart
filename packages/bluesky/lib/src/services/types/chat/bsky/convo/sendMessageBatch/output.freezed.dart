@@ -23,8 +23,12 @@ SendMessageBatchOutput _$SendMessageBatchOutputFromJson(
 mixin _$SendMessageBatchOutput {
   List<MessageView> get items => throw _privateConstructorUsedError;
 
+  /// Serializes this SendMessageBatchOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SendMessageBatchOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SendMessageBatchOutputCopyWith<SendMessageBatchOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$SendMessageBatchOutputCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SendMessageBatchOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$SendMessageBatchOutputImplCopyWithImpl<$Res>
       $Res Function(_$SendMessageBatchOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SendMessageBatchOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,12 +138,14 @@ class _$SendMessageBatchOutputImpl implements _SendMessageBatchOutput {
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_items));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SendMessageBatchOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SendMessageBatchOutputImplCopyWith<_$SendMessageBatchOutputImpl>
@@ -159,8 +169,11 @@ abstract class _SendMessageBatchOutput implements SendMessageBatchOutput {
 
   @override
   List<MessageView> get items;
+
+  /// Create a copy of SendMessageBatchOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SendMessageBatchOutputImplCopyWith<_$SendMessageBatchOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

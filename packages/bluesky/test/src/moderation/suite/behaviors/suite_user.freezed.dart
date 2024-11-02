@@ -27,8 +27,12 @@ mixin _$ModerationTestSuiteUser {
   bool get muted => throw _privateConstructorUsedError;
   bool get mutedByList => throw _privateConstructorUsedError;
 
+  /// Serializes this ModerationTestSuiteUser to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ModerationTestSuiteUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModerationTestSuiteUserCopyWith<ModerationTestSuiteUser> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$ModerationTestSuiteUserCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModerationTestSuiteUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +125,8 @@ class __$$ModerationTestSuiteUserImplCopyWithImpl<$Res>
       $Res Function(_$ModerationTestSuiteUserImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationTestSuiteUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -203,12 +211,14 @@ class _$ModerationTestSuiteUserImpl implements _ModerationTestSuiteUser {
                 other.mutedByList == mutedByList));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, blocking, blockingByList, blockedBy, muted, mutedByList);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationTestSuiteUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModerationTestSuiteUserImplCopyWith<_$ModerationTestSuiteUserImpl>
@@ -244,8 +254,11 @@ abstract class _ModerationTestSuiteUser implements ModerationTestSuiteUser {
   bool get muted;
   @override
   bool get mutedByList;
+
+  /// Create a copy of ModerationTestSuiteUser
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModerationTestSuiteUserImplCopyWith<_$ModerationTestSuiteUserImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

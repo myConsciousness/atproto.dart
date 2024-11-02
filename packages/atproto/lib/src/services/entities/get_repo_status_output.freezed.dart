@@ -25,8 +25,12 @@ mixin _$GetRepoStatusOutput {
   String? get status => throw _privateConstructorUsedError;
   String? get rev => throw _privateConstructorUsedError;
 
+  /// Serializes this GetRepoStatusOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetRepoStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetRepoStatusOutputCopyWith<GetRepoStatusOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$GetRepoStatusOutputCopyWithImpl<$Res, $Val extends GetRepoStatusOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetRepoStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,6 +104,8 @@ class __$$GetRepoStatusOutputImplCopyWithImpl<$Res>
       $Res Function(_$GetRepoStatusOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetRepoStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,11 +169,13 @@ class _$GetRepoStatusOutputImpl implements _GetRepoStatusOutput {
             (identical(other.rev, rev) || other.rev == rev));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, did, active, status, rev);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetRepoStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetRepoStatusOutputImplCopyWith<_$GetRepoStatusOutputImpl> get copyWith =>
@@ -198,8 +208,11 @@ abstract class _GetRepoStatusOutput implements GetRepoStatusOutput {
   String? get status;
   @override
   String? get rev;
+
+  /// Create a copy of GetRepoStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetRepoStatusOutputImplCopyWith<_$GetRepoStatusOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

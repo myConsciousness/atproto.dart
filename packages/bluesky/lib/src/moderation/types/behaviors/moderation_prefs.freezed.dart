@@ -23,7 +23,9 @@ mixin _$ModerationPrefs {
   List<MutedWord> get mutedWords => throw _privateConstructorUsedError;
   List<AtUri> get hiddenPosts => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationPrefs
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModerationPrefsCopyWith<ModerationPrefs> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +54,8 @@ class _$ModerationPrefsCopyWithImpl<$Res, $Val extends ModerationPrefs>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModerationPrefs
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -110,6 +114,8 @@ class __$$ModerationPrefsImplCopyWithImpl<$Res>
       _$ModerationPrefsImpl _value, $Res Function(_$ModerationPrefsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationPrefs
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -222,7 +228,9 @@ class _$ModerationPrefsImpl implements _ModerationPrefs {
       const DeepCollectionEquality().hash(_mutedWords),
       const DeepCollectionEquality().hash(_hiddenPosts));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationPrefs
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModerationPrefsImplCopyWith<_$ModerationPrefsImpl> get copyWith =>
@@ -248,8 +256,11 @@ abstract class _ModerationPrefs implements ModerationPrefs {
   List<MutedWord> get mutedWords;
   @override
   List<AtUri> get hiddenPosts;
+
+  /// Create a copy of ModerationPrefs
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModerationPrefsImplCopyWith<_$ModerationPrefsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

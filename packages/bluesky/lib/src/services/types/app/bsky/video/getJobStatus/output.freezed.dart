@@ -22,8 +22,12 @@ GetJobStatusOutput _$GetJobStatusOutputFromJson(Map<String, dynamic> json) {
 mixin _$GetJobStatusOutput {
   JobStatus get jobStatus => throw _privateConstructorUsedError;
 
+  /// Serializes this GetJobStatusOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetJobStatusOutputCopyWith<GetJobStatusOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$GetJobStatusOutputCopyWithImpl<$Res, $Val extends GetJobStatusOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$GetJobStatusOutputCopyWithImpl<$Res, $Val extends GetJobStatusOutput>
     ) as $Val);
   }
 
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $JobStatusCopyWith<$Res> get jobStatus {
@@ -93,6 +101,8 @@ class __$$GetJobStatusOutputImplCopyWithImpl<$Res>
       $Res Function(_$GetJobStatusOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +143,13 @@ class _$GetJobStatusOutputImpl implements _GetJobStatusOutput {
                 other.jobStatus == jobStatus));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, jobStatus);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetJobStatusOutputImplCopyWith<_$GetJobStatusOutputImpl> get copyWith =>
@@ -161,8 +173,11 @@ abstract class _GetJobStatusOutput implements GetJobStatusOutput {
 
   @override
   JobStatus get jobStatus;
+
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetJobStatusOutputImplCopyWith<_$GetJobStatusOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -146,6 +146,9 @@ class _$LexUserTypeCopyWithImpl<$Res, $Val extends LexUserType>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -167,6 +170,8 @@ class __$$ULexUserTypeRecordImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -180,6 +185,8 @@ class __$$ULexUserTypeRecordImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexRecordCopyWith<$Res> get data {
@@ -213,7 +220,9 @@ class _$ULexUserTypeRecordImpl extends ULexUserTypeRecord {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeRecordImplCopyWith<_$ULexUserTypeRecordImpl> get copyWith =>
@@ -363,7 +372,10 @@ abstract class ULexUserTypeRecord extends LexUserType {
 
   @override
   LexRecord get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeRecordImplCopyWith<_$ULexUserTypeRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -388,6 +400,8 @@ class __$$ULexUserTypeXrpcQueryImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeXrpcQueryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -401,6 +415,8 @@ class __$$ULexUserTypeXrpcQueryImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexXrpcQueryCopyWith<$Res> get data {
@@ -434,7 +450,9 @@ class _$ULexUserTypeXrpcQueryImpl extends ULexUserTypeXrpcQuery {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeXrpcQueryImplCopyWith<_$ULexUserTypeXrpcQueryImpl>
@@ -584,7 +602,10 @@ abstract class ULexUserTypeXrpcQuery extends LexUserType {
 
   @override
   LexXrpcQuery get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeXrpcQueryImplCopyWith<_$ULexUserTypeXrpcQueryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -610,6 +631,8 @@ class __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeXrpcProcedureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -623,6 +646,8 @@ class __$$ULexUserTypeXrpcProcedureImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexXrpcProcedureCopyWith<$Res> get data {
@@ -656,7 +681,9 @@ class _$ULexUserTypeXrpcProcedureImpl extends ULexUserTypeXrpcProcedure {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeXrpcProcedureImplCopyWith<_$ULexUserTypeXrpcProcedureImpl>
@@ -806,7 +833,10 @@ abstract class ULexUserTypeXrpcProcedure extends LexUserType {
 
   @override
   LexXrpcProcedure get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeXrpcProcedureImplCopyWith<_$ULexUserTypeXrpcProcedureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -832,6 +862,8 @@ class __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeXrpcSubscriptionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -845,6 +877,8 @@ class __$$ULexUserTypeXrpcSubscriptionImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexXrpcSubscriptionCopyWith<$Res> get data {
@@ -878,7 +912,9 @@ class _$ULexUserTypeXrpcSubscriptionImpl extends ULexUserTypeXrpcSubscription {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeXrpcSubscriptionImplCopyWith<
@@ -1030,7 +1066,10 @@ abstract class ULexUserTypeXrpcSubscription extends LexUserType {
 
   @override
   LexXrpcSubscription get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeXrpcSubscriptionImplCopyWith<
           _$ULexUserTypeXrpcSubscriptionImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -1055,6 +1094,8 @@ class __$$ULexUserTypeBlobImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeBlobImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1068,6 +1109,8 @@ class __$$ULexUserTypeBlobImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexBlobCopyWith<$Res> get data {
@@ -1101,7 +1144,9 @@ class _$ULexUserTypeBlobImpl extends ULexUserTypeBlob {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeBlobImplCopyWith<_$ULexUserTypeBlobImpl> get copyWith =>
@@ -1251,7 +1296,10 @@ abstract class ULexUserTypeBlob extends LexUserType {
 
   @override
   LexBlob get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeBlobImplCopyWith<_$ULexUserTypeBlobImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1275,6 +1323,8 @@ class __$$ULexUserTypeArrayImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeArrayImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1288,6 +1338,8 @@ class __$$ULexUserTypeArrayImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexArrayCopyWith<$Res> get data {
@@ -1321,7 +1373,9 @@ class _$ULexUserTypeArrayImpl extends ULexUserTypeArray {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeArrayImplCopyWith<_$ULexUserTypeArrayImpl> get copyWith =>
@@ -1471,7 +1525,10 @@ abstract class ULexUserTypeArray extends LexUserType {
 
   @override
   LexArray get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeArrayImplCopyWith<_$ULexUserTypeArrayImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1495,6 +1552,8 @@ class __$$ULexUserTypeTokenImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeTokenImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1508,6 +1567,8 @@ class __$$ULexUserTypeTokenImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexTokenCopyWith<$Res> get data {
@@ -1541,7 +1602,9 @@ class _$ULexUserTypeTokenImpl extends ULexUserTypeToken {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeTokenImplCopyWith<_$ULexUserTypeTokenImpl> get copyWith =>
@@ -1691,7 +1754,10 @@ abstract class ULexUserTypeToken extends LexUserType {
 
   @override
   LexToken get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeTokenImplCopyWith<_$ULexUserTypeTokenImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1715,6 +1781,8 @@ class __$$ULexUserTypeObjectImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeObjectImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1728,6 +1796,8 @@ class __$$ULexUserTypeObjectImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexObjectCopyWith<$Res> get data {
@@ -1761,7 +1831,9 @@ class _$ULexUserTypeObjectImpl extends ULexUserTypeObject {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeObjectImplCopyWith<_$ULexUserTypeObjectImpl> get copyWith =>
@@ -1911,7 +1983,10 @@ abstract class ULexUserTypeObject extends LexUserType {
 
   @override
   LexObject get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeObjectImplCopyWith<_$ULexUserTypeObjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1935,6 +2010,8 @@ class __$$ULexUserTypeBooleanImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeBooleanImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1948,6 +2025,8 @@ class __$$ULexUserTypeBooleanImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexBooleanCopyWith<$Res> get data {
@@ -1981,7 +2060,9 @@ class _$ULexUserTypeBooleanImpl extends ULexUserTypeBoolean {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeBooleanImplCopyWith<_$ULexUserTypeBooleanImpl> get copyWith =>
@@ -2131,7 +2212,10 @@ abstract class ULexUserTypeBoolean extends LexUserType {
 
   @override
   LexBoolean get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeBooleanImplCopyWith<_$ULexUserTypeBooleanImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2155,6 +2239,8 @@ class __$$ULexUserTypeIntegerImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeIntegerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2168,6 +2254,8 @@ class __$$ULexUserTypeIntegerImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexIntegerCopyWith<$Res> get data {
@@ -2201,7 +2289,9 @@ class _$ULexUserTypeIntegerImpl extends ULexUserTypeInteger {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeIntegerImplCopyWith<_$ULexUserTypeIntegerImpl> get copyWith =>
@@ -2351,7 +2441,10 @@ abstract class ULexUserTypeInteger extends LexUserType {
 
   @override
   LexInteger get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeIntegerImplCopyWith<_$ULexUserTypeIntegerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2375,6 +2468,8 @@ class __$$ULexUserTypeStringImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeStringImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2388,6 +2483,8 @@ class __$$ULexUserTypeStringImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexStringCopyWith<$Res> get data {
@@ -2421,7 +2518,9 @@ class _$ULexUserTypeStringImpl extends ULexUserTypeString {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeStringImplCopyWith<_$ULexUserTypeStringImpl> get copyWith =>
@@ -2571,7 +2670,10 @@ abstract class ULexUserTypeString extends LexUserType {
 
   @override
   LexString get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeStringImplCopyWith<_$ULexUserTypeStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2595,6 +2697,8 @@ class __$$ULexUserTypeBytesImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeBytesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2608,6 +2712,8 @@ class __$$ULexUserTypeBytesImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexBytesCopyWith<$Res> get data {
@@ -2641,7 +2747,9 @@ class _$ULexUserTypeBytesImpl extends ULexUserTypeBytes {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeBytesImplCopyWith<_$ULexUserTypeBytesImpl> get copyWith =>
@@ -2791,7 +2899,10 @@ abstract class ULexUserTypeBytes extends LexUserType {
 
   @override
   LexBytes get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeBytesImplCopyWith<_$ULexUserTypeBytesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2815,6 +2926,8 @@ class __$$ULexUserTypeCidLinkImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeCidLinkImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2828,6 +2941,8 @@ class __$$ULexUserTypeCidLinkImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexCidLinkCopyWith<$Res> get data {
@@ -2861,7 +2976,9 @@ class _$ULexUserTypeCidLinkImpl extends ULexUserTypeCidLink {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeCidLinkImplCopyWith<_$ULexUserTypeCidLinkImpl> get copyWith =>
@@ -3011,7 +3128,10 @@ abstract class ULexUserTypeCidLink extends LexUserType {
 
   @override
   LexCidLink get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeCidLinkImplCopyWith<_$ULexUserTypeCidLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -3035,6 +3155,8 @@ class __$$ULexUserTypeUnknownImplCopyWithImpl<$Res>
       $Res Function(_$ULexUserTypeUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3048,6 +3170,8 @@ class __$$ULexUserTypeUnknownImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexUnknownCopyWith<$Res> get data {
@@ -3081,7 +3205,9 @@ class _$ULexUserTypeUnknownImpl extends ULexUserTypeUnknown {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexUserTypeUnknownImplCopyWith<_$ULexUserTypeUnknownImpl> get copyWith =>
@@ -3231,7 +3357,10 @@ abstract class ULexUserTypeUnknown extends LexUserType {
 
   @override
   LexUnknown get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUserType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexUserTypeUnknownImplCopyWith<_$ULexUserTypeUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

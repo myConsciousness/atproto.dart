@@ -116,6 +116,8 @@ mixin _$SubscribedRepo {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this SubscribedRepo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -135,6 +137,9 @@ class _$SubscribedRepoCopyWithImpl<$Res, $Val extends SubscribedRepo>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -157,6 +162,8 @@ class __$$USubscribedRepoCommitImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedRepoCommitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -170,6 +177,8 @@ class __$$USubscribedRepoCommitImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CommitCopyWith<$Res> get data {
@@ -207,11 +216,13 @@ class _$USubscribedRepoCommitImpl implements USubscribedRepoCommit {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedRepoCommitImplCopyWith<_$USubscribedRepoCommitImpl>
@@ -333,7 +344,10 @@ abstract class USubscribedRepoCommit implements SubscribedRepo {
 
   @override
   Commit get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedRepoCommitImplCopyWith<_$USubscribedRepoCommitImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -359,6 +373,8 @@ class __$$USubscribedRepoIdentityImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedRepoIdentityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -372,6 +388,8 @@ class __$$USubscribedRepoIdentityImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $IdentityCopyWith<$Res> get data {
@@ -409,11 +427,13 @@ class _$USubscribedRepoIdentityImpl implements USubscribedRepoIdentity {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedRepoIdentityImplCopyWith<_$USubscribedRepoIdentityImpl>
@@ -535,7 +555,10 @@ abstract class USubscribedRepoIdentity implements SubscribedRepo {
 
   @override
   Identity get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedRepoIdentityImplCopyWith<_$USubscribedRepoIdentityImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -561,6 +584,8 @@ class __$$USubscribedRepoAccountImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedRepoAccountImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -574,6 +599,8 @@ class __$$USubscribedRepoAccountImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AccountCopyWith<$Res> get data {
@@ -611,11 +638,13 @@ class _$USubscribedRepoAccountImpl implements USubscribedRepoAccount {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedRepoAccountImplCopyWith<_$USubscribedRepoAccountImpl>
@@ -737,7 +766,10 @@ abstract class USubscribedRepoAccount implements SubscribedRepo {
 
   @override
   Account get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedRepoAccountImplCopyWith<_$USubscribedRepoAccountImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -762,6 +794,8 @@ class __$$USubscribedRepoHandleImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedRepoHandleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -775,6 +809,8 @@ class __$$USubscribedRepoHandleImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HandleCopyWith<$Res> get data {
@@ -812,11 +848,13 @@ class _$USubscribedRepoHandleImpl implements USubscribedRepoHandle {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedRepoHandleImplCopyWith<_$USubscribedRepoHandleImpl>
@@ -938,7 +976,10 @@ abstract class USubscribedRepoHandle implements SubscribedRepo {
 
   @override
   Handle get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedRepoHandleImplCopyWith<_$USubscribedRepoHandleImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -964,6 +1005,8 @@ class __$$USubscribedRepoMigrateImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedRepoMigrateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -977,6 +1020,8 @@ class __$$USubscribedRepoMigrateImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MigrateCopyWith<$Res> get data {
@@ -1014,11 +1059,13 @@ class _$USubscribedRepoMigrateImpl implements USubscribedRepoMigrate {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedRepoMigrateImplCopyWith<_$USubscribedRepoMigrateImpl>
@@ -1140,7 +1187,10 @@ abstract class USubscribedRepoMigrate implements SubscribedRepo {
 
   @override
   Migrate get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedRepoMigrateImplCopyWith<_$USubscribedRepoMigrateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1166,6 +1216,8 @@ class __$$USubscribedRepoTombstoneImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedRepoTombstoneImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1179,6 +1231,8 @@ class __$$USubscribedRepoTombstoneImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TombstoneCopyWith<$Res> get data {
@@ -1217,11 +1271,13 @@ class _$USubscribedRepoTombstoneImpl implements USubscribedRepoTombstone {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedRepoTombstoneImplCopyWith<_$USubscribedRepoTombstoneImpl>
@@ -1343,7 +1399,10 @@ abstract class USubscribedRepoTombstone implements SubscribedRepo {
 
   @override
   Tombstone get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedRepoTombstoneImplCopyWith<_$USubscribedRepoTombstoneImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1367,6 +1426,8 @@ class __$$USubscribedRepoInfoImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedRepoInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1380,6 +1441,8 @@ class __$$USubscribedRepoInfoImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $InfoCopyWith<$Res> get data {
@@ -1417,11 +1480,13 @@ class _$USubscribedRepoInfoImpl implements USubscribedRepoInfo {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedRepoInfoImplCopyWith<_$USubscribedRepoInfoImpl> get copyWith =>
@@ -1543,7 +1608,10 @@ abstract class USubscribedRepoInfo implements SubscribedRepo {
 
   @override
   Info get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedRepoInfoImplCopyWith<_$USubscribedRepoInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1567,6 +1635,8 @@ class __$$USubscribedRepoUnknownImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedRepoUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1616,12 +1686,14 @@ class _$USubscribedRepoUnknownImpl implements USubscribedRepoUnknown {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedRepoUnknownImplCopyWith<_$USubscribedRepoUnknownImpl>
@@ -1744,7 +1816,10 @@ abstract class USubscribedRepoUnknown implements SubscribedRepo {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedRepoUnknownImplCopyWith<_$USubscribedRepoUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

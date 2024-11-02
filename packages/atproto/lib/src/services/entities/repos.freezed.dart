@@ -23,8 +23,12 @@ mixin _$Repos {
   List<Repo> get repos => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this Repos to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Repos
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ReposCopyWith<Repos> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -46,6 +50,8 @@ class _$ReposCopyWithImpl<$Res, $Val extends Repos>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Repos
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -83,6 +89,8 @@ class __$$ReposImplCopyWithImpl<$Res>
       _$ReposImpl _value, $Res Function(_$ReposImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Repos
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -136,12 +144,14 @@ class _$ReposImpl implements _Repos {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_repos), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Repos
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ReposImplCopyWith<_$ReposImpl> get copyWith =>
@@ -165,8 +175,11 @@ abstract class _Repos implements Repos {
   List<Repo> get repos;
   @override
   String? get cursor;
+
+  /// Create a copy of Repos
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReposImplCopyWith<_$ReposImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

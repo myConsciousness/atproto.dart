@@ -21,7 +21,9 @@ mixin _$ModerationOpts {
   Map<String, List<InterpretedLabelValueDefinition>> get labelDefs =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationOpts
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModerationOptsCopyWith<ModerationOpts> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +52,8 @@ class _$ModerationOptsCopyWithImpl<$Res, $Val extends ModerationOpts>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModerationOpts
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,6 +77,8 @@ class _$ModerationOptsCopyWithImpl<$Res, $Val extends ModerationOpts>
     ) as $Val);
   }
 
+  /// Create a copy of ModerationOpts
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ModerationPrefsCopyWith<$Res> get prefs {
@@ -107,6 +113,8 @@ class __$$ModerationOptsImplCopyWithImpl<$Res>
       _$ModerationOptsImpl _value, $Res Function(_$ModerationOptsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationOpts
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -174,7 +182,9 @@ class _$ModerationOptsImpl implements _ModerationOpts {
   int get hashCode => Object.hash(runtimeType, userDid, prefs,
       const DeepCollectionEquality().hash(_labelDefs));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationOpts
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModerationOptsImplCopyWith<_$ModerationOptsImpl> get copyWith =>
@@ -195,8 +205,11 @@ abstract class _ModerationOpts implements ModerationOpts {
   ModerationPrefs get prefs;
   @override
   Map<String, List<InterpretedLabelValueDefinition>> get labelDefs;
+
+  /// Create a copy of ModerationOpts
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModerationOptsImplCopyWith<_$ModerationOptsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

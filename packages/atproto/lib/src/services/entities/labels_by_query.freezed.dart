@@ -23,8 +23,12 @@ mixin _$LabelsByQuery {
   List<Label> get labels => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this LabelsByQuery to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LabelsByQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LabelsByQueryCopyWith<LabelsByQuery> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$LabelsByQueryCopyWithImpl<$Res, $Val extends LabelsByQuery>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LabelsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$LabelsByQueryImplCopyWithImpl<$Res>
       _$LabelsByQueryImpl _value, $Res Function(_$LabelsByQueryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LabelsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,12 +148,14 @@ class _$LabelsByQueryImpl implements _LabelsByQuery {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_labels), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LabelsByQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LabelsByQueryImplCopyWith<_$LabelsByQueryImpl> get copyWith =>
@@ -171,8 +181,11 @@ abstract class _LabelsByQuery implements LabelsByQuery {
   List<Label> get labels;
   @override
   String? get cursor;
+
+  /// Create a copy of LabelsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LabelsByQueryImplCopyWith<_$LabelsByQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -30,8 +30,12 @@ mixin _$AccountStatus {
   int get expectedBlobs => throw _privateConstructorUsedError;
   int get importedBlobs => throw _privateConstructorUsedError;
 
+  /// Serializes this AccountStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AccountStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AccountStatusCopyWith<AccountStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -64,6 +68,8 @@ class _$AccountStatusCopyWithImpl<$Res, $Val extends AccountStatus>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AccountStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -146,6 +152,8 @@ class __$$AccountStatusImplCopyWithImpl<$Res>
       _$AccountStatusImpl _value, $Res Function(_$AccountStatusImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AccountStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -265,7 +273,7 @@ class _$AccountStatusImpl implements _AccountStatus {
                 other.importedBlobs == importedBlobs));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -279,7 +287,9 @@ class _$AccountStatusImpl implements _AccountStatus {
       expectedBlobs,
       importedBlobs);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AccountStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AccountStatusImplCopyWith<_$AccountStatusImpl> get copyWith =>
@@ -326,8 +336,11 @@ abstract class _AccountStatus implements AccountStatus {
   int get expectedBlobs;
   @override
   int get importedBlobs;
+
+  /// Create a copy of AccountStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AccountStatusImplCopyWith<_$AccountStatusImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

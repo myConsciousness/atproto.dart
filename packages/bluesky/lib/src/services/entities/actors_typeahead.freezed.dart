@@ -22,8 +22,12 @@ ActorsTypeahead _$ActorsTypeaheadFromJson(Map<String, dynamic> json) {
 mixin _$ActorsTypeahead {
   List<ActorBasic> get actors => throw _privateConstructorUsedError;
 
+  /// Serializes this ActorsTypeahead to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ActorsTypeahead
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ActorsTypeaheadCopyWith<ActorsTypeahead> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$ActorsTypeaheadCopyWithImpl<$Res, $Val extends ActorsTypeahead>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ActorsTypeahead
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
       _$ActorsTypeaheadImpl _value, $Res Function(_$ActorsTypeaheadImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ActorsTypeahead
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,12 +132,14 @@ class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
             const DeepCollectionEquality().equals(other._actors, _actors));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_actors));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ActorsTypeahead
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
@@ -153,8 +163,11 @@ abstract class _ActorsTypeahead implements ActorsTypeahead {
 
   @override
   List<ActorBasic> get actors;
+
+  /// Create a copy of ActorsTypeahead
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

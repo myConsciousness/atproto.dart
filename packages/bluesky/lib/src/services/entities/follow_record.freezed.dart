@@ -26,8 +26,12 @@ mixin _$FollowRecord {
   String get did => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this FollowRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FollowRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FollowRecordCopyWith<FollowRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$FollowRecordCopyWithImpl<$Res, $Val extends FollowRecord>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FollowRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -100,6 +106,8 @@ class __$$FollowRecordImplCopyWithImpl<$Res>
       _$FollowRecordImpl _value, $Res Function(_$FollowRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FollowRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,11 +169,13 @@ class _$FollowRecordImpl implements _FollowRecord {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, did, createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FollowRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FollowRecordImplCopyWith<_$FollowRecordImpl> get copyWith =>
@@ -196,8 +206,11 @@ abstract class _FollowRecord implements FollowRecord {
   String get did;
   @override
   DateTime get createdAt;
+
+  /// Create a copy of FollowRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FollowRecordImplCopyWith<_$FollowRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

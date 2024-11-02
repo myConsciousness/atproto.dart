@@ -26,8 +26,12 @@ mixin _$RepoOp {
   String? get cid => throw _privateConstructorUsedError;
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
 
+  /// Serializes this RepoOp to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RepoOp
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepoOpCopyWith<RepoOp> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -53,6 +57,8 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepoOp
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -104,6 +110,8 @@ class __$$RepoOpImplCopyWithImpl<$Res>
       _$RepoOpImpl _value, $Res Function(_$RepoOpImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoOp
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -179,12 +187,14 @@ class _$RepoOpImpl implements _RepoOp {
             const DeepCollectionEquality().equals(other._record, _record));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, action, uri, cid,
       const DeepCollectionEquality().hash(_record));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoOp
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepoOpImplCopyWith<_$RepoOpImpl> get copyWith =>
@@ -216,8 +226,11 @@ abstract class _RepoOp implements RepoOp {
   String? get cid;
   @override
   Map<String, dynamic>? get record;
+
+  /// Create a copy of RepoOp
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepoOpImplCopyWith<_$RepoOpImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

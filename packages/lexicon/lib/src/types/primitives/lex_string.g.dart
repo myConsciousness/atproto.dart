@@ -18,10 +18,12 @@ _$LexStringImpl _$$LexStringImplFromJson(Map json) => $checkedCreate(
               (v) => $enumDecodeNullable(_$LexStringFormatEnumMap, v)),
           description: $checkedConvert('description', (v) => v as String?),
           defaultValue: $checkedConvert('default', (v) => v as String?),
-          minLength: $checkedConvert('minLength', (v) => v as int?),
-          maxLength: $checkedConvert('maxLength', (v) => v as int?),
-          minGraphemes: $checkedConvert('minGraphemes', (v) => v as int?),
-          maxGraphemes: $checkedConvert('maxGraphemes', (v) => v as int?),
+          minLength: $checkedConvert('minLength', (v) => (v as num?)?.toInt()),
+          maxLength: $checkedConvert('maxLength', (v) => (v as num?)?.toInt()),
+          minGraphemes:
+              $checkedConvert('minGraphemes', (v) => (v as num?)?.toInt()),
+          maxGraphemes:
+              $checkedConvert('maxGraphemes', (v) => (v as num?)?.toInt()),
           enumValues: $checkedConvert('enum',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           constValue: $checkedConvert('const', (v) => v as String?),

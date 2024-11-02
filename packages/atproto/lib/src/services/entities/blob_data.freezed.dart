@@ -22,8 +22,12 @@ BlobData _$BlobDataFromJson(Map<String, dynamic> json) {
 mixin _$BlobData {
   Blob get blob => throw _privateConstructorUsedError;
 
+  /// Serializes this BlobData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BlobData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BlobDataCopyWith<BlobData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$BlobDataCopyWithImpl<$Res, $Val extends BlobData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BlobData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -61,6 +67,8 @@ class _$BlobDataCopyWithImpl<$Res, $Val extends BlobData>
     ) as $Val);
   }
 
+  /// Create a copy of BlobData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res> get blob {
@@ -92,6 +100,8 @@ class __$$BlobDataImplCopyWithImpl<$Res>
       _$BlobDataImpl _value, $Res Function(_$BlobDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BlobData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,11 +140,13 @@ class _$BlobDataImpl implements _BlobData {
             (identical(other.blob, blob) || other.blob == blob));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, blob);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BlobData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BlobDataImplCopyWith<_$BlobDataImpl> get copyWith =>
@@ -156,8 +168,11 @@ abstract class _BlobData implements BlobData {
 
   @override
   Blob get blob;
+
+  /// Create a copy of BlobData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BlobDataImplCopyWith<_$BlobDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

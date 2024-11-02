@@ -26,8 +26,12 @@ mixin _$NotFoundActor {
   String get actor => throw _privateConstructorUsedError;
   bool get notFound => throw _privateConstructorUsedError;
 
+  /// Serializes this NotFoundActor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of NotFoundActor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $NotFoundActorCopyWith<NotFoundActor> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$NotFoundActorCopyWithImpl<$Res, $Val extends NotFoundActor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of NotFoundActor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -96,6 +102,8 @@ class __$$NotFoundActorImplCopyWithImpl<$Res>
       _$NotFoundActorImpl _value, $Res Function(_$NotFoundActorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of NotFoundActor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -157,11 +165,13 @@ class _$NotFoundActorImpl implements _NotFoundActor {
                 other.notFound == notFound));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, actor, notFound);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NotFoundActor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NotFoundActorImplCopyWith<_$NotFoundActorImpl> get copyWith =>
@@ -192,8 +202,11 @@ abstract class _NotFoundActor implements NotFoundActor {
   String get actor;
   @override
   bool get notFound;
+
+  /// Create a copy of NotFoundActor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NotFoundActorImplCopyWith<_$NotFoundActorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

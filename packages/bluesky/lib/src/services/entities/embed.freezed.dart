@@ -90,6 +90,9 @@ class _$EmbedCopyWithImpl<$Res, $Val extends Embed>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -111,6 +114,8 @@ class __$$UEmbedRecordImplCopyWithImpl<$Res>
       _$UEmbedRecordImpl _value, $Res Function(_$UEmbedRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,6 +129,8 @@ class __$$UEmbedRecordImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedRecordCopyWith<$Res> get data {
@@ -157,7 +164,9 @@ class _$UEmbedRecordImpl extends UEmbedRecord {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedRecordImplCopyWith<_$UEmbedRecordImpl> get copyWith =>
@@ -251,7 +260,10 @@ abstract class UEmbedRecord extends Embed {
 
   @override
   EmbedRecord get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedRecordImplCopyWith<_$UEmbedRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -275,6 +287,8 @@ class __$$UEmbedImagesImplCopyWithImpl<$Res>
       _$UEmbedImagesImpl _value, $Res Function(_$UEmbedImagesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -288,6 +302,8 @@ class __$$UEmbedImagesImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedImagesCopyWith<$Res> get data {
@@ -321,7 +337,9 @@ class _$UEmbedImagesImpl extends UEmbedImages {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedImagesImplCopyWith<_$UEmbedImagesImpl> get copyWith =>
@@ -415,7 +433,10 @@ abstract class UEmbedImages extends Embed {
 
   @override
   EmbedImages get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedImagesImplCopyWith<_$UEmbedImagesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -439,6 +460,8 @@ class __$$UEmbedExternalImplCopyWithImpl<$Res>
       _$UEmbedExternalImpl _value, $Res Function(_$UEmbedExternalImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -452,6 +475,8 @@ class __$$UEmbedExternalImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedExternalCopyWith<$Res> get data {
@@ -485,7 +510,9 @@ class _$UEmbedExternalImpl extends UEmbedExternal {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedExternalImplCopyWith<_$UEmbedExternalImpl> get copyWith =>
@@ -580,7 +607,10 @@ abstract class UEmbedExternal extends Embed {
 
   @override
   EmbedExternal get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedExternalImplCopyWith<_$UEmbedExternalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -605,6 +635,8 @@ class __$$UEmbedRecordWithMediaImplCopyWithImpl<$Res>
       $Res Function(_$UEmbedRecordWithMediaImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -618,6 +650,8 @@ class __$$UEmbedRecordWithMediaImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedRecordWithMediaCopyWith<$Res> get data {
@@ -651,7 +685,9 @@ class _$UEmbedRecordWithMediaImpl extends UEmbedRecordWithMedia {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedRecordWithMediaImplCopyWith<_$UEmbedRecordWithMediaImpl>
@@ -746,7 +782,10 @@ abstract class UEmbedRecordWithMedia extends Embed {
 
   @override
   EmbedRecordWithMedia get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedRecordWithMediaImplCopyWith<_$UEmbedRecordWithMediaImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -768,6 +807,8 @@ class __$$UEmbedUnknownImplCopyWithImpl<$Res>
       _$UEmbedUnknownImpl _value, $Res Function(_$UEmbedUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -814,7 +855,9 @@ class _$UEmbedUnknownImpl extends UEmbedUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedUnknownImplCopyWith<_$UEmbedUnknownImpl> get copyWith =>
@@ -908,7 +951,10 @@ abstract class UEmbedUnknown extends Embed {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedUnknownImplCopyWith<_$UEmbedUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

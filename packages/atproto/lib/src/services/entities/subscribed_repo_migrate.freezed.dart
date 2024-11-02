@@ -27,8 +27,12 @@ mixin _$Migrate {
   @JsonKey(name: 'time')
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this Migrate to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Migrate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MigrateCopyWith<Migrate> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -54,6 +58,8 @@ class _$MigrateCopyWithImpl<$Res, $Val extends Migrate>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Migrate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -105,6 +111,8 @@ class __$$MigrateImplCopyWithImpl<$Res>
       _$MigrateImpl _value, $Res Function(_$MigrateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Migrate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -176,12 +184,14 @@ class _$MigrateImpl implements _Migrate {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, did, migrateTo, cursor, createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Migrate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MigrateImplCopyWith<_$MigrateImpl> get copyWith =>
@@ -215,8 +225,11 @@ abstract class _Migrate implements Migrate {
   @override
   @JsonKey(name: 'time')
   DateTime get createdAt;
+
+  /// Create a copy of Migrate
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MigrateImplCopyWith<_$MigrateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

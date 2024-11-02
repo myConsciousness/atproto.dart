@@ -24,8 +24,12 @@ mixin _$LabelerPolicies {
   List<LabelValueDefinition>? get labelValueDefinitions =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this LabelerPolicies to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LabelerPolicies
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LabelerPoliciesCopyWith<LabelerPolicies> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$LabelerPoliciesCopyWithImpl<$Res, $Val extends LabelerPolicies>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LabelerPolicies
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
       _$LabelerPoliciesImpl _value, $Res Function(_$LabelerPoliciesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LabelerPolicies
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -158,14 +166,16 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
                 .equals(other._labelValueDefinitions, _labelValueDefinitions));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_labelValues),
       const DeepCollectionEquality().hash(_labelValueDefinitions));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LabelerPolicies
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LabelerPoliciesImplCopyWith<_$LabelerPoliciesImpl> get copyWith =>
@@ -193,8 +203,11 @@ abstract class _LabelerPolicies implements LabelerPolicies {
   List<String> get labelValues;
   @override
   List<LabelValueDefinition>? get labelValueDefinitions;
+
+  /// Create a copy of LabelerPolicies
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LabelerPoliciesImplCopyWith<_$LabelerPoliciesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

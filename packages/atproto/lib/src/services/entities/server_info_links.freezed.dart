@@ -23,8 +23,12 @@ mixin _$ServerInfoLinks {
   String? get privacyPolicy => throw _privateConstructorUsedError;
   String? get termsOfService => throw _privateConstructorUsedError;
 
+  /// Serializes this ServerInfoLinks to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ServerInfoLinks
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ServerInfoLinksCopyWith<ServerInfoLinks> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$ServerInfoLinksCopyWithImpl<$Res, $Val extends ServerInfoLinks>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ServerInfoLinks
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$ServerInfoLinksImplCopyWithImpl<$Res>
       _$ServerInfoLinksImpl _value, $Res Function(_$ServerInfoLinksImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ServerInfoLinks
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -135,11 +143,13 @@ class _$ServerInfoLinksImpl implements _ServerInfoLinks {
                 other.termsOfService == termsOfService));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, privacyPolicy, termsOfService);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServerInfoLinks
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ServerInfoLinksImplCopyWith<_$ServerInfoLinksImpl> get copyWith =>
@@ -166,8 +176,11 @@ abstract class _ServerInfoLinks implements ServerInfoLinks {
   String? get privacyPolicy;
   @override
   String? get termsOfService;
+
+  /// Create a copy of ServerInfoLinks
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServerInfoLinksImplCopyWith<_$ServerInfoLinksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

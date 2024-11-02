@@ -30,8 +30,12 @@ mixin _$LexObject {
   Map<String, LexObjectProperty>? get properties =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this LexObject to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexObject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexObjectCopyWith<LexObject> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$LexObjectCopyWithImpl<$Res, $Val extends LexObject>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexObject
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -117,6 +123,8 @@ class __$$LexObjectImplCopyWithImpl<$Res>
       _$LexObjectImpl _value, $Res Function(_$LexObjectImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexObject
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -230,7 +238,7 @@ class _$LexObjectImpl implements _LexObject {
                 .equals(other._properties, _properties));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -240,7 +248,9 @@ class _$LexObjectImpl implements _LexObject {
       const DeepCollectionEquality().hash(_nullableProperties),
       const DeepCollectionEquality().hash(_properties));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexObject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexObjectImplCopyWith<_$LexObjectImpl> get copyWith =>
@@ -279,8 +289,11 @@ abstract class _LexObject implements LexObject {
   @override
   @lexObjectPropertyConverter
   Map<String, LexObjectProperty>? get properties;
+
+  /// Create a copy of LexObject
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexObjectImplCopyWith<_$LexObjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

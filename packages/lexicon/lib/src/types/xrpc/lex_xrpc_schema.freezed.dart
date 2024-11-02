@@ -73,6 +73,9 @@ class _$LexXrpcSchemaCopyWithImpl<$Res, $Val extends LexXrpcSchema>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LexXrpcSchema
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -96,6 +99,8 @@ class __$$ULexXrpcSchemaRefVariantImplCopyWithImpl<$Res>
       $Res Function(_$ULexXrpcSchemaRefVariantImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexXrpcSchema
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -109,6 +114,8 @@ class __$$ULexXrpcSchemaRefVariantImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexXrpcSchema
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexRefVariantCopyWith<$Res> get data {
@@ -142,7 +149,9 @@ class _$ULexXrpcSchemaRefVariantImpl extends ULexXrpcSchemaRefVariant {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexXrpcSchema
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexXrpcSchemaRefVariantImplCopyWith<_$ULexXrpcSchemaRefVariantImpl>
@@ -219,7 +228,10 @@ abstract class ULexXrpcSchemaRefVariant extends LexXrpcSchema {
 
   @override
   LexRefVariant get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexXrpcSchema
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexXrpcSchemaRefVariantImplCopyWith<_$ULexXrpcSchemaRefVariantImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -243,6 +255,8 @@ class __$$ULexXrpcSchemaObjectImplCopyWithImpl<$Res>
       $Res Function(_$ULexXrpcSchemaObjectImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexXrpcSchema
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,6 +270,8 @@ class __$$ULexXrpcSchemaObjectImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexXrpcSchema
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexObjectCopyWith<$Res> get data {
@@ -289,7 +305,9 @@ class _$ULexXrpcSchemaObjectImpl extends ULexXrpcSchemaObject {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexXrpcSchema
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexXrpcSchemaObjectImplCopyWith<_$ULexXrpcSchemaObjectImpl>
@@ -367,7 +385,10 @@ abstract class ULexXrpcSchemaObject extends LexXrpcSchema {
 
   @override
   LexObject get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexXrpcSchema
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexXrpcSchemaObjectImplCopyWith<_$ULexXrpcSchemaObjectImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

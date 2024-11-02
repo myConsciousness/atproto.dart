@@ -23,8 +23,12 @@ mixin _$SuggestionsSkeleton {
   List<SkeletonActor> get actors => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this SuggestionsSkeleton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SuggestionsSkeleton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SuggestionsSkeletonCopyWith<SuggestionsSkeleton> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$SuggestionsSkeletonCopyWithImpl<$Res, $Val extends SuggestionsSkeleton>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SuggestionsSkeleton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$SuggestionsSkeletonImplCopyWithImpl<$Res>
       $Res Function(_$SuggestionsSkeletonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SuggestionsSkeleton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,12 +148,14 @@ class _$SuggestionsSkeletonImpl implements _SuggestionsSkeleton {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_actors), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SuggestionsSkeleton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuggestionsSkeletonImplCopyWith<_$SuggestionsSkeletonImpl> get copyWith =>
@@ -172,8 +182,11 @@ abstract class _SuggestionsSkeleton implements SuggestionsSkeleton {
   List<SkeletonActor> get actors;
   @override
   String? get cursor;
+
+  /// Create a copy of SuggestionsSkeleton
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuggestionsSkeletonImplCopyWith<_$SuggestionsSkeletonImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

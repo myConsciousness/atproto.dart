@@ -22,8 +22,12 @@ SigningKey _$SigningKeyFromJson(Map<String, dynamic> json) {
 mixin _$SigningKey {
   String get signingKey => throw _privateConstructorUsedError;
 
+  /// Serializes this SigningKey to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SigningKey
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SigningKeyCopyWith<SigningKey> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$SigningKeyCopyWithImpl<$Res, $Val extends SigningKey>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SigningKey
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$SigningKeyImplCopyWithImpl<$Res>
       _$SigningKeyImpl _value, $Res Function(_$SigningKeyImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SigningKey
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,11 +127,13 @@ class _$SigningKeyImpl implements _SigningKey {
                 other.signingKey == signingKey));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, signingKey);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SigningKey
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SigningKeyImplCopyWith<_$SigningKeyImpl> get copyWith =>
@@ -146,8 +156,11 @@ abstract class _SigningKey implements SigningKey {
 
   @override
   String get signingKey;
+
+  /// Create a copy of SigningKey
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SigningKeyImplCopyWith<_$SigningKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -27,8 +27,12 @@ mixin _$Handle {
   @JsonKey(name: 'time')
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this Handle to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Handle
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HandleCopyWith<Handle> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -54,6 +58,8 @@ class _$HandleCopyWithImpl<$Res, $Val extends Handle>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Handle
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -105,6 +111,8 @@ class __$$HandleImplCopyWithImpl<$Res>
       _$HandleImpl _value, $Res Function(_$HandleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Handle
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -174,11 +182,13 @@ class _$HandleImpl implements _Handle {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, did, handle, cursor, createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Handle
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HandleImplCopyWith<_$HandleImpl> get copyWith =>
@@ -211,8 +221,11 @@ abstract class _Handle implements Handle {
   @override
   @JsonKey(name: 'time')
   DateTime get createdAt;
+
+  /// Create a copy of Handle
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HandleImplCopyWith<_$HandleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

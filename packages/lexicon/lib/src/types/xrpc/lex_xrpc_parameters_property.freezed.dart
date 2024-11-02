@@ -78,6 +78,9 @@ class _$LexXrpcParametersPropertyCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LexXrpcParametersProperty
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -102,6 +105,8 @@ class __$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWithImpl<$Res>
       $Res Function(_$ULexXrpcParametersPropertyPrimitiveArrayImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexXrpcParametersProperty
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,6 +120,8 @@ class __$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexXrpcParametersProperty
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexPrimitiveArrayCopyWith<$Res> get data {
@@ -150,7 +157,9 @@ class _$ULexXrpcParametersPropertyPrimitiveArrayImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexXrpcParametersProperty
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWith<
@@ -235,7 +244,10 @@ abstract class ULexXrpcParametersPropertyPrimitiveArray
 
   @override
   LexPrimitiveArray get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexXrpcParametersProperty
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexXrpcParametersPropertyPrimitiveArrayImplCopyWith<
           _$ULexXrpcParametersPropertyPrimitiveArrayImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -263,6 +275,8 @@ class __$$ULexXrpcParametersPropertyPrimitiveImplCopyWithImpl<$Res>
       $Res Function(_$ULexXrpcParametersPropertyPrimitiveImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexXrpcParametersProperty
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -276,6 +290,8 @@ class __$$ULexXrpcParametersPropertyPrimitiveImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexXrpcParametersProperty
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexPrimitiveCopyWith<$Res> get data {
@@ -311,7 +327,9 @@ class _$ULexXrpcParametersPropertyPrimitiveImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexXrpcParametersProperty
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexXrpcParametersPropertyPrimitiveImplCopyWith<
@@ -395,7 +413,10 @@ abstract class ULexXrpcParametersPropertyPrimitive
 
   @override
   LexPrimitive get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexXrpcParametersProperty
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexXrpcParametersPropertyPrimitiveImplCopyWith<
           _$ULexXrpcParametersPropertyPrimitiveImpl>
       get copyWith => throw _privateConstructorUsedError;

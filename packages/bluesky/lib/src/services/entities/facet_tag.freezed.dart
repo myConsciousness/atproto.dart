@@ -24,8 +24,12 @@ mixin _$FacetTag {
   String get type => throw _privateConstructorUsedError;
   String get tag => throw _privateConstructorUsedError;
 
+  /// Serializes this FacetTag to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FacetTag
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FacetTagCopyWith<FacetTag> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$FacetTagCopyWithImpl<$Res, $Val extends FacetTag>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FacetTag
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$FacetTagImplCopyWithImpl<$Res>
       _$FacetTagImpl _value, $Res Function(_$FacetTagImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FacetTag
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,11 +142,13 @@ class _$FacetTagImpl implements _FacetTag {
             (identical(other.tag, tag) || other.tag == tag));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, tag);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FacetTag
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FacetTagImplCopyWith<_$FacetTagImpl> get copyWith =>
@@ -164,8 +174,11 @@ abstract class _FacetTag implements FacetTag {
   String get type;
   @override
   String get tag;
+
+  /// Create a copy of FacetTag
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FacetTagImplCopyWith<_$FacetTagImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

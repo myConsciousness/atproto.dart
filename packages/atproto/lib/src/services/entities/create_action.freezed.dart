@@ -28,8 +28,12 @@ mixin _$CreateAction {
   @JsonKey(name: 'value')
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
+  /// Serializes this CreateAction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateActionCopyWith<CreateAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$CreateActionCopyWithImpl<$Res, $Val extends CreateAction>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -109,6 +115,8 @@ class __$$CreateActionImplCopyWithImpl<$Res>
       _$CreateActionImpl _value, $Res Function(_$CreateActionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -186,12 +194,14 @@ class _$CreateActionImpl implements _CreateAction {
             const DeepCollectionEquality().equals(other._record, _record));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, collection, rkey,
       const DeepCollectionEquality().hash(_record));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateActionImplCopyWith<_$CreateActionImpl> get copyWith =>
@@ -227,8 +237,11 @@ abstract class _CreateAction implements CreateAction {
   @override
   @JsonKey(name: 'value')
   Map<String, dynamic> get record;
+
+  /// Create a copy of CreateAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateActionImplCopyWith<_$CreateActionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

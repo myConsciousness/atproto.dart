@@ -24,8 +24,12 @@ mixin _$ListItems {
   List<ListItem> get items => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this ListItems to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ListItems
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ListItemsCopyWith<ListItems> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$ListItemsCopyWithImpl<$Res, $Val extends ListItems>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ListItems
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,6 +79,8 @@ class _$ListItemsCopyWithImpl<$Res, $Val extends ListItems>
     ) as $Val);
   }
 
+  /// Create a copy of ListItems
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ListViewCopyWith<$Res> get list {
@@ -104,6 +112,8 @@ class __$$ListItemsImplCopyWithImpl<$Res>
       _$ListItemsImpl _value, $Res Function(_$ListItemsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ListItems
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -166,12 +176,14 @@ class _$ListItemsImpl implements _ListItems {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, list, const DeepCollectionEquality().hash(_items), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ListItems
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ListItemsImplCopyWith<_$ListItemsImpl> get copyWith =>
@@ -200,8 +212,11 @@ abstract class _ListItems implements ListItems {
   List<ListItem> get items;
   @override
   String? get cursor;
+
+  /// Create a copy of ListItems
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ListItemsImplCopyWith<_$ListItemsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

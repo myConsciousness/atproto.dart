@@ -38,8 +38,12 @@ mixin _$FeedGeneratorView {
   FeedGeneratorViewer get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this FeedGeneratorView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FeedGeneratorView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FeedGeneratorViewCopyWith<FeedGeneratorView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -80,6 +84,8 @@ class _$FeedGeneratorViewCopyWithImpl<$Res, $Val extends FeedGeneratorView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FeedGeneratorView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -158,6 +164,8 @@ class _$FeedGeneratorViewCopyWithImpl<$Res, $Val extends FeedGeneratorView>
     ) as $Val);
   }
 
+  /// Create a copy of FeedGeneratorView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ActorCopyWith<$Res> get createdBy {
@@ -166,6 +174,8 @@ class _$FeedGeneratorViewCopyWithImpl<$Res, $Val extends FeedGeneratorView>
     });
   }
 
+  /// Create a copy of FeedGeneratorView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FeedGeneratorViewerCopyWith<$Res> get viewer {
@@ -213,6 +223,8 @@ class __$$FeedGeneratorViewImplCopyWithImpl<$Res>
       $Res Function(_$FeedGeneratorViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FeedGeneratorView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -402,7 +414,7 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
                 other.indexedAt == indexedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -421,7 +433,9 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
       viewer,
       indexedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FeedGeneratorView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FeedGeneratorViewImplCopyWith<_$FeedGeneratorViewImpl> get copyWith =>
@@ -487,8 +501,11 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
   FeedGeneratorViewer get viewer;
   @override
   DateTime get indexedAt;
+
+  /// Create a copy of FeedGeneratorView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FeedGeneratorViewImplCopyWith<_$FeedGeneratorViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -25,8 +25,12 @@ mixin _$LexRecord {
   String? get key => throw _privateConstructorUsedError;
   LexObject get record => throw _privateConstructorUsedError;
 
+  /// Serializes this LexRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexRecordCopyWith<LexRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$LexRecordCopyWithImpl<$Res, $Val extends LexRecord>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,6 +85,8 @@ class _$LexRecordCopyWithImpl<$Res, $Val extends LexRecord>
     ) as $Val);
   }
 
+  /// Create a copy of LexRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexObjectCopyWith<$Res> get record {
@@ -110,6 +118,8 @@ class __$$LexRecordImplCopyWithImpl<$Res>
       _$LexRecordImpl _value, $Res Function(_$LexRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -176,11 +186,13 @@ class _$LexRecordImpl implements _LexRecord {
             (identical(other.record, record) || other.record == record));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, description, key, record);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexRecordImplCopyWith<_$LexRecordImpl> get copyWith =>
@@ -212,8 +224,11 @@ abstract class _LexRecord implements LexRecord {
   String? get key;
   @override
   LexObject get record;
+
+  /// Create a copy of LexRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexRecordImplCopyWith<_$LexRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -31,8 +31,12 @@ mixin _$ThreadParam {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
+  /// Serializes this ThreadParam to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThreadParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ThreadParamCopyWith<ThreadParam> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -67,6 +71,8 @@ class _$ThreadParamCopyWithImpl<$Res, $Val extends ThreadParam>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ThreadParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,6 +121,8 @@ class _$ThreadParamCopyWithImpl<$Res, $Val extends ThreadParam>
     ) as $Val);
   }
 
+  /// Create a copy of ThreadParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedCopyWith<$Res>? get embed {
@@ -127,6 +135,8 @@ class _$ThreadParamCopyWithImpl<$Res, $Val extends ThreadParam>
     });
   }
 
+  /// Create a copy of ThreadParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
@@ -172,6 +182,8 @@ class __$$ThreadParamImplCopyWithImpl<$Res>
       _$ThreadParamImpl _value, $Res Function(_$ThreadParamImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThreadParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -314,7 +326,7 @@ class _$ThreadParamImpl implements _ThreadParam {
                 .equals(other._unspecced, _unspecced));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -327,7 +339,9 @@ class _$ThreadParamImpl implements _ThreadParam {
       createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThreadParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ThreadParamImplCopyWith<_$ThreadParamImpl> get copyWith =>
@@ -373,8 +387,11 @@ abstract class _ThreadParam implements ThreadParam {
   DateTime? get createdAt;
   @override
   Map<String, dynamic> get unspecced;
+
+  /// Create a copy of ThreadParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ThreadParamImplCopyWith<_$ThreadParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

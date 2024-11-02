@@ -23,8 +23,12 @@ mixin _$ByteIndices {
   int get start => throw _privateConstructorUsedError;
   int get end => throw _privateConstructorUsedError;
 
+  /// Serializes this ByteIndices to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ByteIndices
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ByteIndicesCopyWith<ByteIndices> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$ByteIndicesCopyWithImpl<$Res, $Val extends ByteIndices>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ByteIndices
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$ByteIndicesImplCopyWithImpl<$Res>
       _$ByteIndicesImpl _value, $Res Function(_$ByteIndicesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ByteIndices
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$ByteIndicesImpl implements _ByteIndices {
             (identical(other.end, end) || other.end == end));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, start, end);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ByteIndices
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ByteIndicesImplCopyWith<_$ByteIndicesImpl> get copyWith =>
@@ -161,8 +171,11 @@ abstract class _ByteIndices implements ByteIndices {
   int get start;
   @override
   int get end;
+
+  /// Create a copy of ByteIndices
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ByteIndicesImplCopyWith<_$ByteIndicesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

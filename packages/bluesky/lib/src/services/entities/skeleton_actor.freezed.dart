@@ -22,8 +22,12 @@ SkeletonActor _$SkeletonActorFromJson(Map<String, dynamic> json) {
 mixin _$SkeletonActor {
   String get did => throw _privateConstructorUsedError;
 
+  /// Serializes this SkeletonActor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkeletonActor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SkeletonActorCopyWith<SkeletonActor> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$SkeletonActorCopyWithImpl<$Res, $Val extends SkeletonActor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SkeletonActor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$SkeletonActorImplCopyWithImpl<$Res>
       _$SkeletonActorImpl _value, $Res Function(_$SkeletonActorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkeletonActor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,11 +126,13 @@ class _$SkeletonActorImpl implements _SkeletonActor {
             (identical(other.did, did) || other.did == did));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, did);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkeletonActor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SkeletonActorImplCopyWith<_$SkeletonActorImpl> get copyWith =>
@@ -145,8 +155,11 @@ abstract class _SkeletonActor implements SkeletonActor {
 
   @override
   String get did;
+
+  /// Create a copy of SkeletonActor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SkeletonActorImplCopyWith<_$SkeletonActorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

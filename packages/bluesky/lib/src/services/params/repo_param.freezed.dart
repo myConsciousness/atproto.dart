@@ -24,8 +24,12 @@ mixin _$RepoParam {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
+  /// Serializes this RepoParam to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RepoParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepoParamCopyWith<RepoParam> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$RepoParamCopyWithImpl<$Res, $Val extends RepoParam>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepoParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$RepoParamImplCopyWithImpl<$Res>
       _$RepoParamImpl _value, $Res Function(_$RepoParamImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -158,12 +166,14 @@ class _$RepoParamImpl implements _RepoParam {
                 .equals(other._unspecced, _unspecced));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, did, createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepoParamImplCopyWith<_$RepoParamImpl> get copyWith =>
@@ -192,8 +202,11 @@ abstract class _RepoParam implements RepoParam {
   DateTime? get createdAt;
   @override
   Map<String, dynamic> get unspecced;
+
+  /// Create a copy of RepoParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepoParamImplCopyWith<_$RepoParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

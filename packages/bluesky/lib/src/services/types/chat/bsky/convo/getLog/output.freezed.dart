@@ -24,8 +24,12 @@ mixin _$GetLogOutput {
   List<UConvoLog> get logs => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this GetLogOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetLogOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetLogOutputCopyWith<GetLogOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$GetLogOutputCopyWithImpl<$Res, $Val extends GetLogOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetLogOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -87,6 +93,8 @@ class __$$GetLogOutputImplCopyWithImpl<$Res>
       _$GetLogOutputImpl _value, $Res Function(_$GetLogOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetLogOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -144,12 +152,14 @@ class _$GetLogOutputImpl implements _GetLogOutput {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_logs), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetLogOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetLogOutputImplCopyWith<_$GetLogOutputImpl> get copyWith =>
@@ -176,8 +186,11 @@ abstract class _GetLogOutput implements GetLogOutput {
   List<UConvoLog> get logs;
   @override
   String? get cursor;
+
+  /// Create a copy of GetLogOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetLogOutputImplCopyWith<_$GetLogOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

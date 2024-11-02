@@ -22,8 +22,12 @@ UploadVideoOutput _$UploadVideoOutputFromJson(Map<String, dynamic> json) {
 mixin _$UploadVideoOutput {
   JobStatus get jobStatus => throw _privateConstructorUsedError;
 
+  /// Serializes this UploadVideoOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UploadVideoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UploadVideoOutputCopyWith<UploadVideoOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$UploadVideoOutputCopyWithImpl<$Res, $Val extends UploadVideoOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UploadVideoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$UploadVideoOutputCopyWithImpl<$Res, $Val extends UploadVideoOutput>
     ) as $Val);
   }
 
+  /// Create a copy of UploadVideoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $JobStatusCopyWith<$Res> get jobStatus {
@@ -93,6 +101,8 @@ class __$$UploadVideoOutputImplCopyWithImpl<$Res>
       $Res Function(_$UploadVideoOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UploadVideoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +143,13 @@ class _$UploadVideoOutputImpl implements _UploadVideoOutput {
                 other.jobStatus == jobStatus));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, jobStatus);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UploadVideoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UploadVideoOutputImplCopyWith<_$UploadVideoOutputImpl> get copyWith =>
@@ -161,8 +173,11 @@ abstract class _UploadVideoOutput implements UploadVideoOutput {
 
   @override
   JobStatus get jobStatus;
+
+  /// Create a copy of UploadVideoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UploadVideoOutputImplCopyWith<_$UploadVideoOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

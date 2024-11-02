@@ -24,8 +24,12 @@ mixin _$GroupedNotifications {
       throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this GroupedNotifications to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GroupedNotifications
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GroupedNotificationsCopyWith<GroupedNotifications> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$GroupedNotificationsCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GroupedNotifications
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -88,6 +94,8 @@ class __$$GroupedNotificationsImplCopyWithImpl<$Res>
       $Res Function(_$GroupedNotificationsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GroupedNotifications
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -143,12 +151,14 @@ class _$GroupedNotificationsImpl implements _GroupedNotifications {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_notifications), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GroupedNotifications
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GroupedNotificationsImplCopyWith<_$GroupedNotificationsImpl>
@@ -176,8 +186,11 @@ abstract class _GroupedNotifications implements GroupedNotifications {
   List<GroupedNotification> get notifications;
   @override
   String? get cursor;
+
+  /// Create a copy of GroupedNotifications
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GroupedNotificationsImplCopyWith<_$GroupedNotificationsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

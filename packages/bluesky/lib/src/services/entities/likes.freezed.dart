@@ -26,8 +26,12 @@ mixin _$Likes {
   String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this Likes to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Likes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LikesCopyWith<Likes> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -53,6 +57,8 @@ class _$LikesCopyWithImpl<$Res, $Val extends Likes>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Likes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -104,6 +110,8 @@ class __$$LikesImplCopyWithImpl<$Res>
       _$LikesImpl _value, $Res Function(_$LikesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Likes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -178,12 +186,14 @@ class _$LikesImpl implements _Likes {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_likes), uri, cid, cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Likes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LikesImplCopyWith<_$LikesImpl> get copyWith =>
@@ -215,8 +225,11 @@ abstract class _Likes implements Likes {
   String? get cid;
   @override
   String? get cursor;
+
+  /// Create a copy of Likes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LikesImplCopyWith<_$LikesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

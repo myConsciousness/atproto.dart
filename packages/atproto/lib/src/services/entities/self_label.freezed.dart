@@ -27,8 +27,12 @@ mixin _$SelfLabel {
   @JsonKey(name: 'val')
   String get value => throw _privateConstructorUsedError;
 
+  /// Serializes this SelfLabel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SelfLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SelfLabelCopyWith<SelfLabel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$SelfLabelCopyWithImpl<$Res, $Val extends SelfLabel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SelfLabel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -89,6 +95,8 @@ class __$$SelfLabelImplCopyWithImpl<$Res>
       _$SelfLabelImpl _value, $Res Function(_$SelfLabelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SelfLabel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,11 +149,13 @@ class _$SelfLabelImpl implements _SelfLabel {
             (identical(other.value, value) || other.value == value));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SelfLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelfLabelImplCopyWith<_$SelfLabelImpl> get copyWith =>
@@ -170,13 +180,16 @@ abstract class _SelfLabel implements SelfLabel {
   @override
   @typeKey
   String get type;
-  @override
 
   /// The short string name of the value or type of this label.
+  @override
   @JsonKey(name: 'val')
   String get value;
+
+  /// Create a copy of SelfLabel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelfLabelImplCopyWith<_$SelfLabelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

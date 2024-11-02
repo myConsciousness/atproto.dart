@@ -20,7 +20,9 @@ mixin _$ModerationCauseBlockOther {
   int get priority => throw _privateConstructorUsedError;
   bool get downgraded => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationCauseBlockOther
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModerationCauseBlockOtherCopyWith<ModerationCauseBlockOther> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +49,8 @@ class _$ModerationCauseBlockOtherCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModerationCauseBlockOther
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -70,6 +74,8 @@ class _$ModerationCauseBlockOtherCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of ModerationCauseBlockOther
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ModerationCauseSourceCopyWith<$Res> get source {
@@ -104,6 +110,8 @@ class __$$ModerationCauseBlockOtherImplCopyWithImpl<$Res>
       $Res Function(_$ModerationCauseBlockOtherImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationCauseBlockOther
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -163,7 +171,9 @@ class _$ModerationCauseBlockOtherImpl implements _ModerationCauseBlockOther {
   @override
   int get hashCode => Object.hash(runtimeType, source, priority, downgraded);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationCauseBlockOther
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModerationCauseBlockOtherImplCopyWith<_$ModerationCauseBlockOtherImpl>
@@ -183,8 +193,11 @@ abstract class _ModerationCauseBlockOther implements ModerationCauseBlockOther {
   int get priority;
   @override
   bool get downgraded;
+
+  /// Create a copy of ModerationCauseBlockOther
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModerationCauseBlockOtherImplCopyWith<_$ModerationCauseBlockOtherImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

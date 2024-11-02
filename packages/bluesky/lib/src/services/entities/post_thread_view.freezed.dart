@@ -85,6 +85,9 @@ class _$PostThreadViewCopyWithImpl<$Res, $Val extends PostThreadView>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -107,6 +110,8 @@ class __$$UPostThreadViewRecordImplCopyWithImpl<$Res>
       $Res Function(_$UPostThreadViewRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -120,6 +125,8 @@ class __$$UPostThreadViewRecordImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PostThreadViewRecordCopyWith<$Res> get data {
@@ -153,7 +160,9 @@ class _$UPostThreadViewRecordImpl implements UPostThreadViewRecord {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UPostThreadViewRecordImplCopyWith<_$UPostThreadViewRecordImpl>
@@ -241,7 +250,10 @@ abstract class UPostThreadViewRecord implements PostThreadView {
 
   @override
   PostThreadViewRecord get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UPostThreadViewRecordImplCopyWith<_$UPostThreadViewRecordImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -267,6 +279,8 @@ class __$$UPostThreadViewNotFoundImplCopyWithImpl<$Res>
       $Res Function(_$UPostThreadViewNotFoundImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -280,6 +294,8 @@ class __$$UPostThreadViewNotFoundImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $NotFoundPostCopyWith<$Res> get data {
@@ -313,7 +329,9 @@ class _$UPostThreadViewNotFoundImpl implements UPostThreadViewNotFound {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UPostThreadViewNotFoundImplCopyWith<_$UPostThreadViewNotFoundImpl>
@@ -401,7 +419,10 @@ abstract class UPostThreadViewNotFound implements PostThreadView {
 
   @override
   NotFoundPost get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UPostThreadViewNotFoundImplCopyWith<_$UPostThreadViewNotFoundImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -427,6 +448,8 @@ class __$$UPostThreadViewBlockedImplCopyWithImpl<$Res>
       $Res Function(_$UPostThreadViewBlockedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -440,6 +463,8 @@ class __$$UPostThreadViewBlockedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlockedPostCopyWith<$Res> get data {
@@ -473,7 +498,9 @@ class _$UPostThreadViewBlockedImpl implements UPostThreadViewBlocked {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UPostThreadViewBlockedImplCopyWith<_$UPostThreadViewBlockedImpl>
@@ -561,7 +588,10 @@ abstract class UPostThreadViewBlocked implements PostThreadView {
 
   @override
   BlockedPost get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UPostThreadViewBlockedImplCopyWith<_$UPostThreadViewBlockedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -585,6 +615,8 @@ class __$$UPostThreadViewUnknownImplCopyWithImpl<$Res>
       $Res Function(_$UPostThreadViewUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -630,7 +662,9 @@ class _$UPostThreadViewUnknownImpl implements UPostThreadViewUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UPostThreadViewUnknownImplCopyWith<_$UPostThreadViewUnknownImpl>
@@ -719,7 +753,10 @@ abstract class UPostThreadViewUnknown implements PostThreadView {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PostThreadView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UPostThreadViewUnknownImplCopyWith<_$UPostThreadViewUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -24,8 +24,12 @@ mixin _$RepoRef {
   String get type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
+  /// Serializes this RepoRef to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RepoRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepoRefCopyWith<RepoRef> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -47,6 +51,8 @@ class _$RepoRefCopyWithImpl<$Res, $Val extends RepoRef>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepoRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -84,6 +90,8 @@ class __$$RepoRefImplCopyWithImpl<$Res>
       _$RepoRefImpl _value, $Res Function(_$RepoRefImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$RepoRefImpl implements _RepoRef {
             (identical(other.did, did) || other.did == did));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, did);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepoRefImplCopyWith<_$RepoRefImpl> get copyWith =>
@@ -161,8 +171,11 @@ abstract class _RepoRef implements RepoRef {
   String get type;
   @override
   String get did;
+
+  /// Create a copy of RepoRef
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepoRefImplCopyWith<_$RepoRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

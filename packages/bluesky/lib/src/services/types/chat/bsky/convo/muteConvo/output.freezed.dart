@@ -22,8 +22,12 @@ MuteConvoOutput _$MuteConvoOutputFromJson(Map<String, dynamic> json) {
 mixin _$MuteConvoOutput {
   ConvoView get convo => throw _privateConstructorUsedError;
 
+  /// Serializes this MuteConvoOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MuteConvoOutputCopyWith<MuteConvoOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$MuteConvoOutputCopyWithImpl<$Res, $Val extends MuteConvoOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$MuteConvoOutputCopyWithImpl<$Res, $Val extends MuteConvoOutput>
     ) as $Val);
   }
 
+  /// Create a copy of MuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ConvoViewCopyWith<$Res> get convo {
@@ -93,6 +101,8 @@ class __$$MuteConvoOutputImplCopyWithImpl<$Res>
       _$MuteConvoOutputImpl _value, $Res Function(_$MuteConvoOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +142,13 @@ class _$MuteConvoOutputImpl implements _MuteConvoOutput {
             (identical(other.convo, convo) || other.convo == convo));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, convo);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MuteConvoOutputImplCopyWith<_$MuteConvoOutputImpl> get copyWith =>
@@ -160,8 +172,11 @@ abstract class _MuteConvoOutput implements MuteConvoOutput {
 
   @override
   ConvoView get convo;
+
+  /// Create a copy of MuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MuteConvoOutputImplCopyWith<_$MuteConvoOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

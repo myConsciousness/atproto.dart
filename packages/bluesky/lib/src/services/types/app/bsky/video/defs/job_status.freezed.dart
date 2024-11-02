@@ -29,8 +29,12 @@ mixin _$JobStatus {
   String? get error => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
+  /// Serializes this JobStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of JobStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $JobStatusCopyWith<JobStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,6 +66,8 @@ class _$JobStatusCopyWithImpl<$Res, $Val extends JobStatus>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of JobStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -105,6 +111,8 @@ class _$JobStatusCopyWithImpl<$Res, $Val extends JobStatus>
     ) as $Val);
   }
 
+  /// Create a copy of JobStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get blob {
@@ -147,6 +155,8 @@ class __$$JobStatusImplCopyWithImpl<$Res>
       _$JobStatusImpl _value, $Res Function(_$JobStatusImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of JobStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -243,12 +253,14 @@ class _$JobStatusImpl implements _JobStatus {
             (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, jobId, did, state, integer, blob, error, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of JobStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$JobStatusImplCopyWith<_$JobStatusImpl> get copyWith =>
@@ -290,8 +302,11 @@ abstract class _JobStatus implements JobStatus {
   String? get error;
   @override
   String? get message;
+
+  /// Create a copy of JobStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$JobStatusImplCopyWith<_$JobStatusImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

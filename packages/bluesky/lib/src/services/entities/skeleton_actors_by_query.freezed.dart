@@ -28,8 +28,12 @@ mixin _$SkeletonActorsByQuery {
   int get hitsTotal => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this SkeletonActorsByQuery to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkeletonActorsByQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SkeletonActorsByQueryCopyWith<SkeletonActorsByQuery> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$SkeletonActorsByQueryCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SkeletonActorsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -99,6 +105,8 @@ class __$$SkeletonActorsByQueryImplCopyWithImpl<$Res>
       $Res Function(_$SkeletonActorsByQueryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkeletonActorsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -167,12 +175,14 @@ class _$SkeletonActorsByQueryImpl implements _SkeletonActorsByQuery {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_actors), hitsTotal, cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkeletonActorsByQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SkeletonActorsByQueryImplCopyWith<_$SkeletonActorsByQueryImpl>
@@ -198,15 +208,18 @@ abstract class _SkeletonActorsByQuery implements SkeletonActorsByQuery {
 
   @override
   List<SkeletonActor> get actors;
-  @override
 
   /// Count of search hits. optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
+  @override
   int get hitsTotal;
   @override
   String? get cursor;
+
+  /// Create a copy of SkeletonActorsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SkeletonActorsByQueryImplCopyWith<_$SkeletonActorsByQueryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

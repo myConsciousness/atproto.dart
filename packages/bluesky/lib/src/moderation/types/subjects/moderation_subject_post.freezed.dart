@@ -50,7 +50,9 @@ mixin _$ModerationSubjectPost {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationSubjectPost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModerationSubjectPostCopyWith<ModerationSubjectPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -77,6 +79,8 @@ class _$ModerationSubjectPostCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModerationSubjectPost
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -90,6 +94,8 @@ class _$ModerationSubjectPostCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of ModerationSubjectPost
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PostCopyWith<$Res> get data {
@@ -124,6 +130,8 @@ class __$$UModerationSubjectPostPostViewImplCopyWithImpl<$Res>
       $Res Function(_$UModerationSubjectPostPostViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationSubjectPost
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -163,7 +171,9 @@ class _$UModerationSubjectPostPostViewImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationSubjectPost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UModerationSubjectPostPostViewImplCopyWith<
@@ -234,8 +244,11 @@ abstract class UModerationSubjectPostPostView implements ModerationSubjectPost {
 
   @override
   Post get data;
+
+  /// Create a copy of ModerationSubjectPost
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationSubjectPostPostViewImplCopyWith<
           _$UModerationSubjectPostPostViewImpl>
       get copyWith => throw _privateConstructorUsedError;

@@ -36,8 +36,12 @@ mixin _$RepoInfo {
   @JsonKey(name: 'handleIsCorrect')
   bool get hasCorrectHandle => throw _privateConstructorUsedError;
 
+  /// Serializes this RepoInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RepoInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepoInfoCopyWith<RepoInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -65,6 +69,8 @@ class _$RepoInfoCopyWithImpl<$Res, $Val extends RepoInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepoInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,6 +129,8 @@ class __$$RepoInfoImplCopyWithImpl<$Res>
       _$RepoInfoImpl _value, $Res Function(_$RepoInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -226,7 +234,7 @@ class _$RepoInfoImpl implements _RepoInfo {
                 other.hasCorrectHandle == hasCorrectHandle));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -236,7 +244,9 @@ class _$RepoInfoImpl implements _RepoInfo {
       const DeepCollectionEquality().hash(_collections),
       hasCorrectHandle);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepoInfoImplCopyWith<_$RepoInfoImpl> get copyWith =>
@@ -262,29 +272,31 @@ abstract class _RepoInfo implements RepoInfo {
   factory _RepoInfo.fromJson(Map<String, dynamic> json) =
       _$RepoInfoImpl.fromJson;
 
-  @override
-
   /// The handle identifier of the repository.
-  String get handle;
   @override
+  String get handle;
 
   /// The DID (Decentralized Identifier) of the repository.
-  String get did;
   @override
+  String get did;
 
   /// The parsed DID document.
-  Map<String, dynamic> get didDoc;
   @override
+  Map<String, dynamic> get didDoc;
 
   /// A list of collections included in the repository.
-  List<String> get collections;
   @override
+  List<String> get collections;
 
   /// A boolean value indicating if the handle is correct.
+  @override
   @JsonKey(name: 'handleIsCorrect')
   bool get hasCorrectHandle;
+
+  /// Create a copy of RepoInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepoInfoImplCopyWith<_$RepoInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

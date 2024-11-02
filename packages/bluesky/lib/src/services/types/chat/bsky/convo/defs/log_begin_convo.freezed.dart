@@ -23,8 +23,12 @@ mixin _$LogBeginConvo {
   String get rev => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
 
+  /// Serializes this LogBeginConvo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LogBeginConvo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LogBeginConvoCopyWith<LogBeginConvo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$LogBeginConvoCopyWithImpl<$Res, $Val extends LogBeginConvo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LogBeginConvo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$LogBeginConvoImplCopyWithImpl<$Res>
       _$LogBeginConvoImpl _value, $Res Function(_$LogBeginConvoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LogBeginConvo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +141,13 @@ class _$LogBeginConvoImpl implements _LogBeginConvo {
             (identical(other.convoId, convoId) || other.convoId == convoId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, rev, convoId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LogBeginConvo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LogBeginConvoImplCopyWith<_$LogBeginConvoImpl> get copyWith =>
@@ -163,8 +173,11 @@ abstract class _LogBeginConvo implements LogBeginConvo {
   String get rev;
   @override
   String get convoId;
+
+  /// Create a copy of LogBeginConvo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LogBeginConvoImplCopyWith<_$LogBeginConvoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
