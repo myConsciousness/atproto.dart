@@ -13,6 +13,8 @@ _$EmbedVideoImpl _$$EmbedVideoImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$EmbedVideoImpl(
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedVideo),
           video: $checkedConvert('video',
               (v) => const BlobConverter().fromJson(v as Map<String, dynamic>)),
           captions: $checkedConvert(
@@ -33,10 +35,12 @@ _$EmbedVideoImpl _$$EmbedVideoImplFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$EmbedVideoImplToJson(_$EmbedVideoImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.type,
     'video': const BlobConverter().toJson(instance.video),
   };
 

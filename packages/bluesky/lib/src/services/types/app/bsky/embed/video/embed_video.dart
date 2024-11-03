@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../../entities/image_aspect_ratio.dart';
 import 'embed_video_caption.dart';
 
@@ -20,6 +21,7 @@ part 'embed_video.g.dart';
 class EmbedVideo with _$EmbedVideo {
   @jsonSerializable
   const factory EmbedVideo({
+    @typeKey @Default(appBskyEmbedVideo) String type,
     @BlobConverter() required Blob video,
     @Default([]) List<EmbedVideoCaption>? captions,
     String? alt,

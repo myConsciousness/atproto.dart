@@ -20,6 +20,8 @@ EmbedVideoCaption _$EmbedVideoCaptionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedVideoCaption {
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
   String get lang => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob get file => throw _privateConstructorUsedError;
@@ -40,7 +42,7 @@ abstract class $EmbedVideoCaptionCopyWith<$Res> {
           EmbedVideoCaption value, $Res Function(EmbedVideoCaption) then) =
       _$EmbedVideoCaptionCopyWithImpl<$Res, EmbedVideoCaption>;
   @useResult
-  $Res call({String lang, @BlobConverter() Blob file});
+  $Res call({@typeKey String type, String lang, @BlobConverter() Blob file});
 
   $BlobCopyWith<$Res> get file;
 }
@@ -60,10 +62,15 @@ class _$EmbedVideoCaptionCopyWithImpl<$Res, $Val extends EmbedVideoCaption>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? lang = null,
     Object? file = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       lang: null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
@@ -94,7 +101,7 @@ abstract class _$$EmbedVideoCaptionImplCopyWith<$Res>
       __$$EmbedVideoCaptionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String lang, @BlobConverter() Blob file});
+  $Res call({@typeKey String type, String lang, @BlobConverter() Blob file});
 
   @override
   $BlobCopyWith<$Res> get file;
@@ -113,10 +120,15 @@ class __$$EmbedVideoCaptionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? lang = null,
     Object? file = null,
   }) {
     return _then(_$EmbedVideoCaptionImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       lang: null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
@@ -134,11 +146,16 @@ class __$$EmbedVideoCaptionImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$EmbedVideoCaptionImpl implements _EmbedVideoCaption {
   const _$EmbedVideoCaptionImpl(
-      {required this.lang, @BlobConverter() required this.file});
+      {@typeKey this.type = appBskyEmbedVideoCaption,
+      required this.lang,
+      @BlobConverter() required this.file});
 
   factory _$EmbedVideoCaptionImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedVideoCaptionImplFromJson(json);
 
+  @override
+  @typeKey
+  final String type;
   @override
   final String lang;
   @override
@@ -147,7 +164,7 @@ class _$EmbedVideoCaptionImpl implements _EmbedVideoCaption {
 
   @override
   String toString() {
-    return 'EmbedVideoCaption(lang: $lang, file: $file)';
+    return 'EmbedVideoCaption(type: $type, lang: $lang, file: $file)';
   }
 
   @override
@@ -155,13 +172,14 @@ class _$EmbedVideoCaptionImpl implements _EmbedVideoCaption {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedVideoCaptionImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.lang, lang) || other.lang == lang) &&
             (identical(other.file, file) || other.file == file));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, lang, file);
+  int get hashCode => Object.hash(runtimeType, type, lang, file);
 
   /// Create a copy of EmbedVideoCaption
   /// with the given fields replaced by the non-null parameter values.
@@ -182,12 +200,16 @@ class _$EmbedVideoCaptionImpl implements _EmbedVideoCaption {
 
 abstract class _EmbedVideoCaption implements EmbedVideoCaption {
   const factory _EmbedVideoCaption(
-      {required final String lang,
+      {@typeKey final String type,
+      required final String lang,
       @BlobConverter() required final Blob file}) = _$EmbedVideoCaptionImpl;
 
   factory _EmbedVideoCaption.fromJson(Map<String, dynamic> json) =
       _$EmbedVideoCaptionImpl.fromJson;
 
+  @override
+  @typeKey
+  String get type;
   @override
   String get lang;
   @override

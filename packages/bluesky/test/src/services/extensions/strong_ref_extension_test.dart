@@ -22,6 +22,7 @@ void main() {
       images: (data) => null,
       external: (data) => null,
       recordWithMedia: (data) => null,
+      video: (data) => null,
       unknown: (data) => null,
     );
 

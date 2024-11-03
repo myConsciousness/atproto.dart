@@ -350,6 +350,11 @@ http.Response checkStatus(final http.Response response) {
     return response;
   }
 
+  if (statusCode == 409) {
+    // Conflict
+    return response;
+  }
+
   if (statusCode == 401) {
     throw UnauthorizedException(
       _buildErrorResponse(response),

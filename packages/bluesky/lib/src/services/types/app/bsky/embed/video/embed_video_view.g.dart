@@ -13,6 +13,8 @@ _$EmbedVideoViewImpl _$$EmbedVideoViewImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$EmbedVideoViewImpl(
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedVideoView),
           cid: $checkedConvert('cid', (v) => v as String),
           playlist: $checkedConvert('playlist', (v) => v as String),
           thumbnail: $checkedConvert('thumbnail', (v) => v as String?),
@@ -26,11 +28,13 @@ _$EmbedVideoViewImpl _$$EmbedVideoViewImplFromJson(Map json) => $checkedCreate(
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$EmbedVideoViewImplToJson(
     _$EmbedVideoViewImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.type,
     'cid': instance.cid,
     'playlist': instance.playlist,
   };

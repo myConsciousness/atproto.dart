@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../types/app/bsky/embed/video/embed_video.dart';
 import '../embed.dart';
 import '../embed_external.dart';
 import '../embed_images.dart';
@@ -42,6 +43,10 @@ final class _EmbedConverter
         return Embed.recordWithMedia(
           data: EmbedRecordWithMedia.fromJson(json),
         );
+      } else if (type == ids.appBskyEmbedVideo) {
+        return Embed.video(
+          data: EmbedVideo.fromJson(json),
+        );
       }
 
       return Embed.unknown(data: json);
@@ -56,6 +61,7 @@ final class _EmbedConverter
         images: (data) => data.toJson(),
         external: (data) => data.toJson(),
         recordWithMedia: (data) => data.toJson(),
+        video: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

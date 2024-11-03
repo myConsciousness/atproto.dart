@@ -20,6 +20,8 @@ EmbedVideo _$EmbedVideoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedVideo {
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob get video => throw _privateConstructorUsedError;
   List<EmbedVideoCaption>? get captions => throw _privateConstructorUsedError;
@@ -43,7 +45,8 @@ abstract class $EmbedVideoCopyWith<$Res> {
       _$EmbedVideoCopyWithImpl<$Res, EmbedVideo>;
   @useResult
   $Res call(
-      {@BlobConverter() Blob video,
+      {@typeKey String type,
+      @BlobConverter() Blob video,
       List<EmbedVideoCaption>? captions,
       String? alt,
       ImageAspectRatio? aspectRatio});
@@ -67,12 +70,17 @@ class _$EmbedVideoCopyWithImpl<$Res, $Val extends EmbedVideo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? video = null,
     Object? captions = freezed,
     Object? alt = freezed,
     Object? aspectRatio = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       video: null == video
           ? _value.video
           : video // ignore: cast_nullable_to_non_nullable
@@ -126,7 +134,8 @@ abstract class _$$EmbedVideoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@BlobConverter() Blob video,
+      {@typeKey String type,
+      @BlobConverter() Blob video,
       List<EmbedVideoCaption>? captions,
       String? alt,
       ImageAspectRatio? aspectRatio});
@@ -150,12 +159,17 @@ class __$$EmbedVideoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? video = null,
     Object? captions = freezed,
     Object? alt = freezed,
     Object? aspectRatio = freezed,
   }) {
     return _then(_$EmbedVideoImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       video: null == video
           ? _value.video
           : video // ignore: cast_nullable_to_non_nullable
@@ -181,7 +195,8 @@ class __$$EmbedVideoImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$EmbedVideoImpl implements _EmbedVideo {
   const _$EmbedVideoImpl(
-      {@BlobConverter() required this.video,
+      {@typeKey this.type = appBskyEmbedVideo,
+      @BlobConverter() required this.video,
       final List<EmbedVideoCaption>? captions = const [],
       this.alt,
       this.aspectRatio})
@@ -190,6 +205,9 @@ class _$EmbedVideoImpl implements _EmbedVideo {
   factory _$EmbedVideoImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedVideoImplFromJson(json);
 
+  @override
+  @typeKey
+  final String type;
   @override
   @BlobConverter()
   final Blob video;
@@ -211,7 +229,7 @@ class _$EmbedVideoImpl implements _EmbedVideo {
 
   @override
   String toString() {
-    return 'EmbedVideo(video: $video, captions: $captions, alt: $alt, aspectRatio: $aspectRatio)';
+    return 'EmbedVideo(type: $type, video: $video, captions: $captions, alt: $alt, aspectRatio: $aspectRatio)';
   }
 
   @override
@@ -219,6 +237,7 @@ class _$EmbedVideoImpl implements _EmbedVideo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedVideoImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.video, video) || other.video == video) &&
             const DeepCollectionEquality().equals(other._captions, _captions) &&
             (identical(other.alt, alt) || other.alt == alt) &&
@@ -228,7 +247,7 @@ class _$EmbedVideoImpl implements _EmbedVideo {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, video,
+  int get hashCode => Object.hash(runtimeType, type, video,
       const DeepCollectionEquality().hash(_captions), alt, aspectRatio);
 
   /// Create a copy of EmbedVideo
@@ -249,7 +268,8 @@ class _$EmbedVideoImpl implements _EmbedVideo {
 
 abstract class _EmbedVideo implements EmbedVideo {
   const factory _EmbedVideo(
-      {@BlobConverter() required final Blob video,
+      {@typeKey final String type,
+      @BlobConverter() required final Blob video,
       final List<EmbedVideoCaption>? captions,
       final String? alt,
       final ImageAspectRatio? aspectRatio}) = _$EmbedVideoImpl;
@@ -257,6 +277,9 @@ abstract class _EmbedVideo implements EmbedVideo {
   factory _EmbedVideo.fromJson(Map<String, dynamic> json) =
       _$EmbedVideoImpl.fromJson;
 
+  @override
+  @typeKey
+  String get type;
   @override
   @BlobConverter()
   Blob get video;

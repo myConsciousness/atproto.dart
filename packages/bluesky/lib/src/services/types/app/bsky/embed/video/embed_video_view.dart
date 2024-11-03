@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../../entities/image_aspect_ratio.dart';
 
 part 'embed_video_view.freezed.dart';
@@ -19,6 +20,7 @@ part 'embed_video_view.g.dart';
 class EmbedVideoView with _$EmbedVideoView {
   @jsonSerializable
   const factory EmbedVideoView({
+    @typeKey @Default(appBskyEmbedVideoView) String type,
     required String cid,
     required String playlist,
     required String? thumbnail,

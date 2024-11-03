@@ -13,7 +13,6 @@ sealed class XRPCError with _$XRPCError {
   const factory XRPCError({
     required String error,
     String? message,
-    @Default(false) bool canUpload,
   }) = _XRPCError;
 
   factory XRPCError.fromJson(Map<String, Object?> json) =>

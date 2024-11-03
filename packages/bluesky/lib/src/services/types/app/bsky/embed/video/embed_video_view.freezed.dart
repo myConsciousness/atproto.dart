@@ -20,6 +20,8 @@ EmbedVideoView _$EmbedVideoViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedVideoView {
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String get playlist => throw _privateConstructorUsedError;
   String? get thumbnail => throw _privateConstructorUsedError;
@@ -43,7 +45,8 @@ abstract class $EmbedVideoViewCopyWith<$Res> {
       _$EmbedVideoViewCopyWithImpl<$Res, EmbedVideoView>;
   @useResult
   $Res call(
-      {String cid,
+      {@typeKey String type,
+      String cid,
       String playlist,
       String? thumbnail,
       String? alt,
@@ -67,6 +70,7 @@ class _$EmbedVideoViewCopyWithImpl<$Res, $Val extends EmbedVideoView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? cid = null,
     Object? playlist = null,
     Object? thumbnail = freezed,
@@ -74,6 +78,10 @@ class _$EmbedVideoViewCopyWithImpl<$Res, $Val extends EmbedVideoView>
     Object? aspectRatio = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -121,7 +129,8 @@ abstract class _$$EmbedVideoViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String cid,
+      {@typeKey String type,
+      String cid,
       String playlist,
       String? thumbnail,
       String? alt,
@@ -144,6 +153,7 @@ class __$$EmbedVideoViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? cid = null,
     Object? playlist = null,
     Object? thumbnail = freezed,
@@ -151,6 +161,10 @@ class __$$EmbedVideoViewImplCopyWithImpl<$Res>
     Object? aspectRatio = freezed,
   }) {
     return _then(_$EmbedVideoViewImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -180,7 +194,8 @@ class __$$EmbedVideoViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$EmbedVideoViewImpl implements _EmbedVideoView {
   const _$EmbedVideoViewImpl(
-      {required this.cid,
+      {@typeKey this.type = appBskyEmbedVideoView,
+      required this.cid,
       required this.playlist,
       required this.thumbnail,
       this.alt,
@@ -189,6 +204,9 @@ class _$EmbedVideoViewImpl implements _EmbedVideoView {
   factory _$EmbedVideoViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedVideoViewImplFromJson(json);
 
+  @override
+  @typeKey
+  final String type;
   @override
   final String cid;
   @override
@@ -202,7 +220,7 @@ class _$EmbedVideoViewImpl implements _EmbedVideoView {
 
   @override
   String toString() {
-    return 'EmbedVideoView(cid: $cid, playlist: $playlist, thumbnail: $thumbnail, alt: $alt, aspectRatio: $aspectRatio)';
+    return 'EmbedVideoView(type: $type, cid: $cid, playlist: $playlist, thumbnail: $thumbnail, alt: $alt, aspectRatio: $aspectRatio)';
   }
 
   @override
@@ -210,6 +228,7 @@ class _$EmbedVideoViewImpl implements _EmbedVideoView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedVideoViewImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.playlist, playlist) ||
                 other.playlist == playlist) &&
@@ -222,8 +241,8 @@ class _$EmbedVideoViewImpl implements _EmbedVideoView {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, cid, playlist, thumbnail, alt, aspectRatio);
+  int get hashCode => Object.hash(
+      runtimeType, type, cid, playlist, thumbnail, alt, aspectRatio);
 
   /// Create a copy of EmbedVideoView
   /// with the given fields replaced by the non-null parameter values.
@@ -244,7 +263,8 @@ class _$EmbedVideoViewImpl implements _EmbedVideoView {
 
 abstract class _EmbedVideoView implements EmbedVideoView {
   const factory _EmbedVideoView(
-      {required final String cid,
+      {@typeKey final String type,
+      required final String cid,
       required final String playlist,
       required final String? thumbnail,
       final String? alt,
@@ -253,6 +273,9 @@ abstract class _EmbedVideoView implements EmbedVideoView {
   factory _EmbedVideoView.fromJson(Map<String, dynamic> json) =
       _$EmbedVideoViewImpl.fromJson;
 
+  @override
+  @typeKey
+  String get type;
   @override
   String get cid;
   @override

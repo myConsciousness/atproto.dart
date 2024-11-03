@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../types/app/bsky/embed/video/embed_video.dart';
 import 'converter/embed_converter.dart';
 import 'embed_external.dart';
 import 'embed_images.dart';
@@ -36,6 +37,10 @@ class Embed with _$Embed {
   const factory Embed.recordWithMedia({
     required EmbedRecordWithMedia data,
   }) = UEmbedRecordWithMedia;
+
+  const factory Embed.video({
+    required EmbedVideo data,
+  }) = UEmbedVideo;
 
   const factory Embed.unknown({
     required Map<String, dynamic> data,
