@@ -65,6 +65,7 @@ base class ServiceContext {
 
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
+    final String? service,
     final Map<String, String>? headers,
     final Map<String, dynamic>? parameters,
     final xrpc.ResponseDataBuilder<T>? to,
@@ -75,7 +76,7 @@ base class ServiceContext {
         () async => await xrpc.query(
           methodId,
           protocol: _protocol,
-          service: service,
+          service: service ?? this.service,
           headers: _mergeHeaders(headers),
           parameters: parameters,
           to: to,
@@ -87,6 +88,7 @@ base class ServiceContext {
 
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
+    final String? service,
     final Map<String, String>? headers,
     final Map<String, dynamic>? parameters,
     final dynamic body,
@@ -97,7 +99,7 @@ base class ServiceContext {
         () async => await xrpc.procedure(
           methodId,
           protocol: _protocol,
-          service: service,
+          service: service ?? this.service,
           headers: _mergeHeaders(headers),
           parameters: parameters,
           body: body,

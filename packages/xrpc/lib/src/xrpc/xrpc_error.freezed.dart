@@ -21,7 +21,8 @@ XRPCError _$XRPCErrorFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$XRPCError {
   String get error => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
+  bool get canUpload => throw _privateConstructorUsedError;
 
   /// Serializes this XRPCError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +39,7 @@ abstract class $XRPCErrorCopyWith<$Res> {
   factory $XRPCErrorCopyWith(XRPCError value, $Res Function(XRPCError) then) =
       _$XRPCErrorCopyWithImpl<$Res, XRPCError>;
   @useResult
-  $Res call({String error, String message});
+  $Res call({String error, String? message, bool canUpload});
 }
 
 /// @nodoc
@@ -57,17 +58,22 @@ class _$XRPCErrorCopyWithImpl<$Res, $Val extends XRPCError>
   @override
   $Res call({
     Object? error = null,
-    Object? message = null,
+    Object? message = freezed,
+    Object? canUpload = null,
   }) {
     return _then(_value.copyWith(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
-      message: null == message
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      canUpload: null == canUpload
+          ? _value.canUpload
+          : canUpload // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -80,7 +86,7 @@ abstract class _$$XRPCErrorImplCopyWith<$Res>
       __$$XRPCErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String error, String message});
+  $Res call({String error, String? message, bool canUpload});
 }
 
 /// @nodoc
@@ -97,17 +103,22 @@ class __$$XRPCErrorImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? error = null,
-    Object? message = null,
+    Object? message = freezed,
+    Object? canUpload = null,
   }) {
     return _then(_$XRPCErrorImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
-      message: null == message
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      canUpload: null == canUpload
+          ? _value.canUpload
+          : canUpload // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -115,7 +126,8 @@ class __$$XRPCErrorImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$XRPCErrorImpl implements _XRPCError {
-  const _$XRPCErrorImpl({required this.error, required this.message});
+  const _$XRPCErrorImpl(
+      {required this.error, this.message, this.canUpload = false});
 
   factory _$XRPCErrorImpl.fromJson(Map<String, dynamic> json) =>
       _$$XRPCErrorImplFromJson(json);
@@ -123,11 +135,14 @@ class _$XRPCErrorImpl implements _XRPCError {
   @override
   final String error;
   @override
-  final String message;
+  final String? message;
+  @override
+  @JsonKey()
+  final bool canUpload;
 
   @override
   String toString() {
-    return 'XRPCError(error: $error, message: $message)';
+    return 'XRPCError(error: $error, message: $message, canUpload: $canUpload)';
   }
 
   @override
@@ -136,12 +151,14 @@ class _$XRPCErrorImpl implements _XRPCError {
         (other.runtimeType == runtimeType &&
             other is _$XRPCErrorImpl &&
             (identical(other.error, error) || other.error == error) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.canUpload, canUpload) ||
+                other.canUpload == canUpload));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, error, message);
+  int get hashCode => Object.hash(runtimeType, error, message, canUpload);
 
   /// Create a copy of XRPCError
   /// with the given fields replaced by the non-null parameter values.
@@ -162,7 +179,8 @@ class _$XRPCErrorImpl implements _XRPCError {
 abstract class _XRPCError implements XRPCError {
   const factory _XRPCError(
       {required final String error,
-      required final String message}) = _$XRPCErrorImpl;
+      final String? message,
+      final bool canUpload}) = _$XRPCErrorImpl;
 
   factory _XRPCError.fromJson(Map<String, dynamic> json) =
       _$XRPCErrorImpl.fromJson;
@@ -170,7 +188,9 @@ abstract class _XRPCError implements XRPCError {
   @override
   String get error;
   @override
-  String get message;
+  String? get message;
+  @override
+  bool get canUpload;
 
   /// Create a copy of XRPCError
   /// with the given fields replaced by the non-null parameter values.

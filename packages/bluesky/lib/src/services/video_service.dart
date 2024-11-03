@@ -7,6 +7,7 @@ import 'dart:typed_data';
 
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:nanoid/nanoid.dart';
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
@@ -14,6 +15,8 @@ import 'service_context.dart';
 import 'types/app/bsky/video/getJobStatus/output.dart';
 import 'types/app/bsky/video/getUploadLimits/output.dart';
 import 'types/app/bsky/video/uploadVideo/output.dart';
+
+const _videoService = 'video.bsky.app';
 
 /// Represents `app.bsky.video.*` service.
 final class VideoService {
@@ -27,6 +30,7 @@ final class VideoService {
     Map<String, String>? headers,
   }) async =>
       await _ctx.get(
+        service: _videoService,
         ns.appBskyVideoGetJobStatus,
         headers: headers,
         parameters: {
@@ -40,6 +44,7 @@ final class VideoService {
     Map<String, String>? headers,
   }) async =>
       await _ctx.get(
+        service: _videoService,
         ns.appBskyVideoGetUploadLimits,
         headers: headers,
         to: GetUploadLimitsOutput.fromJson,
@@ -51,8 +56,13 @@ final class VideoService {
     Map<String, String>? headers,
   }) async =>
       await _ctx.post(
+        service: _videoService,
         ns.appBskyVideoUploadVideo,
         headers: headers,
+        parameters: {
+          'did': _ctx.atproto.session!.did,
+          'name': nanoid(12),
+        },
         body: bytes,
         to: UploadVideoOutput.fromJson,
       );

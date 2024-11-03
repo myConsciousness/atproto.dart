@@ -126,6 +126,7 @@ sealed class ATProto {
   ///              structure.
   Future<core.XRPCResponse<T>> get<T>(
     final core.NSID methodId, {
+    final String? service,
     final Map<String, String>? headers,
     final Map<String, dynamic>? parameters,
     final core.ResponseDataBuilder<T>? to,
@@ -146,6 +147,7 @@ sealed class ATProto {
   ///         object.
   Future<core.XRPCResponse<T>> post<T>(
     final core.NSID methodId, {
+    final String? service,
     final Map<String, String>? headers,
     final Map<String, dynamic>? parameters,
     final dynamic body,
@@ -202,6 +204,7 @@ final class _ATProto implements ATProto {
   @override
   Future<core.XRPCResponse<T>> get<T>(
     final core.NSID methodId, {
+    final String? service,
     final Map<String, String>? headers,
     final Map<String, dynamic>? parameters,
     final core.ResponseDataBuilder<T>? to,
@@ -209,6 +212,7 @@ final class _ATProto implements ATProto {
   }) async =>
       await _ctx.get(
         methodId,
+        service: service,
         headers: headers,
         parameters: parameters,
         to: to,
@@ -218,6 +222,7 @@ final class _ATProto implements ATProto {
   @override
   Future<core.XRPCResponse<T>> post<T>(
     final core.NSID methodId, {
+    final String? service,
     final Map<String, String>? headers,
     final Map<String, dynamic>? parameters,
     final dynamic body,
@@ -225,6 +230,7 @@ final class _ATProto implements ATProto {
   }) async =>
       await _ctx.post(
         methodId,
+        service: service,
         headers: headers,
         parameters: parameters,
         body: body,

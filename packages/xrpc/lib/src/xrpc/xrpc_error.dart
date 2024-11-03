@@ -12,7 +12,8 @@ part 'xrpc_error.g.dart';
 sealed class XRPCError with _$XRPCError {
   const factory XRPCError({
     required String error,
-    required String message,
+    String? message,
+    @Default(false) bool canUpload,
   }) = _XRPCError;
 
   factory XRPCError.fromJson(Map<String, Object?> json) =>

@@ -14,7 +14,8 @@ _$XRPCErrorImpl _$$XRPCErrorImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$XRPCErrorImpl(
           error: $checkedConvert('error', (v) => v as String),
-          message: $checkedConvert('message', (v) => v as String),
+          message: $checkedConvert('message', (v) => v as String?),
+          canUpload: $checkedConvert('canUpload', (v) => v as bool? ?? false),
         );
         return val;
       },
@@ -24,4 +25,5 @@ Map<String, dynamic> _$$XRPCErrorImplToJson(_$XRPCErrorImpl instance) =>
     <String, dynamic>{
       'error': instance.error,
       'message': instance.message,
+      'canUpload': instance.canUpload,
     };

@@ -347,6 +347,8 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth
   Future<core.XRPCResponse<ServiceAuthToken>> getServiceAuth({
     required String aud,
+    int? exp,
+    core.NSID? lxm,
     Map<String, String>? headers,
   }) async =>
       await _ctx.get(
@@ -354,6 +356,8 @@ final class ServerService {
         headers: headers,
         parameters: {
           'aud': aud,
+          'exp': exp,
+          'lxm': lxm.toString(),
         },
         to: ServiceAuthToken.fromJson,
       );

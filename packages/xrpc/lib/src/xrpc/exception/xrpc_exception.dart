@@ -30,7 +30,7 @@ base class XRPCException implements Exception {
       ..write(' ')
       ..write(response.status.code)
       ..write(' ')
-      ..write(response.data.message);
+      ..write(response.data.message ?? response.data.error);
 
     return buffer.toString();
   }
