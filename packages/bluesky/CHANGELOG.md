@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.16.15
+
+- Add property`.knownFollowers` on `ActorViewer`.
+- Add `.getKnownFollowers` on `GraphService`.
+
 ## v0.16.14
 
 - Optimize video features. ([#1788](https://github.com/myConsciousness/atproto.dart/pull/1788))
