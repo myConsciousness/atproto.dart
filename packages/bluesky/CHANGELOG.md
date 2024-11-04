@@ -2,8 +2,8 @@
 
 ## v0.16.15
 
-- Add property`.knownFollowers` on `ActorViewer`.
-- Add `.getKnownFollowers` on `GraphService`.
+- Add property`.knownFollowers` on `ActorViewer`. ([#1789](https://github.com/myConsciousness/atproto.dart/pull/1789))
+- Add `.getKnownFollowers` on `GraphService`. ([#1789](https://github.com/myConsciousness/atproto.dart/pull/1789))
 
 ## v0.16.14
 
