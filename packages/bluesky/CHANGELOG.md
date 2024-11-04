@@ -2,7 +2,7 @@
 
 ## v0.16.14
 
-- Optimize video features.
+- Optimize video features. ([#1788](https://github.com/myConsciousness/atproto.dart/pull/1788))
 
 ## v0.16.13
 
