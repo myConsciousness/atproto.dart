@@ -2,8 +2,12 @@
 
 ## v0.16.15
 
-- Add property`.knownFollowers` on `ActorViewer`. ([#1789](https://github.com/myConsciousness/atproto.dart/pull/1789))
-- Add `.getKnownFollowers` on `GraphService`. ([#1789](https://github.com/myConsciousness/atproto.dart/pull/1789))
+- Support known followers. ([#1789](https://github.com/myConsciousness/atproto.dart/pull/1789))
+  - Add property`.knownFollowers` on `ActorViewer`.
+  - Add `.getKnownFollowers` on `GraphService`.
+- Support pinned post. ([#1790](https://github.com/myConsciousness/atproto.dart/pull/1790))
+  - Add property `.pinnedPost` on `ActorProfile` and `ProfileRecord`.
+  - Add parameter `pinnedPost` on `ActorService.profile`.
 
 ## v0.16.14
 

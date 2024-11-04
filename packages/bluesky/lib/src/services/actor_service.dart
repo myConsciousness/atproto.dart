@@ -109,6 +109,7 @@ final class ActorService {
     core.Blob? avatar,
     core.Blob? banner,
     atp.Labels? labels,
+    atp.StrongRef? pinnedPost,
   }) async =>
       await _ctx.atproto.repo.putRecord(
         uri: core.AtUri.make(
@@ -122,6 +123,7 @@ final class ActorService {
           'avatar': avatar,
           'banner': banner,
           'labels': labels?.toJson(),
+          'pinnedPost': pinnedPost?.toJson(),
         },
       );
 

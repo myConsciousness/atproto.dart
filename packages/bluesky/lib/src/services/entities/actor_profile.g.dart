@@ -42,8 +42,15 @@ _$ActorProfileImpl _$$ActorProfileImplFromJson(Map json) => $checkedCreate(
                   ?.map((e) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          createdAt: $checkedConvert('createdAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
           indexedAt: $checkedConvert('indexedAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
+          pinnedPost: $checkedConvert(
+              'pinnedPost',
+              (v) => v == null
+                  ? null
+                  : StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -71,6 +78,8 @@ Map<String, dynamic> _$$ActorProfileImplToJson(_$ActorProfileImpl instance) {
   writeNotNull('associated', instance.associated?.toJson());
   val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
+  writeNotNull('pinnedPost', instance.pinnedPost?.toJson());
   return val;
 }

@@ -22,15 +22,20 @@ _$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
-          labels: $checkedConvert(
-              'labels',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
-                  v, labelsConverter.fromJson)),
           banner: $checkedConvert(
               'banner',
               (v) => v == null
                   ? null
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
+          labels: $checkedConvert(
+              'labels',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
+                  v, labelsConverter.fromJson)),
+          pinnedPost: $checkedConvert(
+              'pinnedPost',
+              (v) => v == null
+                  ? null
+                  : StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -51,11 +56,12 @@ Map<String, dynamic> _$$ProfileRecordImplToJson(_$ProfileRecordImpl instance) {
   writeNotNull('displayName', instance.displayName);
   writeNotNull('description', instance.description);
   writeNotNull('avatar', instance.avatar?.toJson());
+  writeNotNull('banner', instance.banner?.toJson());
   writeNotNull(
       'labels',
       _$JsonConverterToJson<Map<String, dynamic>, Labels>(
           instance.labels, labelsConverter.toJson));
-  writeNotNull('banner', instance.banner?.toJson());
+  writeNotNull('pinnedPost', instance.pinnedPost?.toJson());
   return val;
 }
 
