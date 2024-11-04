@@ -2,6 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:io';
+
+import 'package:bluesky/app_bsky_embed_video.dart';
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/core.dart';
 import 'package:bluesky/bluesky.dart';
@@ -80,9 +83,19 @@ Future<void> main() async {
 
     print(feeds);
 
+    //! Upload video
+    final uploadedVideo = await bsky.video.uploadVideo(
+      File('./cool_video.mov').readAsBytesSync(),
+    );
+
     //! Let's post cool stuff!
     final createdRecord = await bsky.feed.post(
       text: 'Hello, Bluesky!',
+      embed: Embed.video(
+        data: EmbedVideo(
+          video: uploadedVideo.data.blob!,
+        ),
+      ),
     );
 
     print(createdRecord);

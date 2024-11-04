@@ -86,21 +86,78 @@ final class VideoService {
           1000,
     );
 
+    final mimeType = _detectVideoMimeType(bytes);
+
     return await _ctx.post(
       service: _videoService,
       ns.appBskyVideoUploadVideo,
       headers: {
         'Authorization': 'Bearer ${auth.data.token}',
-        'Content-Type': 'video/mp4',
+        'Content-Type': mimeType,
         'Content-Length': bytes.lengthInBytes.toString(),
         ...?$headers,
       },
       parameters: {
         'did': _ctx.atproto.session!.did,
-        'name': '${nanoid(12)}.mov',
+        'name': '${nanoid(12)}.${_getVideoExtension(mimeType)}',
       },
       body: bytes,
       to: JobStatus.fromJson,
     );
+  }
+
+  String _detectVideoMimeType(final Uint8List bytes) {
+    if (bytes.length < 12) throw UnsupportedError('Unsupported video format');
+
+    // MP4 variants (.mp4)
+    if (bytes[4] == 0x66 &&
+        bytes[5] == 0x74 &&
+        bytes[6] == 0x79 &&
+        bytes[7] == 0x70) {
+      return 'video/mp4';
+    }
+
+    // WebM (.webm)
+    if (bytes[0] == 0x1A &&
+        bytes[1] == 0x45 &&
+        bytes[2] == 0xDF &&
+        bytes[3] == 0xA3) {
+      return 'video/webm';
+    }
+
+    // MPEG (.mpeg)
+    if (bytes[0] == 0x00 &&
+        bytes[1] == 0x00 &&
+        bytes[2] == 0x01 &&
+        bytes[3] == 0xB3) {
+      return 'video/mpeg';
+    }
+
+    // MOV (.mov)
+    if (bytes[4] == 0x66 &&
+        bytes[5] == 0x74 &&
+        bytes[6] == 0x79 &&
+        bytes[7] == 0x70 &&
+        bytes[8] == 0x71 &&
+        bytes[9] == 0x74) {
+      return 'video/quicktime';
+    }
+
+    throw UnsupportedError('Unsupported video format');
+  }
+
+  String _getVideoExtension(final String mimeType) {
+    switch (mimeType) {
+      case 'video/mp4':
+        return 'mp4';
+      case 'video/webm':
+        return 'webm';
+      case 'video/mpeg':
+        return 'mpeg';
+      case 'video/quicktime':
+        return 'mov';
+      default:
+        throw UnsupportedError('Unsupported mime type: $mimeType');
+    }
   }
 }
