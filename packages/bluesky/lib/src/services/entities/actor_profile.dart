@@ -37,7 +37,9 @@ class ActorProfile with _$ActorProfile {
     ProfileAssociated? associated,
     @Default(defaultActorViewer) ActorViewer viewer,
     List<Label>? labels,
+    DateTime? createdAt,
     DateTime? indexedAt,
+    StrongRef? pinnedPost,
   }) = _ActorProfile;
 
   factory ActorProfile.fromJson(Map<String, Object?> json) =>

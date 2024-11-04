@@ -24,8 +24,9 @@ class ProfileRecord with _$ProfileRecord {
     String? displayName,
     String? description,
     Blob? avatar,
-    @labelsConverter Labels? labels,
     Blob? banner,
+    @labelsConverter Labels? labels,
+    StrongRef? pinnedPost,
   }) = _ProfileRecord;
 
   factory ProfileRecord.fromJson(Map<String, Object?> json) =>

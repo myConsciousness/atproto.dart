@@ -25,9 +25,10 @@ mixin _$ProfileRecord {
   String? get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
+  Blob? get banner => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
-  Blob? get banner => throw _privateConstructorUsedError;
+  StrongRef? get pinnedPost => throw _privateConstructorUsedError;
 
   /// Serializes this ProfileRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,12 +51,14 @@ abstract class $ProfileRecordCopyWith<$Res> {
       String? displayName,
       String? description,
       Blob? avatar,
+      Blob? banner,
       @labelsConverter Labels? labels,
-      Blob? banner});
+      StrongRef? pinnedPost});
 
   $BlobCopyWith<$Res>? get avatar;
-  $LabelsCopyWith<$Res>? get labels;
   $BlobCopyWith<$Res>? get banner;
+  $LabelsCopyWith<$Res>? get labels;
+  $StrongRefCopyWith<$Res>? get pinnedPost;
 }
 
 /// @nodoc
@@ -77,8 +80,9 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
-    Object? labels = freezed,
     Object? banner = freezed,
+    Object? labels = freezed,
+    Object? pinnedPost = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -97,14 +101,18 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
       banner: freezed == banner
           ? _value.banner
           : banner // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
+      pinnedPost: freezed == pinnedPost
+          ? _value.pinnedPost
+          : pinnedPost // ignore: cast_nullable_to_non_nullable
+              as StrongRef?,
     ) as $Val);
   }
 
@@ -126,6 +134,20 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $BlobCopyWith<$Res>? get banner {
+    if (_value.banner == null) {
+      return null;
+    }
+
+    return $BlobCopyWith<$Res>(_value.banner!, (value) {
+      return _then(_value.copyWith(banner: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ProfileRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
@@ -140,13 +162,13 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BlobCopyWith<$Res>? get banner {
-    if (_value.banner == null) {
+  $StrongRefCopyWith<$Res>? get pinnedPost {
+    if (_value.pinnedPost == null) {
       return null;
     }
 
-    return $BlobCopyWith<$Res>(_value.banner!, (value) {
-      return _then(_value.copyWith(banner: value) as $Val);
+    return $StrongRefCopyWith<$Res>(_value.pinnedPost!, (value) {
+      return _then(_value.copyWith(pinnedPost: value) as $Val);
     });
   }
 }
@@ -164,15 +186,18 @@ abstract class _$$ProfileRecordImplCopyWith<$Res>
       String? displayName,
       String? description,
       Blob? avatar,
+      Blob? banner,
       @labelsConverter Labels? labels,
-      Blob? banner});
+      StrongRef? pinnedPost});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
   @override
+  $BlobCopyWith<$Res>? get banner;
+  @override
   $LabelsCopyWith<$Res>? get labels;
   @override
-  $BlobCopyWith<$Res>? get banner;
+  $StrongRefCopyWith<$Res>? get pinnedPost;
 }
 
 /// @nodoc
@@ -192,8 +217,9 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
-    Object? labels = freezed,
     Object? banner = freezed,
+    Object? labels = freezed,
+    Object? pinnedPost = freezed,
   }) {
     return _then(_$ProfileRecordImpl(
       type: null == type
@@ -212,14 +238,18 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
       banner: freezed == banner
           ? _value.banner
           : banner // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
+      pinnedPost: freezed == pinnedPost
+          ? _value.pinnedPost
+          : pinnedPost // ignore: cast_nullable_to_non_nullable
+              as StrongRef?,
     ));
   }
 }
@@ -233,8 +263,9 @@ class _$ProfileRecordImpl implements _ProfileRecord {
       this.displayName,
       this.description,
       this.avatar,
+      this.banner,
       @labelsConverter this.labels,
-      this.banner});
+      this.pinnedPost});
 
   factory _$ProfileRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileRecordImplFromJson(json);
@@ -249,14 +280,16 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   @override
   final Blob? avatar;
   @override
+  final Blob? banner;
+  @override
   @labelsConverter
   final Labels? labels;
   @override
-  final Blob? banner;
+  final StrongRef? pinnedPost;
 
   @override
   String toString() {
-    return 'ProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, labels: $labels, banner: $banner)';
+    return 'ProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, pinnedPost: $pinnedPost)';
   }
 
   @override
@@ -270,14 +303,16 @@ class _$ProfileRecordImpl implements _ProfileRecord {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.banner, banner) || other.banner == banner) &&
             (identical(other.labels, labels) || other.labels == labels) &&
-            (identical(other.banner, banner) || other.banner == banner));
+            (identical(other.pinnedPost, pinnedPost) ||
+                other.pinnedPost == pinnedPost));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, displayName, description, avatar, labels, banner);
+  int get hashCode => Object.hash(runtimeType, type, displayName, description,
+      avatar, banner, labels, pinnedPost);
 
   /// Create a copy of ProfileRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -301,8 +336,9 @@ abstract class _ProfileRecord implements ProfileRecord {
       final String? displayName,
       final String? description,
       final Blob? avatar,
+      final Blob? banner,
       @labelsConverter final Labels? labels,
-      final Blob? banner}) = _$ProfileRecordImpl;
+      final StrongRef? pinnedPost}) = _$ProfileRecordImpl;
 
   factory _ProfileRecord.fromJson(Map<String, dynamic> json) =
       _$ProfileRecordImpl.fromJson;
@@ -317,10 +353,12 @@ abstract class _ProfileRecord implements ProfileRecord {
   @override
   Blob? get avatar;
   @override
+  Blob? get banner;
+  @override
   @labelsConverter
   Labels? get labels;
   @override
-  Blob? get banner;
+  StrongRef? get pinnedPost;
 
   /// Create a copy of ProfileRecord
   /// with the given fields replaced by the non-null parameter values.
