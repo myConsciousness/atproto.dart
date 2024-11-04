@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.14
+
+- Optimize video features.
+
 ## v0.16.13
 
 - Add `VideoService`. ([#1783](https://github.com/myConsciousness/atproto.dart/pull/1783))
