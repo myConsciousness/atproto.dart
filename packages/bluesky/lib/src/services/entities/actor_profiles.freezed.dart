@@ -22,8 +22,12 @@ ActorProfiles _$ActorProfilesFromJson(Map<String, dynamic> json) {
 mixin _$ActorProfiles {
   List<ActorProfile> get profiles => throw _privateConstructorUsedError;
 
+  /// Serializes this ActorProfiles to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ActorProfiles
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ActorProfilesCopyWith<ActorProfiles> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$ActorProfilesCopyWithImpl<$Res, $Val extends ActorProfiles>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ActorProfiles
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$ActorProfilesImplCopyWithImpl<$Res>
       _$ActorProfilesImpl _value, $Res Function(_$ActorProfilesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ActorProfiles
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,12 +132,14 @@ class _$ActorProfilesImpl implements _ActorProfiles {
             const DeepCollectionEquality().equals(other._profiles, _profiles));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_profiles));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ActorProfiles
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ActorProfilesImplCopyWith<_$ActorProfilesImpl> get copyWith =>
@@ -152,8 +162,11 @@ abstract class _ActorProfiles implements ActorProfiles {
 
   @override
   List<ActorProfile> get profiles;
+
+  /// Create a copy of ActorProfiles
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ActorProfilesImplCopyWith<_$ActorProfilesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

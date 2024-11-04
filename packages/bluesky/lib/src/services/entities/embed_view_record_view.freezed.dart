@@ -98,6 +98,9 @@ class _$EmbedViewRecordViewCopyWithImpl<$Res, $Val extends EmbedViewRecordView>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -122,6 +125,8 @@ class __$$UEmbedViewRecordViewRecordImplCopyWithImpl<$Res>
       $Res Function(_$UEmbedViewRecordViewRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -135,6 +140,8 @@ class __$$UEmbedViewRecordViewRecordImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewRecordViewRecordCopyWith<$Res> get data {
@@ -168,7 +175,9 @@ class _$UEmbedViewRecordViewRecordImpl implements UEmbedViewRecordViewRecord {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedViewRecordViewRecordImplCopyWith<_$UEmbedViewRecordViewRecordImpl>
@@ -270,7 +279,10 @@ abstract class UEmbedViewRecordViewRecord implements EmbedViewRecordView {
 
   @override
   EmbedViewRecordViewRecord get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedViewRecordViewRecordImplCopyWith<_$UEmbedViewRecordViewRecordImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -297,6 +309,8 @@ class __$$UEmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>
       $Res Function(_$UEmbedViewRecordViewNotFoundImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -310,6 +324,8 @@ class __$$UEmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewRecordViewNotFoundCopyWith<$Res> get data {
@@ -344,7 +360,9 @@ class _$UEmbedViewRecordViewNotFoundImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedViewRecordViewNotFoundImplCopyWith<
@@ -447,7 +465,10 @@ abstract class UEmbedViewRecordViewNotFound implements EmbedViewRecordView {
 
   @override
   EmbedViewRecordViewNotFound get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedViewRecordViewNotFoundImplCopyWith<
           _$UEmbedViewRecordViewNotFoundImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -475,6 +496,8 @@ class __$$UEmbedViewRecordViewBlockedImplCopyWithImpl<$Res>
       $Res Function(_$UEmbedViewRecordViewBlockedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -488,6 +511,8 @@ class __$$UEmbedViewRecordViewBlockedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewRecordViewBlockedCopyWith<$Res> get data {
@@ -521,7 +546,9 @@ class _$UEmbedViewRecordViewBlockedImpl implements UEmbedViewRecordViewBlocked {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedViewRecordViewBlockedImplCopyWith<_$UEmbedViewRecordViewBlockedImpl>
@@ -623,7 +650,10 @@ abstract class UEmbedViewRecordViewBlocked implements EmbedViewRecordView {
 
   @override
   EmbedViewRecordViewBlocked get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedViewRecordViewBlockedImplCopyWith<_$UEmbedViewRecordViewBlockedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -650,6 +680,8 @@ class __$$UEmbedViewRecordViewGeneratorViewImplCopyWithImpl<$Res>
       $Res Function(_$UEmbedViewRecordViewGeneratorViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -663,6 +695,8 @@ class __$$UEmbedViewRecordViewGeneratorViewImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FeedGeneratorViewCopyWith<$Res> get data {
@@ -697,7 +731,9 @@ class _$UEmbedViewRecordViewGeneratorViewImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedViewRecordViewGeneratorViewImplCopyWith<
@@ -801,7 +837,10 @@ abstract class UEmbedViewRecordViewGeneratorView
 
   @override
   FeedGeneratorView get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedViewRecordViewGeneratorViewImplCopyWith<
           _$UEmbedViewRecordViewGeneratorViewImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -829,6 +868,8 @@ class __$$UEmbedViewRecordViewListViewImplCopyWithImpl<$Res>
       $Res Function(_$UEmbedViewRecordViewListViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -842,6 +883,8 @@ class __$$UEmbedViewRecordViewListViewImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ListViewCopyWith<$Res> get data {
@@ -876,7 +919,9 @@ class _$UEmbedViewRecordViewListViewImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedViewRecordViewListViewImplCopyWith<
@@ -978,7 +1023,10 @@ abstract class UEmbedViewRecordViewListView implements EmbedViewRecordView {
 
   @override
   ListView get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedViewRecordViewListViewImplCopyWith<
           _$UEmbedViewRecordViewListViewImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -1004,6 +1052,8 @@ class __$$UEmbedViewRecordViewUnknownImplCopyWithImpl<$Res>
       $Res Function(_$UEmbedViewRecordViewUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1050,7 +1100,9 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UEmbedViewRecordViewUnknownImplCopyWith<_$UEmbedViewRecordViewUnknownImpl>
@@ -1152,7 +1204,10 @@ abstract class UEmbedViewRecordViewUnknown implements EmbedViewRecordView {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedViewRecordViewUnknownImplCopyWith<_$UEmbedViewRecordViewUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

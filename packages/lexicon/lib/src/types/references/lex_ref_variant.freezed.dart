@@ -73,6 +73,9 @@ class _$LexRefVariantCopyWithImpl<$Res, $Val extends LexRefVariant>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LexRefVariant
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -94,6 +97,8 @@ class __$$ULexRefVariantRefImplCopyWithImpl<$Res>
       $Res Function(_$ULexRefVariantRefImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexRefVariant
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,6 +112,8 @@ class __$$ULexRefVariantRefImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexRefVariant
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexRefCopyWith<$Res> get data {
@@ -140,7 +147,9 @@ class _$ULexRefVariantRefImpl extends ULexRefVariantRef {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexRefVariant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexRefVariantRefImplCopyWith<_$ULexRefVariantRefImpl> get copyWith =>
@@ -217,7 +226,10 @@ abstract class ULexRefVariantRef extends LexRefVariant {
 
   @override
   LexRef get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexRefVariant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexRefVariantRefImplCopyWith<_$ULexRefVariantRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -243,6 +255,8 @@ class __$$ULexRefVariantRefUnionImplCopyWithImpl<$Res>
       $Res Function(_$ULexRefVariantRefUnionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexRefVariant
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,6 +270,8 @@ class __$$ULexRefVariantRefUnionImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LexRefVariant
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexRefUnionCopyWith<$Res> get data {
@@ -289,7 +305,9 @@ class _$ULexRefVariantRefUnionImpl extends ULexRefVariantRefUnion {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexRefVariant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULexRefVariantRefUnionImplCopyWith<_$ULexRefVariantRefUnionImpl>
@@ -366,7 +384,10 @@ abstract class ULexRefVariantRefUnion extends LexRefVariant {
 
   @override
   LexRefUnion get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexRefVariant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULexRefVariantRefUnionImplCopyWith<_$ULexRefVariantRefUnionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

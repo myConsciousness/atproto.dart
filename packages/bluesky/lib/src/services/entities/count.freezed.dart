@@ -22,8 +22,12 @@ Count _$CountFromJson(Map<String, dynamic> json) {
 mixin _$Count {
   int get count => throw _privateConstructorUsedError;
 
+  /// Serializes this Count to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Count
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CountCopyWith<Count> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -45,6 +49,8 @@ class _$CountCopyWithImpl<$Res, $Val extends Count>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Count
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -77,6 +83,8 @@ class __$$CountImplCopyWithImpl<$Res>
       _$CountImpl _value, $Res Function(_$CountImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Count
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -116,11 +124,13 @@ class _$CountImpl implements _Count {
             (identical(other.count, count) || other.count == count));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, count);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Count
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CountImplCopyWith<_$CountImpl> get copyWith =>
@@ -141,8 +151,11 @@ abstract class _Count implements Count {
 
   @override
   int get count;
+
+  /// Create a copy of Count
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CountImplCopyWith<_$CountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -27,8 +27,12 @@ mixin _$DocumentData {
   List<String> get alsoKnownAs => throw _privateConstructorUsedError;
   Map<String, dynamic> get services => throw _privateConstructorUsedError;
 
+  /// Serializes this DocumentData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DocumentData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DocumentDataCopyWith<DocumentData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$DocumentDataCopyWithImpl<$Res, $Val extends DocumentData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DocumentData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,6 +121,8 @@ class __$$DocumentDataImplCopyWithImpl<$Res>
       _$DocumentDataImpl _value, $Res Function(_$DocumentDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DocumentData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -222,7 +230,7 @@ class _$DocumentDataImpl implements _DocumentData {
             const DeepCollectionEquality().equals(other._services, _services));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -232,7 +240,9 @@ class _$DocumentDataImpl implements _DocumentData {
       const DeepCollectionEquality().hash(_alsoKnownAs),
       const DeepCollectionEquality().hash(_services));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DocumentData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DocumentDataImplCopyWith<_$DocumentDataImpl> get copyWith =>
@@ -267,8 +277,11 @@ abstract class _DocumentData implements DocumentData {
   List<String> get alsoKnownAs;
   @override
   Map<String, dynamic> get services;
+
+  /// Create a copy of DocumentData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DocumentDataImplCopyWith<_$DocumentDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -29,8 +29,12 @@ mixin _$LabelerView {
   LabelerViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this LabelerView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LabelerViewCopyWith<LabelerView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -64,6 +68,8 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,6 +113,8 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
     ) as $Val);
   }
 
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ActorCopyWith<$Res> get creator {
@@ -115,6 +123,8 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
     });
   }
 
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LabelerViewerStateCopyWith<$Res> get viewer {
@@ -155,6 +165,8 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
       _$LabelerViewImpl _value, $Res Function(_$LabelerViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -263,12 +275,14 @@ class _$LabelerViewImpl implements _LabelerView {
                 other.indexedAt == indexedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, uri, cid, creator, likeCount,
       const DeepCollectionEquality().hash(_labels), viewer, indexedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LabelerViewImplCopyWith<_$LabelerViewImpl> get copyWith =>
@@ -310,8 +324,11 @@ abstract class _LabelerView implements LabelerView {
   LabelerViewerState get viewer;
   @override
   DateTime get indexedAt;
+
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LabelerViewImplCopyWith<_$LabelerViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

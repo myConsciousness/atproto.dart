@@ -42,6 +42,7 @@ void main() {
       images: (data) => data.images.first,
       external: (data) => null,
       recordWithMedia: (data) => null,
+      video: (data) => null,
       unknown: (data) => null,
     );
 

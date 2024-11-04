@@ -27,8 +27,12 @@ mixin _$SkeletonPostsByQuery {
   int get hitsTotal => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this SkeletonPostsByQuery to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkeletonPostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SkeletonPostsByQueryCopyWith<SkeletonPostsByQuery> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$SkeletonPostsByQueryCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SkeletonPostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -96,6 +102,8 @@ class __$$SkeletonPostsByQueryImplCopyWithImpl<$Res>
       $Res Function(_$SkeletonPostsByQueryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkeletonPostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -164,12 +172,14 @@ class _$SkeletonPostsByQueryImpl implements _SkeletonPostsByQuery {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_posts), hitsTotal, cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkeletonPostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SkeletonPostsByQueryImplCopyWith<_$SkeletonPostsByQueryImpl>
@@ -196,15 +206,18 @@ abstract class _SkeletonPostsByQuery implements SkeletonPostsByQuery {
 
   @override
   List<SkeletonPost> get posts;
-  @override
 
   /// Count of search hits. optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
+  @override
   int get hitsTotal;
   @override
   String? get cursor;
+
+  /// Create a copy of SkeletonPostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SkeletonPostsByQueryImplCopyWith<_$SkeletonPostsByQueryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

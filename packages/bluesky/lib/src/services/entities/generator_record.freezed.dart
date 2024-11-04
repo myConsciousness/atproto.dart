@@ -32,8 +32,12 @@ mixin _$GeneratorRecord {
   Labels? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this GeneratorRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GeneratorRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GeneratorRecordCopyWith<GeneratorRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -69,6 +73,8 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GeneratorRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -122,6 +128,8 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     ) as $Val);
   }
 
+  /// Create a copy of GeneratorRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get avatar {
@@ -134,6 +142,8 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     });
   }
 
+  /// Create a copy of GeneratorRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
@@ -180,6 +190,8 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
       _$GeneratorRecordImpl _value, $Res Function(_$GeneratorRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GeneratorRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -310,7 +322,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -324,7 +336,9 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       labels,
       createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GeneratorRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GeneratorRecordImplCopyWith<_$GeneratorRecordImpl> get copyWith =>
@@ -374,8 +388,11 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   Labels? get labels;
   @override
   DateTime get createdAt;
+
+  /// Create a copy of GeneratorRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GeneratorRecordImplCopyWith<_$GeneratorRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

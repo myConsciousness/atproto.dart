@@ -27,8 +27,12 @@ mixin _$LexBoolean {
   @JsonKey(name: 'const')
   bool? get constValue => throw _privateConstructorUsedError;
 
+  /// Serializes this LexBoolean to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexBoolean
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexBooleanCopyWith<LexBoolean> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$LexBooleanCopyWithImpl<$Res, $Val extends LexBoolean>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexBoolean
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -108,6 +114,8 @@ class __$$LexBooleanImplCopyWithImpl<$Res>
       _$LexBooleanImpl _value, $Res Function(_$LexBooleanImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexBoolean
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -181,12 +189,14 @@ class _$LexBooleanImpl implements _LexBoolean {
                 other.constValue == constValue));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, type, description, defaultValue, constValue);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexBoolean
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexBooleanImplCopyWith<_$LexBooleanImpl> get copyWith =>
@@ -220,8 +230,11 @@ abstract class _LexBoolean implements LexBoolean {
   @override
   @JsonKey(name: 'const')
   bool? get constValue;
+
+  /// Create a copy of LexBoolean
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexBooleanImplCopyWith<_$LexBooleanImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -22,8 +22,12 @@ GetConvoOutput _$GetConvoOutputFromJson(Map<String, dynamic> json) {
 mixin _$GetConvoOutput {
   ConvoView get convo => throw _privateConstructorUsedError;
 
+  /// Serializes this GetConvoOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetConvoOutputCopyWith<GetConvoOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$GetConvoOutputCopyWithImpl<$Res, $Val extends GetConvoOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$GetConvoOutputCopyWithImpl<$Res, $Val extends GetConvoOutput>
     ) as $Val);
   }
 
+  /// Create a copy of GetConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ConvoViewCopyWith<$Res> get convo {
@@ -93,6 +101,8 @@ class __$$GetConvoOutputImplCopyWithImpl<$Res>
       _$GetConvoOutputImpl _value, $Res Function(_$GetConvoOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +142,13 @@ class _$GetConvoOutputImpl implements _GetConvoOutput {
             (identical(other.convo, convo) || other.convo == convo));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, convo);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetConvoOutputImplCopyWith<_$GetConvoOutputImpl> get copyWith =>
@@ -160,8 +172,11 @@ abstract class _GetConvoOutput implements GetConvoOutput {
 
   @override
   ConvoView get convo;
+
+  /// Create a copy of GetConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetConvoOutputImplCopyWith<_$GetConvoOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

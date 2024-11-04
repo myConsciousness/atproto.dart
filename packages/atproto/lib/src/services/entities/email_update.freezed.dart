@@ -23,8 +23,12 @@ mixin _$EmailUpdate {
   @JsonKey(name: 'tokenRequired')
   bool get isTokenRequired => throw _privateConstructorUsedError;
 
+  /// Serializes this EmailUpdate to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmailUpdate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmailUpdateCopyWith<EmailUpdate> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$EmailUpdateCopyWithImpl<$Res, $Val extends EmailUpdate>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmailUpdate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +87,8 @@ class __$$EmailUpdateImplCopyWithImpl<$Res>
       _$EmailUpdateImpl _value, $Res Function(_$EmailUpdateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmailUpdate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -122,11 +130,13 @@ class _$EmailUpdateImpl implements _EmailUpdate {
                 other.isTokenRequired == isTokenRequired));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, isTokenRequired);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmailUpdate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmailUpdateImplCopyWith<_$EmailUpdateImpl> get copyWith =>
@@ -151,8 +161,11 @@ abstract class _EmailUpdate implements EmailUpdate {
   @override
   @JsonKey(name: 'tokenRequired')
   bool get isTokenRequired;
+
+  /// Create a copy of EmailUpdate
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmailUpdateImplCopyWith<_$EmailUpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

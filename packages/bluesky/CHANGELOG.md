@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.16.13
+
+- Add `VideoService`. ([#1783](https://github.com/myConsciousness/atproto.dart/pull/1783))
+- Add `EmbedVideo` and `EmbedVideoView` objects. ([#1783](https://github.com/myConsciousness/atproto.dart/pull/1783))
+
 ## v0.16.12
 
 - Fixed a bug that prevented `RepoService.deleteRecord` from working.

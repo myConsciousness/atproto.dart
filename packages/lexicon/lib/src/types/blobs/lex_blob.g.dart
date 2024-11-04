@@ -17,7 +17,7 @@ _$LexBlobImpl _$$LexBlobImplFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           accept: $checkedConvert('accept',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
-          maxSize: $checkedConvert('maxSize', (v) => v as int?),
+          maxSize: $checkedConvert('maxSize', (v) => (v as num?)?.toInt()),
         );
         return val;
       },

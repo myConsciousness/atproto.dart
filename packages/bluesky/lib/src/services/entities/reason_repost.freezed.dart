@@ -25,8 +25,12 @@ mixin _$ReasonRepost {
   ActorBasic get by => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this ReasonRepost to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ReasonRepostCopyWith<ReasonRepost> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -75,6 +81,8 @@ class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
     ) as $Val);
   }
 
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ActorBasicCopyWith<$Res> get by {
@@ -106,6 +114,8 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
       _$ReasonRepostImpl _value, $Res Function(_$ReasonRepostImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,11 +175,13 @@ class _$ReasonRepostImpl implements _ReasonRepost {
                 other.indexedAt == indexedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, by, indexedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ReasonRepostImplCopyWith<_$ReasonRepostImpl> get copyWith =>
@@ -199,8 +211,11 @@ abstract class _ReasonRepost implements ReasonRepost {
   ActorBasic get by;
   @override
   DateTime get indexedAt;
+
+  /// Create a copy of ReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReasonRepostImplCopyWith<_$ReasonRepostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../types/app/bsky/embed/video/embed_video_view.dart';
 import '../embed_view_external.dart';
 import '../embed_view_images.dart';
 import '../embed_view_media.dart';
@@ -32,6 +33,10 @@ final class _EmbedViewMediaConverter
         return EmbedViewMedia.external(
           data: EmbedViewExternal.fromJson(json),
         );
+      } else if (type == ids.appBskyEmbedVideoView) {
+        return EmbedViewMedia.video(
+          data: EmbedVideoView.fromJson(json),
+        );
       }
 
       return EmbedViewMedia.unknown(data: json);
@@ -44,6 +49,7 @@ final class _EmbedViewMediaConverter
   Map<String, dynamic> toJson(EmbedViewMedia object) => object.when(
         images: (data) => data.toJson(),
         external: (data) => data.toJson(),
+        video: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

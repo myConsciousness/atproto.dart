@@ -30,8 +30,12 @@ mixin _$CurrentSession {
   bool get active => throw _privateConstructorUsedError;
   String? get status => throw _privateConstructorUsedError;
 
+  /// Serializes this CurrentSession to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CurrentSession
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CurrentSessionCopyWith<CurrentSession> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -63,6 +67,8 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CurrentSession
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,6 +145,8 @@ class __$$CurrentSessionImplCopyWithImpl<$Res>
       _$CurrentSessionImpl _value, $Res Function(_$CurrentSessionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CurrentSession
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,7 +264,7 @@ class _$CurrentSessionImpl implements _CurrentSession {
             (identical(other.status, status) || other.status == status));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -269,7 +277,9 @@ class _$CurrentSessionImpl implements _CurrentSession {
       active,
       status);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CurrentSession
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CurrentSessionImplCopyWith<_$CurrentSessionImpl> get copyWith =>
@@ -315,8 +325,11 @@ abstract class _CurrentSession implements CurrentSession {
   bool get active;
   @override
   String? get status;
+
+  /// Create a copy of CurrentSession
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CurrentSessionImplCopyWith<_$CurrentSessionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

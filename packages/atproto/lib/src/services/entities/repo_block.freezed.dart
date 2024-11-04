@@ -23,8 +23,12 @@ mixin _$RepoBlock {
   String get cid => throw _privateConstructorUsedError;
   String get commitCid => throw _privateConstructorUsedError;
 
+  /// Serializes this RepoBlock to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RepoBlock
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepoBlockCopyWith<RepoBlock> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$RepoBlockCopyWithImpl<$Res, $Val extends RepoBlock>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepoBlock
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$RepoBlockImplCopyWithImpl<$Res>
       _$RepoBlockImpl _value, $Res Function(_$RepoBlockImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoBlock
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$RepoBlockImpl implements _RepoBlock {
                 other.commitCid == commitCid));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, cid, commitCid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoBlock
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepoBlockImplCopyWith<_$RepoBlockImpl> get copyWith =>
@@ -162,8 +172,11 @@ abstract class _RepoBlock implements RepoBlock {
   String get cid;
   @override
   String get commitCid;
+
+  /// Create a copy of RepoBlock
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepoBlockImplCopyWith<_$RepoBlockImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

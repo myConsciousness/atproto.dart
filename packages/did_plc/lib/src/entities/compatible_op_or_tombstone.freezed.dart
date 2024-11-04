@@ -90,6 +90,9 @@ class _$CompatibleOpOrTombstoneCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -114,6 +117,8 @@ class __$$UCompatibleOpOrTombstoneOpImplCopyWithImpl<$Res>
       $Res Function(_$UCompatibleOpOrTombstoneOpImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -127,6 +132,8 @@ class __$$UCompatibleOpOrTombstoneOpImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $OperationCopyWith<$Res> get data {
@@ -160,7 +167,9 @@ class _$UCompatibleOpOrTombstoneOpImpl extends UCompatibleOpOrTombstoneOp {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UCompatibleOpOrTombstoneOpImplCopyWith<_$UCompatibleOpOrTombstoneOpImpl>
@@ -253,7 +262,10 @@ abstract class UCompatibleOpOrTombstoneOp extends CompatibleOpOrTombstone {
 
   @override
   Operation get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UCompatibleOpOrTombstoneOpImplCopyWith<_$UCompatibleOpOrTombstoneOpImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -280,6 +292,8 @@ class __$$UCompatibleOpOrTombstoneTombstoneImplCopyWithImpl<$Res>
       $Res Function(_$UCompatibleOpOrTombstoneTombstoneImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -293,6 +307,8 @@ class __$$UCompatibleOpOrTombstoneTombstoneImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TombstoneCopyWith<$Res> get data {
@@ -328,7 +344,9 @@ class _$UCompatibleOpOrTombstoneTombstoneImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UCompatibleOpOrTombstoneTombstoneImplCopyWith<
@@ -424,7 +442,10 @@ abstract class UCompatibleOpOrTombstoneTombstone
 
   @override
   Tombstone get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UCompatibleOpOrTombstoneTombstoneImplCopyWith<
           _$UCompatibleOpOrTombstoneTombstoneImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -452,6 +473,8 @@ class __$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWithImpl<$Res>
       $Res Function(_$UCompatibleOpOrTombstoneCreateOperationV1Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -465,6 +488,8 @@ class __$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CreateOperationV1CopyWith<$Res> get data {
@@ -500,7 +525,9 @@ class _$UCompatibleOpOrTombstoneCreateOperationV1Impl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWith<
@@ -598,7 +625,10 @@ abstract class UCompatibleOpOrTombstoneCreateOperationV1
 
   @override
   CreateOperationV1 get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UCompatibleOpOrTombstoneCreateOperationV1ImplCopyWith<
           _$UCompatibleOpOrTombstoneCreateOperationV1Impl>
       get copyWith => throw _privateConstructorUsedError;
@@ -624,6 +654,8 @@ class __$$UCompatibleOpOrTombstoneUnknownImplCopyWithImpl<$Res>
       $Res Function(_$UCompatibleOpOrTombstoneUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -672,7 +704,9 @@ class _$UCompatibleOpOrTombstoneUnknownImpl
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UCompatibleOpOrTombstoneUnknownImplCopyWith<
@@ -767,7 +801,10 @@ abstract class UCompatibleOpOrTombstoneUnknown extends CompatibleOpOrTombstone {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompatibleOpOrTombstone
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UCompatibleOpOrTombstoneUnknownImplCopyWith<
           _$UCompatibleOpOrTombstoneUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;

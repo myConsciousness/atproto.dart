@@ -79,6 +79,9 @@ class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -102,6 +105,8 @@ class __$$URelationshipRelationshipImplCopyWithImpl<$Res>
       $Res Function(_$URelationshipRelationshipImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,6 +120,8 @@ class __$$URelationshipRelationshipImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ActorRelationshipCopyWith<$Res> get data {
@@ -148,7 +155,9 @@ class _$URelationshipRelationshipImpl extends URelationshipRelationship {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$URelationshipRelationshipImplCopyWith<_$URelationshipRelationshipImpl>
@@ -232,7 +241,10 @@ abstract class URelationshipRelationship extends Relationship {
 
   @override
   ActorRelationship get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$URelationshipRelationshipImplCopyWith<_$URelationshipRelationshipImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -258,6 +270,8 @@ class __$$URelationshipNotFoundActorImplCopyWithImpl<$Res>
       $Res Function(_$URelationshipNotFoundActorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -271,6 +285,8 @@ class __$$URelationshipNotFoundActorImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $NotFoundActorCopyWith<$Res> get data {
@@ -304,7 +320,9 @@ class _$URelationshipNotFoundActorImpl extends URelationshipNotFoundActor {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$URelationshipNotFoundActorImplCopyWith<_$URelationshipNotFoundActorImpl>
@@ -387,7 +405,10 @@ abstract class URelationshipNotFoundActor extends Relationship {
 
   @override
   NotFoundActor get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$URelationshipNotFoundActorImplCopyWith<_$URelationshipNotFoundActorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -409,6 +430,8 @@ class __$$URelationshipUnknownImplCopyWithImpl<$Res>
       $Res Function(_$URelationshipUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -455,7 +478,9 @@ class _$URelationshipUnknownImpl extends URelationshipUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$URelationshipUnknownImplCopyWith<_$URelationshipUnknownImpl>
@@ -539,7 +564,10 @@ abstract class URelationshipUnknown extends Relationship {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$URelationshipUnknownImplCopyWith<_$URelationshipUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -22,8 +22,12 @@ CreatedInviteCodes _$CreatedInviteCodesFromJson(Map<String, dynamic> json) {
 mixin _$CreatedInviteCodes {
   List<AccountCodes> get codes => throw _privateConstructorUsedError;
 
+  /// Serializes this CreatedInviteCodes to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreatedInviteCodes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreatedInviteCodesCopyWith<CreatedInviteCodes> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$CreatedInviteCodesCopyWithImpl<$Res, $Val extends CreatedInviteCodes>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreatedInviteCodes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$CreatedInviteCodesImplCopyWithImpl<$Res>
       $Res Function(_$CreatedInviteCodesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreatedInviteCodes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,12 +132,14 @@ class _$CreatedInviteCodesImpl implements _CreatedInviteCodes {
             const DeepCollectionEquality().equals(other._codes, _codes));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_codes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreatedInviteCodes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreatedInviteCodesImplCopyWith<_$CreatedInviteCodesImpl> get copyWith =>
@@ -153,8 +163,11 @@ abstract class _CreatedInviteCodes implements CreatedInviteCodes {
 
   @override
   List<AccountCodes> get codes;
+
+  /// Create a copy of CreatedInviteCodes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreatedInviteCodesImplCopyWith<_$CreatedInviteCodesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

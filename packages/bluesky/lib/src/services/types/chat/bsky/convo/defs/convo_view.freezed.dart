@@ -28,8 +28,12 @@ mixin _$ConvoView {
   bool get muted => throw _privateConstructorUsedError;
   int get unreadCount => throw _privateConstructorUsedError;
 
+  /// Serializes this ConvoView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ConvoView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ConvoViewCopyWith<ConvoView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$ConvoViewCopyWithImpl<$Res, $Val extends ConvoView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ConvoView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,6 +104,8 @@ class _$ConvoViewCopyWithImpl<$Res, $Val extends ConvoView>
     ) as $Val);
   }
 
+  /// Create a copy of ConvoView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UConvoMessageViewCopyWith<$Res>? get lastMessage {
@@ -139,6 +147,8 @@ class __$$ConvoViewImplCopyWithImpl<$Res>
       _$ConvoViewImpl _value, $Res Function(_$ConvoViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ConvoView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -234,7 +244,7 @@ class _$ConvoViewImpl implements _ConvoView {
                 other.unreadCount == unreadCount));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -245,7 +255,9 @@ class _$ConvoViewImpl implements _ConvoView {
       muted,
       unreadCount);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ConvoView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ConvoViewImplCopyWith<_$ConvoViewImpl> get copyWith =>
@@ -284,8 +296,11 @@ abstract class _ConvoView implements ConvoView {
   bool get muted;
   @override
   int get unreadCount;
+
+  /// Create a copy of ConvoView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ConvoViewImplCopyWith<_$ConvoViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

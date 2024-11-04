@@ -24,8 +24,12 @@ mixin _$LabelerPrefItem {
   String get type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
+  /// Serializes this LabelerPrefItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LabelerPrefItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LabelerPrefItemCopyWith<LabelerPrefItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$LabelerPrefItemCopyWithImpl<$Res, $Val extends LabelerPrefItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LabelerPrefItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -87,6 +93,8 @@ class __$$LabelerPrefItemImplCopyWithImpl<$Res>
       _$LabelerPrefItemImpl _value, $Res Function(_$LabelerPrefItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LabelerPrefItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -136,11 +144,13 @@ class _$LabelerPrefItemImpl implements _LabelerPrefItem {
             (identical(other.did, did) || other.did == did));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, did);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LabelerPrefItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LabelerPrefItemImplCopyWith<_$LabelerPrefItemImpl> get copyWith =>
@@ -168,8 +178,11 @@ abstract class _LabelerPrefItem implements LabelerPrefItem {
   String get type;
   @override
   String get did;
+
+  /// Create a copy of LabelerPrefItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LabelerPrefItemImplCopyWith<_$LabelerPrefItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

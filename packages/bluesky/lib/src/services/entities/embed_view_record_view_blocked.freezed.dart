@@ -29,8 +29,12 @@ mixin _$EmbedViewRecordViewBlocked {
   bool get isBlocked => throw _privateConstructorUsedError;
   BlockedAuthor get author => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbedViewRecordViewBlocked to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordViewBlocked
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbedViewRecordViewBlockedCopyWith<EmbedViewRecordViewBlocked>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -62,6 +66,8 @@ class _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbedViewRecordViewBlocked
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -90,6 +96,8 @@ class _$EmbedViewRecordViewBlockedCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of EmbedViewRecordViewBlocked
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlockedAuthorCopyWith<$Res> get author {
@@ -128,6 +136,8 @@ class __$$EmbedViewRecordViewBlockedImplCopyWithImpl<$Res>
       $Res Function(_$EmbedViewRecordViewBlockedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordViewBlocked
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -199,11 +209,13 @@ class _$EmbedViewRecordViewBlockedImpl implements _EmbedViewRecordViewBlocked {
             (identical(other.author, author) || other.author == author));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, uri, isBlocked, author);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordViewBlocked
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmbedViewRecordViewBlockedImplCopyWith<_$EmbedViewRecordViewBlockedImpl>
@@ -240,8 +252,11 @@ abstract class _EmbedViewRecordViewBlocked
   bool get isBlocked;
   @override
   BlockedAuthor get author;
+
+  /// Create a copy of EmbedViewRecordViewBlocked
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmbedViewRecordViewBlockedImplCopyWith<_$EmbedViewRecordViewBlockedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -28,8 +28,12 @@ mixin _$LabelValueDefinition {
   List<LabelValueDefinitionStrings> get locales =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this LabelValueDefinition to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LabelValueDefinitionCopyWith<LabelValueDefinition> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,6 +130,8 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
       $Res Function(_$LabelValueDefinitionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -221,12 +229,14 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
             const DeepCollectionEquality().equals(other._locales, _locales));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, identifier, severity, blurs,
       defaultSetting, adultOnly, const DeepCollectionEquality().hash(_locales));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LabelValueDefinitionImplCopyWith<_$LabelValueDefinitionImpl>
@@ -267,8 +277,11 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
   bool get adultOnly;
   @override
   List<LabelValueDefinitionStrings> get locales;
+
+  /// Create a copy of LabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LabelValueDefinitionImplCopyWith<_$LabelValueDefinitionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

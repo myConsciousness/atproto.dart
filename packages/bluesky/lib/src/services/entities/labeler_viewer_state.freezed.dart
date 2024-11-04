@@ -23,8 +23,12 @@ mixin _$LabelerViewerState {
   @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
 
+  /// Serializes this LabelerViewerState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LabelerViewerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LabelerViewerStateCopyWith<LabelerViewerState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$LabelerViewerStateCopyWithImpl<$Res, $Val extends LabelerViewerState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LabelerViewerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +87,8 @@ class __$$LabelerViewerStateImplCopyWithImpl<$Res>
       $Res Function(_$LabelerViewerStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LabelerViewerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -121,11 +129,13 @@ class _$LabelerViewerStateImpl implements _LabelerViewerState {
             (identical(other.like, like) || other.like == like));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, like);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LabelerViewerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LabelerViewerStateImplCopyWith<_$LabelerViewerStateImpl> get copyWith =>
@@ -150,8 +160,11 @@ abstract class _LabelerViewerState implements LabelerViewerState {
   @override
   @AtUriConverter()
   AtUri? get like;
+
+  /// Create a copy of LabelerViewerState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LabelerViewerStateImplCopyWith<_$LabelerViewerStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

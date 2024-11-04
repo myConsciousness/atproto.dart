@@ -26,8 +26,12 @@ mixin _$SkeletonFeedView {
   SkeletonReason? get reason => throw _privateConstructorUsedError;
   String? get feedContext => throw _privateConstructorUsedError;
 
+  /// Serializes this SkeletonFeedView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkeletonFeedView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SkeletonFeedViewCopyWith<SkeletonFeedView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$SkeletonFeedViewCopyWithImpl<$Res, $Val extends SkeletonFeedView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SkeletonFeedView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,6 +85,8 @@ class _$SkeletonFeedViewCopyWithImpl<$Res, $Val extends SkeletonFeedView>
     ) as $Val);
   }
 
+  /// Create a copy of SkeletonFeedView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SkeletonReasonCopyWith<$Res>? get reason {
@@ -117,6 +125,8 @@ class __$$SkeletonFeedViewImplCopyWithImpl<$Res>
       $Res Function(_$SkeletonFeedViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkeletonFeedView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -178,11 +188,13 @@ class _$SkeletonFeedViewImpl implements _SkeletonFeedView {
                 other.feedContext == feedContext));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, post, reason, feedContext);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkeletonFeedView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SkeletonFeedViewImplCopyWith<_$SkeletonFeedViewImpl> get copyWith =>
@@ -214,8 +226,11 @@ abstract class _SkeletonFeedView implements SkeletonFeedView {
   SkeletonReason? get reason;
   @override
   String? get feedContext;
+
+  /// Create a copy of SkeletonFeedView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SkeletonFeedViewImplCopyWith<_$SkeletonFeedViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

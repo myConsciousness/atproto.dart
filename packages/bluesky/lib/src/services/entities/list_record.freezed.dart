@@ -31,8 +31,12 @@ mixin _$ListRecord {
   Labels? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this ListRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ListRecordCopyWith<ListRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -67,6 +71,8 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,6 +121,8 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
     ) as $Val);
   }
 
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get avatar {
@@ -127,6 +135,8 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
     });
   }
 
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
@@ -172,6 +182,8 @@ class __$$ListRecordImplCopyWithImpl<$Res>
       _$ListRecordImpl _value, $Res Function(_$ListRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -290,7 +302,7 @@ class _$ListRecordImpl implements _ListRecord {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -303,7 +315,9 @@ class _$ListRecordImpl implements _ListRecord {
       labels,
       createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ListRecordImplCopyWith<_$ListRecordImpl> get copyWith =>
@@ -349,8 +363,11 @@ abstract class _ListRecord implements ListRecord {
   Labels? get labels;
   @override
   DateTime get createdAt;
+
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ListRecordImplCopyWith<_$ListRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -23,8 +23,12 @@ mixin _$PostThread {
   @postThreadViewConverter
   PostThreadView get thread => throw _privateConstructorUsedError;
 
+  /// Serializes this PostThread to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PostThread
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PostThreadCopyWith<PostThread> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$PostThreadCopyWithImpl<$Res, $Val extends PostThread>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PostThread
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -63,6 +69,8 @@ class _$PostThreadCopyWithImpl<$Res, $Val extends PostThread>
     ) as $Val);
   }
 
+  /// Create a copy of PostThread
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PostThreadViewCopyWith<$Res> get thread {
@@ -94,6 +102,8 @@ class __$$PostThreadImplCopyWithImpl<$Res>
       _$PostThreadImpl _value, $Res Function(_$PostThreadImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PostThread
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +143,13 @@ class _$PostThreadImpl implements _PostThread {
             (identical(other.thread, thread) || other.thread == thread));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, thread);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PostThread
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PostThreadImplCopyWith<_$PostThreadImpl> get copyWith =>
@@ -162,8 +174,11 @@ abstract class _PostThread implements PostThread {
   @override
   @postThreadViewConverter
   PostThreadView get thread;
+
+  /// Create a copy of PostThread
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PostThreadImplCopyWith<_$PostThreadImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

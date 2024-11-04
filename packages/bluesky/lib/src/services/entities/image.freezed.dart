@@ -25,8 +25,12 @@ mixin _$Image {
   Blob get image => throw _privateConstructorUsedError;
   ImageAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
+  /// Serializes this Image to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Image
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ImageCopyWith<Image> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -52,6 +56,8 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Image
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -75,6 +81,8 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
     ) as $Val);
   }
 
+  /// Create a copy of Image
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res> get image {
@@ -83,6 +91,8 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
     });
   }
 
+  /// Create a copy of Image
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ImageAspectRatioCopyWith<$Res>? get aspectRatio {
@@ -120,6 +130,8 @@ class __$$ImageImplCopyWithImpl<$Res>
       _$ImageImpl _value, $Res Function(_$ImageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Image
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -180,11 +192,13 @@ class _$ImageImpl implements _Image {
                 other.aspectRatio == aspectRatio));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, alt, image, aspectRatio);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Image
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
@@ -213,8 +227,11 @@ abstract class _Image implements Image {
   Blob get image;
   @override
   ImageAspectRatio? get aspectRatio;
+
+  /// Create a copy of Image
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

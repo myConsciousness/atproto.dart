@@ -23,8 +23,12 @@ mixin _$SubscribedLabelInfo {
   String get name => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
+  /// Serializes this SubscribedLabelInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedLabelInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SubscribedLabelInfoCopyWith<SubscribedLabelInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$SubscribedLabelInfoCopyWithImpl<$Res, $Val extends SubscribedLabelInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SubscribedLabelInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$SubscribedLabelInfoImplCopyWithImpl<$Res>
       $Res Function(_$SubscribedLabelInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedLabelInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +141,13 @@ class _$SubscribedLabelInfoImpl implements _SubscribedLabelInfo {
             (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedLabelInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SubscribedLabelInfoImplCopyWith<_$SubscribedLabelInfoImpl> get copyWith =>
@@ -164,8 +174,11 @@ abstract class _SubscribedLabelInfo implements SubscribedLabelInfo {
   String get name;
   @override
   String? get message;
+
+  /// Create a copy of SubscribedLabelInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubscribedLabelInfoImplCopyWith<_$SubscribedLabelInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -28,8 +28,12 @@ mixin _$EmbedViewRecordViewNotFound {
   @JsonKey(name: 'notFound')
   bool get isNotFound => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbedViewRecordViewNotFound to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordViewNotFound
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbedViewRecordViewNotFoundCopyWith<EmbedViewRecordViewNotFound>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbedViewRecordViewNotFound
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -108,6 +114,8 @@ class __$$EmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>
       $Res Function(_$EmbedViewRecordViewNotFoundImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordViewNotFound
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -171,11 +179,13 @@ class _$EmbedViewRecordViewNotFoundImpl
                 other.isNotFound == isNotFound));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, uri, isNotFound);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordViewNotFound
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmbedViewRecordViewNotFoundImplCopyWith<_$EmbedViewRecordViewNotFoundImpl>
@@ -210,8 +220,11 @@ abstract class _EmbedViewRecordViewNotFound
   @override
   @JsonKey(name: 'notFound')
   bool get isNotFound;
+
+  /// Create a copy of EmbedViewRecordViewNotFound
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmbedViewRecordViewNotFoundImplCopyWith<_$EmbedViewRecordViewNotFoundImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

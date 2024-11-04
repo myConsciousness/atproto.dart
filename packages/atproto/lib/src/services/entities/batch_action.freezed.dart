@@ -79,6 +79,9 @@ class _$BatchActionCopyWithImpl<$Res, $Val extends BatchAction>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,8 @@ class __$$UBatchActionCreateImplCopyWithImpl<$Res>
       $Res Function(_$UBatchActionCreateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -113,6 +118,8 @@ class __$$UBatchActionCreateImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CreateActionCopyWith<$Res> get data {
@@ -146,7 +153,9 @@ class _$UBatchActionCreateImpl implements UBatchActionCreate {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UBatchActionCreateImplCopyWith<_$UBatchActionCreateImpl> get copyWith =>
@@ -228,7 +237,10 @@ abstract class UBatchActionCreate implements BatchAction {
 
   @override
   CreateAction get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UBatchActionCreateImplCopyWith<_$UBatchActionCreateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -252,6 +264,8 @@ class __$$UBatchActionUpdateImplCopyWithImpl<$Res>
       $Res Function(_$UBatchActionUpdateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -265,6 +279,8 @@ class __$$UBatchActionUpdateImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UpdateActionCopyWith<$Res> get data {
@@ -298,7 +314,9 @@ class _$UBatchActionUpdateImpl implements UBatchActionUpdate {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UBatchActionUpdateImplCopyWith<_$UBatchActionUpdateImpl> get copyWith =>
@@ -380,7 +398,10 @@ abstract class UBatchActionUpdate implements BatchAction {
 
   @override
   UpdateAction get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UBatchActionUpdateImplCopyWith<_$UBatchActionUpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -404,6 +425,8 @@ class __$$UBatchActionDeleteImplCopyWithImpl<$Res>
       $Res Function(_$UBatchActionDeleteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -417,6 +440,8 @@ class __$$UBatchActionDeleteImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $DeleteActionCopyWith<$Res> get data {
@@ -450,7 +475,9 @@ class _$UBatchActionDeleteImpl implements UBatchActionDelete {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UBatchActionDeleteImplCopyWith<_$UBatchActionDeleteImpl> get copyWith =>
@@ -532,7 +559,10 @@ abstract class UBatchActionDelete implements BatchAction {
 
   @override
   DeleteAction get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UBatchActionDeleteImplCopyWith<_$UBatchActionDeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

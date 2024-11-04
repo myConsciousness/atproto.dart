@@ -22,8 +22,12 @@ TaggedSuggestions _$TaggedSuggestionsFromJson(Map<String, dynamic> json) {
 mixin _$TaggedSuggestions {
   List<TaggedSuggestion> get suggestions => throw _privateConstructorUsedError;
 
+  /// Serializes this TaggedSuggestions to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaggedSuggestions
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TaggedSuggestionsCopyWith<TaggedSuggestions> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$TaggedSuggestionsCopyWithImpl<$Res, $Val extends TaggedSuggestions>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TaggedSuggestions
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$TaggedSuggestionsImplCopyWithImpl<$Res>
       $Res Function(_$TaggedSuggestionsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaggedSuggestions
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -127,12 +135,14 @@ class _$TaggedSuggestionsImpl implements _TaggedSuggestions {
                 .equals(other._suggestions, _suggestions));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_suggestions));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaggedSuggestions
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TaggedSuggestionsImplCopyWith<_$TaggedSuggestionsImpl> get copyWith =>
@@ -157,8 +167,11 @@ abstract class _TaggedSuggestions implements TaggedSuggestions {
 
   @override
   List<TaggedSuggestion> get suggestions;
+
+  /// Create a copy of TaggedSuggestions
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TaggedSuggestionsImplCopyWith<_$TaggedSuggestionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

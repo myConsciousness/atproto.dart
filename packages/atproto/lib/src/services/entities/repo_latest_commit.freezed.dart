@@ -23,8 +23,12 @@ mixin _$RepoLatestCommit {
   String get cid => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
 
+  /// Serializes this RepoLatestCommit to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RepoLatestCommit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepoLatestCommitCopyWith<RepoLatestCommit> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$RepoLatestCommitCopyWithImpl<$Res, $Val extends RepoLatestCommit>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepoLatestCommit
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$RepoLatestCommitImplCopyWithImpl<$Res>
       $Res Function(_$RepoLatestCommitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoLatestCommit
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$RepoLatestCommitImpl implements _RepoLatestCommit {
             (identical(other.rev, rev) || other.rev == rev));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, cid, rev);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoLatestCommit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepoLatestCommitImplCopyWith<_$RepoLatestCommitImpl> get copyWith =>
@@ -163,8 +173,11 @@ abstract class _RepoLatestCommit implements RepoLatestCommit {
   String get cid;
   @override
   String get rev;
+
+  /// Create a copy of RepoLatestCommit
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepoLatestCommitImplCopyWith<_$RepoLatestCommitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

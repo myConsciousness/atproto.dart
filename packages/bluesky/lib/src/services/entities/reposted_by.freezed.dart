@@ -26,8 +26,12 @@ mixin _$RepostedBy {
   String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this RepostedBy to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RepostedBy
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepostedByCopyWith<RepostedBy> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$RepostedByCopyWithImpl<$Res, $Val extends RepostedBy>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepostedBy
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,6 +113,8 @@ class __$$RepostedByImplCopyWithImpl<$Res>
       _$RepostedByImpl _value, $Res Function(_$RepostedByImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepostedBy
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -182,12 +190,14 @@ class _$RepostedByImpl implements _RepostedBy {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_repostedBy), uri, cid, cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepostedBy
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepostedByImplCopyWith<_$RepostedByImpl> get copyWith =>
@@ -220,8 +230,11 @@ abstract class _RepostedBy implements RepostedBy {
   String? get cid;
   @override
   String? get cursor;
+
+  /// Create a copy of RepostedBy
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepostedByImplCopyWith<_$RepostedByImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

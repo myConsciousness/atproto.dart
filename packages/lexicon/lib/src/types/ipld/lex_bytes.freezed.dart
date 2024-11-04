@@ -25,8 +25,12 @@ mixin _$LexBytes {
   int? get maxLength => throw _privateConstructorUsedError;
   int? get minLength => throw _privateConstructorUsedError;
 
+  /// Serializes this LexBytes to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexBytes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexBytesCopyWith<LexBytes> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$LexBytesCopyWithImpl<$Res, $Val extends LexBytes>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexBytes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -97,6 +103,8 @@ class __$$LexBytesImplCopyWithImpl<$Res>
       _$LexBytesImpl _value, $Res Function(_$LexBytesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexBytes
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,12 +173,14 @@ class _$LexBytesImpl implements _LexBytes {
                 other.minLength == minLength));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, type, description, maxLength, minLength);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexBytes
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexBytesImplCopyWith<_$LexBytesImpl> get copyWith =>
@@ -202,8 +212,11 @@ abstract class _LexBytes implements LexBytes {
   int? get maxLength;
   @override
   int? get minLength;
+
+  /// Create a copy of LexBytes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexBytesImplCopyWith<_$LexBytesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

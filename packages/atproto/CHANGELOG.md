@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.12.8
+
+- Bump `atproto_core`.
+- Add `service` parameter on `ATProto.get` and `ATProto.post`. ([#1783](https://github.com/myConsciousness/atproto.dart/pull/1783))
+- Add `exp` and `lxm` parameters on `ServerService.getServiceAuth`.
+
 ## v0.12.7
 
 - Fixed a bug that prevented `RepoService.deleteRecord` from working.

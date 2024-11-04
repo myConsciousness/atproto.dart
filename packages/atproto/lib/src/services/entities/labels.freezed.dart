@@ -72,6 +72,9 @@ class _$LabelsCopyWithImpl<$Res, $Val extends Labels>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of Labels
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -93,6 +96,8 @@ class __$$ULabelsSelLabelsImplCopyWithImpl<$Res>
       $Res Function(_$ULabelsSelLabelsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Labels
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +111,8 @@ class __$$ULabelsSelLabelsImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of Labels
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SelfLabelsCopyWith<$Res> get data {
@@ -139,7 +146,9 @@ class _$ULabelsSelLabelsImpl extends ULabelsSelLabels {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Labels
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULabelsSelLabelsImplCopyWith<_$ULabelsSelLabelsImpl> get copyWith =>
@@ -216,7 +225,10 @@ abstract class ULabelsSelLabels extends Labels {
 
   @override
   SelfLabels get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Labels
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULabelsSelLabelsImplCopyWith<_$ULabelsSelLabelsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -238,6 +250,8 @@ class __$$ULabelsUnknownImplCopyWithImpl<$Res>
       _$ULabelsUnknownImpl _value, $Res Function(_$ULabelsUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Labels
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -284,7 +298,9 @@ class _$ULabelsUnknownImpl extends ULabelsUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Labels
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULabelsUnknownImplCopyWith<_$ULabelsUnknownImpl> get copyWith =>
@@ -361,7 +377,10 @@ abstract class ULabelsUnknown extends Labels {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Labels
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULabelsUnknownImplCopyWith<_$ULabelsUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

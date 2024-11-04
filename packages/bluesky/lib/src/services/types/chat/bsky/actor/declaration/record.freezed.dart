@@ -22,8 +22,12 @@ DeclarationRecord _$DeclarationRecordFromJson(Map<String, dynamic> json) {
 mixin _$DeclarationRecord {
   String get allowIncoming => throw _privateConstructorUsedError;
 
+  /// Serializes this DeclarationRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DeclarationRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DeclarationRecordCopyWith<DeclarationRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$DeclarationRecordCopyWithImpl<$Res, $Val extends DeclarationRecord>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DeclarationRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$DeclarationRecordImplCopyWithImpl<$Res>
       $Res Function(_$DeclarationRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DeclarationRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -120,11 +128,13 @@ class _$DeclarationRecordImpl implements _DeclarationRecord {
                 other.allowIncoming == allowIncoming));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, allowIncoming);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DeclarationRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeclarationRecordImplCopyWith<_$DeclarationRecordImpl> get copyWith =>
@@ -148,8 +158,11 @@ abstract class _DeclarationRecord implements DeclarationRecord {
 
   @override
   String get allowIncoming;
+
+  /// Create a copy of DeclarationRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeclarationRecordImplCopyWith<_$DeclarationRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

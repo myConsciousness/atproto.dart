@@ -26,8 +26,12 @@ mixin _$DidCredentials {
       throw _privateConstructorUsedError;
   Map<String, dynamic>? get services => throw _privateConstructorUsedError;
 
+  /// Serializes this DidCredentials to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DidCredentials
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DidCredentialsCopyWith<DidCredentials> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$DidCredentialsCopyWithImpl<$Res, $Val extends DidCredentials>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DidCredentials
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,6 +113,8 @@ class __$$DidCredentialsImplCopyWithImpl<$Res>
       _$DidCredentialsImpl _value, $Res Function(_$DidCredentialsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DidCredentials
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -212,7 +220,7 @@ class _$DidCredentialsImpl implements _DidCredentials {
             const DeepCollectionEquality().equals(other._services, _services));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -221,7 +229,9 @@ class _$DidCredentialsImpl implements _DidCredentials {
       const DeepCollectionEquality().hash(_verificationMethods),
       const DeepCollectionEquality().hash(_services));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DidCredentials
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DidCredentialsImplCopyWith<_$DidCredentialsImpl> get copyWith =>
@@ -254,8 +264,11 @@ abstract class _DidCredentials implements DidCredentials {
   Map<String, dynamic>? get verificationMethods;
   @override
   Map<String, dynamic>? get services;
+
+  /// Create a copy of DidCredentials
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DidCredentialsImplCopyWith<_$DidCredentialsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

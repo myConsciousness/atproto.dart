@@ -24,8 +24,12 @@ mixin _$Identity {
   int get seq => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
 
+  /// Serializes this Identity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Identity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $IdentityCopyWith<Identity> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$IdentityCopyWithImpl<$Res, $Val extends Identity>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Identity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$IdentityImplCopyWithImpl<$Res>
       _$IdentityImpl _value, $Res Function(_$IdentityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Identity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -147,11 +155,13 @@ class _$IdentityImpl implements _Identity {
             (identical(other.time, time) || other.time == time));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, did, seq, time);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Identity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$IdentityImplCopyWith<_$IdentityImpl> get copyWith =>
@@ -180,8 +190,11 @@ abstract class _Identity implements Identity {
   int get seq;
   @override
   DateTime get time;
+
+  /// Create a copy of Identity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$IdentityImplCopyWith<_$IdentityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -35,8 +35,12 @@ mixin _$LexString {
   String? get constValue => throw _privateConstructorUsedError;
   List<String>? get knownValues => throw _privateConstructorUsedError;
 
+  /// Serializes this LexString to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexString
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexStringCopyWith<LexString> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -70,6 +74,8 @@ class _$LexStringCopyWithImpl<$Res, $Val extends LexString>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexString
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -164,6 +170,8 @@ class __$$LexStringImplCopyWithImpl<$Res>
       _$LexStringImpl _value, $Res Function(_$LexStringImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexString
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -324,7 +332,7 @@ class _$LexStringImpl implements _LexString {
                 .equals(other._knownValues, _knownValues));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -340,7 +348,9 @@ class _$LexStringImpl implements _LexString {
       constValue,
       const DeepCollectionEquality().hash(_knownValues));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexString
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexStringImplCopyWith<_$LexStringImpl> get copyWith =>
@@ -396,8 +406,11 @@ abstract class _LexString implements LexString {
   String? get constValue;
   @override
   List<String>? get knownValues;
+
+  /// Create a copy of LexString
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexStringImplCopyWith<_$LexStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

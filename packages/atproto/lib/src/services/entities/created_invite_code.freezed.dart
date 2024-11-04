@@ -22,8 +22,12 @@ CreatedInviteCode _$CreatedInviteCodeFromJson(Map<String, dynamic> json) {
 mixin _$CreatedInviteCode {
   String get code => throw _privateConstructorUsedError;
 
+  /// Serializes this CreatedInviteCode to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreatedInviteCode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreatedInviteCodeCopyWith<CreatedInviteCode> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$CreatedInviteCodeCopyWithImpl<$Res, $Val extends CreatedInviteCode>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreatedInviteCode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$CreatedInviteCodeImplCopyWithImpl<$Res>
       $Res Function(_$CreatedInviteCodeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreatedInviteCode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,11 +126,13 @@ class _$CreatedInviteCodeImpl implements _CreatedInviteCode {
             (identical(other.code, code) || other.code == code));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, code);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreatedInviteCode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreatedInviteCodeImplCopyWith<_$CreatedInviteCodeImpl> get copyWith =>
@@ -146,8 +156,11 @@ abstract class _CreatedInviteCode implements CreatedInviteCode {
 
   @override
   String get code;
+
+  /// Create a copy of CreatedInviteCode
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreatedInviteCodeImplCopyWith<_$CreatedInviteCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

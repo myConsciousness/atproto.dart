@@ -30,8 +30,12 @@ mixin _$ThreadgateRecord {
   List<ThreadRule>? get allowRules => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this ThreadgateRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThreadgateRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ThreadgateRecordCopyWith<ThreadgateRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ThreadgateRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -111,6 +117,8 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
       $Res Function(_$ThreadgateRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThreadgateRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -196,12 +204,14 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, postUri,
       const DeepCollectionEquality().hash(_allowRules), createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThreadgateRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ThreadgateRecordImplCopyWith<_$ThreadgateRecordImpl> get copyWith =>
@@ -241,8 +251,11 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   List<ThreadRule>? get allowRules;
   @override
   DateTime get createdAt;
+
+  /// Create a copy of ThreadgateRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ThreadgateRecordImplCopyWith<_$ThreadgateRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -26,8 +26,12 @@ mixin _$ThreadListRule {
   @AtUriConverter()
   AtUri get listUri => throw _privateConstructorUsedError;
 
+  /// Serializes this ThreadListRule to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThreadListRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ThreadListRuleCopyWith<ThreadListRule> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$ThreadListRuleCopyWithImpl<$Res, $Val extends ThreadListRule>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ThreadListRule
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +99,8 @@ class __$$ThreadListRuleImplCopyWithImpl<$Res>
       _$ThreadListRuleImpl _value, $Res Function(_$ThreadListRuleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThreadListRule
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -145,11 +153,13 @@ class _$ThreadListRuleImpl implements _ThreadListRule {
             (identical(other.listUri, listUri) || other.listUri == listUri));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, listUri);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThreadListRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ThreadListRuleImplCopyWith<_$ThreadListRuleImpl> get copyWith =>
@@ -181,8 +191,11 @@ abstract class _ThreadListRule implements ThreadListRule {
   @JsonKey(name: 'list')
   @AtUriConverter()
   AtUri get listUri;
+
+  /// Create a copy of ThreadListRule
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ThreadListRuleImplCopyWith<_$ThreadListRuleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

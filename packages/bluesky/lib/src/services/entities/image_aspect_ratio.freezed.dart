@@ -23,8 +23,12 @@ mixin _$ImageAspectRatio {
   int get width => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
 
+  /// Serializes this ImageAspectRatio to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ImageAspectRatio
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ImageAspectRatioCopyWith<ImageAspectRatio> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$ImageAspectRatioCopyWithImpl<$Res, $Val extends ImageAspectRatio>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ImageAspectRatio
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$ImageAspectRatioImplCopyWithImpl<$Res>
       $Res Function(_$ImageAspectRatioImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ImageAspectRatio
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$ImageAspectRatioImpl implements _ImageAspectRatio {
             (identical(other.height, height) || other.height == height));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, width, height);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ImageAspectRatio
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ImageAspectRatioImplCopyWith<_$ImageAspectRatioImpl> get copyWith =>
@@ -163,8 +173,11 @@ abstract class _ImageAspectRatio implements ImageAspectRatio {
   int get width;
   @override
   int get height;
+
+  /// Create a copy of ImageAspectRatio
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ImageAspectRatioImplCopyWith<_$ImageAspectRatioImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

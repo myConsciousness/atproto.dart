@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ModerationCauseSourceLabeler {
   String get did => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationCauseSourceLabeler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModerationCauseSourceLabelerCopyWith<ModerationCauseSourceLabeler>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$ModerationCauseSourceLabelerCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModerationCauseSourceLabeler
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +85,8 @@ class __$$ModerationCauseSourceLabelerImplCopyWithImpl<$Res>
       $Res Function(_$ModerationCauseSourceLabelerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationCauseSourceLabeler
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -120,7 +126,9 @@ class _$ModerationCauseSourceLabelerImpl
   @override
   int get hashCode => Object.hash(runtimeType, did);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationCauseSourceLabeler
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModerationCauseSourceLabelerImplCopyWith<
@@ -136,8 +144,11 @@ abstract class _ModerationCauseSourceLabeler
 
   @override
   String get did;
+
+  /// Create a copy of ModerationCauseSourceLabeler
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModerationCauseSourceLabelerImplCopyWith<
           _$ModerationCauseSourceLabelerImpl>
       get copyWith => throw _privateConstructorUsedError;

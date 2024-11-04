@@ -24,8 +24,12 @@ mixin _$MarkdownLinkEntity {
   String get url => throw _privateConstructorUsedError;
   ByteIndices get indices => throw _privateConstructorUsedError;
 
+  /// Serializes this MarkdownLinkEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MarkdownLinkEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MarkdownLinkEntityCopyWith<MarkdownLinkEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$MarkdownLinkEntityCopyWithImpl<$Res, $Val extends MarkdownLinkEntity>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MarkdownLinkEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -74,6 +80,8 @@ class _$MarkdownLinkEntityCopyWithImpl<$Res, $Val extends MarkdownLinkEntity>
     ) as $Val);
   }
 
+  /// Create a copy of MarkdownLinkEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ByteIndicesCopyWith<$Res> get indices {
@@ -105,6 +113,8 @@ class __$$MarkdownLinkEntityImplCopyWithImpl<$Res>
       $Res Function(_$MarkdownLinkEntityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MarkdownLinkEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,11 +171,13 @@ class _$MarkdownLinkEntityImpl extends _MarkdownLinkEntity {
             (identical(other.indices, indices) || other.indices == indices));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, text, url, indices);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MarkdownLinkEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MarkdownLinkEntityImplCopyWith<_$MarkdownLinkEntityImpl> get copyWith =>
@@ -196,8 +208,11 @@ abstract class _MarkdownLinkEntity extends MarkdownLinkEntity {
   String get url;
   @override
   ByteIndices get indices;
+
+  /// Create a copy of MarkdownLinkEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MarkdownLinkEntityImplCopyWith<_$MarkdownLinkEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

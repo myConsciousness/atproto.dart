@@ -14,7 +14,7 @@ _$XRPCErrorImpl _$$XRPCErrorImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$XRPCErrorImpl(
           error: $checkedConvert('error', (v) => v as String),
-          message: $checkedConvert('message', (v) => v as String),
+          message: $checkedConvert('message', (v) => v as String?),
         );
         return val;
       },

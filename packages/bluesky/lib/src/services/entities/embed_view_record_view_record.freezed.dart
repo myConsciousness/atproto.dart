@@ -37,8 +37,12 @@ mixin _$EmbedViewRecordViewRecord {
   List<EmbedView>? get embeds => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbedViewRecordViewRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecordViewRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbedViewRecordViewRecordCopyWith<EmbedViewRecordViewRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -77,6 +81,8 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbedViewRecordViewRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,6 +146,8 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of EmbedViewRecordViewRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ActorBasicCopyWith<$Res> get author {
@@ -148,6 +156,8 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of EmbedViewRecordViewRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PostRecordCopyWith<$Res> get value {
@@ -195,6 +205,8 @@ class __$$EmbedViewRecordViewRecordImplCopyWithImpl<$Res>
       $Res Function(_$EmbedViewRecordViewRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecordViewRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -354,7 +366,7 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
                 other.indexedAt == indexedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -370,7 +382,9 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
       const DeepCollectionEquality().hash(_embeds),
       indexedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecordViewRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmbedViewRecordViewRecordImplCopyWith<_$EmbedViewRecordViewRecordImpl>
@@ -428,8 +442,11 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   List<EmbedView>? get embeds;
   @override
   DateTime get indexedAt;
+
+  /// Create a copy of EmbedViewRecordViewRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmbedViewRecordViewRecordImplCopyWith<_$EmbedViewRecordViewRecordImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

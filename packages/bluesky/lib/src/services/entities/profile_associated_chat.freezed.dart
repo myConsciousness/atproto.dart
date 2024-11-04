@@ -25,8 +25,12 @@ mixin _$ActorProfileAssociatedChat {
   String get type => throw _privateConstructorUsedError;
   String get allowIncoming => throw _privateConstructorUsedError;
 
+  /// Serializes this ActorProfileAssociatedChat to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ActorProfileAssociatedChat
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ActorProfileAssociatedChatCopyWith<ActorProfileAssociatedChat>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$ActorProfileAssociatedChatCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ActorProfileAssociatedChat
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +99,8 @@ class __$$ActorProfileAssociatedChatImplCopyWithImpl<$Res>
       $Res Function(_$ActorProfileAssociatedChatImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ActorProfileAssociatedChat
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -145,11 +153,13 @@ class _$ActorProfileAssociatedChatImpl implements _ActorProfileAssociatedChat {
                 other.allowIncoming == allowIncoming));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, allowIncoming);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ActorProfileAssociatedChat
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ActorProfileAssociatedChatImplCopyWith<_$ActorProfileAssociatedChatImpl>
@@ -178,8 +188,11 @@ abstract class _ActorProfileAssociatedChat
   String get type;
   @override
   String get allowIncoming;
+
+  /// Create a copy of ActorProfileAssociatedChat
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ActorProfileAssociatedChatImplCopyWith<_$ActorProfileAssociatedChatImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

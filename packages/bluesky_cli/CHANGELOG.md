@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.7
+
+- Bump dependencies.
+
 ## v0.4.6
 
 - Bump `at_uri`. ([#1551](https://github.com/myConsciousness/atproto.dart/issues/1551))

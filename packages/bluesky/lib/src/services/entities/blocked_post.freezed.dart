@@ -27,8 +27,12 @@ mixin _$BlockedPost {
   bool get blocked => throw _privateConstructorUsedError;
   BlockedAuthor get author => throw _privateConstructorUsedError;
 
+  /// Serializes this BlockedPost to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BlockedPost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BlockedPostCopyWith<BlockedPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BlockedPost
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
     ) as $Val);
   }
 
+  /// Create a copy of BlockedPost
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlockedAuthorCopyWith<$Res> get author {
@@ -121,6 +129,8 @@ class __$$BlockedPostImplCopyWithImpl<$Res>
       _$BlockedPostImpl _value, $Res Function(_$BlockedPostImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BlockedPost
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -189,11 +199,13 @@ class _$BlockedPostImpl implements _BlockedPost {
             (identical(other.author, author) || other.author == author));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, uri, blocked, author);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BlockedPost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BlockedPostImplCopyWith<_$BlockedPostImpl> get copyWith =>
@@ -227,8 +239,11 @@ abstract class _BlockedPost implements BlockedPost {
   bool get blocked;
   @override
   BlockedAuthor get author;
+
+  /// Create a copy of BlockedPost
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BlockedPostImplCopyWith<_$BlockedPostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -23,8 +23,12 @@ mixin _$Actors {
   List<Actor> get actors => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this Actors to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Actors
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ActorsCopyWith<Actors> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -46,6 +50,8 @@ class _$ActorsCopyWithImpl<$Res, $Val extends Actors>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Actors
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -83,6 +89,8 @@ class __$$ActorsImplCopyWithImpl<$Res>
       _$ActorsImpl _value, $Res Function(_$ActorsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Actors
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -136,12 +144,14 @@ class _$ActorsImpl implements _Actors {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_actors), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Actors
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ActorsImplCopyWith<_$ActorsImpl> get copyWith =>
@@ -165,8 +175,11 @@ abstract class _Actors implements Actors {
   List<Actor> get actors;
   @override
   String? get cursor;
+
+  /// Create a copy of Actors
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ActorsImplCopyWith<_$ActorsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

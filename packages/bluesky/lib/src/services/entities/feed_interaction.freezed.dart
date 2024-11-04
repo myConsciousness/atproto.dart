@@ -27,8 +27,12 @@ mixin _$FeedInteraction {
   String? get event => throw _privateConstructorUsedError;
   String? get feedContext => throw _privateConstructorUsedError;
 
+  /// Serializes this FeedInteraction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FeedInteraction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FeedInteractionCopyWith<FeedInteraction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$FeedInteractionCopyWithImpl<$Res, $Val extends FeedInteraction>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FeedInteraction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -108,6 +114,8 @@ class __$$FeedInteractionImplCopyWithImpl<$Res>
       _$FeedInteractionImpl _value, $Res Function(_$FeedInteractionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FeedInteraction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -178,11 +186,13 @@ class _$FeedInteractionImpl implements _FeedInteraction {
                 other.feedContext == feedContext));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, item, event, feedContext);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FeedInteraction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FeedInteractionImplCopyWith<_$FeedInteractionImpl> get copyWith =>
@@ -217,8 +227,11 @@ abstract class _FeedInteraction implements FeedInteraction {
   String? get event;
   @override
   String? get feedContext;
+
+  /// Create a copy of FeedInteraction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FeedInteractionImplCopyWith<_$FeedInteractionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

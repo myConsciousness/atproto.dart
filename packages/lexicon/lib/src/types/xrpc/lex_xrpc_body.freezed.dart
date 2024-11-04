@@ -25,8 +25,12 @@ mixin _$LexXrpcBody {
   @lexXrpcSchemaConverter
   LexXrpcSchema? get schema => throw _privateConstructorUsedError;
 
+  /// Serializes this LexXrpcBody to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexXrpcBody
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexXrpcBodyCopyWith<LexXrpcBody> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$LexXrpcBodyCopyWithImpl<$Res, $Val extends LexXrpcBody>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexXrpcBody
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,6 +84,8 @@ class _$LexXrpcBodyCopyWithImpl<$Res, $Val extends LexXrpcBody>
     ) as $Val);
   }
 
+  /// Create a copy of LexXrpcBody
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LexXrpcSchemaCopyWith<$Res>? get schema {
@@ -116,6 +124,8 @@ class __$$LexXrpcBodyImplCopyWithImpl<$Res>
       _$LexXrpcBodyImpl _value, $Res Function(_$LexXrpcBodyImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexXrpcBody
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -177,11 +187,13 @@ class _$LexXrpcBodyImpl implements _LexXrpcBody {
             (identical(other.schema, schema) || other.schema == schema));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, description, encoding, schema);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexXrpcBody
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexXrpcBodyImplCopyWith<_$LexXrpcBodyImpl> get copyWith =>
@@ -211,8 +223,11 @@ abstract class _LexXrpcBody implements LexXrpcBody {
   @override
   @lexXrpcSchemaConverter
   LexXrpcSchema? get schema;
+
+  /// Create a copy of LexXrpcBody
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexXrpcBodyImplCopyWith<_$LexXrpcBodyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

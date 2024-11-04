@@ -24,8 +24,12 @@ mixin _$TaggedSuggestion {
   SubjectType get subjectType => throw _privateConstructorUsedError;
   String get subject => throw _privateConstructorUsedError;
 
+  /// Serializes this TaggedSuggestion to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TaggedSuggestion
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TaggedSuggestionCopyWith<TaggedSuggestion> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$TaggedSuggestionCopyWithImpl<$Res, $Val extends TaggedSuggestion>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TaggedSuggestion
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$TaggedSuggestionImplCopyWithImpl<$Res>
       $Res Function(_$TaggedSuggestionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TaggedSuggestion
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -149,11 +157,13 @@ class _$TaggedSuggestionImpl implements _TaggedSuggestion {
             (identical(other.subject, subject) || other.subject == subject));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, tag, subjectType, subject);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TaggedSuggestion
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TaggedSuggestionImplCopyWith<_$TaggedSuggestionImpl> get copyWith =>
@@ -183,8 +193,11 @@ abstract class _TaggedSuggestion implements TaggedSuggestion {
   SubjectType get subjectType;
   @override
   String get subject;
+
+  /// Create a copy of TaggedSuggestion
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TaggedSuggestionImplCopyWith<_$TaggedSuggestionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

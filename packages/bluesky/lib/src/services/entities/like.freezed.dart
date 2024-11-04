@@ -24,8 +24,12 @@ mixin _$Like {
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this Like to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Like
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LikeCopyWith<Like> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -49,6 +53,8 @@ class _$LikeCopyWithImpl<$Res, $Val extends Like>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Like
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -72,6 +78,8 @@ class _$LikeCopyWithImpl<$Res, $Val extends Like>
     ) as $Val);
   }
 
+  /// Create a copy of Like
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ActorCopyWith<$Res> get actor {
@@ -101,6 +109,8 @@ class __$$LikeImplCopyWithImpl<$Res>
   __$$LikeImplCopyWithImpl(_$LikeImpl _value, $Res Function(_$LikeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Like
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -158,11 +168,13 @@ class _$LikeImpl implements _Like {
                 other.indexedAt == indexedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, actor, createdAt, indexedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Like
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LikeImplCopyWith<_$LikeImpl> get copyWith =>
@@ -190,8 +202,11 @@ abstract class _Like implements Like {
   DateTime get createdAt;
   @override
   DateTime get indexedAt;
+
+  /// Create a copy of Like
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LikeImplCopyWith<_$LikeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

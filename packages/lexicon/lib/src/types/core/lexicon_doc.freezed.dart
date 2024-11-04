@@ -28,8 +28,12 @@ mixin _$LexiconDoc {
   @lexUserTypeConverter
   Map<String, LexUserType> get defs => throw _privateConstructorUsedError;
 
+  /// Serializes this LexiconDoc to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexiconDoc
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexiconDocCopyWith<LexiconDoc> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$LexiconDocCopyWithImpl<$Res, $Val extends LexiconDoc>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexiconDoc
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -116,6 +122,8 @@ class __$$LexiconDocImplCopyWithImpl<$Res>
       _$LexiconDocImpl _value, $Res Function(_$LexiconDocImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexiconDoc
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -202,12 +210,14 @@ class _$LexiconDocImpl implements _LexiconDoc {
             const DeepCollectionEquality().equals(other._defs, _defs));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, lexicon, id, revision,
       description, const DeepCollectionEquality().hash(_defs));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexiconDoc
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexiconDocImplCopyWith<_$LexiconDocImpl> get copyWith =>
@@ -245,8 +255,11 @@ abstract class _LexiconDoc implements LexiconDoc {
   @override
   @lexUserTypeConverter
   Map<String, LexUserType> get defs;
+
+  /// Create a copy of LexiconDoc
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexiconDocImplCopyWith<_$LexiconDocImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

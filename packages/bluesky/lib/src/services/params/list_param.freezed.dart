@@ -30,8 +30,12 @@ mixin _$ListParam {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
 
+  /// Serializes this ListParam to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ListParamCopyWith<ListParam> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -65,6 +69,8 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -113,6 +119,8 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
     ) as $Val);
   }
 
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get avatar {
@@ -125,6 +133,8 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
     });
   }
 
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
@@ -170,6 +180,8 @@ class __$$ListParamImplCopyWithImpl<$Res>
       _$ListParamImpl _value, $Res Function(_$ListParamImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -295,7 +307,7 @@ class _$ListParamImpl implements _ListParam {
                 .equals(other._unspecced, _unspecced));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -308,7 +320,9 @@ class _$ListParamImpl implements _ListParam {
       createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ListParamImplCopyWith<_$ListParamImpl> get copyWith =>
@@ -353,8 +367,11 @@ abstract class _ListParam implements ListParam {
   DateTime? get createdAt;
   @override
   Map<String, dynamic> get unspecced;
+
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ListParamImplCopyWith<_$ListParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

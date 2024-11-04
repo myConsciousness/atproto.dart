@@ -30,8 +30,12 @@ mixin _$Actor {
   List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this Actor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ActorCopyWith<Actor> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -65,6 +69,8 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,6 +124,8 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
     ) as $Val);
   }
 
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ProfileAssociatedCopyWith<$Res>? get associated {
@@ -130,6 +138,8 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
     });
   }
 
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ActorViewerCopyWith<$Res> get viewer {
@@ -171,6 +181,8 @@ class __$$ActorImplCopyWithImpl<$Res>
       _$ActorImpl _value, $Res Function(_$ActorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -298,7 +310,7 @@ class _$ActorImpl extends _Actor {
                 other.indexedAt == indexedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -312,7 +324,9 @@ class _$ActorImpl extends _Actor {
       const DeepCollectionEquality().hash(_labels),
       indexedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ActorImplCopyWith<_$ActorImpl> get copyWith =>
@@ -359,8 +373,11 @@ abstract class _Actor extends Actor {
   List<Label>? get labels;
   @override
   DateTime? get indexedAt;
+
+  /// Create a copy of Actor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ActorImplCopyWith<_$ActorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

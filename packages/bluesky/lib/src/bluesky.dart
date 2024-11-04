@@ -14,6 +14,7 @@ import 'services/labeler_service.dart';
 import 'services/notification_service.dart';
 import 'services/service_context.dart';
 import 'services/unspecced_service.dart';
+import 'services/video_service.dart';
 
 /// Provides `app.bsky.*` services.
 sealed class Bluesky {
@@ -132,83 +133,9 @@ sealed class Bluesky {
   /// This service represents `app.bsky.labeler.*`.
   LabelerService get labeler;
 
-  /// Returns the server service.
-  /// This service represents `com.atproto.server.*`.
-  @Deprecated('Use .atproto.server instead. Will be removed')
-  atp.ServerService get server;
-
-  /// Returns the identity service.
-  /// This service represents `com.atproto.identity.*`.
-  @Deprecated('Use .atproto.identity instead. Will be removed')
-  atp.IdentityService get identity;
-
-  /// Returns the repo service.
-  /// This service represents `com.atproto.repo.*`.
-  @Deprecated('Use .atproto.repo instead. Will be removed')
-  atp.RepoService get repo;
-
-  /// Returns the moderation service.
-  /// This service represents `com.atproto.moderation.*`.
-  @Deprecated('Use .atproto.moderation instead. Will be removed')
-  atp.ModerationService get moderation;
-
-  /// Returns the sync service.
-  /// This service represents `com.atproto.sync.*`.
-  @Deprecated('Use .atproto.sync instead. Will be removed')
-  atp.SyncService get sync;
-
-  /// Returns the label service.
-  /// This service represents `com.atproto.label.*`.
-  @Deprecated('Use .atproto.label instead. Will be removed')
-  atp.LabelService get label;
-
-  /// Returns the temp service.
-  /// This service represents `com.atproto.temp.*`.
-  @Deprecated('Use .atproto.temp instead. Will be removed')
-  atp.TempService get temp;
-
-  /// Returns the result of executing [methodId] as GET communication.
-  ///
-  /// You can specify `Map<String, dynamic>`, `Uint8List`, or `EmptyData` as
-  /// generics. If a [to] parameter is specified to convert the response body
-  /// to a specific object, the generics need not be specified.
-  ///
-  /// - [methodId]: name of method to execute in XRPC.
-  /// - [headers]: optional header information to be added to the request.
-  /// - [parameters]: arguments passed to [methodId].
-  /// - [to]: optional builder to convert the body of the response to a specific
-  ///         object.
-  /// - [adaptor]: optional adapters to convert response bodies to a specific
-  ///              structure.
-  @Deprecated('Use .atproto.get instead. Will be removed')
-  Future<core.XRPCResponse<T>> get<T>(
-    final core.NSID methodId, {
-    final Map<String, String>? headers,
-    final Map<String, dynamic>? parameters,
-    final core.ResponseDataBuilder<T>? to,
-    final core.ResponseDataAdaptor? adaptor,
-  });
-
-  /// Returns the result of executing [methodId] as POST communication.
-  ///
-  /// You can specify `Map<String, dynamic>`, `Uint8List`, or `EmptyData` as
-  /// generics. If a [to] parameter is specified to convert the response body
-  /// to a specific object, the generics need not be specified.
-  ///
-  /// - [methodId]: name of method to execute in XRPC.
-  /// - [headers]: optional header information to be added to the request.
-  /// - [parameters]: query parameters passed to [methodId].
-  /// - [body]: data passed to [methodId].
-  /// - [to]: optional builder to convert the body of the response to a specific
-  ///         object.
-  @Deprecated('Use .atproto.post instead. Will be removed')
-  Future<core.XRPCResponse<T>> post<T>(
-    final core.NSID methodId, {
-    final Map<String, String>? headers,
-    final Map<String, dynamic>? parameters,
-    final dynamic body,
-    final core.ResponseDataBuilder<T>? to,
-  });
+  /// Returns the video service.
+  /// This service represents `app.bsky.video.*`.
+  VideoService get video;
 }
 
 final class _Bluesky implements Bluesky {
@@ -219,13 +146,7 @@ final class _Bluesky implements Bluesky {
         graph = GraphService(ctx),
         unspecced = UnspeccedService(ctx),
         labeler = LabelerService(ctx),
-        server = ctx.atproto.server,
-        identity = ctx.atproto.identity,
-        repo = ctx.atproto.repo,
-        moderation = ctx.atproto.moderation,
-        sync = ctx.atproto.sync,
-        label = ctx.atproto.label,
-        temp = ctx.atproto.temp,
+        video = VideoService(ctx),
         _ctx = ctx;
 
   final BlueskyServiceContext _ctx;
@@ -264,55 +185,5 @@ final class _Bluesky implements Bluesky {
   final LabelerService labeler;
 
   @override
-  final atp.ServerService server;
-
-  @override
-  final atp.IdentityService identity;
-
-  @override
-  final atp.RepoService repo;
-
-  @override
-  final atp.ModerationService moderation;
-
-  @override
-  final atp.SyncService sync;
-
-  @override
-  final atp.LabelService label;
-
-  @override
-  final atp.TempService temp;
-
-  @override
-  Future<core.XRPCResponse<T>> get<T>(
-    final core.NSID methodId, {
-    final Map<String, String>? headers,
-    final Map<String, dynamic>? parameters,
-    final core.ResponseDataBuilder<T>? to,
-    final core.ResponseDataAdaptor? adaptor,
-  }) async =>
-      await _ctx.get(
-        methodId,
-        headers: headers,
-        parameters: parameters,
-        to: to,
-        adaptor: adaptor,
-      );
-
-  @override
-  Future<core.XRPCResponse<T>> post<T>(
-    final core.NSID methodId, {
-    final Map<String, String>? headers,
-    final Map<String, dynamic>? parameters,
-    final dynamic body,
-    final core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.post(
-        methodId,
-        headers: headers,
-        parameters: parameters,
-        body: body,
-        to: to,
-      );
+  final VideoService video;
 }

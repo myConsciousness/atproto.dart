@@ -52,8 +52,12 @@ mixin _$GroupedNotification {
   /// Indicates the timestamp at which the notification was indexed.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this GroupedNotification to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GroupedNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GroupedNotificationCopyWith<GroupedNotification> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -85,6 +89,8 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GroupedNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,6 +167,8 @@ class __$$GroupedNotificationImplCopyWithImpl<$Res>
       $Res Function(_$GroupedNotificationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GroupedNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -329,7 +337,7 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
                 other.indexedAt == indexedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -342,7 +350,9 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
       const DeepCollectionEquality().hash(_record),
       indexedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GroupedNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GroupedNotificationImplCopyWith<_$GroupedNotificationImpl> get copyWith =>
@@ -371,48 +381,50 @@ abstract class _GroupedNotification implements GroupedNotification {
   factory _GroupedNotification.fromJson(Map<String, dynamic> json) =
       _$GroupedNotificationImpl.fromJson;
 
-  @override
-
   /// The unique URI for the notification content.
   ///
   /// This list is set in chronological order, with the uri of
   /// the most recent notification at the top.
+  @override
   @AtUriConverter()
   List<AtUri> get uris;
-  @override
 
   /// The collection of authors causing the notification.
   ///
   /// This list is set in chronological order, with the author of the
   /// most recent notification at the top.
-  List<Actor> get authors;
   @override
+  List<Actor> get authors;
 
   /// Specifies the reason for the notification.
-  GroupedNotificationReason get reason;
   @override
+  GroupedNotificationReason get reason;
 
   /// Optionally, represents the subject of the reason for the notification.
+  @override
   @AtUriConverter()
   AtUri? get reasonSubject;
-  @override
 
   /// Indicates whether the notification has been read or not.
-  bool get isRead;
   @override
+  bool get isRead;
 
   /// May include any labels attached to the notification.
-  List<Label> get labels;
   @override
+  List<Label> get labels;
 
   /// Might include additional data related to the notification.
-  Map<String, dynamic>? get record;
   @override
+  Map<String, dynamic>? get record;
 
   /// Indicates the timestamp at which the notification was indexed.
-  DateTime get indexedAt;
   @override
-  @JsonKey(ignore: true)
+  DateTime get indexedAt;
+
+  /// Create a copy of GroupedNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GroupedNotificationImplCopyWith<_$GroupedNotificationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

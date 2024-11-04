@@ -82,6 +82,9 @@ class _$UConvoMessageViewCopyWithImpl<$Res, $Val extends UConvoMessageView>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,6 +109,8 @@ class __$$UConvoMessageViewMessageViewImplCopyWithImpl<$Res>
       $Res Function(_$UConvoMessageViewMessageViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +124,8 @@ class __$$UConvoMessageViewMessageViewImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MessageViewCopyWith<$Res> get data {
@@ -152,7 +159,9 @@ class _$UConvoMessageViewMessageViewImpl extends UConvoMessageViewMessageView {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UConvoMessageViewMessageViewImplCopyWith<
@@ -239,7 +248,10 @@ abstract class UConvoMessageViewMessageView extends UConvoMessageView {
 
   @override
   MessageView get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UConvoMessageViewMessageViewImplCopyWith<
           _$UConvoMessageViewMessageViewImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -267,6 +279,8 @@ class __$$UConvoMessageViewDeletedMessageViewImplCopyWithImpl<$Res>
       $Res Function(_$UConvoMessageViewDeletedMessageViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -280,6 +294,8 @@ class __$$UConvoMessageViewDeletedMessageViewImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $DeletedMessageViewCopyWith<$Res> get data {
@@ -315,7 +331,9 @@ class _$UConvoMessageViewDeletedMessageViewImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UConvoMessageViewDeletedMessageViewImplCopyWith<
@@ -403,7 +421,10 @@ abstract class UConvoMessageViewDeletedMessageView extends UConvoMessageView {
 
   @override
   DeletedMessageView get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UConvoMessageViewDeletedMessageViewImplCopyWith<
           _$UConvoMessageViewDeletedMessageViewImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -429,6 +450,8 @@ class __$$UConvoMessageViewUnknownImplCopyWithImpl<$Res>
       $Res Function(_$UConvoMessageViewUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -476,7 +499,9 @@ class _$UConvoMessageViewUnknownImpl extends UConvoMessageViewUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UConvoMessageViewUnknownImplCopyWith<_$UConvoMessageViewUnknownImpl>
@@ -563,7 +588,10 @@ abstract class UConvoMessageViewUnknown extends UConvoMessageView {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UConvoMessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UConvoMessageViewUnknownImplCopyWith<_$UConvoMessageViewUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

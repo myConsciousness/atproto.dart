@@ -23,8 +23,12 @@ mixin _$BlobRef {
   @JsonKey(name: '\$link')
   String get link => throw _privateConstructorUsedError;
 
+  /// Serializes this BlobRef to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BlobRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BlobRefCopyWith<BlobRef> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -46,6 +50,8 @@ class _$BlobRefCopyWithImpl<$Res, $Val extends BlobRef>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BlobRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,6 +84,8 @@ class __$$BlobRefImplCopyWithImpl<$Res>
       _$BlobRefImpl _value, $Res Function(_$BlobRefImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BlobRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -117,11 +125,13 @@ class _$BlobRefImpl implements _BlobRef {
             (identical(other.link, link) || other.link == link));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, link);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BlobRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BlobRefImplCopyWith<_$BlobRefImpl> get copyWith =>
@@ -144,8 +154,11 @@ abstract class _BlobRef implements BlobRef {
   @override
   @JsonKey(name: '\$link')
   String get link;
+
+  /// Create a copy of BlobRef
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BlobRefImplCopyWith<_$BlobRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

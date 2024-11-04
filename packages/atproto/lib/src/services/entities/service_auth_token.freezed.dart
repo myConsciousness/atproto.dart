@@ -22,8 +22,12 @@ ServiceAuthToken _$ServiceAuthTokenFromJson(Map<String, dynamic> json) {
 mixin _$ServiceAuthToken {
   String get token => throw _privateConstructorUsedError;
 
+  /// Serializes this ServiceAuthToken to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ServiceAuthToken
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ServiceAuthTokenCopyWith<ServiceAuthToken> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$ServiceAuthTokenCopyWithImpl<$Res, $Val extends ServiceAuthToken>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ServiceAuthToken
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$ServiceAuthTokenImplCopyWithImpl<$Res>
       $Res Function(_$ServiceAuthTokenImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ServiceAuthToken
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,11 +127,13 @@ class _$ServiceAuthTokenImpl implements _ServiceAuthToken {
             (identical(other.token, token) || other.token == token));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, token);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServiceAuthToken
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ServiceAuthTokenImplCopyWith<_$ServiceAuthTokenImpl> get copyWith =>
@@ -147,8 +157,11 @@ abstract class _ServiceAuthToken implements ServiceAuthToken {
 
   @override
   String get token;
+
+  /// Create a copy of ServiceAuthToken
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServiceAuthTokenImplCopyWith<_$ServiceAuthTokenImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -29,8 +29,12 @@ mixin _$ModerationTestSuiteScenario {
   Map<String, List<ModerationTestSuiteResultFlag>> get behaviors =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this ModerationTestSuiteScenario to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ModerationTestSuiteScenario
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModerationTestSuiteScenarioCopyWith<ModerationTestSuiteScenario>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -63,6 +67,8 @@ class _$ModerationTestSuiteScenarioCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModerationTestSuiteScenario
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,6 +136,8 @@ class __$$ModerationTestSuiteScenarioImplCopyWithImpl<$Res>
       $Res Function(_$ModerationTestSuiteScenarioImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationTestSuiteScenario
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -234,7 +242,7 @@ class _$ModerationTestSuiteScenarioImpl
                 .equals(other._behaviors, _behaviors));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -245,7 +253,9 @@ class _$ModerationTestSuiteScenarioImpl
       const DeepCollectionEquality().hash(_labels),
       const DeepCollectionEquality().hash(_behaviors));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationTestSuiteScenario
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModerationTestSuiteScenarioImplCopyWith<_$ModerationTestSuiteScenarioImpl>
@@ -286,8 +296,11 @@ abstract class _ModerationTestSuiteScenario
   Map<String, List<String>> get labels;
   @override
   Map<String, List<ModerationTestSuiteResultFlag>> get behaviors;
+
+  /// Create a copy of ModerationTestSuiteScenario
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModerationTestSuiteScenarioImplCopyWith<_$ModerationTestSuiteScenarioImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

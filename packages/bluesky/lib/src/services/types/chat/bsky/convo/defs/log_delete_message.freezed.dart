@@ -25,8 +25,12 @@ mixin _$LogDeleteMessage {
   @unionConvoMessageViewConverter
   UConvoMessageView get message => throw _privateConstructorUsedError;
 
+  /// Serializes this LogDeleteMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LogDeleteMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LogDeleteMessageCopyWith<LogDeleteMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$LogDeleteMessageCopyWithImpl<$Res, $Val extends LogDeleteMessage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LogDeleteMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,6 +84,8 @@ class _$LogDeleteMessageCopyWithImpl<$Res, $Val extends LogDeleteMessage>
     ) as $Val);
   }
 
+  /// Create a copy of LogDeleteMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UConvoMessageViewCopyWith<$Res> get message {
@@ -112,6 +120,8 @@ class __$$LogDeleteMessageImplCopyWithImpl<$Res>
       $Res Function(_$LogDeleteMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LogDeleteMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -171,11 +181,13 @@ class _$LogDeleteMessageImpl implements _LogDeleteMessage {
             (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, rev, convoId, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LogDeleteMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LogDeleteMessageImplCopyWith<_$LogDeleteMessageImpl> get copyWith =>
@@ -207,8 +219,11 @@ abstract class _LogDeleteMessage implements LogDeleteMessage {
   @override
   @unionConvoMessageViewConverter
   UConvoMessageView get message;
+
+  /// Create a copy of LogDeleteMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LogDeleteMessageImplCopyWith<_$LogDeleteMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

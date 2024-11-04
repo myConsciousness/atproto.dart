@@ -24,8 +24,12 @@ mixin _$MessageRef {
   String get convoId => throw _privateConstructorUsedError;
   String get messageId => throw _privateConstructorUsedError;
 
+  /// Serializes this MessageRef to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MessageRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MessageRefCopyWith<MessageRef> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$MessageRefCopyWithImpl<$Res, $Val extends MessageRef>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MessageRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$MessageRefImplCopyWithImpl<$Res>
       _$MessageRefImpl _value, $Res Function(_$MessageRefImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MessageRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -149,11 +157,13 @@ class _$MessageRefImpl implements _MessageRef {
                 other.messageId == messageId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, did, convoId, messageId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MessageRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MessageRefImplCopyWith<_$MessageRefImpl> get copyWith =>
@@ -182,8 +192,11 @@ abstract class _MessageRef implements MessageRef {
   String get convoId;
   @override
   String get messageId;
+
+  /// Create a copy of MessageRef
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MessageRefImplCopyWith<_$MessageRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

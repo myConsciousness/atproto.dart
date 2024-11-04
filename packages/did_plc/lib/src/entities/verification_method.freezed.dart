@@ -25,8 +25,12 @@ mixin _$VerificationMethod {
   String get controller => throw _privateConstructorUsedError;
   String get publicKeyMultibase => throw _privateConstructorUsedError;
 
+  /// Serializes this VerificationMethod to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VerificationMethod
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $VerificationMethodCopyWith<VerificationMethod> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$VerificationMethodCopyWithImpl<$Res, $Val extends VerificationMethod>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VerificationMethod
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -100,6 +106,8 @@ class __$$VerificationMethodImplCopyWithImpl<$Res>
       $Res Function(_$VerificationMethodImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VerificationMethod
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -169,12 +177,14 @@ class _$VerificationMethodImpl implements _VerificationMethod {
                 other.publicKeyMultibase == publicKeyMultibase));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, type, controller, publicKeyMultibase);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VerificationMethod
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$VerificationMethodImplCopyWith<_$VerificationMethodImpl> get copyWith =>
@@ -207,8 +217,11 @@ abstract class _VerificationMethod implements VerificationMethod {
   String get controller;
   @override
   String get publicKeyMultibase;
+
+  /// Create a copy of VerificationMethod
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$VerificationMethodImplCopyWith<_$VerificationMethodImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

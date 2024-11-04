@@ -28,8 +28,12 @@ mixin _$ThreadViewPreference {
   @JsonKey(name: 'lab_treeViewEnabled')
   bool get treeViewEnabled => throw _privateConstructorUsedError;
 
+  /// Serializes this ThreadViewPreference to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ThreadViewPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ThreadViewPreferenceCopyWith<ThreadViewPreference> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$ThreadViewPreferenceCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ThreadViewPreference
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -110,6 +116,8 @@ class __$$ThreadViewPreferenceImplCopyWithImpl<$Res>
       $Res Function(_$ThreadViewPreferenceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ThreadViewPreference
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -184,12 +192,14 @@ class _$ThreadViewPreferenceImpl implements _ThreadViewPreference {
                 other.treeViewEnabled == treeViewEnabled));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, type, sort, isPrioritizeFollowedUsers, treeViewEnabled);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ThreadViewPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ThreadViewPreferenceImplCopyWith<_$ThreadViewPreferenceImpl>
@@ -228,8 +238,11 @@ abstract class _ThreadViewPreference implements ThreadViewPreference {
   @override
   @JsonKey(name: 'lab_treeViewEnabled')
   bool get treeViewEnabled;
+
+  /// Create a copy of ThreadViewPreference
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ThreadViewPreferenceImplCopyWith<_$ThreadViewPreferenceImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

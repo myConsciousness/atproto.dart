@@ -23,8 +23,12 @@ mixin _$MissingBlobs {
   List<RecordBlob> get blobs => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this MissingBlobs to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MissingBlobs
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MissingBlobsCopyWith<MissingBlobs> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$MissingBlobsCopyWithImpl<$Res, $Val extends MissingBlobs>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MissingBlobs
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$MissingBlobsImplCopyWithImpl<$Res>
       _$MissingBlobsImpl _value, $Res Function(_$MissingBlobsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MissingBlobs
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,12 +148,14 @@ class _$MissingBlobsImpl implements _MissingBlobs {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_blobs), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MissingBlobs
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MissingBlobsImplCopyWith<_$MissingBlobsImpl> get copyWith =>
@@ -171,8 +181,11 @@ abstract class _MissingBlobs implements MissingBlobs {
   List<RecordBlob> get blobs;
   @override
   String? get cursor;
+
+  /// Create a copy of MissingBlobs
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MissingBlobsImplCopyWith<_$MissingBlobsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

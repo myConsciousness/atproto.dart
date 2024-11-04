@@ -23,8 +23,12 @@ mixin _$RepoCommits {
   /// The list of [RepoCommit] objects.
   List<RepoCommit> get commits => throw _privateConstructorUsedError;
 
+  /// Serializes this RepoCommits to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RepoCommits
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepoCommitsCopyWith<RepoCommits> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$RepoCommitsCopyWithImpl<$Res, $Val extends RepoCommits>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepoCommits
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +87,8 @@ class __$$RepoCommitsImplCopyWithImpl<$Res>
       _$RepoCommitsImpl _value, $Res Function(_$RepoCommitsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoCommits
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -129,12 +137,14 @@ class _$RepoCommitsImpl implements _RepoCommits {
             const DeepCollectionEquality().equals(other._commits, _commits));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_commits));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoCommits
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepoCommitsImplCopyWith<_$RepoCommitsImpl> get copyWith =>
@@ -155,12 +165,14 @@ abstract class _RepoCommits implements RepoCommits {
   factory _RepoCommits.fromJson(Map<String, dynamic> json) =
       _$RepoCommitsImpl.fromJson;
 
-  @override
-
   /// The list of [RepoCommit] objects.
-  List<RepoCommit> get commits;
   @override
-  @JsonKey(ignore: true)
+  List<RepoCommit> get commits;
+
+  /// Create a copy of RepoCommits
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepoCommitsImplCopyWith<_$RepoCommitsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

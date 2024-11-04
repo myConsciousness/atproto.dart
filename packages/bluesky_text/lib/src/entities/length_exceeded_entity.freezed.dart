@@ -23,8 +23,12 @@ mixin _$LengthExceededEntity {
   String get value => throw _privateConstructorUsedError;
   ByteIndices get indices => throw _privateConstructorUsedError;
 
+  /// Serializes this LengthExceededEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LengthExceededEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LengthExceededEntityCopyWith<LengthExceededEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$LengthExceededEntityCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LengthExceededEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -69,6 +75,8 @@ class _$LengthExceededEntityCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of LengthExceededEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ByteIndicesCopyWith<$Res> get indices {
@@ -100,6 +108,8 @@ class __$$LengthExceededEntityImplCopyWithImpl<$Res>
       $Res Function(_$LengthExceededEntityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LengthExceededEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -147,11 +157,13 @@ class _$LengthExceededEntityImpl implements _LengthExceededEntity {
             (identical(other.indices, indices) || other.indices == indices));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, value, indices);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LengthExceededEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LengthExceededEntityImplCopyWith<_$LengthExceededEntityImpl>
@@ -179,8 +191,11 @@ abstract class _LengthExceededEntity implements LengthExceededEntity {
   String get value;
   @override
   ByteIndices get indices;
+
+  /// Create a copy of LengthExceededEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LengthExceededEntityImplCopyWith<_$LengthExceededEntityImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

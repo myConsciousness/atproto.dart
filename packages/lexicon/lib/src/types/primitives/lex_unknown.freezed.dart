@@ -23,8 +23,12 @@ mixin _$LexUnknown {
   String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
+  /// Serializes this LexUnknown to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LexUnknown
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LexUnknownCopyWith<LexUnknown> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$LexUnknownCopyWithImpl<$Res, $Val extends LexUnknown>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LexUnknown
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$LexUnknownImplCopyWithImpl<$Res>
       _$LexUnknownImpl _value, $Res Function(_$LexUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LexUnknown
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -135,11 +143,13 @@ class _$LexUnknownImpl implements _LexUnknown {
                 other.description == description));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LexUnknown
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LexUnknownImplCopyWith<_$LexUnknownImpl> get copyWith =>
@@ -164,8 +174,11 @@ abstract class _LexUnknown implements LexUnknown {
   String get type;
   @override
   String? get description;
+
+  /// Create a copy of LexUnknown
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LexUnknownImplCopyWith<_$LexUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

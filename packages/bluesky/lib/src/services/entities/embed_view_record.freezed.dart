@@ -25,8 +25,12 @@ mixin _$EmbedViewRecord {
   @embedViewRecordViewConverter
   EmbedViewRecordView get record => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbedViewRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbedViewRecordCopyWith<EmbedViewRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$EmbedViewRecordCopyWithImpl<$Res, $Val extends EmbedViewRecord>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -72,6 +78,8 @@ class _$EmbedViewRecordCopyWithImpl<$Res, $Val extends EmbedViewRecord>
     ) as $Val);
   }
 
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewRecordViewCopyWith<$Res> get record {
@@ -105,6 +113,8 @@ class __$$EmbedViewRecordImplCopyWithImpl<$Res>
       _$EmbedViewRecordImpl _value, $Res Function(_$EmbedViewRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -155,11 +165,13 @@ class _$EmbedViewRecordImpl implements _EmbedViewRecord {
             (identical(other.record, record) || other.record == record));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, record);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmbedViewRecordImplCopyWith<_$EmbedViewRecordImpl> get copyWith =>
@@ -189,8 +201,11 @@ abstract class _EmbedViewRecord implements EmbedViewRecord {
   @override
   @embedViewRecordViewConverter
   EmbedViewRecordView get record;
+
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmbedViewRecordImplCopyWith<_$EmbedViewRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

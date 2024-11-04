@@ -24,8 +24,12 @@ mixin _$InterestsPreference {
   String get type => throw _privateConstructorUsedError;
   List<String> get tags => throw _privateConstructorUsedError;
 
+  /// Serializes this InterestsPreference to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of InterestsPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InterestsPreferenceCopyWith<InterestsPreference> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$InterestsPreferenceCopyWithImpl<$Res, $Val extends InterestsPreference>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of InterestsPreference
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -87,6 +93,8 @@ class __$$InterestsPreferenceImplCopyWithImpl<$Res>
       $Res Function(_$InterestsPreferenceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of InterestsPreference
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -143,12 +151,14 @@ class _$InterestsPreferenceImpl implements _InterestsPreference {
             const DeepCollectionEquality().equals(other._tags, _tags));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, type, const DeepCollectionEquality().hash(_tags));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InterestsPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InterestsPreferenceImplCopyWith<_$InterestsPreferenceImpl> get copyWith =>
@@ -176,8 +186,11 @@ abstract class _InterestsPreference implements InterestsPreference {
   String get type;
   @override
   List<String> get tags;
+
+  /// Create a copy of InterestsPreference
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InterestsPreferenceImplCopyWith<_$InterestsPreferenceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -22,8 +22,12 @@ RepoBlocks _$RepoBlocksFromJson(Map<String, dynamic> json) {
 mixin _$RepoBlocks {
   List<RepoBlock> get blocks => throw _privateConstructorUsedError;
 
+  /// Serializes this RepoBlocks to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RepoBlocks
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepoBlocksCopyWith<RepoBlocks> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$RepoBlocksCopyWithImpl<$Res, $Val extends RepoBlocks>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepoBlocks
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$RepoBlocksImplCopyWithImpl<$Res>
       _$RepoBlocksImpl _value, $Res Function(_$RepoBlocksImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoBlocks
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,12 +132,14 @@ class _$RepoBlocksImpl implements _RepoBlocks {
             const DeepCollectionEquality().equals(other._blocks, _blocks));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_blocks));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoBlocks
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RepoBlocksImplCopyWith<_$RepoBlocksImpl> get copyWith =>
@@ -152,8 +162,11 @@ abstract class _RepoBlocks implements RepoBlocks {
 
   @override
   List<RepoBlock> get blocks;
+
+  /// Create a copy of RepoBlocks
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RepoBlocksImplCopyWith<_$RepoBlocksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

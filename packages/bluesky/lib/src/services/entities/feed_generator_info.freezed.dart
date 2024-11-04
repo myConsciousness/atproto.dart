@@ -24,8 +24,12 @@ mixin _$FeedGeneratorInfo {
   List<GeneratorFeed> get feeds => throw _privateConstructorUsedError;
   GeneratorLinks? get links => throw _privateConstructorUsedError;
 
+  /// Serializes this FeedGeneratorInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FeedGeneratorInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FeedGeneratorInfoCopyWith<FeedGeneratorInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$FeedGeneratorInfoCopyWithImpl<$Res, $Val extends FeedGeneratorInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FeedGeneratorInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -74,6 +80,8 @@ class _$FeedGeneratorInfoCopyWithImpl<$Res, $Val extends FeedGeneratorInfo>
     ) as $Val);
   }
 
+  /// Create a copy of FeedGeneratorInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GeneratorLinksCopyWith<$Res>? get links {
@@ -109,6 +117,8 @@ class __$$FeedGeneratorInfoImplCopyWithImpl<$Res>
       $Res Function(_$FeedGeneratorInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FeedGeneratorInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -172,12 +182,14 @@ class _$FeedGeneratorInfoImpl implements _FeedGeneratorInfo {
             (identical(other.links, links) || other.links == links));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, did, const DeepCollectionEquality().hash(_feeds), links);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FeedGeneratorInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FeedGeneratorInfoImplCopyWith<_$FeedGeneratorInfoImpl> get copyWith =>
@@ -207,8 +219,11 @@ abstract class _FeedGeneratorInfo implements FeedGeneratorInfo {
   List<GeneratorFeed> get feeds;
   @override
   GeneratorLinks? get links;
+
+  /// Create a copy of FeedGeneratorInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FeedGeneratorInfoImplCopyWith<_$FeedGeneratorInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

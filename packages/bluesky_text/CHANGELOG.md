@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.10
+
+- Bump `xrpc`.
+
 ## v0.6.9
 
 - Bump SDK constraint to '^3.3.0'.

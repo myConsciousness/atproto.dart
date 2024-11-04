@@ -15,8 +15,8 @@ _$LexBytesImpl _$$LexBytesImplFromJson(Map json) => $checkedCreate(
         final val = _$LexBytesImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'bytes'),
           description: $checkedConvert('description', (v) => v as String?),
-          maxLength: $checkedConvert('maxLength', (v) => v as int?),
-          minLength: $checkedConvert('minLength', (v) => v as int?),
+          maxLength: $checkedConvert('maxLength', (v) => (v as num?)?.toInt()),
+          minLength: $checkedConvert('minLength', (v) => (v as num?)?.toInt()),
         );
         return val;
       },

@@ -29,8 +29,12 @@ mixin _$MessageView {
   MessageViewSender get sender => throw _privateConstructorUsedError;
   DateTime get sentAt => throw _privateConstructorUsedError;
 
+  /// Serializes this MessageView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MessageViewCopyWith<MessageView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -64,6 +68,8 @@ class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MessageView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,6 +113,8 @@ class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
     ) as $Val);
   }
 
+  /// Create a copy of MessageView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UConvoMessageEmbedCopyWith<$Res>? get embed {
@@ -119,6 +127,8 @@ class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
     });
   }
 
+  /// Create a copy of MessageView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MessageViewSenderCopyWith<$Res> get sender {
@@ -159,6 +169,8 @@ class __$$MessageViewImplCopyWithImpl<$Res>
       _$MessageViewImpl _value, $Res Function(_$MessageViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MessageView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -263,12 +275,14 @@ class _$MessageViewImpl implements _MessageView {
             (identical(other.sentAt, sentAt) || other.sentAt == sentAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, rev, text,
       const DeepCollectionEquality().hash(_facets), embed, sender, sentAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MessageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MessageViewImplCopyWith<_$MessageViewImpl> get copyWith =>
@@ -310,8 +324,11 @@ abstract class _MessageView implements MessageView {
   MessageViewSender get sender;
   @override
   DateTime get sentAt;
+
+  /// Create a copy of MessageView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MessageViewImplCopyWith<_$MessageViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

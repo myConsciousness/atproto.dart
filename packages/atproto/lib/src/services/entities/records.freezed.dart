@@ -23,8 +23,12 @@ mixin _$Records {
   List<Record> get records => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this Records to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Records
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RecordsCopyWith<Records> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -46,6 +50,8 @@ class _$RecordsCopyWithImpl<$Res, $Val extends Records>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Records
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -83,6 +89,8 @@ class __$$RecordsImplCopyWithImpl<$Res>
       _$RecordsImpl _value, $Res Function(_$RecordsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Records
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -136,12 +144,14 @@ class _$RecordsImpl implements _Records {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_records), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Records
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RecordsImplCopyWith<_$RecordsImpl> get copyWith =>
@@ -166,8 +176,11 @@ abstract class _Records implements Records {
   List<Record> get records;
   @override
   String? get cursor;
+
+  /// Create a copy of Records
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RecordsImplCopyWith<_$RecordsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

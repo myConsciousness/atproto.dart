@@ -26,8 +26,12 @@ mixin _$StrongRef {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
+  /// Serializes this StrongRef to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StrongRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StrongRefCopyWith<StrongRef> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$StrongRefCopyWithImpl<$Res, $Val extends StrongRef>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StrongRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +99,8 @@ class __$$StrongRefImplCopyWithImpl<$Res>
       _$StrongRefImpl _value, $Res Function(_$StrongRefImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StrongRef
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -152,11 +160,13 @@ class _$StrongRefImpl implements _StrongRef {
             (identical(other.uri, uri) || other.uri == uri));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, cid, uri);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StrongRef
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StrongRefImplCopyWith<_$StrongRefImpl> get copyWith =>
@@ -187,8 +197,11 @@ abstract class _StrongRef implements StrongRef {
   @override
   @AtUriConverter()
   AtUri get uri;
+
+  /// Create a copy of StrongRef
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StrongRefImplCopyWith<_$StrongRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

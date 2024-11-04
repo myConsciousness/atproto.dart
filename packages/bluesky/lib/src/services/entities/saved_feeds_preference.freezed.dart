@@ -30,8 +30,12 @@ mixin _$SavedFeedsPreference {
   List<AtUri> get savedUris => throw _privateConstructorUsedError;
   int? get timelineIndex => throw _privateConstructorUsedError;
 
+  /// Serializes this SavedFeedsPreference to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SavedFeedsPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SavedFeedsPreferenceCopyWith<SavedFeedsPreference> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$SavedFeedsPreferenceCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SavedFeedsPreference
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -112,6 +118,8 @@ class __$$SavedFeedsPreferenceImplCopyWithImpl<$Res>
       $Res Function(_$SavedFeedsPreferenceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SavedFeedsPreference
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -205,7 +213,7 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
                 other.timelineIndex == timelineIndex));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -214,7 +222,9 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
       const DeepCollectionEquality().hash(_savedUris),
       timelineIndex);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SavedFeedsPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SavedFeedsPreferenceImplCopyWith<_$SavedFeedsPreferenceImpl>
@@ -257,8 +267,11 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
   List<AtUri> get savedUris;
   @override
   int? get timelineIndex;
+
+  /// Create a copy of SavedFeedsPreference
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SavedFeedsPreferenceImplCopyWith<_$SavedFeedsPreferenceImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

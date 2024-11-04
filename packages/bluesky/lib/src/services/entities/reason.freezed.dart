@@ -72,6 +72,9 @@ class _$ReasonCopyWithImpl<$Res, $Val extends Reason>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -93,6 +96,8 @@ class __$$UReasonRepostImplCopyWithImpl<$Res>
       _$UReasonRepostImpl _value, $Res Function(_$UReasonRepostImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +111,8 @@ class __$$UReasonRepostImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ReasonRepostCopyWith<$Res> get data {
@@ -139,7 +146,9 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UReasonRepostImplCopyWith<_$UReasonRepostImpl> get copyWith =>
@@ -214,7 +223,10 @@ abstract class UReasonRepost implements Reason {
 
   @override
   ReasonRepost get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UReasonRepostImplCopyWith<_$UReasonRepostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -236,6 +248,8 @@ class __$$UReasonUnknownImplCopyWithImpl<$Res>
       _$UReasonUnknownImpl _value, $Res Function(_$UReasonUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -281,7 +295,9 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UReasonUnknownImplCopyWith<_$UReasonUnknownImpl> get copyWith =>
@@ -357,7 +373,10 @@ abstract class UReasonUnknown implements Reason {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UReasonUnknownImplCopyWith<_$UReasonUnknownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

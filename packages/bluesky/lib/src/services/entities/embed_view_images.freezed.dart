@@ -24,8 +24,12 @@ mixin _$EmbedViewImages {
   String get type => throw _privateConstructorUsedError;
   List<EmbedViewImagesView> get images => throw _privateConstructorUsedError;
 
+  /// Serializes this EmbedViewImages to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EmbedViewImages
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EmbedViewImagesCopyWith<EmbedViewImages> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$EmbedViewImagesCopyWithImpl<$Res, $Val extends EmbedViewImages>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EmbedViewImages
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -87,6 +93,8 @@ class __$$EmbedViewImagesImplCopyWithImpl<$Res>
       _$EmbedViewImagesImpl _value, $Res Function(_$EmbedViewImagesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EmbedViewImages
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -142,12 +150,14 @@ class _$EmbedViewImagesImpl implements _EmbedViewImages {
             const DeepCollectionEquality().equals(other._images, _images));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, type, const DeepCollectionEquality().hash(_images));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EmbedViewImages
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EmbedViewImagesImplCopyWith<_$EmbedViewImagesImpl> get copyWith =>
@@ -175,8 +185,11 @@ abstract class _EmbedViewImages implements EmbedViewImages {
   String get type;
   @override
   List<EmbedViewImagesView> get images;
+
+  /// Create a copy of EmbedViewImages
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmbedViewImagesImplCopyWith<_$EmbedViewImagesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -22,8 +22,12 @@ UpdateReadOutput _$UpdateReadOutputFromJson(Map<String, dynamic> json) {
 mixin _$UpdateReadOutput {
   ConvoView get convo => throw _privateConstructorUsedError;
 
+  /// Serializes this UpdateReadOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UpdateReadOutputCopyWith<UpdateReadOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$UpdateReadOutputCopyWithImpl<$Res, $Val extends UpdateReadOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$UpdateReadOutputCopyWithImpl<$Res, $Val extends UpdateReadOutput>
     ) as $Val);
   }
 
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ConvoViewCopyWith<$Res> get convo {
@@ -93,6 +101,8 @@ class __$$UpdateReadOutputImplCopyWithImpl<$Res>
       $Res Function(_$UpdateReadOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +142,13 @@ class _$UpdateReadOutputImpl implements _UpdateReadOutput {
             (identical(other.convo, convo) || other.convo == convo));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, convo);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateReadOutputImplCopyWith<_$UpdateReadOutputImpl> get copyWith =>
@@ -160,8 +172,11 @@ abstract class _UpdateReadOutput implements UpdateReadOutput {
 
   @override
   ConvoView get convo;
+
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateReadOutputImplCopyWith<_$UpdateReadOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

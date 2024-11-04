@@ -26,8 +26,12 @@ mixin _$FeedView {
   Reason? get reason => throw _privateConstructorUsedError;
   String? get feedContext => throw _privateConstructorUsedError;
 
+  /// Serializes this FeedView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FeedView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FeedViewCopyWith<FeedView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$FeedViewCopyWithImpl<$Res, $Val extends FeedView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FeedView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class _$FeedViewCopyWithImpl<$Res, $Val extends FeedView>
     ) as $Val);
   }
 
+  /// Create a copy of FeedView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PostCopyWith<$Res> get post {
@@ -94,6 +102,8 @@ class _$FeedViewCopyWithImpl<$Res, $Val extends FeedView>
     });
   }
 
+  /// Create a copy of FeedView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ReplyCopyWith<$Res>? get reply {
@@ -106,6 +116,8 @@ class _$FeedViewCopyWithImpl<$Res, $Val extends FeedView>
     });
   }
 
+  /// Create a copy of FeedView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ReasonCopyWith<$Res>? get reason {
@@ -149,6 +161,8 @@ class __$$FeedViewImplCopyWithImpl<$Res>
       _$FeedViewImpl _value, $Res Function(_$FeedViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FeedView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -218,12 +232,14 @@ class _$FeedViewImpl implements _FeedView {
                 other.feedContext == feedContext));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, post, reply, reason, feedContext);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FeedView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FeedViewImplCopyWith<_$FeedViewImpl> get copyWith =>
@@ -256,8 +272,11 @@ abstract class _FeedView implements FeedView {
   Reason? get reason;
   @override
   String? get feedContext;
+
+  /// Create a copy of FeedView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FeedViewImplCopyWith<_$FeedViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

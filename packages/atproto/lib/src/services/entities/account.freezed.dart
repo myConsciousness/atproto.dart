@@ -26,8 +26,12 @@ mixin _$CreateAccountOutput {
   String get did => throw _privateConstructorUsedError;
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
 
+  /// Serializes this CreateAccountOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateAccountOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateAccountOutputCopyWith<CreateAccountOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$CreateAccountOutputCopyWithImpl<$Res, $Val extends CreateAccountOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateAccountOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$CreateAccountOutputImplCopyWithImpl<$Res>
       $Res Function(_$CreateAccountOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateAccountOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -199,12 +207,14 @@ class _$CreateAccountOutputImpl implements _CreateAccountOutput {
             const DeepCollectionEquality().equals(other._didDoc, _didDoc));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, accessJwt, refreshJwt, handle,
       did, const DeepCollectionEquality().hash(_didDoc));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateAccountOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateAccountOutputImplCopyWith<_$CreateAccountOutputImpl> get copyWith =>
@@ -240,8 +250,11 @@ abstract class _CreateAccountOutput implements CreateAccountOutput {
   String get did;
   @override
   Map<String, dynamic>? get didDoc;
+
+  /// Create a copy of CreateAccountOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateAccountOutputImplCopyWith<_$CreateAccountOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

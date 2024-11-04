@@ -36,8 +36,12 @@ mixin _$Commit {
   @JsonKey(name: 'time')
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Serializes this Commit to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Commit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CommitCopyWith<Commit> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -66,6 +70,8 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Commit
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -135,6 +141,8 @@ class __$$CommitImplCopyWithImpl<$Res>
       _$CommitImpl _value, $Res Function(_$CommitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Commit
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -246,7 +254,7 @@ class _$CommitImpl implements _Commit {
                 other.createdAt == createdAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -258,7 +266,9 @@ class _$CommitImpl implements _Commit {
       isTooBig,
       createdAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Commit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CommitImplCopyWith<_$CommitImpl> get copyWith =>
@@ -292,13 +302,13 @@ abstract class _Commit implements Commit {
   @override
   @JsonKey(name: 'seq')
   int get cursor;
-  @override
 
   /// The rev of the emitted commit.
-  String get rev;
   @override
+  String get rev;
 
   /// The rev of the last emitted commit from this repo.
+  @override
   String? get since;
   @override
   @JsonKey(name: 'tooBig')
@@ -306,8 +316,11 @@ abstract class _Commit implements Commit {
   @override
   @JsonKey(name: 'time')
   DateTime get createdAt;
+
+  /// Create a copy of Commit
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CommitImplCopyWith<_$CommitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

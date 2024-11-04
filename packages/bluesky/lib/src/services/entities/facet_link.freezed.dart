@@ -24,8 +24,12 @@ mixin _$FacetLink {
   String get type => throw _privateConstructorUsedError;
   String get uri => throw _privateConstructorUsedError;
 
+  /// Serializes this FacetLink to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FacetLink
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FacetLinkCopyWith<FacetLink> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$FacetLinkCopyWithImpl<$Res, $Val extends FacetLink>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FacetLink
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$FacetLinkImplCopyWithImpl<$Res>
       _$FacetLinkImpl _value, $Res Function(_$FacetLinkImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FacetLink
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,11 +142,13 @@ class _$FacetLinkImpl implements _FacetLink {
             (identical(other.uri, uri) || other.uri == uri));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, uri);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FacetLink
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FacetLinkImplCopyWith<_$FacetLinkImpl> get copyWith =>
@@ -165,8 +175,11 @@ abstract class _FacetLink implements FacetLink {
   String get type;
   @override
   String get uri;
+
+  /// Create a copy of FacetLink
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FacetLinkImplCopyWith<_$FacetLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

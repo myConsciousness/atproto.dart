@@ -76,6 +76,8 @@ mixin _$SubscribedLabel {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this SubscribedLabel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -95,6 +97,9 @@ class _$SubscribedLabelCopyWithImpl<$Res, $Val extends SubscribedLabel>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -118,6 +123,8 @@ class __$$USubscribedLabelLabelsImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedLabelLabelsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,6 +138,8 @@ class __$$USubscribedLabelLabelsImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SubscribedLabelLabelsCopyWith<$Res> get data {
@@ -168,11 +177,13 @@ class _$USubscribedLabelLabelsImpl implements USubscribedLabelLabels {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedLabelLabelsImplCopyWith<_$USubscribedLabelLabelsImpl>
@@ -265,7 +276,10 @@ abstract class USubscribedLabelLabels implements SubscribedLabel {
 
   @override
   SubscribedLabelLabels get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedLabelLabelsImplCopyWith<_$USubscribedLabelLabelsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -289,6 +303,8 @@ class __$$USubscribedLabelInfoImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedLabelInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -302,6 +318,8 @@ class __$$USubscribedLabelInfoImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SubscribedLabelInfoCopyWith<$Res> get data {
@@ -339,11 +357,13 @@ class _$USubscribedLabelInfoImpl implements USubscribedLabelInfo {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedLabelInfoImplCopyWith<_$USubscribedLabelInfoImpl>
@@ -436,7 +456,10 @@ abstract class USubscribedLabelInfo implements SubscribedLabel {
 
   @override
   SubscribedLabelInfo get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedLabelInfoImplCopyWith<_$USubscribedLabelInfoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -460,6 +483,8 @@ class __$$USubscribedLabelUnknownImplCopyWithImpl<$Res>
       $Res Function(_$USubscribedLabelUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -509,12 +534,14 @@ class _$USubscribedLabelUnknownImpl implements USubscribedLabelUnknown {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$USubscribedLabelUnknownImplCopyWith<_$USubscribedLabelUnknownImpl>
@@ -607,7 +634,10 @@ abstract class USubscribedLabelUnknown implements SubscribedLabel {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USubscribedLabelUnknownImplCopyWith<_$USubscribedLabelUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

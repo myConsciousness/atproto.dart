@@ -78,6 +78,9 @@ class _$ModerationSubjectUserListCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -102,6 +105,8 @@ class __$$UModerationSubjectUserListListViewBasicImplCopyWithImpl<$Res>
       $Res Function(_$UModerationSubjectUserListListViewBasicImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,6 +120,8 @@ class __$$UModerationSubjectUserListListViewBasicImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ListViewBasicCopyWith<$Res> get data {
@@ -149,7 +156,9 @@ class _$UModerationSubjectUserListListViewBasicImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UModerationSubjectUserListListViewBasicImplCopyWith<
@@ -233,7 +242,10 @@ abstract class UModerationSubjectUserListListViewBasic
 
   @override
   ListViewBasic get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationSubjectUserListListViewBasicImplCopyWith<
           _$UModerationSubjectUserListListViewBasicImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -261,6 +273,8 @@ class __$$UModerationSubjectUserListListViewImplCopyWithImpl<$Res>
       $Res Function(_$UModerationSubjectUserListListViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -274,6 +288,8 @@ class __$$UModerationSubjectUserListListViewImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ListViewCopyWith<$Res> get data {
@@ -308,7 +324,9 @@ class _$UModerationSubjectUserListListViewImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UModerationSubjectUserListListViewImplCopyWith<
@@ -391,7 +409,10 @@ abstract class UModerationSubjectUserListListView
 
   @override
   ListView get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationSubjectUserListListViewImplCopyWith<
           _$UModerationSubjectUserListListViewImpl>
       get copyWith => throw _privateConstructorUsedError;

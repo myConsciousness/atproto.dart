@@ -22,8 +22,12 @@ AppPasswords _$AppPasswordsFromJson(Map<String, dynamic> json) {
 mixin _$AppPasswords {
   List<SealedAppPassword> get passwords => throw _privateConstructorUsedError;
 
+  /// Serializes this AppPasswords to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppPasswords
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppPasswordsCopyWith<AppPasswords> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$AppPasswordsCopyWithImpl<$Res, $Val extends AppPasswords>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppPasswords
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$AppPasswordsImplCopyWithImpl<$Res>
       _$AppPasswordsImpl _value, $Res Function(_$AppPasswordsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppPasswords
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -125,12 +133,14 @@ class _$AppPasswordsImpl implements _AppPasswords {
                 .equals(other._passwords, _passwords));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_passwords));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppPasswords
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppPasswordsImplCopyWith<_$AppPasswordsImpl> get copyWith =>
@@ -153,8 +163,11 @@ abstract class _AppPasswords implements AppPasswords {
 
   @override
   List<SealedAppPassword> get passwords;
+
+  /// Create a copy of AppPasswords
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppPasswordsImplCopyWith<_$AppPasswordsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

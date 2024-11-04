@@ -23,8 +23,12 @@ mixin _$SkeletonFeed {
   List<SkeletonFeedView> get feed => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
+  /// Serializes this SkeletonFeed to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkeletonFeed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SkeletonFeedCopyWith<SkeletonFeed> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$SkeletonFeedCopyWithImpl<$Res, $Val extends SkeletonFeed>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SkeletonFeed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$SkeletonFeedImplCopyWithImpl<$Res>
       _$SkeletonFeedImpl _value, $Res Function(_$SkeletonFeedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkeletonFeed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,12 +149,14 @@ class _$SkeletonFeedImpl implements _SkeletonFeed {
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_feed), cursor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkeletonFeed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SkeletonFeedImplCopyWith<_$SkeletonFeedImpl> get copyWith =>
@@ -172,8 +182,11 @@ abstract class _SkeletonFeed implements SkeletonFeed {
   List<SkeletonFeedView> get feed;
   @override
   String? get cursor;
+
+  /// Create a copy of SkeletonFeed
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SkeletonFeedImplCopyWith<_$SkeletonFeedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

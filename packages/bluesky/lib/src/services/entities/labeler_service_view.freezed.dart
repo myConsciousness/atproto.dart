@@ -82,6 +82,9 @@ class _$LabelerServiceViewCopyWithImpl<$Res, $Val extends LabelerServiceView>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,6 +109,8 @@ class __$$ULabelerServiceViewLabelerViewImplCopyWithImpl<$Res>
       $Res Function(_$ULabelerServiceViewLabelerViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +124,8 @@ class __$$ULabelerServiceViewLabelerViewImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LabelerViewCopyWith<$Res> get data {
@@ -153,7 +160,9 @@ class _$ULabelerServiceViewLabelerViewImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULabelerServiceViewLabelerViewImplCopyWith<
@@ -240,7 +249,10 @@ abstract class ULabelerServiceViewLabelerView extends LabelerServiceView {
 
   @override
   LabelerView get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULabelerServiceViewLabelerViewImplCopyWith<
           _$ULabelerServiceViewLabelerViewImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -268,6 +280,8 @@ class __$$ULabelerServiceViewLabelerViewDetailedImplCopyWithImpl<$Res>
       $Res Function(_$ULabelerServiceViewLabelerViewDetailedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -281,6 +295,8 @@ class __$$ULabelerServiceViewLabelerViewDetailedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LabelerViewDetailedCopyWith<$Res> get data {
@@ -316,7 +332,9 @@ class _$ULabelerServiceViewLabelerViewDetailedImpl
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULabelerServiceViewLabelerViewDetailedImplCopyWith<
@@ -406,7 +424,10 @@ abstract class ULabelerServiceViewLabelerViewDetailed
 
   @override
   LabelerViewDetailed get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULabelerServiceViewLabelerViewDetailedImplCopyWith<
           _$ULabelerServiceViewLabelerViewDetailedImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -432,6 +453,8 @@ class __$$ULabelerServiceViewUnknownImplCopyWithImpl<$Res>
       $Res Function(_$ULabelerServiceViewUnknownImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -479,7 +502,9 @@ class _$ULabelerServiceViewUnknownImpl extends ULabelerServiceViewUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ULabelerServiceViewUnknownImplCopyWith<_$ULabelerServiceViewUnknownImpl>
@@ -566,7 +591,10 @@ abstract class ULabelerServiceViewUnknown extends LabelerServiceView {
 
   @override
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ULabelerServiceViewUnknownImplCopyWith<_$ULabelerServiceViewUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
