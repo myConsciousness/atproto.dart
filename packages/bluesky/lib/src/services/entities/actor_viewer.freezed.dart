@@ -32,6 +32,7 @@ mixin _$ActorViewer {
   AtUri? get following => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get followedBy => throw _privateConstructorUsedError;
+  KnownFollowers? get knownFollowers => throw _privateConstructorUsedError;
 
   /// Serializes this ActorViewer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,10 +57,12 @@ abstract class $ActorViewerCopyWith<$Res> {
       ListViewBasic? blockingByList,
       @AtUriConverter() AtUri? blocking,
       @AtUriConverter() AtUri? following,
-      @AtUriConverter() AtUri? followedBy});
+      @AtUriConverter() AtUri? followedBy,
+      KnownFollowers? knownFollowers});
 
   $ListViewBasicCopyWith<$Res>? get mutedByList;
   $ListViewBasicCopyWith<$Res>? get blockingByList;
+  $KnownFollowersCopyWith<$Res>? get knownFollowers;
 }
 
 /// @nodoc
@@ -84,6 +87,7 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
     Object? blocking = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
+    Object? knownFollowers = freezed,
   }) {
     return _then(_value.copyWith(
       isMuted: null == isMuted
@@ -114,6 +118,10 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      knownFollowers: freezed == knownFollowers
+          ? _value.knownFollowers
+          : knownFollowers // ignore: cast_nullable_to_non_nullable
+              as KnownFollowers?,
     ) as $Val);
   }
 
@@ -144,6 +152,20 @@ class _$ActorViewerCopyWithImpl<$Res, $Val extends ActorViewer>
       return _then(_value.copyWith(blockingByList: value) as $Val);
     });
   }
+
+  /// Create a copy of ActorViewer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $KnownFollowersCopyWith<$Res>? get knownFollowers {
+    if (_value.knownFollowers == null) {
+      return null;
+    }
+
+    return $KnownFollowersCopyWith<$Res>(_value.knownFollowers!, (value) {
+      return _then(_value.copyWith(knownFollowers: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -161,12 +183,15 @@ abstract class _$$ActorViewerImplCopyWith<$Res>
       ListViewBasic? blockingByList,
       @AtUriConverter() AtUri? blocking,
       @AtUriConverter() AtUri? following,
-      @AtUriConverter() AtUri? followedBy});
+      @AtUriConverter() AtUri? followedBy,
+      KnownFollowers? knownFollowers});
 
   @override
   $ListViewBasicCopyWith<$Res>? get mutedByList;
   @override
   $ListViewBasicCopyWith<$Res>? get blockingByList;
+  @override
+  $KnownFollowersCopyWith<$Res>? get knownFollowers;
 }
 
 /// @nodoc
@@ -189,6 +214,7 @@ class __$$ActorViewerImplCopyWithImpl<$Res>
     Object? blocking = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
+    Object? knownFollowers = freezed,
   }) {
     return _then(_$ActorViewerImpl(
       isMuted: null == isMuted
@@ -219,6 +245,10 @@ class __$$ActorViewerImplCopyWithImpl<$Res>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      knownFollowers: freezed == knownFollowers
+          ? _value.knownFollowers
+          : knownFollowers // ignore: cast_nullable_to_non_nullable
+              as KnownFollowers?,
     ));
   }
 }
@@ -234,7 +264,8 @@ class _$ActorViewerImpl extends _ActorViewer {
       this.blockingByList,
       @AtUriConverter() this.blocking,
       @AtUriConverter() this.following,
-      @AtUriConverter() this.followedBy})
+      @AtUriConverter() this.followedBy,
+      this.knownFollowers})
       : super._();
 
   factory _$ActorViewerImpl.fromJson(Map<String, dynamic> json) =>
@@ -259,10 +290,12 @@ class _$ActorViewerImpl extends _ActorViewer {
   @override
   @AtUriConverter()
   final AtUri? followedBy;
+  @override
+  final KnownFollowers? knownFollowers;
 
   @override
   String toString() {
-    return 'ActorViewer(isMuted: $isMuted, isBlockedBy: $isBlockedBy, mutedByList: $mutedByList, blockingByList: $blockingByList, blocking: $blocking, following: $following, followedBy: $followedBy)';
+    return 'ActorViewer(isMuted: $isMuted, isBlockedBy: $isBlockedBy, mutedByList: $mutedByList, blockingByList: $blockingByList, blocking: $blocking, following: $following, followedBy: $followedBy, knownFollowers: $knownFollowers)';
   }
 
   @override
@@ -282,13 +315,23 @@ class _$ActorViewerImpl extends _ActorViewer {
             (identical(other.following, following) ||
                 other.following == following) &&
             (identical(other.followedBy, followedBy) ||
-                other.followedBy == followedBy));
+                other.followedBy == followedBy) &&
+            (identical(other.knownFollowers, knownFollowers) ||
+                other.knownFollowers == knownFollowers));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, isMuted, isBlockedBy,
-      mutedByList, blockingByList, blocking, following, followedBy);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isMuted,
+      isBlockedBy,
+      mutedByList,
+      blockingByList,
+      blocking,
+      following,
+      followedBy,
+      knownFollowers);
 
   /// Create a copy of ActorViewer
   /// with the given fields replaced by the non-null parameter values.
@@ -314,7 +357,8 @@ abstract class _ActorViewer extends ActorViewer {
       final ListViewBasic? blockingByList,
       @AtUriConverter() final AtUri? blocking,
       @AtUriConverter() final AtUri? following,
-      @AtUriConverter() final AtUri? followedBy}) = _$ActorViewerImpl;
+      @AtUriConverter() final AtUri? followedBy,
+      final KnownFollowers? knownFollowers}) = _$ActorViewerImpl;
   const _ActorViewer._() : super._();
 
   factory _ActorViewer.fromJson(Map<String, dynamic> json) =
@@ -339,6 +383,8 @@ abstract class _ActorViewer extends ActorViewer {
   @override
   @AtUriConverter()
   AtUri? get followedBy;
+  @override
+  KnownFollowers? get knownFollowers;
 
   /// Create a copy of ActorViewer
   /// with the given fields replaced by the non-null parameter values.

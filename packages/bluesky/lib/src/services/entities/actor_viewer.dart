@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../types/app/bsky/actor/defs/known_followers.dart';
 import 'list_view_basic.dart';
 
 part 'actor_viewer.freezed.dart';
@@ -29,6 +30,7 @@ class ActorViewer with _$ActorViewer {
     @AtUriConverter() AtUri? blocking,
     @AtUriConverter() AtUri? following,
     @AtUriConverter() AtUri? followedBy,
+    KnownFollowers? knownFollowers,
   }) = _ActorViewer;
 
   factory ActorViewer.fromJson(Map<String, Object?> json) =>

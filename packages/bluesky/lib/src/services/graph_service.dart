@@ -22,6 +22,7 @@ import 'params/list_item_param.dart';
 import 'params/list_param.dart';
 import 'params/repo_param.dart';
 import 'service_context.dart';
+import 'types/app/bsky/graph/getKnownFollowers/output.dart';
 
 /// Represents `app.bsky.graph.*` service.
 final class GraphService {
@@ -323,6 +324,24 @@ final class GraphService {
           'others': others,
         },
         to: Relationships.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getKnownFollowers
+  Future<core.XRPCResponse<GetKnownFollowersOutput>> getKnownFollowers({
+    required String actor,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyGraphGetKnownFollowers,
+        headers: $headers,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: GetKnownFollowersOutput.fromJson,
       );
 }
 

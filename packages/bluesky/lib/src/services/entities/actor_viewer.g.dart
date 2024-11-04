@@ -39,6 +39,12 @@ _$ActorViewerImpl _$$ActorViewerImplFromJson(Map json) => $checkedCreate(
               'followedBy',
               (v) => _$JsonConverterFromJson<String, AtUri>(
                   v, const AtUriConverter().fromJson)),
+          knownFollowers: $checkedConvert(
+              'knownFollowers',
+              (v) => v == null
+                  ? null
+                  : KnownFollowers.fromJson(
+                      Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -71,6 +77,7 @@ Map<String, dynamic> _$$ActorViewerImplToJson(_$ActorViewerImpl instance) {
       'followedBy',
       _$JsonConverterToJson<String, AtUri>(
           instance.followedBy, const AtUriConverter().toJson));
+  writeNotNull('knownFollowers', instance.knownFollowers?.toJson());
   return val;
 }
 
