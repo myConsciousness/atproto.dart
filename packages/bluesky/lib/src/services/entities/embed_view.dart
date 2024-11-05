@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../app_bsky_embed_video.dart';
 import 'embed_view_external.dart';
 import 'embed_view_images.dart';
 import 'embed_view_record.dart';
@@ -33,6 +34,10 @@ class EmbedView with _$EmbedView {
   const factory EmbedView.recordWithMedia({
     required EmbedViewRecordWithMedia data,
   }) = UEmbedViewRecordWithMedia;
+
+  const factory EmbedView.video({
+    required EmbedVideoView data,
+  }) = UEmbedViewVideo;
 
   const factory EmbedView.unknown({
     required Map<String, dynamic> data,

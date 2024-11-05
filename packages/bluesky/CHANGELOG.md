@@ -8,6 +8,7 @@
 - Support pinned post. ([#1790](https://github.com/myConsciousness/atproto.dart/pull/1790))
   - Add property `.pinnedPost` on `ActorProfile` and `ProfileRecord`.
   - Add parameter `pinnedPost` on `ActorService.profile`.
+- Add union `video` on `EmbedView`. ([#1791](https://github.com/myConsciousness/atproto.dart/pull/1791))
 
 ## v0.16.14
 
