@@ -32,6 +32,8 @@ _$PostImpl _$$PostImplFromJson(Map json) => $checkedCreate(
               $checkedConvert('repostCount', (v) => (v as num?)?.toInt() ?? 0),
           likeCount:
               $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
+          quoteCount:
+              $checkedConvert('quoteCount', (v) => (v as num?)?.toInt() ?? 0),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
@@ -79,6 +81,7 @@ Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) {
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;
+  val['quoteCount'] = instance.quoteCount;
   val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   writeNotNull('threadgate', instance.threadgate?.toJson());

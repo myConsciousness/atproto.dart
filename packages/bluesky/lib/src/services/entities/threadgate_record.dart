@@ -28,6 +28,7 @@ class ThreadgateRecord with _$ThreadgateRecord {
     @AtUriConverter() @JsonKey(name: 'post') required AtUri postUri,
     @threadRuleConverter @JsonKey(name: 'allow') List<ThreadRule>? allowRules,
     required DateTime createdAt,
+    @AtUriConverter() List<AtUri>? hiddenReplies,
   }) = _ThreadgateRecord;
 
   factory ThreadgateRecord.fromJson(Map<String, Object?> json) =>

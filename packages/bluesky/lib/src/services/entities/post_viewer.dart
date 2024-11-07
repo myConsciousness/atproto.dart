@@ -22,6 +22,8 @@ class PostViewer with _$PostViewer {
     @AtUriConverter() AtUri? repost,
     @AtUriConverter() AtUri? like,
     @JsonKey(name: 'replyDisabled') @Default(false) bool isReplyDisabled,
+    @Default(false) bool embeddingDisabled,
+    @Default(false) bool pinned,
   }) = _PostViewer;
 
   factory PostViewer.fromJson(Map<String, Object?> json) =>

@@ -40,6 +40,7 @@ class Post with _$Post {
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,
+    @Default(0) int quoteCount,
     @Default(defaultPostViewer) PostViewer viewer,
     List<Label>? labels,
     ThreadgateView? threadgate,

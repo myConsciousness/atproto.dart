@@ -20,6 +20,7 @@ _$NotificationsImpl _$$NotificationsImplFromJson(Map json) => $checkedCreate(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
+          priority: $checkedConvert('priority', (v) => v as bool? ?? false),
           seenAt: $checkedConvert(
               'seenAt', (v) => v == null ? null : DateTime.parse(v as String)),
         );
@@ -31,5 +32,6 @@ Map<String, dynamic> _$$NotificationsImplToJson(_$NotificationsImpl instance) =>
     <String, dynamic>{
       'notifications': instance.notifications.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
+      'priority': instance.priority,
       'seenAt': instance.seenAt?.toIso8601String(),
     };

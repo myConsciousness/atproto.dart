@@ -22,6 +22,7 @@ PostThread _$PostThreadFromJson(Map<String, dynamic> json) {
 mixin _$PostThread {
   @postThreadViewConverter
   PostThreadView get thread => throw _privateConstructorUsedError;
+  ThreadgateView? get threadgate => throw _privateConstructorUsedError;
 
   /// Serializes this PostThread to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,9 +40,12 @@ abstract class $PostThreadCopyWith<$Res> {
           PostThread value, $Res Function(PostThread) then) =
       _$PostThreadCopyWithImpl<$Res, PostThread>;
   @useResult
-  $Res call({@postThreadViewConverter PostThreadView thread});
+  $Res call(
+      {@postThreadViewConverter PostThreadView thread,
+      ThreadgateView? threadgate});
 
   $PostThreadViewCopyWith<$Res> get thread;
+  $ThreadgateViewCopyWith<$Res>? get threadgate;
 }
 
 /// @nodoc
@@ -60,12 +64,17 @@ class _$PostThreadCopyWithImpl<$Res, $Val extends PostThread>
   @override
   $Res call({
     Object? thread = null,
+    Object? threadgate = freezed,
   }) {
     return _then(_value.copyWith(
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
               as PostThreadView,
+      threadgate: freezed == threadgate
+          ? _value.threadgate
+          : threadgate // ignore: cast_nullable_to_non_nullable
+              as ThreadgateView?,
     ) as $Val);
   }
 
@@ -78,6 +87,20 @@ class _$PostThreadCopyWithImpl<$Res, $Val extends PostThread>
       return _then(_value.copyWith(thread: value) as $Val);
     });
   }
+
+  /// Create a copy of PostThread
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ThreadgateViewCopyWith<$Res>? get threadgate {
+    if (_value.threadgate == null) {
+      return null;
+    }
+
+    return $ThreadgateViewCopyWith<$Res>(_value.threadgate!, (value) {
+      return _then(_value.copyWith(threadgate: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -88,10 +111,14 @@ abstract class _$$PostThreadImplCopyWith<$Res>
       __$$PostThreadImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@postThreadViewConverter PostThreadView thread});
+  $Res call(
+      {@postThreadViewConverter PostThreadView thread,
+      ThreadgateView? threadgate});
 
   @override
   $PostThreadViewCopyWith<$Res> get thread;
+  @override
+  $ThreadgateViewCopyWith<$Res>? get threadgate;
 }
 
 /// @nodoc
@@ -108,12 +135,17 @@ class __$$PostThreadImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? thread = null,
+    Object? threadgate = freezed,
   }) {
     return _then(_$PostThreadImpl(
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
               as PostThreadView,
+      threadgate: freezed == threadgate
+          ? _value.threadgate
+          : threadgate // ignore: cast_nullable_to_non_nullable
+              as ThreadgateView?,
     ));
   }
 }
@@ -121,7 +153,8 @@ class __$$PostThreadImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PostThreadImpl implements _PostThread {
-  const _$PostThreadImpl({@postThreadViewConverter required this.thread});
+  const _$PostThreadImpl(
+      {@postThreadViewConverter required this.thread, this.threadgate});
 
   factory _$PostThreadImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostThreadImplFromJson(json);
@@ -129,10 +162,12 @@ class _$PostThreadImpl implements _PostThread {
   @override
   @postThreadViewConverter
   final PostThreadView thread;
+  @override
+  final ThreadgateView? threadgate;
 
   @override
   String toString() {
-    return 'PostThread(thread: $thread)';
+    return 'PostThread(thread: $thread, threadgate: $threadgate)';
   }
 
   @override
@@ -140,12 +175,14 @@ class _$PostThreadImpl implements _PostThread {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostThreadImpl &&
-            (identical(other.thread, thread) || other.thread == thread));
+            (identical(other.thread, thread) || other.thread == thread) &&
+            (identical(other.threadgate, threadgate) ||
+                other.threadgate == threadgate));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, thread);
+  int get hashCode => Object.hash(runtimeType, thread, threadgate);
 
   /// Create a copy of PostThread
   /// with the given fields replaced by the non-null parameter values.
@@ -165,8 +202,8 @@ class _$PostThreadImpl implements _PostThread {
 
 abstract class _PostThread implements PostThread {
   const factory _PostThread(
-          {@postThreadViewConverter required final PostThreadView thread}) =
-      _$PostThreadImpl;
+      {@postThreadViewConverter required final PostThreadView thread,
+      final ThreadgateView? threadgate}) = _$PostThreadImpl;
 
   factory _PostThread.fromJson(Map<String, dynamic> json) =
       _$PostThreadImpl.fromJson;
@@ -174,6 +211,8 @@ abstract class _PostThread implements PostThread {
   @override
   @postThreadViewConverter
   PostThreadView get thread;
+  @override
+  ThreadgateView? get threadgate;
 
   /// Create a copy of PostThread
   /// with the given fields replaced by the non-null parameter values.

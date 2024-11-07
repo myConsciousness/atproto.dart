@@ -23,6 +23,9 @@ _$PostViewerImpl _$$PostViewerImplFromJson(Map json) => $checkedCreate(
                   v, const AtUriConverter().fromJson)),
           isReplyDisabled:
               $checkedConvert('replyDisabled', (v) => v as bool? ?? false),
+          embeddingDisabled:
+              $checkedConvert('embeddingDisabled', (v) => v as bool? ?? false),
+          pinned: $checkedConvert('pinned', (v) => v as bool? ?? false),
         );
         return val;
       },
@@ -47,6 +50,8 @@ Map<String, dynamic> _$$PostViewerImplToJson(_$PostViewerImpl instance) {
       _$JsonConverterToJson<String, AtUri>(
           instance.like, const AtUriConverter().toJson));
   val['replyDisabled'] = instance.isReplyDisabled;
+  val['embeddingDisabled'] = instance.embeddingDisabled;
+  val['pinned'] = instance.pinned;
   return val;
 }
 

@@ -33,6 +33,7 @@ mixin _$Post {
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
+  int get quoteCount => throw _privateConstructorUsedError;
   PostViewer get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
   ThreadgateView? get threadgate => throw _privateConstructorUsedError;
@@ -62,6 +63,7 @@ abstract class $PostCopyWith<$Res> {
       int replyCount,
       int repostCount,
       int likeCount,
+      int quoteCount,
       PostViewer viewer,
       List<Label>? labels,
       ThreadgateView? threadgate,
@@ -98,6 +100,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? quoteCount = null,
     Object? viewer = null,
     Object? labels = freezed,
     Object? threadgate = freezed,
@@ -139,6 +142,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
       likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      quoteCount: null == quoteCount
+          ? _value.quoteCount
+          : quoteCount // ignore: cast_nullable_to_non_nullable
               as int,
       viewer: null == viewer
           ? _value.viewer
@@ -235,6 +242,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
       int replyCount,
       int repostCount,
       int likeCount,
+      int quoteCount,
       PostViewer viewer,
       List<Label>? labels,
       ThreadgateView? threadgate,
@@ -273,6 +281,7 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? quoteCount = null,
     Object? viewer = null,
     Object? labels = freezed,
     Object? threadgate = freezed,
@@ -315,6 +324,10 @@ class __$$PostImplCopyWithImpl<$Res>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      quoteCount: null == quoteCount
+          ? _value.quoteCount
+          : quoteCount // ignore: cast_nullable_to_non_nullable
+              as int,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -349,6 +362,7 @@ class _$PostImpl extends _Post {
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
+      this.quoteCount = 0,
       this.viewer = defaultPostViewer,
       final List<Label>? labels,
       this.threadgate,
@@ -386,6 +400,9 @@ class _$PostImpl extends _Post {
   final int likeCount;
   @override
   @JsonKey()
+  final int quoteCount;
+  @override
+  @JsonKey()
   final PostViewer viewer;
   final List<Label>? _labels;
   @override
@@ -404,7 +421,7 @@ class _$PostImpl extends _Post {
 
   @override
   String toString() {
-    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, labels: $labels, threadgate: $threadgate, indexedAt: $indexedAt)';
+    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, viewer: $viewer, labels: $labels, threadgate: $threadgate, indexedAt: $indexedAt)';
   }
 
   @override
@@ -424,6 +441,8 @@ class _$PostImpl extends _Post {
                 other.repostCount == repostCount) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount) &&
+            (identical(other.quoteCount, quoteCount) ||
+                other.quoteCount == quoteCount) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.threadgate, threadgate) ||
@@ -445,6 +464,7 @@ class _$PostImpl extends _Post {
       replyCount,
       repostCount,
       likeCount,
+      quoteCount,
       viewer,
       const DeepCollectionEquality().hash(_labels),
       threadgate,
@@ -477,6 +497,7 @@ abstract class _Post extends Post {
       final int replyCount,
       final int repostCount,
       final int likeCount,
+      final int quoteCount,
       final PostViewer viewer,
       final List<Label>? labels,
       final ThreadgateView? threadgate,
@@ -507,6 +528,8 @@ abstract class _Post extends Post {
   int get repostCount;
   @override
   int get likeCount;
+  @override
+  int get quoteCount;
   @override
   PostViewer get viewer;
   @override

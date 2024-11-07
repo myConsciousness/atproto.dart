@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../ids.g.dart';
 import 'actor.dart';
 import 'labeler_viewer_state.dart';
 
@@ -21,6 +22,7 @@ part 'labeler_view.g.dart';
 class LabelerView with _$LabelerView {
   @jsonSerializable
   const factory LabelerView({
+    @typeKey @Default(appBskyLabelerDefsLabelerView) String type,
     @AtUriConverter() required AtUri uri,
     required String cid,
     required Actor creator,

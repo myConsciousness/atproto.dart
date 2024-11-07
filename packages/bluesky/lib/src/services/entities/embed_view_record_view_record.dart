@@ -34,6 +34,7 @@ class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,
+    @Default(0) int quoteCount,
     @embedViewConverter List<EmbedView>? embeds,
     required DateTime indexedAt,
   }) = _EmbedViewRecordViewRecord;

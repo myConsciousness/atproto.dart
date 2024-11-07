@@ -22,6 +22,7 @@ Notifications _$NotificationsFromJson(Map<String, dynamic> json) {
 mixin _$Notifications {
   List<Notification> get notifications => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
+  bool get priority => throw _privateConstructorUsedError;
   DateTime? get seenAt => throw _privateConstructorUsedError;
 
   /// Serializes this Notifications to a JSON map.
@@ -41,7 +42,10 @@ abstract class $NotificationsCopyWith<$Res> {
       _$NotificationsCopyWithImpl<$Res, Notifications>;
   @useResult
   $Res call(
-      {List<Notification> notifications, String? cursor, DateTime? seenAt});
+      {List<Notification> notifications,
+      String? cursor,
+      bool priority,
+      DateTime? seenAt});
 }
 
 /// @nodoc
@@ -61,6 +65,7 @@ class _$NotificationsCopyWithImpl<$Res, $Val extends Notifications>
   $Res call({
     Object? notifications = null,
     Object? cursor = freezed,
+    Object? priority = null,
     Object? seenAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -72,6 +77,10 @@ class _$NotificationsCopyWithImpl<$Res, $Val extends Notifications>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      priority: null == priority
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as bool,
       seenAt: freezed == seenAt
           ? _value.seenAt
           : seenAt // ignore: cast_nullable_to_non_nullable
@@ -89,7 +98,10 @@ abstract class _$$NotificationsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Notification> notifications, String? cursor, DateTime? seenAt});
+      {List<Notification> notifications,
+      String? cursor,
+      bool priority,
+      DateTime? seenAt});
 }
 
 /// @nodoc
@@ -107,6 +119,7 @@ class __$$NotificationsImplCopyWithImpl<$Res>
   $Res call({
     Object? notifications = null,
     Object? cursor = freezed,
+    Object? priority = null,
     Object? seenAt = freezed,
   }) {
     return _then(_$NotificationsImpl(
@@ -118,6 +131,10 @@ class __$$NotificationsImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      priority: null == priority
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as bool,
       seenAt: freezed == seenAt
           ? _value.seenAt
           : seenAt // ignore: cast_nullable_to_non_nullable
@@ -132,6 +149,7 @@ class _$NotificationsImpl extends _Notifications {
   const _$NotificationsImpl(
       {required final List<Notification> notifications,
       this.cursor,
+      this.priority = false,
       this.seenAt})
       : _notifications = notifications,
         super._();
@@ -150,11 +168,14 @@ class _$NotificationsImpl extends _Notifications {
   @override
   final String? cursor;
   @override
+  @JsonKey()
+  final bool priority;
+  @override
   final DateTime? seenAt;
 
   @override
   String toString() {
-    return 'Notifications(notifications: $notifications, cursor: $cursor, seenAt: $seenAt)';
+    return 'Notifications(notifications: $notifications, cursor: $cursor, priority: $priority, seenAt: $seenAt)';
   }
 
   @override
@@ -165,13 +186,19 @@ class _$NotificationsImpl extends _Notifications {
             const DeepCollectionEquality()
                 .equals(other._notifications, _notifications) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.priority, priority) ||
+                other.priority == priority) &&
             (identical(other.seenAt, seenAt) || other.seenAt == seenAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_notifications), cursor, seenAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_notifications),
+      cursor,
+      priority,
+      seenAt);
 
   /// Create a copy of Notifications
   /// with the given fields replaced by the non-null parameter values.
@@ -193,6 +220,7 @@ abstract class _Notifications extends Notifications {
   const factory _Notifications(
       {required final List<Notification> notifications,
       final String? cursor,
+      final bool priority,
       final DateTime? seenAt}) = _$NotificationsImpl;
   const _Notifications._() : super._();
 
@@ -203,6 +231,8 @@ abstract class _Notifications extends Notifications {
   List<Notification> get notifications;
   @override
   String? get cursor;
+  @override
+  bool get priority;
   @override
   DateTime? get seenAt;
 

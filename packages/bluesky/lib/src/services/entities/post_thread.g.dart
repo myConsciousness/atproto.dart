@@ -17,6 +17,12 @@ _$PostThreadImpl _$$PostThreadImplFromJson(Map json) => $checkedCreate(
               'thread',
               (v) =>
                   postThreadViewConverter.fromJson(v as Map<String, dynamic>)),
+          threadgate: $checkedConvert(
+              'threadgate',
+              (v) => v == null
+                  ? null
+                  : ThreadgateView.fromJson(
+                      Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -25,4 +31,5 @@ _$PostThreadImpl _$$PostThreadImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$PostThreadImplToJson(_$PostThreadImpl instance) =>
     <String, dynamic>{
       'thread': postThreadViewConverter.toJson(instance.thread),
+      'threadgate': instance.threadgate?.toJson(),
     };

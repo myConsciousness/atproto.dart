@@ -21,6 +21,7 @@ _$SuggestionsSkeletonImpl _$$SuggestionsSkeletonImplFromJson(Map json) =>
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
+          relativeToDid: $checkedConvert('relativeToDid', (v) => v as String?),
         );
         return val;
       },
@@ -31,4 +32,5 @@ Map<String, dynamic> _$$SuggestionsSkeletonImplToJson(
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
+      'relativeToDid': instance.relativeToDid,
     };

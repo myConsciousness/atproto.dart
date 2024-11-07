@@ -77,23 +77,25 @@ See **[example](https://github.com/myConsciousness/atproto.dart/blob/main/packag
 See **[official documents](https://atprotodart.com/docs/supported_api)** from following links.
 
 - **[com.atproto.*](https://atprotodart.com/docs/supported_api#atproto)**
-  - **[com.atproto.server.*](https://atprotodart.com/docs/supported_api#server-service)**
-  - **[com.atproto.identity.*](https://atprotodart.com/docs/supported_api#identity-service)**
-  - **[com.atproto.repo.*](https://atprotodart.com/docs/supported_api#repo-service)**
-  - **[com.atproto.moderation.*](https://atprotodart.com/docs/supported_api#moderation-service)**
-  - **[com.atproto.sync.*](https://atprotodart.com/docs/supported_api#sync-service)**
-  - **[com.atproto.label.*](https://atprotodart.com/docs/supported_api#label-service)**
+  - **[com.atproto.server.*](https://atprotodart.com/docs/supported_api/#comatprotoserver)**
+  - **[com.atproto.identity.*](https://atprotodart.com/docs/supported_api/#comatprotoidentity)**
+  - **[com.atproto.repo.*](https://atprotodart.com/docs/supported_api/#comatprotorepo)**
+  - **[com.atproto.moderation.*](https://atprotodart.com/docs/supported_api/#comatprotomoderation)**
+  - **[com.atproto.sync.*](https://atprotodart.com/docs/supported_api/#comatprotosync)**
+  - **[com.atproto.label.*](https://atprotodart.com/docs/supported_api/#comatprotolabel)**
 - **[app.bsky.*](https://atprotodart.com/docs/supported_api#bluesky)**
-  - **[app.bsky.actor.*](https://atprotodart.com/docs/supported_api#actor-service)**
-  - **[app.bsky.feed.*](https://atprotodart.com/docs/supported_api#feed-service)**
-  - **[app.bsky.notification.*](https://atprotodart.com/docs/supported_api#notification-service)**
-  - **[app.bsky.graph.*](https://atprotodart.com/docs/supported_api#graph-service)**
-  - **[app.bsky.unspecced.*](https://atprotodart.com/docs/supported_api#unspecced-service)**
+  - **[app.bsky.actor.*](https://atprotodart.com/docs/supported_api/#appbskyactor)**
+  - **[app.bsky.feed.*](https://atprotodart.com/docs/supported_api/#appbskyfeed)**
+  - **[app.bsky.notification.*](https://atprotodart.com/docs/supported_api/#appbskynotification)**
+  - **[app.bsky.graph.*](https://atprotodart.com/docs/supported_api/#appbskygraph)**
+  - **[app.bsky.unspecced.*](https://atprotodart.com/docs/supported_api/#appbskyunspecced)**
+  - **[app.bsky.labeler.*](https://atprotodart.com/docs/supported_api/#appbskylabeler)**
+  - **[app.bsky.video.*](https://atprotodart.com/docs/supported_api/#appbskyvideo)**
 - **[chat.bsky.*](https://atprotodart.com/docs/supported_api#bluesky)**
-  - **[chat.bsky.*](https://atprotodart.com/docs/supported_api#bluesky_chat)**
-  - **[chat.bsky.actor.*](https://atprotodart.com/docs/supported_api#actor-service-1)**
-  - **[chat.bsky.convo.*](https://atprotodart.com/docs/supported_api#convo-service)**
-  - **[chat.bsky.moderation.*](https://atprotodart.com/docs/supported_api#moderation-service)**
+  - **[chat.bsky.*](https://atprotodart.com/docs/supported_api#bluesky)**
+  - **[chat.bsky.actor.*](https://atprotodart.com/docs/supported_api/#chatbskyactor)**
+  - **[chat.bsky.convo.*](https://atprotodart.com/docs/supported_api/#chatbskyconvo)**
+  - **[chat.bsky.moderation.*](https://atprotodart.com/docs/supported_api/#chatbskymoderation)**
 
 ## 1.4. More Tips 🏄
 

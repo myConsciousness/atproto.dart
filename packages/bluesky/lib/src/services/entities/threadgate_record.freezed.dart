@@ -29,6 +29,8 @@ mixin _$ThreadgateRecord {
   @JsonKey(name: 'allow')
   List<ThreadRule>? get allowRules => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  @AtUriConverter()
+  List<AtUri>? get hiddenReplies => throw _privateConstructorUsedError;
 
   /// Serializes this ThreadgateRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,7 +52,8 @@ abstract class $ThreadgateRecordCopyWith<$Res> {
       {@typeKey String type,
       @AtUriConverter() @JsonKey(name: 'post') AtUri postUri,
       @threadRuleConverter @JsonKey(name: 'allow') List<ThreadRule>? allowRules,
-      DateTime createdAt});
+      DateTime createdAt,
+      @AtUriConverter() List<AtUri>? hiddenReplies});
 }
 
 /// @nodoc
@@ -72,6 +75,7 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
     Object? postUri = null,
     Object? allowRules = freezed,
     Object? createdAt = null,
+    Object? hiddenReplies = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -90,6 +94,10 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      hiddenReplies: freezed == hiddenReplies
+          ? _value.hiddenReplies
+          : hiddenReplies // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>?,
     ) as $Val);
   }
 }
@@ -106,7 +114,8 @@ abstract class _$$ThreadgateRecordImplCopyWith<$Res>
       {@typeKey String type,
       @AtUriConverter() @JsonKey(name: 'post') AtUri postUri,
       @threadRuleConverter @JsonKey(name: 'allow') List<ThreadRule>? allowRules,
-      DateTime createdAt});
+      DateTime createdAt,
+      @AtUriConverter() List<AtUri>? hiddenReplies});
 }
 
 /// @nodoc
@@ -126,6 +135,7 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
     Object? postUri = null,
     Object? allowRules = freezed,
     Object? createdAt = null,
+    Object? hiddenReplies = freezed,
   }) {
     return _then(_$ThreadgateRecordImpl(
       type: null == type
@@ -144,6 +154,10 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      hiddenReplies: freezed == hiddenReplies
+          ? _value._hiddenReplies
+          : hiddenReplies // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>?,
     ));
   }
 }
@@ -158,8 +172,10 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
       @threadRuleConverter
       @JsonKey(name: 'allow')
       final List<ThreadRule>? allowRules,
-      required this.createdAt})
-      : _allowRules = allowRules;
+      required this.createdAt,
+      @AtUriConverter() final List<AtUri>? hiddenReplies})
+      : _allowRules = allowRules,
+        _hiddenReplies = hiddenReplies;
 
   factory _$ThreadgateRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadgateRecordImplFromJson(json);
@@ -185,10 +201,20 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
 
   @override
   final DateTime createdAt;
+  final List<AtUri>? _hiddenReplies;
+  @override
+  @AtUriConverter()
+  List<AtUri>? get hiddenReplies {
+    final value = _hiddenReplies;
+    if (value == null) return null;
+    if (_hiddenReplies is EqualUnmodifiableListView) return _hiddenReplies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'ThreadgateRecord(type: $type, postUri: $postUri, allowRules: $allowRules, createdAt: $createdAt)';
+    return 'ThreadgateRecord(type: $type, postUri: $postUri, allowRules: $allowRules, createdAt: $createdAt, hiddenReplies: $hiddenReplies)';
   }
 
   @override
@@ -201,13 +227,20 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
             const DeepCollectionEquality()
                 .equals(other._allowRules, _allowRules) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._hiddenReplies, _hiddenReplies));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type, postUri,
-      const DeepCollectionEquality().hash(_allowRules), createdAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      postUri,
+      const DeepCollectionEquality().hash(_allowRules),
+      createdAt,
+      const DeepCollectionEquality().hash(_hiddenReplies));
 
   /// Create a copy of ThreadgateRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -228,12 +261,14 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
 
 abstract class _ThreadgateRecord implements ThreadgateRecord {
   const factory _ThreadgateRecord(
-      {@typeKey final String type,
-      @AtUriConverter() @JsonKey(name: 'post') required final AtUri postUri,
-      @threadRuleConverter
-      @JsonKey(name: 'allow')
-      final List<ThreadRule>? allowRules,
-      required final DateTime createdAt}) = _$ThreadgateRecordImpl;
+          {@typeKey final String type,
+          @AtUriConverter() @JsonKey(name: 'post') required final AtUri postUri,
+          @threadRuleConverter
+          @JsonKey(name: 'allow')
+          final List<ThreadRule>? allowRules,
+          required final DateTime createdAt,
+          @AtUriConverter() final List<AtUri>? hiddenReplies}) =
+      _$ThreadgateRecordImpl;
 
   factory _ThreadgateRecord.fromJson(Map<String, dynamic> json) =
       _$ThreadgateRecordImpl.fromJson;
@@ -251,6 +286,9 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   List<ThreadRule>? get allowRules;
   @override
   DateTime get createdAt;
+  @override
+  @AtUriConverter()
+  List<AtUri>? get hiddenReplies;
 
   /// Create a copy of ThreadgateRecord
   /// with the given fields replaced by the non-null parameter values.

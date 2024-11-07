@@ -26,6 +26,8 @@ mixin _$PostViewer {
   AtUri? get like => throw _privateConstructorUsedError;
   @JsonKey(name: 'replyDisabled')
   bool get isReplyDisabled => throw _privateConstructorUsedError;
+  bool get embeddingDisabled => throw _privateConstructorUsedError;
+  bool get pinned => throw _privateConstructorUsedError;
 
   /// Serializes this PostViewer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +48,9 @@ abstract class $PostViewerCopyWith<$Res> {
   $Res call(
       {@AtUriConverter() AtUri? repost,
       @AtUriConverter() AtUri? like,
-      @JsonKey(name: 'replyDisabled') bool isReplyDisabled});
+      @JsonKey(name: 'replyDisabled') bool isReplyDisabled,
+      bool embeddingDisabled,
+      bool pinned});
 }
 
 /// @nodoc
@@ -67,6 +71,8 @@ class _$PostViewerCopyWithImpl<$Res, $Val extends PostViewer>
     Object? repost = freezed,
     Object? like = freezed,
     Object? isReplyDisabled = null,
+    Object? embeddingDisabled = null,
+    Object? pinned = null,
   }) {
     return _then(_value.copyWith(
       repost: freezed == repost
@@ -80,6 +86,14 @@ class _$PostViewerCopyWithImpl<$Res, $Val extends PostViewer>
       isReplyDisabled: null == isReplyDisabled
           ? _value.isReplyDisabled
           : isReplyDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      embeddingDisabled: null == embeddingDisabled
+          ? _value.embeddingDisabled
+          : embeddingDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -96,7 +110,9 @@ abstract class _$$PostViewerImplCopyWith<$Res>
   $Res call(
       {@AtUriConverter() AtUri? repost,
       @AtUriConverter() AtUri? like,
-      @JsonKey(name: 'replyDisabled') bool isReplyDisabled});
+      @JsonKey(name: 'replyDisabled') bool isReplyDisabled,
+      bool embeddingDisabled,
+      bool pinned});
 }
 
 /// @nodoc
@@ -115,6 +131,8 @@ class __$$PostViewerImplCopyWithImpl<$Res>
     Object? repost = freezed,
     Object? like = freezed,
     Object? isReplyDisabled = null,
+    Object? embeddingDisabled = null,
+    Object? pinned = null,
   }) {
     return _then(_$PostViewerImpl(
       repost: freezed == repost
@@ -129,6 +147,14 @@ class __$$PostViewerImplCopyWithImpl<$Res>
           ? _value.isReplyDisabled
           : isReplyDisabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      embeddingDisabled: null == embeddingDisabled
+          ? _value.embeddingDisabled
+          : embeddingDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -140,7 +166,9 @@ class _$PostViewerImpl extends _PostViewer {
   const _$PostViewerImpl(
       {@AtUriConverter() this.repost,
       @AtUriConverter() this.like,
-      @JsonKey(name: 'replyDisabled') this.isReplyDisabled = false})
+      @JsonKey(name: 'replyDisabled') this.isReplyDisabled = false,
+      this.embeddingDisabled = false,
+      this.pinned = false})
       : super._();
 
   factory _$PostViewerImpl.fromJson(Map<String, dynamic> json) =>
@@ -155,10 +183,16 @@ class _$PostViewerImpl extends _PostViewer {
   @override
   @JsonKey(name: 'replyDisabled')
   final bool isReplyDisabled;
+  @override
+  @JsonKey()
+  final bool embeddingDisabled;
+  @override
+  @JsonKey()
+  final bool pinned;
 
   @override
   String toString() {
-    return 'PostViewer(repost: $repost, like: $like, isReplyDisabled: $isReplyDisabled)';
+    return 'PostViewer(repost: $repost, like: $like, isReplyDisabled: $isReplyDisabled, embeddingDisabled: $embeddingDisabled, pinned: $pinned)';
   }
 
   @override
@@ -169,12 +203,16 @@ class _$PostViewerImpl extends _PostViewer {
             (identical(other.repost, repost) || other.repost == repost) &&
             (identical(other.like, like) || other.like == like) &&
             (identical(other.isReplyDisabled, isReplyDisabled) ||
-                other.isReplyDisabled == isReplyDisabled));
+                other.isReplyDisabled == isReplyDisabled) &&
+            (identical(other.embeddingDisabled, embeddingDisabled) ||
+                other.embeddingDisabled == embeddingDisabled) &&
+            (identical(other.pinned, pinned) || other.pinned == pinned));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, repost, like, isReplyDisabled);
+  int get hashCode => Object.hash(
+      runtimeType, repost, like, isReplyDisabled, embeddingDisabled, pinned);
 
   /// Create a copy of PostViewer
   /// with the given fields replaced by the non-null parameter values.
@@ -194,10 +232,11 @@ class _$PostViewerImpl extends _PostViewer {
 
 abstract class _PostViewer extends PostViewer {
   const factory _PostViewer(
-          {@AtUriConverter() final AtUri? repost,
-          @AtUriConverter() final AtUri? like,
-          @JsonKey(name: 'replyDisabled') final bool isReplyDisabled}) =
-      _$PostViewerImpl;
+      {@AtUriConverter() final AtUri? repost,
+      @AtUriConverter() final AtUri? like,
+      @JsonKey(name: 'replyDisabled') final bool isReplyDisabled,
+      final bool embeddingDisabled,
+      final bool pinned}) = _$PostViewerImpl;
   const _PostViewer._() : super._();
 
   factory _PostViewer.fromJson(Map<String, dynamic> json) =
@@ -212,6 +251,10 @@ abstract class _PostViewer extends PostViewer {
   @override
   @JsonKey(name: 'replyDisabled')
   bool get isReplyDisabled;
+  @override
+  bool get embeddingDisabled;
+  @override
+  bool get pinned;
 
   /// Create a copy of PostViewer
   /// with the given fields replaced by the non-null parameter values.

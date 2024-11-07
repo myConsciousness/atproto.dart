@@ -33,6 +33,7 @@ mixin _$EmbedViewRecordViewRecord {
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
+  int get quoteCount => throw _privateConstructorUsedError;
   @embedViewConverter
   List<EmbedView>? get embeds => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
@@ -63,6 +64,7 @@ abstract class $EmbedViewRecordViewRecordCopyWith<$Res> {
       int replyCount,
       int repostCount,
       int likeCount,
+      int quoteCount,
       @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
@@ -95,6 +97,7 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? quoteCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
   }) {
@@ -134,6 +137,10 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
       likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      quoteCount: null == quoteCount
+          ? _value.quoteCount
+          : quoteCount // ignore: cast_nullable_to_non_nullable
               as int,
       embeds: freezed == embeds
           ? _value.embeds
@@ -186,6 +193,7 @@ abstract class _$$EmbedViewRecordViewRecordImplCopyWith<$Res>
       int replyCount,
       int repostCount,
       int likeCount,
+      int quoteCount,
       @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
@@ -219,6 +227,7 @@ class __$$EmbedViewRecordViewRecordImplCopyWithImpl<$Res>
     Object? replyCount = null,
     Object? repostCount = null,
     Object? likeCount = null,
+    Object? quoteCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
   }) {
@@ -259,6 +268,10 @@ class __$$EmbedViewRecordViewRecordImplCopyWithImpl<$Res>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      quoteCount: null == quoteCount
+          ? _value.quoteCount
+          : quoteCount // ignore: cast_nullable_to_non_nullable
+              as int,
       embeds: freezed == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -285,6 +298,7 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
+      this.quoteCount = 0,
       @embedViewConverter final List<EmbedView>? embeds,
       required this.indexedAt})
       : _labels = labels,
@@ -325,6 +339,9 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
   @override
   @JsonKey()
   final int likeCount;
+  @override
+  @JsonKey()
+  final int quoteCount;
   final List<EmbedView>? _embeds;
   @override
   @embedViewConverter
@@ -341,7 +358,7 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
 
   @override
   String toString() {
-    return 'EmbedViewRecordViewRecord(type: $type, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, embeds: $embeds, indexedAt: $indexedAt)';
+    return 'EmbedViewRecordViewRecord(type: $type, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, embeds: $embeds, indexedAt: $indexedAt)';
   }
 
   @override
@@ -361,6 +378,8 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
                 other.repostCount == repostCount) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount) &&
+            (identical(other.quoteCount, quoteCount) ||
+                other.quoteCount == quoteCount) &&
             const DeepCollectionEquality().equals(other._embeds, _embeds) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -379,6 +398,7 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
       replyCount,
       repostCount,
       likeCount,
+      quoteCount,
       const DeepCollectionEquality().hash(_embeds),
       indexedAt);
 
@@ -410,6 +430,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
       final int replyCount,
       final int repostCount,
       final int likeCount,
+      final int quoteCount,
       @embedViewConverter final List<EmbedView>? embeds,
       required final DateTime indexedAt}) = _$EmbedViewRecordViewRecordImpl;
 
@@ -437,6 +458,8 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   int get repostCount;
   @override
   int get likeCount;
+  @override
+  int get quoteCount;
   @override
   @embedViewConverter
   List<EmbedView>? get embeds;

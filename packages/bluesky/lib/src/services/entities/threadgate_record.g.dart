@@ -26,6 +26,11 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
                   .toList()),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          hiddenReplies: $checkedConvert(
+              'hiddenReplies',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => const AtUriConverter().fromJson(e as String))
+                  .toList()),
         );
         return val;
       },
@@ -52,5 +57,7 @@ Map<String, dynamic> _$$ThreadgateRecordImplToJson(
   writeNotNull(
       'allow', instance.allowRules?.map(threadRuleConverter.toJson).toList());
   val['createdAt'] = instance.createdAt.toIso8601String();
+  writeNotNull('hiddenReplies',
+      instance.hiddenReplies?.map(const AtUriConverter().toJson).toList());
   return val;
 }
