@@ -31,6 +31,8 @@ import 'params/post_param.dart';
 import 'params/strong_ref_param.dart';
 import 'params/thread_param.dart';
 import 'service_context.dart';
+import 'types/app/bsky/feed/getQuotes/output.dart';
+import 'types/app/bsky/feed/postgate/embedding_rules.dart';
 
 /// Represents `app.bsky.feed.*` service.
 final class FeedService {
@@ -390,6 +392,7 @@ final class FeedService {
     required core.AtUri postUri,
     List<ThreadRule>? allowRules,
     DateTime? createdAt,
+    List<core.AtUri>? hiddenReplies,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await _ctx.atproto.repo.createRecord(
@@ -400,7 +403,30 @@ final class FeedService {
           'post': postUri.toString(),
           'allow': allowRules?.map((e) => e.toJson()).toList(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
+          'hiddenReplies': hiddenReplies?.map((e) => e.toString()).toList(),
           ...unspecced,
+        },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/postgate
+  Future<core.XRPCResponse<atp.StrongRef>> postgate({
+    required core.AtUri post,
+    List<core.AtUri>? detachedEmbeddingUris,
+    List<UPostgateEmbeddingRule>? embeddingRules,
+    DateTime? createdAt,
+    Map<String, dynamic> $unknown = core.emptyJson,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        collection: ns.appBskyFeedPostgate,
+        rkey: post.rkey,
+        record: {
+          r'$type': ids.appBskyFeedPostgate,
+          'post': post.toString(),
+          'detachedEmbeddingUris':
+              detachedEmbeddingUris?.map((e) => e.toString()).toList(),
+          'embeddingRules': embeddingRules?.map((e) => e.toJson()).toList(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...$unknown,
         },
       );
 
@@ -449,6 +475,26 @@ final class FeedService {
         body: {
           'interactions': interactions.map((e) => e.toJson()).toList(),
         },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getQuotes
+  Future<core.XRPCResponse<GetQuotesOutput>> getQuotes({
+    required core.AtUri uri,
+    String? cid,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $headers,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyFeedGetQuotes,
+        headers: $headers,
+        parameters: {
+          'uri': uri,
+          'cid': cid,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: GetQuotesOutput.fromJson,
       );
 }
 

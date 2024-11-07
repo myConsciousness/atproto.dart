@@ -21,6 +21,7 @@ final class NotificationService {
   Future<core.XRPCResponse<Notifications>> listNotifications({
     int? limit,
     String? cursor,
+    bool? priority,
     DateTime? seenAt,
     Map<String, String>? headers,
   }) async =>
@@ -30,6 +31,7 @@ final class NotificationService {
         parameters: {
           'limit': limit,
           'cursor': cursor,
+          'priority': priority,
           'seenAt': seenAt,
         },
         to: Notifications.fromJson,
@@ -37,11 +39,15 @@ final class NotificationService {
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
   Future<core.XRPCResponse<Count>> getUnreadCount({
+    bool? priority,
     Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,
         headers: headers,
+        parameters: {
+          'priority': priority,
+        },
         to: Count.fromJson,
       );
 
@@ -70,6 +76,17 @@ final class NotificationService {
           'token': token,
           'platform': platform.value,
           'appId': appId,
+        },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/putPreferences
+  Future<core.XRPCResponse<core.EmptyData>> putPreferences({
+    required bool priority,
+  }) async =>
+      await _ctx.post(
+        ns.appBskyNotificationPutPreferences,
+        body: {
+          'priority': priority,
         },
       );
 }

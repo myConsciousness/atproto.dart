@@ -26,6 +26,7 @@ class Notifications with _$Notifications {
   const factory Notifications({
     required List<Notification> notifications,
     String? cursor,
+    @Default(false) bool priority,
     DateTime? seenAt,
   }) = _Notifications;
 

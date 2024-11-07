@@ -8,10 +8,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../types/app/bsky/embed/record/embed_record_view_detached.dart';
 import 'embed_view_record_view_blocked.dart';
 import 'embed_view_record_view_not_found.dart';
 import 'embed_view_record_view_record.dart';
 import 'feed_generator_view.dart';
+import 'labeler_view.dart';
 import 'list_view.dart';
 
 part 'embed_view_record_view.freezed.dart';
@@ -31,6 +33,10 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
     required EmbedViewRecordViewBlocked data,
   }) = UEmbedViewRecordViewBlocked;
 
+  const factory EmbedViewRecordView.viewDetached({
+    required EmbedRecordViewDetached data,
+  }) = UEmbedViewRecordViewViewDetached;
+
   const factory EmbedViewRecordView.generatorView({
     required FeedGeneratorView data,
   }) = UEmbedViewRecordViewGeneratorView;
@@ -38,6 +44,10 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
   const factory EmbedViewRecordView.listView({
     required ListView data,
   }) = UEmbedViewRecordViewListView;
+
+  const factory EmbedViewRecordView.labelerView({
+    required LabelerView data,
+  }) = UEmbedViewRecordViewLabelerView;
 
   const factory EmbedViewRecordView.unknown({
     required Map<String, dynamic> data,

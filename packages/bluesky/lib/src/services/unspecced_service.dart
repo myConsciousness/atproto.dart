@@ -113,6 +113,7 @@ final class UnspeccedService {
     String? viewer,
     int? limit,
     String? cursor,
+    String? relativeToDid,
     Map<String, String>? headers,
   }) async =>
       await _ctx.get(
@@ -122,6 +123,7 @@ final class UnspeccedService {
           'viewer': viewer,
           'limit': limit,
           'cursor': cursor,
+          'relativeToDid': relativeToDid,
         },
         to: SuggestionsSkeleton.fromJson,
       );

@@ -19,6 +19,7 @@ class SuggestionsSkeleton with _$SuggestionsSkeleton {
   const factory SuggestionsSkeleton({
     required List<SkeletonActor> actors,
     String? cursor,
+    String? relativeToDid,
   }) = _SuggestionsSkeleton;
 
   factory SuggestionsSkeleton.fromJson(Map<String, Object?> json) =>

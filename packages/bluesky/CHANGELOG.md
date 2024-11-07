@@ -1,5 +1,21 @@
 # Release Note
 
+## v0.17.0
+
+- Add `relativeToDid` on `SuggestionsSkeleton` and `UnspeccedService.getSuggestionsSkeleton`.
+- Add `priority` on:
+  - `NotificationService.getUnreadCount`.
+  - `NotificationService.listNotifications` and `Notifications`.
+- Add `NotificationService.putPreferences`.
+- Add `.viewDetached` and `.labelerView` on `EmbedViewRecordView`.
+- Add `.quoteCount` on `Post`.
+- Add `embeddingDisabled` and `pinned` on `PostViewer`.
+- Add `FeedService.getQuotes`.
+- Add `hiddenReplies` on `FeedService.threadgate` and `ThreadgateRecord`.
+- Add `FeedService.postgate`.
+- Add `.quoteCount` on `EmbedViewRecordViewRecord`.
+- Add `.threadgate` on `PostThread`.
+
 ## v0.16.15
 
 - Support known followers. ([#1789](https://github.com/myConsciousness/atproto.dart/pull/1789))

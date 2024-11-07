@@ -20,6 +20,8 @@ LabelerView _$LabelerViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerView {
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
@@ -46,7 +48,8 @@ abstract class $LabelerViewCopyWith<$Res> {
       _$LabelerViewCopyWithImpl<$Res, LabelerView>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@typeKey String type,
+      @AtUriConverter() AtUri uri,
       String cid,
       Actor creator,
       int likeCount,
@@ -73,6 +76,7 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? uri = null,
     Object? cid = null,
     Object? creator = null,
@@ -82,6 +86,10 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -143,7 +151,8 @@ abstract class _$$LabelerViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@typeKey String type,
+      @AtUriConverter() AtUri uri,
       String cid,
       Actor creator,
       int likeCount,
@@ -170,6 +179,7 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? uri = null,
     Object? cid = null,
     Object? creator = null,
@@ -179,6 +189,10 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
     Object? indexedAt = null,
   }) {
     return _then(_$LabelerViewImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -216,7 +230,8 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$LabelerViewImpl implements _LabelerView {
   const _$LabelerViewImpl(
-      {@AtUriConverter() required this.uri,
+      {@typeKey this.type = appBskyLabelerDefsLabelerView,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required this.creator,
       this.likeCount = 0,
@@ -228,6 +243,9 @@ class _$LabelerViewImpl implements _LabelerView {
   factory _$LabelerViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerViewImplFromJson(json);
 
+  @override
+  @typeKey
+  final String type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -256,7 +274,7 @@ class _$LabelerViewImpl implements _LabelerView {
 
   @override
   String toString() {
-    return 'LabelerView(uri: $uri, cid: $cid, creator: $creator, likeCount: $likeCount, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'LabelerView(type: $type, uri: $uri, cid: $cid, creator: $creator, likeCount: $likeCount, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -264,6 +282,7 @@ class _$LabelerViewImpl implements _LabelerView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelerViewImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.creator, creator) || other.creator == creator) &&
@@ -277,8 +296,16 @@ class _$LabelerViewImpl implements _LabelerView {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, cid, creator, likeCount,
-      const DeepCollectionEquality().hash(_labels), viewer, indexedAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      uri,
+      cid,
+      creator,
+      likeCount,
+      const DeepCollectionEquality().hash(_labels),
+      viewer,
+      indexedAt);
 
   /// Create a copy of LabelerView
   /// with the given fields replaced by the non-null parameter values.
@@ -298,7 +325,8 @@ class _$LabelerViewImpl implements _LabelerView {
 
 abstract class _LabelerView implements LabelerView {
   const factory _LabelerView(
-      {@AtUriConverter() required final AtUri uri,
+      {@typeKey final String type,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final Actor creator,
       final int likeCount,
@@ -309,6 +337,9 @@ abstract class _LabelerView implements LabelerView {
   factory _LabelerView.fromJson(Map<String, dynamic> json) =
       _$LabelerViewImpl.fromJson;
 
+  @override
+  @typeKey
+  String get type;
   @override
   @AtUriConverter()
   AtUri get uri;
