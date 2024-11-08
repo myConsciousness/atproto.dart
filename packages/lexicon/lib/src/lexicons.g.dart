@@ -1808,7 +1808,7 @@ const comAtprotoRepoPutRecord = <String, dynamic>{
             "rkey": {
               "type": "string",
               "description": "The Record Key.",
-              "maxLength": 15
+              "maxLength": 512
             },
             "validate": {
               "type": "boolean",
@@ -1939,7 +1939,7 @@ const comAtprotoRepoCreateRecord = <String, dynamic>{
             "rkey": {
               "type": "string",
               "description": "The Record Key.",
-              "maxLength": 15
+              "maxLength": 512
             },
             "validate": {
               "type": "boolean",
@@ -2066,7 +2066,7 @@ const comAtprotoRepoApplyWrites = <String, dynamic>{
       "required": ["collection", "value"],
       "properties": {
         "collection": {"type": "string", "format": "nsid"},
-        "rkey": {"type": "string", "maxLength": 15},
+        "rkey": {"type": "string", "maxLength": 512},
         "value": {"type": "unknown"}
       }
     },
