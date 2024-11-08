@@ -310,6 +310,14 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[tools.ozone.moderation.getRecord](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/getRecord.html)** | [Reference](lexicons/tools/ozone/moderation/getRecord.md) | ✅ | ❌ |
 | **[tools.ozone.moderation.searchRepos](https://pub.dev/documentation/bluesky/latest/ozone/ModerationService/searchRepos.html)** | [Reference](lexicons/tools/ozone/moderation/searchRepos.md) | ✅ | ✅ |
 
+### tools.ozone.setting
+
+| Method | Docs | Auth Required | Paging (cursor) |
+| --- | --- | :---: | :---: |
+| **[tools.ozone.setting.removeOptions](https://pub.dev/documentation/bluesky/latest/ozone/SettingService/removeOptions.html)** | [Reference](lexicons/tools/ozone/setting/removeOptions.md) | ❌ | ❌ |
+| **[tools.ozone.setting.upsertOption](https://pub.dev/documentation/bluesky/latest/ozone/SettingService/upsertOption.html)** | [Reference](lexicons/tools/ozone/setting/upsertOption.md) | ❌ | ❌ |
+| **[tools.ozone.setting.listOptions](https://pub.dev/documentation/bluesky/latest/ozone/SettingService/listOptions.html)** | [Reference](lexicons/tools/ozone/setting/listOptions.md) | ❌ | ✅ |
+
 ### tools.ozone.set
 
 | Method | Docs | Auth Required | Paging (cursor) |

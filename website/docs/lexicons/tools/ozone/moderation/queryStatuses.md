@@ -19,6 +19,11 @@ View moderation statuses of subjects (record or repo).
 | **reportedAfter** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects reported after a given timestamp |
 | **reportedBefore** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects reported before a given timestamp |
 | **reviewedAfter** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects reviewed after a given timestamp |
+| **hostingDeletedAfter** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects where the associated record/account was deleted after a given timestamp |
+| **hostingDeletedBefore** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects where the associated record/account was deleted before a given timestamp |
+| **hostingUpdatedAfter** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects where the associated record/account was updated after a given timestamp |
+| **hostingUpdatedBefore** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects where the associated record/account was updated before a given timestamp |
+| **hostingStatuses** | array | - | ❌ | - |
 | **reviewedBefore** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Search subjects reviewed before a given timestamp |
 | **includeMuted** | boolean | - | ❌ | By default, we don't include muted subjects in the results. Set this to true to include them. |
 | **onlyMuted** | boolean | - | ❌ | When set to true, only muted subjects and reporters will be returned. |

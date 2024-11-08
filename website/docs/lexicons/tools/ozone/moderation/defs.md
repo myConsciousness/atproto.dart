@@ -10,7 +10,7 @@ description: tools.ozone.moderation.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag) | - | ✅ | - |
+| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent) | - | ✅ | - |
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref) | - | ✅ | - |
 | **subjectBlobCids** | array of string | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
@@ -23,7 +23,7 @@ description: tools.ozone.moderation.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag) | - | ✅ | - |
+| **event** | union of <br/>[#modEventTakedown](#modeventtakedown)<br/>[#modEventReverseTakedown](#modeventreversetakedown)<br/>[#modEventComment](#modeventcomment)<br/>[#modEventReport](#modeventreport)<br/>[#modEventLabel](#modeventlabel)<br/>[#modEventAcknowledge](#modeventacknowledge)<br/>[#modEventEscalate](#modeventescalate)<br/>[#modEventMute](#modeventmute)<br/>[#modEventUnmute](#modeventunmute)<br/>[#modEventMuteReporter](#modeventmutereporter)<br/>[#modEventUnmuteReporter](#modeventunmutereporter)<br/>[#modEventEmail](#modeventemail)<br/>[#modEventResolveAppeal](#modeventresolveappeal)<br/>[#modEventDivert](#modeventdivert)<br/>[#modEventTag](#modeventtag)<br/>[#accountEvent](#accountevent)<br/>[#identityEvent](#identityevent)<br/>[#recordEvent](#recordevent) | - | ✅ | - |
 | **subject** | union of <br/>[#repoView](#repoview)<br/>[#repoViewNotFound](#repoviewnotfound)<br/>[#recordView](#recordview)<br/>[#recordViewNotFound](#recordviewnotfound) | - | ✅ | - |
 | **subjectBlobs** | array of [#blobView](#blobview) | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
@@ -35,6 +35,7 @@ description: tools.ozone.moderation.defs
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
+| **hosting** | union of <br/>[#accountHosting](#accounthosting)<br/>[#recordHosting](#recordhosting) | - | ❌ | - |
 | **subjectBlobCids** | array of string | - | ❌ | - |
 | **subjectRepoHandle** | string | - | ❌ | - |
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Timestamp referencing when the last update was made to the moderation status of the subject |
@@ -203,6 +204,40 @@ Add/Remove a tag on a subject
 | **remove** | array of string | - | ✅ | Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't be duplicated. |
 | **comment** | string | - | ❌ | Additional comment about added/removed tags. |
 
+## #accountEvent
+
+Logs account status related events on a repo subject. Normally captured by automod from the firehose and emitted to ozone for historical tracking.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **comment** | string | - | ❌ | - |
+| **active** | boolean | - | ✅ | Indicates that the account has a repository which can be fetched from the host that emitted this event. |
+| **status** | string | unknown<br/>deactivated<br/>deleted<br/>takendown<br/>suspended<br/>tombstoned | ❌ | - |
+| **timestamp** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
+## #identityEvent
+
+Logs identity related events on a repo subject. Normally captured by automod from the firehose and emitted to ozone for historical tracking.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **comment** | string | - | ❌ | - |
+| **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ❌ | - |
+| **pdsHost** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **tombstone** | boolean | - | ❌ | - |
+| **timestamp** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
+## #recordEvent
+
+Logs lifecycle event on a record subject. Normally captured by automod from the firehose and emitted to ozone for historical tracking.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **comment** | string | - | ❌ | - |
+| **op** | string | create<br/>update<br/>delete | ✅ | - |
+| **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
+| **timestamp** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
 ## #repoView
 
 | Property | Type | Known Values | Required | Description |
@@ -312,3 +347,23 @@ Add/Remove a tag on a subject
 | **width** | integer | - | ✅ | - |
 | **height** | integer | - | ✅ | - |
 | **length** | integer | - | ✅ | - |
+
+## #accountHosting
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **status** | string | takendown<br/>suspended<br/>deleted<br/>deactivated<br/>unknown | ✅ | - |
+| **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **deletedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **deactivatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **reactivatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+
+## #recordHosting
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **status** | string | deleted<br/>unknown | ✅ | - |
+| **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **deletedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
