@@ -8495,6 +8495,7 @@ const chatBskyConvoDefs = <String, dynamic>{
           "refs": ["#messageView", "#deletedMessageView"]
         },
         "muted": {"type": "boolean"},
+        "opened": {"type": "boolean"},
         "unreadCount": {"type": "integer"}
       }
     },

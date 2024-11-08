@@ -57,6 +57,7 @@ description: chat.bsky.convo.defs
 | **members** | array of [chat.bsky.actor.defs#profileViewBasic](../../../../lexicons/chat/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 | **lastMessage** | union of <br/>[#messageView](#messageview)<br/>[#deletedMessageView](#deletedmessageview) | - | ❌ | - |
 | **muted** | boolean | - | ✅ | - |
+| **opened** | boolean | - | ❌ | - |
 | **unreadCount** | integer | - | ✅ | - |
 
 ## #logBeginConvo
