@@ -1,0 +1,13 @@
+{
+  "client_id": "https://atprotodart.com/oauth/bluesky/atprotodart/client-metadata.json",
+  "application_type": "native",
+  "client_name": "OAuth for Bluesky",
+  "client_uri": "https://atprotodart.com/",
+  "dpop_bound_access_tokens": true,
+  "grant_types": ["authorization_code", "refresh_token"],
+  "redirect_uris_OLD": ["http://localhost:5555/auth.html"],
+  "redirect_uris": ["http://localhost:5555/auth.html"],
+  "response_types": ["code"],
+  "scope": "atproto transition:generic transition:chat.bsky",
+  "token_endpoint_auth_method": "none"
+}

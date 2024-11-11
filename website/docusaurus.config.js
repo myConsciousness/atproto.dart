@@ -108,7 +108,6 @@ const config = {
             position: "left",
           },
           { to: "showcase", label: "Showcase", position: "left" },
-          // { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/myConsciousness/atproto.dart",
             label: "GitHub",
