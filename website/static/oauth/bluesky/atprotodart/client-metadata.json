@@ -5,8 +5,8 @@
   "client_uri": "https://atprotodart.com/",
   "dpop_bound_access_tokens": true,
   "grant_types": ["authorization_code", "refresh_token"],
-  "redirect_uris_OLD": ["http://localhost:5555/auth.html"],
-  "redirect_uris": ["http://localhost:5555/auth.html"],
+  "redirect_uris_OLD": ["https://atprotodart.com/oauth/bluesky/auth.html"],
+  "redirect_uris": ["https://atprotodart.com/oauth/bluesky/auth.html"],
   "response_types": ["code"],
   "scope": "atproto transition:generic transition:chat.bsky",
   "token_endpoint_auth_method": "none"
