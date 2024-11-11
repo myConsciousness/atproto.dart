@@ -4,7 +4,18 @@
   Authentication is complete. If this does not happen automatically, please
   close the window.
   <script>
-    window.opener.postMessage(window.location.href, window.location.origin);
-    window.close();
+    setTimeout(function () {
+      if (window.opener) {
+        window.opener.postMessage(
+          {
+            "flutter-web-auth-2": window.location.href,
+          },
+          window.location.origin
+        );
+      } else {
+        localStorage.setItem("flutter-web-auth-2", window.location.href);
+      }
+      window.close();
+    }, 1000);
   </script>
 </p>
