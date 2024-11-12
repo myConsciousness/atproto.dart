@@ -10,16 +10,41 @@
       "flutter-web-auth-2": window.location.href,
     };
 
-    if (window.opener) {
-      window.opener.postMessage(message, window.location.origin);
-      window.close();
-    } else if (window.parent && window.parent !== window) {
-      window.parent.postMessage(message, window.location.origin);
-    } else {
-      localStorage.setItem("flutter-web-auth-2", window.location.href);
-      window.close();
+    console.log("Current URL:", window.location.href);
+    console.log("Origin:", window.location.origin);
+    console.log("Has opener:", !!window.opener);
+    console.log("Has parent:", !!(window.parent && window.parent !== window));
+
+    try {
+      if (window.opener) {
+        console.log("Attempting to post to opener");
+        window.opener.postMessage(message, "*");
+        console.log("Message posted to opener");
+        //        window.close();
+      } else if (window.parent && window.parent !== window) {
+        console.log("Attempting to post to parent");
+        window.parent.postMessage(message, "*");
+        console.log("Message posted to parent");
+      } else {
+        console.log("Falling back to localStorage");
+        localStorage.setItem("flutter-web-auth-2", window.location.href);
+        console.log("localStorage set");
+        //       window.close();
+      }
+    } catch (e) {
+      console.error("Error in postMessage:", e);
+
+      try {
+        localStorage.setItem("flutter-web-auth-2", window.location.href);
+        console.log("Fallback: localStorage set");
+      } catch (storageError) {
+        console.error("localStorage fallback failed:", storageError);
+      }
     }
   }
 
-  postAuthenticationMessage();
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("Document loaded, executing postAuthenticationMessage");
+    postAuthenticationMessage();
+  });
 </script>
