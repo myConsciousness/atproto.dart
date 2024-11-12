@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../types/app/bsky/feed/defs/reason_pin.dart';
 import '../reason.dart';
 import '../reason_repost.dart';
 
@@ -26,6 +27,10 @@ final class _ReasonConverter
         return Reason.repost(
           data: ReasonRepost.fromJson(json),
         );
+      } else if (type == ids.appBskyFeedDefsReasonPin) {
+        return Reason.pin(
+          data: ReasonPin.fromJson(json),
+        );
       }
 
       return Reason.unknown(data: json);
@@ -37,6 +42,7 @@ final class _ReasonConverter
   @override
   Map<String, dynamic> toJson(Reason object) => object.when(
         repost: (data) => data.toJson(),
+        pin: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

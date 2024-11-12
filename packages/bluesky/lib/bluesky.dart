@@ -80,7 +80,6 @@ export 'package:bluesky/src/services/entities/generator_feed.dart';
 export 'package:bluesky/src/services/entities/generator_links.dart';
 export 'package:bluesky/src/services/entities/generator_record.dart';
 export 'package:bluesky/src/services/entities/image.dart';
-export 'package:bluesky/src/services/entities/image_aspect_ratio.dart';
 export 'package:bluesky/src/services/entities/like.dart';
 export 'package:bluesky/src/services/entities/like_record.dart';
 export 'package:bluesky/src/services/entities/likes.dart';

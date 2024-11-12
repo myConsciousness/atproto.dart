@@ -26,7 +26,7 @@ mixin _$EmbedVideo {
   Blob get video => throw _privateConstructorUsedError;
   List<EmbedVideoCaption>? get captions => throw _privateConstructorUsedError;
   String? get alt => throw _privateConstructorUsedError;
-  ImageAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
+  AspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   /// Serializes this EmbedVideo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,10 +49,10 @@ abstract class $EmbedVideoCopyWith<$Res> {
       @BlobConverter() Blob video,
       List<EmbedVideoCaption>? captions,
       String? alt,
-      ImageAspectRatio? aspectRatio});
+      AspectRatio? aspectRatio});
 
   $BlobCopyWith<$Res> get video;
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -96,7 +96,7 @@ class _$EmbedVideoCopyWithImpl<$Res, $Val extends EmbedVideo>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImageAspectRatio?,
+              as AspectRatio?,
     ) as $Val);
   }
 
@@ -114,12 +114,12 @@ class _$EmbedVideoCopyWithImpl<$Res, $Val extends EmbedVideo>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio {
+  $AspectRatioCopyWith<$Res>? get aspectRatio {
     if (_value.aspectRatio == null) {
       return null;
     }
 
-    return $ImageAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+    return $AspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
       return _then(_value.copyWith(aspectRatio: value) as $Val);
     });
   }
@@ -138,12 +138,12 @@ abstract class _$$EmbedVideoImplCopyWith<$Res>
       @BlobConverter() Blob video,
       List<EmbedVideoCaption>? captions,
       String? alt,
-      ImageAspectRatio? aspectRatio});
+      AspectRatio? aspectRatio});
 
   @override
   $BlobCopyWith<$Res> get video;
   @override
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -185,7 +185,7 @@ class __$$EmbedVideoImplCopyWithImpl<$Res>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImageAspectRatio?,
+              as AspectRatio?,
     ));
   }
 }
@@ -225,7 +225,7 @@ class _$EmbedVideoImpl implements _EmbedVideo {
   @override
   final String? alt;
   @override
-  final ImageAspectRatio? aspectRatio;
+  final AspectRatio? aspectRatio;
 
   @override
   String toString() {
@@ -272,7 +272,7 @@ abstract class _EmbedVideo implements EmbedVideo {
       @BlobConverter() required final Blob video,
       final List<EmbedVideoCaption>? captions,
       final String? alt,
-      final ImageAspectRatio? aspectRatio}) = _$EmbedVideoImpl;
+      final AspectRatio? aspectRatio}) = _$EmbedVideoImpl;
 
   factory _EmbedVideo.fromJson(Map<String, dynamic> json) =
       _$EmbedVideoImpl.fromJson;
@@ -288,7 +288,7 @@ abstract class _EmbedVideo implements EmbedVideo {
   @override
   String? get alt;
   @override
-  ImageAspectRatio? get aspectRatio;
+  AspectRatio? get aspectRatio;
 
   /// Create a copy of EmbedVideo
   /// with the given fields replaced by the non-null parameter values.

@@ -10,7 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../../entities/image_aspect_ratio.dart';
+import '../defs/aspect_ratio.dart';
 import 'embed_video_caption.dart';
 
 part 'embed_video.freezed.dart';
@@ -25,7 +25,7 @@ class EmbedVideo with _$EmbedVideo {
     @BlobConverter() required Blob video,
     @Default([]) List<EmbedVideoCaption>? captions,
     String? alt,
-    ImageAspectRatio? aspectRatio,
+    AspectRatio? aspectRatio,
   }) = _EmbedVideo;
 
   factory EmbedVideo.fromJson(Map<String, Object?> json) =>

@@ -26,7 +26,7 @@ mixin _$EmbedViewImagesView {
   String get thumbnail => throw _privateConstructorUsedError;
   String get fullsize => throw _privateConstructorUsedError;
   String get alt => throw _privateConstructorUsedError;
-  ImageAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
+  AspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   /// Serializes this EmbedViewImagesView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,9 +49,9 @@ abstract class $EmbedViewImagesViewCopyWith<$Res> {
       @JsonKey(name: 'thumb') String thumbnail,
       String fullsize,
       String alt,
-      ImageAspectRatio? aspectRatio});
+      AspectRatio? aspectRatio});
 
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ class _$EmbedViewImagesViewCopyWithImpl<$Res, $Val extends EmbedViewImagesView>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImageAspectRatio?,
+              as AspectRatio?,
     ) as $Val);
   }
 
@@ -103,12 +103,12 @@ class _$EmbedViewImagesViewCopyWithImpl<$Res, $Val extends EmbedViewImagesView>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio {
+  $AspectRatioCopyWith<$Res>? get aspectRatio {
     if (_value.aspectRatio == null) {
       return null;
     }
 
-    return $ImageAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+    return $AspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
       return _then(_value.copyWith(aspectRatio: value) as $Val);
     });
   }
@@ -127,10 +127,10 @@ abstract class _$$EmbedViewImagesViewImplCopyWith<$Res>
       @JsonKey(name: 'thumb') String thumbnail,
       String fullsize,
       String alt,
-      ImageAspectRatio? aspectRatio});
+      AspectRatio? aspectRatio});
 
   @override
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -172,7 +172,7 @@ class __$$EmbedViewImagesViewImplCopyWithImpl<$Res>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImageAspectRatio?,
+              as AspectRatio?,
     ));
   }
 }
@@ -201,7 +201,7 @@ class _$EmbedViewImagesViewImpl implements _EmbedViewImagesView {
   @override
   final String alt;
   @override
-  final ImageAspectRatio? aspectRatio;
+  final AspectRatio? aspectRatio;
 
   @override
   String toString() {
@@ -251,7 +251,7 @@ abstract class _EmbedViewImagesView implements EmbedViewImagesView {
       @JsonKey(name: 'thumb') required final String thumbnail,
       required final String fullsize,
       required final String alt,
-      final ImageAspectRatio? aspectRatio}) = _$EmbedViewImagesViewImpl;
+      final AspectRatio? aspectRatio}) = _$EmbedViewImagesViewImpl;
 
   factory _EmbedViewImagesView.fromJson(Map<String, dynamic> json) =
       _$EmbedViewImagesViewImpl.fromJson;
@@ -267,7 +267,7 @@ abstract class _EmbedViewImagesView implements EmbedViewImagesView {
   @override
   String get alt;
   @override
-  ImageAspectRatio? get aspectRatio;
+  AspectRatio? get aspectRatio;
 
   /// Create a copy of EmbedViewImagesView
   /// with the given fields replaced by the non-null parameter values.
