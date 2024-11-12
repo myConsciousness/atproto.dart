@@ -1,5 +1,18 @@
 # Release Note
 
+## v0.17.1
+
+- Remove `ImageAspectRation` and expose `AspectRatio` from `bluesky/app_bsky_embed_defs.dart` package.
+- Expose `Nux` from `bluesky/app_bsky_actor_defs.dart`.
+- Add `.isFallback` on `SuggestedFollows`.
+- Expose `ReasonPin` and `SkeletonReasonPin` from `bluesky/app_bsky_feed_defs.dart`.
+- Add union `.pin` on `Reason` and `SkeletonReason`.
+- Add `includePins` parameter on `FeedService.getAuthorFeed`.
+- Add `UnspeccedService.getConfig`.
+- Add `opened` property on `ConvoView`.
+- Add `GraphService.muteThread` and `GraphService.unmuteThread`.
+- Add `.threadMuted` property on `PostViewer`.
+
 ## v0.17.0
 
 - Add `relativeToDid` on `SuggestionsSkeleton` and `UnspeccedService.getSuggestionsSkeleton`.

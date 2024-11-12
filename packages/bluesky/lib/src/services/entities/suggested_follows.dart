@@ -18,6 +18,7 @@ part 'suggested_follows.g.dart';
 class SuggestedFollows with _$SuggestedFollows {
   const factory SuggestedFollows({
     required List<Actor> suggestions,
+    @Default(false) bool isFallback,
   }) = _SuggestedFollows;
 
   factory SuggestedFollows.fromJson(Map<String, Object?> json) =>

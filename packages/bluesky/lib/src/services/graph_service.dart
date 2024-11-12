@@ -343,6 +343,32 @@ final class GraphService {
         },
         to: GetKnownFollowersOutput.fromJson,
       );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteThread
+  Future<core.XRPCResponse<core.EmptyData>> muteThread({
+    required core.AtUri root,
+    Map<String, String>? $headers,
+  }) async =>
+      await _ctx.post(
+        ns.appBskyGraphMuteThread,
+        headers: $headers,
+        body: {
+          'root': root.toString(),
+        },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteThread
+  Future<core.XRPCResponse<core.EmptyData>> unmuteThread({
+    required core.AtUri root,
+    Map<String, String>? $headers,
+  }) async =>
+      await _ctx.post(
+        ns.appBskyGraphUnmuteThread,
+        headers: $headers,
+        body: {
+          'root': root.toString(),
+        },
+      );
 }
 
 extension GraphServiceExtension on GraphService {

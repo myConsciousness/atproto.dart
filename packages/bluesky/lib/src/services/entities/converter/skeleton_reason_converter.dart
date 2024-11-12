@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../types/app/bsky/feed/defs/skeleton_reason_pin.dart';
 import '../skeleton_reason.dart';
 import '../skeleton_reason_repost.dart';
 
@@ -26,6 +27,10 @@ final class _SkeletonReasonConverter
         return SkeletonReason.repost(
           data: SkeletonReasonRepost.fromJson(json),
         );
+      } else if (type == ids.appBskyFeedDefsSkeletonReasonPin) {
+        return SkeletonReason.pin(
+          data: SkeletonReasonPin.fromJson(json),
+        );
       }
 
       return SkeletonReason.unknown(data: json);
@@ -37,6 +42,7 @@ final class _SkeletonReasonConverter
   @override
   Map<String, dynamic> toJson(SkeletonReason object) => object.when(
         repost: (data) => data.toJson(),
+        pin: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

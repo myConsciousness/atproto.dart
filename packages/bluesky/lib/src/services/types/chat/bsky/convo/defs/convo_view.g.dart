@@ -27,6 +27,7 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
                       UConvoMessageView>(
                   v, unionConvoMessageViewConverter.fromJson)),
           muted: $checkedConvert('muted', (v) => v as bool),
+          opened: $checkedConvert('opened', (v) => v as bool? ?? false),
           unreadCount:
               $checkedConvert('unreadCount', (v) => (v as num).toInt()),
         );
@@ -52,6 +53,7 @@ Map<String, dynamic> _$$ConvoViewImplToJson(_$ConvoViewImpl instance) {
       _$JsonConverterToJson<Map<String, dynamic>, UConvoMessageView>(
           instance.lastMessage, unionConvoMessageViewConverter.toJson));
   val['muted'] = instance.muted;
+  val['opened'] = instance.opened;
   val['unreadCount'] = instance.unreadCount;
   return val;
 }
