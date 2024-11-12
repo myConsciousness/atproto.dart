@@ -30,8 +30,7 @@ _$EmbedVideoImpl _$$EmbedVideoImplFromJson(Map json) => $checkedCreate(
               'aspectRatio',
               (v) => v == null
                   ? null
-                  : ImageAspectRatio.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : AspectRatio.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },

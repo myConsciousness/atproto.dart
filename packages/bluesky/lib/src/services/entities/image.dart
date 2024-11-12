@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'image_aspect_ratio.dart';
+import '../types/app/bsky/embed/defs/aspect_ratio.dart';
 
 part 'image.freezed.dart';
 part 'image.g.dart';
@@ -21,7 +21,7 @@ class Image with _$Image {
   const factory Image({
     required String alt,
     @BlobConverter() required Blob image,
-    ImageAspectRatio? aspectRatio,
+    AspectRatio? aspectRatio,
   }) = _Image;
 
   factory Image.fromJson(Map<String, Object?> json) => _$ImageFromJson(json);

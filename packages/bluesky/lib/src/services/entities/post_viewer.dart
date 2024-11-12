@@ -21,6 +21,7 @@ class PostViewer with _$PostViewer {
   const factory PostViewer({
     @AtUriConverter() AtUri? repost,
     @AtUriConverter() AtUri? like,
+    @Default(false) bool threadMuted,
     @JsonKey(name: 'replyDisabled') @Default(false) bool isReplyDisabled,
     @Default(false) bool embeddingDisabled,
     @Default(false) bool pinned,

@@ -2,18 +2,17 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'image_aspect_ratio.dart';
+part of 'aspect_ratio.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ImageAspectRatioImpl _$$ImageAspectRatioImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ImageAspectRatioImpl',
+_$AspectRatioImpl _$$AspectRatioImplFromJson(Map json) => $checkedCreate(
+      r'_$AspectRatioImpl',
       json,
       ($checkedConvert) {
-        final val = _$ImageAspectRatioImpl(
+        final val = _$AspectRatioImpl(
           width: $checkedConvert('width', (v) => (v as num).toInt()),
           height: $checkedConvert('height', (v) => (v as num).toInt()),
         );
@@ -21,8 +20,7 @@ _$ImageAspectRatioImpl _$$ImageAspectRatioImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ImageAspectRatioImplToJson(
-        _$ImageAspectRatioImpl instance) =>
+Map<String, dynamic> _$$AspectRatioImplToJson(_$AspectRatioImpl instance) =>
     <String, dynamic>{
       'width': instance.width,
       'height': instance.height,

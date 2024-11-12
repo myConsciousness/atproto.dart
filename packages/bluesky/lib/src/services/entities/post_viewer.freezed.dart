@@ -24,6 +24,7 @@ mixin _$PostViewer {
   AtUri? get repost => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
+  bool get threadMuted => throw _privateConstructorUsedError;
   @JsonKey(name: 'replyDisabled')
   bool get isReplyDisabled => throw _privateConstructorUsedError;
   bool get embeddingDisabled => throw _privateConstructorUsedError;
@@ -48,6 +49,7 @@ abstract class $PostViewerCopyWith<$Res> {
   $Res call(
       {@AtUriConverter() AtUri? repost,
       @AtUriConverter() AtUri? like,
+      bool threadMuted,
       @JsonKey(name: 'replyDisabled') bool isReplyDisabled,
       bool embeddingDisabled,
       bool pinned});
@@ -70,6 +72,7 @@ class _$PostViewerCopyWithImpl<$Res, $Val extends PostViewer>
   $Res call({
     Object? repost = freezed,
     Object? like = freezed,
+    Object? threadMuted = null,
     Object? isReplyDisabled = null,
     Object? embeddingDisabled = null,
     Object? pinned = null,
@@ -83,6 +86,10 @@ class _$PostViewerCopyWithImpl<$Res, $Val extends PostViewer>
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      threadMuted: null == threadMuted
+          ? _value.threadMuted
+          : threadMuted // ignore: cast_nullable_to_non_nullable
+              as bool,
       isReplyDisabled: null == isReplyDisabled
           ? _value.isReplyDisabled
           : isReplyDisabled // ignore: cast_nullable_to_non_nullable
@@ -110,6 +117,7 @@ abstract class _$$PostViewerImplCopyWith<$Res>
   $Res call(
       {@AtUriConverter() AtUri? repost,
       @AtUriConverter() AtUri? like,
+      bool threadMuted,
       @JsonKey(name: 'replyDisabled') bool isReplyDisabled,
       bool embeddingDisabled,
       bool pinned});
@@ -130,6 +138,7 @@ class __$$PostViewerImplCopyWithImpl<$Res>
   $Res call({
     Object? repost = freezed,
     Object? like = freezed,
+    Object? threadMuted = null,
     Object? isReplyDisabled = null,
     Object? embeddingDisabled = null,
     Object? pinned = null,
@@ -143,6 +152,10 @@ class __$$PostViewerImplCopyWithImpl<$Res>
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      threadMuted: null == threadMuted
+          ? _value.threadMuted
+          : threadMuted // ignore: cast_nullable_to_non_nullable
+              as bool,
       isReplyDisabled: null == isReplyDisabled
           ? _value.isReplyDisabled
           : isReplyDisabled // ignore: cast_nullable_to_non_nullable
@@ -166,6 +179,7 @@ class _$PostViewerImpl extends _PostViewer {
   const _$PostViewerImpl(
       {@AtUriConverter() this.repost,
       @AtUriConverter() this.like,
+      this.threadMuted = false,
       @JsonKey(name: 'replyDisabled') this.isReplyDisabled = false,
       this.embeddingDisabled = false,
       this.pinned = false})
@@ -181,6 +195,9 @@ class _$PostViewerImpl extends _PostViewer {
   @AtUriConverter()
   final AtUri? like;
   @override
+  @JsonKey()
+  final bool threadMuted;
+  @override
   @JsonKey(name: 'replyDisabled')
   final bool isReplyDisabled;
   @override
@@ -192,7 +209,7 @@ class _$PostViewerImpl extends _PostViewer {
 
   @override
   String toString() {
-    return 'PostViewer(repost: $repost, like: $like, isReplyDisabled: $isReplyDisabled, embeddingDisabled: $embeddingDisabled, pinned: $pinned)';
+    return 'PostViewer(repost: $repost, like: $like, threadMuted: $threadMuted, isReplyDisabled: $isReplyDisabled, embeddingDisabled: $embeddingDisabled, pinned: $pinned)';
   }
 
   @override
@@ -202,6 +219,8 @@ class _$PostViewerImpl extends _PostViewer {
             other is _$PostViewerImpl &&
             (identical(other.repost, repost) || other.repost == repost) &&
             (identical(other.like, like) || other.like == like) &&
+            (identical(other.threadMuted, threadMuted) ||
+                other.threadMuted == threadMuted) &&
             (identical(other.isReplyDisabled, isReplyDisabled) ||
                 other.isReplyDisabled == isReplyDisabled) &&
             (identical(other.embeddingDisabled, embeddingDisabled) ||
@@ -211,8 +230,8 @@ class _$PostViewerImpl extends _PostViewer {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, repost, like, isReplyDisabled, embeddingDisabled, pinned);
+  int get hashCode => Object.hash(runtimeType, repost, like, threadMuted,
+      isReplyDisabled, embeddingDisabled, pinned);
 
   /// Create a copy of PostViewer
   /// with the given fields replaced by the non-null parameter values.
@@ -234,6 +253,7 @@ abstract class _PostViewer extends PostViewer {
   const factory _PostViewer(
       {@AtUriConverter() final AtUri? repost,
       @AtUriConverter() final AtUri? like,
+      final bool threadMuted,
       @JsonKey(name: 'replyDisabled') final bool isReplyDisabled,
       final bool embeddingDisabled,
       final bool pinned}) = _$PostViewerImpl;
@@ -248,6 +268,8 @@ abstract class _PostViewer extends PostViewer {
   @override
   @AtUriConverter()
   AtUri? get like;
+  @override
+  bool get threadMuted;
   @override
   @JsonKey(name: 'replyDisabled')
   bool get isReplyDisabled;

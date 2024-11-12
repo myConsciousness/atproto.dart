@@ -26,6 +26,7 @@ mixin _$ConvoView {
   @unionConvoMessageViewConverter
   UConvoMessageView? get lastMessage => throw _privateConstructorUsedError;
   bool get muted => throw _privateConstructorUsedError;
+  bool get opened => throw _privateConstructorUsedError;
   int get unreadCount => throw _privateConstructorUsedError;
 
   /// Serializes this ConvoView to a JSON map.
@@ -49,6 +50,7 @@ abstract class $ConvoViewCopyWith<$Res> {
       List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter UConvoMessageView? lastMessage,
       bool muted,
+      bool opened,
       int unreadCount});
 
   $UConvoMessageViewCopyWith<$Res>? get lastMessage;
@@ -74,6 +76,7 @@ class _$ConvoViewCopyWithImpl<$Res, $Val extends ConvoView>
     Object? members = null,
     Object? lastMessage = freezed,
     Object? muted = null,
+    Object? opened = null,
     Object? unreadCount = null,
   }) {
     return _then(_value.copyWith(
@@ -96,6 +99,10 @@ class _$ConvoViewCopyWithImpl<$Res, $Val extends ConvoView>
       muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      opened: null == opened
+          ? _value.opened
+          : opened // ignore: cast_nullable_to_non_nullable
               as bool,
       unreadCount: null == unreadCount
           ? _value.unreadCount
@@ -133,6 +140,7 @@ abstract class _$$ConvoViewImplCopyWith<$Res>
       List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter UConvoMessageView? lastMessage,
       bool muted,
+      bool opened,
       int unreadCount});
 
   @override
@@ -157,6 +165,7 @@ class __$$ConvoViewImplCopyWithImpl<$Res>
     Object? members = null,
     Object? lastMessage = freezed,
     Object? muted = null,
+    Object? opened = null,
     Object? unreadCount = null,
   }) {
     return _then(_$ConvoViewImpl(
@@ -180,6 +189,10 @@ class __$$ConvoViewImplCopyWithImpl<$Res>
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
               as bool,
+      opened: null == opened
+          ? _value.opened
+          : opened // ignore: cast_nullable_to_non_nullable
+              as bool,
       unreadCount: null == unreadCount
           ? _value.unreadCount
           : unreadCount // ignore: cast_nullable_to_non_nullable
@@ -198,6 +211,7 @@ class _$ConvoViewImpl implements _ConvoView {
       required final List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter this.lastMessage,
       required this.muted,
+      this.opened = false,
       required this.unreadCount})
       : _members = members;
 
@@ -222,11 +236,14 @@ class _$ConvoViewImpl implements _ConvoView {
   @override
   final bool muted;
   @override
+  @JsonKey()
+  final bool opened;
+  @override
   final int unreadCount;
 
   @override
   String toString() {
-    return 'ConvoView(id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, muted: $muted, unreadCount: $unreadCount)';
+    return 'ConvoView(id: $id, rev: $rev, members: $members, lastMessage: $lastMessage, muted: $muted, opened: $opened, unreadCount: $unreadCount)';
   }
 
   @override
@@ -240,6 +257,7 @@ class _$ConvoViewImpl implements _ConvoView {
             (identical(other.lastMessage, lastMessage) ||
                 other.lastMessage == lastMessage) &&
             (identical(other.muted, muted) || other.muted == muted) &&
+            (identical(other.opened, opened) || other.opened == opened) &&
             (identical(other.unreadCount, unreadCount) ||
                 other.unreadCount == unreadCount));
   }
@@ -253,6 +271,7 @@ class _$ConvoViewImpl implements _ConvoView {
       const DeepCollectionEquality().hash(_members),
       lastMessage,
       muted,
+      opened,
       unreadCount);
 
   /// Create a copy of ConvoView
@@ -278,6 +297,7 @@ abstract class _ConvoView implements ConvoView {
       required final List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter final UConvoMessageView? lastMessage,
       required final bool muted,
+      final bool opened,
       required final int unreadCount}) = _$ConvoViewImpl;
 
   factory _ConvoView.fromJson(Map<String, dynamic> json) =
@@ -294,6 +314,8 @@ abstract class _ConvoView implements ConvoView {
   UConvoMessageView? get lastMessage;
   @override
   bool get muted;
+  @override
+  bool get opened;
   @override
   int get unreadCount;
 

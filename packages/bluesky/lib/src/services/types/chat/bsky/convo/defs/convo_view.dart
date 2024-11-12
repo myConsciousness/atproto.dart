@@ -23,6 +23,7 @@ class ConvoView with _$ConvoView {
     required List<ProfileViewBasic> members,
     @unionConvoMessageViewConverter UConvoMessageView? lastMessage,
     required bool muted,
+    @Default(false) bool opened,
     required int unreadCount,
   }) = _ConvoView;
 

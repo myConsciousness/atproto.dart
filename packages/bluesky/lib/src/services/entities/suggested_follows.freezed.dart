@@ -21,6 +21,7 @@ SuggestedFollows _$SuggestedFollowsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SuggestedFollows {
   List<Actor> get suggestions => throw _privateConstructorUsedError;
+  bool get isFallback => throw _privateConstructorUsedError;
 
   /// Serializes this SuggestedFollows to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +39,7 @@ abstract class $SuggestedFollowsCopyWith<$Res> {
           SuggestedFollows value, $Res Function(SuggestedFollows) then) =
       _$SuggestedFollowsCopyWithImpl<$Res, SuggestedFollows>;
   @useResult
-  $Res call({List<Actor> suggestions});
+  $Res call({List<Actor> suggestions, bool isFallback});
 }
 
 /// @nodoc
@@ -57,12 +58,17 @@ class _$SuggestedFollowsCopyWithImpl<$Res, $Val extends SuggestedFollows>
   @override
   $Res call({
     Object? suggestions = null,
+    Object? isFallback = null,
   }) {
     return _then(_value.copyWith(
       suggestions: null == suggestions
           ? _value.suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
+      isFallback: null == isFallback
+          ? _value.isFallback
+          : isFallback // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -75,7 +81,7 @@ abstract class _$$SuggestedFollowsImplCopyWith<$Res>
       __$$SuggestedFollowsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Actor> suggestions});
+  $Res call({List<Actor> suggestions, bool isFallback});
 }
 
 /// @nodoc
@@ -92,12 +98,17 @@ class __$$SuggestedFollowsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? suggestions = null,
+    Object? isFallback = null,
   }) {
     return _then(_$SuggestedFollowsImpl(
       suggestions: null == suggestions
           ? _value._suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
+      isFallback: null == isFallback
+          ? _value.isFallback
+          : isFallback // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -105,7 +116,8 @@ class __$$SuggestedFollowsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SuggestedFollowsImpl implements _SuggestedFollows {
-  const _$SuggestedFollowsImpl({required final List<Actor> suggestions})
+  const _$SuggestedFollowsImpl(
+      {required final List<Actor> suggestions, this.isFallback = false})
       : _suggestions = suggestions;
 
   factory _$SuggestedFollowsImpl.fromJson(Map<String, dynamic> json) =>
@@ -120,8 +132,12 @@ class _$SuggestedFollowsImpl implements _SuggestedFollows {
   }
 
   @override
+  @JsonKey()
+  final bool isFallback;
+
+  @override
   String toString() {
-    return 'SuggestedFollows(suggestions: $suggestions)';
+    return 'SuggestedFollows(suggestions: $suggestions, isFallback: $isFallback)';
   }
 
   @override
@@ -130,13 +146,15 @@ class _$SuggestedFollowsImpl implements _SuggestedFollows {
         (other.runtimeType == runtimeType &&
             other is _$SuggestedFollowsImpl &&
             const DeepCollectionEquality()
-                .equals(other._suggestions, _suggestions));
+                .equals(other._suggestions, _suggestions) &&
+            (identical(other.isFallback, isFallback) ||
+                other.isFallback == isFallback));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_suggestions));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_suggestions), isFallback);
 
   /// Create a copy of SuggestedFollows
   /// with the given fields replaced by the non-null parameter values.
@@ -156,14 +174,17 @@ class _$SuggestedFollowsImpl implements _SuggestedFollows {
 }
 
 abstract class _SuggestedFollows implements SuggestedFollows {
-  const factory _SuggestedFollows({required final List<Actor> suggestions}) =
-      _$SuggestedFollowsImpl;
+  const factory _SuggestedFollows(
+      {required final List<Actor> suggestions,
+      final bool isFallback}) = _$SuggestedFollowsImpl;
 
   factory _SuggestedFollows.fromJson(Map<String, dynamic> json) =
       _$SuggestedFollowsImpl.fromJson;
 
   @override
   List<Actor> get suggestions;
+  @override
+  bool get isFallback;
 
   /// Create a copy of SuggestedFollows
   /// with the given fields replaced by the non-null parameter values.
