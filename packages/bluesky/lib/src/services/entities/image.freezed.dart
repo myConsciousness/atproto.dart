@@ -23,7 +23,7 @@ mixin _$Image {
   String get alt => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob get image => throw _privateConstructorUsedError;
-  ImageAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
+  AspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   /// Serializes this Image to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,10 +40,10 @@ abstract class $ImageCopyWith<$Res> {
       _$ImageCopyWithImpl<$Res, Image>;
   @useResult
   $Res call(
-      {String alt, @BlobConverter() Blob image, ImageAspectRatio? aspectRatio});
+      {String alt, @BlobConverter() Blob image, AspectRatio? aspectRatio});
 
   $BlobCopyWith<$Res> get image;
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImageAspectRatio?,
+              as AspectRatio?,
     ) as $Val);
   }
 
@@ -95,12 +95,12 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio {
+  $AspectRatioCopyWith<$Res>? get aspectRatio {
     if (_value.aspectRatio == null) {
       return null;
     }
 
-    return $ImageAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+    return $AspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
       return _then(_value.copyWith(aspectRatio: value) as $Val);
     });
   }
@@ -114,12 +114,12 @@ abstract class _$$ImageImplCopyWith<$Res> implements $ImageCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String alt, @BlobConverter() Blob image, ImageAspectRatio? aspectRatio});
+      {String alt, @BlobConverter() Blob image, AspectRatio? aspectRatio});
 
   @override
   $BlobCopyWith<$Res> get image;
   @override
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -151,7 +151,7 @@ class __$$ImageImplCopyWithImpl<$Res>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImageAspectRatio?,
+              as AspectRatio?,
     ));
   }
 }
@@ -174,7 +174,7 @@ class _$ImageImpl implements _Image {
   @BlobConverter()
   final Blob image;
   @override
-  final ImageAspectRatio? aspectRatio;
+  final AspectRatio? aspectRatio;
 
   @override
   String toString() {
@@ -216,7 +216,7 @@ abstract class _Image implements Image {
   const factory _Image(
       {required final String alt,
       @BlobConverter() required final Blob image,
-      final ImageAspectRatio? aspectRatio}) = _$ImageImpl;
+      final AspectRatio? aspectRatio}) = _$ImageImpl;
 
   factory _Image.fromJson(Map<String, dynamic> json) = _$ImageImpl.fromJson;
 
@@ -226,7 +226,7 @@ abstract class _Image implements Image {
   @BlobConverter()
   Blob get image;
   @override
-  ImageAspectRatio? get aspectRatio;
+  AspectRatio? get aspectRatio;
 
   /// Create a copy of Image
   /// with the given fields replaced by the non-null parameter values.

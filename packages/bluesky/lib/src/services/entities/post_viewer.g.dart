@@ -21,6 +21,8 @@ _$PostViewerImpl _$$PostViewerImplFromJson(Map json) => $checkedCreate(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
                   v, const AtUriConverter().fromJson)),
+          threadMuted:
+              $checkedConvert('threadMuted', (v) => v as bool? ?? false),
           isReplyDisabled:
               $checkedConvert('replyDisabled', (v) => v as bool? ?? false),
           embeddingDisabled:
@@ -49,6 +51,7 @@ Map<String, dynamic> _$$PostViewerImplToJson(_$PostViewerImpl instance) {
       'like',
       _$JsonConverterToJson<String, AtUri>(
           instance.like, const AtUriConverter().toJson));
+  val['threadMuted'] = instance.threadMuted;
   val['replyDisabled'] = instance.isReplyDisabled;
   val['embeddingDisabled'] = instance.embeddingDisabled;
   val['pinned'] = instance.pinned;

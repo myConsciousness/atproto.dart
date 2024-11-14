@@ -10,7 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.dart';
-import 'image_aspect_ratio.dart';
+import '../types/app/bsky/embed/defs/aspect_ratio.dart';
 
 part 'embed_view_images_view.freezed.dart';
 part 'embed_view_images_view.g.dart';
@@ -23,7 +23,7 @@ class EmbedViewImagesView with _$EmbedViewImagesView {
     @JsonKey(name: 'thumb') required String thumbnail,
     required String fullsize,
     required String alt,
-    ImageAspectRatio? aspectRatio,
+    AspectRatio? aspectRatio,
   }) = _EmbedViewImagesView;
 
   /// Creates an instance of [EmbedViewImagesView] from a map of

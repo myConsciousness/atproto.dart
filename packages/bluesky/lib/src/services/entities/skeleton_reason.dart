@@ -8,6 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../types/app/bsky/feed/defs/skeleton_reason_pin.dart';
 import 'skeleton_reason_repost.dart';
 
 part 'skeleton_reason.freezed.dart';
@@ -18,6 +19,10 @@ class SkeletonReason with _$SkeletonReason {
   factory SkeletonReason.repost({
     required SkeletonReasonRepost data,
   }) = USkeletonReasonRepost;
+
+  factory SkeletonReason.pin({
+    required SkeletonReasonPin data,
+  }) = USkeletonReasonPin;
 
   factory SkeletonReason.unknown({
     required Map<String, dynamic> data,

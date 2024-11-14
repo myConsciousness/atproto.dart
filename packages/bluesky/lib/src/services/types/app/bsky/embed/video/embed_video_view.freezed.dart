@@ -26,7 +26,7 @@ mixin _$EmbedVideoView {
   String get playlist => throw _privateConstructorUsedError;
   String? get thumbnail => throw _privateConstructorUsedError;
   String? get alt => throw _privateConstructorUsedError;
-  ImageAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
+  AspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   /// Serializes this EmbedVideoView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,9 +50,9 @@ abstract class $EmbedVideoViewCopyWith<$Res> {
       String playlist,
       String? thumbnail,
       String? alt,
-      ImageAspectRatio? aspectRatio});
+      AspectRatio? aspectRatio});
 
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class _$EmbedVideoViewCopyWithImpl<$Res, $Val extends EmbedVideoView>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImageAspectRatio?,
+              as AspectRatio?,
     ) as $Val);
   }
 
@@ -109,12 +109,12 @@ class _$EmbedVideoViewCopyWithImpl<$Res, $Val extends EmbedVideoView>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio {
+  $AspectRatioCopyWith<$Res>? get aspectRatio {
     if (_value.aspectRatio == null) {
       return null;
     }
 
-    return $ImageAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+    return $AspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
       return _then(_value.copyWith(aspectRatio: value) as $Val);
     });
   }
@@ -134,10 +134,10 @@ abstract class _$$EmbedVideoViewImplCopyWith<$Res>
       String playlist,
       String? thumbnail,
       String? alt,
-      ImageAspectRatio? aspectRatio});
+      AspectRatio? aspectRatio});
 
   @override
-  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
+  $AspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -184,7 +184,7 @@ class __$$EmbedVideoViewImplCopyWithImpl<$Res>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as ImageAspectRatio?,
+              as AspectRatio?,
     ));
   }
 }
@@ -216,7 +216,7 @@ class _$EmbedVideoViewImpl implements _EmbedVideoView {
   @override
   final String? alt;
   @override
-  final ImageAspectRatio? aspectRatio;
+  final AspectRatio? aspectRatio;
 
   @override
   String toString() {
@@ -268,7 +268,7 @@ abstract class _EmbedVideoView implements EmbedVideoView {
       required final String playlist,
       required final String? thumbnail,
       final String? alt,
-      final ImageAspectRatio? aspectRatio}) = _$EmbedVideoViewImpl;
+      final AspectRatio? aspectRatio}) = _$EmbedVideoViewImpl;
 
   factory _EmbedVideoView.fromJson(Map<String, dynamic> json) =
       _$EmbedVideoViewImpl.fromJson;
@@ -285,7 +285,7 @@ abstract class _EmbedVideoView implements EmbedVideoView {
   @override
   String? get alt;
   @override
-  ImageAspectRatio? get aspectRatio;
+  AspectRatio? get aspectRatio;
 
   /// Create a copy of EmbedVideoView
   /// with the given fields replaced by the non-null parameter values.

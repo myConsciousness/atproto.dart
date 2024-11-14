@@ -20,18 +20,21 @@ mixin _$SkeletonReason {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SkeletonReasonRepost data) repost,
+    required TResult Function(SkeletonReasonPin data) pin,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SkeletonReasonRepost data)? repost,
+    TResult? Function(SkeletonReasonPin data)? pin,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SkeletonReasonRepost data)? repost,
+    TResult Function(SkeletonReasonPin data)? pin,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -39,18 +42,21 @@ mixin _$SkeletonReason {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USkeletonReasonRepost value) repost,
+    required TResult Function(USkeletonReasonPin value) pin,
     required TResult Function(USkeletonReasonUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USkeletonReasonRepost value)? repost,
+    TResult? Function(USkeletonReasonPin value)? pin,
     TResult? Function(USkeletonReasonUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USkeletonReasonRepost value)? repost,
+    TResult Function(USkeletonReasonPin value)? pin,
     TResult Function(USkeletonReasonUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -161,6 +167,7 @@ class _$USkeletonReasonRepostImpl implements USkeletonReasonRepost {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SkeletonReasonRepost data) repost,
+    required TResult Function(SkeletonReasonPin data) pin,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return repost(data);
@@ -170,6 +177,7 @@ class _$USkeletonReasonRepostImpl implements USkeletonReasonRepost {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SkeletonReasonRepost data)? repost,
+    TResult? Function(SkeletonReasonPin data)? pin,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return repost?.call(data);
@@ -179,6 +187,7 @@ class _$USkeletonReasonRepostImpl implements USkeletonReasonRepost {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SkeletonReasonRepost data)? repost,
+    TResult Function(SkeletonReasonPin data)? pin,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -192,6 +201,7 @@ class _$USkeletonReasonRepostImpl implements USkeletonReasonRepost {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USkeletonReasonRepost value) repost,
+    required TResult Function(USkeletonReasonPin value) pin,
     required TResult Function(USkeletonReasonUnknown value) unknown,
   }) {
     return repost(this);
@@ -201,6 +211,7 @@ class _$USkeletonReasonRepostImpl implements USkeletonReasonRepost {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USkeletonReasonRepost value)? repost,
+    TResult? Function(USkeletonReasonPin value)? pin,
     TResult? Function(USkeletonReasonUnknown value)? unknown,
   }) {
     return repost?.call(this);
@@ -210,6 +221,7 @@ class _$USkeletonReasonRepostImpl implements USkeletonReasonRepost {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USkeletonReasonRepost value)? repost,
+    TResult Function(USkeletonReasonPin value)? pin,
     TResult Function(USkeletonReasonUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -232,6 +244,167 @@ abstract class USkeletonReasonRepost implements SkeletonReason {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$USkeletonReasonRepostImplCopyWith<_$USkeletonReasonRepostImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$USkeletonReasonPinImplCopyWith<$Res> {
+  factory _$$USkeletonReasonPinImplCopyWith(_$USkeletonReasonPinImpl value,
+          $Res Function(_$USkeletonReasonPinImpl) then) =
+      __$$USkeletonReasonPinImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SkeletonReasonPin data});
+
+  $SkeletonReasonPinCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$USkeletonReasonPinImplCopyWithImpl<$Res>
+    extends _$SkeletonReasonCopyWithImpl<$Res, _$USkeletonReasonPinImpl>
+    implements _$$USkeletonReasonPinImplCopyWith<$Res> {
+  __$$USkeletonReasonPinImplCopyWithImpl(_$USkeletonReasonPinImpl _value,
+      $Res Function(_$USkeletonReasonPinImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SkeletonReason
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$USkeletonReasonPinImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SkeletonReasonPin,
+    ));
+  }
+
+  /// Create a copy of SkeletonReason
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SkeletonReasonPinCopyWith<$Res> get data {
+    return $SkeletonReasonPinCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$USkeletonReasonPinImpl implements USkeletonReasonPin {
+  _$USkeletonReasonPinImpl({required this.data});
+
+  @override
+  final SkeletonReasonPin data;
+
+  @override
+  String toString() {
+    return 'SkeletonReason.pin(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$USkeletonReasonPinImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of SkeletonReason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$USkeletonReasonPinImplCopyWith<_$USkeletonReasonPinImpl> get copyWith =>
+      __$$USkeletonReasonPinImplCopyWithImpl<_$USkeletonReasonPinImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SkeletonReasonRepost data) repost,
+    required TResult Function(SkeletonReasonPin data) pin,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return pin(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SkeletonReasonRepost data)? repost,
+    TResult? Function(SkeletonReasonPin data)? pin,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return pin?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SkeletonReasonRepost data)? repost,
+    TResult Function(SkeletonReasonPin data)? pin,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (pin != null) {
+      return pin(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(USkeletonReasonRepost value) repost,
+    required TResult Function(USkeletonReasonPin value) pin,
+    required TResult Function(USkeletonReasonUnknown value) unknown,
+  }) {
+    return pin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(USkeletonReasonRepost value)? repost,
+    TResult? Function(USkeletonReasonPin value)? pin,
+    TResult? Function(USkeletonReasonUnknown value)? unknown,
+  }) {
+    return pin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(USkeletonReasonRepost value)? repost,
+    TResult Function(USkeletonReasonPin value)? pin,
+    TResult Function(USkeletonReasonUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (pin != null) {
+      return pin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class USkeletonReasonPin implements SkeletonReason {
+  factory USkeletonReasonPin({required final SkeletonReasonPin data}) =
+      _$USkeletonReasonPinImpl;
+
+  @override
+  SkeletonReasonPin get data;
+
+  /// Create a copy of SkeletonReason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$USkeletonReasonPinImplCopyWith<_$USkeletonReasonPinImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -313,6 +486,7 @@ class _$USkeletonReasonUnknownImpl implements USkeletonReasonUnknown {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SkeletonReasonRepost data) repost,
+    required TResult Function(SkeletonReasonPin data) pin,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -322,6 +496,7 @@ class _$USkeletonReasonUnknownImpl implements USkeletonReasonUnknown {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SkeletonReasonRepost data)? repost,
+    TResult? Function(SkeletonReasonPin data)? pin,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -331,6 +506,7 @@ class _$USkeletonReasonUnknownImpl implements USkeletonReasonUnknown {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SkeletonReasonRepost data)? repost,
+    TResult Function(SkeletonReasonPin data)? pin,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -344,6 +520,7 @@ class _$USkeletonReasonUnknownImpl implements USkeletonReasonUnknown {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USkeletonReasonRepost value) repost,
+    required TResult Function(USkeletonReasonPin value) pin,
     required TResult Function(USkeletonReasonUnknown value) unknown,
   }) {
     return unknown(this);
@@ -353,6 +530,7 @@ class _$USkeletonReasonUnknownImpl implements USkeletonReasonUnknown {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USkeletonReasonRepost value)? repost,
+    TResult? Function(USkeletonReasonPin value)? pin,
     TResult? Function(USkeletonReasonUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -362,6 +540,7 @@ class _$USkeletonReasonUnknownImpl implements USkeletonReasonUnknown {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USkeletonReasonRepost value)? repost,
+    TResult Function(USkeletonReasonPin value)? pin,
     TResult Function(USkeletonReasonUnknown value)? unknown,
     required TResult orElse(),
   }) {
