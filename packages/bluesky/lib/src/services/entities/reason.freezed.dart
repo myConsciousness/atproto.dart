@@ -20,18 +20,21 @@ mixin _$Reason {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ReasonRepost data) repost,
+    required TResult Function(ReasonPin data) pin,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ReasonRepost data)? repost,
+    TResult? Function(ReasonPin data)? pin,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ReasonRepost data)? repost,
+    TResult Function(ReasonPin data)? pin,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -39,18 +42,21 @@ mixin _$Reason {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UReasonRepost value) repost,
+    required TResult Function(UReasonPin value) pin,
     required TResult Function(UReasonUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UReasonRepost value)? repost,
+    TResult? Function(UReasonPin value)? pin,
     TResult? Function(UReasonUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UReasonRepost value)? repost,
+    TResult Function(UReasonPin value)? pin,
     TResult Function(UReasonUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -158,6 +164,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ReasonRepost data) repost,
+    required TResult Function(ReasonPin data) pin,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return repost(data);
@@ -167,6 +174,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ReasonRepost data)? repost,
+    TResult? Function(ReasonPin data)? pin,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return repost?.call(data);
@@ -176,6 +184,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ReasonRepost data)? repost,
+    TResult Function(ReasonPin data)? pin,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -189,6 +198,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UReasonRepost value) repost,
+    required TResult Function(UReasonPin value) pin,
     required TResult Function(UReasonUnknown value) unknown,
   }) {
     return repost(this);
@@ -198,6 +208,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UReasonRepost value)? repost,
+    TResult? Function(UReasonPin value)? pin,
     TResult? Function(UReasonUnknown value)? unknown,
   }) {
     return repost?.call(this);
@@ -207,6 +218,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UReasonRepost value)? repost,
+    TResult Function(UReasonPin value)? pin,
     TResult Function(UReasonUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -228,6 +240,165 @@ abstract class UReasonRepost implements Reason {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UReasonRepostImplCopyWith<_$UReasonRepostImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UReasonPinImplCopyWith<$Res> {
+  factory _$$UReasonPinImplCopyWith(
+          _$UReasonPinImpl value, $Res Function(_$UReasonPinImpl) then) =
+      __$$UReasonPinImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ReasonPin data});
+
+  $ReasonPinCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UReasonPinImplCopyWithImpl<$Res>
+    extends _$ReasonCopyWithImpl<$Res, _$UReasonPinImpl>
+    implements _$$UReasonPinImplCopyWith<$Res> {
+  __$$UReasonPinImplCopyWithImpl(
+      _$UReasonPinImpl _value, $Res Function(_$UReasonPinImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UReasonPinImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ReasonPin,
+    ));
+  }
+
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ReasonPinCopyWith<$Res> get data {
+    return $ReasonPinCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UReasonPinImpl implements UReasonPin {
+  _$UReasonPinImpl({required this.data});
+
+  @override
+  final ReasonPin data;
+
+  @override
+  String toString() {
+    return 'Reason.pin(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UReasonPinImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UReasonPinImplCopyWith<_$UReasonPinImpl> get copyWith =>
+      __$$UReasonPinImplCopyWithImpl<_$UReasonPinImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ReasonRepost data) repost,
+    required TResult Function(ReasonPin data) pin,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return pin(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ReasonRepost data)? repost,
+    TResult? Function(ReasonPin data)? pin,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return pin?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ReasonRepost data)? repost,
+    TResult Function(ReasonPin data)? pin,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (pin != null) {
+      return pin(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UReasonRepost value) repost,
+    required TResult Function(UReasonPin value) pin,
+    required TResult Function(UReasonUnknown value) unknown,
+  }) {
+    return pin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UReasonRepost value)? repost,
+    TResult? Function(UReasonPin value)? pin,
+    TResult? Function(UReasonUnknown value)? unknown,
+  }) {
+    return pin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UReasonRepost value)? repost,
+    TResult Function(UReasonPin value)? pin,
+    TResult Function(UReasonUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (pin != null) {
+      return pin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UReasonPin implements Reason {
+  factory UReasonPin({required final ReasonPin data}) = _$UReasonPinImpl;
+
+  @override
+  ReasonPin get data;
+
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UReasonPinImplCopyWith<_$UReasonPinImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -308,6 +479,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ReasonRepost data) repost,
+    required TResult Function(ReasonPin data) pin,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -317,6 +489,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ReasonRepost data)? repost,
+    TResult? Function(ReasonPin data)? pin,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -326,6 +499,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ReasonRepost data)? repost,
+    TResult Function(ReasonPin data)? pin,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -339,6 +513,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UReasonRepost value) repost,
+    required TResult Function(UReasonPin value) pin,
     required TResult Function(UReasonUnknown value) unknown,
   }) {
     return unknown(this);
@@ -348,6 +523,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UReasonRepost value)? repost,
+    TResult? Function(UReasonPin value)? pin,
     TResult? Function(UReasonUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -357,6 +533,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UReasonRepost value)? repost,
+    TResult Function(UReasonPin value)? pin,
     TResult Function(UReasonUnknown value)? unknown,
     required TResult orElse(),
   }) {

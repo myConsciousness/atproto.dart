@@ -13,6 +13,7 @@ import 'entities/skeleton_posts_by_query.dart';
 import 'entities/suggestions_skeleton.dart';
 import 'entities/tagged_suggestions.dart';
 import 'service_context.dart';
+import 'types/app/bsky/unspecced/getConfig/output.dart';
 
 /// Represents `app.bsky.unspecced.*` service.
 final class UnspeccedService {
@@ -126,5 +127,15 @@ final class UnspeccedService {
           'relativeToDid': relativeToDid,
         },
         to: SuggestionsSkeleton.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getConfig
+  Future<core.XRPCResponse<GetConfigOutput>> getConfig({
+    Map<String, String>? $headers,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyUnspeccedGetConfig,
+        headers: $headers,
+        to: GetConfigOutput.fromJson,
       );
 }

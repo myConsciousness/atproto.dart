@@ -166,7 +166,7 @@ Mute incoming reports from an account
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **comment** | string | - | ❌ | - |
-| **durationInHours** | integer | - | ✅ | Indicates how long the account should remain muted. |
+| **durationInHours** | integer | - | ❌ | Indicates how long the account should remain muted. Falsy value here means a permanent mute. |
 
 ## #modEventUnmuteReporter
 

@@ -10,7 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../../ids.g.dart';
-import '../../../../../entities/image_aspect_ratio.dart';
+import '../defs/aspect_ratio.dart';
 
 part 'embed_video_view.freezed.dart';
 part 'embed_video_view.g.dart';
@@ -25,7 +25,7 @@ class EmbedVideoView with _$EmbedVideoView {
     required String playlist,
     required String? thumbnail,
     String? alt,
-    ImageAspectRatio? aspectRatio,
+    AspectRatio? aspectRatio,
   }) = _EmbedVideoView;
 
   factory EmbedVideoView.fromJson(Map<String, Object?> json) =>

@@ -129,6 +129,7 @@ final class FeedService {
     int? limit,
     String? cursor,
     FeedFilter? filter,
+    bool includePins = false,
     Map<String, String>? headers,
   }) async =>
       await _ctx.get(
@@ -139,6 +140,7 @@ final class FeedService {
           'limit': limit,
           'cursor': cursor,
           'filter': filter,
+          'includePins': includePins,
         },
         to: Feed.fromJson,
       );
