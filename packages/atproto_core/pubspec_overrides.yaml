@@ -9,3 +9,5 @@ dependency_overrides:
     path: ../xrpc
   multiformats:
     path: ../multiformats
+  atproto_oauth:
+    path: ../atproto_oauth

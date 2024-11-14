@@ -5,6 +5,7 @@
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // 🌎 Project imports:
 import 'services/service_context.dart';
@@ -54,6 +55,49 @@ sealed class BlueskyChat {
           service: service,
           relayService: relayService,
           session: session,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
+
+  /// Returns the new instance of [BlueskyChat].
+  factory BlueskyChat.fromOAuthSession(
+    final oauth.OAuthSession session, {
+    final Map<String, String>? headers,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  }) =>
+      _BlueskyChat(
+        BlueskyServiceContext(
+          atproto: atp.ATProto.fromOAuthSession(
+            headers: {
+              ...?headers,
+              ..._kBskyChatProxyHeaders,
+            },
+            session,
+            protocol: protocol,
+            service: service,
+            relayService: relayService,
+            timeout: timeout,
+            retryConfig: retryConfig,
+            mockedGetClient: mockedGetClient,
+            mockedPostClient: mockedPostClient,
+          ),
+          headers: {
+            ...?headers,
+            ..._kBskyChatProxyHeaders,
+          },
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          oAuthSession: session,
           timeout: timeout,
           retryConfig: retryConfig,
           mockedGetClient: mockedGetClient,

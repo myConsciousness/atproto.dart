@@ -175,7 +175,7 @@ final class ServerService {
       await _ctx.post(
         ns.comAtprotoServerDeleteAccount,
         body: {
-          'did': _ctx.session?.did,
+          'did': _ctx.session?.did ?? _ctx.oAuthSession?.sub,
           'password': password,
           'token': token,
         },

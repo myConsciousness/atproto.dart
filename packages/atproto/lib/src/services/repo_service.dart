@@ -39,7 +39,7 @@ final class RepoService {
       await _ctx.post(
         ns.comAtprotoRepoCreateRecord,
         body: {
-          'repo': _ctx.session?.did,
+          'repo': _ctx.session?.did ?? _ctx.oAuthSession?.sub,
           'collection': collection.toString(),
           'rkey': rkey,
           'record': record,
@@ -103,7 +103,7 @@ final class RepoService {
       await _ctx.post<core.EmptyData>(
         ns.comAtprotoRepoDeleteRecord,
         body: {
-          'repo': _ctx.session?.did,
+          'repo': _ctx.session?.did ?? _ctx.oAuthSession?.sub,
           'collection': uri.collection.toString(),
           'rkey': uri.rkey,
           'swapRecord': swapRecordCid,
@@ -122,7 +122,7 @@ final class RepoService {
       await _ctx.post(
         ns.comAtprotoRepoPutRecord,
         body: {
-          'repo': _ctx.session?.did,
+          'repo': _ctx.session?.did ?? _ctx.oAuthSession?.sub,
           'collection': uri.collection.toString(),
           'rkey': uri.rkey,
           'record': record,
@@ -164,7 +164,7 @@ final class RepoService {
       await _ctx.post(
         ns.comAtprotoRepoApplyWrites,
         body: {
-          'repo': _ctx.session?.did,
+          'repo': _ctx.session?.did ?? _ctx.oAuthSession?.sub,
           'writes': actions
               .map((e) => e.when(
                     create: (data) => data.toJson(),

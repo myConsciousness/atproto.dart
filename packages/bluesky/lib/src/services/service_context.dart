@@ -17,6 +17,7 @@ final class BlueskyServiceContext extends core.ServiceContext {
     super.service,
     super.relayService,
     super.session,
+    super.oAuthSession,
     super.timeout,
     super.retryConfig,
     super.mockedGetClient,

@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.11.0
+
+- Expose `atproto_oauth` package.
+- Add `.oAuthSession` parameter on `ServiceContext`.
+
 ## v0.10.6
 
 - Add `service` parameter on `ServiceContext.get` and `ServiceContext.post`. ([#1783](https://github.com/myConsciousness/atproto.dart/pull/1783))

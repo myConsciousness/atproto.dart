@@ -9,7 +9,9 @@ import 'dart:async';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
 // 🌎 Project imports:
+import '../../atproto_oauth.dart';
 import '../const.dart';
+import '../types/oauth_session.dart';
 import '../types/session.dart';
 import 'challenge.dart';
 import 'retry_config.dart';
@@ -22,13 +24,17 @@ base class ServiceContext {
     String? service,
     String? relayService,
     this.session,
+    this.oAuthSession,
     Duration? timeout,
     RetryConfig? retryConfig,
     final xrpc.GetClient? mockedGetClient,
     final xrpc.PostClient? mockedPostClient,
   })  : _headers = headers,
         _protocol = protocol ?? defaultProtocol,
-        service = service ?? session?.atprotoPdsEndpoint ?? defaultService,
+        service = service ??
+            session?.atprotoPdsEndpoint ??
+            oAuthSession?.atprotoPdsEndpoint ??
+            defaultService,
         relayService = relayService ?? defaultRelayService,
         _challenge = Challenge(RetryPolicy(retryConfig)),
         _timeout = timeout ?? defaultTimeout,
@@ -40,6 +46,9 @@ base class ServiceContext {
 
   /// The current session.
   final Session? session;
+
+  /// The current OAuth session.
+  final OAuthSession? oAuthSession;
 
   /// The current service.
   /// Defaults to `bsky.social`.
@@ -77,13 +86,49 @@ base class ServiceContext {
           methodId,
           protocol: _protocol,
           service: service ?? this.service,
-          headers: _mergeHeaders(headers),
+          headers: {
+            ..._headers ?? const {},
+            ...headers ?? const {},
+          },
           parameters: parameters,
           to: to,
           adaptor: adaptor,
           timeout: _timeout,
+          headerBuilder: (header, endpoint) {
+            if (session != null) {
+              return {
+                'Authorization': 'Bearer ${session!.accessJwt}',
+                ...header,
+              };
+            }
+
+            if (oAuthSession != null) {
+              final jwt = oAuthSession!.accessTokenJwt;
+              final dPoPHeader = getDPoPHeader(
+                clientId: jwt.clientId!,
+                endpoint: endpoint.toString(),
+                method: 'GET',
+                authorizationServer: jwt.iss,
+                accessToken: oAuthSession!.accessToken,
+                dPoPNonce: oAuthSession!.$dPoPNonce,
+                publicKey: oAuthSession!.$publicKey,
+                privateKey: oAuthSession!.$privateKey,
+              );
+
+              return {
+                'Authorization': 'DPoP ${oAuthSession!.accessToken}',
+                'DPoP': dPoPHeader,
+                ...header,
+              };
+            }
+
+            return header;
+          },
           getClient: client ?? _mockedGetClient,
         ),
+        onUseDpopNonceError: (response) {
+          oAuthSession?.$dPoPNonce = response.headers['dpop-nonce']!;
+        },
       );
 
   Future<xrpc.XRPCResponse<T>> post<T>(
@@ -100,13 +145,49 @@ base class ServiceContext {
           methodId,
           protocol: _protocol,
           service: service ?? this.service,
-          headers: _mergeHeaders(headers),
+          headers: {
+            ..._headers ?? const {},
+            ...headers ?? const {},
+          },
           parameters: parameters,
           body: body,
           to: to,
           timeout: _timeout,
+          headerBuilder: (header, endpoint) {
+            if (session != null) {
+              return {
+                'Authorization': 'Bearer ${session!.accessJwt}',
+                ...header,
+              };
+            }
+
+            if (oAuthSession != null) {
+              final jwt = oAuthSession!.accessTokenJwt;
+              final dPoPHeader = getDPoPHeader(
+                clientId: jwt.clientId!,
+                endpoint: endpoint.toString(),
+                method: 'POST',
+                authorizationServer: jwt.iss,
+                accessToken: oAuthSession!.accessToken,
+                dPoPNonce: oAuthSession!.$dPoPNonce,
+                publicKey: oAuthSession!.$publicKey,
+                privateKey: oAuthSession!.$privateKey,
+              );
+
+              return {
+                'Authorization': 'DPoP ${oAuthSession!.accessToken}',
+                'DPoP': dPoPHeader,
+                ...header,
+              };
+            }
+
+            return header;
+          },
           postClient: client ?? _mockedPostClient,
         ),
+        onUseDpopNonceError: (response) {
+          oAuthSession?.$dPoPNonce = response.headers['dpop-nonce']!;
+        },
       );
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
@@ -124,12 +205,6 @@ base class ServiceContext {
           adaptor: adaptor,
         ),
       );
-
-  Map<String, String> _mergeHeaders([Map<String, String>? optional]) => {
-        if (session != null) 'Authorization': 'Bearer ${session!.accessJwt}',
-        ..._headers ?? const {},
-        ...optional ?? const {},
-      };
 
   /// Returns the [dateTime] in UTC time zone and ISO8601 format.
   String toUtcIso8601String(final DateTime? dateTime) =>

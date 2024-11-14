@@ -7,7 +7,6 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:atproto_core/src/types/session.dart';
-import 'package:atproto_core/src/utils/auth_scope.dart';
 
 const _token =
 // ignore: lines_longer_than_80_chars
@@ -23,12 +22,12 @@ void main() {
         refreshJwt: 'xxxxxx',
       );
 
-      final token = session.accessToken;
+      final token = session.accessTokenJwt;
 
-      expect(token.scope, AuthScope.access);
-      expect(token.subject, 'did:plc:iijrtk7ocored6zuziwmqq3c');
-      expect(token.expiresAt.toIso8601String(), '2023-09-12T15:15:24.000Z');
-      expect(token.issuedAt.toIso8601String(), '2023-09-12T13:15:24.000Z');
+      expect(token.scope, 'com.atproto.access');
+      expect(token.sub, 'did:plc:iijrtk7ocored6zuziwmqq3c');
+      expect(token.exp.toIso8601String(), '2023-09-12T15:15:24.000Z');
+      expect(token.iat.toIso8601String(), '2023-09-12T13:15:24.000Z');
     });
 
     test('case2', () {
@@ -39,7 +38,7 @@ void main() {
         refreshJwt: 'xxxxxx',
       );
 
-      expect(() => session.accessToken, throwsA(isA<FormatException>()));
+      expect(() => session.accessTokenJwt, throwsA(isA<FormatException>()));
     });
   });
 
@@ -52,12 +51,12 @@ void main() {
         refreshJwt: _token,
       );
 
-      final token = session.refreshToken;
+      final token = session.refreshTokenJwt;
 
-      expect(token.scope, AuthScope.access); //! for test
-      expect(token.subject, 'did:plc:iijrtk7ocored6zuziwmqq3c');
-      expect(token.expiresAt.toIso8601String(), '2023-09-12T15:15:24.000Z');
-      expect(token.issuedAt.toIso8601String(), '2023-09-12T13:15:24.000Z');
+      expect(token.scope, 'com.atproto.access');
+      expect(token.sub, 'did:plc:iijrtk7ocored6zuziwmqq3c');
+      expect(token.exp.toIso8601String(), '2023-09-12T15:15:24.000Z');
+      expect(token.iat.toIso8601String(), '2023-09-12T13:15:24.000Z');
     });
 
     test('case2', () {
@@ -68,7 +67,7 @@ void main() {
         refreshJwt: 'xxxxxx',
       );
 
-      expect(() => session.refreshToken, throwsA(isA<FormatException>()));
+      expect(() => session.refreshTokenJwt, throwsA(isA<FormatException>()));
     });
   });
 }

@@ -145,26 +145,31 @@ Future<XRPCResponse<T>> query<T>(
   final Duration timeout = const Duration(seconds: 10),
   final type.ResponseDataBuilder<T>? to,
   final type.ResponseDataAdaptor? adaptor,
+  final Map<String, String> Function(Map<String, String> header, Uri endpoint)?
+      headerBuilder,
   final type.GetClient? getClient,
-}) async =>
-    _buildResponse<T>(
-      checkStatus(
-        await (getClient ?? http.get)
-            .call(
-              util.getUriFactory(protocol).call(
-                    service ?? defaultService,
-                    '/xrpc/$methodId',
-                    util.convertParameters(
-                      util.removeNullValues(parameters) ?? {},
-                    ),
-                  ),
-              headers: headers,
-            )
-            .timeout(timeout),
-      ),
-      to,
-      adaptor,
-    );
+}) async {
+  final endpoint = util.getUriFactory(protocol).call(
+        service ?? defaultService,
+        '/xrpc/$methodId',
+        util.convertParameters(
+          util.removeNullValues(parameters) ?? {},
+        ),
+      );
+
+  return _buildResponse<T>(
+    checkStatus(
+      await (getClient ?? http.get)
+          .call(endpoint,
+              headers: headerBuilder != null
+                  ? headerBuilder(headers ?? const {}, endpoint)
+                  : headers)
+          .timeout(timeout),
+    ),
+    to,
+    adaptor,
+  );
+}
 
 /// Performs POST communication to the ATP server.
 ///
@@ -281,27 +286,34 @@ Future<XRPCResponse<T>> procedure<T>(
   final dynamic body,
   final Duration timeout = const Duration(seconds: 10),
   final type.ResponseDataBuilder<T>? to,
+  final Map<String, String> Function(Map<String, String> header, Uri endpoint)?
+      headerBuilder,
   final type.PostClient? postClient,
-}) async =>
-    _buildResponse<T>(
-      checkStatus(
-        await (postClient ?? http.post)
-            .call(
-              util.getUriFactory(protocol).call(
-                    service ?? defaultService,
-                    '/xrpc/$methodId',
-                    util.convertParameters(
-                      util.removeNullValues(parameters) ?? {},
-                    ),
-                  ),
-              headers: _getProcedureHeaders(headers, body),
-              body: _getProcedureBody(body),
-              encoding: body is Map<String, dynamic> ? utf8 : null,
-            )
-            .timeout(timeout),
-      ),
-      to,
-    );
+}) async {
+  final endpoint = util.getUriFactory(protocol).call(
+        service ?? defaultService,
+        '/xrpc/$methodId',
+        util.convertParameters(
+          util.removeNullValues(parameters) ?? {},
+        ),
+      );
+
+  return _buildResponse<T>(
+    checkStatus(
+      await (postClient ?? http.post)
+          .call(
+            endpoint,
+            headers: headerBuilder != null
+                ? headerBuilder(_appendContentType(headers, body), endpoint)
+                : _appendContentType(headers, body),
+            body: _getProcedureBody(body),
+            encoding: body is Map<String, dynamic> ? utf8 : null,
+          )
+          .timeout(timeout),
+    ),
+    to,
+  );
+}
 
 /// Subscribes endpoints associated with [methodId] in WebSocket.
 XRPCResponse<Subscription<T>> subscribe<T>(
@@ -433,7 +445,7 @@ Uri _buildWsUri(
   return Uri.parse(buffer.toString());
 }
 
-Map<String, String> _getProcedureHeaders(
+Map<String, String> _appendContentType(
   final Map<String, String>? headers,
   final dynamic body,
 ) {

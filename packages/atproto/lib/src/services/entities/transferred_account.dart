@@ -26,8 +26,8 @@ class TransferredAccount with _$TransferredAccount {
       _$TransferredAccountFromJson(json);
 
   /// Returns decoded [accessJwt].
-  AuthToken get accessToken => decodeJwt(accessJwt);
+  Jwt get accessToken => decodeJwt(accessJwt);
 
   /// Returns decoded [refreshJwt].
-  AuthToken get refreshToken => decodeJwt(refreshJwt);
+  Jwt get refreshToken => decodeJwt(refreshJwt);
 }

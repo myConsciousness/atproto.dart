@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.7.0
+
+- Bump `xrpc`.
+
 ## v0.6.10
 
 - Bump `xrpc`.
