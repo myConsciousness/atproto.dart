@@ -4,7 +4,12 @@
 
 export 'package:nsid/nsid.dart' show NSID;
 export 'package:xrpc/src/types.dart'
-    show GetClient, PostClient, ResponseDataBuilder, ResponseDataAdaptor;
+    show
+        GetClient,
+        PostClient,
+        ResponseDataBuilder,
+        HeaderBuilder,
+        ResponseDataAdaptor;
 export 'package:xrpc/src/entities/empty_data.dart';
 export 'package:xrpc/src/entities/rate_limit.dart';
 export 'package:xrpc/src/entities/rate_limit_policy.dart';

@@ -145,8 +145,7 @@ Future<XRPCResponse<T>> query<T>(
   final Duration timeout = const Duration(seconds: 10),
   final type.ResponseDataBuilder<T>? to,
   final type.ResponseDataAdaptor? adaptor,
-  final Map<String, String> Function(Map<String, String> header, Uri endpoint)?
-      headerBuilder,
+  final type.HeaderBuilder? headerBuilder,
   final type.GetClient? getClient,
 }) async {
   final endpoint = util.getUriFactory(protocol).call(
@@ -162,7 +161,7 @@ Future<XRPCResponse<T>> query<T>(
       await (getClient ?? http.get)
           .call(endpoint,
               headers: headerBuilder != null
-                  ? headerBuilder(headers ?? const {}, endpoint)
+                  ? headerBuilder(headers ?? const {}, endpoint, 'GET')
                   : headers)
           .timeout(timeout),
     ),
@@ -286,8 +285,7 @@ Future<XRPCResponse<T>> procedure<T>(
   final dynamic body,
   final Duration timeout = const Duration(seconds: 10),
   final type.ResponseDataBuilder<T>? to,
-  final Map<String, String> Function(Map<String, String> header, Uri endpoint)?
-      headerBuilder,
+  final type.HeaderBuilder? headerBuilder,
   final type.PostClient? postClient,
 }) async {
   final endpoint = util.getUriFactory(protocol).call(
@@ -304,7 +302,11 @@ Future<XRPCResponse<T>> procedure<T>(
           .call(
             endpoint,
             headers: headerBuilder != null
-                ? headerBuilder(_appendContentType(headers, body), endpoint)
+                ? headerBuilder(
+                    _appendContentType(headers, body),
+                    endpoint,
+                    'POST',
+                  )
                 : _appendContentType(headers, body),
             body: _getProcedureBody(body),
             encoding: body is Map<String, dynamic> ? utf8 : null,

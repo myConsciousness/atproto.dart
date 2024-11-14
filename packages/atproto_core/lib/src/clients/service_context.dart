@@ -94,41 +94,10 @@ base class ServiceContext {
           to: to,
           adaptor: adaptor,
           timeout: _timeout,
-          headerBuilder: (header, endpoint) {
-            if (session != null) {
-              return {
-                'Authorization': 'Bearer ${session!.accessJwt}',
-                ...header,
-              };
-            }
-
-            if (oAuthSession != null) {
-              final jwt = oAuthSession!.accessTokenJwt;
-              final dPoPHeader = getDPoPHeader(
-                clientId: jwt.clientId!,
-                endpoint: endpoint.toString(),
-                method: 'GET',
-                authorizationServer: jwt.iss,
-                accessToken: oAuthSession!.accessToken,
-                dPoPNonce: oAuthSession!.$dPoPNonce,
-                publicKey: oAuthSession!.$publicKey,
-                privateKey: oAuthSession!.$privateKey,
-              );
-
-              return {
-                'Authorization': 'DPoP ${oAuthSession!.accessToken}',
-                'DPoP': dPoPHeader,
-                ...header,
-              };
-            }
-
-            return header;
-          },
+          headerBuilder: _buildAuthHeader,
           getClient: client ?? _mockedGetClient,
         ),
-        onUseDpopNonceError: (response) {
-          oAuthSession?.$dPoPNonce = response.headers['dpop-nonce']!;
-        },
+        onUseDpopNonceError: _onUseDpopNonceError,
       );
 
   Future<xrpc.XRPCResponse<T>> post<T>(
@@ -153,41 +122,10 @@ base class ServiceContext {
           body: body,
           to: to,
           timeout: _timeout,
-          headerBuilder: (header, endpoint) {
-            if (session != null) {
-              return {
-                'Authorization': 'Bearer ${session!.accessJwt}',
-                ...header,
-              };
-            }
-
-            if (oAuthSession != null) {
-              final jwt = oAuthSession!.accessTokenJwt;
-              final dPoPHeader = getDPoPHeader(
-                clientId: jwt.clientId!,
-                endpoint: endpoint.toString(),
-                method: 'POST',
-                authorizationServer: jwt.iss,
-                accessToken: oAuthSession!.accessToken,
-                dPoPNonce: oAuthSession!.$dPoPNonce,
-                publicKey: oAuthSession!.$publicKey,
-                privateKey: oAuthSession!.$privateKey,
-              );
-
-              return {
-                'Authorization': 'DPoP ${oAuthSession!.accessToken}',
-                'DPoP': dPoPHeader,
-                ...header,
-              };
-            }
-
-            return header;
-          },
+          headerBuilder: _buildAuthHeader,
           postClient: client ?? _mockedPostClient,
         ),
-        onUseDpopNonceError: (response) {
-          oAuthSession?.$dPoPNonce = response.headers['dpop-nonce']!;
-        },
+        onUseDpopNonceError: _onUseDpopNonceError,
       );
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
@@ -205,6 +143,45 @@ base class ServiceContext {
           adaptor: adaptor,
         ),
       );
+
+  Map<String, String> _buildAuthHeader(
+    final Map<String, String> header,
+    final Uri endpoint,
+    final String method,
+  ) {
+    if (session != null) {
+      return {
+        'Authorization': 'Bearer ${session!.accessJwt}',
+        ...header,
+      };
+    }
+
+    if (oAuthSession != null) {
+      final jwt = oAuthSession!.accessTokenJwt;
+      final dPoPHeader = getDPoPHeader(
+        clientId: jwt.clientId!,
+        endpoint: endpoint.toString(),
+        method: method,
+        authorizationServer: jwt.iss,
+        accessToken: oAuthSession!.accessToken,
+        dPoPNonce: oAuthSession!.$dPoPNonce,
+        publicKey: oAuthSession!.$publicKey,
+        privateKey: oAuthSession!.$privateKey,
+      );
+
+      return {
+        'Authorization': 'DPoP ${oAuthSession!.accessToken}',
+        'DPoP': dPoPHeader,
+        ...header,
+      };
+    }
+
+    return header;
+  }
+
+  void _onUseDpopNonceError(final xrpc.XRPCResponse<xrpc.XRPCError> response) {
+    oAuthSession?.$dPoPNonce = response.headers['dpop-nonce']!;
+  }
 
   /// Returns the [dateTime] in UTC time zone and ISO8601 format.
   String toUtcIso8601String(final DateTime? dateTime) =>
