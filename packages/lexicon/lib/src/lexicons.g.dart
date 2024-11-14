@@ -9939,12 +9939,12 @@ const toolsOzoneModerationDefs = <String, dynamic>{
     "modEventMuteReporter": {
       "type": "object",
       "description": "Mute incoming reports from an account",
-      "required": ["durationInHours"],
       "properties": {
         "comment": {"type": "string"},
         "durationInHours": {
           "type": "integer",
-          "description": "Indicates how long the account should remain muted."
+          "description":
+              "Indicates how long the account should remain muted. Falsy value here means a permanent mute."
         }
       }
     },
