@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.0
+
+- Add parameter `headerBuilder` on `query` and `procedure` functions.
+
 ## v0.5.3
 
 - Just return the response when the status code is 409. ([#1783](https://github.com/myConsciousness/atproto.dart/issues/1783))

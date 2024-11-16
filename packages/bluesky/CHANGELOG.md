@@ -3,7 +3,7 @@
 ## v0.18.0
 
 - Expose `atproto_oauth` package.
-- Add `.oAuthSession` parameter on `ServiceContext`.
+- Add `fromOAuthSession` constructor on `Bluesky` and `BlueskyChat`.
 - Rename `AuthToken` to `Jwt`.
   - Change type of `scope` from enum to `String`
   - Rename `subject` to `sub`

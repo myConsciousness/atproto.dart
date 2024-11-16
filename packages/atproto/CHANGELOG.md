@@ -1,5 +1,18 @@
 # Release Note
 
+## v0.13.0
+
+- Expose `atproto_oauth` package.
+- Add `.fromOAuthSession` constructor on `ATProto`.
+- Rename `AuthToken` to `Jwt`.
+  - Change type of `scope` from enum to `String`
+  - Rename `subject` to `sub`
+  - Rename `expiresAt` to `exp`
+  - Rename `issuedAt` to `iat`
+- Rename extended getters on `Session`
+  - From `accessToken` to `accessTokenJwt`
+  - From `refreshToken` to `refreshTokenJwt`
+
 ## v0.12.8
 
 - Bump `atproto_core`.
