@@ -1,5 +1,18 @@
 # Release Note
 
+## v0.11.0
+
+- Expose `atproto_oauth` package.
+- Add `.oAuthSession` parameter on `ServiceContext`.
+- Rename `AuthToken` to `Jwt`.
+  - Change type of `scope` from enum to `String`
+  - Rename `subject` to `sub`
+  - Rename `expiresAt` to `exp`
+  - Rename `issuedAt` to `iat`
+- Rename extended getters on `Session`
+  - From `accessToken` to `accessTokenJwt`
+  - From `refreshToken` to `refreshTokenJwt`
+
 ## v0.10.6
 
 - Add `service` parameter on `ServiceContext.get` and `ServiceContext.post`. ([#1783](https://github.com/myConsciousness/atproto.dart/pull/1783))

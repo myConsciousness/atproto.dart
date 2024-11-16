@@ -1,5 +1,18 @@
 # Release Note
 
+## v0.18.0
+
+- Expose `atproto_oauth` package.
+- Add `fromOAuthSession` constructor on `Bluesky` and `BlueskyChat`.
+- Rename `AuthToken` to `Jwt`.
+  - Change type of `scope` from enum to `String`
+  - Rename `subject` to `sub`
+  - Rename `expiresAt` to `exp`
+  - Rename `issuedAt` to `iat`
+- Rename extended getters on `Session`
+  - From `accessToken` to `accessTokenJwt`
+  - From `refreshToken` to `refreshTokenJwt`
+
 ## v0.17.1
 
 - Remove `ImageAspectRation` and expose `AspectRatio` from `bluesky/app_bsky_embed_defs.dart` package.

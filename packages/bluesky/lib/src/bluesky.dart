@@ -5,6 +5,7 @@
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // 🌎 Project imports:
 import 'services/actor_service.dart';
@@ -55,6 +56,43 @@ sealed class Bluesky {
         ),
       );
 
+  /// Returns the new instance of [Bluesky].
+  factory Bluesky.fromOAuthSession(
+    final oauth.OAuthSession session, {
+    final Map<String, String>? headers,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  }) =>
+      _Bluesky(
+        BlueskyServiceContext(
+          atproto: atp.ATProto.fromOAuthSession(
+            headers: headers,
+            session,
+            protocol: protocol,
+            service: service,
+            relayService: relayService,
+            timeout: timeout,
+            retryConfig: retryConfig,
+            mockedGetClient: mockedGetClient,
+            mockedPostClient: mockedPostClient,
+          ),
+          headers: headers,
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          oAuthSession: session,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
+
   /// Returns the new instance of [Bluesky] as anonymous.
   factory Bluesky.anonymous({
     final Map<String, String>? headers,
@@ -97,6 +135,12 @@ sealed class Bluesky {
   /// Set only if an instance of this object was created in
   /// [Bluesky.fromSession], otherwise null.
   core.Session? get session;
+
+  /// Returns the current OAuth session.
+  ///
+  /// Set only if an instance of this object was created in
+  /// [Bluesky.fromOAuthSession], otherwise null.
+  oauth.OAuthSession? get oAuthSession;
 
   /// Returns the current service.
   /// Defaults to `bsky.social`.
@@ -156,6 +200,9 @@ final class _Bluesky implements Bluesky {
 
   @override
   core.Session? get session => _ctx.session;
+
+  @override
+  oauth.OAuthSession? get oAuthSession => _ctx.oAuthSession;
 
   @override
   String get service => _ctx.service;

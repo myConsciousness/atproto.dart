@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // 🌎 Project imports:
 import 'services/identity_service.dart';
@@ -35,6 +36,32 @@ sealed class ATProto {
           service: service,
           relayService: relayService,
           session: session,
+          timeout: timeout,
+          retryConfig: retryConfig,
+          mockedGetClient: mockedGetClient,
+          mockedPostClient: mockedPostClient,
+        ),
+      );
+
+  /// Returns the new instance of [ATProto] based on OAuth [session].
+  factory ATProto.fromOAuthSession(
+    final oauth.OAuthSession session, {
+    final Map<String, String>? headers,
+    final core.Protocol? protocol,
+    final String? service,
+    final String? relayService,
+    final Duration? timeout,
+    final core.RetryConfig? retryConfig,
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  }) =>
+      _ATProto(
+        core.ServiceContext(
+          headers: headers,
+          protocol: protocol,
+          service: service,
+          relayService: relayService,
+          oAuthSession: session,
           timeout: timeout,
           retryConfig: retryConfig,
           mockedGetClient: mockedGetClient,
@@ -74,6 +101,12 @@ sealed class ATProto {
   /// Set only if an instance of this object was created in
   /// [ATProto.fromSession], otherwise null.
   core.Session? get session;
+
+  /// Returns the current OAuth session.
+  ///
+  /// Set only if an instance of this object was created in
+  /// [ATProto.fromOAuthSession], otherwise null.
+  oauth.OAuthSession? get oAuthSession;
 
   /// Returns the current service.
   /// Defaults to `bsky.social`.
@@ -171,6 +204,9 @@ final class _ATProto implements ATProto {
 
   @override
   core.Session? get session => _ctx.session;
+
+  @override
+  oauth.OAuthSession? get oAuthSession => _ctx.oAuthSession;
 
   @override
   String get service => _ctx.service;

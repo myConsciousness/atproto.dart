@@ -6,12 +6,12 @@
 import 'dart:convert';
 
 // 🌎 Project imports:
-import 'auth_token.dart';
+import 'jwt.dart';
 
-/// Returns the decoded [AuthToken] based on [jwt].
-AuthToken decodeJwt(final String jwt) {
+/// Returns the decoded [Jwt] based on [jwt].
+Jwt decodeJwt(final String jwt) {
   try {
-    return AuthToken.fromJson(jsonDecode(
+    return Jwt.fromJson(jsonDecode(
       utf8.decode(
         base64.decode(
           base64.normalize(jwt.split('.')[1]),

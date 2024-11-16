@@ -24,6 +24,7 @@ If you are having trouble implementing **RichText** in the Bluesky API, check ou
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
 - ✅ Supports **Powerful Moderation API**
+- ✅ Supports **OAuth DPoP**
 - ✅ **100% Null Safety**
 - ✅ **Built In [atproto](https://pub.dev/packages/atproto) Features**
 
@@ -135,6 +136,8 @@ See **[Session Management](#session-management)** for more details about authent
 | **[feed](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/feed.html)**                 | [FeedService](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService-class.html)                 | [`app.bsky.feed.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/feed)                   |
 | **[notification](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/notification.html)** | [NotificationService](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService-class.html) | [`app.bsky.notification.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/notification)   |
 | **[graph](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/graph.html)**               | [GraphService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)               | [`app.bsky.graph.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/graph)                 |
+| **[labeler](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/labeler.html)**           | [LabelerService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)             | [`app.bsky.labeler.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/labeler)             |
+| **[video](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/video.html)**               | [VideoService](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService-class.html)               | [`app.bsky.video.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/video)                 |
 | **[unspecced](https://pub.dev/documentation/bluesky/latest/bluesky/Bluesky/unspecced.html)**       | [UnspeccedService](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService-class.html)       | [`app.bsky.unspecced.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/unspecced)         |
 
 Also chat features:
