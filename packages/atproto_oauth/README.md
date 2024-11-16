@@ -1,39 +1,180 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# AT Protocol OAuth Authentication for Flutter
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages). 
+This guide explains how to implement AT Protocol OAuth authentication in your Flutter application using `FlutterWebAuth2` for services like Bluesky.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages). 
--->
+## Client Metadata
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+See [AT Protocol instruction] about [client metadata](https://atproto.com/ja/specs/oauth#clients).
 
-## Features
+## Installation
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Add the following dependencies to your `pubspec.yaml`:
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  atproto_oauth: ^0.0.1  # Replace with actual version
+  flutter_web_auth_2: ^4.0.1
+  flutter_secure_storage: ^9.2.2
 ```
 
-## Additional information
+Or if you would like to use this feature on Bluesky:
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```yaml
+dependencies:
+  bluesky: ^0.18.0  # Replace with actual version
+  flutter_web_auth_2: ^4.0.1
+  flutter_secure_storage: ^9.2.2
+```
+
+## Basic Usage
+
+Here's how to implement AT Protocol OAuth authentication in your Flutter app:
+
+```dart
+import 'package:atproto_oauth/atproto_oauth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
+class BlueskyAuth extends StatefulWidget {
+  @override
+  _BlueskyAuthState createState() => _BlueskyAuthState();
+}
+
+class _BlueskyAuthState extends State<BlueskyAuth> {
+  late OAuthClient _client;
+  final _storage = const FlutterSecureStorage();
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeOAuth();
+  }
+
+  Future<void> _initializeOAuth() async {
+    // Initialize OAuth client with metadata
+    // Replace with your client metadata
+    final metadata = await getClientMetadata(
+      'https://atprotodart.com/oauth/bluesky/atprotodart/client-metadata.json'
+    );
+    _client = OAuthClient(metadata);
+  }
+
+  Future<void> _startAuth() async {
+    try {
+      // Get authorization URL for user's handle
+      final authUrl = await _client.authorize('shinyakato.dev');
+
+      // Launch OAuth flow in browser
+      final result = await FlutterWebAuth2.authenticate(
+        url: authUrl,
+        callbackUrlScheme: 'your-app-scheme',
+      );
+
+      // Handle the OAuth callback
+      final session = await _client.callback(result);
+
+      // Store the session securely
+      await _saveSession(session);
+
+      // Show success message
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Successfully logged in!')),
+      );
+    } catch (e) {
+      // Handle errors
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Authentication failed: $e')),
+      );
+    }
+  }
+
+  Future<void> _saveSession(OAuthSession session) async {
+    // Securely store all session data
+    await _storage.write(key: 'access_token', value: session.accessToken);
+    await _storage.write(key: 'refresh_token', value: session.refreshToken);
+    await _storage.write(key: 'dpop_nonce', value: session.$dPoPNonce);
+    await _storage.write(key: 'public_key', value: session.$publicKey);
+    await _storage.write(key: 'private_key', value: session.$privateKey);
+    await _storage.write(
+      key: 'expires_at',
+      value: session.expiresAt.toIso8601String(),
+    );
+  }
+
+  Future<OAuthSession?> _loadSession() async {
+    final accessToken = await _storage.read(key: 'access_token');
+    if (accessToken == null) return null;
+
+    return OAuthSession(
+      accessToken: accessToken,
+      refreshToken: await _storage.read(key: 'refresh_token') ?? '',
+      tokenType: 'DPoP',
+      expiresAt: DateTime.parse(
+        await _storage.read(key: 'expires_at') ?? '',
+      ),
+      $dPoPNonce: await _storage.read(key: 'dpop_nonce') ?? '',
+      $publicKey: await _storage.read(key: 'public_key') ?? '',
+      $privateKey: await _storage.read(key: 'private_key') ?? '',
+    );
+  }
+
+  Future<OAuthSession?> _refreshTokenIfNeeded() async {
+    final session = await _loadSession();
+    if (session == null) return null;
+
+    // Check if token needs refresh (e.g., 5 minutes before expiration)
+    if (session.expiresAt.isBefore(DateTime.now().add(Duration(minutes: 5)))) {
+      try {
+        final newSession = await _client.refresh(session);
+        await _saveSession(newSession);
+        return newSession;
+      } catch (e) {
+        // If refresh fails, clear stored session
+        await _storage.deleteAll();
+        return null;
+      }
+    }
+    return session;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+          onPressed: _startAuth,
+          child: Text('Login with Bluesky'),
+        ),
+      ),
+    );
+  }
+}
+```
+
+## Platform Configuration
+
+See docs on [flutter_web_auth_2](https://github.com/ThexXTURBOXx/flutter_web_auth_2?tab=readme-ov-file#setup).
+
+## Using [Bluesky Client](https://pub.dev/packages/bluesky)
+
+Once authenticated, you can use the session for API requests with [bluesky client](https://pub.dev/packages/bluesky)
+
+```dart
+Future<void> _makeAuthenticatedRequest() async {
+  final session = await _refreshTokenIfNeeded();
+  if (session == null) {
+    // Handle unauthenticated state
+    return;
+  }
+
+  final bsky = Bluesky.fromOAuthSession(session);
+
+  // Anyway you want it    !
+  final record = await bsky.feed.post(text: 'Nice DPoP proof');
+}
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
