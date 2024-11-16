@@ -18,7 +18,54 @@ import 'types/client_metadata.dart';
 import 'types/context.dart';
 import 'types/session.dart';
 
-/// Returns a client metadata associated with [clientId].
+/// Retrieves OAuth 2.0 client metadata from a client configuration endpoint.
+///
+/// This method fetches the client configuration using the client's metadata
+/// URL.
+///
+/// It follows RFC 7591 (OAuth 2.0 Dynamic Client Registration) and RFC 8414
+/// (OAuth 2.0 Authorization Server Metadata) specifications for
+/// client metadata discovery.
+///
+/// [clientId] The URL where the client's metadata can be retrieved.
+///
+/// This must be a valid URI
+/// that returns a JSON response containing the client configuration.
+///
+/// Returns a [Future<OAuthClientMetadata>] containing
+/// the parsed client configuration including redirect URIs, grant types,
+/// token endpoint auth method, and other OAuth-specific settings.
+///
+/// Throws:
+/// - [ArgumentError] in the following cases:
+///   * When clientId is null or empty
+///   * When clientId is not a valid URI
+/// - [OAuthException] when:
+///   * The HTTP request fails
+///   * The server returns a non-200 status code
+///   * The response cannot be parsed as valid client metadata
+///
+/// Example:
+/// ```dart
+/// final metadata = await oauth.getClientMetadata(
+///   'https://atprotodart.com/oauth/bluesky/atprotodart/client-metadata.json'
+/// );
+/// print('Allowed redirect URIs: ${metadata.redirectUris}');
+/// ```
+///
+/// The returned [OAuthClientMetadata] typically includes:
+/// - Client identifier
+/// - Client authentication methods
+/// - Authorized redirect URIs
+/// - Allowed grant types
+/// - Client name and description
+/// - Client URI and logo URI
+/// - Contacts
+/// - Scope restrictions
+/// - Other client-specific configuration
+///
+/// Note: The endpoint should be accessed over HTTPS to ensure secure
+/// transmission of client configuration data.
 Future<OAuthClientMetadata> getClientMetadata(final String clientId) async {
   if (clientId.isEmpty) throw ArgumentError.notNull(clientId);
   if (Uri.tryParse(clientId) == null) throw ArgumentError.value(clientId);
