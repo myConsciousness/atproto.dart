@@ -144,11 +144,21 @@ final class OAuthClient {
       },
     );
 
+    final tokenJson = jsonDecode(response.body);
+
+    if (response.statusCode == 401 &&
+        tokenJson['error'] == 'use_dpop_nonce' &&
+        response.headers.containsKey('dpop-nonce')) {
+      // Retry with next DPoP nonce
+      return await this.callback(
+        callback,
+        context.copyWith(dpopNonce: response.headers['dpop-nonce']!),
+      );
+    }
+
     if (response.statusCode != 200) {
       throw OAuthException(response.body);
     }
-
-    final tokenJson = jsonDecode(response.body);
 
     return OAuthSession(
       accessToken: tokenJson['access_token'],
