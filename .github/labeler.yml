@@ -17,6 +17,8 @@ multiformats:
 - packages/multiformats/**/*
 atproto_test:
 - packages/atproto_test/**/*
+atproto_oauth:
+- packages/atproto_oauth/**/*
 atproto_core:
 - packages/atproto_core/**/*
 lex_annotation:
@@ -44,6 +46,7 @@ test:
 - packages/xrpc/test/**/*.dart
 - packages/multiformats/test/**/*.dart
 - packages/atproto_test/test/**/*.dart
+- packages/atproto_oauth/test/**/*.dart
 - packages/atproto_core/test/**/*.dart
 - packages/lex_annotation/test/**/*.dart
 - packages/did_plc/test/**/*.dart
@@ -69,6 +72,8 @@ documentation:
 - packages/multiformats/README.md
 - packages/atproto_test/CHANGELOG.md
 - packages/atproto_test/README.md
+- packages/atproto_oauth/CHANGELOG.md
+- packages/atproto_oauth/README.md
 - packages/atproto_core/CHANGELOG.md
 - packages/atproto_core/README.md
 - packages/lex_annotation/CHANGELOG.md
