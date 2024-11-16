@@ -61,10 +61,10 @@ extension SessionExtension on Session {
 
   /// Returns PDS endpoint like `porcini.us-east.host.bsky.network` dynamically
   /// based on this [Session].
-  String get atprotoPdsEndpoint {
-    if (didDoc == null) return accessTokenJwt.atprotoPdsEndpoint;
-
+  String? get atprotoPdsEndpoint {
     try {
+      if (didDoc == null) return accessTokenJwt.atprotoPdsEndpoint;
+
       final services = didDoc?['service'] ?? const <Map<String, dynamic>>[];
       for (final service in services) {
         if (service['serviceEndpoint'] != null &&
@@ -74,9 +74,9 @@ extension SessionExtension on Session {
         }
       }
     } catch (_) {
-      return accessTokenJwt.atprotoPdsEndpoint;
+      return null;
     }
 
-    return accessTokenJwt.atprotoPdsEndpoint;
+    return null;
   }
 }

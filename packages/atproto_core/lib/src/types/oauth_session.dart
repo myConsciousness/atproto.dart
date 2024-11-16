@@ -15,5 +15,11 @@ extension OauthSessionExtension on OAuthSession {
 
   /// Returns PDS endpoint like `porcini.us-east.host.bsky.network` dynamically
   /// based on this [OAuthSession].
-  String get atprotoPdsEndpoint => accessTokenJwt.atprotoPdsEndpoint;
+  String? get atprotoPdsEndpoint {
+    try {
+      return accessTokenJwt.atprotoPdsEndpoint;
+    } catch (_) {
+      return null;
+    }
+  }
 }
