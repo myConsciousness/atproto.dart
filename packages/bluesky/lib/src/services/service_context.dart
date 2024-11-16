@@ -44,7 +44,7 @@ final class BlueskyServiceContext extends core.ServiceContext {
 
   /// Returns the AT URI of authenticated user.
   core.AtUri get selfUri => core.AtUri.make(
-        session?.did ?? 'alice',
+        session?.did ?? oAuthSession?.sub ?? 'alice',
         ids.appBskyActorProfile,
         'self',
       );
