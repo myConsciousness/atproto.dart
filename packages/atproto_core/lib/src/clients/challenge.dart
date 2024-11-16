@@ -63,8 +63,7 @@ final class Challenge {
 
       rethrow;
     } on xrpc.UnauthorizedException catch (e) {
-      if (e.response.status.code == 401 &&
-          e.response.data.error == 'use_dpop_nonce' &&
+      if (e.response.data.error == 'use_dpop_nonce' &&
           onUpdateDpopNonce != null) {
         onUpdateDpopNonce(e.response.headers);
 
