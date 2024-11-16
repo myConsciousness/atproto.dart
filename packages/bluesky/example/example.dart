@@ -4,6 +4,7 @@
 
 import 'dart:io';
 
+import 'package:atproto_core/atproto_oauth.dart';
 import 'package:bluesky/app_bsky_embed_video.dart';
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/core.dart';
@@ -147,4 +148,38 @@ Future<Session> get _session async {
   );
 
   return session.data;
+}
+
+/// OAuth flow for Flutter apps:
+// ignore: unused_element
+Future<OAuthSession> get _oAuthSession async {
+  // Use your client metadata
+  final metadata = await getClientMetadata(
+    'https://atprotodart.com/oauth/bluesky/atprotodart/client-metadata.json',
+  );
+
+  final oauth = OAuthClient(metadata);
+
+  final authorizationUrl = await oauth.authorize('shinyakato.dev');
+  print(authorizationUrl);
+
+  // Make user visit url
+  // final callback = await FlutterWebAuth2.authenticate(
+  //   url: authorizationUrl,
+  //   callbackUrlScheme: 'https',
+  // );
+
+  final session = await oauth.callback(
+    // callback url
+    'https://atprotodart.com/oauth/bluesky/auth.html?iss=xxxx&state=xxxxxxx&code=xxxxxxx',
+  );
+  print(session.accessToken);
+  print(session.$dPoPNonce); // Updated with every request
+  print(session.$publicKey);
+  print(session.$privateKey);
+
+  // If you want to refresh session
+  // final refreshed = await oauth.refresh(bsky.oAuthSession!);
+
+  return session;
 }

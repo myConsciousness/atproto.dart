@@ -60,6 +60,7 @@ If you want to use the **_Bluesky API_** as well, see the **[bluesky package](ht
 - ✅ Supports **[All Major Endpoints](https://atprotodart.com/docs/supported_api#atproto)** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
+- ✅ Supports **OAuth DPoP**
 - ✅ **100% Null Safety**
 - ✅ **Applicable to services other than Bluesky**
 

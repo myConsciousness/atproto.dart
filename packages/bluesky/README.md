@@ -59,6 +59,7 @@ The library is **cross-platform** and is **already used in many applications**. 
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
 - ✅ Supports **Powerful Moderation API**
+- ✅ Supports **OAuth DPoP**
 - ✅ **100% Null Safety**
 - ✅ **Built In [atproto](https://pub.dev/packages/atproto) Features**
 

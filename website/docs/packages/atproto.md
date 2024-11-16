@@ -23,6 +23,7 @@ If you want to use Bluesky APIs, see **[bluesky](./bluesky.md)**!
 - ✅ Supports **[All Major Endpoints](../supported_api.md#atproto)** for [`com.atproto.*`](https://github.com/bluesky-social/atproto/tree/main/lexicons/com/atproto)
 - ✅ **Well Documented** and **Well Tested**
 - ✅ Supports **Powerful Firehose API**
+- ✅ Supports **OAuth DPoP**
 - ✅ **100% Null Safety**
 - ✅ **Applicable to services other than Bluesky**
 
