@@ -82,7 +82,7 @@ Future<OAuthClientMetadata> getClientMetadata(final String clientId) async {
 }
 
 final class OAuthClient {
-  OAuthClient(
+  const OAuthClient(
     this.metadata, {
     this.service = 'bsky.social',
   });
@@ -92,8 +92,6 @@ final class OAuthClient {
 
   /// Service for which the account to be authenticated exists.
   final String service;
-
-  OAuthContext? _ctx;
 
   /// Initiates an OAuth 2.0 authorization request using
   /// Pushed Authorization Requests (PAR) with PKCE
@@ -131,7 +129,7 @@ final class OAuthClient {
   /// Returns:
   /// - [Uri]: The authorization URL where the user should be redirected to
   ///   complete authentication
-  Future<Uri> authorize(final String identity) async {
+  Future<(Uri, OAuthContext)> authorize(final String identity) async {
     final codeVerifier = random(46);
     final codeChallenge = hashS256(codeVerifier);
     final state = random(64);
@@ -154,19 +152,20 @@ final class OAuthClient {
       throw OAuthException(response.body);
     }
 
-    _ctx = OAuthContext(
-      codeVerifier: codeVerifier,
-      state: state,
-      dpopNonce: response.headers['dpop-nonce']!,
-    );
-
-    return Uri.https(
-      service,
-      '/oauth/authorize',
-      {
-        'client_id': metadata.clientId,
-        'request_uri': jsonDecode(response.body)['request_uri']!,
-      },
+    return (
+      Uri.https(
+        service,
+        '/oauth/authorize',
+        {
+          'client_id': metadata.clientId,
+          'request_uri': jsonDecode(response.body)['request_uri']!,
+        },
+      ),
+      OAuthContext(
+        codeVerifier: codeVerifier,
+        state: state,
+        dpopNonce: response.headers['dpop-nonce']!,
+      )
     );
   }
 
@@ -187,7 +186,6 @@ final class OAuthClient {
   /// Throws:
   /// - [ArgumentError] if the callback parameter is null or empty
   /// - [ArgumentError] if the callback is not a valid URI
-  /// - [StateError] if called before authorization is initiated
   /// - [OAuthException] in the following cases:
   ///   * Missing or invalid state parameter
   ///   * Presence of error parameter in the callback
@@ -211,16 +209,18 @@ final class OAuthClient {
   /// - $dPoPNonce: The latest DPoP nonce from the server
   /// - $publicKey: The encoded public key used for DPoP
   /// - $privateKey: The encoded private key used for DPoP
-  Future<OAuthSession> callback(final String callback) async {
+  Future<OAuthSession> callback(
+    final String callback,
+    final OAuthContext context,
+  ) async {
     if (callback.isEmpty) throw ArgumentError.notNull(callback);
     if (Uri.tryParse(callback) == null) throw ArgumentError.value(callback);
-    if (_ctx == null) throw StateError('Call ".authorize" before callback');
 
     final params = Uri.parse(callback).queryParameters;
 
     final stateParam = params['state'];
     if (stateParam == null) throw OAuthException('Missing "state" parameter');
-    if (_ctx!.state != stateParam) {
+    if (context.state != stateParam) {
       throw OAuthException('Unknown authorization session "$stateParam"');
     }
 
@@ -240,7 +240,7 @@ final class OAuthClient {
       clientId: metadata.clientId,
       endpoint: endpoint.toString(),
       method: 'POST',
-      dPoPNonce: _ctx!.dpopNonce,
+      dPoPNonce: context.dpopNonce,
       publicKey: publicKey,
       privateKey: privateKey,
     );
@@ -255,7 +255,7 @@ final class OAuthClient {
         'grant_type': 'authorization_code',
         'code': codeParam,
         'redirect_uri': metadata.redirectUris.firstOrNull,
-        'code_verifier': _ctx!.codeVerifier,
+        'code_verifier': context.codeVerifier,
       },
     );
 
@@ -264,10 +264,11 @@ final class OAuthClient {
     if (response.statusCode == 401 &&
         tokenJson['error'] == 'use_dpop_nonce' &&
         response.headers.containsKey('dpop-nonce')) {
-      _ctx = _ctx!.copyWith(dpopNonce: response.headers['dpop-nonce']!);
-
       // Retry with next DPoP nonce
-      return await this.callback(callback);
+      return await this.callback(
+        callback,
+        context.copyWith(dpopNonce: response.headers['dpop-nonce']!),
+      );
     }
 
     if (response.statusCode != 200) {

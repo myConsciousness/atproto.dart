@@ -160,8 +160,9 @@ Future<OAuthSession> get _oAuthSession async {
 
   final oauth = OAuthClient(metadata);
 
-  final authorizationUrl = await oauth.authorize('shinyakato.dev');
-  print(authorizationUrl);
+  final (authUrl, ctx) = await oauth.authorize('shinyakato.dev');
+  print(authUrl);
+  print(ctx);
 
   // Make user visit url
   // final callback = await FlutterWebAuth2.authenticate(
@@ -172,6 +173,7 @@ Future<OAuthSession> get _oAuthSession async {
   final session = await oauth.callback(
     // callback url
     'https://atprotodart.com/oauth/bluesky/auth.html?iss=xxxx&state=xxxxxxx&code=xxxxxxx',
+    ctx,
   );
   print(session.accessToken);
   print(session.$dPoPNonce); // Updated with every request

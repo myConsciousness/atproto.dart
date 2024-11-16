@@ -11,15 +11,17 @@ Future<void> main() async {
 
   final client = OAuthClient(metadata);
 
-  final url = await client.authorize('shinyakato.dev');
+  final (url, ctx) = await client.authorize('shinyakato.dev');
 
   print(url);
+  print(ctx);
 
   //! Make user visit url.
   //! Then, once it was redirected to the callback URI, perform the following:
 
   final session = await client.callback(
     'https://atprotodart.com/oauth/bluesky/auth.html?iss=xxxx&state=xxxxxxx&code=xxxxxxx',
+    ctx,
   );
 
   print(session.accessToken);

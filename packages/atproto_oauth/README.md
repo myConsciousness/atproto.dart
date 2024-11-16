@@ -63,7 +63,7 @@ class _BlueskyAuthState extends State<BlueskyAuth> {
   Future<void> _startAuth() async {
     try {
       // Get authorization URL for user's handle
-      final authUrl = await _client.authorize('shinyakato.dev');
+      final (authUrl, ctx) = await _client.authorize('shinyakato.dev');
 
       // Launch OAuth flow in browser
       final result = await FlutterWebAuth2.authenticate(
@@ -72,7 +72,7 @@ class _BlueskyAuthState extends State<BlueskyAuth> {
       );
 
       // Handle the OAuth callback
-      final session = await _client.callback(result);
+      final session = await _client.callback(result, ctx);
 
       // Store the session securely
       await _saveSession(session);
