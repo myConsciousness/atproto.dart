@@ -4,9 +4,6 @@
 
 // ignore_for_file: invalid_annotation_target
 
-// 📦 Package imports:
-import 'package:pointycastle/export.dart' show ECPublicKey, ECPrivateKey;
-
 final class OAuthSession {
   OAuthSession({
     required this.accessToken,
@@ -28,6 +25,6 @@ final class OAuthSession {
   final String sub;
 
   String $dPoPNonce;
-  final ECPublicKey $publicKey;
-  final ECPrivateKey $privateKey;
+  final String $publicKey;
+  final String $privateKey;
 }

@@ -11,6 +11,8 @@ import 'package:pointycastle/pointycastle.dart';
 
 // 🌎 Project imports:
 import 'helper/helper.dart';
+import 'helper/private_key.dart';
+import 'helper/public_key.dart';
 import 'oauth_exception.dart';
 import 'types/client_metadata.dart';
 import 'types/context.dart';
@@ -116,13 +118,16 @@ final class OAuthClient {
     final keyPair = getKeyPair();
     final endpoint = Uri.https(service, '/oauth/token');
 
+    final publicKey = encodePublicKey(keyPair.publicKey as ECPublicKey);
+    final privateKey = encodePrivateKey(keyPair.privateKey as ECPrivateKey);
+
     final dPoPHeader = getDPoPHeader(
       clientId: metadata.clientId,
       endpoint: endpoint.toString(),
       method: 'POST',
       dPoPNonce: context.dpopNonce,
-      publicKey: keyPair.publicKey as ECPublicKey,
-      privateKey: keyPair.privateKey as ECPrivateKey,
+      publicKey: publicKey,
+      privateKey: privateKey,
     );
 
     final response = await http.post(
@@ -155,8 +160,8 @@ final class OAuthClient {
           .add(Duration(seconds: tokenJson['expires_in'])),
       sub: tokenJson['sub'],
       $dPoPNonce: response.headers['dpop-nonce']!,
-      $publicKey: keyPair.publicKey as ECPublicKey,
-      $privateKey: keyPair.privateKey as ECPrivateKey,
+      $publicKey: publicKey,
+      $privateKey: privateKey,
     );
   }
 

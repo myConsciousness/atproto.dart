@@ -12,6 +12,10 @@ import "package:pointycastle/export.dart";
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
 
+// 🌎 Project imports:
+import 'private_key.dart';
+import 'public_key.dart';
+
 String random(final int len) {
   final random = Random();
   final letters =
@@ -61,13 +65,10 @@ String getDPoPHeader({
   required String dPoPNonce,
   String? authorizationServer,
   String? accessToken,
-  required ECPublicKey publicKey,
-  required ECPrivateKey privateKey,
+  required String publicKey,
+  required String privateKey,
 }) {
-  final x = base64UrlEncode(bigIntToBytes(publicKey.Q!.x!.toBigInteger()!))
-      .replaceAll('=', '');
-  final y = base64UrlEncode(bigIntToBytes(publicKey.Q!.y!.toBigInteger()!))
-      .replaceAll('=', '');
+  final (x, y) = decodePublicKey(publicKey);
 
   final header = <String, dynamic>{
     'alg': 'ES256',
@@ -75,8 +76,8 @@ String getDPoPHeader({
     'jwk': {
       'kty': 'EC',
       'crv': 'P-256',
-      'x': x,
-      'y': y,
+      'x': base64Url.encode(x).replaceAll('=', ''),
+      'y': base64Url.encode(y).replaceAll('=', ''),
     }
   };
 
@@ -111,18 +112,29 @@ String getDPoPHeader({
 }
 
 Uint8List _sign(
-  final ECPrivateKey privateKey,
+  final String privateKey,
   final String jwtMessage,
 ) {
   final secureRandom = FortunaRandom();
-  secureRandom.seed(KeyParameter(Uint8List.fromList(List.generate(
-      32, (_) => DateTime.now().toUtc().millisecondsSinceEpoch % 255))));
+  secureRandom.seed(
+    KeyParameter(
+      Uint8List.fromList(
+        List.generate(
+          32,
+          (_) => DateTime.now().toUtc().millisecondsSinceEpoch % 255,
+        ),
+      ),
+    ),
+  );
 
   final signer = ECDSASigner(SHA256Digest(), HMac(SHA256Digest(), 64))
     ..init(
-        true,
-        ParametersWithRandom(
-            PrivateKeyParameter<ECPrivateKey>(privateKey), secureRandom));
+      true,
+      ParametersWithRandom(
+        PrivateKeyParameter<ECPrivateKey>(decodePrivateKey(privateKey)),
+        secureRandom,
+      ),
+    );
 
   final messageBytes = utf8.encode(jwtMessage);
   final signature = signer.generateSignature(messageBytes) as ECSignature;

@@ -22,17 +22,22 @@ final class Challenge {
   dynamic execute(
     final dynamic Function() action, {
     int retryCount = 0,
-    void Function(xrpc.XRPCResponse<xrpc.XRPCError> response)?
-        onUseDpopNonceError,
+    void Function(Map<String, String> headers)? onUpdateDpopNonce,
   }) async {
     try {
-      return await action.call();
+      final response = await action.call();
+
+      if (onUpdateDpopNonce != null) {
+        onUpdateDpopNonce(response.headers);
+      }
+
+      return response;
     } on SocketException {
       if (_retryPolicy.shouldRetry(retryCount)) {
         return await _retry(
           action,
           retryCount: ++retryCount,
-          onUseDpopNonceError: onUseDpopNonceError,
+          onUpdateDpopNonce: onUpdateDpopNonce,
         );
       }
 
@@ -42,7 +47,7 @@ final class Challenge {
         return await _retry(
           action,
           retryCount: ++retryCount,
-          onUseDpopNonceError: onUseDpopNonceError,
+          onUpdateDpopNonce: onUpdateDpopNonce,
         );
       }
 
@@ -52,7 +57,7 @@ final class Challenge {
         return await _retry(
           action,
           retryCount: ++retryCount,
-          onUseDpopNonceError: onUseDpopNonceError,
+          onUpdateDpopNonce: onUpdateDpopNonce,
         );
       }
 
@@ -60,13 +65,13 @@ final class Challenge {
     } on xrpc.UnauthorizedException catch (e) {
       if (e.response.status.code == 401 &&
           e.response.data.error == 'use_dpop_nonce' &&
-          onUseDpopNonceError != null) {
-        onUseDpopNonceError(e.response);
+          onUpdateDpopNonce != null) {
+        onUpdateDpopNonce(e.response.headers);
 
         return await _retry(
           action,
           retryCount: ++retryCount,
-          onUseDpopNonceError: onUseDpopNonceError,
+          onUpdateDpopNonce: onUpdateDpopNonce,
         );
       }
 
@@ -77,15 +82,14 @@ final class Challenge {
   dynamic _retry(
     final dynamic Function() action, {
     int retryCount = 0,
-    void Function(xrpc.XRPCResponse<xrpc.XRPCError> response)?
-        onUseDpopNonceError,
+    void Function(Map<String, String> headers)? onUpdateDpopNonce,
   }) async {
     await _retryPolicy.wait(retryCount);
 
     return await execute(
       action,
       retryCount: retryCount,
-      onUseDpopNonceError: onUseDpopNonceError,
+      onUpdateDpopNonce: onUpdateDpopNonce,
     );
   }
 }

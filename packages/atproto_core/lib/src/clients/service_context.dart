@@ -97,7 +97,7 @@ base class ServiceContext {
           headerBuilder: _buildAuthHeader,
           getClient: client ?? _mockedGetClient,
         ),
-        onUseDpopNonceError: _onUseDpopNonceError,
+        onUpdateDpopNonce: _onUpdateDpopNonce,
       );
 
   Future<xrpc.XRPCResponse<T>> post<T>(
@@ -125,7 +125,7 @@ base class ServiceContext {
           headerBuilder: _buildAuthHeader,
           postClient: client ?? _mockedPostClient,
         ),
-        onUseDpopNonceError: _onUseDpopNonceError,
+        onUpdateDpopNonce: _onUpdateDpopNonce,
       );
 
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
@@ -179,8 +179,10 @@ base class ServiceContext {
     return header;
   }
 
-  void _onUseDpopNonceError(final xrpc.XRPCResponse<xrpc.XRPCError> response) {
-    oAuthSession?.$dPoPNonce = response.headers['dpop-nonce']!;
+  void _onUpdateDpopNonce(final Map<String, String> headers) {
+    if (headers.containsKey('dpop-nonce')) {
+      oAuthSession?.$dPoPNonce = headers['dpop-nonce']!;
+    }
   }
 
   /// Returns the [dateTime] in UTC time zone and ISO8601 format.
