@@ -12,7 +12,7 @@ dependencies:
   lexicon: ^0.2.0
   pub_api_client: ^3.0.0
   pubspec: ^2.3.0
-  xrpc: ^0.5.2
+  xrpc: ^0.6.0
 
 dev_dependencies:
   lints: ^5.0.0
