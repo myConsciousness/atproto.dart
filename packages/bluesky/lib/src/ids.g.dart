@@ -490,6 +490,9 @@ const appBskyGraphMuteActorList = 'app.bsky.graph.muteActorList';
 /// `app.bsky.graph.muteThread`
 const appBskyGraphMuteThread = 'app.bsky.graph.muteThread';
 
+/// `app.bsky.graph.searchStarterPacks`
+const appBskyGraphSearchStarterPacks = 'app.bsky.graph.searchStarterPacks';
+
 /// `app.bsky.graph.starterpack`
 const appBskyGraphStarterpack = 'app.bsky.graph.starterpack';
 
@@ -577,6 +580,10 @@ const appBskyUnspeccedDefsSkeletonSearchActor =
 const appBskyUnspeccedDefsSkeletonSearchPost =
     'app.bsky.unspecced.defs#skeletonSearchPost';
 
+/// `app.bsky.unspecced.defs#skeletonSearchStarterPack`
+const appBskyUnspeccedDefsSkeletonSearchStarterPack =
+    'app.bsky.unspecced.defs#skeletonSearchStarterPack';
+
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
 
@@ -603,6 +610,10 @@ const appBskyUnspeccedSearchActorsSkeleton =
 /// `app.bsky.unspecced.searchPostsSkeleton`
 const appBskyUnspeccedSearchPostsSkeleton =
     'app.bsky.unspecced.searchPostsSkeleton';
+
+/// `app.bsky.unspecced.searchStarterPacksSkeleton`
+const appBskyUnspeccedSearchStarterPacksSkeleton =
+    'app.bsky.unspecced.searchStarterPacksSkeleton';
 
 /// `app.bsky.video.defs`
 const appBskyVideoDefs = 'app.bsky.video.defs';
