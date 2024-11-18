@@ -192,6 +192,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.graph.list](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/list.html)** | [Reference](lexicons/app/bsky/graph/list.md) | ✅ | ❌ |
 | **[app.bsky.graph.getFollowers](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getFollowers.html)** | [Reference](lexicons/app/bsky/graph/getFollowers.md) | ✅ | ✅ |
 | **[app.bsky.graph.listitem](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/listitem.html)** | [Reference](lexicons/app/bsky/graph/listitem.md) | ✅ | ❌ |
+| **[app.bsky.graph.searchStarterPacks](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/searchStarterPacks.html)** | [Reference](lexicons/app/bsky/graph/searchStarterPacks.md) | ❌ | ✅ |
 | **[app.bsky.graph.unmuteActor](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/unmuteActor.html)** | [Reference](lexicons/app/bsky/graph/unmuteActor.md) | ✅ | ❌ |
 | **[app.bsky.graph.block](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/block.html)** | [Reference](lexicons/app/bsky/graph/block.md) | ✅ | ❌ |
 | **[app.bsky.graph.getList](https://pub.dev/documentation/bluesky/latest/bluesky/GraphService/getList.html)** | [Reference](lexicons/app/bsky/graph/getList.md) | ✅ | ✅ |
@@ -238,6 +239,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.unspecced.searchPostsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchPostsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchPostsSkeleton.md) | ✅ | ✅ |
 | **[app.bsky.unspecced.getTaggedSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTaggedSuggestions.html)** | [Reference](lexicons/app/bsky/unspecced/getTaggedSuggestions.md) | ✅ | ❌ |
 | **[app.bsky.unspecced.getSuggestionsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestionsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestionsSkeleton.md) | ✅ | ✅ |
+| **[app.bsky.unspecced.searchStarterPacksSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchStarterPacksSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchStarterPacksSkeleton.md) | ❌ | ✅ |
 | **[app.bsky.unspecced.getConfig](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getConfig.html)** | [Reference](lexicons/app/bsky/unspecced/getConfig.md) | ❌ | ❌ |
 
 ### chat.bsky.convo

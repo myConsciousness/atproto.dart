@@ -275,6 +275,9 @@ const appBskyGraphMuteActorList = NSID(ids.appBskyGraphMuteActorList);
 /// `app.bsky.graph.muteThread`
 const appBskyGraphMuteThread = NSID(ids.appBskyGraphMuteThread);
 
+/// `app.bsky.graph.searchStarterPacks`
+const appBskyGraphSearchStarterPacks = NSID(ids.appBskyGraphSearchStarterPacks);
+
 /// `app.bsky.graph.starterpack`
 const appBskyGraphStarterpack = NSID(ids.appBskyGraphStarterpack);
 
@@ -361,6 +364,10 @@ const appBskyUnspeccedSearchActorsSkeleton =
 /// `app.bsky.unspecced.searchPostsSkeleton`
 const appBskyUnspeccedSearchPostsSkeleton =
     NSID(ids.appBskyUnspeccedSearchPostsSkeleton);
+
+/// `app.bsky.unspecced.searchStarterPacksSkeleton`
+const appBskyUnspeccedSearchStarterPacksSkeleton =
+    NSID(ids.appBskyUnspeccedSearchStarterPacksSkeleton);
 
 /// `app.bsky.video.getJobStatus`
 const appBskyVideoGetJobStatus = NSID(ids.appBskyVideoGetJobStatus);

@@ -6124,6 +6124,54 @@ const appBskyGraphListitem = <String, dynamic>{
   }
 };
 
+/// `app.bsky.graph.searchStarterPacks`
+const appBskyGraphSearchStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.searchStarterPacks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Find starter packs matching search criteria. Does not require auth.",
+      "parameters": {
+        "type": "params",
+        "required": ["q"],
+        "properties": {
+          "q": {
+            "type": "string",
+            "description":
+                "Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#starterPackViewBasic"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.graph.unmuteActor`
 const appBskyGraphUnmuteActor = <String, dynamic>{
   "lexicon": 1,
@@ -7990,6 +8038,71 @@ const appBskyUnspeccedGetSuggestionsSkeleton = <String, dynamic>{
   }
 };
 
+/// `app.bsky.unspecced.searchStarterPacksSkeleton`
+const appBskyUnspeccedSearchStarterPacksSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.searchStarterPacksSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Backend Starter Pack search, returns only skeleton.",
+      "parameters": {
+        "type": "params",
+        "required": ["q"],
+        "properties": {
+          "q": {
+            "type": "string",
+            "description":
+                "Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended."
+          },
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries)."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {
+            "type": "string",
+            "description":
+                "Optional pagination mechanism; may not necessarily allow scrolling through entire result set."
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "hitsTotal": {
+              "type": "integer",
+              "description":
+                  "Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits."
+            },
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#skeletonSearchStarterPack"
+              }
+            }
+          }
+        }
+      },
+      "errors": [
+        {"name": "BadQueryString"}
+      ]
+    }
+  }
+};
+
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = <String, dynamic>{
   "lexicon": 1,
@@ -8029,6 +8142,13 @@ const appBskyUnspeccedDefs = <String, dynamic>{
       "required": ["did"],
       "properties": {
         "did": {"type": "string", "format": "did"}
+      }
+    },
+    "skeletonSearchStarterPack": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"}
       }
     }
   }
@@ -11180,6 +11300,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyGraphList,
   appBskyGraphGetFollowers,
   appBskyGraphListitem,
+  appBskyGraphSearchStarterPacks,
   appBskyGraphUnmuteActor,
   appBskyGraphBlock,
   appBskyGraphGetList,
@@ -11214,6 +11335,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyUnspeccedSearchPostsSkeleton,
   appBskyUnspeccedGetTaggedSuggestions,
   appBskyUnspeccedGetSuggestionsSkeleton,
+  appBskyUnspeccedSearchStarterPacksSkeleton,
   appBskyUnspeccedGetConfig,
   appBskyUnspeccedDefs,
   chatBskyConvoUpdateRead,
