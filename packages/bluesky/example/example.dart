@@ -8,7 +8,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/atproto_oauth.dart';
 import 'package:bluesky/app_bsky_embed_video.dart';
 import 'package:bluesky/atproto.dart';
-import 'package:bluesky/core.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
 import 'package:bluesky/moderation.dart';
