@@ -9,6 +9,29 @@ import 'package:atproto_oauth/atproto_oauth.dart';
 import '../utils/jwt.dart';
 import '../utils/jwt_decoder.dart';
 
+/// Returns new [OAuthSession] based on parameters.
+OAuthSession restoreOAuthSession({
+  required String accessToken,
+  required String refreshToken,
+  String? dPoPNonce,
+  required String publicKey,
+  required String privateKey,
+}) {
+  final jwt = decodeJwt(accessToken);
+
+  return OAuthSession(
+    accessToken: accessToken,
+    refreshToken: refreshToken,
+    tokenType: 'DPoP',
+    scope: jwt.scope,
+    expiresAt: jwt.exp,
+    sub: jwt.sub,
+    $dPoPNonce: dPoPNonce ?? '',
+    $publicKey: publicKey,
+    $privateKey: privateKey,
+  );
+}
+
 extension OauthSessionExtension on OAuthSession {
   /// Returns decoded [accessToken].
   Jwt get accessTokenJwt => decodeJwt(accessToken);

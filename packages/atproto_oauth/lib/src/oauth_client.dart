@@ -259,10 +259,10 @@ final class OAuthClient {
       },
     );
 
-    final tokenJson = jsonDecode(response.body);
+    final body = jsonDecode(response.body);
 
     if (response.statusCode == 401 &&
-        tokenJson['error'] == 'use_dpop_nonce' &&
+        body['error'] == 'use_dpop_nonce' &&
         response.headers.containsKey('dpop-nonce')) {
       // Retry with next DPoP nonce
       return await this.callback(
@@ -276,14 +276,13 @@ final class OAuthClient {
     }
 
     return OAuthSession(
-      accessToken: tokenJson['access_token'],
-      refreshToken: tokenJson['refresh_token'],
-      tokenType: tokenJson['token_type'],
-      scope: tokenJson['scope'],
-      expiresAt: DateTime.now()
-          .toUtc()
-          .add(Duration(seconds: tokenJson['expires_in'])),
-      sub: tokenJson['sub'],
+      accessToken: body['access_token'],
+      refreshToken: body['refresh_token'],
+      tokenType: body['token_type'],
+      scope: body['scope'],
+      expiresAt:
+          DateTime.now().toUtc().add(Duration(seconds: body['expires_in'])),
+      sub: body['sub'],
       $dPoPNonce: response.headers['dpop-nonce']!,
       $publicKey: publicKey,
       $privateKey: privateKey,
@@ -356,21 +355,29 @@ final class OAuthClient {
       },
     );
 
+    final body = jsonDecode(response.body);
+
+    if (response.statusCode == 401 &&
+        body['error'] == 'use_dpop_nonce' &&
+        response.headers.containsKey('dpop-nonce')) {
+      session.$dPoPNonce = response.headers['dpop-nonce']!;
+
+      // Retry with next DPoP nonce
+      return await refresh(session);
+    }
+
     if (response.statusCode != 200) {
       throw OAuthException(response.body);
     }
 
-    final tokenJson = jsonDecode(response.body);
-
     return OAuthSession(
-      accessToken: tokenJson['access_token'],
-      refreshToken: tokenJson['refresh_token'],
-      tokenType: tokenJson['token_type'],
-      scope: tokenJson['scope'],
-      expiresAt: DateTime.now()
-          .toUtc()
-          .add(Duration(seconds: tokenJson['expires_in'])),
-      sub: tokenJson['sub'],
+      accessToken: body['access_token'],
+      refreshToken: body['refresh_token'],
+      tokenType: body['token_type'],
+      scope: body['scope'],
+      expiresAt:
+          DateTime.now().toUtc().add(Duration(seconds: body['expires_in'])),
+      sub: body['sub'],
       $dPoPNonce: response.headers['dpop-nonce']!,
       $publicKey: session.$publicKey,
       $privateKey: session.$privateKey,
