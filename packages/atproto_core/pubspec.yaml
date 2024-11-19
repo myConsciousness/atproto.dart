@@ -1,6 +1,6 @@
 name: atproto_core
 description: Core library for clients and tools. This package is mainly used by https://atprotodart.com packages.
-version: 0.11.0
+version: 0.11.1
 homepage: https://atprotodart.com
 documentation: https://atprotodart.com/docs/intro
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core
@@ -25,7 +25,7 @@ dependencies:
   cbor: ^6.2.0
   multiformats: ^0.2.3
   universal_io: ^2.2.2
-  atproto_oauth: ^0.0.1
+  atproto_oauth: ^0.1.0
 
 dev_dependencies:
   lints: ^2.0.1

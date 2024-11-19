@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.18.1
+
+- Retry if a DPoP nonce error occurs during the execution of `OAuthClient.refresh`.
+- Add `restoreOAuthSession` function.
+
 ## v0.18.0
 
 - Expose `atproto_oauth` package.
