@@ -357,8 +357,7 @@ final class OAuthClient {
 
     final body = jsonDecode(response.body);
 
-    if (response.statusCode == 401 &&
-        body['error'] == 'use_dpop_nonce' &&
+    if (body['error'] == 'use_dpop_nonce' &&
         response.headers.containsKey('dpop-nonce')) {
       session.$dPoPNonce = response.headers['dpop-nonce']!;
 
