@@ -8,7 +8,7 @@ on:
       - "packages/*/test/**"
       - "packages/*/pubspec.yaml"
   schedule:
-    - cron: "0 10 * * *"
+    - cron: "0 18 * * *"
 
 jobs:
   tacos:
