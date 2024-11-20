@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.7.1
+
+- Exposed `bluesky_text/regex.dart`.
+
 ## v0.7.0
 
 - Bump `xrpc`.
