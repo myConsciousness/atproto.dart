@@ -13,7 +13,6 @@ import 'utils.dart';
 
 const _excludePackages = [
   'atproto_test',
-  'bluesky_post',
   'did_plc',
 ];
 
