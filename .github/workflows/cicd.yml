@@ -28,7 +28,6 @@ jobs:
           - packages/xrpc
           - packages/multiformats
           - packages/atproto_core
-          - packages/lex_annotation
           - packages/did_plc
           - packages/atproto
           - packages/bluesky

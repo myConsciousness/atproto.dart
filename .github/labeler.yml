@@ -31,8 +31,6 @@ bluesky_text:
 - packages/bluesky_text/**/*
 bluesky:
 - packages/bluesky/**/*
-bluesky_chat:
-- packages/bluesky_chat/**/*
 bluesky_cli:
 - packages/bluesky_cli/**/*
 
@@ -51,7 +49,6 @@ test:
 - packages/atproto/test/**/*.dart
 - packages/bluesky_text/test/**/*.dart
 - packages/bluesky/test/**/*.dart
-- packages/bluesky_chat/test/**/*.dart
 - packages/bluesky_cli/test/**/*.dart
 
 documentation:
@@ -83,8 +80,6 @@ documentation:
 - packages/bluesky_text/README.md
 - packages/bluesky/CHANGELOG.md
 - packages/bluesky/README.md
-- packages/bluesky_chat/CHANGELOG.md
-- packages/bluesky_chat/README.md
 - packages/bluesky_cli/CHANGELOG.md
 - packages/bluesky_cli/README.md
 - CODE_OF_CONDUCT.md
