@@ -93,6 +93,7 @@ sidebar_position: 4
 
 | Method | Docs | Auth Required | Paging (cursor) |
 | --- | --- | :---: | :---: |
+| **[com.atproto.temp.addReservedHandle](https://pub.dev/documentation/atproto/latest/atproto/TempService/addReservedHandle.html)** | [Reference](lexicons/com/atproto/temp/addReservedHandle.md) | ❌ | ❌ |
 | **[com.atproto.temp.checkSignupQueue](https://pub.dev/documentation/atproto/latest/atproto/TempService/checkSignupQueue.html)** | [Reference](lexicons/com/atproto/temp/checkSignupQueue.md) | ✅ | ❌ |
 | **[com.atproto.temp.requestPhoneVerification](https://pub.dev/documentation/atproto/latest/atproto/TempService/requestPhoneVerification.html)** | [Reference](lexicons/com/atproto/temp/requestPhoneVerification.md) | ❌ | ❌ |
 | **[com.atproto.temp.fetchLabels](https://pub.dev/documentation/atproto/latest/atproto/TempService/fetchLabels.html)** | [Reference](lexicons/com/atproto/temp/fetchLabels.md) | ✅ | ❌ |
