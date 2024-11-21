@@ -26,14 +26,6 @@ All packages in this matrix can be used in the **[Dart](https://dart.dev)** and 
 | **[bluesky](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky)**             |       [![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)       | Provide the easiest and powerful way to use [app.bsky](https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky) lexicons in Dart/Flutter.       |
 | **[bluesky_text](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_text)**   |  [![pub package](https://img.shields.io/pub/v/bluesky_text.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_text)  | Provides the easiest and most powerful way to analyze the text on Bluesky Social.                                                                             |
 
-### Flutter Only
-
-All packages in this matrix can be used only in **[Flutter](https://flutter.dev)** apps.
-
-| Name                                                                                                  |                                                                   pub.dev                                                                    | Description                                                                          |
-| ----------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------ |
-| **[bluesky_cards](https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_cards)** | [![pub package](https://img.shields.io/pub/v/bluesky_cards.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky_cards) | Provide a widget to output Bluesky Social's post content beautifully in Flutter app. |
-
 ## Tools
 
 ### CLI
@@ -70,8 +62,6 @@ flowchart TD
     atproto_core --> atproto;
     atproto_core --> did_plc;
     atproto --> bluesky;
-
-    bluesky --> bluesky_cards
 
     bluesky --> bluesky_post
 
