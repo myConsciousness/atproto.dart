@@ -35,8 +35,6 @@ bluesky_chat:
 - packages/bluesky_chat/**/*
 bluesky_cli:
 - packages/bluesky_cli/**/*
-bluesky_cards:
-- packages/bluesky_cards/**/*
 
 test:
 - packages/at_identifier/test/**/*.dart
@@ -55,7 +53,6 @@ test:
 - packages/bluesky/test/**/*.dart
 - packages/bluesky_chat/test/**/*.dart
 - packages/bluesky_cli/test/**/*.dart
-- packages/bluesky_cards/test/**/*.dart
 
 documentation:
 - packages/at_identifier/CHANGELOG.md
@@ -90,8 +87,6 @@ documentation:
 - packages/bluesky_chat/README.md
 - packages/bluesky_cli/CHANGELOG.md
 - packages/bluesky_cli/README.md
-- packages/bluesky_cards/CHANGELOG.md
-- packages/bluesky_cards/README.md
 - CODE_OF_CONDUCT.md
 - CONTRIBUTING.md
 - SECURITY.md
