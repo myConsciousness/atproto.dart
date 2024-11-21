@@ -355,6 +355,10 @@ const comAtprotoSyncSubscribeReposRepoOp =
 const comAtprotoSyncSubscribeReposTombstone =
     NSID(ids.comAtprotoSyncSubscribeReposTombstone);
 
+/// `com.atproto.temp.addReservedHandle`
+const comAtprotoTempAddReservedHandle =
+    NSID(ids.comAtprotoTempAddReservedHandle);
+
 /// `com.atproto.temp.checkSignupQueue`
 const comAtprotoTempCheckSignupQueue = NSID(ids.comAtprotoTempCheckSignupQueue);
 
