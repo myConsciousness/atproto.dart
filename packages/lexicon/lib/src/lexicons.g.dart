@@ -7584,7 +7584,7 @@ const appBskyActorDefs = <String, dynamic>{
         "sort": {
           "type": "string",
           "description": "Sorting mode for threads.",
-          "knownValues": ["oldest", "newest", "most-likes", "random"]
+          "knownValues": ["oldest", "newest", "most-likes", "random", "hotness"]
         },
         "prioritizeFollowedUsers": {
           "type": "boolean",
