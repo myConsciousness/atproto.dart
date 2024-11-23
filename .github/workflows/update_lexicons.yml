@@ -1,4 +1,4 @@
-name: Pull Latest Lexicons
+name: Update Lexicons
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: "0 18 * * *"
 
 jobs:
-  pull-lexicons:
+  update-lexicons:
     runs-on: ubuntu-latest
 
     steps:
@@ -37,24 +37,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
-      - name: Generate Lexicon IDs
-        run: dart run ./bin/generate_lexicon_ids.dart
-
-      - name: Generate Lexicon Matrix
-        run: dart run ./bin/generate_lexicon_matrix.dart
-
-      - name: Generate Supported API Matrix
-        run: dart run ./bin/generate_supported_api_matrix.dart
-
-      - name: Generate Lexicon Docs
-        run: dart run ./bin/generate_lexicon_docs.dart
+      - name: Generate
+        run: |
+          dart run ./bin/generate_lexicon_ids.dart
+          dart run ./bin/generate_lexicon_matrix.dart
+          dart run ./bin/generate_supported_api_matrix.dart
+          dart run ./bin/generate_lexicon_docs.dart
 
       - name: Format
         run: |
           dart format packages/lexicon
           dart format packages/atproto
           dart format packages/bluesky
-          dart format packages/bluesky_chat
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
