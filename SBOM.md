@@ -6,7 +6,7 @@
 - Tool: [Tool: protobom-devel, Tool: GitHub.com-Dependency-Graph]
 - Version: SPDX-2.3
 - License: CC0-1.0
-- Created: 2024-11-23T03:42:58Z
+- Created: 2024-11-23T04:12:04Z
 
 ## Packages
 
@@ -1387,14 +1387,14 @@
 |@docusaurus/plugin-ideal-image|3.6.3|MIT|N/A|
 |@docusaurus/theme-mermaid|3.6.3|MIT|N/A|
 |typescript|5.7.2|Apache-2.0|N/A|
+|actions/labeler|4.*.*|N/A|N/A|
 |actions/checkout|3.1.0|N/A|N/A|
 |subosito/flutter-action|2.7.1|N/A|N/A|
-|actions/checkout|2|N/A|N/A|
-|dart-lang/setup-dart|1|N/A|N/A|
-|actions/labeler|4|N/A|N/A|
 |actions/checkout|3.*.*|N/A|N/A|
 |peter-evans/create-pull-request|3.*.*|N/A|N/A|
 |dart-lang/setup-dart|1.3.*|N/A|N/A|
+|actions/checkout|2.*.*|N/A|N/A|
+|dart-lang/setup-dart|1.*.*|N/A|N/A|
 |import_sorter|>= 4.6.0,< 5.0.0|N/A|N/A|
 |pubspec|>= 2.3.0,< 3.0.0|N/A|N/A|
 |github|>= 9.12.0,< 10.0.0|N/A|N/A|
