@@ -1,4 +1,4 @@
-name: Validate Dependency
+name: Validate Dependencies
 
 on:
   workflow_dispatch:
