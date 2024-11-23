@@ -3,7 +3,6 @@
 // modification, are permitted provided the conditions.
 
 // 🎯 Dart imports:
-import 'dart:convert';
 import 'dart:io';
 
 // 📦 Package imports:
@@ -12,8 +11,8 @@ import 'package:lexicon/lexicon.dart';
 // 🌎 Project imports:
 import 'utils.dart' as utils;
 
-const _tableHeader = '| Method | Docs | Auth Required | Paging (cursor) |';
-const _tableDivider = '| --- | --- | :---: | :---: |';
+const _tableHeader = '| Method | Docs | Paging (cursor) |';
+const _tableDivider = '| --- | --- | :---: |';
 
 const _functions = [
   'createSession',
@@ -41,10 +40,6 @@ void main(List<String> args) {
 
     return false;
   }).toList());
-
-  final Map<String, dynamic> authData = jsonDecode(
-    File('data/auth.json').readAsStringSync(),
-  );
 
   <String, List<Map<String, List<LexiconDoc>>>>{
     'atproto': [_only(services, authority: 'com.atproto')],
@@ -105,16 +100,6 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 
           final referencePath = lexiconDoc.id.toString().replaceAll('.', '/');
           matrix.write('[Reference](lexicons/$referencePath.md) | ');
-
-          final bool? authRequired = authData.containsKey(lexiconId)
-              ? authData[lexiconId]['required']
-              : false;
-          final authRequiredIcon = authRequired == null
-              ? 'N/A'
-              : authRequired
-                  ? '✅'
-                  : '❌';
-          matrix.write('$authRequiredIcon | ');
 
           final pageable = _isPageable(lexiconDoc) ? '✅' : '❌';
           matrix.write('$pageable |');

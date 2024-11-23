@@ -48,7 +48,7 @@ const Users: User[] = [
   {
     title: 'Shy Party BOT',
     author: 'shy.party',
-    description: 'This BOT uses bluesky_post to post hilarious greeting images from GitHub Actions.',
+    description: 'This BOT uses bluesky-post to post hilarious greeting images from GitHub Actions.',
     preview: require('./showcase/ShyParty.png'),
     website: 'https://github.com/Shy/party',
     source: 'https://github.com/Shy/party',
@@ -57,7 +57,7 @@ const Users: User[] = [
   {
     title: 'Penumbra PR BOT',
     author: 'penumbra.zone',
-    description: 'This BOT uses bluesky_post to post that a pull request has been merged from GitHub Actions.',
+    description: 'This BOT uses bluesky-post to post that a pull request has been merged from GitHub Actions.',
     preview: require('./showcase/Penumbra.png'),
     website: 'https://github.com/penumbra-zone/penumbra',
     source: 'https://github.com/penumbra-zone/penumbra',
