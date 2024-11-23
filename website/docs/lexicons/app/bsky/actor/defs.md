@@ -158,7 +158,7 @@ The subject's followers whom you also follow
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **sort** | string | oldest<br/>newest<br/>most-likes<br/>random | ❌ | Sorting mode for threads. |
+| **sort** | string | oldest<br/>newest<br/>most-likes<br/>random<br/>hotness | ❌ | Sorting mode for threads. |
 | **prioritizeFollowedUsers** | boolean | - | ❌ | Show followed users at the top of all replies. |
 
 ## #interestsPref
