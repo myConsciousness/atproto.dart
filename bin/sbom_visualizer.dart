@@ -92,6 +92,13 @@ class SbomMarkdownGenerator {
 
     final List<dynamic> packages = sbomData['packages'];
     for (final package in packages) {
+      final externalRefs = package['externalRefs']!;
+      final referenceLocator = externalRefs!.first['referenceLocator']!;
+      if (!referenceLocator.startsWith('pkg:pub')) {
+        // Only Dart things
+        continue;
+      }
+
       final name = package['name'] ?? 'N/A';
       final version = package['versionInfo'] ?? 'N/A';
 
