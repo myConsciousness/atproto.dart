@@ -55,4 +55,5 @@ const _$ThreadViewSortTypeEnumMap = {
   ThreadViewSortType.newest: 'newest',
   ThreadViewSortType.mostLikes: 'most-likes',
   ThreadViewSortType.random: 'random',
+  ThreadViewSortType.hotness: 'hotness',
 };

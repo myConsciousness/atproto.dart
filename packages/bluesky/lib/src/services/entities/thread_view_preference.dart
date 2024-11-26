@@ -38,7 +38,8 @@ enum ThreadViewSortType implements Serializable {
   @JsonValue('most-likes')
   mostLikes('most-likes'),
 
-  random('random');
+  random('random'),
+  hotness('hotness');
 
   @override
   final String value;
