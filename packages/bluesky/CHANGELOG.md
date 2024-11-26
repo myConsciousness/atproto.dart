@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.18.2
+
+- Add `hotness` on `ThreadViewSortType`.
+
 ## v0.18.1
 
 - Retry if a DPoP nonce error occurs during the execution of `OAuthClient.refresh`.
