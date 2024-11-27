@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.18.3
+
+- Expose `JwtExtension`.
+
 ## v0.18.2
 
 - Add `hotness` on `ThreadViewSortType`.
