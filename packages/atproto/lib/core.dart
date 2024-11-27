@@ -44,5 +44,6 @@ export 'package:atproto_core/atproto_core.dart'
         SessionExtension,
         Jwt,
         $JwtCopyWith,
+        JwtExtension,
         decodeJwt,
         isValidAppPassword;

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.13.2
+
+- Expose `JwtExtension`.
+
 ## v0.13.1
 
 - Retry if a DPoP nonce error occurs during the execution of `OAuthClient.refresh`.
