@@ -24,7 +24,7 @@ List moderation events related to a subject.
 | **includeAllUserRecords** | boolean | - | ❌ | If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned. |
 | **limit** | integer | - | ❌ | - |
 | **hasComment** | boolean | - | ❌ | If true, only events with comments are returned |
-| **comment** | string | - | ❌ | If specified, only events with comments containing the keyword are returned |
+| **comment** | string | - | ❌ | If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition. |
 | **addedLabels** | array | - | ❌ | - |
 | **removedLabels** | array | - | ❌ | - |
 | **addedTags** | array | - | ❌ | - |
