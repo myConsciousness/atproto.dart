@@ -14,6 +14,7 @@
 - Add `joinedViaStarterPack` property on `ProfileRecord`.
 - Add `starterPackViewBasic` union on `EmbedViewRecordView`.
 - Add `joinedViaStarterPack` and `createdAt` parameters on `ActorService.profile`.
+- Expose `EmbedViewRecordViewRecord` from `bluesky.dart` package.
 
 ## v0.18.3
 
