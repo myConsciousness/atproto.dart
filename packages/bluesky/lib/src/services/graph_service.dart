@@ -22,7 +22,12 @@ import 'params/list_item_param.dart';
 import 'params/list_param.dart';
 import 'params/repo_param.dart';
 import 'service_context.dart';
+import 'types/app/bsky/graph/defs/starter_pack_view.dart';
+import 'types/app/bsky/graph/getActorStarterPacks/output.dart';
 import 'types/app/bsky/graph/getKnownFollowers/output.dart';
+import 'types/app/bsky/graph/getStarterPacks/output.dart';
+import 'types/app/bsky/graph/searchStarterPacks/output.dart';
+import 'types/app/bsky/graph/starterpack/feed_item.dart';
 
 /// Represents `app.bsky.graph.*` service.
 final class GraphService {
@@ -368,6 +373,92 @@ final class GraphService {
         body: {
           'root': root.toString(),
         },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/starterpack
+  Future<core.XRPCResponse<atp.StrongRef>> starterpack({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    required core.AtUri list,
+    List<StarterpackFeedItem>? feeds,
+    DateTime? createdAt,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        collection: ns.appBskyGraphStarterpack,
+        record: {
+          'name': name,
+          'description': description,
+          'descriptionFacets':
+              descriptionFacets?.map((e) => e.toJson()).toList(),
+          'list': list.toString(),
+          'feeds': feeds?.map((e) => e.toJson()).toList(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+        },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getActorStarterPacks
+  Future<core.XRPCResponse<GetActorStarterPacksOutput>> getActorStarterPacks({
+    required String actor,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $header,
+  }) async =>
+      await _ctx.get(
+        headers: $header,
+        ns.appBskyGraphGetActorStarterPacks,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: GetActorStarterPacksOutput.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPack
+  Future<core.XRPCResponse<StarterPackView>> getStarterPack({
+    required core.AtUri starterPack,
+    Map<String, String>? $header,
+  }) async =>
+      await _ctx.get(
+        headers: $header,
+        ns.appBskyGraphGetStarterPack,
+        parameters: {
+          'starterPack': starterPack,
+        },
+        to: StarterPackView.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPacks
+  Future<core.XRPCResponse<GetStarterPacksOutput>> getStarterPacks({
+    required List<core.AtUri> uris,
+    Map<String, String>? $header,
+  }) async =>
+      await _ctx.get(
+        headers: $header,
+        ns.appBskyGraphGetStarterPacks,
+        parameters: {
+          'uris': uris,
+        },
+        to: GetStarterPacksOutput.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/searchStarterPacks
+  Future<core.XRPCResponse<SearchStarterPacksOutput>> searchStarterPacks({
+    required String q,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $header,
+  }) async =>
+      await _ctx.get(
+        headers: $header,
+        ns.appBskyGraphSearchStarterPacks,
+        parameters: {
+          'q': q,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: SearchStarterPacksOutput.fromJson,
       );
 }
 

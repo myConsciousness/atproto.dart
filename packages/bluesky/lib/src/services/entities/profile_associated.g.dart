@@ -19,6 +19,8 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
           lists: $checkedConvert('lists', (v) => (v as num?)?.toInt() ?? 0),
           feedgens:
               $checkedConvert('feedgens', (v) => (v as num?)?.toInt() ?? 0),
+          starterPacks:
+              $checkedConvert('starterPacks', (v) => (v as num?)?.toInt() ?? 0),
           labeler: $checkedConvert('labeler', (v) => v as bool? ?? false),
           chat: $checkedConvert(
               'chat',
@@ -38,6 +40,7 @@ Map<String, dynamic> _$$ProfileAssociatedImplToJson(
     r'$type': instance.type,
     'lists': instance.lists,
     'feedgens': instance.feedgens,
+    'starterPacks': instance.starterPacks,
     'labeler': instance.labeler,
   };
 

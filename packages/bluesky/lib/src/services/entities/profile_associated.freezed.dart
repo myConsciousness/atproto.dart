@@ -24,6 +24,7 @@ mixin _$ProfileAssociated {
   String get type => throw _privateConstructorUsedError;
   int get lists => throw _privateConstructorUsedError;
   int get feedgens => throw _privateConstructorUsedError;
+  int get starterPacks => throw _privateConstructorUsedError;
   bool get labeler => throw _privateConstructorUsedError;
   ActorProfileAssociatedChat? get chat => throw _privateConstructorUsedError;
 
@@ -47,6 +48,7 @@ abstract class $ProfileAssociatedCopyWith<$Res> {
       {@typeKey String type,
       int lists,
       int feedgens,
+      int starterPacks,
       bool labeler,
       ActorProfileAssociatedChat? chat});
 
@@ -71,6 +73,7 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
     Object? type = null,
     Object? lists = null,
     Object? feedgens = null,
+    Object? starterPacks = null,
     Object? labeler = null,
     Object? chat = freezed,
   }) {
@@ -86,6 +89,10 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
       feedgens: null == feedgens
           ? _value.feedgens
           : feedgens // ignore: cast_nullable_to_non_nullable
+              as int,
+      starterPacks: null == starterPacks
+          ? _value.starterPacks
+          : starterPacks // ignore: cast_nullable_to_non_nullable
               as int,
       labeler: null == labeler
           ? _value.labeler
@@ -125,6 +132,7 @@ abstract class _$$ProfileAssociatedImplCopyWith<$Res>
       {@typeKey String type,
       int lists,
       int feedgens,
+      int starterPacks,
       bool labeler,
       ActorProfileAssociatedChat? chat});
 
@@ -148,6 +156,7 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
     Object? type = null,
     Object? lists = null,
     Object? feedgens = null,
+    Object? starterPacks = null,
     Object? labeler = null,
     Object? chat = freezed,
   }) {
@@ -163,6 +172,10 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
       feedgens: null == feedgens
           ? _value.feedgens
           : feedgens // ignore: cast_nullable_to_non_nullable
+              as int,
+      starterPacks: null == starterPacks
+          ? _value.starterPacks
+          : starterPacks // ignore: cast_nullable_to_non_nullable
               as int,
       labeler: null == labeler
           ? _value.labeler
@@ -184,6 +197,7 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
       {@typeKey this.type = appBskyActorDefsProfileAssociated,
       this.lists = 0,
       this.feedgens = 0,
+      this.starterPacks = 0,
       this.labeler = false,
       this.chat});
 
@@ -201,13 +215,16 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
   final int feedgens;
   @override
   @JsonKey()
+  final int starterPacks;
+  @override
+  @JsonKey()
   final bool labeler;
   @override
   final ActorProfileAssociatedChat? chat;
 
   @override
   String toString() {
-    return 'ProfileAssociated(type: $type, lists: $lists, feedgens: $feedgens, labeler: $labeler, chat: $chat)';
+    return 'ProfileAssociated(type: $type, lists: $lists, feedgens: $feedgens, starterPacks: $starterPacks, labeler: $labeler, chat: $chat)';
   }
 
   @override
@@ -219,14 +236,16 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
             (identical(other.lists, lists) || other.lists == lists) &&
             (identical(other.feedgens, feedgens) ||
                 other.feedgens == feedgens) &&
+            (identical(other.starterPacks, starterPacks) ||
+                other.starterPacks == starterPacks) &&
             (identical(other.labeler, labeler) || other.labeler == labeler) &&
             (identical(other.chat, chat) || other.chat == chat));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, lists, feedgens, labeler, chat);
+  int get hashCode => Object.hash(
+      runtimeType, type, lists, feedgens, starterPacks, labeler, chat);
 
   /// Create a copy of ProfileAssociated
   /// with the given fields replaced by the non-null parameter values.
@@ -250,6 +269,7 @@ abstract class _ProfileAssociated implements ProfileAssociated {
       {@typeKey final String type,
       final int lists,
       final int feedgens,
+      final int starterPacks,
       final bool labeler,
       final ActorProfileAssociatedChat? chat}) = _$ProfileAssociatedImpl;
 
@@ -263,6 +283,8 @@ abstract class _ProfileAssociated implements ProfileAssociated {
   int get lists;
   @override
   int get feedgens;
+  @override
+  int get starterPacks;
   @override
   bool get labeler;
   @override

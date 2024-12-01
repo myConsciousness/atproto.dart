@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../types/app/bsky/embed/record/embed_record_view_detached.dart';
+import '../types/app/bsky/graph/defs/starter_pack_view_basic.dart';
 import 'embed_view_record_view_blocked.dart';
 import 'embed_view_record_view_not_found.dart';
 import 'embed_view_record_view_record.dart';
@@ -48,6 +49,10 @@ class EmbedViewRecordView with _$EmbedViewRecordView {
   const factory EmbedViewRecordView.labelerView({
     required LabelerView data,
   }) = UEmbedViewRecordViewLabelerView;
+
+  const factory EmbedViewRecordView.starterPackViewBasic({
+    required StarterPackViewBasic data,
+  }) = UEmbedViewRecordViewStarterPackViewBasic;
 
   const factory EmbedViewRecordView.unknown({
     required Map<String, dynamic> data,

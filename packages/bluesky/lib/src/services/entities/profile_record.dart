@@ -26,6 +26,7 @@ class ProfileRecord with _$ProfileRecord {
     Blob? avatar,
     Blob? banner,
     @labelsConverter Labels? labels,
+    StrongRef? joinedViaStarterPack,
     StrongRef? pinnedPost,
   }) = _ProfileRecord;
 

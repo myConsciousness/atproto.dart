@@ -2,27 +2,35 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 /// Represents the reason for a notifications.
 enum NotificationReason {
   /// Indicates likes.
-  like,
+  like('like'),
 
   /// Indicates reposts.
-  repost,
+  repost('repost'),
 
   /// Indicates follows.
-  follow,
+  follow('follow'),
 
   /// Indicates mentions.
-  mention,
+  mention('mention'),
 
   /// Indicates replies.
-  reply,
+  reply('reply'),
 
   /// Indicates quotes.
-  quote;
+  quote('quote'),
 
-  const NotificationReason();
+  @JsonValue('starterpack-joined')
+  starterpackJoined('starterpack-joined');
+
+  final String value;
+
+  const NotificationReason(this.value);
 
   /// Returns true if this reason is [like], otherwise false.
   bool get isLike => this == like;
@@ -59,4 +67,10 @@ enum NotificationReason {
 
   /// Returns true if this reason is not [quote], otherwise false.
   bool get isNotQuote => !isQuote;
+
+  /// Returns true if this reason is [starterpackJoined], otherwise false.
+  bool get isStarterpackJoined => this == starterpackJoined;
+
+  /// Returns true if this reason is not [starterpackJoined], otherwise false.
+  bool get isNotStarterpackJoined => !isStarterpackJoined;
 }
