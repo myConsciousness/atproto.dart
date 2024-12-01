@@ -6,7 +6,7 @@
 - Tool: [Tool: protobom-devel, Tool: GitHub.com-Dependency-Graph]
 - Version: SPDX-2.3
 - License: CC0-1.0
-- Created: 2024-11-23T05:55:35Z
+- Created: 2024-12-01T00:08:11Z
 
 ## Packages
 
@@ -45,7 +45,7 @@
 |characters|>= 1.3.0,< 2.0.0|N/A|N/A|
 |nanoid|>= 1.0.0,< 2.0.0|N/A|N/A|
 |bluesky_text|>= 0.6.9,< 0.7.0|N/A|N/A|
-|atproto|>= 0.13.1,< 0.14.0|N/A|N/A|
+|atproto|>= 0.13.2,< 0.14.0|N/A|N/A|
 |args|>= 2.0.0,< 3.0.0|N/A|N/A|
 |cli_util|>= 0.3.0,< 0.4.0|N/A|N/A|
 |ansi_styles|>= 0.3.1,< 0.4.0|N/A|N/A|
