@@ -581,4 +581,22 @@ extension GraphServiceExtension on GraphService {
         createdAt: createdAt,
         unspecced: unspecced,
       );
+
+  Future<core.XRPCResponse<atp.StrongRef>> referencelist({
+    required String name,
+    String? description,
+    List<Facet>? descriptionFacets,
+    core.Blob? avatar,
+    atp.Labels? labels,
+    DateTime? createdAt,
+  }) async =>
+      await list(
+        name: name,
+        purpose: ids.appBskyGraphDefsReferencelist,
+        description: description,
+        descriptionFacets: descriptionFacets,
+        avatar: avatar,
+        labels: labels,
+        createdAt: createdAt,
+      );
 }

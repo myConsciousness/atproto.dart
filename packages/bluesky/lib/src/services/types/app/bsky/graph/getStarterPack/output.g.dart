@@ -16,7 +16,7 @@ _$GetStarterPackOutputImpl _$$GetStarterPackOutputImplFromJson(Map json) =>
         final val = _$GetStarterPackOutputImpl(
           starterPack: $checkedConvert(
               'starterPack',
-              (v) => StarterPackViewBasic.fromJson(
+              (v) => StarterPackView.fromJson(
                   Map<String, Object?>.from(v as Map))),
         );
         return val;

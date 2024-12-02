@@ -20,7 +20,7 @@ GetStarterPackOutput _$GetStarterPackOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetStarterPackOutput {
-  StarterPackViewBasic get starterPack => throw _privateConstructorUsedError;
+  StarterPackView get starterPack => throw _privateConstructorUsedError;
 
   /// Serializes this GetStarterPackOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,9 +38,9 @@ abstract class $GetStarterPackOutputCopyWith<$Res> {
           $Res Function(GetStarterPackOutput) then) =
       _$GetStarterPackOutputCopyWithImpl<$Res, GetStarterPackOutput>;
   @useResult
-  $Res call({StarterPackViewBasic starterPack});
+  $Res call({StarterPackView starterPack});
 
-  $StarterPackViewBasicCopyWith<$Res> get starterPack;
+  $StarterPackViewCopyWith<$Res> get starterPack;
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$GetStarterPackOutputCopyWithImpl<$Res,
       starterPack: null == starterPack
           ? _value.starterPack
           : starterPack // ignore: cast_nullable_to_non_nullable
-              as StarterPackViewBasic,
+              as StarterPackView,
     ) as $Val);
   }
 
@@ -73,8 +73,8 @@ class _$GetStarterPackOutputCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $StarterPackViewBasicCopyWith<$Res> get starterPack {
-    return $StarterPackViewBasicCopyWith<$Res>(_value.starterPack, (value) {
+  $StarterPackViewCopyWith<$Res> get starterPack {
+    return $StarterPackViewCopyWith<$Res>(_value.starterPack, (value) {
       return _then(_value.copyWith(starterPack: value) as $Val);
     });
   }
@@ -88,10 +88,10 @@ abstract class _$$GetStarterPackOutputImplCopyWith<$Res>
       __$$GetStarterPackOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StarterPackViewBasic starterPack});
+  $Res call({StarterPackView starterPack});
 
   @override
-  $StarterPackViewBasicCopyWith<$Res> get starterPack;
+  $StarterPackViewCopyWith<$Res> get starterPack;
 }
 
 /// @nodoc
@@ -113,7 +113,7 @@ class __$$GetStarterPackOutputImplCopyWithImpl<$Res>
       starterPack: null == starterPack
           ? _value.starterPack
           : starterPack // ignore: cast_nullable_to_non_nullable
-              as StarterPackViewBasic,
+              as StarterPackView,
     ));
   }
 }
@@ -128,7 +128,7 @@ class _$GetStarterPackOutputImpl implements _GetStarterPackOutput {
       _$$GetStarterPackOutputImplFromJson(json);
 
   @override
-  final StarterPackViewBasic starterPack;
+  final StarterPackView starterPack;
 
   @override
   String toString() {
@@ -168,14 +168,14 @@ class _$GetStarterPackOutputImpl implements _GetStarterPackOutput {
 
 abstract class _GetStarterPackOutput implements GetStarterPackOutput {
   const factory _GetStarterPackOutput(
-          {required final StarterPackViewBasic starterPack}) =
+          {required final StarterPackView starterPack}) =
       _$GetStarterPackOutputImpl;
 
   factory _GetStarterPackOutput.fromJson(Map<String, dynamic> json) =
       _$GetStarterPackOutputImpl.fromJson;
 
   @override
-  StarterPackViewBasic get starterPack;
+  StarterPackView get starterPack;
 
   /// Create a copy of GetStarterPackOutput
   /// with the given fields replaced by the non-null parameter values.
