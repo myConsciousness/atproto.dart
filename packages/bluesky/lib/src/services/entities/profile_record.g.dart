@@ -31,6 +31,11 @@ _$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
               'labels',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
                   v, labelsConverter.fromJson)),
+          joinedViaStarterPack: $checkedConvert(
+              'joinedViaStarterPack',
+              (v) => v == null
+                  ? null
+                  : StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
           pinnedPost: $checkedConvert(
               'pinnedPost',
               (v) => v == null
@@ -61,6 +66,7 @@ Map<String, dynamic> _$$ProfileRecordImplToJson(_$ProfileRecordImpl instance) {
       'labels',
       _$JsonConverterToJson<Map<String, dynamic>, Labels>(
           instance.labels, labelsConverter.toJson));
+  writeNotNull('joinedViaStarterPack', instance.joinedViaStarterPack?.toJson());
   writeNotNull('pinnedPost', instance.pinnedPost?.toJson());
   return val;
 }

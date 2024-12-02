@@ -147,6 +147,7 @@ export 'package:bluesky/src/services/entities/feed_interaction.dart';
 export 'package:bluesky/src/services/entities/suggestions_skeleton.dart';
 export 'package:bluesky/src/services/entities/saved_feed.dart';
 export 'package:bluesky/src/services/entities/saved_feeds_pref_v2.dart';
+export 'package:bluesky/src/services/entities/embed_view_record_view_record.dart';
 export 'package:bluesky/src/services/extensions/grouped_notification.dart';
 export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';

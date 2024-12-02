@@ -8,7 +8,6 @@ import 'package:atproto/core.dart';
 
 // 🌎 Project imports:
 import '../../../../bluesky.dart';
-import '../../../services/entities/embed_view_record_view_record.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';

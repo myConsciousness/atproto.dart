@@ -26,6 +26,7 @@ mixin _$EmbedViewRecordView {
     required TResult Function(FeedGeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,6 +39,7 @@ mixin _$EmbedViewRecordView {
     TResult? Function(FeedGeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +52,7 @@ mixin _$EmbedViewRecordView {
     TResult Function(FeedGeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -66,6 +69,8 @@ mixin _$EmbedViewRecordView {
     required TResult Function(UEmbedViewRecordViewListView value) listView,
     required TResult Function(UEmbedViewRecordViewLabelerView value)
         labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -78,6 +83,8 @@ mixin _$EmbedViewRecordView {
     TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult? Function(UEmbedViewRecordViewListView value)? listView,
     TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -90,6 +97,8 @@ mixin _$EmbedViewRecordView {
     TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult Function(UEmbedViewRecordViewListView value)? listView,
     TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -208,6 +217,7 @@ class _$UEmbedViewRecordViewRecordImpl implements UEmbedViewRecordViewRecord {
     required TResult Function(FeedGeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return record(data);
@@ -223,6 +233,7 @@ class _$UEmbedViewRecordViewRecordImpl implements UEmbedViewRecordViewRecord {
     TResult? Function(FeedGeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return record?.call(data);
@@ -238,6 +249,7 @@ class _$UEmbedViewRecordViewRecordImpl implements UEmbedViewRecordViewRecord {
     TResult Function(FeedGeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -260,6 +272,8 @@ class _$UEmbedViewRecordViewRecordImpl implements UEmbedViewRecordViewRecord {
     required TResult Function(UEmbedViewRecordViewListView value) listView,
     required TResult Function(UEmbedViewRecordViewLabelerView value)
         labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
   }) {
     return record(this);
@@ -275,6 +289,8 @@ class _$UEmbedViewRecordViewRecordImpl implements UEmbedViewRecordViewRecord {
     TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult? Function(UEmbedViewRecordViewListView value)? listView,
     TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
   }) {
     return record?.call(this);
@@ -290,6 +306,8 @@ class _$UEmbedViewRecordViewRecordImpl implements UEmbedViewRecordViewRecord {
     TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult Function(UEmbedViewRecordViewListView value)? listView,
     TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -408,6 +426,7 @@ class _$UEmbedViewRecordViewNotFoundImpl
     required TResult Function(FeedGeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return notFound(data);
@@ -423,6 +442,7 @@ class _$UEmbedViewRecordViewNotFoundImpl
     TResult? Function(FeedGeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return notFound?.call(data);
@@ -438,6 +458,7 @@ class _$UEmbedViewRecordViewNotFoundImpl
     TResult Function(FeedGeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -460,6 +481,8 @@ class _$UEmbedViewRecordViewNotFoundImpl
     required TResult Function(UEmbedViewRecordViewListView value) listView,
     required TResult Function(UEmbedViewRecordViewLabelerView value)
         labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
   }) {
     return notFound(this);
@@ -475,6 +498,8 @@ class _$UEmbedViewRecordViewNotFoundImpl
     TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult? Function(UEmbedViewRecordViewListView value)? listView,
     TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
   }) {
     return notFound?.call(this);
@@ -490,6 +515,8 @@ class _$UEmbedViewRecordViewNotFoundImpl
     TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult Function(UEmbedViewRecordViewListView value)? listView,
     TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -607,6 +634,7 @@ class _$UEmbedViewRecordViewBlockedImpl implements UEmbedViewRecordViewBlocked {
     required TResult Function(FeedGeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return blocked(data);
@@ -622,6 +650,7 @@ class _$UEmbedViewRecordViewBlockedImpl implements UEmbedViewRecordViewBlocked {
     TResult? Function(FeedGeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return blocked?.call(data);
@@ -637,6 +666,7 @@ class _$UEmbedViewRecordViewBlockedImpl implements UEmbedViewRecordViewBlocked {
     TResult Function(FeedGeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -659,6 +689,8 @@ class _$UEmbedViewRecordViewBlockedImpl implements UEmbedViewRecordViewBlocked {
     required TResult Function(UEmbedViewRecordViewListView value) listView,
     required TResult Function(UEmbedViewRecordViewLabelerView value)
         labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
   }) {
     return blocked(this);
@@ -674,6 +706,8 @@ class _$UEmbedViewRecordViewBlockedImpl implements UEmbedViewRecordViewBlocked {
     TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult? Function(UEmbedViewRecordViewListView value)? listView,
     TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
   }) {
     return blocked?.call(this);
@@ -689,6 +723,8 @@ class _$UEmbedViewRecordViewBlockedImpl implements UEmbedViewRecordViewBlocked {
     TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult Function(UEmbedViewRecordViewListView value)? listView,
     TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -807,6 +843,7 @@ class _$UEmbedViewRecordViewViewDetachedImpl
     required TResult Function(FeedGeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return viewDetached(data);
@@ -822,6 +859,7 @@ class _$UEmbedViewRecordViewViewDetachedImpl
     TResult? Function(FeedGeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return viewDetached?.call(data);
@@ -837,6 +875,7 @@ class _$UEmbedViewRecordViewViewDetachedImpl
     TResult Function(FeedGeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -859,6 +898,8 @@ class _$UEmbedViewRecordViewViewDetachedImpl
     required TResult Function(UEmbedViewRecordViewListView value) listView,
     required TResult Function(UEmbedViewRecordViewLabelerView value)
         labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
   }) {
     return viewDetached(this);
@@ -874,6 +915,8 @@ class _$UEmbedViewRecordViewViewDetachedImpl
     TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult? Function(UEmbedViewRecordViewListView value)? listView,
     TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
   }) {
     return viewDetached?.call(this);
@@ -889,6 +932,8 @@ class _$UEmbedViewRecordViewViewDetachedImpl
     TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult Function(UEmbedViewRecordViewListView value)? listView,
     TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1008,6 +1053,7 @@ class _$UEmbedViewRecordViewGeneratorViewImpl
     required TResult Function(FeedGeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return generatorView(data);
@@ -1023,6 +1069,7 @@ class _$UEmbedViewRecordViewGeneratorViewImpl
     TResult? Function(FeedGeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return generatorView?.call(data);
@@ -1038,6 +1085,7 @@ class _$UEmbedViewRecordViewGeneratorViewImpl
     TResult Function(FeedGeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1060,6 +1108,8 @@ class _$UEmbedViewRecordViewGeneratorViewImpl
     required TResult Function(UEmbedViewRecordViewListView value) listView,
     required TResult Function(UEmbedViewRecordViewLabelerView value)
         labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
   }) {
     return generatorView(this);
@@ -1075,6 +1125,8 @@ class _$UEmbedViewRecordViewGeneratorViewImpl
     TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult? Function(UEmbedViewRecordViewListView value)? listView,
     TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
   }) {
     return generatorView?.call(this);
@@ -1090,6 +1142,8 @@ class _$UEmbedViewRecordViewGeneratorViewImpl
     TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult Function(UEmbedViewRecordViewListView value)? listView,
     TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1210,6 +1264,7 @@ class _$UEmbedViewRecordViewListViewImpl
     required TResult Function(FeedGeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return listView(data);
@@ -1225,6 +1280,7 @@ class _$UEmbedViewRecordViewListViewImpl
     TResult? Function(FeedGeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return listView?.call(data);
@@ -1240,6 +1296,7 @@ class _$UEmbedViewRecordViewListViewImpl
     TResult Function(FeedGeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1262,6 +1319,8 @@ class _$UEmbedViewRecordViewListViewImpl
     required TResult Function(UEmbedViewRecordViewListView value) listView,
     required TResult Function(UEmbedViewRecordViewLabelerView value)
         labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
   }) {
     return listView(this);
@@ -1277,6 +1336,8 @@ class _$UEmbedViewRecordViewListViewImpl
     TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult? Function(UEmbedViewRecordViewListView value)? listView,
     TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
   }) {
     return listView?.call(this);
@@ -1292,6 +1353,8 @@ class _$UEmbedViewRecordViewListViewImpl
     TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult Function(UEmbedViewRecordViewListView value)? listView,
     TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1410,6 +1473,7 @@ class _$UEmbedViewRecordViewLabelerViewImpl
     required TResult Function(FeedGeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return labelerView(data);
@@ -1425,6 +1489,7 @@ class _$UEmbedViewRecordViewLabelerViewImpl
     TResult? Function(FeedGeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return labelerView?.call(data);
@@ -1440,6 +1505,7 @@ class _$UEmbedViewRecordViewLabelerViewImpl
     TResult Function(FeedGeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1462,6 +1528,8 @@ class _$UEmbedViewRecordViewLabelerViewImpl
     required TResult Function(UEmbedViewRecordViewListView value) listView,
     required TResult Function(UEmbedViewRecordViewLabelerView value)
         labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
   }) {
     return labelerView(this);
@@ -1477,6 +1545,8 @@ class _$UEmbedViewRecordViewLabelerViewImpl
     TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult? Function(UEmbedViewRecordViewListView value)? listView,
     TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
   }) {
     return labelerView?.call(this);
@@ -1492,6 +1562,8 @@ class _$UEmbedViewRecordViewLabelerViewImpl
     TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult Function(UEmbedViewRecordViewListView value)? listView,
     TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1515,6 +1587,218 @@ abstract class UEmbedViewRecordViewLabelerView implements EmbedViewRecordView {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UEmbedViewRecordViewLabelerViewImplCopyWith<
           _$UEmbedViewRecordViewLabelerViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith<$Res> {
+  factory _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith(
+          _$UEmbedViewRecordViewStarterPackViewBasicImpl value,
+          $Res Function(_$UEmbedViewRecordViewStarterPackViewBasicImpl) then) =
+      __$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({StarterPackViewBasic data});
+
+  $StarterPackViewBasicCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWithImpl<$Res>
+    extends _$EmbedViewRecordViewCopyWithImpl<$Res,
+        _$UEmbedViewRecordViewStarterPackViewBasicImpl>
+    implements _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith<$Res> {
+  __$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWithImpl(
+      _$UEmbedViewRecordViewStarterPackViewBasicImpl _value,
+      $Res Function(_$UEmbedViewRecordViewStarterPackViewBasicImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UEmbedViewRecordViewStarterPackViewBasicImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as StarterPackViewBasic,
+    ));
+  }
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StarterPackViewBasicCopyWith<$Res> get data {
+    return $StarterPackViewBasicCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UEmbedViewRecordViewStarterPackViewBasicImpl
+    implements UEmbedViewRecordViewStarterPackViewBasic {
+  const _$UEmbedViewRecordViewStarterPackViewBasicImpl({required this.data});
+
+  @override
+  final StarterPackViewBasic data;
+
+  @override
+  String toString() {
+    return 'EmbedViewRecordView.starterPackViewBasic(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UEmbedViewRecordViewStarterPackViewBasicImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith<
+          _$UEmbedViewRecordViewStarterPackViewBasicImpl>
+      get copyWith =>
+          __$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWithImpl<
+              _$UEmbedViewRecordViewStarterPackViewBasicImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(EmbedViewRecordViewRecord data) record,
+    required TResult Function(EmbedViewRecordViewNotFound data) notFound,
+    required TResult Function(EmbedViewRecordViewBlocked data) blocked,
+    required TResult Function(EmbedRecordViewDetached data) viewDetached,
+    required TResult Function(FeedGeneratorView data) generatorView,
+    required TResult Function(ListView data) listView,
+    required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return starterPackViewBasic(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(EmbedViewRecordViewRecord data)? record,
+    TResult? Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult? Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult? Function(EmbedRecordViewDetached data)? viewDetached,
+    TResult? Function(FeedGeneratorView data)? generatorView,
+    TResult? Function(ListView data)? listView,
+    TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return starterPackViewBasic?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EmbedViewRecordViewRecord data)? record,
+    TResult Function(EmbedViewRecordViewNotFound data)? notFound,
+    TResult Function(EmbedViewRecordViewBlocked data)? blocked,
+    TResult Function(EmbedRecordViewDetached data)? viewDetached,
+    TResult Function(FeedGeneratorView data)? generatorView,
+    TResult Function(ListView data)? listView,
+    TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (starterPackViewBasic != null) {
+      return starterPackViewBasic(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UEmbedViewRecordViewRecord value) record,
+    required TResult Function(UEmbedViewRecordViewNotFound value) notFound,
+    required TResult Function(UEmbedViewRecordViewBlocked value) blocked,
+    required TResult Function(UEmbedViewRecordViewViewDetached value)
+        viewDetached,
+    required TResult Function(UEmbedViewRecordViewGeneratorView value)
+        generatorView,
+    required TResult Function(UEmbedViewRecordViewListView value) listView,
+    required TResult Function(UEmbedViewRecordViewLabelerView value)
+        labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
+    required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
+  }) {
+    return starterPackViewBasic(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UEmbedViewRecordViewRecord value)? record,
+    TResult? Function(UEmbedViewRecordViewNotFound value)? notFound,
+    TResult? Function(UEmbedViewRecordViewBlocked value)? blocked,
+    TResult? Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
+    TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
+    TResult? Function(UEmbedViewRecordViewListView value)? listView,
+    TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
+    TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
+  }) {
+    return starterPackViewBasic?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UEmbedViewRecordViewRecord value)? record,
+    TResult Function(UEmbedViewRecordViewNotFound value)? notFound,
+    TResult Function(UEmbedViewRecordViewBlocked value)? blocked,
+    TResult Function(UEmbedViewRecordViewViewDetached value)? viewDetached,
+    TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
+    TResult Function(UEmbedViewRecordViewListView value)? listView,
+    TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
+    TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (starterPackViewBasic != null) {
+      return starterPackViewBasic(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UEmbedViewRecordViewStarterPackViewBasic
+    implements EmbedViewRecordView {
+  const factory UEmbedViewRecordViewStarterPackViewBasic(
+          {required final StarterPackViewBasic data}) =
+      _$UEmbedViewRecordViewStarterPackViewBasicImpl;
+
+  @override
+  StarterPackViewBasic get data;
+
+  /// Create a copy of EmbedViewRecordView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UEmbedViewRecordViewStarterPackViewBasicImplCopyWith<
+          _$UEmbedViewRecordViewStarterPackViewBasicImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1605,6 +1889,7 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
     required TResult Function(FeedGeneratorView data) generatorView,
     required TResult Function(ListView data) listView,
     required TResult Function(LabelerView data) labelerView,
+    required TResult Function(StarterPackViewBasic data) starterPackViewBasic,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -1620,6 +1905,7 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
     TResult? Function(FeedGeneratorView data)? generatorView,
     TResult? Function(ListView data)? listView,
     TResult? Function(LabelerView data)? labelerView,
+    TResult? Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -1635,6 +1921,7 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
     TResult Function(FeedGeneratorView data)? generatorView,
     TResult Function(ListView data)? listView,
     TResult Function(LabelerView data)? labelerView,
+    TResult Function(StarterPackViewBasic data)? starterPackViewBasic,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1657,6 +1944,8 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
     required TResult Function(UEmbedViewRecordViewListView value) listView,
     required TResult Function(UEmbedViewRecordViewLabelerView value)
         labelerView,
+    required TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)
+        starterPackViewBasic,
     required TResult Function(UEmbedViewRecordViewUnknown value) unknown,
   }) {
     return unknown(this);
@@ -1672,6 +1961,8 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
     TResult? Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult? Function(UEmbedViewRecordViewListView value)? listView,
     TResult? Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult? Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult? Function(UEmbedViewRecordViewUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -1687,6 +1978,8 @@ class _$UEmbedViewRecordViewUnknownImpl implements UEmbedViewRecordViewUnknown {
     TResult Function(UEmbedViewRecordViewGeneratorView value)? generatorView,
     TResult Function(UEmbedViewRecordViewListView value)? listView,
     TResult Function(UEmbedViewRecordViewLabelerView value)? labelerView,
+    TResult Function(UEmbedViewRecordViewStarterPackViewBasic value)?
+        starterPackViewBasic,
     TResult Function(UEmbedViewRecordViewUnknown value)? unknown,
     required TResult orElse(),
   }) {

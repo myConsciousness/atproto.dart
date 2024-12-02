@@ -14,6 +14,7 @@ import 'entities/suggestions_skeleton.dart';
 import 'entities/tagged_suggestions.dart';
 import 'service_context.dart';
 import 'types/app/bsky/unspecced/getConfig/output.dart';
+import 'types/app/bsky/unspecced/searchStarterPacksSkeleton/output.dart';
 
 /// Represents `app.bsky.unspecced.*` service.
 final class UnspeccedService {
@@ -138,4 +139,25 @@ final class UnspeccedService {
         headers: $headers,
         to: GetConfigOutput.fromJson,
       );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchStarterPacksSkeleton
+  Future<core.XRPCResponse<SearchStarterPacksSkeletonOutput>>
+      searchStarterPacksSkeleton({
+    required String q,
+    String? viewer,
+    int? limit,
+    String? cursor,
+    Map<String, String>? $header,
+  }) async =>
+          await _ctx.get(
+            headers: $header,
+            ns.appBskyUnspeccedSearchStarterPacksSkeleton,
+            parameters: {
+              'q': q,
+              'viewer': viewer,
+              'limit': limit,
+              'cursor': cursor,
+            },
+            to: SearchStarterPacksSkeletonOutput.fromJson,
+          );
 }

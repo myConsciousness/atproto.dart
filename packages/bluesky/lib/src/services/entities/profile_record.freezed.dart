@@ -28,6 +28,7 @@ mixin _$ProfileRecord {
   Blob? get banner => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
+  StrongRef? get joinedViaStarterPack => throw _privateConstructorUsedError;
   StrongRef? get pinnedPost => throw _privateConstructorUsedError;
 
   /// Serializes this ProfileRecord to a JSON map.
@@ -53,11 +54,13 @@ abstract class $ProfileRecordCopyWith<$Res> {
       Blob? avatar,
       Blob? banner,
       @labelsConverter Labels? labels,
+      StrongRef? joinedViaStarterPack,
       StrongRef? pinnedPost});
 
   $BlobCopyWith<$Res>? get avatar;
   $BlobCopyWith<$Res>? get banner;
   $LabelsCopyWith<$Res>? get labels;
+  $StrongRefCopyWith<$Res>? get joinedViaStarterPack;
   $StrongRefCopyWith<$Res>? get pinnedPost;
 }
 
@@ -82,6 +85,7 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
     Object? avatar = freezed,
     Object? banner = freezed,
     Object? labels = freezed,
+    Object? joinedViaStarterPack = freezed,
     Object? pinnedPost = freezed,
   }) {
     return _then(_value.copyWith(
@@ -109,6 +113,10 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
+      joinedViaStarterPack: freezed == joinedViaStarterPack
+          ? _value.joinedViaStarterPack
+          : joinedViaStarterPack // ignore: cast_nullable_to_non_nullable
+              as StrongRef?,
       pinnedPost: freezed == pinnedPost
           ? _value.pinnedPost
           : pinnedPost // ignore: cast_nullable_to_non_nullable
@@ -162,6 +170,20 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res>? get joinedViaStarterPack {
+    if (_value.joinedViaStarterPack == null) {
+      return null;
+    }
+
+    return $StrongRefCopyWith<$Res>(_value.joinedViaStarterPack!, (value) {
+      return _then(_value.copyWith(joinedViaStarterPack: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ProfileRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StrongRefCopyWith<$Res>? get pinnedPost {
     if (_value.pinnedPost == null) {
       return null;
@@ -188,6 +210,7 @@ abstract class _$$ProfileRecordImplCopyWith<$Res>
       Blob? avatar,
       Blob? banner,
       @labelsConverter Labels? labels,
+      StrongRef? joinedViaStarterPack,
       StrongRef? pinnedPost});
 
   @override
@@ -196,6 +219,8 @@ abstract class _$$ProfileRecordImplCopyWith<$Res>
   $BlobCopyWith<$Res>? get banner;
   @override
   $LabelsCopyWith<$Res>? get labels;
+  @override
+  $StrongRefCopyWith<$Res>? get joinedViaStarterPack;
   @override
   $StrongRefCopyWith<$Res>? get pinnedPost;
 }
@@ -219,6 +244,7 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? banner = freezed,
     Object? labels = freezed,
+    Object? joinedViaStarterPack = freezed,
     Object? pinnedPost = freezed,
   }) {
     return _then(_$ProfileRecordImpl(
@@ -246,6 +272,10 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
+      joinedViaStarterPack: freezed == joinedViaStarterPack
+          ? _value.joinedViaStarterPack
+          : joinedViaStarterPack // ignore: cast_nullable_to_non_nullable
+              as StrongRef?,
       pinnedPost: freezed == pinnedPost
           ? _value.pinnedPost
           : pinnedPost // ignore: cast_nullable_to_non_nullable
@@ -265,6 +295,7 @@ class _$ProfileRecordImpl implements _ProfileRecord {
       this.avatar,
       this.banner,
       @labelsConverter this.labels,
+      this.joinedViaStarterPack,
       this.pinnedPost});
 
   factory _$ProfileRecordImpl.fromJson(Map<String, dynamic> json) =>
@@ -285,11 +316,13 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   @labelsConverter
   final Labels? labels;
   @override
+  final StrongRef? joinedViaStarterPack;
+  @override
   final StrongRef? pinnedPost;
 
   @override
   String toString() {
-    return 'ProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, pinnedPost: $pinnedPost)';
+    return 'ProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, joinedViaStarterPack: $joinedViaStarterPack, pinnedPost: $pinnedPost)';
   }
 
   @override
@@ -305,6 +338,8 @@ class _$ProfileRecordImpl implements _ProfileRecord {
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.banner, banner) || other.banner == banner) &&
             (identical(other.labels, labels) || other.labels == labels) &&
+            (identical(other.joinedViaStarterPack, joinedViaStarterPack) ||
+                other.joinedViaStarterPack == joinedViaStarterPack) &&
             (identical(other.pinnedPost, pinnedPost) ||
                 other.pinnedPost == pinnedPost));
   }
@@ -312,7 +347,7 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, displayName, description,
-      avatar, banner, labels, pinnedPost);
+      avatar, banner, labels, joinedViaStarterPack, pinnedPost);
 
   /// Create a copy of ProfileRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -338,6 +373,7 @@ abstract class _ProfileRecord implements ProfileRecord {
       final Blob? avatar,
       final Blob? banner,
       @labelsConverter final Labels? labels,
+      final StrongRef? joinedViaStarterPack,
       final StrongRef? pinnedPost}) = _$ProfileRecordImpl;
 
   factory _ProfileRecord.fromJson(Map<String, dynamic> json) =
@@ -357,6 +393,8 @@ abstract class _ProfileRecord implements ProfileRecord {
   @override
   @labelsConverter
   Labels? get labels;
+  @override
+  StrongRef? get joinedViaStarterPack;
   @override
   StrongRef? get pinnedPost;
 

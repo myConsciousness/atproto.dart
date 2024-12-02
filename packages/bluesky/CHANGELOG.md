@@ -1,5 +1,21 @@
 # Release Note
 
+## v0.18.4
+
+- Add endpoints on `GraphService`.
+  - `starterpack`
+  - `getActorStarterPacks`
+  - `getStarterPack`
+  - `getStarterPacks`
+  - `searchStarterPacks`
+- Add an endpoint on `UnspeccedService`.
+  - `searchStarterPacksSkeleton`
+- Add `starterPacks` property on `ProfileAssociated`.
+- Add `joinedViaStarterPack` property on `ProfileRecord`.
+- Add `starterPackViewBasic` union on `EmbedViewRecordView`.
+- Add `joinedViaStarterPack` and `createdAt` parameters on `ActorService.profile`.
+- Expose `EmbedViewRecordViewRecord` from `bluesky.dart` package.
+
 ## v0.18.3
 
 - Expose `JwtExtension`.

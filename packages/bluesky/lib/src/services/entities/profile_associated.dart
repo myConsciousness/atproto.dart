@@ -23,6 +23,7 @@ class ProfileAssociated with _$ProfileAssociated {
     @typeKey @Default(appBskyActorDefsProfileAssociated) String type,
     @Default(0) int lists,
     @Default(0) int feedgens,
+    @Default(0) int starterPacks,
     @Default(false) bool labeler,
     ActorProfileAssociatedChat? chat,
   }) = _ProfileAssociated;

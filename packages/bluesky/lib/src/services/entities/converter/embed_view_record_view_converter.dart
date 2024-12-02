@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
 import '../../types/app/bsky/embed/record/embed_record_view_detached.dart';
+import '../../types/app/bsky/graph/defs/starter_pack_view_basic.dart';
 import '../embed_view_record_view.dart';
 import '../embed_view_record_view_blocked.dart';
 import '../embed_view_record_view_not_found.dart';
@@ -57,6 +58,10 @@ final class _EmbedViewRecordViewConverter
         return EmbedViewRecordView.labelerView(
           data: LabelerView.fromJson(json),
         );
+      } else if (type == ids.appBskyGraphDefsStarterPackViewBasic) {
+        return EmbedViewRecordView.starterPackViewBasic(
+          data: StarterPackViewBasic.fromJson(json),
+        );
       }
 
       return EmbedViewRecordView.unknown(data: json);
@@ -74,6 +79,7 @@ final class _EmbedViewRecordViewConverter
         generatorView: (data) => data.toJson(),
         listView: (data) => data.toJson(),
         labelerView: (data) => data.toJson(),
+        starterPackViewBasic: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }
