@@ -22,9 +22,9 @@ import 'params/list_item_param.dart';
 import 'params/list_param.dart';
 import 'params/repo_param.dart';
 import 'service_context.dart';
-import 'types/app/bsky/graph/defs/starter_pack_view.dart';
 import 'types/app/bsky/graph/getActorStarterPacks/output.dart';
 import 'types/app/bsky/graph/getKnownFollowers/output.dart';
+import 'types/app/bsky/graph/getStarterPack/output.dart';
 import 'types/app/bsky/graph/getStarterPacks/output.dart';
 import 'types/app/bsky/graph/searchStarterPacks/output.dart';
 import 'types/app/bsky/graph/starterpack/feed_item.dart';
@@ -416,7 +416,7 @@ final class GraphService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPack
-  Future<core.XRPCResponse<StarterPackView>> getStarterPack({
+  Future<core.XRPCResponse<GetStarterPackOutput>> getStarterPack({
     required core.AtUri starterPack,
     Map<String, String>? $header,
   }) async =>
@@ -426,7 +426,7 @@ final class GraphService {
         parameters: {
           'starterPack': starterPack,
         },
-        to: StarterPackView.fromJson,
+        to: GetStarterPackOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPacks
