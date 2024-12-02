@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.18.5
+
+- Change the type of `starterPack` on `GetStarterPackOutput` from `StarterPackViewBasic` to `StarterPackView`.
+- Add `.referencelist` utility on `GraphService`. You can use it for creating starter packs.
+
 ## v0.18.4
 
 - Add endpoints on `GraphService`.
