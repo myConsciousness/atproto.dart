@@ -10051,7 +10051,12 @@ const toolsOzoneModerationDefs = <String, dynamic>{
     "modEventAcknowledge": {
       "type": "object",
       "properties": {
-        "comment": {"type": "string"}
+        "comment": {"type": "string"},
+        "acknowledgeAccountSubjects": {
+          "type": "boolean",
+          "description":
+              "If true, all other reports on content authored by this account will be resolved (acknowledged)."
+        }
       }
     },
     "modEventEscalate": {
