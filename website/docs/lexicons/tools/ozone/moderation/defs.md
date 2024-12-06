@@ -135,6 +135,7 @@ Apply/Negate labels on a subject
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **comment** | string | - | ❌ | - |
+| **acknowledgeAccountSubjects** | boolean | - | ❌ | If true, all other reports on content authored by this account will be resolved (acknowledged). |
 
 ## #modEventEscalate
 
