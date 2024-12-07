@@ -76,10 +76,6 @@ const config = {
     ({
       // Replace with your project's social card
       image: "img/social_card.png",
-      announcementBar: {
-        id: "announcementBar-2", // Increment on change
-        content: `⭐️ If you like atproto.dart, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/myConsciousness/atproto.dart">GitHub</a> and follow <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/shinyakato.dev">Shinya Kato on Bluesky</a> ⭐️`,
-      },
       navbar: {
         title: "atproto.dart",
         logo: {
@@ -151,51 +147,9 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Bluesky API Touchers",
-                href: "https://discord.gg/zWed6y3V",
-              },
-              {
-                label: "Repository",
+                label: "GitHub (atproto.dart)",
                 href: "https://github.com/myConsciousness/atproto.dart",
               },
-              {
-                label: "Issues",
-                href: "https://github.com/myConsciousness/atproto.dart/issues",
-              },
-              {
-                label: "Discussions",
-                href: "https://github.com/myConsciousness/atproto.dart/discussions",
-              },
-              {
-                label: "Code of Conduct",
-                href: "https://github.com/myConsciousness/atproto.dart/blob/main/CODE_OF_CONDUCT.md",
-              },
-            ],
-          },
-          {
-            title: "Contact",
-            items: [
-              {
-                label: "Bluesky Social",
-                href: "https://bsky.app/profile/shinyakato.dev",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/myConsciousness",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/users/919043517974720514",
-              },
-              {
-                label: "contact@shinyakato.dev",
-                href: "mailto:contact@shinyakato.dev",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
               {
                 label: "AT Protocol Official",
                 href: "https://atproto.com",
@@ -203,6 +157,10 @@ const config = {
               {
                 label: "Bluesky Social Official",
                 href: "https://blueskyweb.xyz",
+              },
+              {
+                label: "Bluesky API Touchers",
+                href: "https://discord.gg/zWed6y3V",
               },
             ],
           },

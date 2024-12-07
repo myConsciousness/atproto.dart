@@ -46,7 +46,7 @@ void main(List<String> args) {
     'bluesky': [
       _only(services, authority: 'app.bsky'),
       _only(services, authority: 'chat.bsky'),
-      _only(services, authority: 'tools.ozone')
+      // _only(services, authority: 'tools.ozone')
     ],
   }.forEach((package, services) {
     matrix

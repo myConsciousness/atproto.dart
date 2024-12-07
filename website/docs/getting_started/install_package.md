@@ -41,10 +41,10 @@ description: A sample application.
 version: 1.0.0
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.3.0
 
 dependencies:
-  bluesky: ^0.6.0
+  bluesky: ^0.18.6
 
 dev_dependencies:
   lints: ^2.0.0
