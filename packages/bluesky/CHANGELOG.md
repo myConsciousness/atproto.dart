@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.18.6
+
+- Bump `xrpc`.
+
 ## v0.18.5
 
 - Change the type of `starterPack` on `GetStarterPackOutput` from `StarterPackViewBasic` to `StarterPackView`.

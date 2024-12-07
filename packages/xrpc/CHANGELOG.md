@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.1
+
+- Use `web_socket_channel: ^3.0.0`.
+
 ## v0.6.0
 
 - Add parameter `headerBuilder` on `query` and `procedure` functions.

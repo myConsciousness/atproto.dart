@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.11.2
+
+- Bump `xrpc`.
+
 ## v0.11.1
 
 - Retry if a DPoP nonce error occurs during the execution of `OAuthClient.refresh`.

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.13.3
+
+- Bump `xrpc`.
+
 ## v0.13.2
 
 - Expose `JwtExtension`.
