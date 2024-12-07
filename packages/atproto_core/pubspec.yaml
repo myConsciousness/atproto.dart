@@ -40,7 +40,3 @@ dev_dependencies:
 
 import_sorter:
   emojis: true
-
-screenshots:
-  - description: The atproto_core package and atproto.dart logo.
-    path: screenshots/logo.png
