@@ -5461,6 +5461,15 @@ const appBskyNotificationListNotifications = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
+          "reasons": {
+            "type": "array",
+            "description": "Notification reasons to include in response.",
+            "items": {
+              "type": "string",
+              "description":
+                  "A reason that matches the reason property of #notification."
+            }
+          },
           "limit": {
             "type": "integer",
             "default": 50,
