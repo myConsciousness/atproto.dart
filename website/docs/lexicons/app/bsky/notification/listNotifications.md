@@ -13,6 +13,7 @@ Enumerate notifications for the requesting account. Requires auth.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **reasons** | array | - | ❌ | A reason that matches the reason property of #notification. |
 | **limit** | integer | - | ❌ | - |
 | **priority** | boolean | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
