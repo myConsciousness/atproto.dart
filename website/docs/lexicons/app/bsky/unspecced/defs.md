@@ -22,3 +22,12 @@ description: app.bsky.unspecced.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+
+## #trendingTopic
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **topic** | string | - | ✅ | - |
+| **displayName** | string | - | ❌ | - |
+| **description** | string | - | ❌ | - |
+| **link** | string | - | ✅ | - |

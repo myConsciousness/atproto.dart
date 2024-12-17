@@ -6529,6 +6529,16 @@ const appBskyUnspeccedDefs = <String, dynamic>{
       "properties": {
         "uri": {"type": "string", "format": "at-uri"}
       }
+    },
+    "trendingTopic": {
+      "type": "object",
+      "required": ["topic", "link"],
+      "properties": {
+        "topic": {"type": "string"},
+        "displayName": {"type": "string"},
+        "description": {"type": "string"},
+        "link": {"type": "string"}
+      }
     }
   }
 };
@@ -6719,6 +6729,58 @@ const appBskyUnspeccedGetConfig = <String, dynamic>{
           "required": [],
           "properties": {
             "checkEmailConfirmed": {"type": "boolean"}
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getTrendingTopics`
+const appBskyUnspeccedGetTrendingTopics = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrendingTopics",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of trending topics",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["topics", "suggested"],
+          "properties": {
+            "topics": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#trendingTopic"
+              }
+            },
+            "suggested": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#trendingTopic"
+              }
+            }
           }
         }
       }
@@ -11346,6 +11408,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyUnspeccedGetSuggestionsSkeleton,
   appBskyUnspeccedSearchActorsSkeleton,
   appBskyUnspeccedGetConfig,
+  appBskyUnspeccedGetTrendingTopics,
   appBskyUnspeccedGetTaggedSuggestions,
   appBskyUnspeccedSearchPostsSkeleton,
   appBskyLabelerDefs,
