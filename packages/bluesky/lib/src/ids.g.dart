@@ -584,6 +584,10 @@ const appBskyUnspeccedDefsSkeletonSearchPost =
 const appBskyUnspeccedDefsSkeletonSearchStarterPack =
     'app.bsky.unspecced.defs#skeletonSearchStarterPack';
 
+/// `app.bsky.unspecced.defs#trendingTopic`
+const appBskyUnspeccedDefsTrendingTopic =
+    'app.bsky.unspecced.defs#trendingTopic';
+
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
 
@@ -602,6 +606,10 @@ const appBskyUnspeccedGetTaggedSuggestions =
 /// `app.bsky.unspecced.getTaggedSuggestions#suggestion`
 const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
     'app.bsky.unspecced.getTaggedSuggestions#suggestion';
+
+/// `app.bsky.unspecced.getTrendingTopics`
+const appBskyUnspeccedGetTrendingTopics =
+    'app.bsky.unspecced.getTrendingTopics';
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =

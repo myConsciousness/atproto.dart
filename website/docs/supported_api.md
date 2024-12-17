@@ -201,6 +201,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.unspecced.getSuggestionsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestionsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestionsSkeleton.md) | ✅ |
 | **[app.bsky.unspecced.searchActorsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchActorsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchActorsSkeleton.md) | ✅ |
 | **[app.bsky.unspecced.getConfig](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getConfig.html)** | [Reference](lexicons/app/bsky/unspecced/getConfig.md) | ❌ |
+| **[app.bsky.unspecced.getTrendingTopics](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTrendingTopics.html)** | [Reference](lexicons/app/bsky/unspecced/getTrendingTopics.md) | ❌ |
 | **[app.bsky.unspecced.getTaggedSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTaggedSuggestions.html)** | [Reference](lexicons/app/bsky/unspecced/getTaggedSuggestions.md) | ❌ |
 | **[app.bsky.unspecced.searchPostsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchPostsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchPostsSkeleton.md) | ✅ |
 
