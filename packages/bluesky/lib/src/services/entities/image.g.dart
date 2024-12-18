@@ -26,18 +26,10 @@ _$ImageImpl _$$ImageImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ImageImplToJson(_$ImageImpl instance) {
-  final val = <String, dynamic>{
-    'alt': instance.alt,
-    'image': const BlobConverter().toJson(instance.image),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('aspectRatio', instance.aspectRatio?.toJson());
-  return val;
-}
+Map<String, dynamic> _$$ImageImplToJson(_$ImageImpl instance) =>
+    <String, dynamic>{
+      'alt': instance.alt,
+      'image': const BlobConverter().toJson(instance.image),
+      if (instance.aspectRatio?.toJson() case final value?)
+        'aspectRatio': value,
+    };

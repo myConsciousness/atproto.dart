@@ -30,18 +30,9 @@ _$GetKnownFollowersOutputImpl _$$GetKnownFollowersOutputImplFromJson(
     );
 
 Map<String, dynamic> _$$GetKnownFollowersOutputImplToJson(
-    _$GetKnownFollowersOutputImpl instance) {
-  final val = <String, dynamic>{
-    'subject': instance.subject.toJson(),
-    'followers': instance.followers.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  return val;
-}
+        _$GetKnownFollowersOutputImpl instance) =>
+    <String, dynamic>{
+      'subject': instance.subject.toJson(),
+      'followers': instance.followers.map((e) => e.toJson()).toList(),
+      if (instance.cursor case final value?) 'cursor': value,
+    };

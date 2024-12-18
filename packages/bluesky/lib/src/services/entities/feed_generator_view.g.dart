@@ -56,30 +56,23 @@ _$FeedGeneratorViewImpl _$$FeedGeneratorViewImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$FeedGeneratorViewImplToJson(
-    _$FeedGeneratorViewImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'uri': const AtUriConverter().toJson(instance.uri),
-    'cid': instance.cid,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('did', instance.did);
-  val['creator'] = instance.createdBy.toJson();
-  val['displayName'] = instance.displayName;
-  writeNotNull('description', instance.description);
-  writeNotNull('descriptionFacets',
-      instance.descriptionFacets?.map((e) => e.toJson()).toList());
-  writeNotNull('avatar', instance.avatar);
-  val['likeCount'] = instance.likeCount;
-  val['acceptsInteractions'] = instance.acceptsInteractions;
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['viewer'] = instance.viewer.toJson();
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+        _$FeedGeneratorViewImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'cid': instance.cid,
+      if (instance.did case final value?) 'did': value,
+      'creator': instance.createdBy.toJson(),
+      'displayName': instance.displayName,
+      if (instance.description case final value?) 'description': value,
+      if (instance.descriptionFacets?.map((e) => e.toJson()).toList()
+          case final value?)
+        'descriptionFacets': value,
+      if (instance.avatar case final value?) 'avatar': value,
+      'likeCount': instance.likeCount,
+      'acceptsInteractions': instance.acceptsInteractions,
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      'viewer': instance.viewer.toJson(),
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };

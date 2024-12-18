@@ -27,20 +27,11 @@ _$EmbedViewExternalViewImpl _$$EmbedViewExternalViewImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$EmbedViewExternalViewImplToJson(
-    _$EmbedViewExternalViewImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'uri': instance.uri,
-    'title': instance.title,
-    'description': instance.description,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('thumb', instance.thumbnail);
-  return val;
-}
+        _$EmbedViewExternalViewImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'uri': instance.uri,
+      'title': instance.title,
+      'description': instance.description,
+      if (instance.thumbnail case final value?) 'thumb': value,
+    };

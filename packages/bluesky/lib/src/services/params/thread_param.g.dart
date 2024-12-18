@@ -46,32 +46,25 @@ _$ThreadParamImpl _$$ThreadParamImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ThreadParamImplToJson(_$ThreadParamImpl instance) {
-  final val = <String, dynamic>{
-    'text': instance.text,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, Embed>(
-          instance.embed, embedConverter.toJson));
-  writeNotNull('languageTags', instance.languageTags);
-  writeNotNull(
-      'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
-          instance.labels, labelsConverter.toJson));
-  writeNotNull('tags', instance.tags);
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
-  val['unspecced'] = instance.unspecced;
-  return val;
-}
+Map<String, dynamic> _$$ThreadParamImplToJson(_$ThreadParamImpl instance) =>
+    <String, dynamic>{
+      'text': instance.text,
+      if (instance.facets?.map((e) => e.toJson()).toList() case final value?)
+        'facets': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Embed>(
+              instance.embed, embedConverter.toJson)
+          case final value?)
+        'embed': value,
+      if (instance.languageTags case final value?) 'languageTags': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Labels>(
+              instance.labels, labelsConverter.toJson)
+          case final value?)
+        'labels': value,
+      if (instance.tags case final value?) 'tags': value,
+      if (instance.createdAt?.toIso8601String() case final value?)
+        'createdAt': value,
+      'unspecced': instance.unspecced,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

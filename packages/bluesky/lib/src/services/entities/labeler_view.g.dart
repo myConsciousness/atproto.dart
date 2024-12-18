@@ -42,23 +42,15 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$LabelerViewImplToJson(_$LabelerViewImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'uri': const AtUriConverter().toJson(instance.uri),
-    'cid': instance.cid,
-    'creator': instance.creator.toJson(),
-    'likeCount': instance.likeCount,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['viewer'] = instance.viewer.toJson();
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+Map<String, dynamic> _$$LabelerViewImplToJson(_$LabelerViewImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'cid': instance.cid,
+      'creator': instance.creator.toJson(),
+      'likeCount': instance.likeCount,
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      'viewer': instance.viewer.toJson(),
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };

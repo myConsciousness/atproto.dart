@@ -46,25 +46,17 @@ _$StarterPackViewBasicImpl _$$StarterPackViewBasicImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$StarterPackViewBasicImplToJson(
-    _$StarterPackViewBasicImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'uri': const AtUriConverter().toJson(instance.uri),
-    'cid': instance.cid,
-    'record': instance.record.toJson(),
-    'creator': instance.creator.toJson(),
-    'listItemCount': instance.listItemCount,
-    'joinedWeekCount': instance.joinedWeekCount,
-    'joinedAllTimeCount': instance.joinedAllTimeCount,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+        _$StarterPackViewBasicImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'cid': instance.cid,
+      'record': instance.record.toJson(),
+      'creator': instance.creator.toJson(),
+      'listItemCount': instance.listItemCount,
+      'joinedWeekCount': instance.joinedWeekCount,
+      'joinedAllTimeCount': instance.joinedAllTimeCount,
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };

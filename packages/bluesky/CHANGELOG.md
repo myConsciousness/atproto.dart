@@ -4,6 +4,7 @@
 
 - Add `reasons` parameter on `NotificationService.listNotification`. ([#1849](https://github.com/myConsciousness/atproto.dart/pull/1849))
   - Removed `NotificationReasonFilter`.
+- Add `.getTrendingTopics` on `UnspeccedService`. ([#1850](https://github.com/myConsciousness/atproto.dart/pull/1850))
 
 ## v0.18.6
 

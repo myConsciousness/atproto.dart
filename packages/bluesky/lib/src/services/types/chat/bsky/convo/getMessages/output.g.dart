@@ -27,18 +27,9 @@ _$GetMessagesOutputImpl _$$GetMessagesOutputImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$GetMessagesOutputImplToJson(
-    _$GetMessagesOutputImpl instance) {
-  final val = <String, dynamic>{
-    'messages':
-        instance.messages.map(unionConvoMessageViewConverter.toJson).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  return val;
-}
+        _$GetMessagesOutputImpl instance) =>
+    <String, dynamic>{
+      'messages':
+          instance.messages.map(unionConvoMessageViewConverter.toJson).toList(),
+      if (instance.cursor case final value?) 'cursor': value,
+    };

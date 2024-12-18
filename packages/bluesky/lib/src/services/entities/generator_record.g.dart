@@ -45,31 +45,23 @@ _$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$GeneratorRecordImplToJson(
-    _$GeneratorRecordImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'did': instance.did,
-    'displayName': instance.displayName,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('descriptionFacets',
-      instance.descriptionFacets?.map((e) => e.toJson()).toList());
-  writeNotNull('avatar', instance.avatar?.toJson());
-  val['acceptsInteractions'] = instance.acceptsInteractions;
-  writeNotNull(
-      'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
-          instance.labels, labelsConverter.toJson));
-  val['createdAt'] = instance.createdAt.toIso8601String();
-  return val;
-}
+        _$GeneratorRecordImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'did': instance.did,
+      'displayName': instance.displayName,
+      if (instance.description case final value?) 'description': value,
+      if (instance.descriptionFacets?.map((e) => e.toJson()).toList()
+          case final value?)
+        'descriptionFacets': value,
+      if (instance.avatar?.toJson() case final value?) 'avatar': value,
+      'acceptsInteractions': instance.acceptsInteractions,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Labels>(
+              instance.labels, labelsConverter.toJson)
+          case final value?)
+        'labels': value,
+      'createdAt': instance.createdAt.toIso8601String(),
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

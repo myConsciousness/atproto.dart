@@ -14,6 +14,7 @@ import 'entities/suggestions_skeleton.dart';
 import 'entities/tagged_suggestions.dart';
 import 'service_context.dart';
 import 'types/app/bsky/unspecced/getConfig/output.dart';
+import 'types/app/bsky/unspecced/getTrendingTopics/output.dart';
 import 'types/app/bsky/unspecced/searchStarterPacksSkeleton/output.dart';
 
 /// Represents `app.bsky.unspecced.*` service.
@@ -160,4 +161,20 @@ final class UnspeccedService {
             },
             to: SearchStarterPacksSkeletonOutput.fromJson,
           );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTrendingTopics
+  Future<core.XRPCResponse<GetTrendingTopicsOutput>> getTrendingTopics({
+    String? viewer,
+    int? limit,
+    Map<String, String>? $header,
+  }) async =>
+      await _ctx.get(
+        headers: $header,
+        ns.appBskyUnspeccedGetTrendingTopics,
+        parameters: {
+          'viewer': viewer,
+          'limit': limit,
+        },
+        to: GetTrendingTopicsOutput.fromJson,
+      );
 }

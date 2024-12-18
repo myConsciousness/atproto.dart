@@ -31,19 +31,11 @@ _$StrongRefParamImpl _$$StrongRefParamImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$StrongRefParamImplToJson(
-    _$StrongRefParamImpl instance) {
-  final val = <String, dynamic>{
-    'cid': instance.cid,
-    'uri': const AtUriConverter().toJson(instance.uri),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
-  val['unspecced'] = instance.unspecced;
-  return val;
-}
+        _$StrongRefParamImpl instance) =>
+    <String, dynamic>{
+      'cid': instance.cid,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      if (instance.createdAt?.toIso8601String() case final value?)
+        'createdAt': value,
+      'unspecced': instance.unspecced,
+    };

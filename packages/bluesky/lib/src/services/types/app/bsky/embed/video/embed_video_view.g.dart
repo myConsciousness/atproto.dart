@@ -31,21 +31,13 @@ _$EmbedVideoViewImpl _$$EmbedVideoViewImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$EmbedVideoViewImplToJson(
-    _$EmbedVideoViewImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'cid': instance.cid,
-    'playlist': instance.playlist,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('thumbnail', instance.thumbnail);
-  writeNotNull('alt', instance.alt);
-  writeNotNull('aspectRatio', instance.aspectRatio?.toJson());
-  return val;
-}
+        _$EmbedVideoViewImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'cid': instance.cid,
+      'playlist': instance.playlist,
+      if (instance.thumbnail case final value?) 'thumbnail': value,
+      if (instance.alt case final value?) 'alt': value,
+      if (instance.aspectRatio?.toJson() case final value?)
+        'aspectRatio': value,
+    };

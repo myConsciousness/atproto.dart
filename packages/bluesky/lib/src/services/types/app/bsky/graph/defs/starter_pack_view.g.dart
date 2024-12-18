@@ -62,28 +62,22 @@ _$StarterPackViewImpl _$$StarterPackViewImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$StarterPackViewImplToJson(
-    _$StarterPackViewImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'uri': const AtUriConverter().toJson(instance.uri),
-    'cid': instance.cid,
-    'record': instance.record.toJson(),
-    'creator': instance.creator.toJson(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('list', instance.list?.toJson());
-  writeNotNull('listItemsSample',
-      instance.listItemsSample?.map((e) => e.toJson()).toList());
-  writeNotNull('feeds', instance.feeds?.map((e) => e.toJson()).toList());
-  val['joinedWeekCount'] = instance.joinedWeekCount;
-  val['joinedAllTimeCount'] = instance.joinedAllTimeCount;
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+        _$StarterPackViewImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'cid': instance.cid,
+      'record': instance.record.toJson(),
+      'creator': instance.creator.toJson(),
+      if (instance.list?.toJson() case final value?) 'list': value,
+      if (instance.listItemsSample?.map((e) => e.toJson()).toList()
+          case final value?)
+        'listItemsSample': value,
+      if (instance.feeds?.map((e) => e.toJson()).toList() case final value?)
+        'feeds': value,
+      'joinedWeekCount': instance.joinedWeekCount,
+      'joinedAllTimeCount': instance.joinedAllTimeCount,
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };

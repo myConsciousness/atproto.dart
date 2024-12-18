@@ -24,21 +24,13 @@ _$FeedGeneratorViewerImpl _$$FeedGeneratorViewerImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$FeedGeneratorViewerImplToJson(
-    _$FeedGeneratorViewerImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'like',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.like, const AtUriConverter().toJson));
-  return val;
-}
+        _$FeedGeneratorViewerImpl instance) =>
+    <String, dynamic>{
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.like, const AtUriConverter().toJson)
+          case final value?)
+        'like': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

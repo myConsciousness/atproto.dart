@@ -41,23 +41,16 @@ _$StarterpackRecordImpl _$$StarterpackRecordImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$StarterpackRecordImplToJson(
-    _$StarterpackRecordImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('descriptionFacets',
-      instance.descriptionFacets?.map((e) => e.toJson()).toList());
-  val['list'] = const AtUriConverter().toJson(instance.list);
-  writeNotNull('feeds', instance.feeds?.map((e) => e.toJson()).toList());
-  val['createdAt'] = instance.createdAt.toIso8601String();
-  return val;
-}
+        _$StarterpackRecordImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      if (instance.descriptionFacets?.map((e) => e.toJson()).toList()
+          case final value?)
+        'descriptionFacets': value,
+      'list': const AtUriConverter().toJson(instance.list),
+      if (instance.feeds?.map((e) => e.toJson()).toList() case final value?)
+        'feeds': value,
+      'createdAt': instance.createdAt.toIso8601String(),
+    };

@@ -33,22 +33,14 @@ _$ThreadViewPreferenceImpl _$$ThreadViewPreferenceImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ThreadViewPreferenceImplToJson(
-    _$ThreadViewPreferenceImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('sort', _$ThreadViewSortTypeEnumMap[instance.sort]);
-  val['prioritizeFollowedUsers'] = instance.isPrioritizeFollowedUsers;
-  val['lab_treeViewEnabled'] = instance.treeViewEnabled;
-  return val;
-}
+        _$ThreadViewPreferenceImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      if (_$ThreadViewSortTypeEnumMap[instance.sort] case final value?)
+        'sort': value,
+      'prioritizeFollowedUsers': instance.isPrioritizeFollowedUsers,
+      'lab_treeViewEnabled': instance.treeViewEnabled,
+    };
 
 const _$ThreadViewSortTypeEnumMap = {
   ThreadViewSortType.oldest: 'oldest',

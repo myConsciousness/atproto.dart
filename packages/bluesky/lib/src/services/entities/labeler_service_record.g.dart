@@ -34,19 +34,10 @@ _$LabelerServiceRecordImpl _$$LabelerServiceRecordImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$LabelerServiceRecordImplToJson(
-    _$LabelerServiceRecordImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'policies': instance.policies.toJson(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('labels', instance.labels?.toJson());
-  val['createdAt'] = instance.createdAt.toIso8601String();
-  return val;
-}
+        _$LabelerServiceRecordImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'policies': instance.policies.toJson(),
+      if (instance.labels?.toJson() case final value?) 'labels': value,
+      'createdAt': instance.createdAt.toIso8601String(),
+    };

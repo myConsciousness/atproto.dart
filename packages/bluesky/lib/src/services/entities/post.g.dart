@@ -59,35 +59,27 @@ _$PostImpl _$$PostImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'record': postRecordConverter.toJson(instance.record),
-    'author': instance.author.toJson(),
-    'uri': const AtUriConverter().toJson(instance.uri),
-    'cid': instance.cid,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, EmbedView>(
-          instance.embed, embedViewConverter.toJson));
-  val['replyCount'] = instance.replyCount;
-  val['repostCount'] = instance.repostCount;
-  val['likeCount'] = instance.likeCount;
-  val['quoteCount'] = instance.quoteCount;
-  val['viewer'] = instance.viewer.toJson();
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  writeNotNull('threadgate', instance.threadgate?.toJson());
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'record': postRecordConverter.toJson(instance.record),
+      'author': instance.author.toJson(),
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'cid': instance.cid,
+      if (_$JsonConverterToJson<Map<String, dynamic>, EmbedView>(
+              instance.embed, embedViewConverter.toJson)
+          case final value?)
+        'embed': value,
+      'replyCount': instance.replyCount,
+      'repostCount': instance.repostCount,
+      'likeCount': instance.likeCount,
+      'quoteCount': instance.quoteCount,
+      'viewer': instance.viewer.toJson(),
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      if (instance.threadgate?.toJson() case final value?) 'threadgate': value,
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

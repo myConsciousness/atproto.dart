@@ -26,20 +26,11 @@ _$NuxImpl _$$NuxImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$NuxImplToJson(_$NuxImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'id': instance.id,
-    'completed': instance.completed,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('data', instance.data);
-  writeNotNull('expiresAt', instance.expiresAt?.toIso8601String());
-  return val;
-}
+Map<String, dynamic> _$$NuxImplToJson(_$NuxImpl instance) => <String, dynamic>{
+      r'$type': instance.type,
+      'id': instance.id,
+      'completed': instance.completed,
+      if (instance.data case final value?) 'data': value,
+      if (instance.expiresAt?.toIso8601String() case final value?)
+        'expiresAt': value,
+    };

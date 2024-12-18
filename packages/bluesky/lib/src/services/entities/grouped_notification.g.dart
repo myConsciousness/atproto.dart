@@ -51,29 +51,20 @@ _$GroupedNotificationImpl _$$GroupedNotificationImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$GroupedNotificationImplToJson(
-    _$GroupedNotificationImpl instance) {
-  final val = <String, dynamic>{
-    'uris': instance.uris.map(const AtUriConverter().toJson).toList(),
-    'authors': instance.authors.map((e) => e.toJson()).toList(),
-    'reason': _$GroupedNotificationReasonEnumMap[instance.reason]!,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'reasonSubject',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.reasonSubject, const AtUriConverter().toJson));
-  val['isRead'] = instance.isRead;
-  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
-  writeNotNull('record', instance.record);
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+        _$GroupedNotificationImpl instance) =>
+    <String, dynamic>{
+      'uris': instance.uris.map(const AtUriConverter().toJson).toList(),
+      'authors': instance.authors.map((e) => e.toJson()).toList(),
+      'reason': _$GroupedNotificationReasonEnumMap[instance.reason]!,
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.reasonSubject, const AtUriConverter().toJson)
+          case final value?)
+        'reasonSubject': value,
+      'isRead': instance.isRead,
+      'labels': instance.labels.map((e) => e.toJson()).toList(),
+      if (instance.record case final value?) 'record': value,
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };
 
 const _$GroupedNotificationReasonEnumMap = {
   GroupedNotificationReason.like: 'like',

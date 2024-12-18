@@ -27,22 +27,13 @@ _$ContentLabelPreferenceImpl _$$ContentLabelPreferenceImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ContentLabelPreferenceImplToJson(
-    _$ContentLabelPreferenceImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'label': instance.label,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('labelerDid', instance.labelerDid);
-  val['visibility'] = _$ContentLabelVisibilityEnumMap[instance.visibility]!;
-  return val;
-}
+        _$ContentLabelPreferenceImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'label': instance.label,
+      if (instance.labelerDid case final value?) 'labelerDid': value,
+      'visibility': _$ContentLabelVisibilityEnumMap[instance.visibility]!,
+    };
 
 const _$ContentLabelVisibilityEnumMap = {
   ContentLabelVisibility.ignore: 'ignore',

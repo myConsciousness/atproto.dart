@@ -35,28 +35,19 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ConvoViewImplToJson(_$ConvoViewImpl instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'rev': instance.rev,
-    'members': instance.members.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'lastMessage',
-      _$JsonConverterToJson<Map<String, dynamic>, UConvoMessageView>(
-          instance.lastMessage, unionConvoMessageViewConverter.toJson));
-  val['muted'] = instance.muted;
-  val['opened'] = instance.opened;
-  val['unreadCount'] = instance.unreadCount;
-  return val;
-}
+Map<String, dynamic> _$$ConvoViewImplToJson(_$ConvoViewImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'rev': instance.rev,
+      'members': instance.members.map((e) => e.toJson()).toList(),
+      if (_$JsonConverterToJson<Map<String, dynamic>, UConvoMessageView>(
+              instance.lastMessage, unionConvoMessageViewConverter.toJson)
+          case final value?)
+        'lastMessage': value,
+      'muted': instance.muted,
+      'opened': instance.opened,
+      'unreadCount': instance.unreadCount,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

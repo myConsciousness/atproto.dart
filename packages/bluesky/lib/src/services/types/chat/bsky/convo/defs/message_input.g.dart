@@ -30,24 +30,16 @@ _$MessageInputImpl _$$MessageInputImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$MessageInputImplToJson(_$MessageInputImpl instance) {
-  final val = <String, dynamic>{
-    'text': instance.text,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, UConvoMessageEmbed>(
-          instance.embed, unionConvoMessageEmbedConverter.toJson));
-  return val;
-}
+Map<String, dynamic> _$$MessageInputImplToJson(_$MessageInputImpl instance) =>
+    <String, dynamic>{
+      'text': instance.text,
+      if (instance.facets?.map((e) => e.toJson()).toList() case final value?)
+        'facets': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, UConvoMessageEmbed>(
+              instance.embed, unionConvoMessageEmbedConverter.toJson)
+          case final value?)
+        'embed': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

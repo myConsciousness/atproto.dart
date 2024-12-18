@@ -29,17 +29,9 @@ _$SearchStarterPacksSkeletonOutputImpl
         );
 
 Map<String, dynamic> _$$SearchStarterPacksSkeletonOutputImplToJson(
-    _$SearchStarterPacksSkeletonOutputImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  val['hitsTotal'] = instance.hitsTotal;
-  val['starterPacks'] = instance.starterPacks.map((e) => e.toJson()).toList();
-  return val;
-}
+        _$SearchStarterPacksSkeletonOutputImpl instance) =>
+    <String, dynamic>{
+      if (instance.cursor case final value?) 'cursor': value,
+      'hitsTotal': instance.hitsTotal,
+      'starterPacks': instance.starterPacks.map((e) => e.toJson()).toList(),
+    };

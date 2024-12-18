@@ -56,30 +56,24 @@ _$ActorProfileImpl _$$ActorProfileImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ActorProfileImplToJson(_$ActorProfileImpl instance) {
-  final val = <String, dynamic>{
-    'did': instance.did,
-    'handle': instance.handle,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('displayName', instance.displayName);
-  writeNotNull('description', instance.description);
-  writeNotNull('avatar', instance.avatar);
-  writeNotNull('banner', instance.banner);
-  val['followsCount'] = instance.followsCount;
-  val['followersCount'] = instance.followersCount;
-  val['postsCount'] = instance.postsCount;
-  writeNotNull('associated', instance.associated?.toJson());
-  val['viewer'] = instance.viewer.toJson();
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
-  writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
-  writeNotNull('pinnedPost', instance.pinnedPost?.toJson());
-  return val;
-}
+Map<String, dynamic> _$$ActorProfileImplToJson(_$ActorProfileImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      'handle': instance.handle,
+      if (instance.displayName case final value?) 'displayName': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.avatar case final value?) 'avatar': value,
+      if (instance.banner case final value?) 'banner': value,
+      'followsCount': instance.followsCount,
+      'followersCount': instance.followersCount,
+      'postsCount': instance.postsCount,
+      if (instance.associated?.toJson() case final value?) 'associated': value,
+      'viewer': instance.viewer.toJson(),
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      if (instance.createdAt?.toIso8601String() case final value?)
+        'createdAt': value,
+      if (instance.indexedAt?.toIso8601String() case final value?)
+        'indexedAt': value,
+      if (instance.pinnedPost?.toJson() case final value?) 'pinnedPost': value,
+    };

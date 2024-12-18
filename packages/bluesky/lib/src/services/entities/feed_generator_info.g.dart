@@ -33,18 +33,9 @@ _$FeedGeneratorInfoImpl _$$FeedGeneratorInfoImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$FeedGeneratorInfoImplToJson(
-    _$FeedGeneratorInfoImpl instance) {
-  final val = <String, dynamic>{
-    'did': instance.did,
-    'feeds': instance.feeds.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('links', instance.links?.toJson());
-  return val;
-}
+        _$FeedGeneratorInfoImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      'feeds': instance.feeds.map((e) => e.toJson()).toList(),
+      if (instance.links?.toJson() case final value?) 'links': value,
+    };

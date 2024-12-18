@@ -26,17 +26,9 @@ _$PersonalDetailsPreferenceImpl _$$PersonalDetailsPreferenceImplFromJson(
     );
 
 Map<String, dynamic> _$$PersonalDetailsPreferenceImplToJson(
-    _$PersonalDetailsPreferenceImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('birthDate', instance.birthDate?.toIso8601String());
-  return val;
-}
+        _$PersonalDetailsPreferenceImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      if (instance.birthDate?.toIso8601String() case final value?)
+        'birthDate': value,
+    };

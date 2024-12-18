@@ -53,28 +53,21 @@ _$EmbedViewRecordViewRecordImpl _$$EmbedViewRecordViewRecordImplFromJson(
     );
 
 Map<String, dynamic> _$$EmbedViewRecordViewRecordImplToJson(
-    _$EmbedViewRecordViewRecordImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'uri': const AtUriConverter().toJson(instance.uri),
-    'cid': instance.cid,
-    'author': instance.author.toJson(),
-    'value': postRecordConverter.toJson(instance.value),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['replyCount'] = instance.replyCount;
-  val['repostCount'] = instance.repostCount;
-  val['likeCount'] = instance.likeCount;
-  val['quoteCount'] = instance.quoteCount;
-  writeNotNull(
-      'embeds', instance.embeds?.map(embedViewConverter.toJson).toList());
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+        _$EmbedViewRecordViewRecordImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'cid': instance.cid,
+      'author': instance.author.toJson(),
+      'value': postRecordConverter.toJson(instance.value),
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      'replyCount': instance.replyCount,
+      'repostCount': instance.repostCount,
+      'likeCount': instance.likeCount,
+      'quoteCount': instance.quoteCount,
+      if (instance.embeds?.map(embedViewConverter.toJson).toList()
+          case final value?)
+        'embeds': value,
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };

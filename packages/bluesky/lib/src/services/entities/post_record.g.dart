@@ -47,33 +47,25 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'text': instance.text,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('reply', instance.reply?.toJson());
-  writeNotNull(
-      'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, Embed>(
-          instance.embed, embedConverter.toJson));
-  writeNotNull('langs', instance.langs);
-  writeNotNull(
-      'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
-          instance.labels, labelsConverter.toJson));
-  writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
-  writeNotNull('tags', instance.tags);
-  val['createdAt'] = instance.createdAt.toIso8601String();
-  return val;
-}
+Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'text': instance.text,
+      if (instance.reply?.toJson() case final value?) 'reply': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Embed>(
+              instance.embed, embedConverter.toJson)
+          case final value?)
+        'embed': value,
+      if (instance.langs case final value?) 'langs': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Labels>(
+              instance.labels, labelsConverter.toJson)
+          case final value?)
+        'labels': value,
+      if (instance.facets?.map((e) => e.toJson()).toList() case final value?)
+        'facets': value,
+      if (instance.tags case final value?) 'tags': value,
+      'createdAt': instance.createdAt.toIso8601String(),
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

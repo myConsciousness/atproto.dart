@@ -43,30 +43,22 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
-  final val = <String, dynamic>{
-    'cid': instance.cid,
-    'uri': const AtUriConverter().toJson(instance.uri),
-    'author': instance.author.toJson(),
-    'reason': _$NotificationReasonEnumMap[instance.reason]!,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'reasonSubject',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.reasonSubject, const AtUriConverter().toJson));
-  val['isRead'] = instance.isRead;
-  writeNotNull('record', instance.record);
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) =>
+    <String, dynamic>{
+      'cid': instance.cid,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'author': instance.author.toJson(),
+      'reason': _$NotificationReasonEnumMap[instance.reason]!,
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.reasonSubject, const AtUriConverter().toJson)
+          case final value?)
+        'reasonSubject': value,
+      'isRead': instance.isRead,
+      if (instance.record case final value?) 'record': value,
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };
 
 const _$NotificationReasonEnumMap = {
   NotificationReason.like: 'like',

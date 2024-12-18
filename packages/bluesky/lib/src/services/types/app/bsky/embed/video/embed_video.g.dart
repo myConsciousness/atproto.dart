@@ -37,20 +37,13 @@ _$EmbedVideoImpl _$$EmbedVideoImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$EmbedVideoImplToJson(_$EmbedVideoImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'video': const BlobConverter().toJson(instance.video),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('captions', instance.captions?.map((e) => e.toJson()).toList());
-  writeNotNull('alt', instance.alt);
-  writeNotNull('aspectRatio', instance.aspectRatio?.toJson());
-  return val;
-}
+Map<String, dynamic> _$$EmbedVideoImplToJson(_$EmbedVideoImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'video': const BlobConverter().toJson(instance.video),
+      if (instance.captions?.map((e) => e.toJson()).toList() case final value?)
+        'captions': value,
+      if (instance.alt case final value?) 'alt': value,
+      if (instance.aspectRatio?.toJson() case final value?)
+        'aspectRatio': value,
+    };

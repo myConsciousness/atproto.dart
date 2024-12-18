@@ -34,29 +34,21 @@ _$PostViewerImpl _$$PostViewerImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isReplyDisabled': 'replyDisabled'},
     );
 
-Map<String, dynamic> _$$PostViewerImplToJson(_$PostViewerImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'repost',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.repost, const AtUriConverter().toJson));
-  writeNotNull(
-      'like',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.like, const AtUriConverter().toJson));
-  val['threadMuted'] = instance.threadMuted;
-  val['replyDisabled'] = instance.isReplyDisabled;
-  val['embeddingDisabled'] = instance.embeddingDisabled;
-  val['pinned'] = instance.pinned;
-  return val;
-}
+Map<String, dynamic> _$$PostViewerImplToJson(_$PostViewerImpl instance) =>
+    <String, dynamic>{
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.repost, const AtUriConverter().toJson)
+          case final value?)
+        'repost': value,
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.like, const AtUriConverter().toJson)
+          case final value?)
+        'like': value,
+      'threadMuted': instance.threadMuted,
+      'replyDisabled': instance.isReplyDisabled,
+      'embeddingDisabled': instance.embeddingDisabled,
+      'pinned': instance.pinned,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

@@ -46,30 +46,23 @@ _$GeneratorParamImpl _$$GeneratorParamImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$GeneratorParamImplToJson(
-    _$GeneratorParamImpl instance) {
-  final val = <String, dynamic>{
-    'did': instance.did,
-    'displayName': instance.displayName,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('descriptionFacets',
-      instance.descriptionFacets?.map((e) => e.toJson()).toList());
-  writeNotNull('avatar', instance.avatar?.toJson());
-  writeNotNull(
-      'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
-          instance.labels, labelsConverter.toJson));
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
-  val['unspecced'] = instance.unspecced;
-  return val;
-}
+        _$GeneratorParamImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      'displayName': instance.displayName,
+      if (instance.description case final value?) 'description': value,
+      if (instance.descriptionFacets?.map((e) => e.toJson()).toList()
+          case final value?)
+        'descriptionFacets': value,
+      if (instance.avatar?.toJson() case final value?) 'avatar': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Labels>(
+              instance.labels, labelsConverter.toJson)
+          case final value?)
+        'labels': value,
+      if (instance.createdAt?.toIso8601String() case final value?)
+        'createdAt': value,
+      'unspecced': instance.unspecced,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
