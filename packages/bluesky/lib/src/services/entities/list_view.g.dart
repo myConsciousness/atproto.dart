@@ -49,28 +49,21 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type', 'createdBy': 'creator'},
     );
 
-Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'purpose': instance.purpose,
-    'uri': const AtUriConverter().toJson(instance.uri),
-    'cid': instance.cid,
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('descriptionFacets',
-      instance.descriptionFacets?.map((e) => e.toJson()).toList());
-  writeNotNull('avatar', instance.avatar);
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['creator'] = instance.createdBy.toJson();
-  val['viewer'] = instance.viewer.toJson();
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'purpose': instance.purpose,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'cid': instance.cid,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      if (instance.descriptionFacets?.map((e) => e.toJson()).toList()
+          case final value?)
+        'descriptionFacets': value,
+      if (instance.avatar case final value?) 'avatar': value,
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      'creator': instance.createdBy.toJson(),
+      'viewer': instance.viewer.toJson(),
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };

@@ -28,16 +28,8 @@ _$SearchStarterPacksOutputImpl _$$SearchStarterPacksOutputImplFromJson(
     );
 
 Map<String, dynamic> _$$SearchStarterPacksOutputImplToJson(
-    _$SearchStarterPacksOutputImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  val['starterPacks'] = instance.starterPacks.map((e) => e.toJson()).toList();
-  return val;
-}
+        _$SearchStarterPacksOutputImpl instance) =>
+    <String, dynamic>{
+      if (instance.cursor case final value?) 'cursor': value,
+      'starterPacks': instance.starterPacks.map((e) => e.toJson()).toList(),
+    };

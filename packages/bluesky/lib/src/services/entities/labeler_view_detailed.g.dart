@@ -45,23 +45,15 @@ _$LabelerViewDetailedImpl _$$LabelerViewDetailedImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$LabelerViewDetailedImplToJson(
-    _$LabelerViewDetailedImpl instance) {
-  final val = <String, dynamic>{
-    'uri': const AtUriConverter().toJson(instance.uri),
-    'cid': instance.cid,
-    'creator': instance.creator.toJson(),
-    'policies': instance.policies.toJson(),
-    'likeCount': instance.likeCount,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['viewer'] = instance.viewer.toJson();
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
-  return val;
-}
+        _$LabelerViewDetailedImpl instance) =>
+    <String, dynamic>{
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'cid': instance.cid,
+      'creator': instance.creator.toJson(),
+      'policies': instance.policies.toJson(),
+      'likeCount': instance.likeCount,
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      'viewer': instance.viewer.toJson(),
+      'indexedAt': instance.indexedAt.toIso8601String(),
+    };

@@ -28,25 +28,16 @@ _$EmbedExternalThumbnailImpl _$$EmbedExternalThumbnailImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$EmbedExternalThumbnailImplToJson(
-    _$EmbedExternalThumbnailImpl instance) {
-  final val = <String, dynamic>{
-    'uri': instance.uri,
-    'title': instance.title,
-    'description': instance.description,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'thumb',
-      _$JsonConverterToJson<Map<String, dynamic>, Blob>(
-          instance.blob, const BlobConverter().toJson));
-  return val;
-}
+        _$EmbedExternalThumbnailImpl instance) =>
+    <String, dynamic>{
+      'uri': instance.uri,
+      'title': instance.title,
+      'description': instance.description,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Blob>(
+              instance.blob, const BlobConverter().toJson)
+          case final value?)
+        'thumb': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

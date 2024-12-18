@@ -42,22 +42,15 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ThreadgateRecordImplToJson(
-    _$ThreadgateRecordImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'post': const AtUriConverter().toJson(instance.postUri),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'allow', instance.allowRules?.map(threadRuleConverter.toJson).toList());
-  val['createdAt'] = instance.createdAt.toIso8601String();
-  writeNotNull('hiddenReplies',
-      instance.hiddenReplies?.map(const AtUriConverter().toJson).toList());
-  return val;
-}
+        _$ThreadgateRecordImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'post': const AtUriConverter().toJson(instance.postUri),
+      if (instance.allowRules?.map(threadRuleConverter.toJson).toList()
+          case final value?)
+        'allow': value,
+      'createdAt': instance.createdAt.toIso8601String(),
+      if (instance.hiddenReplies?.map(const AtUriConverter().toJson).toList()
+          case final value?)
+        'hiddenReplies': value,
+    };

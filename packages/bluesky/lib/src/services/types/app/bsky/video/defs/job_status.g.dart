@@ -28,28 +28,19 @@ _$JobStatusImpl _$$JobStatusImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$JobStatusImplToJson(_$JobStatusImpl instance) {
-  final val = <String, dynamic>{
-    'jobId': instance.jobId,
-    'did': instance.did,
-    'state': instance.state,
-    'integer': instance.integer,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'blob',
-      _$JsonConverterToJson<Map<String, dynamic>, Blob>(
-          instance.blob, const BlobConverter().toJson));
-  writeNotNull('error', instance.error);
-  writeNotNull('message', instance.message);
-  return val;
-}
+Map<String, dynamic> _$$JobStatusImplToJson(_$JobStatusImpl instance) =>
+    <String, dynamic>{
+      'jobId': instance.jobId,
+      'did': instance.did,
+      'state': instance.state,
+      'integer': instance.integer,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Blob>(
+              instance.blob, const BlobConverter().toJson)
+          case final value?)
+        'blob': value,
+      if (instance.error case final value?) 'error': value,
+      if (instance.message case final value?) 'message': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

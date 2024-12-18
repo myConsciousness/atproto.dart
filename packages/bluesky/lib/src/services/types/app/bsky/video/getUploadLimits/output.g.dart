@@ -27,20 +27,13 @@ _$GetUploadLimitsOutputImpl _$$GetUploadLimitsOutputImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$GetUploadLimitsOutputImplToJson(
-    _$GetUploadLimitsOutputImpl instance) {
-  final val = <String, dynamic>{
-    'canUpload': instance.canUpload,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('remainingDailyVideos', instance.remainingDailyVideos);
-  writeNotNull('remainingDailyBytes', instance.remainingDailyBytes);
-  writeNotNull('message', instance.message);
-  writeNotNull('error', instance.error);
-  return val;
-}
+        _$GetUploadLimitsOutputImpl instance) =>
+    <String, dynamic>{
+      'canUpload': instance.canUpload,
+      if (instance.remainingDailyVideos case final value?)
+        'remainingDailyVideos': value,
+      if (instance.remainingDailyBytes case final value?)
+        'remainingDailyBytes': value,
+      if (instance.message case final value?) 'message': value,
+      if (instance.error case final value?) 'error': value,
+    };

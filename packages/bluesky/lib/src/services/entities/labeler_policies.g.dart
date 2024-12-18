@@ -28,18 +28,10 @@ _$LabelerPoliciesImpl _$$LabelerPoliciesImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$LabelerPoliciesImplToJson(
-    _$LabelerPoliciesImpl instance) {
-  final val = <String, dynamic>{
-    'labelValues': instance.labelValues,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('labelValueDefinitions',
-      instance.labelValueDefinitions?.map((e) => e.toJson()).toList());
-  return val;
-}
+        _$LabelerPoliciesImpl instance) =>
+    <String, dynamic>{
+      'labelValues': instance.labelValues,
+      if (instance.labelValueDefinitions?.map((e) => e.toJson()).toList()
+          case final value?)
+        'labelValueDefinitions': value,
+    };

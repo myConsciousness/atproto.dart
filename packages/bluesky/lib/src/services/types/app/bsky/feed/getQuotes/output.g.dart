@@ -30,19 +30,10 @@ _$GetQuotesOutputImpl _$$GetQuotesOutputImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$GetQuotesOutputImplToJson(
-    _$GetQuotesOutputImpl instance) {
-  final val = <String, dynamic>{
-    'uri': const AtUriConverter().toJson(instance.uri),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cid', instance.cid);
-  writeNotNull('cursor', instance.cursor);
-  val['posts'] = instance.posts.map((e) => e.toJson()).toList();
-  return val;
-}
+        _$GetQuotesOutputImpl instance) =>
+    <String, dynamic>{
+      'uri': const AtUriConverter().toJson(instance.uri),
+      if (instance.cid case final value?) 'cid': value,
+      if (instance.cursor case final value?) 'cursor': value,
+      'posts': instance.posts.map((e) => e.toJson()).toList(),
+    };

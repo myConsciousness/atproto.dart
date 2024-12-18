@@ -35,21 +35,12 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ProfileAssociatedImplToJson(
-    _$ProfileAssociatedImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'lists': instance.lists,
-    'feedgens': instance.feedgens,
-    'starterPacks': instance.starterPacks,
-    'labeler': instance.labeler,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('chat', instance.chat?.toJson());
-  return val;
-}
+        _$ProfileAssociatedImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'lists': instance.lists,
+      'feedgens': instance.feedgens,
+      'starterPacks': instance.starterPacks,
+      'labeler': instance.labeler,
+      if (instance.chat?.toJson() case final value?) 'chat': value,
+    };

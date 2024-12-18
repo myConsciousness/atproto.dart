@@ -39,19 +39,10 @@ _$SavedFeedsPreferenceImpl _$$SavedFeedsPreferenceImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$SavedFeedsPreferenceImplToJson(
-    _$SavedFeedsPreferenceImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'pinned': instance.pinnedUris.map(const AtUriConverter().toJson).toList(),
-    'saved': instance.savedUris.map(const AtUriConverter().toJson).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('timelineIndex', instance.timelineIndex);
-  return val;
-}
+        _$SavedFeedsPreferenceImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'pinned': instance.pinnedUris.map(const AtUriConverter().toJson).toList(),
+      'saved': instance.savedUris.map(const AtUriConverter().toJson).toList(),
+      if (instance.timelineIndex case final value?) 'timelineIndex': value,
+    };

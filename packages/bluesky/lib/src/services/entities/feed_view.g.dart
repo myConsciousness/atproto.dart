@@ -30,25 +30,16 @@ _$FeedViewImpl _$$FeedViewImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$FeedViewImplToJson(_$FeedViewImpl instance) {
-  final val = <String, dynamic>{
-    'post': instance.post.toJson(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('reply', instance.reply?.toJson());
-  writeNotNull(
-      'reason',
-      _$JsonConverterToJson<Map<String, dynamic>, Reason>(
-          instance.reason, reasonConverter.toJson));
-  writeNotNull('feedContext', instance.feedContext);
-  return val;
-}
+Map<String, dynamic> _$$FeedViewImplToJson(_$FeedViewImpl instance) =>
+    <String, dynamic>{
+      'post': instance.post.toJson(),
+      if (instance.reply?.toJson() case final value?) 'reply': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Reason>(
+              instance.reason, reasonConverter.toJson)
+          case final value?)
+        'reason': value,
+      if (instance.feedContext case final value?) 'feedContext': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

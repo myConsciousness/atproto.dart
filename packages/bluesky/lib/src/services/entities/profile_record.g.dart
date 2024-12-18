@@ -47,29 +47,21 @@ _$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ProfileRecordImplToJson(_$ProfileRecordImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('displayName', instance.displayName);
-  writeNotNull('description', instance.description);
-  writeNotNull('avatar', instance.avatar?.toJson());
-  writeNotNull('banner', instance.banner?.toJson());
-  writeNotNull(
-      'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
-          instance.labels, labelsConverter.toJson));
-  writeNotNull('joinedViaStarterPack', instance.joinedViaStarterPack?.toJson());
-  writeNotNull('pinnedPost', instance.pinnedPost?.toJson());
-  return val;
-}
+Map<String, dynamic> _$$ProfileRecordImplToJson(_$ProfileRecordImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      if (instance.displayName case final value?) 'displayName': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.avatar?.toJson() case final value?) 'avatar': value,
+      if (instance.banner?.toJson() case final value?) 'banner': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, Labels>(
+              instance.labels, labelsConverter.toJson)
+          case final value?)
+        'labels': value,
+      if (instance.joinedViaStarterPack?.toJson() case final value?)
+        'joinedViaStarterPack': value,
+      if (instance.pinnedPost?.toJson() case final value?) 'pinnedPost': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

@@ -26,17 +26,8 @@ _$FeedGeneratorsImpl _$$FeedGeneratorsImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$FeedGeneratorsImplToJson(
-    _$FeedGeneratorsImpl instance) {
-  final val = <String, dynamic>{
-    'feeds': instance.feeds.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  return val;
-}
+        _$FeedGeneratorsImpl instance) =>
+    <String, dynamic>{
+      'feeds': instance.feeds.map((e) => e.toJson()).toList(),
+      if (instance.cursor case final value?) 'cursor': value,
+    };

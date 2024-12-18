@@ -1,0 +1,255 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'trending_topic.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+TrendingTopic _$TrendingTopicFromJson(Map<String, dynamic> json) {
+  return _TrendingTopic.fromJson(json);
+}
+
+/// @nodoc
+mixin _$TrendingTopic {
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
+  String get topic => throw _privateConstructorUsedError;
+  String? get displayName => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String get link => throw _privateConstructorUsedError;
+
+  /// Serializes this TrendingTopic to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of TrendingTopic
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $TrendingTopicCopyWith<TrendingTopic> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TrendingTopicCopyWith<$Res> {
+  factory $TrendingTopicCopyWith(
+          TrendingTopic value, $Res Function(TrendingTopic) then) =
+      _$TrendingTopicCopyWithImpl<$Res, TrendingTopic>;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String topic,
+      String? displayName,
+      String? description,
+      String link});
+}
+
+/// @nodoc
+class _$TrendingTopicCopyWithImpl<$Res, $Val extends TrendingTopic>
+    implements $TrendingTopicCopyWith<$Res> {
+  _$TrendingTopicCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of TrendingTopic
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? topic = null,
+    Object? displayName = freezed,
+    Object? description = freezed,
+    Object? link = null,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      topic: null == topic
+          ? _value.topic
+          : topic // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$TrendingTopicImplCopyWith<$Res>
+    implements $TrendingTopicCopyWith<$Res> {
+  factory _$$TrendingTopicImplCopyWith(
+          _$TrendingTopicImpl value, $Res Function(_$TrendingTopicImpl) then) =
+      __$$TrendingTopicImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String topic,
+      String? displayName,
+      String? description,
+      String link});
+}
+
+/// @nodoc
+class __$$TrendingTopicImplCopyWithImpl<$Res>
+    extends _$TrendingTopicCopyWithImpl<$Res, _$TrendingTopicImpl>
+    implements _$$TrendingTopicImplCopyWith<$Res> {
+  __$$TrendingTopicImplCopyWithImpl(
+      _$TrendingTopicImpl _value, $Res Function(_$TrendingTopicImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TrendingTopic
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? topic = null,
+    Object? displayName = freezed,
+    Object? description = freezed,
+    Object? link = null,
+  }) {
+    return _then(_$TrendingTopicImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      topic: null == topic
+          ? _value.topic
+          : topic // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: freezed == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      link: null == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _$TrendingTopicImpl implements _TrendingTopic {
+  const _$TrendingTopicImpl(
+      {@typeKey this.type = appBskyUnspeccedDefsTrendingTopic,
+      required this.topic,
+      this.displayName,
+      this.description,
+      required this.link});
+
+  factory _$TrendingTopicImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TrendingTopicImplFromJson(json);
+
+  @override
+  @typeKey
+  final String type;
+  @override
+  final String topic;
+  @override
+  final String? displayName;
+  @override
+  final String? description;
+  @override
+  final String link;
+
+  @override
+  String toString() {
+    return 'TrendingTopic(type: $type, topic: $topic, displayName: $displayName, description: $description, link: $link)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TrendingTopicImpl &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.topic, topic) || other.topic == topic) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.link, link) || other.link == link));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, type, topic, displayName, description, link);
+
+  /// Create a copy of TrendingTopic
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TrendingTopicImplCopyWith<_$TrendingTopicImpl> get copyWith =>
+      __$$TrendingTopicImplCopyWithImpl<_$TrendingTopicImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$TrendingTopicImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _TrendingTopic implements TrendingTopic {
+  const factory _TrendingTopic(
+      {@typeKey final String type,
+      required final String topic,
+      final String? displayName,
+      final String? description,
+      required final String link}) = _$TrendingTopicImpl;
+
+  factory _TrendingTopic.fromJson(Map<String, dynamic> json) =
+      _$TrendingTopicImpl.fromJson;
+
+  @override
+  @typeKey
+  String get type;
+  @override
+  String get topic;
+  @override
+  String? get displayName;
+  @override
+  String? get description;
+  @override
+  String get link;
+
+  /// Create a copy of TrendingTopic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TrendingTopicImplCopyWith<_$TrendingTopicImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

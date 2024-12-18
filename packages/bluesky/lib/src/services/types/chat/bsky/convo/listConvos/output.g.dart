@@ -27,17 +27,8 @@ _$ListConvosOutputImpl _$$ListConvosOutputImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ListConvosOutputImplToJson(
-    _$ListConvosOutputImpl instance) {
-  final val = <String, dynamic>{
-    'convos': instance.convos.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  return val;
-}
+        _$ListConvosOutputImpl instance) =>
+    <String, dynamic>{
+      'convos': instance.convos.map((e) => e.toJson()).toList(),
+      if (instance.cursor case final value?) 'cursor': value,
+    };

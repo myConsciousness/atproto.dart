@@ -28,24 +28,15 @@ _$SkeletonFeedViewImpl _$$SkeletonFeedViewImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$SkeletonFeedViewImplToJson(
-    _$SkeletonFeedViewImpl instance) {
-  final val = <String, dynamic>{
-    'post': const AtUriConverter().toJson(instance.post),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'reason',
-      _$JsonConverterToJson<Map<String, dynamic>, SkeletonReason>(
-          instance.reason, skeletonReasonConverter.toJson));
-  writeNotNull('feedContext', instance.feedContext);
-  return val;
-}
+        _$SkeletonFeedViewImpl instance) =>
+    <String, dynamic>{
+      'post': const AtUriConverter().toJson(instance.post),
+      if (_$JsonConverterToJson<Map<String, dynamic>, SkeletonReason>(
+              instance.reason, skeletonReasonConverter.toJson)
+          case final value?)
+        'reason': value,
+      if (instance.feedContext case final value?) 'feedContext': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

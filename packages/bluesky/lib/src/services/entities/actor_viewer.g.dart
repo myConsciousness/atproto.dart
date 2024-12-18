@@ -51,35 +51,29 @@ _$ActorViewerImpl _$$ActorViewerImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isMuted': 'muted', 'isBlockedBy': 'blockedBy'},
     );
 
-Map<String, dynamic> _$$ActorViewerImplToJson(_$ActorViewerImpl instance) {
-  final val = <String, dynamic>{
-    'muted': instance.isMuted,
-    'blockedBy': instance.isBlockedBy,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('mutedByList', instance.mutedByList?.toJson());
-  writeNotNull('blockingByList', instance.blockingByList?.toJson());
-  writeNotNull(
-      'blocking',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.blocking, const AtUriConverter().toJson));
-  writeNotNull(
-      'following',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.following, const AtUriConverter().toJson));
-  writeNotNull(
-      'followedBy',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.followedBy, const AtUriConverter().toJson));
-  writeNotNull('knownFollowers', instance.knownFollowers?.toJson());
-  return val;
-}
+Map<String, dynamic> _$$ActorViewerImplToJson(_$ActorViewerImpl instance) =>
+    <String, dynamic>{
+      'muted': instance.isMuted,
+      'blockedBy': instance.isBlockedBy,
+      if (instance.mutedByList?.toJson() case final value?)
+        'mutedByList': value,
+      if (instance.blockingByList?.toJson() case final value?)
+        'blockingByList': value,
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.blocking, const AtUriConverter().toJson)
+          case final value?)
+        'blocking': value,
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.following, const AtUriConverter().toJson)
+          case final value?)
+        'following': value,
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.followedBy, const AtUriConverter().toJson)
+          case final value?)
+        'followedBy': value,
+      if (instance.knownFollowers?.toJson() case final value?)
+        'knownFollowers': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

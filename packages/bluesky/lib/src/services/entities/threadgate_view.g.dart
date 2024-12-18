@@ -39,26 +39,18 @@ _$ThreadgateViewImpl _$$ThreadgateViewImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$ThreadgateViewImplToJson(
-    _$ThreadgateViewImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'uri',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.uri, const AtUriConverter().toJson));
-  writeNotNull('cid', instance.cid);
-  writeNotNull('record', instance.record?.toJson());
-  writeNotNull('lists', instance.lists?.map((e) => e.toJson()).toList());
-  return val;
-}
+        _$ThreadgateViewImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.uri, const AtUriConverter().toJson)
+          case final value?)
+        'uri': value,
+      if (instance.cid case final value?) 'cid': value,
+      if (instance.record?.toJson() case final value?) 'record': value,
+      if (instance.lists?.map((e) => e.toJson()).toList() case final value?)
+        'lists': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

@@ -29,25 +29,16 @@ _$FeedInteractionImpl _$$FeedInteractionImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$FeedInteractionImplToJson(
-    _$FeedInteractionImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'item',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.item, const AtUriConverter().toJson));
-  writeNotNull('event', instance.event);
-  writeNotNull('feedContext', instance.feedContext);
-  return val;
-}
+        _$FeedInteractionImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.item, const AtUriConverter().toJson)
+          case final value?)
+        'item': value,
+      if (instance.event case final value?) 'event': value,
+      if (instance.feedContext case final value?) 'feedContext': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

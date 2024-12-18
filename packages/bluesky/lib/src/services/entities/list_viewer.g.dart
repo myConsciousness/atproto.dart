@@ -24,23 +24,14 @@ _$ListViewerImpl _$$ListViewerImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isMuted': 'muted'},
     );
 
-Map<String, dynamic> _$$ListViewerImplToJson(_$ListViewerImpl instance) {
-  final val = <String, dynamic>{
-    'muted': instance.isMuted,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'blocked',
-      _$JsonConverterToJson<String, AtUri>(
-          instance.blocked, const AtUriConverter().toJson));
-  return val;
-}
+Map<String, dynamic> _$$ListViewerImplToJson(_$ListViewerImpl instance) =>
+    <String, dynamic>{
+      'muted': instance.isMuted,
+      if (_$JsonConverterToJson<String, AtUri>(
+              instance.blocked, const AtUriConverter().toJson)
+          case final value?)
+        'blocked': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

@@ -28,18 +28,10 @@ _$RepoParamImpl _$$RepoParamImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$RepoParamImplToJson(_$RepoParamImpl instance) {
-  final val = <String, dynamic>{
-    'did': instance.did,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
-  val['unspecced'] = instance.unspecced;
-  return val;
-}
+Map<String, dynamic> _$$RepoParamImplToJson(_$RepoParamImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      if (instance.createdAt?.toIso8601String() case final value?)
+        'createdAt': value,
+      'unspecced': instance.unspecced,
+    };

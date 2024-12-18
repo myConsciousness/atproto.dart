@@ -43,23 +43,15 @@ _$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ProfileViewBasicImplToJson(
-    _$ProfileViewBasicImpl instance) {
-  final val = <String, dynamic>{
-    'did': instance.did,
-    'handle': instance.handle,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('displayName', instance.displayName);
-  writeNotNull('avatar', instance.avatar);
-  writeNotNull('associated', instance.associated?.toJson());
-  val['viewer'] = instance.viewer.toJson();
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['chatDisabled'] = instance.chatDisabled;
-  return val;
-}
+        _$ProfileViewBasicImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      'handle': instance.handle,
+      if (instance.displayName case final value?) 'displayName': value,
+      if (instance.avatar case final value?) 'avatar': value,
+      if (instance.associated?.toJson() case final value?) 'associated': value,
+      'viewer': instance.viewer.toJson(),
+      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
+        'labels': value,
+      'chatDisabled': instance.chatDisabled,
+    };

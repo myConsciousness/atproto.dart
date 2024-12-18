@@ -37,28 +37,19 @@ _$PostgateRecordImpl _$$PostgateRecordImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$PostgateRecordImplToJson(
-    _$PostgateRecordImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'post': const AtUriConverter().toJson(instance.post),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'detachedEmbeddingUris',
-      instance.detachedEmbeddingUris
-          ?.map(const AtUriConverter().toJson)
-          .toList());
-  writeNotNull(
-      'embeddingRules',
-      instance.embeddingRules
-          ?.map(const UPostgateEmbeddingRuleConverter().toJson)
-          .toList());
-  val['createdAt'] = instance.createdAt.toIso8601String();
-  return val;
-}
+        _$PostgateRecordImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'post': const AtUriConverter().toJson(instance.post),
+      if (instance.detachedEmbeddingUris
+              ?.map(const AtUriConverter().toJson)
+              .toList()
+          case final value?)
+        'detachedEmbeddingUris': value,
+      if (instance.embeddingRules
+              ?.map(const UPostgateEmbeddingRuleConverter().toJson)
+              .toList()
+          case final value?)
+        'embeddingRules': value,
+      'createdAt': instance.createdAt.toIso8601String(),
+    };

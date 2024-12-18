@@ -25,17 +25,8 @@ _$GetLogOutputImpl _$$GetLogOutputImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$GetLogOutputImplToJson(_$GetLogOutputImpl instance) {
-  final val = <String, dynamic>{
-    'logs': instance.logs.map(unionConvoLogConverter.toJson).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  return val;
-}
+Map<String, dynamic> _$$GetLogOutputImplToJson(_$GetLogOutputImpl instance) =>
+    <String, dynamic>{
+      'logs': instance.logs.map(unionConvoLogConverter.toJson).toList(),
+      if (instance.cursor case final value?) 'cursor': value,
+    };

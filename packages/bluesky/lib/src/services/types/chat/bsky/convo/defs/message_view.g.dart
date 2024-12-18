@@ -37,28 +37,20 @@ _$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$MessageViewImplToJson(_$MessageViewImpl instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'rev': instance.rev,
-    'text': instance.text,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, UConvoMessageEmbed>(
-          instance.embed, unionConvoMessageEmbedConverter.toJson));
-  val['sender'] = instance.sender.toJson();
-  val['sentAt'] = instance.sentAt.toIso8601String();
-  return val;
-}
+Map<String, dynamic> _$$MessageViewImplToJson(_$MessageViewImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'rev': instance.rev,
+      'text': instance.text,
+      if (instance.facets?.map((e) => e.toJson()).toList() case final value?)
+        'facets': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, UConvoMessageEmbed>(
+              instance.embed, unionConvoMessageEmbedConverter.toJson)
+          case final value?)
+        'embed': value,
+      'sender': instance.sender.toJson(),
+      'sentAt': instance.sentAt.toIso8601String(),
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
