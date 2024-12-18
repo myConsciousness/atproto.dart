@@ -14,7 +14,6 @@ import '../entities/grouped_notifications.dart';
 import '../entities/notification.dart';
 import '../entities/notifications.dart';
 import 'group_by.dart';
-import 'notification_reason_filter.dart';
 
 const _groupableReasons = <NotificationReason>[
   NotificationReason.like,
@@ -46,7 +45,6 @@ sealed class NotificationsGrouper {
   ///   notifications.
   GroupedNotifications group(
     final Notifications notifications, {
-    final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   });
 }
@@ -57,7 +55,6 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   @override
   GroupedNotifications group(
     final Notifications data, {
-    final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   }) {
     if (data.notifications.isEmpty) {
@@ -66,7 +63,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
     final groupedChunks = <List<Map<String, dynamic>>>[];
 
-    for (final chunks in _groupBy(by, _filterReason(reasonFilter, data))) {
+    for (final chunks in _groupBy(by, data)) {
       final groupedNotifications = <Map<String, dynamic>>[];
 
       for (final notification in chunks) {
@@ -270,10 +267,4 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
     return by.execute(data);
   }
-
-  Notifications _filterReason(
-    NotificationReasonFilter? reasonFilter,
-    Notifications data,
-  ) =>
-      reasonFilter == null ? data : reasonFilter.execute(data);
 }

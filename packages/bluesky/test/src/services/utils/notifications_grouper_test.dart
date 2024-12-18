@@ -10,7 +10,6 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
 import 'package:bluesky/src/services/entities/notifications.dart';
-import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 import 'package:bluesky/src/services/utils/notifications_grouper.dart';
 
 const _grouper = NotificationsGrouper();
@@ -475,9 +474,6 @@ void main() {
           ],
           'cursor': 'xxxx',
         }),
-        reasonFilter: NotificationReasonFilter.include(
-          [GroupedNotificationReason.like],
-        ),
       );
 
       expect(grouped.notifications.length, 1);
@@ -576,12 +572,6 @@ void main() {
           ],
           'cursor': 'xxxx',
         }),
-        reasonFilter: NotificationReasonFilter.include(
-          [
-            GroupedNotificationReason.like,
-            GroupedNotificationReason.customFeedLike,
-          ],
-        ),
       );
 
       expect(grouped.notifications.length, 2);
