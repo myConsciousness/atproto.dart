@@ -7,7 +7,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../utils/group_by.dart';
-import '../utils/notification_reason_filter.dart';
 import '../utils/notifications_grouper.dart';
 import 'grouped_notifications.dart';
 import 'notification.dart';
@@ -52,26 +51,15 @@ class Notifications with _$Notifications {
   ///   group.
   /// - Returns a [GroupedNotifications] object containing the grouped
   ///   notifications.
-  GroupedNotifications group({
-    NotificationReasonFilter? reasonFilter,
-  }) =>
-      _grouper.group(
-        this,
-        reasonFilter: reasonFilter,
-      );
+  GroupedNotifications group() => _grouper.group(this);
 
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject` and by [hour].
   ///
   /// Available [hour] range is from 1 to 23 (include), otherwise
   /// it always throws [AssertionError].
-  GroupedNotifications groupByHour(
-    final int hour, {
-    NotificationReasonFilter? reasonFilter,
-  }) =>
-      _grouper.group(
+  GroupedNotifications groupByHour(final int hour) => _grouper.group(
         this,
-        reasonFilter: reasonFilter,
         by: GroupBy.hour(hour),
       );
 
@@ -80,13 +68,8 @@ class Notifications with _$Notifications {
   ///
   /// Available [minute] range is from 1 to 59 (include), otherwise
   /// it always throws [AssertionError].
-  GroupedNotifications groupByMinute(
-    final int minute, {
-    NotificationReasonFilter? reasonFilter,
-  }) =>
-      _grouper.group(
+  GroupedNotifications groupByMinute(final int minute) => _grouper.group(
         this,
-        reasonFilter: reasonFilter,
         by: GroupBy.minute(minute),
       );
 }

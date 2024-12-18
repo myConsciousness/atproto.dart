@@ -155,8 +155,6 @@ export 'package:bluesky/src/services/extensions/strong_ref.dart';
 export 'package:bluesky/src/services/feed_service.dart';
 export 'package:bluesky/src/services/graph_service.dart';
 export 'package:bluesky/src/services/constants/notification_reason.dart';
-export 'package:bluesky/src/services/utils/notification_reason_filter.dart'
-    show NotificationReasonFilter;
 export 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
 export 'package:bluesky/src/services/notification_service.dart';
 export 'package:bluesky/src/services/params/generator_param.dart';

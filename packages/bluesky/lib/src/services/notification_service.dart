@@ -19,6 +19,7 @@ final class NotificationService {
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
   Future<core.XRPCResponse<Notifications>> listNotifications({
+    List<String>? reasons,
     int? limit,
     String? cursor,
     bool? priority,
@@ -29,6 +30,7 @@ final class NotificationService {
         ns.appBskyNotificationListNotifications,
         headers: headers,
         parameters: {
+          'reasons': reasons,
           'limit': limit,
           'cursor': cursor,
           'priority': priority,

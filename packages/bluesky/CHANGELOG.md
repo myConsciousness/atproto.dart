@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.18.7
+
+- Add `reasons` parameter on `NotificationService.listNotification`. ([#1849](https://github.com/myConsciousness/atproto.dart/pull/1849))
+  - Removed `NotificationReasonFilter`.
+
 ## v0.18.6
 
 - Bump `xrpc`.
