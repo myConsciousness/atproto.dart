@@ -35,7 +35,7 @@ View moderation statuses of subjects (record or repo).
 | **takendown** | boolean | - | ❌ | Get subjects that were taken down |
 | **appealed** | boolean | - | ❌ | Get subjects in unresolved appealed status |
 | **limit** | integer | - | ❌ | - |
-| **tags** | array | - | ❌ | - |
+| **tags** | array | - | ❌ | Items in this array are applied with OR filters. To apply AND filter, put all tags in the same string and separate using && characters |
 | **excludeTags** | array | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 | **collections** | array of [nsid](https://atproto.com/specs/nsid) | - | ❌ | - |

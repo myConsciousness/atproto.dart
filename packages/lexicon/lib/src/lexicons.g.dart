@@ -10431,7 +10431,12 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
           },
           "tags": {
             "type": "array",
-            "items": {"type": "string"}
+            "items": {
+              "type": "string",
+              "description":
+                  "Items in this array are applied with OR filters. To apply AND filter, put all tags in the same string and separate using && characters",
+              "maxLength": 25
+            }
           },
           "excludeTags": {
             "type": "array",
