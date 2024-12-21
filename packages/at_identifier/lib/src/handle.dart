@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 /// Handle constraints, in English:
 ///  - must be a possible domain name
 ///    - RFC-1035 is commonly referenced, but has been updated. eg, RFC-3696,

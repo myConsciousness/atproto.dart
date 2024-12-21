@@ -46,21 +46,14 @@ _$LexXrpcSubscriptionImpl _$$LexXrpcSubscriptionImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$LexXrpcSubscriptionImplToJson(
-    _$LexXrpcSubscriptionImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('parameters', instance.parameters?.toJson());
-  writeNotNull('message', instance.message?.toJson());
-  writeNotNull('infos', instance.infos?.map((e) => e.toJson()).toList());
-  writeNotNull('errors', instance.errors?.map((e) => e.toJson()).toList());
-  return val;
-}
+        _$LexXrpcSubscriptionImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+      if (instance.parameters?.toJson() case final value?) 'parameters': value,
+      if (instance.message?.toJson() case final value?) 'message': value,
+      if (instance.infos?.map((e) => e.toJson()).toList() case final value?)
+        'infos': value,
+      if (instance.errors?.map((e) => e.toJson()).toList() case final value?)
+        'errors': value,
+    };

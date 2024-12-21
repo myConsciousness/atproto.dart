@@ -34,23 +34,14 @@ _$CurrentSessionImpl _$$CurrentSessionImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$CurrentSessionImplToJson(
-    _$CurrentSessionImpl instance) {
-  final val = <String, dynamic>{
-    'did': instance.did,
-    'handle': instance.handle,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('email', instance.email);
-  val['emailConfirmed'] = instance.isEmailConfirmed;
-  val['emailAuthFactor'] = instance.emailAuthFactor;
-  writeNotNull('didDoc', instance.didDoc);
-  val['active'] = instance.active;
-  writeNotNull('status', instance.status);
-  return val;
-}
+        _$CurrentSessionImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      'handle': instance.handle,
+      if (instance.email case final value?) 'email': value,
+      'emailConfirmed': instance.isEmailConfirmed,
+      'emailAuthFactor': instance.emailAuthFactor,
+      if (instance.didDoc case final value?) 'didDoc': value,
+      'active': instance.active,
+      if (instance.status case final value?) 'status': value,
+    };

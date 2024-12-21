@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 /// An object representing a state that is empty instead of null.
 final class EmptyData {
   /// Returns the new instance of [EmptyData].

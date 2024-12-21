@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 /// A string representing the Unicode range for Cyrillic letters and marks.
 ///
 /// This range includes the Unicode scalar values from U+0400 to U+04FF,

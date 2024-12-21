@@ -1,11 +1,7 @@
-// Copyright 2024 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import '../../../services/entities/list_view_basic.dart';
 import '../mod_object.dart';
 

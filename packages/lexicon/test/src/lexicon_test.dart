@@ -1,14 +1,10 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:test/test.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:lexicon/src/lexicons.g.dart';
 import 'package:lexicon/src/types/core/lexicon_doc.dart';
 import 'utils.dart' as util;

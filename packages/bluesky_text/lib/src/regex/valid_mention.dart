@@ -1,8 +1,4 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🌎 Project imports:
+// Project imports:
 import 'at_signs.dart';
 import 'valid_domain.dart';
 import 'valid_mention_preceding_chars.dart';

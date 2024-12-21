@@ -34,24 +34,14 @@ _$JwtImpl _$$JwtImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'clientId': 'client_id'},
     );
 
-Map<String, dynamic> _$$JwtImplToJson(_$JwtImpl instance) {
-  final val = <String, dynamic>{
-    'aud': instance.aud,
-    'sub': instance.sub,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('jti', instance.jti);
-  writeNotNull('cnf', instance.cnf);
-  writeNotNull('client_id', instance.clientId);
-  val['scope'] = instance.scope;
-  writeNotNull('iss', instance.iss);
-  val['exp'] = dateTimeConverter.toJson(instance.exp);
-  val['iat'] = dateTimeConverter.toJson(instance.iat);
-  return val;
-}
+Map<String, dynamic> _$$JwtImplToJson(_$JwtImpl instance) => <String, dynamic>{
+      'aud': instance.aud,
+      'sub': instance.sub,
+      if (instance.jti case final value?) 'jti': value,
+      if (instance.cnf case final value?) 'cnf': value,
+      if (instance.clientId case final value?) 'client_id': value,
+      'scope': instance.scope,
+      if (instance.iss case final value?) 'iss': value,
+      'exp': dateTimeConverter.toJson(instance.exp),
+      'iat': dateTimeConverter.toJson(instance.iat),
+    };

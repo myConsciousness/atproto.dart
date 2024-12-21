@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 /// This pattern identifies two main groups of characters:
 ///
 /// 1. Characters outside the surrogate pair range (`[^\uD800-\uDFFF]`).

@@ -1,14 +1,10 @@
-// Copyright 2024 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:pointycastle/export.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'helper.dart';
 
 String encodePrivateKey(ECPrivateKey privateKey) {

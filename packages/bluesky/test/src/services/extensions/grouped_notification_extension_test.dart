@@ -1,12 +1,8 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 📦 Package imports:
+// Package imports:
 import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
 import 'package:bluesky/src/services/entities/grouped_notification.dart';
 import 'package:bluesky/src/services/extensions/grouped_notification.dart';

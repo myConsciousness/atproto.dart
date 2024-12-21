@@ -29,22 +29,13 @@ _$OperationImpl _$$OperationImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$OperationImplToJson(_$OperationImpl instance) {
-  final val = <String, dynamic>{
-    'sig': instance.sig,
-    'type': instance.type,
-    'services': instance.services,
-    'alsoKnownAs': instance.alsoKnownAs,
-    'rotationKeys': instance.rotationKeys,
-    'verificationMethods': instance.verificationMethods,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('prev', instance.prev);
-  return val;
-}
+Map<String, dynamic> _$$OperationImplToJson(_$OperationImpl instance) =>
+    <String, dynamic>{
+      'sig': instance.sig,
+      'type': instance.type,
+      'services': instance.services,
+      'alsoKnownAs': instance.alsoKnownAs,
+      'rotationKeys': instance.rotationKeys,
+      'verificationMethods': instance.verificationMethods,
+      if (instance.prev case final value?) 'prev': value,
+    };

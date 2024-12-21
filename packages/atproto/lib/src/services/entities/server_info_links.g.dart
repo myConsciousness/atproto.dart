@@ -23,16 +23,8 @@ _$ServerInfoLinksImpl _$$ServerInfoLinksImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ServerInfoLinksImplToJson(
-    _$ServerInfoLinksImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('privacyPolicy', instance.privacyPolicy);
-  writeNotNull('termsOfService', instance.termsOfService);
-  return val;
-}
+        _$ServerInfoLinksImpl instance) =>
+    <String, dynamic>{
+      if (instance.privacyPolicy case final value?) 'privacyPolicy': value,
+      if (instance.termsOfService case final value?) 'termsOfService': value,
+    };

@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 const text = r'''# emoji-test.txt
 # Date: 2020-01-21, 13:40:25 GMT
 # © 2020 Unicode®, Inc.

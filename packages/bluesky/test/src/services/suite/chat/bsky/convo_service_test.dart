@@ -1,8 +1,4 @@
-// Copyright 2024 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🌎 Project imports:
+// Project imports:
 import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/types/chat/bsky/convo/defs/deleted_message_view.dart';
 import 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_input.dart';

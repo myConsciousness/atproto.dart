@@ -24,19 +24,10 @@ _$MigrateImpl _$$MigrateImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'cursor': 'seq', 'createdAt': 'time'},
     );
 
-Map<String, dynamic> _$$MigrateImplToJson(_$MigrateImpl instance) {
-  final val = <String, dynamic>{
-    'did': instance.did,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('migrateTo', instance.migrateTo);
-  val['seq'] = instance.cursor;
-  val['time'] = instance.createdAt.toIso8601String();
-  return val;
-}
+Map<String, dynamic> _$$MigrateImplToJson(_$MigrateImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      if (instance.migrateTo case final value?) 'migrateTo': value,
+      'seq': instance.cursor,
+      'time': instance.createdAt.toIso8601String(),
+    };

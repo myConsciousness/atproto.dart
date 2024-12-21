@@ -37,23 +37,15 @@ _$LabelImpl _$$LabelImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LabelImplToJson(_$LabelImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ver', instance.ver);
-  val['src'] = instance.src;
-  val['uri'] = instance.uri;
-  writeNotNull('cid', instance.cid);
-  val['val'] = instance.value;
-  val['neg'] = instance.isNegate;
-  val['cts'] = instance.createdAt.toIso8601String();
-  writeNotNull('exp', instance.exp?.toIso8601String());
-  writeNotNull('sig', instance.sig);
-  return val;
-}
+Map<String, dynamic> _$$LabelImplToJson(_$LabelImpl instance) =>
+    <String, dynamic>{
+      if (instance.ver case final value?) 'ver': value,
+      'src': instance.src,
+      'uri': instance.uri,
+      if (instance.cid case final value?) 'cid': value,
+      'val': instance.value,
+      'neg': instance.isNegate,
+      'cts': instance.createdAt.toIso8601String(),
+      if (instance.exp?.toIso8601String() case final value?) 'exp': value,
+      if (instance.sig case final value?) 'sig': value,
+    };

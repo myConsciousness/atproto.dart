@@ -30,21 +30,12 @@ _$LexiconDocImpl _$$LexiconDocImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexiconDocImplToJson(_$LexiconDocImpl instance) {
-  final val = <String, dynamic>{
-    'lexicon': instance.lexicon,
-    'id': nsidConverter.toJson(instance.id),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('revision', instance.revision);
-  writeNotNull('description', instance.description);
-  val['defs'] =
-      instance.defs.map((k, e) => MapEntry(k, lexUserTypeConverter.toJson(e)));
-  return val;
-}
+Map<String, dynamic> _$$LexiconDocImplToJson(_$LexiconDocImpl instance) =>
+    <String, dynamic>{
+      'lexicon': instance.lexicon,
+      'id': nsidConverter.toJson(instance.id),
+      if (instance.revision case final value?) 'revision': value,
+      if (instance.description case final value?) 'description': value,
+      'defs': instance.defs
+          .map((k, e) => MapEntry(k, lexUserTypeConverter.toJson(e))),
+    };

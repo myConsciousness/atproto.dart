@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 export 'package:at_uri/at_uri.dart' show AtUri;
 export 'package:atproto_core/src/base_http_service.dart';
 export 'package:atproto_core/src/car_decoder.dart';

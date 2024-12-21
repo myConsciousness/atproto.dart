@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 export 'package:xrpc/src/http/http.dart' show get, post;
 export 'package:xrpc/src/http/request.dart';
 export 'package:xrpc/src/http/response.dart';

@@ -1,15 +1,11 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 // ignore_for_file: lines_longer_than_80_chars
 
-// 📦 Package imports:
+// Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:did_plc/src/entities/auditable_log.dart';
 import 'package:did_plc/src/entities/compatible_op_or_tombstone.dart';
 import 'package:did_plc/src/entities/did_document.dart';

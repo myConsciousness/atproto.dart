@@ -20,17 +20,8 @@ _$InfoImpl _$$InfoImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$InfoImplToJson(_$InfoImpl instance) {
-  final val = <String, dynamic>{
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('message', instance.message);
-  return val;
-}
+Map<String, dynamic> _$$InfoImplToJson(_$InfoImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      if (instance.message case final value?) 'message': value,
+    };

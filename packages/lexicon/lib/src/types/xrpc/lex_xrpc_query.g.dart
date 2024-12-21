@@ -37,20 +37,12 @@ _$LexXrpcQueryImpl _$$LexXrpcQueryImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexXrpcQueryImplToJson(_$LexXrpcQueryImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('parameters', instance.parameters?.toJson());
-  writeNotNull('output', instance.output?.toJson());
-  writeNotNull('errors', instance.errors?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$$LexXrpcQueryImplToJson(_$LexXrpcQueryImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+      if (instance.parameters?.toJson() case final value?) 'parameters': value,
+      if (instance.output?.toJson() case final value?) 'output': value,
+      if (instance.errors?.map((e) => e.toJson()).toList() case final value?)
+        'errors': value,
+    };

@@ -23,20 +23,11 @@ _$AccountImpl _$$AccountImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$AccountImplToJson(_$AccountImpl instance) {
-  final val = <String, dynamic>{
-    'seq': instance.seq,
-    'did': instance.did,
-    'time': instance.time.toIso8601String(),
-    'active': instance.active,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('status', instance.status);
-  return val;
-}
+Map<String, dynamic> _$$AccountImplToJson(_$AccountImpl instance) =>
+    <String, dynamic>{
+      'seq': instance.seq,
+      'did': instance.did,
+      'time': instance.time.toIso8601String(),
+      'active': instance.active,
+      if (instance.status case final value?) 'status': value,
+    };

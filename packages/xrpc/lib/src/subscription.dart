@@ -1,11 +1,7 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:async';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 final class Subscription<T> {

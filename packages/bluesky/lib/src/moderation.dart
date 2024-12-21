@@ -1,8 +1,4 @@
-// Copyright 2024 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🌎 Project imports:
+// Project imports:
 import 'moderation/decision.dart';
 import 'moderation/types/behaviors/moderation_opts.dart';
 import 'moderation/types/subjects/account.dart';

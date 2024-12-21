@@ -25,8 +25,8 @@ _$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      UConvoMessageEmbed>(
-                  v, unionConvoMessageEmbedConverter.fromJson)),
+                      UConvoMessageEmbedView>(
+                  v, unionConvoMessageEmbedViewConverter.fromJson)),
           sender: $checkedConvert(
               'sender',
               (v) => MessageViewSender.fromJson(
@@ -44,8 +44,8 @@ Map<String, dynamic> _$$MessageViewImplToJson(_$MessageViewImpl instance) =>
       'text': instance.text,
       if (instance.facets?.map((e) => e.toJson()).toList() case final value?)
         'facets': value,
-      if (_$JsonConverterToJson<Map<String, dynamic>, UConvoMessageEmbed>(
-              instance.embed, unionConvoMessageEmbedConverter.toJson)
+      if (_$JsonConverterToJson<Map<String, dynamic>, UConvoMessageEmbedView>(
+              instance.embed, unionConvoMessageEmbedViewConverter.toJson)
           case final value?)
         'embed': value,
       'sender': instance.sender.toJson(),
