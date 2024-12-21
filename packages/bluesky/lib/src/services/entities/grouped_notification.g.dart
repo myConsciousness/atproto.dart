@@ -74,6 +74,7 @@ const _$GroupedNotificationReasonEnumMap = {
   GroupedNotificationReason.mention: 'mention',
   GroupedNotificationReason.reply: 'reply',
   GroupedNotificationReason.quote: 'quote',
+  GroupedNotificationReason.starterpackJoined: 'starterpack-joined',
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

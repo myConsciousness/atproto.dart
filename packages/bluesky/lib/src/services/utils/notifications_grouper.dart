@@ -125,7 +125,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   ) =>
       {
         'uris': [notification.uri.toString()],
-        'reason': _getGroupedReason(notification.reason.name, reasonSubject),
+        'reason': _getGroupedReason(notification.reason.value, reasonSubject),
         'reasonSubject': reasonSubject,
         'authors': [notification.author.toJson()],
         'labels': notification.labels?.map((e) => e.toJson()).toList(),
@@ -238,7 +238,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     final String? reasonSubject,
   ) =>
       _isCustomFeedLike(reason, reasonSubject)
-          ? GroupedNotificationReason.customFeedLike.name
+          ? GroupedNotificationReason.customFeedLike.value
           : reason;
 
   bool _isCustomFeedLike(

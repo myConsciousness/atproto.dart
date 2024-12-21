@@ -1,27 +1,36 @@
+// Package imports:
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 /// A class that encapsulates a reason for grouped notification.
 enum GroupedNotificationReason {
   /// Indicates likes.
-  like,
+  like('like'),
 
   /// Indicates likes for custom feed.
-  customFeedLike,
+  customFeedLike('customFeedLike'),
 
   /// Indicates reposts.
-  repost,
+  repost('repost'),
 
   /// Indicates follows.
-  follow,
+  follow('follow'),
 
   /// Indicates mentions.
-  mention,
+  mention('mention'),
 
   /// Indicates replies.
-  reply,
+  reply('reply'),
 
   /// Indicates quotes.
-  quote;
+  quote('quote'),
 
-  const GroupedNotificationReason();
+  @JsonValue('starterpack-joined')
+  starterpackJoined('starterpack-joined');
+
+  /// Json value.
+  final String value;
+
+  const GroupedNotificationReason(this.value);
 
   /// Returns true if this reason is [like], otherwise false.
   bool get isLike => this == like;
@@ -64,4 +73,10 @@ enum GroupedNotificationReason {
 
   /// Returns true if this reason is not [quote], otherwise false.
   bool get isNotQuote => !isQuote;
+
+  /// Returns true if this reason is [starterpackJoined], otherwise false.
+  bool get isStarterpackJoined => this == starterpackJoined;
+
+  /// Returns true if this reason is not [starterpackJoined], otherwise false.
+  bool get isNotStarterpackJoined => !isStarterpackJoined;
 }
