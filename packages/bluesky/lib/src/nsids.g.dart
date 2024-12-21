@@ -1,3 +1,7 @@
+// Copyright 2024 Shinya Kato. All rights reserved.
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided the conditions.
+
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // GENERATED CODE - DO NOT MODIFY BY HAND
@@ -6,10 +10,10 @@
 // Lexicon IDs Generator
 // **************************************************************************
 
-// Package imports:
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
 
-// Project imports:
+// 🌎 Project imports:
 import 'ids.g.dart' as ids;
 
 /// `app.bsky.actor.getPreferences`
