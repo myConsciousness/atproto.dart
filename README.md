@@ -33,8 +33,6 @@
 - [4. Who is using atproto.dart? 👀](#4-who-is-using-atprotodart-)
 - [5. Contribution 🏆](#5-contribution-)
 - [6. Support ❤️](#6-support-️)
-- [7. License 🔑](#7-license-)
-- [8. More Information 🧐](#8-more-information-)
 
 Welcome to **[atproto.dart](https://atprotodart.com)** 🦋
 
@@ -162,27 +160,3 @@ You can also support this project by **becoming a sponsor** on GitHub:
     </a>
   </p>
 </div>
-
-## 7. License 🔑
-
-The source code provided in this monorepo is provided under the `BSD-3` license.
-
-```license
-Copyright 2024 Shinya Kato. All rights reserved.
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided the conditions.
-```
-
-> **Note**</br>
-> License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
-
-## 8. More Information 🧐
-
-All resources in **atproto.dart** is maintained by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
-
-- [@shinyakato.dev](https://bsky.app/profile/shinyakato.dev)
-- [Creator Profile](https://github.com/myConsciousness)
-- [License](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)
-- [API Document](https://pub.dev/documentation/bluesky/latest/bluesky/bluesky-library.html)
-- [Release Note](https://github.com/myConsciousness/atproto.dart/releases)
-- [Bug Report](https://github.com/myConsciousness/atproto.dart/issues)
