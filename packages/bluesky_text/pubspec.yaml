@@ -29,6 +29,3 @@ dev_dependencies:
   freezed: ^2.4.7
   import_sorter: ^4.6.0
   bluesky: ^0.14.0
-
-import_sorter:
-  emojis: true

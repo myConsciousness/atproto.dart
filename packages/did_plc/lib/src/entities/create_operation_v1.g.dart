@@ -27,22 +27,13 @@ _$CreateOperationV1Impl _$$CreateOperationV1ImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$CreateOperationV1ImplToJson(
-    _$CreateOperationV1Impl instance) {
-  final val = <String, dynamic>{
-    'sig': instance.sig,
-    'type': instance.type,
-    'signingKey': instance.signingKey,
-    'recoveryKey': instance.recoveryKey,
-    'handle': instance.handle,
-    'service': instance.service,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('prev', instance.prev);
-  return val;
-}
+        _$CreateOperationV1Impl instance) =>
+    <String, dynamic>{
+      'sig': instance.sig,
+      'type': instance.type,
+      'signingKey': instance.signingKey,
+      'recoveryKey': instance.recoveryKey,
+      'handle': instance.handle,
+      'service': instance.service,
+      if (instance.prev case final value?) 'prev': value,
+    };

@@ -34,25 +34,16 @@ _$SessionImpl _$$SessionImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) {
-  final val = <String, dynamic>{
-    'did': instance.did,
-    'handle': instance.handle,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('email', instance.email);
-  val['emailConfirmed'] = instance.emailConfirmed;
-  val['emailAuthFactor'] = instance.emailAuthFactor;
-  val['accessJwt'] = instance.accessJwt;
-  val['refreshJwt'] = instance.refreshJwt;
-  writeNotNull('didDoc', instance.didDoc);
-  val['active'] = instance.active;
-  writeNotNull('status', instance.status);
-  return val;
-}
+Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      'handle': instance.handle,
+      if (instance.email case final value?) 'email': value,
+      'emailConfirmed': instance.emailConfirmed,
+      'emailAuthFactor': instance.emailAuthFactor,
+      'accessJwt': instance.accessJwt,
+      'refreshJwt': instance.refreshJwt,
+      if (instance.didDoc case final value?) 'didDoc': value,
+      'active': instance.active,
+      if (instance.status case final value?) 'status': value,
+    };

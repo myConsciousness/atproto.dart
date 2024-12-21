@@ -1,11 +1,7 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:math' as math;
 
-// 🌎 Project imports:
+// Project imports:
 import 'retry_config.dart';
 import 'retry_event.dart';
 

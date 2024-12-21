@@ -36,23 +36,14 @@ _$LexObjectImpl _$$LexObjectImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexObjectImplToJson(_$LexObjectImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('required', instance.requiredProperties);
-  writeNotNull('nullable', instance.nullableProperties);
-  writeNotNull(
-      'properties',
-      instance.properties
-          ?.map((k, e) => MapEntry(k, lexObjectPropertyConverter.toJson(e))));
-  return val;
-}
+Map<String, dynamic> _$$LexObjectImplToJson(_$LexObjectImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+      if (instance.requiredProperties case final value?) 'required': value,
+      if (instance.nullableProperties case final value?) 'nullable': value,
+      if (instance.properties
+              ?.map((k, e) => MapEntry(k, lexObjectPropertyConverter.toJson(e)))
+          case final value?)
+        'properties': value,
+    };

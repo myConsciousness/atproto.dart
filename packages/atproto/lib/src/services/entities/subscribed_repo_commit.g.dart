@@ -37,22 +37,13 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) {
-  final val = <String, dynamic>{
-    'ops': instance.ops.map((e) => e.toJson()).toList(),
-    'repo': instance.did,
-    'seq': instance.cursor,
-    'rev': instance.rev,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('since', instance.since);
-  val['tooBig'] = instance.isTooBig;
-  val['time'] = instance.createdAt.toIso8601String();
-  return val;
-}
+Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) =>
+    <String, dynamic>{
+      'ops': instance.ops.map((e) => e.toJson()).toList(),
+      'repo': instance.did,
+      'seq': instance.cursor,
+      'rev': instance.rev,
+      if (instance.since case final value?) 'since': value,
+      'tooBig': instance.isTooBig,
+      'time': instance.createdAt.toIso8601String(),
+    };

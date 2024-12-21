@@ -26,20 +26,11 @@ _$LexPrimitiveArrayImpl _$$LexPrimitiveArrayImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$LexPrimitiveArrayImplToJson(
-    _$LexPrimitiveArrayImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['items'] = lexPrimitiveConverter.toJson(instance.items);
-  writeNotNull('minLength', instance.minLength);
-  writeNotNull('maxLength', instance.maxLength);
-  return val;
-}
+        _$LexPrimitiveArrayImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+      'items': lexPrimitiveConverter.toJson(instance.items),
+      if (instance.minLength case final value?) 'minLength': value,
+      if (instance.maxLength case final value?) 'maxLength': value,
+    };

@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 import 'dart:io';
 
 import 'package:atproto_core/atproto_core.dart';
@@ -10,6 +6,7 @@ import 'package:bluesky/app_bsky_embed_video.dart';
 import 'package:bluesky/atproto.dart';
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
+import 'package:bluesky/chat_bsky_convo_defs.dart';
 import 'package:bluesky/moderation.dart';
 
 /// https://atprotodart.com/docs/packages/bluesky

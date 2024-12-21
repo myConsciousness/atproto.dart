@@ -24,8 +24,8 @@ mixin _$MessageView {
   String get rev => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   List<Facet>? get facets => throw _privateConstructorUsedError;
-  @unionConvoMessageEmbedConverter
-  UConvoMessageEmbed? get embed => throw _privateConstructorUsedError;
+  @unionConvoMessageEmbedViewConverter
+  UConvoMessageEmbedView? get embed => throw _privateConstructorUsedError;
   MessageViewSender get sender => throw _privateConstructorUsedError;
   DateTime get sentAt => throw _privateConstructorUsedError;
 
@@ -50,11 +50,11 @@ abstract class $MessageViewCopyWith<$Res> {
       String rev,
       String text,
       List<Facet>? facets,
-      @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed,
+      @unionConvoMessageEmbedViewConverter UConvoMessageEmbedView? embed,
       MessageViewSender sender,
       DateTime sentAt});
 
-  $UConvoMessageEmbedCopyWith<$Res>? get embed;
+  $UConvoMessageEmbedViewCopyWith<$Res>? get embed;
   $MessageViewSenderCopyWith<$Res> get sender;
 }
 
@@ -101,7 +101,7 @@ class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageEmbed?,
+              as UConvoMessageEmbedView?,
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
@@ -117,12 +117,12 @@ class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UConvoMessageEmbedCopyWith<$Res>? get embed {
+  $UConvoMessageEmbedViewCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UConvoMessageEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $UConvoMessageEmbedViewCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -151,12 +151,12 @@ abstract class _$$MessageViewImplCopyWith<$Res>
       String rev,
       String text,
       List<Facet>? facets,
-      @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed,
+      @unionConvoMessageEmbedViewConverter UConvoMessageEmbedView? embed,
       MessageViewSender sender,
       DateTime sentAt});
 
   @override
-  $UConvoMessageEmbedCopyWith<$Res>? get embed;
+  $UConvoMessageEmbedViewCopyWith<$Res>? get embed;
   @override
   $MessageViewSenderCopyWith<$Res> get sender;
 }
@@ -202,7 +202,7 @@ class __$$MessageViewImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageEmbed?,
+              as UConvoMessageEmbedView?,
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
@@ -224,7 +224,7 @@ class _$MessageViewImpl implements _MessageView {
       required this.rev,
       required this.text,
       final List<Facet>? facets,
-      @unionConvoMessageEmbedConverter this.embed,
+      @unionConvoMessageEmbedViewConverter this.embed,
       required this.sender,
       required this.sentAt})
       : _facets = facets;
@@ -249,8 +249,8 @@ class _$MessageViewImpl implements _MessageView {
   }
 
   @override
-  @unionConvoMessageEmbedConverter
-  final UConvoMessageEmbed? embed;
+  @unionConvoMessageEmbedViewConverter
+  final UConvoMessageEmbedView? embed;
   @override
   final MessageViewSender sender;
   @override
@@ -302,7 +302,7 @@ abstract class _MessageView implements MessageView {
       required final String rev,
       required final String text,
       final List<Facet>? facets,
-      @unionConvoMessageEmbedConverter final UConvoMessageEmbed? embed,
+      @unionConvoMessageEmbedViewConverter final UConvoMessageEmbedView? embed,
       required final MessageViewSender sender,
       required final DateTime sentAt}) = _$MessageViewImpl;
 
@@ -318,8 +318,8 @@ abstract class _MessageView implements MessageView {
   @override
   List<Facet>? get facets;
   @override
-  @unionConvoMessageEmbedConverter
-  UConvoMessageEmbed? get embed;
+  @unionConvoMessageEmbedViewConverter
+  UConvoMessageEmbedView? get embed;
   @override
   MessageViewSender get sender;
   @override

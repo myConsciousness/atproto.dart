@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 /// This pattern is designed to capture a wide range of letters, marks, and
 /// other characters from various scripts and symbol sets that reside within
 /// the BMP.

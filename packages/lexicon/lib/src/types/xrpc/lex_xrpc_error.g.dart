@@ -20,17 +20,8 @@ _$LexXrpcErrorImpl _$$LexXrpcErrorImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexXrpcErrorImplToJson(_$LexXrpcErrorImpl instance) {
-  final val = <String, dynamic>{
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  return val;
-}
+Map<String, dynamic> _$$LexXrpcErrorImplToJson(_$LexXrpcErrorImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+    };

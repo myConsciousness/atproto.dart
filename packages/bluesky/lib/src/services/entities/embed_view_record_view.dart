@@ -4,10 +4,10 @@
 
 // ignore_for_file: invalid_annotation_target
 
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import '../types/app/bsky/embed/record/embed_record_view_detached.dart';
 import '../types/app/bsky/graph/defs/starter_pack_view_basic.dart';
 import 'embed_view_record_view_blocked.dart';

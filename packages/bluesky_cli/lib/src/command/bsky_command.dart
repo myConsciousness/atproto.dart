@@ -1,17 +1,13 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:args/command_runner.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:xrpc/xrpc.dart' as xrpc;
 
-// 🌎 Project imports:
+// Project imports:
 import '../authentication.dart';
 import '../logger.dart';
 

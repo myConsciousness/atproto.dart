@@ -25,17 +25,8 @@ _$MissingBlobsImpl _$$MissingBlobsImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$MissingBlobsImplToJson(_$MissingBlobsImpl instance) {
-  final val = <String, dynamic>{
-    'blobs': instance.blobs.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  return val;
-}
+Map<String, dynamic> _$$MissingBlobsImplToJson(_$MissingBlobsImpl instance) =>
+    <String, dynamic>{
+      'blobs': instance.blobs.map((e) => e.toJson()).toList(),
+      if (instance.cursor case final value?) 'cursor': value,
+    };

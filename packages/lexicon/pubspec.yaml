@@ -22,6 +22,3 @@ dev_dependencies:
   json_serializable: ^6.7.1
   freezed: ^2.4.7
   import_sorter: ^4.6.0
-
-import_sorter:
-  emojis: true

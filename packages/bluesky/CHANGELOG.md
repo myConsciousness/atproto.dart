@@ -4,6 +4,25 @@
 
 - Fix `leaveConvo` method on `ConvoService`.
   - `400 Incorrect HTTP method (GET) expected POST`
+- Fix `UConvoMessageEmbed` object on `MessageInput`.
+- Refactor package structure.
+  - See the following packages:
+    - `chat_bsky_actor_declaration.dart`
+    - `chat_bsky_moderation_get_message_context.dart`
+    - `chat_bsky_moderation_get_actor_metadata.dart`
+    - `chat_bsky_convo_update_read.dart`
+    - `chat_bsky_convo_unmute_convo.dart`
+    - `chat_bsky_convo_send_message_batch.dart`
+    - `chat_bsky_convo_mute_convo.dart`
+    - `chat_bsky_convo_list_convos.dart`
+    - `chat_bsky_convo_leave_convo.dart`
+    - `chat_bsky_convo_get_messages.dart`
+    - `chat_bsky_convo_get_log.dart`
+    - `chat_bsky_convo_get_convo_for_members.dart`
+    - `chat_bsky_convo_defs.dart`
+    - `chat_bsky_actor_get_convo.dart`
+    - `chat_bsky_actor_defs.dart`
+    - `chat_bsky_actor_declaration.dart`
 
 ## v0.18.7
 

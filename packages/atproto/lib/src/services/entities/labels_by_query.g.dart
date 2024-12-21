@@ -25,17 +25,8 @@ _$LabelsByQueryImpl _$$LabelsByQueryImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LabelsByQueryImplToJson(_$LabelsByQueryImpl instance) {
-  final val = <String, dynamic>{
-    'labels': instance.labels.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('cursor', instance.cursor);
-  return val;
-}
+Map<String, dynamic> _$$LabelsByQueryImplToJson(_$LabelsByQueryImpl instance) =>
+    <String, dynamic>{
+      'labels': instance.labels.map((e) => e.toJson()).toList(),
+      if (instance.cursor case final value?) 'cursor': value,
+    };

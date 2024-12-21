@@ -35,6 +35,3 @@ dev_dependencies:
 
   atproto_test:
     path: ../atproto_test
-
-import_sorter:
-  emojis: true

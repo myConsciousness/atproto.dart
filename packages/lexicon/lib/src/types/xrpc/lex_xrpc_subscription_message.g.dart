@@ -27,22 +27,14 @@ _$LexXrpcSubscriptionMessageImpl _$$LexXrpcSubscriptionMessageImplFromJson(
     );
 
 Map<String, dynamic> _$$LexXrpcSubscriptionMessageImplToJson(
-    _$LexXrpcSubscriptionMessageImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'schema',
-      _$JsonConverterToJson<Map<String, dynamic>, LexXrpcSchema>(
-          instance.schema, lexXrpcSchemaConverter.toJson));
-  return val;
-}
+        _$LexXrpcSubscriptionMessageImpl instance) =>
+    <String, dynamic>{
+      if (instance.description case final value?) 'description': value,
+      if (_$JsonConverterToJson<Map<String, dynamic>, LexXrpcSchema>(
+              instance.schema, lexXrpcSchemaConverter.toJson)
+          case final value?)
+        'schema': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

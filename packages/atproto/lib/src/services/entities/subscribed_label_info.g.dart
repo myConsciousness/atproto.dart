@@ -22,17 +22,8 @@ _$SubscribedLabelInfoImpl _$$SubscribedLabelInfoImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$SubscribedLabelInfoImplToJson(
-    _$SubscribedLabelInfoImpl instance) {
-  final val = <String, dynamic>{
-    'name': instance.name,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('message', instance.message);
-  return val;
-}
+        _$SubscribedLabelInfoImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      if (instance.message case final value?) 'message': value,
+    };

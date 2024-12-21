@@ -1,18 +1,14 @@
-// Copyright 2024 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
-// 📦 Package imports:
+// Package imports:
 import "package:pointycastle/export.dart";
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'private_key.dart';
 import 'public_key.dart';
 

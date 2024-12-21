@@ -25,23 +25,15 @@ _$LexXrpcBodyImpl _$$LexXrpcBodyImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexXrpcBodyImplToJson(_$LexXrpcBodyImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['encoding'] = instance.encoding;
-  writeNotNull(
-      'schema',
-      _$JsonConverterToJson<Map<String, dynamic>, LexXrpcSchema>(
-          instance.schema, lexXrpcSchemaConverter.toJson));
-  return val;
-}
+Map<String, dynamic> _$$LexXrpcBodyImplToJson(_$LexXrpcBodyImpl instance) =>
+    <String, dynamic>{
+      if (instance.description case final value?) 'description': value,
+      'encoding': instance.encoding,
+      if (_$JsonConverterToJson<Map<String, dynamic>, LexXrpcSchema>(
+              instance.schema, lexXrpcSchemaConverter.toJson)
+          case final value?)
+        'schema': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

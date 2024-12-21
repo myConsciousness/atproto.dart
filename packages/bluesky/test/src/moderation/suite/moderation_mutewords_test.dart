@@ -1,12 +1,8 @@
-// Copyright 2024 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 📦 Package imports:
+// Package imports:
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:test/test.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/src/moderation.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_cause.dart';

@@ -21,15 +21,7 @@ _$ServerInfoContactImpl _$$ServerInfoContactImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ServerInfoContactImplToJson(
-    _$ServerInfoContactImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('email', instance.email);
-  return val;
-}
+        _$ServerInfoContactImpl instance) =>
+    <String, dynamic>{
+      if (instance.email case final value?) 'email': value,
+    };

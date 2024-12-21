@@ -1,18 +1,14 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:http/http.dart';
 import 'package:nsid/nsid.dart';
 import 'package:test/test.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:xrpc/src/entities/empty_data.dart';
 import 'package:xrpc/src/entities/rate_limit.dart';
 import 'package:xrpc/src/subscription.dart';

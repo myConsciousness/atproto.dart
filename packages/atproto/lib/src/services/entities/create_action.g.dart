@@ -26,19 +26,10 @@ _$CreateActionImpl _$$CreateActionImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type', 'record': 'value'},
     );
 
-Map<String, dynamic> _$$CreateActionImplToJson(_$CreateActionImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.type,
-    'collection': nsidConverter.toJson(instance.collection),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('rkey', instance.rkey);
-  val['value'] = instance.record;
-  return val;
-}
+Map<String, dynamic> _$$CreateActionImplToJson(_$CreateActionImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'collection': nsidConverter.toJson(instance.collection),
+      if (instance.rkey case final value?) 'rkey': value,
+      'value': instance.record,
+    };

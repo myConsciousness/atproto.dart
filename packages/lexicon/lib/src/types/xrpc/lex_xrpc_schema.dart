@@ -1,13 +1,9 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 // ignore_for_file: invalid_annotation_target
 
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import '../complex/lex_object.dart';
 import '../converter/lex_xrpc_schema_converter.dart';
 import '../references/lex_ref_variant.dart';

@@ -23,19 +23,10 @@ _$LexBlobImpl _$$LexBlobImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexBlobImplToJson(_$LexBlobImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('accept', instance.accept);
-  writeNotNull('maxSize', instance.maxSize);
-  return val;
-}
+Map<String, dynamic> _$$LexBlobImplToJson(_$LexBlobImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+      if (instance.accept case final value?) 'accept': value,
+      if (instance.maxSize case final value?) 'maxSize': value,
+    };

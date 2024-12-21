@@ -36,20 +36,11 @@ _$ServerInfoImpl _$$ServerInfoImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isInviteCodeRequired': 'inviteCodeRequired'},
     );
 
-Map<String, dynamic> _$$ServerInfoImplToJson(_$ServerInfoImpl instance) {
-  final val = <String, dynamic>{
-    'availableUserDomains': instance.availableUserDomains,
-    'did': instance.did,
-    'inviteCodeRequired': instance.isInviteCodeRequired,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contact', instance.contact?.toJson());
-  writeNotNull('links', instance.links?.toJson());
-  return val;
-}
+Map<String, dynamic> _$$ServerInfoImplToJson(_$ServerInfoImpl instance) =>
+    <String, dynamic>{
+      'availableUserDomains': instance.availableUserDomains,
+      'did': instance.did,
+      'inviteCodeRequired': instance.isInviteCodeRequired,
+      if (instance.contact?.toJson() case final value?) 'contact': value,
+      if (instance.links?.toJson() case final value?) 'links': value,
+    };

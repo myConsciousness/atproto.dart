@@ -34,22 +34,13 @@ _$LexIntegerImpl _$$LexIntegerImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexIntegerImplToJson(_$LexIntegerImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('default', instance.defaultValue);
-  writeNotNull('minimum', instance.minimum);
-  writeNotNull('maximum', instance.maximum);
-  writeNotNull('enum', instance.enumValues);
-  writeNotNull('const', instance.constValue);
-  return val;
-}
+Map<String, dynamic> _$$LexIntegerImplToJson(_$LexIntegerImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+      if (instance.defaultValue case final value?) 'default': value,
+      if (instance.minimum case final value?) 'minimum': value,
+      if (instance.maximum case final value?) 'maximum': value,
+      if (instance.enumValues case final value?) 'enum': value,
+      if (instance.constValue case final value?) 'const': value,
+    };

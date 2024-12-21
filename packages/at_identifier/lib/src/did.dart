@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 /// Human-readable constraints:
 ///   - valid W3C DID (https://www.w3.org/TR/did-core/#did-syntax)
 ///      - entire URI is ASCII: [a-zA-Z0-9._:%-]

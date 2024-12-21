@@ -1,13 +1,9 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 // ignore_for_file: deprecated_member_use_from_same_package
 
-// 📦 Package imports:
+// Package imports:
 import 'package:test/test.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:bluesky_text/src/bluesky_text.dart';
 import 'package:bluesky_text/src/config/link_config.dart';
 import 'package:bluesky_text/src/entities/entity.dart';

@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 export 'package:nsid/nsid.dart' show NSID;
 
 export 'package:lexicon/src/types/blobs/lex_blob.dart';

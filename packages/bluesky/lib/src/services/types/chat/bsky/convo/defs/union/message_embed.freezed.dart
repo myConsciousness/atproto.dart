@@ -19,39 +19,38 @@ mixin _$UConvoMessageEmbed {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordView data) recordView,
+    required TResult Function(EmbedRecord data) record,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordView data)? recordView,
+    TResult? Function(EmbedRecord data)? record,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordView data)? recordView,
+    TResult Function(EmbedRecord data)? record,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UConvoMessageEmbedViewRecordView value)
-        recordView,
+    required TResult Function(UConvoMessageEmbedRecord value) record,
     required TResult Function(UConvoMessageEmbedUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UConvoMessageEmbedViewRecordView value)? recordView,
+    TResult? Function(UConvoMessageEmbedRecord value)? record,
     TResult? Function(UConvoMessageEmbedUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UConvoMessageEmbedViewRecordView value)? recordView,
+    TResult Function(UConvoMessageEmbedRecord value)? record,
     TResult Function(UConvoMessageEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -80,25 +79,25 @@ class _$UConvoMessageEmbedCopyWithImpl<$Res, $Val extends UConvoMessageEmbed>
 }
 
 /// @nodoc
-abstract class _$$UConvoMessageEmbedViewRecordViewImplCopyWith<$Res> {
-  factory _$$UConvoMessageEmbedViewRecordViewImplCopyWith(
-          _$UConvoMessageEmbedViewRecordViewImpl value,
-          $Res Function(_$UConvoMessageEmbedViewRecordViewImpl) then) =
-      __$$UConvoMessageEmbedViewRecordViewImplCopyWithImpl<$Res>;
+abstract class _$$UConvoMessageEmbedRecordImplCopyWith<$Res> {
+  factory _$$UConvoMessageEmbedRecordImplCopyWith(
+          _$UConvoMessageEmbedRecordImpl value,
+          $Res Function(_$UConvoMessageEmbedRecordImpl) then) =
+      __$$UConvoMessageEmbedRecordImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({EmbedViewRecordView data});
+  $Res call({EmbedRecord data});
 
-  $EmbedViewRecordViewCopyWith<$Res> get data;
+  $EmbedRecordCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$UConvoMessageEmbedViewRecordViewImplCopyWithImpl<$Res>
+class __$$UConvoMessageEmbedRecordImplCopyWithImpl<$Res>
     extends _$UConvoMessageEmbedCopyWithImpl<$Res,
-        _$UConvoMessageEmbedViewRecordViewImpl>
-    implements _$$UConvoMessageEmbedViewRecordViewImplCopyWith<$Res> {
-  __$$UConvoMessageEmbedViewRecordViewImplCopyWithImpl(
-      _$UConvoMessageEmbedViewRecordViewImpl _value,
-      $Res Function(_$UConvoMessageEmbedViewRecordViewImpl) _then)
+        _$UConvoMessageEmbedRecordImpl>
+    implements _$$UConvoMessageEmbedRecordImplCopyWith<$Res> {
+  __$$UConvoMessageEmbedRecordImplCopyWithImpl(
+      _$UConvoMessageEmbedRecordImpl _value,
+      $Res Function(_$UConvoMessageEmbedRecordImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of UConvoMessageEmbed
@@ -108,11 +107,11 @@ class __$$UConvoMessageEmbedViewRecordViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UConvoMessageEmbedViewRecordViewImpl(
+    return _then(_$UConvoMessageEmbedRecordImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as EmbedViewRecordView,
+              as EmbedRecord,
     ));
   }
 
@@ -120,8 +119,8 @@ class __$$UConvoMessageEmbedViewRecordViewImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $EmbedViewRecordViewCopyWith<$Res> get data {
-    return $EmbedViewRecordViewCopyWith<$Res>(_value.data, (value) {
+  $EmbedRecordCopyWith<$Res> get data {
+    return $EmbedRecordCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -129,24 +128,22 @@ class __$$UConvoMessageEmbedViewRecordViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UConvoMessageEmbedViewRecordViewImpl
-    extends UConvoMessageEmbedViewRecordView {
-  const _$UConvoMessageEmbedViewRecordViewImpl({required this.data})
-      : super._();
+class _$UConvoMessageEmbedRecordImpl extends UConvoMessageEmbedRecord {
+  const _$UConvoMessageEmbedRecordImpl({required this.data}) : super._();
 
   @override
-  final EmbedViewRecordView data;
+  final EmbedRecord data;
 
   @override
   String toString() {
-    return 'UConvoMessageEmbed.recordView(data: $data)';
+    return 'UConvoMessageEmbed.record(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UConvoMessageEmbedViewRecordViewImpl &&
+            other is _$UConvoMessageEmbedRecordImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -158,38 +155,37 @@ class _$UConvoMessageEmbedViewRecordViewImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UConvoMessageEmbedViewRecordViewImplCopyWith<
-          _$UConvoMessageEmbedViewRecordViewImpl>
-      get copyWith => __$$UConvoMessageEmbedViewRecordViewImplCopyWithImpl<
-          _$UConvoMessageEmbedViewRecordViewImpl>(this, _$identity);
+  _$$UConvoMessageEmbedRecordImplCopyWith<_$UConvoMessageEmbedRecordImpl>
+      get copyWith => __$$UConvoMessageEmbedRecordImplCopyWithImpl<
+          _$UConvoMessageEmbedRecordImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordView data) recordView,
+    required TResult Function(EmbedRecord data) record,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
-    return recordView(data);
+    return record(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordView data)? recordView,
+    TResult? Function(EmbedRecord data)? record,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
-    return recordView?.call(data);
+    return record?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordView data)? recordView,
+    TResult Function(EmbedRecord data)? record,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
-    if (recordView != null) {
-      return recordView(data);
+    if (record != null) {
+      return record(data);
     }
     return orElse();
   }
@@ -197,50 +193,47 @@ class _$UConvoMessageEmbedViewRecordViewImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UConvoMessageEmbedViewRecordView value)
-        recordView,
+    required TResult Function(UConvoMessageEmbedRecord value) record,
     required TResult Function(UConvoMessageEmbedUnknown value) unknown,
   }) {
-    return recordView(this);
+    return record(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UConvoMessageEmbedViewRecordView value)? recordView,
+    TResult? Function(UConvoMessageEmbedRecord value)? record,
     TResult? Function(UConvoMessageEmbedUnknown value)? unknown,
   }) {
-    return recordView?.call(this);
+    return record?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UConvoMessageEmbedViewRecordView value)? recordView,
+    TResult Function(UConvoMessageEmbedRecord value)? record,
     TResult Function(UConvoMessageEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {
-    if (recordView != null) {
-      return recordView(this);
+    if (record != null) {
+      return record(this);
     }
     return orElse();
   }
 }
 
-abstract class UConvoMessageEmbedViewRecordView extends UConvoMessageEmbed {
-  const factory UConvoMessageEmbedViewRecordView(
-          {required final EmbedViewRecordView data}) =
-      _$UConvoMessageEmbedViewRecordViewImpl;
-  const UConvoMessageEmbedViewRecordView._() : super._();
+abstract class UConvoMessageEmbedRecord extends UConvoMessageEmbed {
+  const factory UConvoMessageEmbedRecord({required final EmbedRecord data}) =
+      _$UConvoMessageEmbedRecordImpl;
+  const UConvoMessageEmbedRecord._() : super._();
 
   @override
-  EmbedViewRecordView get data;
+  EmbedRecord get data;
 
   /// Create a copy of UConvoMessageEmbed
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UConvoMessageEmbedViewRecordViewImplCopyWith<
-          _$UConvoMessageEmbedViewRecordViewImpl>
+  _$$UConvoMessageEmbedRecordImplCopyWith<_$UConvoMessageEmbedRecordImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -325,7 +318,7 @@ class _$UConvoMessageEmbedUnknownImpl extends UConvoMessageEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EmbedViewRecordView data) recordView,
+    required TResult Function(EmbedRecord data) record,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -334,7 +327,7 @@ class _$UConvoMessageEmbedUnknownImpl extends UConvoMessageEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedViewRecordView data)? recordView,
+    TResult? Function(EmbedRecord data)? record,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -343,7 +336,7 @@ class _$UConvoMessageEmbedUnknownImpl extends UConvoMessageEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedViewRecordView data)? recordView,
+    TResult Function(EmbedRecord data)? record,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -356,8 +349,7 @@ class _$UConvoMessageEmbedUnknownImpl extends UConvoMessageEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UConvoMessageEmbedViewRecordView value)
-        recordView,
+    required TResult Function(UConvoMessageEmbedRecord value) record,
     required TResult Function(UConvoMessageEmbedUnknown value) unknown,
   }) {
     return unknown(this);
@@ -366,7 +358,7 @@ class _$UConvoMessageEmbedUnknownImpl extends UConvoMessageEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UConvoMessageEmbedViewRecordView value)? recordView,
+    TResult? Function(UConvoMessageEmbedRecord value)? record,
     TResult? Function(UConvoMessageEmbedUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -375,7 +367,7 @@ class _$UConvoMessageEmbedUnknownImpl extends UConvoMessageEmbedUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UConvoMessageEmbedViewRecordView value)? recordView,
+    TResult Function(UConvoMessageEmbedRecord value)? record,
     TResult Function(UConvoMessageEmbedUnknown value)? unknown,
     required TResult orElse(),
   }) {

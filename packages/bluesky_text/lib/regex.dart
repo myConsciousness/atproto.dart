@@ -1,7 +1,3 @@
-// Copyright 2024 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 export 'package:bluesky_text/src/regex/astral_letter_and_marks.dart';
 export 'package:bluesky_text/src/regex/astral_numerals.dart';
 export 'package:bluesky_text/src/regex/at_signs.dart';

@@ -1,7 +1,3 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
 /// In the UTF-16 encoding scheme, characters outside the Basic Multilingual
 /// Plane (BMP) are represented using a pair of 16-bit units called surrogate
 /// pairs. This pattern is designed to identify these pairs:

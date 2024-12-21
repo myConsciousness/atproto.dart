@@ -33,22 +33,13 @@ _$LexXrpcParametersImpl _$$LexXrpcParametersImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$LexXrpcParametersImplToJson(
-    _$LexXrpcParametersImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('required', instance.requiredProperties);
-  writeNotNull(
-      'properties',
-      instance.properties?.map(
-          (k, e) => MapEntry(k, lexXrpcParametersPropertyConverter.toJson(e))));
-  return val;
-}
+        _$LexXrpcParametersImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+      if (instance.requiredProperties case final value?) 'required': value,
+      if (instance.properties?.map((k, e) =>
+              MapEntry(k, lexXrpcParametersPropertyConverter.toJson(e)))
+          case final value?)
+        'properties': value,
+    };

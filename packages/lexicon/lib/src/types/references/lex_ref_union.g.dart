@@ -23,19 +23,10 @@ _$LexRefUnionImpl _$$LexRefUnionImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexRefUnionImplToJson(_$LexRefUnionImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  writeNotNull('refs', instance.refs);
-  writeNotNull('closed', instance.closed);
-  return val;
-}
+Map<String, dynamic> _$$LexRefUnionImplToJson(_$LexRefUnionImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+      if (instance.refs case final value?) 'refs': value,
+      if (instance.closed case final value?) 'closed': value,
+    };

@@ -39,29 +39,21 @@ _$LexStringImpl _$$LexStringImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexStringImplToJson(_$LexStringImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('format', _$LexStringFormatEnumMap[instance.format]);
-  writeNotNull('description', instance.description);
-  writeNotNull('default', instance.defaultValue);
-  writeNotNull('minLength', instance.minLength);
-  writeNotNull('maxLength', instance.maxLength);
-  writeNotNull('minGraphemes', instance.minGraphemes);
-  writeNotNull('maxGraphemes', instance.maxGraphemes);
-  writeNotNull('enum', instance.enumValues);
-  writeNotNull('const', instance.constValue);
-  writeNotNull('knownValues', instance.knownValues);
-  return val;
-}
+Map<String, dynamic> _$$LexStringImplToJson(_$LexStringImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (_$LexStringFormatEnumMap[instance.format] case final value?)
+        'format': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.defaultValue case final value?) 'default': value,
+      if (instance.minLength case final value?) 'minLength': value,
+      if (instance.maxLength case final value?) 'maxLength': value,
+      if (instance.minGraphemes case final value?) 'minGraphemes': value,
+      if (instance.maxGraphemes case final value?) 'maxGraphemes': value,
+      if (instance.enumValues case final value?) 'enum': value,
+      if (instance.constValue case final value?) 'const': value,
+      if (instance.knownValues case final value?) 'knownValues': value,
+    };
 
 const _$LexStringFormatEnumMap = {
   LexStringFormat.datetime: 'datetime',

@@ -20,17 +20,8 @@ _$LexCidLinkImpl _$$LexCidLinkImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexCidLinkImplToJson(_$LexCidLinkImpl instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  return val;
-}
+Map<String, dynamic> _$$LexCidLinkImplToJson(_$LexCidLinkImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.description case final value?) 'description': value,
+    };
