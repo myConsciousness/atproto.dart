@@ -1,23 +1,6 @@
 <p align="center">
-  <a href="https://github.com/myConsciousness/atproto.dart">
-    <img alt="bluesky" width="600px" src="https://raw.githubusercontent.com/myConsciousness/atproto.dart/main/resources/brands/atproto.003.png">
-  </a>
-</p>
-
-<p align="center">
   <b>The Most Famous & Powerful Dart/Flutter Library for Bluesky Social 🦋</b>
 </p>
-
----
-
-[![pub package](https://img.shields.io/pub/v/bluesky.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/bluesky)
-[![Dart SDK Version](https://badgen.net/pub/sdk-version/bluesky)](https://pub.dev/packages/bluesky/)
-[![Stars](https://img.shields.io/github/stars/myConsciousness/atproto.dart?logo=github&logoColor=white)](https://github.com/myConsciousness/atproto.dart)
-[![Contributors](https://img.shields.io/github/contributors/myConsciousness/atproto.dart)](https://github.com/myConsciousness/atproto.dart/graphs/contributors)
-[![License](https://img.shields.io/github/license/myConsciousness/atproto.dart?logo=open-source-initiative&logoColor=green)](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/myConsciousness/atproto.dart/blob/main/CODE_OF_CONDUCT.md)
-
----
 
 <!-- TOC -->
 
@@ -26,10 +9,6 @@
   - [1.2. Getting Started 💪](#12-getting-started-)
   - [1.3. Supported Endpoints 👀](#13-supported-endpoints-)
   - [1.4. More Tips 🏄](#14-more-tips-)
-  - [1.5. Contribution 🏆](#15-contribution-)
-  - [1.6. Support ❤️](#16-support-️)
-  - [1.7. License 🔑](#17-license-)
-  - [1.8. More Information 🧐](#18-more-information-)
 
 <!-- /TOC -->
 
@@ -38,8 +17,6 @@
 This library provides **the most productive way** to use the **_AT Protocol API_** and **_Bluesky API_** in Dart/Flutter apps.
 
 The library is **cross-platform** and is **already used in many applications**. See **[official showcase](https://atprotodart.com/showcase)** for more details.
-
-**_Give a ⭐ on [GitHub repository](https://github.com/myConsciousness/atproto.dart) and follow [shinyakato.dev](https://bsky.app/profile/shinyakato.dev) on Bluesky!_**
 
 - **[More Documents](https://atprotodart.com/docs/packages/bluesky)**
 
@@ -108,73 +85,3 @@ See **[official documents](https://atprotodart.com/docs/packages/bluesky)** from
 - **[Pagination](https://atprotodart.com/docs/packages/bluesky/#pagination)**
 - **[Unspecced Inputs](https://atprotodart.com/docs/packages/bluesky/#unspecced-inputs)**
 - **[Moderation API](https://atprotodart.com/docs/packages/bluesky/#moderation-api)**
-
-## 1.5. Contribution 🏆
-
-If you would like to contribute to **bluesky**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
-
-There are many ways to contribute to the OSS. For example, the following subjects can be considered:
-
-- There are request parameters or response fields that are not implemented.
-- Documentation is outdated or incomplete.
-- Have a better way or idea to achieve the functionality.
-- etc...
-
-You can see more details from resources below:
-
-- [Contributor Covenant Code of Conduct](https://github.com/myConsciousness/atproto.dart/blob/main/CODE_OF_CONDUCT.md)
-- [Contribution Guidelines](https://github.com/myConsciousness/atproto.dart/blob/main/CONTRIBUTING.md)
-- [Style Guide](https://github.com/myConsciousness/atproto.dart/blob/main/STYLEGUIDE.md)
-
-Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart/discussions) if you like.
-
-**Feel free to join this development, diverse opinions make software better!**
-
-## 1.6. Support ❤️
-
-The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky).
-
-You can also support this project by **becoming a sponsor** on GitHub:
-
-<div align="left">
-  <p>
-    <a href="https://github.com/sponsors/myconsciousness">
-      <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="myconsciousness" />
-    </a>
-  </p>
-</div>
-
-You can also show on your repository that your app is made with **bluesky** by using one of the following badges:
-
-[![Powered by bluesky](https://img.shields.io/badge/Powered%20by-bluesky-00acee.svg)](https://github.com/myConsciousness/atproto.dart)
-[![Powered by bluesky](https://img.shields.io/badge/Powered%20by-bluesky-00acee.svg?style=flat-square)](https://github.com/myConsciousness/atproto.dart)
-[![Powered by bluesky](https://img.shields.io/badge/Powered%20by-bluesky-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
-
-```license
-[![Powered by bluesky](https://img.shields.io/badge/Powered%20by-bluesky-00acee.svg)](https://github.com/myConsciousness/atproto.dart)
-[![Powered by bluesky](https://img.shields.io/badge/Powered%20by-bluesky-00acee.svg?style=flat-square)](https://github.com/myConsciousness/atproto.dart)
-[![Powered by bluesky](https://img.shields.io/badge/Powered%20by-bluesky-00acee.svg?style=for-the-badge)](https://github.com/myConsciousness/atproto.dart)
-```
-
-## 1.7. License 🔑
-
-All resources of **bluesky** is provided under the `BSD-3` license.
-
-```license
-Copyright 2023 Shinya Kato. All rights reserved.
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided the conditions.
-```
-
-> **Note**</br>
-> License notices in the source are strictly validated based on `.github/header-checker-lint.yml`. Please check [header-checker-lint.yml](https://github.com/myConsciousness/atproto.dart/tree/main/.github/header-checker-lint.yml) for the permitted standards.
-
-## 1.8. More Information 🧐
-
-**bluesky** was designed and implemented by **_Shinya Kato ([@myConsciousness](https://github.com/myConsciousness))_**.
-
-- [Creator Profile](https://github.com/myConsciousness)
-- [License](https://github.com/myConsciousness/atproto.dart/blob/main/LICENSE)
-- [API Document](https://pub.dev/documentation/bluesky/latest/bluesky/bluesky-library.html)
-- [Release Note](https://github.com/myConsciousness/atproto.dart/releases)
-- [Bug Report](https://github.com/myConsciousness/atproto.dart/issues)

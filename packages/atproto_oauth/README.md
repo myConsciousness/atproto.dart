@@ -174,7 +174,3 @@ Future<void> _makeAuthenticatedRequest() async {
   final record = await bsky.feed.post(text: 'Nice DPoP proof');
 }
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
