@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.18.8
+
+- Fix `leaveConvo` method on `ConvoService`.
+  - `400 Incorrect HTTP method (GET) expected POST`
+
 ## v0.18.7
 
 - Add `reasons` parameter on `NotificationService.listNotification`. ([#1849](https://github.com/myConsciousness/atproto.dart/pull/1849))

@@ -99,7 +99,7 @@ final class ConvoService {
   Future<core.XRPCResponse<LeaveConvoOutput>> leaveConvo({
     required String convoId,
   }) async =>
-      await _ctx.get(
+      await _ctx.post(
         ns.chatBskyConvoLeaveConvo,
         parameters: {
           'convoId': convoId,
