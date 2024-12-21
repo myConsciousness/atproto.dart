@@ -1,3 +1,7 @@
+// Copyright 2024 Shinya Kato. All rights reserved.
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided the conditions.
+
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // GENERATED CODE - DO NOT MODIFY BY HAND
@@ -2412,7 +2416,12 @@ const comAtprotoServerCreateSession = <String, dynamic>{
                   "Handle or other identifier supported by the server for the authenticating user."
             },
             "password": {"type": "string"},
-            "authFactorToken": {"type": "string"}
+            "authFactorToken": {"type": "string"},
+            "allowTakendown": {
+              "type": "boolean",
+              "description":
+                  "When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned"
+            }
           }
         }
       },

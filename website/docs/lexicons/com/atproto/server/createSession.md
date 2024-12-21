@@ -18,6 +18,7 @@ Create an authentication session.
 | **identifier** | string | - | ✅ | Handle or other identifier supported by the server for the authenticating user. |
 | **password** | string | - | ✅ | - |
 | **authFactorToken** | string | - | ❌ | - |
+| **allowTakendown** | boolean | - | ❌ | When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned |
 
 ### Output
 
