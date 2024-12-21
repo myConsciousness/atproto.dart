@@ -4,7 +4,6 @@
   </a>
 </p>
 
-
 <p align="center">
   <b>AT Protocol and Bluesky Social Things for Dart/Flutter 🦋</b>
 </p>
@@ -31,8 +30,7 @@
   - [3.3. Setup Project](#33-setup-project)
   - [3.4. Useful Commands](#34-useful-commands)
 - [4. Who is using atproto.dart? 👀](#4-who-is-using-atprotodart-)
-- [5. Contribution 🏆](#5-contribution-)
-- [6. Support ❤️](#6-support-️)
+- [5. Support](#5-support)
 
 Welcome to **[atproto.dart](https://atprotodart.com)** 🦋
 
@@ -128,30 +126,7 @@ The following projects/services are using atproto.dart packages:
 
 You can see more at [showcase](https://atprotodart.com/showcase), special thanks!
 
-## 5. Contribution 🏆
-
-If you would like to contribute to **atproto.dart**, please create an [issue](https://github.com/myConsciousness/atproto.dart/issues) or create a Pull Request.
-
-There are many ways to contribute to the OSS. For example, the following subjects can be considered:
-
-- There are request parameters or response fields that are not implemented.
-- Documentation is outdated or incomplete.
-- Have a better way or idea to achieve the functionality.
-- etc...
-
-You can see more details from resources below:
-
-- [Contributor Covenant Code of Conduct](https://github.com/myConsciousness/atproto.dart/blob/main/CODE_OF_CONDUCT.md)
-- [Contribution Guidelines](https://github.com/myConsciousness/atproto.dart/blob/main/CONTRIBUTING.md)
-- [Style Guide](https://github.com/myConsciousness/atproto.dart/blob/main/STYLEGUIDE.md)
-
-Or you can create a [discussion](https://github.com/myConsciousness/atproto.dart/discussions) if you like.
-
-## 6. Support ❤️
-
-The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/myConsciousness/atproto.dart) and [Pub.dev](https://pub.dev/packages/bluesky).
-
-You can also support this project by **becoming a sponsor** on GitHub:
+## 5. Support
 
 <div align="left">
   <p>
