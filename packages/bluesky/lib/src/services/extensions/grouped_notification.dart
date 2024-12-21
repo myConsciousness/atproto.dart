@@ -20,6 +20,7 @@ extension GroupedNotificationExtension on GroupedNotification {
       case GroupedNotificationReason.reply:
       case GroupedNotificationReason.quote:
       case GroupedNotificationReason.mention:
+      case GroupedNotificationReason.starterpackJoined:
         return uris.first;
       default:
         return null;

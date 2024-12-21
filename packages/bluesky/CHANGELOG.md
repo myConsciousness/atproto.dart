@@ -23,6 +23,7 @@
     - `chat_bsky_actor_get_convo.dart`
     - `chat_bsky_actor_defs.dart`
     - `chat_bsky_actor_declaration.dart`
+- Add `starterpackJoined` on `NotificationReason` and `GroupedNotificationReason`.
 
 ## v0.18.7
 

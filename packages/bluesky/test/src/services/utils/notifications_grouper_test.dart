@@ -88,11 +88,36 @@ void main() {
             'indexedAt': '2023-04-30T04:11:48.301Z',
             'labels': []
           },
+          {
+            'uri':
+                'at://did:plc:2mswvlhacbduwaocihh6sh5f/app.bsky.graph.starterpack/3jukrnv47hh2l',
+            'cid':
+                'bafyreicb75yus73va7pk647cgbkz73ccij57pdhaitj5dvsglveob7mvhq',
+            'author': {
+              'did': '',
+              'handle': 'xxxxx',
+              'displayName': 'xxxxxx',
+              'description': '',
+              'avatar': '',
+              'indexedAt': '2023-04-12T01:18:02.946Z',
+              'viewer': {},
+              'labels': []
+            },
+            'reason': 'starterpack-joined',
+            'record': {
+              r'$type': 'app.bsky.graph.starterpack',
+              'name': 'Test Starterpack',
+              'createdAt': '2023-04-29T04:11:48.225Z'
+            },
+            'isRead': false,
+            'indexedAt': '2023-04-29T04:11:48.301Z',
+            'labels': []
+          },
         ],
         'cursor': 'xxxx',
       }));
 
-      expect(grouped.notifications.length, 2);
+      expect(grouped.notifications.length, 3);
       expect(grouped.notifications[0].reason, GroupedNotificationReason.like);
       expect(grouped.notifications[0].authors.length, 1);
       expect(grouped.notifications[0].authors[0].did,
@@ -101,6 +126,9 @@ void main() {
       expect(grouped.notifications[1].authors.length, 1);
       expect(grouped.notifications[1].authors[0].did,
           'did:plc:2mswvlhacbduwaocihh6sh5f');
+      expect(grouped.notifications[2].reason,
+          GroupedNotificationReason.starterpackJoined);
+      expect(grouped.notifications[2].authors.length, 1);
 
       expect(grouped.cursor, 'xxxx');
     });
