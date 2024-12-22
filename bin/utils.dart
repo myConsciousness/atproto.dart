@@ -1,8 +1,8 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:github/github.dart';
 import 'package:lexicon/lexicon.dart';
 
@@ -66,12 +66,7 @@ LexiconDoc _getLexiconDoc(final File lexiconFile) => LexiconDoc.fromJson(
       jsonDecode(lexiconFile.readAsStringSync()),
     );
 
-String getFileHeader(final String label) =>
-    '''// Copyright ${DateTime.now().year} Shinya Kato. All rights reserved.
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided the conditions.
-
-// coverage:ignore-file
+String getFileHeader(final String label) => '''// coverage:ignore-file
 // ignore_for_file: type=lint
 // GENERATED CODE - DO NOT MODIFY BY HAND
 

@@ -1,10 +1,10 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:io';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:pubspec/pubspec.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'utils.dart';
 
 const _excludePackages = [
