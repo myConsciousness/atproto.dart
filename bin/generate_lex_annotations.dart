@@ -1,10 +1,10 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:io';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:lexicon/lexicon.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'utils.dart' as utils;
 
 final _header = utils.getFileHeader('Lex Annotations Generator');
@@ -20,10 +20,10 @@ void main(List<String> args) {
     final annotations = StringBuffer(_header)
       ..writeln()
       ..writeln()
-      ..writeln('// 📦 Package imports:')
+      ..writeln('// Package imports:')
       ..writeln("import 'package:lex_annotation/lex_annotation.dart';")
       ..writeln()
-      ..writeln('// 🌎 Project imports:')
+      ..writeln('// Project imports:')
       ..writeln("import 'ids.g.dart' as ids;");
 
     _getLexObjects(utils.lexiconDocs, root).forEach((id, types) {

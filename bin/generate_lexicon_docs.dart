@@ -1,8 +1,8 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-// 🌎 Project imports:
+// Project imports:
 import 'utils.dart' as utils;
 
 final _header = utils.getFileHeader('Lexicon Docs Generator');

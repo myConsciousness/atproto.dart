@@ -1,11 +1,11 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:lexicon/lexicon.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'utils.dart' as utils;
 
 const _matrixRoot = 'website/docs/lexicons';

@@ -1,11 +1,11 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:io';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:github/github.dart';
 import 'package:http/http.dart' as http;
 
-// 🌎 Project imports:
+// Project imports:
 import 'utils.dart';
 
 Future<void> main(List<String> args) async {

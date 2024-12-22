@@ -1,10 +1,10 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:io';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:lexicon/lexicon.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'utils.dart' as utils;
 
 const _tableHeader = '| Method | Docs | Paging (cursor) |';

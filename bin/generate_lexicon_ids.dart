@@ -1,8 +1,8 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-// 🌎 Project imports:
+// Project imports:
 import 'utils.dart';
 
 const packages = {
@@ -25,10 +25,10 @@ void main() {
     final nsids = StringBuffer()
       ..writeln(_header)
       ..writeln()
-      ..writeln('// 📦 Package imports:')
+      ..writeln('// Package imports:')
       ..writeln("import 'package:atproto_core/atproto_core.dart';")
       ..writeln()
-      ..writeln('// 🌎 Project imports:')
+      ..writeln('// Project imports:')
       ..writeln("import '$_idsFileName' as ids;");
 
     for (final lexicon in entry.value) {
