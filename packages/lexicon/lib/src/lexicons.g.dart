@@ -2412,7 +2412,12 @@ const comAtprotoServerCreateSession = <String, dynamic>{
                   "Handle or other identifier supported by the server for the authenticating user."
             },
             "password": {"type": "string"},
-            "authFactorToken": {"type": "string"}
+            "authFactorToken": {"type": "string"},
+            "allowTakendown": {
+              "type": "boolean",
+              "description":
+                  "When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned"
+            }
           }
         }
       },
