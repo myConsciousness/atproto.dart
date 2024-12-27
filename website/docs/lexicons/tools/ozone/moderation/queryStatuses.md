@@ -13,6 +13,9 @@ View moderation statuses of subjects (record or repo).
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **queueCount** | integer | - | ❌ | Number of queues being used by moderators. Subjects will be split among all queues. |
+| **queueIndex** | integer | - | ❌ | Index of the queue to fetch subjects from. Works only when queueCount value is specified. |
+| **queueSeed** | string | - | ❌ | A seeder to shuffle/balance the queue items. |
 | **includeAllUserRecords** | boolean | - | ❌ | All subjects, or subjects from given 'collections' param, belonging to the account specified in the 'subject' param will be returned. |
 | **subject** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | The subject to get the status for. |
 | **comment** | string | - | ❌ | Search subjects by keyword from comments |
