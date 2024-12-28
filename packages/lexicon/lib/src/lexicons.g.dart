@@ -10318,6 +10318,20 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
+          "queueCount": {
+            "type": "integer",
+            "description":
+                "Number of queues being used by moderators. Subjects will be split among all queues."
+          },
+          "queueIndex": {
+            "type": "integer",
+            "description":
+                "Index of the queue to fetch subjects from. Works only when queueCount value is specified."
+          },
+          "queueSeed": {
+            "type": "string",
+            "description": "A seeder to shuffle/balance the queue items."
+          },
           "includeAllUserRecords": {
             "type": "boolean",
             "description":
@@ -10435,9 +10449,9 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
             "items": {
               "type": "string",
               "description":
-                  "Items in this array are applied with OR filters. To apply AND filter, put all tags in the same string and separate using && characters",
-              "maxLength": 25
-            }
+                  "Items in this array are applied with OR filters. To apply AND filter, put all tags in the same string and separate using && characters"
+            },
+            "maxLength": 25
           },
           "excludeTags": {
             "type": "array",
