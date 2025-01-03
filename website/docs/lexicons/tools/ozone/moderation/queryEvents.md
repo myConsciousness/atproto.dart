@@ -30,6 +30,7 @@ List moderation events related to a subject.
 | **addedTags** | array | - | ❌ | - |
 | **removedTags** | array | - | ❌ | - |
 | **reportTypes** | array | - | ❌ | - |
+| **policies** | array | - | ❌ | If specified, only events where the action policies match any of the given policies are returned |
 | **cursor** | string | - | ❌ | - |
 
 ### Output
