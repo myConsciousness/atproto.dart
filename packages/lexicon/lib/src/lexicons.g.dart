@@ -9851,6 +9851,13 @@ const toolsOzoneModerationDefs = <String, dynamic>{
           "type": "boolean",
           "description":
               "If true, all other reports on content authored by this account will be resolved (acknowledged)."
+        },
+        "policies": {
+          "type": "array",
+          "description":
+              "Names/Keywords of the policies that drove the decision.",
+          "items": {"type": "string"},
+          "maxLength": 5
         }
       }
     },
@@ -10656,6 +10663,14 @@ const toolsOzoneModerationQueryEvents = <String, dynamic>{
           "reportTypes": {
             "type": "array",
             "items": {"type": "string"}
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description":
+                  "If specified, only events where the action policies match any of the given policies are returned"
+            }
           },
           "cursor": {"type": "string"}
         }
