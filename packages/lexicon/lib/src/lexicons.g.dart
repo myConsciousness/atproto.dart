@@ -6190,6 +6190,11 @@ const appBskyActorGetSuggestions = <String, dynamic>{
             "actors": {
               "type": "array",
               "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
+            },
+            "recId": {
+              "type": "integer",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events."
             }
           }
         }
@@ -6638,6 +6643,11 @@ const appBskyUnspeccedGetSuggestionsSkeleton = <String, dynamic>{
               "format": "did",
               "description":
                   "DID of the account these suggestions are relative to. If this is returned undefined, suggestions are based on the viewer."
+            },
+            "recId": {
+              "type": "integer",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events."
             }
           }
         }
@@ -8244,6 +8254,11 @@ const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
               "description":
                   "If true, response has fallen-back to generic results, and is not scoped using relativeToDid",
               "default": false
+            },
+            "recId": {
+              "type": "integer",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events."
             }
           }
         }
