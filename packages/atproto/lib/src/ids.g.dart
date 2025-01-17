@@ -133,6 +133,9 @@ const comAtprotoLabelSubscribeLabelsInfo =
 const comAtprotoLabelSubscribeLabelsLabels =
     'com.atproto.label.subscribeLabels#labels';
 
+/// `com.atproto.lexicon.schema`
+const comAtprotoLexiconSchema = 'com.atproto.lexicon.schema';
+
 /// `com.atproto.moderation.createReport`
 const comAtprotoModerationCreateReport = 'com.atproto.moderation.createReport';
 
