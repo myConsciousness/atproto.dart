@@ -108,6 +108,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | **acceptsInteractions** | boolean | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#generatorViewerState](#generatorviewerstate) | - | ❌ | - |
+| **contentMode** | string | [app.bsky.feed.defs#contentModeUnspecified](../../../../lexicons/app/bsky/feed/defs.md#contentmodeunspecified)<br/>[app.bsky.feed.defs#contentModeVideo](../../../../lexicons/app/bsky/feed/defs.md#contentmodevideo) | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
 ## #generatorViewerState
@@ -172,6 +173,14 @@ Metadata about the requesting account's relationship with the subject content. O
 ## #clickthroughEmbed
 
 **TOKEN**: User clicked through to the embedded content of the feed item
+
+## #contentModeUnspecified
+
+**TOKEN**: Declares the feed generator returns any types of posts.
+
+## #contentModeVideo
+
+**TOKEN**: Declares the feed generator returns posts containing app.bsky.embed.video embeds.
 
 ## #interactionSeen
 

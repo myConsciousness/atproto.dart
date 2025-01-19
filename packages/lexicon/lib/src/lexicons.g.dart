@@ -3332,6 +3332,31 @@ const comAtprotoTempCheckSignupQueue = <String, dynamic>{
   }
 };
 
+/// `com.atproto.lexicon.schema`
+const comAtprotoLexiconSchema = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.lexicon.schema",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Representation of Lexicon schemas themselves, when published as atproto records. Note that the schema language is not defined in Lexicon; this meta schema currently only includes a single version field ('lexicon'). See the atproto specifications for description of the other expected top-level fields ('id', 'defs', etc).",
+      "key": "nsid",
+      "record": {
+        "type": "object",
+        "required": ["lexicon"],
+        "properties": {
+          "lexicon": {
+            "type": "integer",
+            "description":
+                "Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system."
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `com.atproto.identity.submitPlcOperation`
 const comAtprotoIdentitySubmitPlcOperation = <String, dynamic>{
   "lexicon": 1,
@@ -3963,6 +3988,13 @@ const appBskyFeedDefs = <String, dynamic>{
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         },
         "viewer": {"type": "ref", "ref": "#generatorViewerState"},
+        "contentMode": {
+          "type": "string",
+          "knownValues": [
+            "app.bsky.feed.defs#contentModeUnspecified",
+            "app.bsky.feed.defs#contentModeVideo"
+          ]
+        },
         "indexedAt": {"type": "string", "format": "datetime"}
       }
     },
@@ -4064,6 +4096,15 @@ const appBskyFeedDefs = <String, dynamic>{
       "type": "token",
       "description":
           "User clicked through to the embedded content of the feed item"
+    },
+    "contentModeUnspecified": {
+      "type": "token",
+      "description": "Declares the feed generator returns any types of posts."
+    },
+    "contentModeVideo": {
+      "type": "token",
+      "description":
+          "Declares the feed generator returns posts containing app.bsky.embed.video embeds."
     },
     "interactionSeen": {
       "type": "token",
@@ -4710,6 +4751,13 @@ const appBskyFeedGenerator = <String, dynamic>{
             "type": "union",
             "description": "Self-label values",
             "refs": ["com.atproto.label.defs#selfLabels"]
+          },
+          "contentMode": {
+            "type": "string",
+            "knownValues": [
+              "app.bsky.feed.defs#contentModeUnspecified",
+              "app.bsky.feed.defs#contentModeVideo"
+            ]
           },
           "createdAt": {"type": "string", "format": "datetime"}
         }
@@ -6190,6 +6238,11 @@ const appBskyActorGetSuggestions = <String, dynamic>{
             "actors": {
               "type": "array",
               "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
+            },
+            "recId": {
+              "type": "integer",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events."
             }
           }
         }
@@ -6638,6 +6691,11 @@ const appBskyUnspeccedGetSuggestionsSkeleton = <String, dynamic>{
               "format": "did",
               "description":
                   "DID of the account these suggestions are relative to. If this is returned undefined, suggestions are based on the viewer."
+            },
+            "recId": {
+              "type": "integer",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events."
             }
           }
         }
@@ -8244,6 +8302,11 @@ const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
               "description":
                   "If true, response has fallen-back to generic results, and is not scoped using relativeToDid",
               "default": false
+            },
+            "recId": {
+              "type": "integer",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events."
             }
           }
         }
@@ -11381,6 +11444,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoTempRequestPhoneVerification,
   comAtprotoTempFetchLabels,
   comAtprotoTempCheckSignupQueue,
+  comAtprotoLexiconSchema,
   comAtprotoIdentitySubmitPlcOperation,
   comAtprotoIdentityUpdateHandle,
   comAtprotoIdentitySignPlcOperation,
