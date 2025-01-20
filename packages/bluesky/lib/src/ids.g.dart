@@ -203,6 +203,13 @@ const appBskyFeedDefsClickthroughItem = 'app.bsky.feed.defs#clickthroughItem';
 const appBskyFeedDefsClickthroughReposter =
     'app.bsky.feed.defs#clickthroughReposter';
 
+/// `app.bsky.feed.defs#contentModeUnspecified`
+const appBskyFeedDefsContentModeUnspecified =
+    'app.bsky.feed.defs#contentModeUnspecified';
+
+/// `app.bsky.feed.defs#contentModeVideo`
+const appBskyFeedDefsContentModeVideo = 'app.bsky.feed.defs#contentModeVideo';
+
 /// `app.bsky.feed.defs#feedViewPost`
 const appBskyFeedDefsFeedViewPost = 'app.bsky.feed.defs#feedViewPost';
 

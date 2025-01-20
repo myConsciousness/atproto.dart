@@ -22,6 +22,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **avatar** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |
 | **acceptsInteractions** | boolean | - | ❌ | Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions |
 | **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
+| **contentMode** | string | [app.bsky.feed.defs#contentModeUnspecified](../../../../lexicons/app/bsky/feed/defs.md#contentmodeunspecified)<br/>[app.bsky.feed.defs#contentModeVideo](../../../../lexicons/app/bsky/feed/defs.md#contentmodevideo) | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
 ### Output
