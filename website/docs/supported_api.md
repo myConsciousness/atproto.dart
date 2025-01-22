@@ -112,6 +112,12 @@ sidebar_position: 4
 | **[com.atproto.temp.fetchLabels](https://pub.dev/documentation/atproto/latest/atproto/TempService/fetchLabels.html)** | [Reference](lexicons/com/atproto/temp/fetchLabels.md) | ❌ |
 | **[com.atproto.temp.checkSignupQueue](https://pub.dev/documentation/atproto/latest/atproto/TempService/checkSignupQueue.html)** | [Reference](lexicons/com/atproto/temp/checkSignupQueue.md) | ❌ |
 
+### com.atproto.lexicon
+
+| Method | Docs | Paging (cursor) |
+| --- | --- | :---: |
+| **[com.atproto.lexicon.schema](https://pub.dev/documentation/atproto/latest/atproto/LexiconService/schema.html)** | [Reference](lexicons/com/atproto/lexicon/schema.md) | ❌ |
+
 ### com.atproto.identity
 
 | Method | Docs | Paging (cursor) |
