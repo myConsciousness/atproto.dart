@@ -203,6 +203,13 @@ const appBskyFeedDefsClickthroughItem = 'app.bsky.feed.defs#clickthroughItem';
 const appBskyFeedDefsClickthroughReposter =
     'app.bsky.feed.defs#clickthroughReposter';
 
+/// `app.bsky.feed.defs#contentModeUnspecified`
+const appBskyFeedDefsContentModeUnspecified =
+    'app.bsky.feed.defs#contentModeUnspecified';
+
+/// `app.bsky.feed.defs#contentModeVideo`
+const appBskyFeedDefsContentModeVideo = 'app.bsky.feed.defs#contentModeVideo';
+
 /// `app.bsky.feed.defs#feedViewPost`
 const appBskyFeedDefsFeedViewPost = 'app.bsky.feed.defs#feedViewPost';
 
@@ -264,6 +271,9 @@ const appBskyFeedDefsSkeletonReasonPin = 'app.bsky.feed.defs#skeletonReasonPin';
 /// `app.bsky.feed.defs#skeletonReasonRepost`
 const appBskyFeedDefsSkeletonReasonRepost =
     'app.bsky.feed.defs#skeletonReasonRepost';
+
+/// `app.bsky.feed.defs#threadContext`
+const appBskyFeedDefsThreadContext = 'app.bsky.feed.defs#threadContext';
 
 /// `app.bsky.feed.defs#threadViewPost`
 const appBskyFeedDefsThreadViewPost = 'app.bsky.feed.defs#threadViewPost';
