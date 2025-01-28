@@ -11,6 +11,9 @@ enum FeedFilter implements Serializable {
   /// `posts_with_media`
   postsWithMedia('posts_with_media'),
 
+  /// `posts_with_replies_and_media`
+  postsWithVideo('posts_with_video'),
+
   /// `posts_and_author_threads`
   postsAndAuthorThreads('posts_and_author_threads');
 
