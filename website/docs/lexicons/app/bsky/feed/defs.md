@@ -36,6 +36,14 @@ Metadata about the requesting account's relationship with the subject content. O
 | **embeddingDisabled** | boolean | - | ❌ | - |
 | **pinned** | boolean | - | ❌ | - |
 
+## #threadContext
+
+Metadata about this post within the context of the thread it is in.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rootAuthorLike** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
+
 ## #feedViewPost
 
 | Property | Type | Known Values | Required | Description |
@@ -69,6 +77,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | **post** | [#postView](#postview) | - | ✅ | - |
 | **parent** | union of <br/>[#threadViewPost](#threadviewpost)<br/>[#notFoundPost](#notfoundpost)<br/>[#blockedPost](#blockedpost) | - | ❌ | - |
 | **replies** | array of union<br/>[#threadViewPost](#threadviewpost)<br/>[#notFoundPost](#notfoundpost)<br/>[#blockedPost](#blockedpost) | - | ❌ | - |
+| **threadContext** | [#threadContext](#threadcontext) | - | ❌ | - |
 
 ## #notFoundPost
 
@@ -108,6 +117,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | **acceptsInteractions** | boolean | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#generatorViewerState](#generatorviewerstate) | - | ❌ | - |
+| **contentMode** | string | [app.bsky.feed.defs#contentModeUnspecified](../../../../lexicons/app/bsky/feed/defs.md#contentmodeunspecified)<br/>[app.bsky.feed.defs#contentModeVideo](../../../../lexicons/app/bsky/feed/defs.md#contentmodevideo) | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
 ## #generatorViewerState
@@ -172,6 +182,14 @@ Metadata about the requesting account's relationship with the subject content. O
 ## #clickthroughEmbed
 
 **TOKEN**: User clicked through to the embedded content of the feed item
+
+## #contentModeUnspecified
+
+**TOKEN**: Declares the feed generator returns any types of posts.
+
+## #contentModeVideo
+
+**TOKEN**: Declares the feed generator returns posts containing app.bsky.embed.video embeds.
 
 ## #interactionSeen
 
