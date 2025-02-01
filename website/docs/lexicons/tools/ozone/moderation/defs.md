@@ -52,6 +52,35 @@ description: tools.ozone.moderation.defs
 | **appealed** | boolean | - | ❌ | True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators. |
 | **suspendUntil** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **tags** | array of string | - | ❌ | - |
+| **accountStats** | [#accountStats](#accountstats) | - | ❌ | - |
+| **recordsStats** | [#recordsStats](#recordsstats) | - | ❌ | - |
+
+## #accountStats
+
+Statistics about a particular account subject
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **reportCount** | integer | - | ❌ | Total number of reports on the account |
+| **appealCount** | integer | - | ❌ | Total number of appeals against a moderation action on the account |
+| **suspendCount** | integer | - | ❌ | Number of times the account was suspended |
+| **escalateCount** | integer | - | ❌ | Number of times the account was escalated |
+| **takedownCount** | integer | - | ❌ | Number of times the account was taken down |
+
+## #recordsStats
+
+Statistics about a set of record subject items
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **totalReports** | integer | - | ❌ | Cumulative sum of the number of reports on the items in the set |
+| **reportedCount** | integer | - | ❌ | Number of items that were reported at least once |
+| **escalatedCount** | integer | - | ❌ | Number of items that were escalated at least once |
+| **appealedCount** | integer | - | ❌ | Number of items that were appealed at least once |
+| **subjectCount** | integer | - | ❌ | Total number of item in the set |
+| **pendingCount** | integer | - | ❌ | Number of item currently in "reviewOpen" or "reviewEscalated" state |
+| **processedCount** | integer | - | ❌ | Number of item currently in "reviewNone" or "reviewClosed" state |
+| **takendownCount** | integer | - | ❌ | Number of item currently taken down |
 
 ## #subjectReviewState
 
@@ -130,6 +159,7 @@ Apply/Negate labels on a subject
 | **comment** | string | - | ❌ | - |
 | **createLabelVals** | array of string | - | ✅ | - |
 | **negateLabelVals** | array of string | - | ✅ | - |
+| **durationInHours** | integer | - | ❌ | Indicates how long the label will remain on the subject. Only applies on labels that are being added. |
 
 ## #modEventAcknowledge
 
