@@ -99,6 +99,9 @@ const comAtprotoLabelSubscribeLabelsInfo =
 const comAtprotoLabelSubscribeLabelsLabels =
     NSID(ids.comAtprotoLabelSubscribeLabelsLabels);
 
+/// `com.atproto.lexicon.schema`
+const comAtprotoLexiconSchema = NSID(ids.comAtprotoLexiconSchema);
+
 /// `com.atproto.moderation.createReport`
 const comAtprotoModerationCreateReport =
     NSID(ids.comAtprotoModerationCreateReport);
