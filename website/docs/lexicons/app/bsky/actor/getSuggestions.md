@@ -24,3 +24,4 @@ Get a list of suggested actors. Expected use is discovery of accounts to follow 
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
 | **actors** | array of [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
+| **recId** | integer | - | ❌ | Snowflake for this recommendation, use when submitting recommendation events. |
