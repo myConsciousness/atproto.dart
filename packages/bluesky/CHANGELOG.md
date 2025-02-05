@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.18.9
+
+- Add `postsWithVideo` on `FeedFilter`. ([#1895](https://github.com/myConsciousness/atproto.dart/pull/1895))
+
 ## v0.18.8
 
 - Fix `leaveConvo` method on `ConvoService`.
