@@ -4125,9 +4125,16 @@ const appBskyFeedThreadgate = <String, dynamic>{
           },
           "allow": {
             "type": "array",
+            "description":
+                "List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
             "items": {
               "type": "union",
-              "refs": ["#mentionRule", "#followingRule", "#listRule"]
+              "refs": [
+                "#mentionRule",
+                "#followerRule",
+                "#followingRule",
+                "#listRule"
+              ]
             },
             "maxLength": 5
           },
@@ -4144,6 +4151,11 @@ const appBskyFeedThreadgate = <String, dynamic>{
     "mentionRule": {
       "type": "object",
       "description": "Allow replies from actors mentioned in your post.",
+      "properties": {}
+    },
+    "followerRule": {
+      "type": "object",
+      "description": "Allow replies from actors who follow you.",
       "properties": {}
     },
     "followingRule": {
@@ -4694,6 +4706,8 @@ const appBskyFeedPostgate = <String, dynamic>{
           },
           "embeddingRules": {
             "type": "array",
+            "description":
+                "List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
             "items": {
               "type": "union",
               "refs": ["#disableRule"]
@@ -8055,7 +8069,8 @@ const appBskyActorDefs = <String, dynamic>{
           "#mutedWordsPref",
           "#hiddenPostsPref",
           "#bskyAppStatePref",
-          "#labelersPref"
+          "#labelersPref",
+          "#postInteractionSettingsPref"
         ]
       }
     },
@@ -8319,6 +8334,38 @@ const appBskyActorDefs = <String, dynamic>{
           "format": "datetime",
           "description":
               "The date and time at which the NUX will expire and should be considered completed."
+        }
+      }
+    },
+    "postInteractionSettingsPref": {
+      "type": "object",
+      "description":
+          "Default post interaction settings for the account. These values should be applied as default values when creating new posts. These refs should mirror the threadgate and postgate records exactly.",
+      "required": [],
+      "properties": {
+        "threadgateAllowRules": {
+          "type": "array",
+          "description":
+              "Matches threadgate record. List of rules defining who can reply to this users posts. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
+          "items": {
+            "type": "union",
+            "refs": [
+              "app.bsky.feed.threadgate#mentionRule",
+              "app.bsky.feed.threadgate#followingRule",
+              "app.bsky.feed.threadgate#listRule"
+            ]
+          },
+          "maxLength": 5
+        },
+        "postgateEmbeddingRules": {
+          "type": "array",
+          "description":
+              "Matches postgate record. List of rules defining who can embed this users posts. If value is an empty array or is undefined, no particular rules apply and anyone can embed.",
+          "items": {
+            "type": "union",
+            "refs": ["app.bsky.feed.postgate#disableRule"]
+          },
+          "maxLength": 5
         }
       }
     }
