@@ -46,6 +46,7 @@ View moderation statuses of subjects (record or repo).
 | **minAccountSuspendCount** | integer | - | ❌ | If specified, only subjects that belong to an account that has at least this many suspensions will be returned. |
 | **minReportedRecordsCount** | integer | - | ❌ | If specified, only subjects that belong to an account that has at least this many reported records will be returned. |
 | **minTakendownRecordsCount** | integer | - | ❌ | If specified, only subjects that belong to an account that has at least this many taken down records will be returned. |
+| **minPriorityScore** | integer | - | ❌ | If specified, only subjects that have priority score value above the given value will be returned. |
 
 ### Output
 
