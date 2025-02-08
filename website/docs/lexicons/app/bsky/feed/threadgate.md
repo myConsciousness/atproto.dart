@@ -16,7 +16,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | Reference (AT-URI) to the post record. |
-| **allow** | array of union<br/>[#mentionRule](#mentionrule)<br/>[#followingRule](#followingrule)<br/>[#listRule](#listrule) | - | ❌ | - |
+| **allow** | array of union<br/>[#mentionRule](#mentionrule)<br/>[#followerRule](#followerrule)<br/>[#followingRule](#followingrule)<br/>[#listRule](#listrule) | - | ❌ | List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply. |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **hiddenReplies** | array of string | - | ❌ | List of hidden reply URIs. |
 
@@ -29,6 +29,10 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 ## #mentionRule
 
 Allow replies from actors mentioned in your post.
+
+## #followerRule
+
+Allow replies from actors who follow you.
 
 ## #followingRule
 
