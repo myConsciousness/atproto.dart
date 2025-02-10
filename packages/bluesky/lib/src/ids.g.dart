@@ -56,6 +56,10 @@ const appBskyActorDefsNux = 'app.bsky.actor.defs#nux';
 const appBskyActorDefsPersonalDetailsPref =
     'app.bsky.actor.defs#personalDetailsPref';
 
+/// `app.bsky.actor.defs#postInteractionSettingsPref`
+const appBskyActorDefsPostInteractionSettingsPref =
+    'app.bsky.actor.defs#postInteractionSettingsPref';
+
 /// `app.bsky.actor.defs#preferences`
 const appBskyActorDefsPreferences = 'app.bsky.actor.defs#preferences';
 
@@ -378,6 +382,10 @@ const appBskyFeedSendInteractions = 'app.bsky.feed.sendInteractions';
 
 /// `app.bsky.feed.threadgate`
 const appBskyFeedThreadgate = 'app.bsky.feed.threadgate';
+
+/// `app.bsky.feed.threadgate#followerRule`
+const appBskyFeedThreadgateFollowerRule =
+    'app.bsky.feed.threadgate#followerRule';
 
 /// `app.bsky.feed.threadgate#followingRule`
 const appBskyFeedThreadgateFollowingRule =
