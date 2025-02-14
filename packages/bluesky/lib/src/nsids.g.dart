@@ -192,6 +192,10 @@ const appBskyFeedSendInteractions = NSID(ids.appBskyFeedSendInteractions);
 /// `app.bsky.feed.threadgate`
 const appBskyFeedThreadgate = NSID(ids.appBskyFeedThreadgate);
 
+/// `app.bsky.feed.threadgate#followerRule`
+const appBskyFeedThreadgateFollowerRule =
+    NSID(ids.appBskyFeedThreadgateFollowerRule);
+
 /// `app.bsky.feed.threadgate#followingRule`
 const appBskyFeedThreadgateFollowingRule =
     NSID(ids.appBskyFeedThreadgateFollowingRule);
