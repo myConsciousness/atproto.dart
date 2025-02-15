@@ -18,7 +18,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | Reference (AT-URI) to the post record. |
 | **detachedEmbeddingUris** | array of string | - | ❌ | List of AT-URIs embedding this post that the author has detached from. |
-| **embeddingRules** | array of union<br/>[#disableRule](#disablerule) | - | ❌ | - |
+| **embeddingRules** | array of union<br/>[#disableRule](#disablerule) | - | ❌ | List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed. |
 
 ### Output
 
