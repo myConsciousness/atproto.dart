@@ -7,8 +7,8 @@
 
 /* eslint-disable global-require */
 
-import {translate} from '@docusaurus/Translate';
-import {sortBy} from '@site/src/utils/jsUtils';
+import { translate } from '@docusaurus/Translate';
+import { sortBy } from '@site/src/utils/jsUtils';
 
 /*
  * ADD YOUR SITE TO THE atproto.dart SHOWCASE!
@@ -19,6 +19,7 @@ export type TagType =
   | 'opensource'
 
   //! Platforms.
+  | 'desktop'
   | 'web'
   | 'mobile'
   | 'console'
@@ -27,6 +28,15 @@ export type TagType =
 // Add sites to this list
 // prettier-ignore
 const Users: User[] = [
+  {
+    title: 'Dragonfly',
+    author: 'dfly.app',
+    description: 'Mac OS Desktop Client for Bluesky. Windows and Linux coming soon.',
+    preview: require('./showcase/dfly_showcase.png'), // Placeholder image
+    website:'https://dfly.app',
+    source: null,
+    tags: ['desktop'],
+  },
   {
     title: 'SkyBridge',
     author: 'videah.net',
@@ -161,6 +171,15 @@ export const Tags: {[type in TagType]: Tag} = {
       id: 'showcase.tag.mobile.description',
     }),
     color: '#127f82',
+  },
+
+  desktop: {
+    label: translate({ message: 'Desktop-App' }),
+    description: translate({
+      message: 'Desktop App using atproto.dart!',
+      id: 'showcase.tag.desktop.description',
+    }),
+    color: '#4d9ef7',
   },
 
   console: {
