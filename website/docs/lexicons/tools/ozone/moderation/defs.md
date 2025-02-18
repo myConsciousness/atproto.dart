@@ -409,3 +409,17 @@ Logs lifecycle event on a record subject. Normally captured by automod from the 
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **deletedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+
+## #reporterStats
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **accountReportCount** | integer | - | ✅ | The total number of reports made by the user on accounts. |
+| **recordReportCount** | integer | - | ✅ | The total number of reports made by the user on records. |
+| **reportedAccountCount** | integer | - | ✅ | The total number of accounts reported by the user. |
+| **reportedRecordCount** | integer | - | ✅ | The total number of records reported by the user. |
+| **takendownAccountCount** | integer | - | ✅ | The total number of accounts taken down as a result of the user's reports. |
+| **takendownRecordCount** | integer | - | ✅ | The total number of records taken down as a result of the user's reports. |
+| **labeledAccountCount** | integer | - | ✅ | The total number of accounts labeled as a result of the user's reports. |
+| **labeledRecordCount** | integer | - | ✅ | The total number of records labeled as a result of the user's reports. |
