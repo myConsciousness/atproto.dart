@@ -44,6 +44,7 @@ final class _ThreadRuleConverter
   Map<String, dynamic> toJson(ThreadRule object) => object.when(
         mention: (data) => data.toJson(),
         following: (data) => data.toJson(),
+        followers: (data) => data.toJson(),
         list: (data) => data.toJson(),
         unknown: (data) => data,
       );
