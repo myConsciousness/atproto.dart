@@ -387,6 +387,14 @@ const comAtprotoSyncListBlobs = 'com.atproto.sync.listBlobs';
 /// `com.atproto.sync.listRepos`
 const comAtprotoSyncListRepos = 'com.atproto.sync.listRepos';
 
+/// `com.atproto.sync.listReposByCollection`
+const comAtprotoSyncListReposByCollection =
+    'com.atproto.sync.listReposByCollection';
+
+/// `com.atproto.sync.listReposByCollection#repo`
+const comAtprotoSyncListReposByCollectionRepo =
+    'com.atproto.sync.listReposByCollection#repo';
+
 /// `com.atproto.sync.listRepos#repo`
 const comAtprotoSyncListReposRepo = 'com.atproto.sync.listRepos#repo';
 
