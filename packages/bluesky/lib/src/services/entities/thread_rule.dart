@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'converter/thread_rule_converter.dart';
+import 'thread_follower_rule.dart';
 import 'thread_following_rule.dart';
 import 'thread_list_rule.dart';
 import 'thread_mention_rule.dart';
@@ -22,6 +23,10 @@ class ThreadRule with _$ThreadRule {
   const factory ThreadRule.following({
     required ThreadFollowingRule data,
   }) = UThreadRuleFollowing;
+
+  const factory ThreadRule.followers({
+    required ThreadFollowerRule data,
+  }) = UThreadRuleFollower;
 
   const factory ThreadRule.list({
     required ThreadListRule data,

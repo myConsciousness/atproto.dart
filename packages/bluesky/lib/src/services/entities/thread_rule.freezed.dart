@@ -21,6 +21,7 @@ mixin _$ThreadRule {
   TResult when<TResult extends Object?>({
     required TResult Function(ThreadMentionRule data) mention,
     required TResult Function(ThreadFollowingRule data) following,
+    required TResult Function(ThreadFollowerRule data) followers,
     required TResult Function(ThreadListRule data) list,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
@@ -29,6 +30,7 @@ mixin _$ThreadRule {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThreadMentionRule data)? mention,
     TResult? Function(ThreadFollowingRule data)? following,
+    TResult? Function(ThreadFollowerRule data)? followers,
     TResult? Function(ThreadListRule data)? list,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
@@ -37,6 +39,7 @@ mixin _$ThreadRule {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThreadMentionRule data)? mention,
     TResult Function(ThreadFollowingRule data)? following,
+    TResult Function(ThreadFollowerRule data)? followers,
     TResult Function(ThreadListRule data)? list,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -46,6 +49,7 @@ mixin _$ThreadRule {
   TResult map<TResult extends Object?>({
     required TResult Function(UThreadRuleMention value) mention,
     required TResult Function(UThreadRuleFollowing value) following,
+    required TResult Function(UThreadRuleFollower value) followers,
     required TResult Function(UThreadRuleList value) list,
     required TResult Function(UThreadRuleUnknown value) unknown,
   }) =>
@@ -54,6 +58,7 @@ mixin _$ThreadRule {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UThreadRuleMention value)? mention,
     TResult? Function(UThreadRuleFollowing value)? following,
+    TResult? Function(UThreadRuleFollower value)? followers,
     TResult? Function(UThreadRuleList value)? list,
     TResult? Function(UThreadRuleUnknown value)? unknown,
   }) =>
@@ -62,6 +67,7 @@ mixin _$ThreadRule {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UThreadRuleMention value)? mention,
     TResult Function(UThreadRuleFollowing value)? following,
+    TResult Function(UThreadRuleFollower value)? followers,
     TResult Function(UThreadRuleList value)? list,
     TResult Function(UThreadRuleUnknown value)? unknown,
     required TResult orElse(),
@@ -173,6 +179,7 @@ class _$UThreadRuleMentionImpl extends UThreadRuleMention {
   TResult when<TResult extends Object?>({
     required TResult Function(ThreadMentionRule data) mention,
     required TResult Function(ThreadFollowingRule data) following,
+    required TResult Function(ThreadFollowerRule data) followers,
     required TResult Function(ThreadListRule data) list,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -184,6 +191,7 @@ class _$UThreadRuleMentionImpl extends UThreadRuleMention {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThreadMentionRule data)? mention,
     TResult? Function(ThreadFollowingRule data)? following,
+    TResult? Function(ThreadFollowerRule data)? followers,
     TResult? Function(ThreadListRule data)? list,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -195,6 +203,7 @@ class _$UThreadRuleMentionImpl extends UThreadRuleMention {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThreadMentionRule data)? mention,
     TResult Function(ThreadFollowingRule data)? following,
+    TResult Function(ThreadFollowerRule data)? followers,
     TResult Function(ThreadListRule data)? list,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -210,6 +219,7 @@ class _$UThreadRuleMentionImpl extends UThreadRuleMention {
   TResult map<TResult extends Object?>({
     required TResult Function(UThreadRuleMention value) mention,
     required TResult Function(UThreadRuleFollowing value) following,
+    required TResult Function(UThreadRuleFollower value) followers,
     required TResult Function(UThreadRuleList value) list,
     required TResult Function(UThreadRuleUnknown value) unknown,
   }) {
@@ -221,6 +231,7 @@ class _$UThreadRuleMentionImpl extends UThreadRuleMention {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UThreadRuleMention value)? mention,
     TResult? Function(UThreadRuleFollowing value)? following,
+    TResult? Function(UThreadRuleFollower value)? followers,
     TResult? Function(UThreadRuleList value)? list,
     TResult? Function(UThreadRuleUnknown value)? unknown,
   }) {
@@ -232,6 +243,7 @@ class _$UThreadRuleMentionImpl extends UThreadRuleMention {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UThreadRuleMention value)? mention,
     TResult Function(UThreadRuleFollowing value)? following,
+    TResult Function(UThreadRuleFollower value)? followers,
     TResult Function(UThreadRuleList value)? list,
     TResult Function(UThreadRuleUnknown value)? unknown,
     required TResult orElse(),
@@ -342,6 +354,7 @@ class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
   TResult when<TResult extends Object?>({
     required TResult Function(ThreadMentionRule data) mention,
     required TResult Function(ThreadFollowingRule data) following,
+    required TResult Function(ThreadFollowerRule data) followers,
     required TResult Function(ThreadListRule data) list,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -353,6 +366,7 @@ class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThreadMentionRule data)? mention,
     TResult? Function(ThreadFollowingRule data)? following,
+    TResult? Function(ThreadFollowerRule data)? followers,
     TResult? Function(ThreadListRule data)? list,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -364,6 +378,7 @@ class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThreadMentionRule data)? mention,
     TResult Function(ThreadFollowingRule data)? following,
+    TResult Function(ThreadFollowerRule data)? followers,
     TResult Function(ThreadListRule data)? list,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -379,6 +394,7 @@ class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
   TResult map<TResult extends Object?>({
     required TResult Function(UThreadRuleMention value) mention,
     required TResult Function(UThreadRuleFollowing value) following,
+    required TResult Function(UThreadRuleFollower value) followers,
     required TResult Function(UThreadRuleList value) list,
     required TResult Function(UThreadRuleUnknown value) unknown,
   }) {
@@ -390,6 +406,7 @@ class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UThreadRuleMention value)? mention,
     TResult? Function(UThreadRuleFollowing value)? following,
+    TResult? Function(UThreadRuleFollower value)? followers,
     TResult? Function(UThreadRuleList value)? list,
     TResult? Function(UThreadRuleUnknown value)? unknown,
   }) {
@@ -401,6 +418,7 @@ class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UThreadRuleMention value)? mention,
     TResult Function(UThreadRuleFollowing value)? following,
+    TResult Function(UThreadRuleFollower value)? followers,
     TResult Function(UThreadRuleList value)? list,
     TResult Function(UThreadRuleUnknown value)? unknown,
     required TResult orElse(),
@@ -425,6 +443,180 @@ abstract class UThreadRuleFollowing extends ThreadRule {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UThreadRuleFollowingImplCopyWith<_$UThreadRuleFollowingImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UThreadRuleFollowerImplCopyWith<$Res> {
+  factory _$$UThreadRuleFollowerImplCopyWith(_$UThreadRuleFollowerImpl value,
+          $Res Function(_$UThreadRuleFollowerImpl) then) =
+      __$$UThreadRuleFollowerImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ThreadFollowerRule data});
+
+  $ThreadFollowerRuleCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UThreadRuleFollowerImplCopyWithImpl<$Res>
+    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleFollowerImpl>
+    implements _$$UThreadRuleFollowerImplCopyWith<$Res> {
+  __$$UThreadRuleFollowerImplCopyWithImpl(_$UThreadRuleFollowerImpl _value,
+      $Res Function(_$UThreadRuleFollowerImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UThreadRuleFollowerImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ThreadFollowerRule,
+    ));
+  }
+
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ThreadFollowerRuleCopyWith<$Res> get data {
+    return $ThreadFollowerRuleCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UThreadRuleFollowerImpl extends UThreadRuleFollower {
+  const _$UThreadRuleFollowerImpl({required this.data}) : super._();
+
+  @override
+  final ThreadFollowerRule data;
+
+  @override
+  String toString() {
+    return 'ThreadRule.followers(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UThreadRuleFollowerImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UThreadRuleFollowerImplCopyWith<_$UThreadRuleFollowerImpl> get copyWith =>
+      __$$UThreadRuleFollowerImplCopyWithImpl<_$UThreadRuleFollowerImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ThreadMentionRule data) mention,
+    required TResult Function(ThreadFollowingRule data) following,
+    required TResult Function(ThreadFollowerRule data) followers,
+    required TResult Function(ThreadListRule data) list,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return followers(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ThreadMentionRule data)? mention,
+    TResult? Function(ThreadFollowingRule data)? following,
+    TResult? Function(ThreadFollowerRule data)? followers,
+    TResult? Function(ThreadListRule data)? list,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return followers?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ThreadMentionRule data)? mention,
+    TResult Function(ThreadFollowingRule data)? following,
+    TResult Function(ThreadFollowerRule data)? followers,
+    TResult Function(ThreadListRule data)? list,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (followers != null) {
+      return followers(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UThreadRuleMention value) mention,
+    required TResult Function(UThreadRuleFollowing value) following,
+    required TResult Function(UThreadRuleFollower value) followers,
+    required TResult Function(UThreadRuleList value) list,
+    required TResult Function(UThreadRuleUnknown value) unknown,
+  }) {
+    return followers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UThreadRuleMention value)? mention,
+    TResult? Function(UThreadRuleFollowing value)? following,
+    TResult? Function(UThreadRuleFollower value)? followers,
+    TResult? Function(UThreadRuleList value)? list,
+    TResult? Function(UThreadRuleUnknown value)? unknown,
+  }) {
+    return followers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UThreadRuleMention value)? mention,
+    TResult Function(UThreadRuleFollowing value)? following,
+    TResult Function(UThreadRuleFollower value)? followers,
+    TResult Function(UThreadRuleList value)? list,
+    TResult Function(UThreadRuleUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (followers != null) {
+      return followers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UThreadRuleFollower extends ThreadRule {
+  const factory UThreadRuleFollower({required final ThreadFollowerRule data}) =
+      _$UThreadRuleFollowerImpl;
+  const UThreadRuleFollower._() : super._();
+
+  @override
+  ThreadFollowerRule get data;
+
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UThreadRuleFollowerImplCopyWith<_$UThreadRuleFollowerImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -510,6 +702,7 @@ class _$UThreadRuleListImpl extends UThreadRuleList {
   TResult when<TResult extends Object?>({
     required TResult Function(ThreadMentionRule data) mention,
     required TResult Function(ThreadFollowingRule data) following,
+    required TResult Function(ThreadFollowerRule data) followers,
     required TResult Function(ThreadListRule data) list,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -521,6 +714,7 @@ class _$UThreadRuleListImpl extends UThreadRuleList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThreadMentionRule data)? mention,
     TResult? Function(ThreadFollowingRule data)? following,
+    TResult? Function(ThreadFollowerRule data)? followers,
     TResult? Function(ThreadListRule data)? list,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -532,6 +726,7 @@ class _$UThreadRuleListImpl extends UThreadRuleList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThreadMentionRule data)? mention,
     TResult Function(ThreadFollowingRule data)? following,
+    TResult Function(ThreadFollowerRule data)? followers,
     TResult Function(ThreadListRule data)? list,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -547,6 +742,7 @@ class _$UThreadRuleListImpl extends UThreadRuleList {
   TResult map<TResult extends Object?>({
     required TResult Function(UThreadRuleMention value) mention,
     required TResult Function(UThreadRuleFollowing value) following,
+    required TResult Function(UThreadRuleFollower value) followers,
     required TResult Function(UThreadRuleList value) list,
     required TResult Function(UThreadRuleUnknown value) unknown,
   }) {
@@ -558,6 +754,7 @@ class _$UThreadRuleListImpl extends UThreadRuleList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UThreadRuleMention value)? mention,
     TResult? Function(UThreadRuleFollowing value)? following,
+    TResult? Function(UThreadRuleFollower value)? followers,
     TResult? Function(UThreadRuleList value)? list,
     TResult? Function(UThreadRuleUnknown value)? unknown,
   }) {
@@ -569,6 +766,7 @@ class _$UThreadRuleListImpl extends UThreadRuleList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UThreadRuleMention value)? mention,
     TResult Function(UThreadRuleFollowing value)? following,
+    TResult Function(UThreadRuleFollower value)? followers,
     TResult Function(UThreadRuleList value)? list,
     TResult Function(UThreadRuleUnknown value)? unknown,
     required TResult orElse(),
@@ -674,6 +872,7 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
   TResult when<TResult extends Object?>({
     required TResult Function(ThreadMentionRule data) mention,
     required TResult Function(ThreadFollowingRule data) following,
+    required TResult Function(ThreadFollowerRule data) followers,
     required TResult Function(ThreadListRule data) list,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -685,6 +884,7 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThreadMentionRule data)? mention,
     TResult? Function(ThreadFollowingRule data)? following,
+    TResult? Function(ThreadFollowerRule data)? followers,
     TResult? Function(ThreadListRule data)? list,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -696,6 +896,7 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThreadMentionRule data)? mention,
     TResult Function(ThreadFollowingRule data)? following,
+    TResult Function(ThreadFollowerRule data)? followers,
     TResult Function(ThreadListRule data)? list,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -711,6 +912,7 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
   TResult map<TResult extends Object?>({
     required TResult Function(UThreadRuleMention value) mention,
     required TResult Function(UThreadRuleFollowing value) following,
+    required TResult Function(UThreadRuleFollower value) followers,
     required TResult Function(UThreadRuleList value) list,
     required TResult Function(UThreadRuleUnknown value) unknown,
   }) {
@@ -722,6 +924,7 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UThreadRuleMention value)? mention,
     TResult? Function(UThreadRuleFollowing value)? following,
+    TResult? Function(UThreadRuleFollower value)? followers,
     TResult? Function(UThreadRuleList value)? list,
     TResult? Function(UThreadRuleUnknown value)? unknown,
   }) {
@@ -733,6 +936,7 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UThreadRuleMention value)? mention,
     TResult Function(UThreadRuleFollowing value)? following,
+    TResult Function(UThreadRuleFollower value)? followers,
     TResult Function(UThreadRuleList value)? list,
     TResult Function(UThreadRuleUnknown value)? unknown,
     required TResult orElse(),

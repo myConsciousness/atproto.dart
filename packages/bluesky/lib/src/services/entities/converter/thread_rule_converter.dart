@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../ids.g.dart' as ids;
+import '../thread_follower_rule.dart';
 import '../thread_following_rule.dart';
 import '../thread_list_rule.dart';
 import '../thread_mention_rule.dart';
@@ -28,6 +29,10 @@ final class _ThreadRuleConverter
         return ThreadRule.following(
           data: ThreadFollowingRule.fromJson(json),
         );
+      } else if (type == ids.appBskyFeedThreadgateFollowerRule) {
+        return ThreadRule.followers(
+          data: ThreadFollowerRule.fromJson(json),
+        );
       } else if (type == ids.appBskyFeedThreadgateListRule) {
         return ThreadRule.list(
           data: ThreadListRule.fromJson(json),
@@ -44,6 +49,7 @@ final class _ThreadRuleConverter
   Map<String, dynamic> toJson(ThreadRule object) => object.when(
         mention: (data) => data.toJson(),
         following: (data) => data.toJson(),
+        followers: (data) => data.toJson(),
         list: (data) => data.toJson(),
         unknown: (data) => data,
       );
