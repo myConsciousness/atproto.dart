@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../ids.g.dart' as ids;
+import '../thread_follower_rule.dart';
 import '../thread_following_rule.dart';
 import '../thread_list_rule.dart';
 import '../thread_mention_rule.dart';
@@ -27,6 +28,10 @@ final class _ThreadRuleConverter
       } else if (type == ids.appBskyFeedThreadgateFollowingRule) {
         return ThreadRule.following(
           data: ThreadFollowingRule.fromJson(json),
+        );
+      } else if (type == ids.appBskyFeedThreadgateFollowerRule) {
+        return ThreadRule.followers(
+          data: ThreadFollowerRule.fromJson(json),
         );
       } else if (type == ids.appBskyFeedThreadgateListRule) {
         return ThreadRule.list(
