@@ -310,6 +310,14 @@ const comAtprotoSyncListBlobs = NSID(ids.comAtprotoSyncListBlobs);
 /// `com.atproto.sync.listRepos`
 const comAtprotoSyncListRepos = NSID(ids.comAtprotoSyncListRepos);
 
+/// `com.atproto.sync.listReposByCollection`
+const comAtprotoSyncListReposByCollection =
+    NSID(ids.comAtprotoSyncListReposByCollection);
+
+/// `com.atproto.sync.listReposByCollection#repo`
+const comAtprotoSyncListReposByCollectionRepo =
+    NSID(ids.comAtprotoSyncListReposByCollectionRepo);
+
 /// `com.atproto.sync.listRepos#repo`
 const comAtprotoSyncListReposRepo = NSID(ids.comAtprotoSyncListReposRepo);
 

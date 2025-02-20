@@ -76,6 +76,7 @@ sidebar_position: 4
 | **[com.atproto.sync.getBlocks](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getBlocks.html)** | [Reference](lexicons/com/atproto/sync/getBlocks.md) | ❌ |
 | **[com.atproto.sync.subscribeRepos](https://pub.dev/documentation/atproto/latest/atproto/SyncService/subscribeRepos.html)** | [Reference](lexicons/com/atproto/sync/subscribeRepos.md) | ✅ |
 | **[com.atproto.sync.getHead](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getHead.html)** | [Reference](lexicons/com/atproto/sync/getHead.md) | ❌ |
+| **[com.atproto.sync.listReposByCollection](https://pub.dev/documentation/atproto/latest/atproto/SyncService/listReposByCollection.html)** | [Reference](lexicons/com/atproto/sync/listReposByCollection.md) | ✅ |
 | **[com.atproto.sync.getLatestCommit](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getLatestCommit.html)** | [Reference](lexicons/com/atproto/sync/getLatestCommit.md) | ❌ |
 | **[com.atproto.sync.getBlob](https://pub.dev/documentation/atproto/latest/atproto/SyncService/getBlob.html)** | [Reference](lexicons/com/atproto/sync/getBlob.md) | ❌ |
 | **[com.atproto.sync.listBlobs](https://pub.dev/documentation/atproto/latest/atproto/SyncService/listBlobs.html)** | [Reference](lexicons/com/atproto/sync/listBlobs.md) | ✅ |

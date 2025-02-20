@@ -2081,6 +2081,56 @@ const comAtprotoSyncGetHead = <String, dynamic>{
   }
 };
 
+/// `com.atproto.sync.listReposByCollection`
+const comAtprotoSyncListReposByCollection = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.listReposByCollection",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates all the DIDs which have records with the given collection NSID.",
+      "parameters": {
+        "type": "params",
+        "required": ["collection"],
+        "properties": {
+          "collection": {"type": "string", "format": "nsid"},
+          "limit": {
+            "type": "integer",
+            "description":
+                "Maximum size of response set. Recommend setting a large maximum (1000+) when enumerating large DID lists.",
+            "default": 500,
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["repos"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "repos": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#repo"}
+            }
+          }
+        }
+      }
+    },
+    "repo": {
+      "type": "object",
+      "required": ["did"],
+      "properties": {
+        "did": {"type": "string", "format": "did"}
+      }
+    }
+  }
+};
+
 /// `com.atproto.sync.getLatestCommit`
 const comAtprotoSyncGetLatestCommit = <String, dynamic>{
   "lexicon": 1,
@@ -10494,6 +10544,100 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         "createdAt": {"type": "string", "format": "datetime"},
         "deletedAt": {"type": "string", "format": "datetime"}
       }
+    },
+    "reporterStats": {
+      "type": "object",
+      "required": [
+        "did",
+        "accountReportCount",
+        "recordReportCount",
+        "reportedAccountCount",
+        "reportedRecordCount",
+        "takendownAccountCount",
+        "takendownRecordCount",
+        "labeledAccountCount",
+        "labeledRecordCount"
+      ],
+      "properties": {
+        "did": {"type": "string", "format": "did"},
+        "accountReportCount": {
+          "type": "integer",
+          "description":
+              "The total number of reports made by the user on accounts."
+        },
+        "recordReportCount": {
+          "type": "integer",
+          "description":
+              "The total number of reports made by the user on records."
+        },
+        "reportedAccountCount": {
+          "type": "integer",
+          "description": "The total number of accounts reported by the user."
+        },
+        "reportedRecordCount": {
+          "type": "integer",
+          "description": "The total number of records reported by the user."
+        },
+        "takendownAccountCount": {
+          "type": "integer",
+          "description":
+              "The total number of accounts taken down as a result of the user's reports."
+        },
+        "takendownRecordCount": {
+          "type": "integer",
+          "description":
+              "The total number of records taken down as a result of the user's reports."
+        },
+        "labeledAccountCount": {
+          "type": "integer",
+          "description":
+              "The total number of accounts labeled as a result of the user's reports."
+        },
+        "labeledRecordCount": {
+          "type": "integer",
+          "description":
+              "The total number of records labeled as a result of the user's reports."
+        }
+      }
+    }
+  }
+};
+
+/// `tools.ozone.moderation.getReporterStats`
+const toolsOzoneModerationGetReporterStats = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.getReporterStats",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get reporter stats for a list of users.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"},
+            "maxLength": 100
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["stats"],
+          "properties": {
+            "stats": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.moderation.defs#reporterStats"
+              }
+            }
+          }
+        }
+      }
     }
   }
 };
@@ -10659,6 +10803,11 @@ const toolsOzoneTeamListMembers = <String, dynamic>{
       "parameters": {
         "type": "params",
         "properties": {
+          "disabled": {"type": "boolean"},
+          "roles": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
           "limit": {
             "type": "integer",
             "default": 50,
@@ -11606,6 +11755,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoSyncGetBlocks,
   comAtprotoSyncSubscribeRepos,
   comAtprotoSyncGetHead,
+  comAtprotoSyncListReposByCollection,
   comAtprotoSyncGetLatestCommit,
   comAtprotoSyncGetBlob,
   comAtprotoSyncListBlobs,
@@ -11760,6 +11910,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneModerationEmitEvent,
   toolsOzoneModerationSearchRepos,
   toolsOzoneModerationDefs,
+  toolsOzoneModerationGetReporterStats,
   toolsOzoneModerationGetRecords,
   toolsOzoneModerationGetEvent,
   toolsOzoneTeamAddMember,
