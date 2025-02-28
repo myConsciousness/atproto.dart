@@ -20,6 +20,7 @@ _$ActorsImpl _$$ActorsImplFromJson(Map json) => $checkedCreate(
                       Actor.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
+          recId: $checkedConvert('recId', (v) => (v as num?)?.toInt()),
         );
         return val;
       },
@@ -29,4 +30,5 @@ Map<String, dynamic> _$$ActorsImplToJson(_$ActorsImpl instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
+      'recId': instance.recId,
     };

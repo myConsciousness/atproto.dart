@@ -33,6 +33,7 @@ class FeedGeneratorView with _$FeedGeneratorView {
     @Default(false) bool acceptsInteractions,
     List<Label>? labels,
     @Default(defaultFeedGeneratorViewer) FeedGeneratorViewer viewer,
+    String? contentMode,
     required DateTime indexedAt,
   }) = _FeedGeneratorView;
 

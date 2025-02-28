@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../ids.g.dart';
+import '../types/app/bsky/feed/defs/thread_context.dart';
 import 'converter/post_thread_view_converter.dart';
 import 'post.dart';
 import 'post_thread_view.dart';
@@ -21,6 +22,7 @@ class PostThreadViewRecord with _$PostThreadViewRecord {
     required Post post,
     @postThreadViewConverter PostThreadView? parent,
     @postThreadViewConverter List<PostThreadView>? replies,
+    ThreadContext? threadContext,
   }) = _PostThreadViewRecord;
 
   factory PostThreadViewRecord.fromJson(Map<String, Object?> json) =>

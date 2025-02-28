@@ -47,6 +47,7 @@ _$FeedGeneratorViewImpl _$$FeedGeneratorViewImplFromJson(Map json) =>
                   ? defaultFeedGeneratorViewer
                   : FeedGeneratorViewer.fromJson(
                       Map<String, Object?>.from(v as Map))),
+          contentMode: $checkedConvert('contentMode', (v) => v as String?),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
@@ -74,5 +75,6 @@ Map<String, dynamic> _$$FeedGeneratorViewImplToJson(
       if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
         'labels': value,
       'viewer': instance.viewer.toJson(),
+      if (instance.contentMode case final value?) 'contentMode': value,
       'indexedAt': instance.indexedAt.toIso8601String(),
     };

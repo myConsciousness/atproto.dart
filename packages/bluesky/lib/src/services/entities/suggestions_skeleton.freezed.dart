@@ -23,6 +23,7 @@ mixin _$SuggestionsSkeleton {
   List<SkeletonActor> get actors => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
   String? get relativeToDid => throw _privateConstructorUsedError;
+  int? get recId => throw _privateConstructorUsedError;
 
   /// Serializes this SuggestionsSkeleton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +42,10 @@ abstract class $SuggestionsSkeletonCopyWith<$Res> {
       _$SuggestionsSkeletonCopyWithImpl<$Res, SuggestionsSkeleton>;
   @useResult
   $Res call(
-      {List<SkeletonActor> actors, String? cursor, String? relativeToDid});
+      {List<SkeletonActor> actors,
+      String? cursor,
+      String? relativeToDid,
+      int? recId});
 }
 
 /// @nodoc
@@ -62,6 +66,7 @@ class _$SuggestionsSkeletonCopyWithImpl<$Res, $Val extends SuggestionsSkeleton>
     Object? actors = null,
     Object? cursor = freezed,
     Object? relativeToDid = freezed,
+    Object? recId = freezed,
   }) {
     return _then(_value.copyWith(
       actors: null == actors
@@ -76,6 +81,10 @@ class _$SuggestionsSkeletonCopyWithImpl<$Res, $Val extends SuggestionsSkeleton>
           ? _value.relativeToDid
           : relativeToDid // ignore: cast_nullable_to_non_nullable
               as String?,
+      recId: freezed == recId
+          ? _value.recId
+          : recId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -89,7 +98,10 @@ abstract class _$$SuggestionsSkeletonImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<SkeletonActor> actors, String? cursor, String? relativeToDid});
+      {List<SkeletonActor> actors,
+      String? cursor,
+      String? relativeToDid,
+      int? recId});
 }
 
 /// @nodoc
@@ -108,6 +120,7 @@ class __$$SuggestionsSkeletonImplCopyWithImpl<$Res>
     Object? actors = null,
     Object? cursor = freezed,
     Object? relativeToDid = freezed,
+    Object? recId = freezed,
   }) {
     return _then(_$SuggestionsSkeletonImpl(
       actors: null == actors
@@ -122,6 +135,10 @@ class __$$SuggestionsSkeletonImplCopyWithImpl<$Res>
           ? _value.relativeToDid
           : relativeToDid // ignore: cast_nullable_to_non_nullable
               as String?,
+      recId: freezed == recId
+          ? _value.recId
+          : recId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -132,7 +149,8 @@ class _$SuggestionsSkeletonImpl implements _SuggestionsSkeleton {
   const _$SuggestionsSkeletonImpl(
       {required final List<SkeletonActor> actors,
       this.cursor,
-      this.relativeToDid})
+      this.relativeToDid,
+      this.recId})
       : _actors = actors;
 
   factory _$SuggestionsSkeletonImpl.fromJson(Map<String, dynamic> json) =>
@@ -150,10 +168,12 @@ class _$SuggestionsSkeletonImpl implements _SuggestionsSkeleton {
   final String? cursor;
   @override
   final String? relativeToDid;
+  @override
+  final int? recId;
 
   @override
   String toString() {
-    return 'SuggestionsSkeleton(actors: $actors, cursor: $cursor, relativeToDid: $relativeToDid)';
+    return 'SuggestionsSkeleton(actors: $actors, cursor: $cursor, relativeToDid: $relativeToDid, recId: $recId)';
   }
 
   @override
@@ -164,13 +184,18 @@ class _$SuggestionsSkeletonImpl implements _SuggestionsSkeleton {
             const DeepCollectionEquality().equals(other._actors, _actors) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             (identical(other.relativeToDid, relativeToDid) ||
-                other.relativeToDid == relativeToDid));
+                other.relativeToDid == relativeToDid) &&
+            (identical(other.recId, recId) || other.recId == recId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_actors), cursor, relativeToDid);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_actors),
+      cursor,
+      relativeToDid,
+      recId);
 
   /// Create a copy of SuggestionsSkeleton
   /// with the given fields replaced by the non-null parameter values.
@@ -193,7 +218,8 @@ abstract class _SuggestionsSkeleton implements SuggestionsSkeleton {
   const factory _SuggestionsSkeleton(
       {required final List<SkeletonActor> actors,
       final String? cursor,
-      final String? relativeToDid}) = _$SuggestionsSkeletonImpl;
+      final String? relativeToDid,
+      final int? recId}) = _$SuggestionsSkeletonImpl;
 
   factory _SuggestionsSkeleton.fromJson(Map<String, dynamic> json) =
       _$SuggestionsSkeletonImpl.fromJson;
@@ -204,6 +230,8 @@ abstract class _SuggestionsSkeleton implements SuggestionsSkeleton {
   String? get cursor;
   @override
   String? get relativeToDid;
+  @override
+  int? get recId;
 
   /// Create a copy of SuggestionsSkeleton
   /// with the given fields replaced by the non-null parameter values.

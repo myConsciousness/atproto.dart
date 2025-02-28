@@ -15,6 +15,7 @@ class Actors with _$Actors {
   const factory Actors({
     required List<Actor> actors,
     String? cursor,
+    int? recId,
   }) = _Actors;
 
   factory Actors.fromJson(Map<String, Object?> json) => _$ActorsFromJson(json);

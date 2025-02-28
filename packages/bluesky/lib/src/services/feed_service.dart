@@ -277,6 +277,7 @@ final class FeedService {
     bool? acceptsInteractions,
     atp.Labels? labels,
     DateTime? createdAt,
+    String? contentMode,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
       await _ctx.atproto.repo.createRecord(
@@ -290,6 +291,7 @@ final class FeedService {
           'avatar': avatar?.toJson(),
           'acceptsInteractions': acceptsInteractions,
           'labels': labels?.toJson(),
+          'contentMode': contentMode,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
         },

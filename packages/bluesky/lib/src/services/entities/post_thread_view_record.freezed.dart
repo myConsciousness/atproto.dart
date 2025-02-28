@@ -27,6 +27,7 @@ mixin _$PostThreadViewRecord {
   PostThreadView? get parent => throw _privateConstructorUsedError;
   @postThreadViewConverter
   List<PostThreadView>? get replies => throw _privateConstructorUsedError;
+  ThreadContext? get threadContext => throw _privateConstructorUsedError;
 
   /// Serializes this PostThreadViewRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,10 +49,12 @@ abstract class $PostThreadViewRecordCopyWith<$Res> {
       {@typeKey String type,
       Post post,
       @postThreadViewConverter PostThreadView? parent,
-      @postThreadViewConverter List<PostThreadView>? replies});
+      @postThreadViewConverter List<PostThreadView>? replies,
+      ThreadContext? threadContext});
 
   $PostCopyWith<$Res> get post;
   $PostThreadViewCopyWith<$Res>? get parent;
+  $ThreadContextCopyWith<$Res>? get threadContext;
 }
 
 /// @nodoc
@@ -74,6 +77,7 @@ class _$PostThreadViewRecordCopyWithImpl<$Res,
     Object? post = null,
     Object? parent = freezed,
     Object? replies = freezed,
+    Object? threadContext = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -92,6 +96,10 @@ class _$PostThreadViewRecordCopyWithImpl<$Res,
           ? _value.replies
           : replies // ignore: cast_nullable_to_non_nullable
               as List<PostThreadView>?,
+      threadContext: freezed == threadContext
+          ? _value.threadContext
+          : threadContext // ignore: cast_nullable_to_non_nullable
+              as ThreadContext?,
     ) as $Val);
   }
 
@@ -118,6 +126,20 @@ class _$PostThreadViewRecordCopyWithImpl<$Res,
       return _then(_value.copyWith(parent: value) as $Val);
     });
   }
+
+  /// Create a copy of PostThreadViewRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ThreadContextCopyWith<$Res>? get threadContext {
+    if (_value.threadContext == null) {
+      return null;
+    }
+
+    return $ThreadContextCopyWith<$Res>(_value.threadContext!, (value) {
+      return _then(_value.copyWith(threadContext: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -132,12 +154,15 @@ abstract class _$$PostThreadViewRecordImplCopyWith<$Res>
       {@typeKey String type,
       Post post,
       @postThreadViewConverter PostThreadView? parent,
-      @postThreadViewConverter List<PostThreadView>? replies});
+      @postThreadViewConverter List<PostThreadView>? replies,
+      ThreadContext? threadContext});
 
   @override
   $PostCopyWith<$Res> get post;
   @override
   $PostThreadViewCopyWith<$Res>? get parent;
+  @override
+  $ThreadContextCopyWith<$Res>? get threadContext;
 }
 
 /// @nodoc
@@ -157,6 +182,7 @@ class __$$PostThreadViewRecordImplCopyWithImpl<$Res>
     Object? post = null,
     Object? parent = freezed,
     Object? replies = freezed,
+    Object? threadContext = freezed,
   }) {
     return _then(_$PostThreadViewRecordImpl(
       type: null == type
@@ -175,6 +201,10 @@ class __$$PostThreadViewRecordImplCopyWithImpl<$Res>
           ? _value._replies
           : replies // ignore: cast_nullable_to_non_nullable
               as List<PostThreadView>?,
+      threadContext: freezed == threadContext
+          ? _value.threadContext
+          : threadContext // ignore: cast_nullable_to_non_nullable
+              as ThreadContext?,
     ));
   }
 }
@@ -186,7 +216,8 @@ class _$PostThreadViewRecordImpl implements _PostThreadViewRecord {
       {@typeKey this.type = appBskyFeedDefsThreadViewPost,
       required this.post,
       @postThreadViewConverter this.parent,
-      @postThreadViewConverter final List<PostThreadView>? replies})
+      @postThreadViewConverter final List<PostThreadView>? replies,
+      this.threadContext})
       : _replies = replies;
 
   factory _$PostThreadViewRecordImpl.fromJson(Map<String, dynamic> json) =>
@@ -212,8 +243,11 @@ class _$PostThreadViewRecordImpl implements _PostThreadViewRecord {
   }
 
   @override
+  final ThreadContext? threadContext;
+
+  @override
   String toString() {
-    return 'PostThreadViewRecord(type: $type, post: $post, parent: $parent, replies: $replies)';
+    return 'PostThreadViewRecord(type: $type, post: $post, parent: $parent, replies: $replies, threadContext: $threadContext)';
   }
 
   @override
@@ -224,13 +258,15 @@ class _$PostThreadViewRecordImpl implements _PostThreadViewRecord {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.parent, parent) || other.parent == parent) &&
-            const DeepCollectionEquality().equals(other._replies, _replies));
+            const DeepCollectionEquality().equals(other._replies, _replies) &&
+            (identical(other.threadContext, threadContext) ||
+                other.threadContext == threadContext));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, post, parent,
-      const DeepCollectionEquality().hash(_replies));
+      const DeepCollectionEquality().hash(_replies), threadContext);
 
   /// Create a copy of PostThreadViewRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -252,11 +288,11 @@ class _$PostThreadViewRecordImpl implements _PostThreadViewRecord {
 
 abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   const factory _PostThreadViewRecord(
-          {@typeKey final String type,
-          required final Post post,
-          @postThreadViewConverter final PostThreadView? parent,
-          @postThreadViewConverter final List<PostThreadView>? replies}) =
-      _$PostThreadViewRecordImpl;
+      {@typeKey final String type,
+      required final Post post,
+      @postThreadViewConverter final PostThreadView? parent,
+      @postThreadViewConverter final List<PostThreadView>? replies,
+      final ThreadContext? threadContext}) = _$PostThreadViewRecordImpl;
 
   factory _PostThreadViewRecord.fromJson(Map<String, dynamic> json) =
       _$PostThreadViewRecordImpl.fromJson;
@@ -272,6 +308,8 @@ abstract class _PostThreadViewRecord implements PostThreadViewRecord {
   @override
   @postThreadViewConverter
   List<PostThreadView>? get replies;
+  @override
+  ThreadContext? get threadContext;
 
   /// Create a copy of PostThreadViewRecord
   /// with the given fields replaced by the non-null parameter values.

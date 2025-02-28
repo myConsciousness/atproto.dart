@@ -29,6 +29,12 @@ _$PostThreadViewRecordImpl _$$PostThreadViewRecordImplFromJson(Map json) =>
                   ?.map((e) => postThreadViewConverter
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
+          threadContext: $checkedConvert(
+              'threadContext',
+              (v) => v == null
+                  ? null
+                  : ThreadContext.fromJson(
+                      Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -43,6 +49,7 @@ Map<String, dynamic> _$$PostThreadViewRecordImplToJson(
       'parent': _$JsonConverterToJson<Map<String, dynamic>, PostThreadView>(
           instance.parent, postThreadViewConverter.toJson),
       'replies': instance.replies?.map(postThreadViewConverter.toJson).toList(),
+      'threadContext': instance.threadContext?.toJson(),
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

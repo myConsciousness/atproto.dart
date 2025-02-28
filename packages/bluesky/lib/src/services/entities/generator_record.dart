@@ -28,6 +28,7 @@ class GeneratorRecord with _$GeneratorRecord {
     Blob? avatar,
     @Default(false) bool acceptsInteractions,
     @labelsConverter Labels? labels,
+    String? contentMode,
     required DateTime createdAt,
   }) = _GeneratorRecord;
 

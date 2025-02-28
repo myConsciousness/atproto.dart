@@ -30,6 +30,7 @@ mixin _$GeneratorRecord {
   bool get acceptsInteractions => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
+  String? get contentMode => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Serializes this GeneratorRecord to a JSON map.
@@ -57,6 +58,7 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       Blob? avatar,
       bool acceptsInteractions,
       @labelsConverter Labels? labels,
+      String? contentMode,
       DateTime createdAt});
 
   $BlobCopyWith<$Res>? get avatar;
@@ -86,6 +88,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     Object? avatar = freezed,
     Object? acceptsInteractions = null,
     Object? labels = freezed,
+    Object? contentMode = freezed,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
@@ -121,6 +124,10 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
+      contentMode: freezed == contentMode
+          ? _value.contentMode
+          : contentMode // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -174,6 +181,7 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
       Blob? avatar,
       bool acceptsInteractions,
       @labelsConverter Labels? labels,
+      String? contentMode,
       DateTime createdAt});
 
   @override
@@ -203,6 +211,7 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? acceptsInteractions = null,
     Object? labels = freezed,
+    Object? contentMode = freezed,
     Object? createdAt = null,
   }) {
     return _then(_$GeneratorRecordImpl(
@@ -238,6 +247,10 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
+      contentMode: freezed == contentMode
+          ? _value.contentMode
+          : contentMode // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -259,6 +272,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       this.avatar,
       this.acceptsInteractions = false,
       @labelsConverter this.labels,
+      this.contentMode,
       required this.createdAt})
       : _descriptionFacets = descriptionFacets;
 
@@ -294,11 +308,13 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   @labelsConverter
   final Labels? labels;
   @override
+  final String? contentMode;
+  @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'GeneratorRecord(type: $type, did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, acceptsInteractions: $acceptsInteractions, labels: $labels, createdAt: $createdAt)';
+    return 'GeneratorRecord(type: $type, did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, acceptsInteractions: $acceptsInteractions, labels: $labels, contentMode: $contentMode, createdAt: $createdAt)';
   }
 
   @override
@@ -318,6 +334,8 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
             (identical(other.acceptsInteractions, acceptsInteractions) ||
                 other.acceptsInteractions == acceptsInteractions) &&
             (identical(other.labels, labels) || other.labels == labels) &&
+            (identical(other.contentMode, contentMode) ||
+                other.contentMode == contentMode) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
@@ -334,6 +352,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       avatar,
       acceptsInteractions,
       labels,
+      contentMode,
       createdAt);
 
   /// Create a copy of GeneratorRecord
@@ -363,6 +382,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
       final Blob? avatar,
       final bool acceptsInteractions,
       @labelsConverter final Labels? labels,
+      final String? contentMode,
       required final DateTime createdAt}) = _$GeneratorRecordImpl;
 
   factory _GeneratorRecord.fromJson(Map<String, dynamic> json) =
@@ -386,6 +406,8 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   @override
   @labelsConverter
   Labels? get labels;
+  @override
+  String? get contentMode;
   @override
   DateTime get createdAt;
 

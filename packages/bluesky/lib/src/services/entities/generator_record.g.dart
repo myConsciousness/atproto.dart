@@ -36,6 +36,7 @@ _$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
               'labels',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
                   v, labelsConverter.fromJson)),
+          contentMode: $checkedConvert('contentMode', (v) => v as String?),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
@@ -60,6 +61,7 @@ Map<String, dynamic> _$$GeneratorRecordImplToJson(
               instance.labels, labelsConverter.toJson)
           case final value?)
         'labels': value,
+      if (instance.contentMode case final value?) 'contentMode': value,
       'createdAt': instance.createdAt.toIso8601String(),
     };
 
