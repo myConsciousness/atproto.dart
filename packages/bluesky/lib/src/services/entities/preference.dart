@@ -2,6 +2,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../types/app/bsky/actor/defs/post_interaction_settings_pref.dart';
 import 'adult_content_preference.dart';
 import 'content_label_preference.dart';
 import 'converter/preference_converter.dart';
@@ -65,6 +66,10 @@ class Preference with _$Preference {
   const factory Preference.labelersPref({
     required LabelersPref data,
   }) = UPreferenceLabelersPref;
+
+  const factory Preference.postInteractionSettingsPref({
+    required PostInteractionSettingsPref data,
+  }) = UPreferencePostInteractionSettingsPref;
 
   const factory Preference.unknown({
     required Map<String, dynamic> data,

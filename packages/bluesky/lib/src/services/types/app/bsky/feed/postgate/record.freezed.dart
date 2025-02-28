@@ -26,9 +26,8 @@ mixin _$PostgateRecord {
   AtUri get post => throw _privateConstructorUsedError;
   @AtUriConverter()
   List<AtUri>? get detachedEmbeddingUris => throw _privateConstructorUsedError;
-  @UPostgateEmbeddingRuleConverter()
-  List<UPostgateEmbeddingRule>? get embeddingRules =>
-      throw _privateConstructorUsedError;
+  @UPostRuleConverter()
+  List<UPostRule>? get embeddingRules => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Serializes this PostgateRecord to a JSON map.
@@ -51,8 +50,7 @@ abstract class $PostgateRecordCopyWith<$Res> {
       {@typeKey String type,
       @AtUriConverter() AtUri post,
       @AtUriConverter() List<AtUri>? detachedEmbeddingUris,
-      @UPostgateEmbeddingRuleConverter()
-      List<UPostgateEmbeddingRule>? embeddingRules,
+      @UPostRuleConverter() List<UPostRule>? embeddingRules,
       DateTime createdAt});
 }
 
@@ -93,7 +91,7 @@ class _$PostgateRecordCopyWithImpl<$Res, $Val extends PostgateRecord>
       embeddingRules: freezed == embeddingRules
           ? _value.embeddingRules
           : embeddingRules // ignore: cast_nullable_to_non_nullable
-              as List<UPostgateEmbeddingRule>?,
+              as List<UPostRule>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -114,8 +112,7 @@ abstract class _$$PostgateRecordImplCopyWith<$Res>
       {@typeKey String type,
       @AtUriConverter() AtUri post,
       @AtUriConverter() List<AtUri>? detachedEmbeddingUris,
-      @UPostgateEmbeddingRuleConverter()
-      List<UPostgateEmbeddingRule>? embeddingRules,
+      @UPostRuleConverter() List<UPostRule>? embeddingRules,
       DateTime createdAt});
 }
 
@@ -154,7 +151,7 @@ class __$$PostgateRecordImplCopyWithImpl<$Res>
       embeddingRules: freezed == embeddingRules
           ? _value._embeddingRules
           : embeddingRules // ignore: cast_nullable_to_non_nullable
-              as List<UPostgateEmbeddingRule>?,
+              as List<UPostRule>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -171,8 +168,7 @@ class _$PostgateRecordImpl implements _PostgateRecord {
       {@typeKey this.type = appBskyFeedPostgate,
       @AtUriConverter() required this.post,
       @AtUriConverter() final List<AtUri>? detachedEmbeddingUris,
-      @UPostgateEmbeddingRuleConverter()
-      final List<UPostgateEmbeddingRule>? embeddingRules,
+      @UPostRuleConverter() final List<UPostRule>? embeddingRules,
       required this.createdAt})
       : _detachedEmbeddingUris = detachedEmbeddingUris,
         _embeddingRules = embeddingRules;
@@ -198,10 +194,10 @@ class _$PostgateRecordImpl implements _PostgateRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<UPostgateEmbeddingRule>? _embeddingRules;
+  final List<UPostRule>? _embeddingRules;
   @override
-  @UPostgateEmbeddingRuleConverter()
-  List<UPostgateEmbeddingRule>? get embeddingRules {
+  @UPostRuleConverter()
+  List<UPostRule>? get embeddingRules {
     final value = _embeddingRules;
     if (value == null) return null;
     if (_embeddingRules is EqualUnmodifiableListView) return _embeddingRules;
@@ -264,8 +260,7 @@ abstract class _PostgateRecord implements PostgateRecord {
       {@typeKey final String type,
       @AtUriConverter() required final AtUri post,
       @AtUriConverter() final List<AtUri>? detachedEmbeddingUris,
-      @UPostgateEmbeddingRuleConverter()
-      final List<UPostgateEmbeddingRule>? embeddingRules,
+      @UPostRuleConverter() final List<UPostRule>? embeddingRules,
       required final DateTime createdAt}) = _$PostgateRecordImpl;
 
   factory _PostgateRecord.fromJson(Map<String, dynamic> json) =
@@ -281,8 +276,8 @@ abstract class _PostgateRecord implements PostgateRecord {
   @AtUriConverter()
   List<AtUri>? get detachedEmbeddingUris;
   @override
-  @UPostgateEmbeddingRuleConverter()
-  List<UPostgateEmbeddingRule>? get embeddingRules;
+  @UPostRuleConverter()
+  List<UPostRule>? get embeddingRules;
   @override
   DateTime get createdAt;
 

@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../ids.g.dart' as ids;
+import '../../types/app/bsky/actor/defs/post_interaction_settings_pref.dart';
 import '../adult_content_preference.dart';
 import '../content_label_preference.dart';
 import '../feed_view_preference.dart';
@@ -72,6 +73,10 @@ final class _PreferenceConverter
         return Preference.labelersPref(
           data: LabelersPref.fromJson(json),
         );
+      } else if (type == ids.appBskyActorDefsPostInteractionSettingsPref) {
+        return Preference.postInteractionSettingsPref(
+          data: PostInteractionSettingsPref.fromJson(json),
+        );
       }
 
       return Preference.unknown(data: json);
@@ -93,6 +98,7 @@ final class _PreferenceConverter
         mutedWords: (data) => data.toJson(),
         hiddenPosts: (data) => data.toJson(),
         labelersPref: (data) => data.toJson(),
+        postInteractionSettingsPref: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

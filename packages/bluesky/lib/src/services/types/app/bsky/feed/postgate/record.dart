@@ -6,7 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../../../ids.g.dart';
-import 'embedding_rules.dart';
+import '../../../../../entities/post_rule.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
@@ -19,8 +19,7 @@ class PostgateRecord with _$PostgateRecord {
     @typeKey @Default(appBskyFeedPostgate) String type,
     @AtUriConverter() required AtUri post,
     @AtUriConverter() List<AtUri>? detachedEmbeddingUris,
-    @UPostgateEmbeddingRuleConverter()
-    List<UPostgateEmbeddingRule>? embeddingRules,
+    @UPostRuleConverter() List<UPostRule>? embeddingRules,
     required DateTime createdAt,
   }) = _PostgateRecord;
 

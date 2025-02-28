@@ -15,6 +15,7 @@ import 'entities/feed_generator_info.dart';
 import 'entities/feed_generators.dart';
 import 'entities/feed_interaction.dart';
 import 'entities/likes.dart';
+import 'entities/post_rule.dart';
 import 'entities/post_thread.dart';
 import 'entities/posts.dart';
 import 'entities/posts_by_query.dart';
@@ -28,7 +29,6 @@ import 'params/strong_ref_param.dart';
 import 'params/thread_param.dart';
 import 'service_context.dart';
 import 'types/app/bsky/feed/getQuotes/output.dart';
-import 'types/app/bsky/feed/postgate/embedding_rules.dart';
 
 /// Represents `app.bsky.feed.*` service.
 final class FeedService {
@@ -412,7 +412,7 @@ final class FeedService {
   Future<core.XRPCResponse<atp.StrongRef>> postgate({
     required core.AtUri post,
     List<core.AtUri>? detachedEmbeddingUris,
-    List<UPostgateEmbeddingRule>? embeddingRules,
+    List<UPostRule>? embeddingRules,
     DateTime? createdAt,
     Map<String, dynamic> $unknown = core.emptyJson,
   }) async =>
