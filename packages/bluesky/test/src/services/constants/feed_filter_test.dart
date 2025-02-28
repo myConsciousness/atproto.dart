@@ -1,7 +1,10 @@
 // Package imports:
+
+// Package imports:
+import 'package:test/test.dart';
+
 // Project imports:
 import 'package:bluesky/src/services/constants/feed_filter.dart';
-import 'package:test/test.dart';
 
 void main() {
   test('.name', () {
