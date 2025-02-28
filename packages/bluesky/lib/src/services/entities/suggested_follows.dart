@@ -15,6 +15,7 @@ class SuggestedFollows with _$SuggestedFollows {
   const factory SuggestedFollows({
     required List<Actor> suggestions,
     @Default(false) bool isFallback,
+    int? recId,
   }) = _SuggestedFollows;
 
   factory SuggestedFollows.fromJson(Map<String, Object?> json) =>

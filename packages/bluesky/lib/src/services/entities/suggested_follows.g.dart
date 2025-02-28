@@ -21,6 +21,7 @@ _$SuggestedFollowsImpl _$$SuggestedFollowsImplFromJson(Map json) =>
                       Actor.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           isFallback: $checkedConvert('isFallback', (v) => v as bool? ?? false),
+          recId: $checkedConvert('recId', (v) => (v as num?)?.toInt()),
         );
         return val;
       },
@@ -31,4 +32,5 @@ Map<String, dynamic> _$$SuggestedFollowsImplToJson(
     <String, dynamic>{
       'suggestions': instance.suggestions.map((e) => e.toJson()).toList(),
       'isFallback': instance.isFallback,
+      'recId': instance.recId,
     };

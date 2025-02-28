@@ -22,6 +22,7 @@ Actors _$ActorsFromJson(Map<String, dynamic> json) {
 mixin _$Actors {
   List<Actor> get actors => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
+  int? get recId => throw _privateConstructorUsedError;
 
   /// Serializes this Actors to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +38,7 @@ abstract class $ActorsCopyWith<$Res> {
   factory $ActorsCopyWith(Actors value, $Res Function(Actors) then) =
       _$ActorsCopyWithImpl<$Res, Actors>;
   @useResult
-  $Res call({List<Actor> actors, String? cursor});
+  $Res call({List<Actor> actors, String? cursor, int? recId});
 }
 
 /// @nodoc
@@ -57,6 +58,7 @@ class _$ActorsCopyWithImpl<$Res, $Val extends Actors>
   $Res call({
     Object? actors = null,
     Object? cursor = freezed,
+    Object? recId = freezed,
   }) {
     return _then(_value.copyWith(
       actors: null == actors
@@ -67,6 +69,10 @@ class _$ActorsCopyWithImpl<$Res, $Val extends Actors>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      recId: freezed == recId
+          ? _value.recId
+          : recId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -78,7 +84,7 @@ abstract class _$$ActorsImplCopyWith<$Res> implements $ActorsCopyWith<$Res> {
       __$$ActorsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Actor> actors, String? cursor});
+  $Res call({List<Actor> actors, String? cursor, int? recId});
 }
 
 /// @nodoc
@@ -96,6 +102,7 @@ class __$$ActorsImplCopyWithImpl<$Res>
   $Res call({
     Object? actors = null,
     Object? cursor = freezed,
+    Object? recId = freezed,
   }) {
     return _then(_$ActorsImpl(
       actors: null == actors
@@ -106,6 +113,10 @@ class __$$ActorsImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
+      recId: freezed == recId
+          ? _value.recId
+          : recId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -113,7 +124,8 @@ class __$$ActorsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ActorsImpl implements _Actors {
-  const _$ActorsImpl({required final List<Actor> actors, this.cursor})
+  const _$ActorsImpl(
+      {required final List<Actor> actors, this.cursor, this.recId})
       : _actors = actors;
 
   factory _$ActorsImpl.fromJson(Map<String, dynamic> json) =>
@@ -129,10 +141,12 @@ class _$ActorsImpl implements _Actors {
 
   @override
   final String? cursor;
+  @override
+  final int? recId;
 
   @override
   String toString() {
-    return 'Actors(actors: $actors, cursor: $cursor)';
+    return 'Actors(actors: $actors, cursor: $cursor, recId: $recId)';
   }
 
   @override
@@ -141,13 +155,14 @@ class _$ActorsImpl implements _Actors {
         (other.runtimeType == runtimeType &&
             other is _$ActorsImpl &&
             const DeepCollectionEquality().equals(other._actors, _actors) &&
-            (identical(other.cursor, cursor) || other.cursor == cursor));
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.recId, recId) || other.recId == recId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_actors), cursor);
+      runtimeType, const DeepCollectionEquality().hash(_actors), cursor, recId);
 
   /// Create a copy of Actors
   /// with the given fields replaced by the non-null parameter values.
@@ -167,7 +182,9 @@ class _$ActorsImpl implements _Actors {
 
 abstract class _Actors implements Actors {
   const factory _Actors(
-      {required final List<Actor> actors, final String? cursor}) = _$ActorsImpl;
+      {required final List<Actor> actors,
+      final String? cursor,
+      final int? recId}) = _$ActorsImpl;
 
   factory _Actors.fromJson(Map<String, dynamic> json) = _$ActorsImpl.fromJson;
 
@@ -175,6 +192,8 @@ abstract class _Actors implements Actors {
   List<Actor> get actors;
   @override
   String? get cursor;
+  @override
+  int? get recId;
 
   /// Create a copy of Actors
   /// with the given fields replaced by the non-null parameter values.

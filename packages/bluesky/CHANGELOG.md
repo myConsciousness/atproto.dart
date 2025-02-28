@@ -1,5 +1,17 @@
 # Release Note
 
+## v0.18.10
+
+- Add `ThreadFollowerRule` on `ThreadRule`. ([#1919](https://github.com/myConsciousness/atproto.dart/pull/1919))
+- Add `recId` on:
+  - `Actor`
+  - `SuggestedFollows`
+  - `SuggestionsSkeleton`
+- Add `threadContext` on `PostThreadViewRecord`
+- Add `contentMode` on:
+  - `FeedGeneratorView`
+  - `GeneratorRecord`
+
 ## v0.18.9
 
 - Add `postsWithVideo` on `FeedFilter`. ([#1895](https://github.com/myConsciousness/atproto.dart/pull/1895))

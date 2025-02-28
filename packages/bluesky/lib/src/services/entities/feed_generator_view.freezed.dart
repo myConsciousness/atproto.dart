@@ -36,6 +36,7 @@ mixin _$FeedGeneratorView {
   bool get acceptsInteractions => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
   FeedGeneratorViewer get viewer => throw _privateConstructorUsedError;
+  String? get contentMode => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   /// Serializes this FeedGeneratorView to a JSON map.
@@ -68,6 +69,7 @@ abstract class $FeedGeneratorViewCopyWith<$Res> {
       bool acceptsInteractions,
       List<Label>? labels,
       FeedGeneratorViewer viewer,
+      String? contentMode,
       DateTime indexedAt});
 
   $ActorCopyWith<$Res> get createdBy;
@@ -102,6 +104,7 @@ class _$FeedGeneratorViewCopyWithImpl<$Res, $Val extends FeedGeneratorView>
     Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? viewer = null,
+    Object? contentMode = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -157,6 +160,10 @@ class _$FeedGeneratorViewCopyWithImpl<$Res, $Val extends FeedGeneratorView>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as FeedGeneratorViewer,
+      contentMode: freezed == contentMode
+          ? _value.contentMode
+          : contentMode // ignore: cast_nullable_to_non_nullable
+              as String?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -207,6 +214,7 @@ abstract class _$$FeedGeneratorViewImplCopyWith<$Res>
       bool acceptsInteractions,
       List<Label>? labels,
       FeedGeneratorViewer viewer,
+      String? contentMode,
       DateTime indexedAt});
 
   @override
@@ -241,6 +249,7 @@ class __$$FeedGeneratorViewImplCopyWithImpl<$Res>
     Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? viewer = null,
+    Object? contentMode = freezed,
     Object? indexedAt = null,
   }) {
     return _then(_$FeedGeneratorViewImpl(
@@ -296,6 +305,10 @@ class __$$FeedGeneratorViewImplCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as FeedGeneratorViewer,
+      contentMode: freezed == contentMode
+          ? _value.contentMode
+          : contentMode // ignore: cast_nullable_to_non_nullable
+              as String?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -322,6 +335,7 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
       this.acceptsInteractions = false,
       final List<Label>? labels,
       this.viewer = defaultFeedGeneratorViewer,
+      this.contentMode,
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets,
         _labels = labels;
@@ -379,11 +393,13 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
   @JsonKey()
   final FeedGeneratorViewer viewer;
   @override
+  final String? contentMode;
+  @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'FeedGeneratorView(type: $type, uri: $uri, cid: $cid, did: $did, createdBy: $createdBy, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, likeCount: $likeCount, acceptsInteractions: $acceptsInteractions, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'FeedGeneratorView(type: $type, uri: $uri, cid: $cid, did: $did, createdBy: $createdBy, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, likeCount: $likeCount, acceptsInteractions: $acceptsInteractions, labels: $labels, viewer: $viewer, contentMode: $contentMode, indexedAt: $indexedAt)';
   }
 
   @override
@@ -410,6 +426,8 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
                 other.acceptsInteractions == acceptsInteractions) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.contentMode, contentMode) ||
+                other.contentMode == contentMode) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
   }
@@ -431,6 +449,7 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
       acceptsInteractions,
       const DeepCollectionEquality().hash(_labels),
       viewer,
+      contentMode,
       indexedAt);
 
   /// Create a copy of FeedGeneratorView
@@ -465,6 +484,7 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
       final bool acceptsInteractions,
       final List<Label>? labels,
       final FeedGeneratorViewer viewer,
+      final String? contentMode,
       required final DateTime indexedAt}) = _$FeedGeneratorViewImpl;
 
   factory _FeedGeneratorView.fromJson(Map<String, dynamic> json) =
@@ -499,6 +519,8 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
   List<Label>? get labels;
   @override
   FeedGeneratorViewer get viewer;
+  @override
+  String? get contentMode;
   @override
   DateTime get indexedAt;
 

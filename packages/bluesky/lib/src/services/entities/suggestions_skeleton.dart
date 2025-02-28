@@ -16,6 +16,7 @@ class SuggestionsSkeleton with _$SuggestionsSkeleton {
     required List<SkeletonActor> actors,
     String? cursor,
     String? relativeToDid,
+    int? recId,
   }) = _SuggestionsSkeleton;
 
   factory SuggestionsSkeleton.fromJson(Map<String, Object?> json) =>

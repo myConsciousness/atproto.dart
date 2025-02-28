@@ -22,6 +22,7 @@ _$SuggestionsSkeletonImpl _$$SuggestionsSkeletonImplFromJson(Map json) =>
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           relativeToDid: $checkedConvert('relativeToDid', (v) => v as String?),
+          recId: $checkedConvert('recId', (v) => (v as num?)?.toInt()),
         );
         return val;
       },
@@ -33,4 +34,5 @@ Map<String, dynamic> _$$SuggestionsSkeletonImplToJson(
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
       'relativeToDid': instance.relativeToDid,
+      'recId': instance.recId,
     };

@@ -22,6 +22,7 @@ SuggestedFollows _$SuggestedFollowsFromJson(Map<String, dynamic> json) {
 mixin _$SuggestedFollows {
   List<Actor> get suggestions => throw _privateConstructorUsedError;
   bool get isFallback => throw _privateConstructorUsedError;
+  int? get recId => throw _privateConstructorUsedError;
 
   /// Serializes this SuggestedFollows to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +40,7 @@ abstract class $SuggestedFollowsCopyWith<$Res> {
           SuggestedFollows value, $Res Function(SuggestedFollows) then) =
       _$SuggestedFollowsCopyWithImpl<$Res, SuggestedFollows>;
   @useResult
-  $Res call({List<Actor> suggestions, bool isFallback});
+  $Res call({List<Actor> suggestions, bool isFallback, int? recId});
 }
 
 /// @nodoc
@@ -59,6 +60,7 @@ class _$SuggestedFollowsCopyWithImpl<$Res, $Val extends SuggestedFollows>
   $Res call({
     Object? suggestions = null,
     Object? isFallback = null,
+    Object? recId = freezed,
   }) {
     return _then(_value.copyWith(
       suggestions: null == suggestions
@@ -69,6 +71,10 @@ class _$SuggestedFollowsCopyWithImpl<$Res, $Val extends SuggestedFollows>
           ? _value.isFallback
           : isFallback // ignore: cast_nullable_to_non_nullable
               as bool,
+      recId: freezed == recId
+          ? _value.recId
+          : recId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -81,7 +87,7 @@ abstract class _$$SuggestedFollowsImplCopyWith<$Res>
       __$$SuggestedFollowsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Actor> suggestions, bool isFallback});
+  $Res call({List<Actor> suggestions, bool isFallback, int? recId});
 }
 
 /// @nodoc
@@ -99,6 +105,7 @@ class __$$SuggestedFollowsImplCopyWithImpl<$Res>
   $Res call({
     Object? suggestions = null,
     Object? isFallback = null,
+    Object? recId = freezed,
   }) {
     return _then(_$SuggestedFollowsImpl(
       suggestions: null == suggestions
@@ -109,6 +116,10 @@ class __$$SuggestedFollowsImplCopyWithImpl<$Res>
           ? _value.isFallback
           : isFallback // ignore: cast_nullable_to_non_nullable
               as bool,
+      recId: freezed == recId
+          ? _value.recId
+          : recId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -117,7 +128,9 @@ class __$$SuggestedFollowsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SuggestedFollowsImpl implements _SuggestedFollows {
   const _$SuggestedFollowsImpl(
-      {required final List<Actor> suggestions, this.isFallback = false})
+      {required final List<Actor> suggestions,
+      this.isFallback = false,
+      this.recId})
       : _suggestions = suggestions;
 
   factory _$SuggestedFollowsImpl.fromJson(Map<String, dynamic> json) =>
@@ -134,10 +147,12 @@ class _$SuggestedFollowsImpl implements _SuggestedFollows {
   @override
   @JsonKey()
   final bool isFallback;
+  @override
+  final int? recId;
 
   @override
   String toString() {
-    return 'SuggestedFollows(suggestions: $suggestions, isFallback: $isFallback)';
+    return 'SuggestedFollows(suggestions: $suggestions, isFallback: $isFallback, recId: $recId)';
   }
 
   @override
@@ -148,13 +163,14 @@ class _$SuggestedFollowsImpl implements _SuggestedFollows {
             const DeepCollectionEquality()
                 .equals(other._suggestions, _suggestions) &&
             (identical(other.isFallback, isFallback) ||
-                other.isFallback == isFallback));
+                other.isFallback == isFallback) &&
+            (identical(other.recId, recId) || other.recId == recId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_suggestions), isFallback);
+      const DeepCollectionEquality().hash(_suggestions), isFallback, recId);
 
   /// Create a copy of SuggestedFollows
   /// with the given fields replaced by the non-null parameter values.
@@ -176,7 +192,8 @@ class _$SuggestedFollowsImpl implements _SuggestedFollows {
 abstract class _SuggestedFollows implements SuggestedFollows {
   const factory _SuggestedFollows(
       {required final List<Actor> suggestions,
-      final bool isFallback}) = _$SuggestedFollowsImpl;
+      final bool isFallback,
+      final int? recId}) = _$SuggestedFollowsImpl;
 
   factory _SuggestedFollows.fromJson(Map<String, dynamic> json) =
       _$SuggestedFollowsImpl.fromJson;
@@ -185,6 +202,8 @@ abstract class _SuggestedFollows implements SuggestedFollows {
   List<Actor> get suggestions;
   @override
   bool get isFallback;
+  @override
+  int? get recId;
 
   /// Create a copy of SuggestedFollows
   /// with the given fields replaced by the non-null parameter values.
