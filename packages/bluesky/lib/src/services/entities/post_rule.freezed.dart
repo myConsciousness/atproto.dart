@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'embedding_rules.dart';
+part of 'post_rule.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UPostgateEmbeddingRule {
+mixin _$UPostRule {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -38,54 +38,50 @@ mixin _$UPostgateEmbeddingRule {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UPostgateEmbeddingRuleDisableRule value)
-        disableRule,
-    required TResult Function(UPostgateEmbeddingRuleUnknown value) unknown,
+    required TResult Function(UPostRuleDisableRule value) disableRule,
+    required TResult Function(UPostRuleUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPostgateEmbeddingRuleDisableRule value)? disableRule,
-    TResult? Function(UPostgateEmbeddingRuleUnknown value)? unknown,
+    TResult? Function(UPostRuleDisableRule value)? disableRule,
+    TResult? Function(UPostRuleUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPostgateEmbeddingRuleDisableRule value)? disableRule,
-    TResult Function(UPostgateEmbeddingRuleUnknown value)? unknown,
+    TResult Function(UPostRuleDisableRule value)? disableRule,
+    TResult Function(UPostRuleUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UPostgateEmbeddingRuleCopyWith<$Res> {
-  factory $UPostgateEmbeddingRuleCopyWith(UPostgateEmbeddingRule value,
-          $Res Function(UPostgateEmbeddingRule) then) =
-      _$UPostgateEmbeddingRuleCopyWithImpl<$Res, UPostgateEmbeddingRule>;
+abstract class $UPostRuleCopyWith<$Res> {
+  factory $UPostRuleCopyWith(UPostRule value, $Res Function(UPostRule) then) =
+      _$UPostRuleCopyWithImpl<$Res, UPostRule>;
 }
 
 /// @nodoc
-class _$UPostgateEmbeddingRuleCopyWithImpl<$Res,
-        $Val extends UPostgateEmbeddingRule>
-    implements $UPostgateEmbeddingRuleCopyWith<$Res> {
-  _$UPostgateEmbeddingRuleCopyWithImpl(this._value, this._then);
+class _$UPostRuleCopyWithImpl<$Res, $Val extends UPostRule>
+    implements $UPostRuleCopyWith<$Res> {
+  _$UPostRuleCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of UPostgateEmbeddingRule
+  /// Create a copy of UPostRule
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$UPostgateEmbeddingRuleDisableRuleImplCopyWith<$Res> {
-  factory _$$UPostgateEmbeddingRuleDisableRuleImplCopyWith(
-          _$UPostgateEmbeddingRuleDisableRuleImpl value,
-          $Res Function(_$UPostgateEmbeddingRuleDisableRuleImpl) then) =
-      __$$UPostgateEmbeddingRuleDisableRuleImplCopyWithImpl<$Res>;
+abstract class _$$UPostRuleDisableRuleImplCopyWith<$Res> {
+  factory _$$UPostRuleDisableRuleImplCopyWith(_$UPostRuleDisableRuleImpl value,
+          $Res Function(_$UPostRuleDisableRuleImpl) then) =
+      __$$UPostRuleDisableRuleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PostgateDisableRule data});
 
@@ -93,23 +89,21 @@ abstract class _$$UPostgateEmbeddingRuleDisableRuleImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UPostgateEmbeddingRuleDisableRuleImplCopyWithImpl<$Res>
-    extends _$UPostgateEmbeddingRuleCopyWithImpl<$Res,
-        _$UPostgateEmbeddingRuleDisableRuleImpl>
-    implements _$$UPostgateEmbeddingRuleDisableRuleImplCopyWith<$Res> {
-  __$$UPostgateEmbeddingRuleDisableRuleImplCopyWithImpl(
-      _$UPostgateEmbeddingRuleDisableRuleImpl _value,
-      $Res Function(_$UPostgateEmbeddingRuleDisableRuleImpl) _then)
+class __$$UPostRuleDisableRuleImplCopyWithImpl<$Res>
+    extends _$UPostRuleCopyWithImpl<$Res, _$UPostRuleDisableRuleImpl>
+    implements _$$UPostRuleDisableRuleImplCopyWith<$Res> {
+  __$$UPostRuleDisableRuleImplCopyWithImpl(_$UPostRuleDisableRuleImpl _value,
+      $Res Function(_$UPostRuleDisableRuleImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of UPostgateEmbeddingRule
+  /// Create a copy of UPostRule
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPostgateEmbeddingRuleDisableRuleImpl(
+    return _then(_$UPostRuleDisableRuleImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -117,7 +111,7 @@ class __$$UPostgateEmbeddingRuleDisableRuleImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of UPostgateEmbeddingRule
+  /// Create a copy of UPostRule
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -130,39 +124,37 @@ class __$$UPostgateEmbeddingRuleDisableRuleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPostgateEmbeddingRuleDisableRuleImpl
-    extends UPostgateEmbeddingRuleDisableRule {
-  const _$UPostgateEmbeddingRuleDisableRuleImpl({required this.data})
-      : super._();
+class _$UPostRuleDisableRuleImpl extends UPostRuleDisableRule {
+  const _$UPostRuleDisableRuleImpl({required this.data}) : super._();
 
   @override
   final PostgateDisableRule data;
 
   @override
   String toString() {
-    return 'UPostgateEmbeddingRule.disableRule(data: $data)';
+    return 'UPostRule.disableRule(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPostgateEmbeddingRuleDisableRuleImpl &&
+            other is _$UPostRuleDisableRuleImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of UPostgateEmbeddingRule
+  /// Create a copy of UPostRule
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPostgateEmbeddingRuleDisableRuleImplCopyWith<
-          _$UPostgateEmbeddingRuleDisableRuleImpl>
-      get copyWith => __$$UPostgateEmbeddingRuleDisableRuleImplCopyWithImpl<
-          _$UPostgateEmbeddingRuleDisableRuleImpl>(this, _$identity);
+  _$$UPostRuleDisableRuleImplCopyWith<_$UPostRuleDisableRuleImpl>
+      get copyWith =>
+          __$$UPostRuleDisableRuleImplCopyWithImpl<_$UPostRuleDisableRuleImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -198,9 +190,8 @@ class _$UPostgateEmbeddingRuleDisableRuleImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UPostgateEmbeddingRuleDisableRule value)
-        disableRule,
-    required TResult Function(UPostgateEmbeddingRuleUnknown value) unknown,
+    required TResult Function(UPostRuleDisableRule value) disableRule,
+    required TResult Function(UPostRuleUnknown value) unknown,
   }) {
     return disableRule(this);
   }
@@ -208,8 +199,8 @@ class _$UPostgateEmbeddingRuleDisableRuleImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPostgateEmbeddingRuleDisableRule value)? disableRule,
-    TResult? Function(UPostgateEmbeddingRuleUnknown value)? unknown,
+    TResult? Function(UPostRuleDisableRule value)? disableRule,
+    TResult? Function(UPostRuleUnknown value)? unknown,
   }) {
     return disableRule?.call(this);
   }
@@ -217,8 +208,8 @@ class _$UPostgateEmbeddingRuleDisableRuleImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPostgateEmbeddingRuleDisableRule value)? disableRule,
-    TResult Function(UPostgateEmbeddingRuleUnknown value)? unknown,
+    TResult Function(UPostRuleDisableRule value)? disableRule,
+    TResult Function(UPostRuleUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (disableRule != null) {
@@ -228,52 +219,46 @@ class _$UPostgateEmbeddingRuleDisableRuleImpl
   }
 }
 
-abstract class UPostgateEmbeddingRuleDisableRule
-    extends UPostgateEmbeddingRule {
-  const factory UPostgateEmbeddingRuleDisableRule(
-          {required final PostgateDisableRule data}) =
-      _$UPostgateEmbeddingRuleDisableRuleImpl;
-  const UPostgateEmbeddingRuleDisableRule._() : super._();
+abstract class UPostRuleDisableRule extends UPostRule {
+  const factory UPostRuleDisableRule(
+      {required final PostgateDisableRule data}) = _$UPostRuleDisableRuleImpl;
+  const UPostRuleDisableRule._() : super._();
 
   @override
   PostgateDisableRule get data;
 
-  /// Create a copy of UPostgateEmbeddingRule
+  /// Create a copy of UPostRule
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPostgateEmbeddingRuleDisableRuleImplCopyWith<
-          _$UPostgateEmbeddingRuleDisableRuleImpl>
+  _$$UPostRuleDisableRuleImplCopyWith<_$UPostRuleDisableRuleImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UPostgateEmbeddingRuleUnknownImplCopyWith<$Res> {
-  factory _$$UPostgateEmbeddingRuleUnknownImplCopyWith(
-          _$UPostgateEmbeddingRuleUnknownImpl value,
-          $Res Function(_$UPostgateEmbeddingRuleUnknownImpl) then) =
-      __$$UPostgateEmbeddingRuleUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UPostRuleUnknownImplCopyWith<$Res> {
+  factory _$$UPostRuleUnknownImplCopyWith(_$UPostRuleUnknownImpl value,
+          $Res Function(_$UPostRuleUnknownImpl) then) =
+      __$$UPostRuleUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UPostgateEmbeddingRuleUnknownImplCopyWithImpl<$Res>
-    extends _$UPostgateEmbeddingRuleCopyWithImpl<$Res,
-        _$UPostgateEmbeddingRuleUnknownImpl>
-    implements _$$UPostgateEmbeddingRuleUnknownImplCopyWith<$Res> {
-  __$$UPostgateEmbeddingRuleUnknownImplCopyWithImpl(
-      _$UPostgateEmbeddingRuleUnknownImpl _value,
-      $Res Function(_$UPostgateEmbeddingRuleUnknownImpl) _then)
+class __$$UPostRuleUnknownImplCopyWithImpl<$Res>
+    extends _$UPostRuleCopyWithImpl<$Res, _$UPostRuleUnknownImpl>
+    implements _$$UPostRuleUnknownImplCopyWith<$Res> {
+  __$$UPostRuleUnknownImplCopyWithImpl(_$UPostRuleUnknownImpl _value,
+      $Res Function(_$UPostRuleUnknownImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of UPostgateEmbeddingRule
+  /// Create a copy of UPostRule
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UPostgateEmbeddingRuleUnknownImpl(
+    return _then(_$UPostRuleUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -284,10 +269,8 @@ class __$$UPostgateEmbeddingRuleUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UPostgateEmbeddingRuleUnknownImpl
-    extends UPostgateEmbeddingRuleUnknown {
-  const _$UPostgateEmbeddingRuleUnknownImpl(
-      {required final Map<String, dynamic> data})
+class _$UPostRuleUnknownImpl extends UPostRuleUnknown {
+  const _$UPostRuleUnknownImpl({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -301,14 +284,14 @@ class _$UPostgateEmbeddingRuleUnknownImpl
 
   @override
   String toString() {
-    return 'UPostgateEmbeddingRule.unknown(data: $data)';
+    return 'UPostRule.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UPostgateEmbeddingRuleUnknownImpl &&
+            other is _$UPostRuleUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -316,15 +299,14 @@ class _$UPostgateEmbeddingRuleUnknownImpl
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of UPostgateEmbeddingRule
+  /// Create a copy of UPostRule
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UPostgateEmbeddingRuleUnknownImplCopyWith<
-          _$UPostgateEmbeddingRuleUnknownImpl>
-      get copyWith => __$$UPostgateEmbeddingRuleUnknownImplCopyWithImpl<
-          _$UPostgateEmbeddingRuleUnknownImpl>(this, _$identity);
+  _$$UPostRuleUnknownImplCopyWith<_$UPostRuleUnknownImpl> get copyWith =>
+      __$$UPostRuleUnknownImplCopyWithImpl<_$UPostRuleUnknownImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -360,9 +342,8 @@ class _$UPostgateEmbeddingRuleUnknownImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UPostgateEmbeddingRuleDisableRule value)
-        disableRule,
-    required TResult Function(UPostgateEmbeddingRuleUnknown value) unknown,
+    required TResult Function(UPostRuleDisableRule value) disableRule,
+    required TResult Function(UPostRuleUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -370,8 +351,8 @@ class _$UPostgateEmbeddingRuleUnknownImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UPostgateEmbeddingRuleDisableRule value)? disableRule,
-    TResult? Function(UPostgateEmbeddingRuleUnknown value)? unknown,
+    TResult? Function(UPostRuleDisableRule value)? disableRule,
+    TResult? Function(UPostRuleUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -379,8 +360,8 @@ class _$UPostgateEmbeddingRuleUnknownImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UPostgateEmbeddingRuleDisableRule value)? disableRule,
-    TResult Function(UPostgateEmbeddingRuleUnknown value)? unknown,
+    TResult Function(UPostRuleDisableRule value)? disableRule,
+    TResult Function(UPostRuleUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -390,19 +371,17 @@ class _$UPostgateEmbeddingRuleUnknownImpl
   }
 }
 
-abstract class UPostgateEmbeddingRuleUnknown extends UPostgateEmbeddingRule {
-  const factory UPostgateEmbeddingRuleUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UPostgateEmbeddingRuleUnknownImpl;
-  const UPostgateEmbeddingRuleUnknown._() : super._();
+abstract class UPostRuleUnknown extends UPostRule {
+  const factory UPostRuleUnknown({required final Map<String, dynamic> data}) =
+      _$UPostRuleUnknownImpl;
+  const UPostRuleUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
 
-  /// Create a copy of UPostgateEmbeddingRule
+  /// Create a copy of UPostRule
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UPostgateEmbeddingRuleUnknownImplCopyWith<
-          _$UPostgateEmbeddingRuleUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$UPostRuleUnknownImplCopyWith<_$UPostRuleUnknownImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

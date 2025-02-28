@@ -25,7 +25,7 @@ _$PostgateRecordImpl _$$PostgateRecordImplFromJson(Map json) => $checkedCreate(
           embeddingRules: $checkedConvert(
               'embeddingRules',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => const UPostgateEmbeddingRuleConverter()
+                  ?.map((e) => const UPostRuleConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           createdAt:
@@ -47,7 +47,7 @@ Map<String, dynamic> _$$PostgateRecordImplToJson(
           case final value?)
         'detachedEmbeddingUris': value,
       if (instance.embeddingRules
-              ?.map(const UPostgateEmbeddingRuleConverter().toJson)
+              ?.map(const UPostRuleConverter().toJson)
               .toList()
           case final value?)
         'embeddingRules': value,

@@ -11,6 +11,7 @@
 - Add `contentMode` on:
   - `FeedGeneratorView`
   - `GeneratorRecord`
+- Add `postInteractionSettingsPref` on `Preference`.
 
 ## v0.18.9
 
