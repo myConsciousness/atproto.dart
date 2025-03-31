@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.3
+
+- Add `tid` on `LexString`.
+
 ## v0.2.2
 
 - Merge latest lexicons definitions.
