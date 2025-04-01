@@ -13,7 +13,9 @@ enum LexStringFormat {
   nsid('nsid'),
   cid('cid'),
   language('language'),
-  tid('tid');
+  tid('tid'),
+  recordKey('record-key'),
+  ;
 
   /// The format value.
   final String value;
