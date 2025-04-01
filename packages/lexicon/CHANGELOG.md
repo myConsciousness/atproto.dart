@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.4
+
+- Add `record-key` on `LexString`.
+
 ## v0.2.3
 
 - Add `tid` on `LexString`.
