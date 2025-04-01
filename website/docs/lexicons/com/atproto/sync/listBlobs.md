@@ -14,7 +14,7 @@ List blob CIDs for an account, since some repo revision. Does not require auth; 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
-| **since** | string | - | ❌ | Optional revision of the repo to list blobs since. |
+| **since** | string (tid) | - | ❌ | Optional revision of the repo to list blobs since. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

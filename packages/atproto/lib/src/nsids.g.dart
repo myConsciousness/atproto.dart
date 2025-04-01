@@ -58,6 +58,10 @@ const comAtprotoAdminUpdateAccountHandle =
 const comAtprotoAdminUpdateAccountPassword =
     NSID(ids.comAtprotoAdminUpdateAccountPassword);
 
+/// `com.atproto.admin.updateAccountSigningKey`
+const comAtprotoAdminUpdateAccountSigningKey =
+    NSID(ids.comAtprotoAdminUpdateAccountSigningKey);
+
 /// `com.atproto.admin.updateSubjectStatus`
 const comAtprotoAdminUpdateSubjectStatus =
     NSID(ids.comAtprotoAdminUpdateSubjectStatus);
@@ -66,13 +70,24 @@ const comAtprotoAdminUpdateSubjectStatus =
 const comAtprotoIdentityGetRecommendedDidCredentials =
     NSID(ids.comAtprotoIdentityGetRecommendedDidCredentials);
 
+/// `com.atproto.identity.refreshIdentity`
+const comAtprotoIdentityRefreshIdentity =
+    NSID(ids.comAtprotoIdentityRefreshIdentity);
+
 /// `com.atproto.identity.requestPlcOperationSignature`
 const comAtprotoIdentityRequestPlcOperationSignature =
     NSID(ids.comAtprotoIdentityRequestPlcOperationSignature);
 
+/// `com.atproto.identity.resolveDid`
+const comAtprotoIdentityResolveDid = NSID(ids.comAtprotoIdentityResolveDid);
+
 /// `com.atproto.identity.resolveHandle`
 const comAtprotoIdentityResolveHandle =
     NSID(ids.comAtprotoIdentityResolveHandle);
+
+/// `com.atproto.identity.resolveIdentity`
+const comAtprotoIdentityResolveIdentity =
+    NSID(ids.comAtprotoIdentityResolveIdentity);
 
 /// `com.atproto.identity.signPlcOperation`
 const comAtprotoIdentitySignPlcOperation =
@@ -310,6 +325,14 @@ const comAtprotoSyncListBlobs = NSID(ids.comAtprotoSyncListBlobs);
 /// `com.atproto.sync.listRepos`
 const comAtprotoSyncListRepos = NSID(ids.comAtprotoSyncListRepos);
 
+/// `com.atproto.sync.listReposByCollection`
+const comAtprotoSyncListReposByCollection =
+    NSID(ids.comAtprotoSyncListReposByCollection);
+
+/// `com.atproto.sync.listReposByCollection#repo`
+const comAtprotoSyncListReposByCollectionRepo =
+    NSID(ids.comAtprotoSyncListReposByCollectionRepo);
+
 /// `com.atproto.sync.listRepos#repo`
 const comAtprotoSyncListReposRepo = NSID(ids.comAtprotoSyncListReposRepo);
 
@@ -330,10 +353,6 @@ const comAtprotoSyncSubscribeReposAccount =
 const comAtprotoSyncSubscribeReposCommit =
     NSID(ids.comAtprotoSyncSubscribeReposCommit);
 
-/// `com.atproto.sync.subscribeRepos#handle`
-const comAtprotoSyncSubscribeReposHandle =
-    NSID(ids.comAtprotoSyncSubscribeReposHandle);
-
 /// `com.atproto.sync.subscribeRepos#identity`
 const comAtprotoSyncSubscribeReposIdentity =
     NSID(ids.comAtprotoSyncSubscribeReposIdentity);
@@ -342,17 +361,13 @@ const comAtprotoSyncSubscribeReposIdentity =
 const comAtprotoSyncSubscribeReposInfo =
     NSID(ids.comAtprotoSyncSubscribeReposInfo);
 
-/// `com.atproto.sync.subscribeRepos#migrate`
-const comAtprotoSyncSubscribeReposMigrate =
-    NSID(ids.comAtprotoSyncSubscribeReposMigrate);
-
 /// `com.atproto.sync.subscribeRepos#repoOp`
 const comAtprotoSyncSubscribeReposRepoOp =
     NSID(ids.comAtprotoSyncSubscribeReposRepoOp);
 
-/// `com.atproto.sync.subscribeRepos#tombstone`
-const comAtprotoSyncSubscribeReposTombstone =
-    NSID(ids.comAtprotoSyncSubscribeReposTombstone);
+/// `com.atproto.sync.subscribeRepos#sync`
+const comAtprotoSyncSubscribeReposSync =
+    NSID(ids.comAtprotoSyncSubscribeReposSync);
 
 /// `com.atproto.temp.addReservedHandle`
 const comAtprotoTempAddReservedHandle =

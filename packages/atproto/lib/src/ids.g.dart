@@ -70,20 +70,42 @@ const comAtprotoAdminUpdateAccountHandle =
 const comAtprotoAdminUpdateAccountPassword =
     'com.atproto.admin.updateAccountPassword';
 
+/// `com.atproto.admin.updateAccountSigningKey`
+const comAtprotoAdminUpdateAccountSigningKey =
+    'com.atproto.admin.updateAccountSigningKey';
+
 /// `com.atproto.admin.updateSubjectStatus`
 const comAtprotoAdminUpdateSubjectStatus =
     'com.atproto.admin.updateSubjectStatus';
+
+/// `com.atproto.identity.defs`
+const comAtprotoIdentityDefs = 'com.atproto.identity.defs';
+
+/// `com.atproto.identity.defs#identityInfo`
+const comAtprotoIdentityDefsIdentityInfo =
+    'com.atproto.identity.defs#identityInfo';
 
 /// `com.atproto.identity.getRecommendedDidCredentials`
 const comAtprotoIdentityGetRecommendedDidCredentials =
     'com.atproto.identity.getRecommendedDidCredentials';
 
+/// `com.atproto.identity.refreshIdentity`
+const comAtprotoIdentityRefreshIdentity =
+    'com.atproto.identity.refreshIdentity';
+
 /// `com.atproto.identity.requestPlcOperationSignature`
 const comAtprotoIdentityRequestPlcOperationSignature =
     'com.atproto.identity.requestPlcOperationSignature';
 
+/// `com.atproto.identity.resolveDid`
+const comAtprotoIdentityResolveDid = 'com.atproto.identity.resolveDid';
+
 /// `com.atproto.identity.resolveHandle`
 const comAtprotoIdentityResolveHandle = 'com.atproto.identity.resolveHandle';
+
+/// `com.atproto.identity.resolveIdentity`
+const comAtprotoIdentityResolveIdentity =
+    'com.atproto.identity.resolveIdentity';
 
 /// `com.atproto.identity.signPlcOperation`
 const comAtprotoIdentitySignPlcOperation =
@@ -173,6 +195,10 @@ const comAtprotoModerationDefsReasonType =
 /// `com.atproto.moderation.defs#reasonViolation`
 const comAtprotoModerationDefsReasonViolation =
     'com.atproto.moderation.defs#reasonViolation';
+
+/// `com.atproto.moderation.defs#subjectType`
+const comAtprotoModerationDefsSubjectType =
+    'com.atproto.moderation.defs#subjectType';
 
 /// `com.atproto.repo.applyWrites`
 const comAtprotoRepoApplyWrites = 'com.atproto.repo.applyWrites';
@@ -387,6 +413,14 @@ const comAtprotoSyncListBlobs = 'com.atproto.sync.listBlobs';
 /// `com.atproto.sync.listRepos`
 const comAtprotoSyncListRepos = 'com.atproto.sync.listRepos';
 
+/// `com.atproto.sync.listReposByCollection`
+const comAtprotoSyncListReposByCollection =
+    'com.atproto.sync.listReposByCollection';
+
+/// `com.atproto.sync.listReposByCollection#repo`
+const comAtprotoSyncListReposByCollectionRepo =
+    'com.atproto.sync.listReposByCollection#repo';
+
 /// `com.atproto.sync.listRepos#repo`
 const comAtprotoSyncListReposRepo = 'com.atproto.sync.listRepos#repo';
 
@@ -407,10 +441,6 @@ const comAtprotoSyncSubscribeReposAccount =
 const comAtprotoSyncSubscribeReposCommit =
     'com.atproto.sync.subscribeRepos#commit';
 
-/// `com.atproto.sync.subscribeRepos#handle`
-const comAtprotoSyncSubscribeReposHandle =
-    'com.atproto.sync.subscribeRepos#handle';
-
 /// `com.atproto.sync.subscribeRepos#identity`
 const comAtprotoSyncSubscribeReposIdentity =
     'com.atproto.sync.subscribeRepos#identity';
@@ -418,17 +448,12 @@ const comAtprotoSyncSubscribeReposIdentity =
 /// `com.atproto.sync.subscribeRepos#info`
 const comAtprotoSyncSubscribeReposInfo = 'com.atproto.sync.subscribeRepos#info';
 
-/// `com.atproto.sync.subscribeRepos#migrate`
-const comAtprotoSyncSubscribeReposMigrate =
-    'com.atproto.sync.subscribeRepos#migrate';
-
 /// `com.atproto.sync.subscribeRepos#repoOp`
 const comAtprotoSyncSubscribeReposRepoOp =
     'com.atproto.sync.subscribeRepos#repoOp';
 
-/// `com.atproto.sync.subscribeRepos#tombstone`
-const comAtprotoSyncSubscribeReposTombstone =
-    'com.atproto.sync.subscribeRepos#tombstone';
+/// `com.atproto.sync.subscribeRepos#sync`
+const comAtprotoSyncSubscribeReposSync = 'com.atproto.sync.subscribeRepos#sync';
 
 /// `com.atproto.temp.addReservedHandle`
 const comAtprotoTempAddReservedHandle = 'com.atproto.temp.addReservedHandle';

@@ -13,6 +13,8 @@ description: chat.bsky.convo.listConvos
 | --- | --- | --- | :---: | --- |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
+| **readState** | string | unread | ❌ | - |
+| **status** | string | request<br/>accepted | ❌ | - |
 
 ### Output
 

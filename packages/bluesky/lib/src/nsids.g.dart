@@ -391,12 +391,22 @@ const chatBskyActorDeleteAccount = NSID(ids.chatBskyActorDeleteAccount);
 /// `chat.bsky.actor.exportAccountData`
 const chatBskyActorExportAccountData = NSID(ids.chatBskyActorExportAccountData);
 
+/// `chat.bsky.convo.acceptConvo`
+const chatBskyConvoAcceptConvo = NSID(ids.chatBskyConvoAcceptConvo);
+
+/// `chat.bsky.convo.addReaction`
+const chatBskyConvoAddReaction = NSID(ids.chatBskyConvoAddReaction);
+
 /// `chat.bsky.convo.deleteMessageForSelf`
 const chatBskyConvoDeleteMessageForSelf =
     NSID(ids.chatBskyConvoDeleteMessageForSelf);
 
 /// `chat.bsky.convo.getConvo`
 const chatBskyConvoGetConvo = NSID(ids.chatBskyConvoGetConvo);
+
+/// `chat.bsky.convo.getConvoAvailability`
+const chatBskyConvoGetConvoAvailability =
+    NSID(ids.chatBskyConvoGetConvoAvailability);
 
 /// `chat.bsky.convo.getConvoForMembers`
 const chatBskyConvoGetConvoForMembers =
@@ -417,6 +427,9 @@ const chatBskyConvoListConvos = NSID(ids.chatBskyConvoListConvos);
 /// `chat.bsky.convo.muteConvo`
 const chatBskyConvoMuteConvo = NSID(ids.chatBskyConvoMuteConvo);
 
+/// `chat.bsky.convo.removeReaction`
+const chatBskyConvoRemoveReaction = NSID(ids.chatBskyConvoRemoveReaction);
+
 /// `chat.bsky.convo.sendMessage`
 const chatBskyConvoSendMessage = NSID(ids.chatBskyConvoSendMessage);
 
@@ -429,6 +442,9 @@ const chatBskyConvoSendMessageBatchBatchItem =
 
 /// `chat.bsky.convo.unmuteConvo`
 const chatBskyConvoUnmuteConvo = NSID(ids.chatBskyConvoUnmuteConvo);
+
+/// `chat.bsky.convo.updateAllRead`
+const chatBskyConvoUpdateAllRead = NSID(ids.chatBskyConvoUpdateAllRead);
 
 /// `chat.bsky.convo.updateRead`
 const chatBskyConvoUpdateRead = NSID(ids.chatBskyConvoUpdateRead);

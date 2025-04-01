@@ -22,4 +22,4 @@ Get the current commit CID & revision of the specified repo. Does not require au
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
-| **rev** | string | - | ✅ | - |
+| **rev** | string (tid) | - | ✅ | - |

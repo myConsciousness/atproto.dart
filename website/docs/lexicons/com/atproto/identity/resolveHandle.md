@@ -7,7 +7,7 @@ description: com.atproto.identity.resolveHandle
 
 ## #main
 
-Resolves a handle (domain name) to a DID.
+Resolves an atproto handle (hostname) to a DID. Does not necessarily bi-directionally verify against the the DID document.
 
 ### Parameters
 

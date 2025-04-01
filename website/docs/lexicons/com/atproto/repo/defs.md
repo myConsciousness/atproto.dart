@@ -10,4 +10,4 @@ description: com.atproto.repo.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
-| **rev** | string | - | ✅ | - |
+| **rev** | string (tid) | - | ✅ | - |
