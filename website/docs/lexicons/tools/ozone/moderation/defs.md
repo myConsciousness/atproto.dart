@@ -56,6 +56,19 @@ description: tools.ozone.moderation.defs
 | **accountStats** | [#accountStats](#accountstats) | - | ❌ | - |
 | **recordsStats** | [#recordsStats](#recordsstats) | - | ❌ | - |
 
+## #subjectView
+
+Detailed view of a subject. For record subjects, the author's repo and profile will be returned.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **type** | [com.atproto.moderation.defs#subjectType](../../../../lexicons/com/atproto/moderation/defs.md#subjecttype) | - | ✅ | - |
+| **subject** | string | - | ✅ | - |
+| **status** | [#subjectStatusView](#subjectstatusview) | - | ❌ | - |
+| **repo** | [#repoViewDetail](#repoviewdetail) | - | ❌ | - |
+| **profile** | union of <br/> | - | ❌ | - |
+| **record** | [#recordViewDetail](#recordviewdetail) | - | ❌ | - |
+
 ## #accountStats
 
 Statistics about a particular account subject
@@ -134,11 +147,11 @@ Resolve appeal on a subject
 
 ## #modEventComment
 
-Add a comment to a subject
+Add a comment to a subject. An empty comment will clear any previously set sticky comment.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **comment** | string | - | ✅ | - |
+| **comment** | string | - | ❌ | - |
 | **sticky** | boolean | - | ❌ | Make the comment persistent on the subject |
 
 ## #modEventReport
@@ -409,3 +422,17 @@ Logs lifecycle event on a record subject. Normally captured by automod from the 
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **deletedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+
+## #reporterStats
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **accountReportCount** | integer | - | ✅ | The total number of reports made by the user on accounts. |
+| **recordReportCount** | integer | - | ✅ | The total number of reports made by the user on records. |
+| **reportedAccountCount** | integer | - | ✅ | The total number of accounts reported by the user. |
+| **reportedRecordCount** | integer | - | ✅ | The total number of records reported by the user. |
+| **takendownAccountCount** | integer | - | ✅ | The total number of accounts taken down as a result of the user's reports. |
+| **takendownRecordCount** | integer | - | ✅ | The total number of records taken down as a result of the user's reports. |
+| **labeledAccountCount** | integer | - | ✅ | The total number of accounts labeled as a result of the user's reports. |
+| **labeledRecordCount** | integer | - | ✅ | The total number of records labeled as a result of the user's reports. |

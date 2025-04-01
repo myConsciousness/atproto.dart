@@ -17,8 +17,6 @@ List a range of records in a repository, matching a specific collection. Does no
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | The NSID of the record type. |
 | **limit** | integer | - | ❌ | The number of records to return. |
 | **cursor** | string | - | ❌ | - |
-| **rkeyStart** | string | - | ❌ | DEPRECATED: The lowest sort-ordered rkey to start from (exclusive) |
-| **rkeyEnd** | string | - | ❌ | DEPRECATED: The highest sort-ordered rkey to stop at (exclusive) |
 | **reverse** | boolean | - | ❌ | Flag to reverse the order of the returned records. |
 
 ### Output

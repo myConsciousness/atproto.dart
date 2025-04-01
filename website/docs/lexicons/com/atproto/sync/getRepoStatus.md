@@ -23,5 +23,5 @@ Get the hosting status for a repository, on this server. Expected to be implemen
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **active** | boolean | - | ✅ | - |
-| **status** | string | takendown<br/>suspended<br/>deactivated | ❌ | If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted. |
-| **rev** | string | - | ❌ | Optional field, the current rev of the repo, if active=true |
+| **status** | string | takendown<br/>suspended<br/>deleted<br/>deactivated<br/>desynchronized<br/>throttled | ❌ | If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted. |
+| **rev** | string (tid) | - | ❌ | Optional field, the current rev of the repo, if active=true |

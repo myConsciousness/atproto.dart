@@ -14,7 +14,7 @@ Download a repository export as CAR file. Optionally only a 'diff' since a previ
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
-| **since** | string | - | ❌ | The revision ('rev') of the repo to create a diff from. |
+| **since** | string (tid) | - | ❌ | The revision ('rev') of the repo to create a diff from. |
 
 ### Output
 

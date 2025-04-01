@@ -38,3 +38,9 @@ description: com.atproto.moderation.defs
 ## #reasonAppeal
 
 **TOKEN**: Appeal: appeal a previously taken moderation action
+
+## #subjectType
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **subjectType** | string | account<br/>record<br/>chat | ❌ | Tag describing a type of subject that might be reported. |

@@ -36,7 +36,7 @@ Operation which creates a new record.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | - |
-| **rkey** | string | - | ❌ | - |
+| **rkey** | string (record-key) | - | ❌ | NOTE: maxLength is redundant with record-key format. Keeping it temporarily to ensure backwards compatibility. |
 | **value** | unknown | - | ✅ | - |
 
 ## #update
@@ -46,7 +46,7 @@ Operation which updates an existing record.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | - |
-| **rkey** | string | - | ✅ | - |
+| **rkey** | string (record-key) | - | ✅ | - |
 | **value** | unknown | - | ✅ | - |
 
 ## #delete
@@ -56,7 +56,7 @@ Operation which deletes an existing record.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | - |
-| **rkey** | string | - | ✅ | - |
+| **rkey** | string (record-key) | - | ✅ | - |
 
 ## #createResult
 

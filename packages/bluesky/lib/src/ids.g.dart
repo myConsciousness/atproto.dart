@@ -668,6 +668,12 @@ const chatBskyActorDeleteAccount = 'chat.bsky.actor.deleteAccount';
 /// `chat.bsky.actor.exportAccountData`
 const chatBskyActorExportAccountData = 'chat.bsky.actor.exportAccountData';
 
+/// `chat.bsky.convo.acceptConvo`
+const chatBskyConvoAcceptConvo = 'chat.bsky.convo.acceptConvo';
+
+/// `chat.bsky.convo.addReaction`
+const chatBskyConvoAddReaction = 'chat.bsky.convo.addReaction';
+
 /// `chat.bsky.convo.defs`
 const chatBskyConvoDefs = 'chat.bsky.convo.defs';
 
@@ -677,6 +683,12 @@ const chatBskyConvoDefsConvoView = 'chat.bsky.convo.defs#convoView';
 /// `chat.bsky.convo.defs#deletedMessageView`
 const chatBskyConvoDefsDeletedMessageView =
     'chat.bsky.convo.defs#deletedMessageView';
+
+/// `chat.bsky.convo.defs#logAcceptConvo`
+const chatBskyConvoDefsLogAcceptConvo = 'chat.bsky.convo.defs#logAcceptConvo';
+
+/// `chat.bsky.convo.defs#logAddReaction`
+const chatBskyConvoDefsLogAddReaction = 'chat.bsky.convo.defs#logAddReaction';
 
 /// `chat.bsky.convo.defs#logBeginConvo`
 const chatBskyConvoDefsLogBeginConvo = 'chat.bsky.convo.defs#logBeginConvo';
@@ -692,6 +704,23 @@ const chatBskyConvoDefsLogDeleteMessage =
 /// `chat.bsky.convo.defs#logLeaveConvo`
 const chatBskyConvoDefsLogLeaveConvo = 'chat.bsky.convo.defs#logLeaveConvo';
 
+/// `chat.bsky.convo.defs#logMuteConvo`
+const chatBskyConvoDefsLogMuteConvo = 'chat.bsky.convo.defs#logMuteConvo';
+
+/// `chat.bsky.convo.defs#logReadMessage`
+const chatBskyConvoDefsLogReadMessage = 'chat.bsky.convo.defs#logReadMessage';
+
+/// `chat.bsky.convo.defs#logRemoveReaction`
+const chatBskyConvoDefsLogRemoveReaction =
+    'chat.bsky.convo.defs#logRemoveReaction';
+
+/// `chat.bsky.convo.defs#logUnmuteConvo`
+const chatBskyConvoDefsLogUnmuteConvo = 'chat.bsky.convo.defs#logUnmuteConvo';
+
+/// `chat.bsky.convo.defs#messageAndReactionView`
+const chatBskyConvoDefsMessageAndReactionView =
+    'chat.bsky.convo.defs#messageAndReactionView';
+
 /// `chat.bsky.convo.defs#messageInput`
 const chatBskyConvoDefsMessageInput = 'chat.bsky.convo.defs#messageInput';
 
@@ -705,12 +734,23 @@ const chatBskyConvoDefsMessageView = 'chat.bsky.convo.defs#messageView';
 const chatBskyConvoDefsMessageViewSender =
     'chat.bsky.convo.defs#messageViewSender';
 
+/// `chat.bsky.convo.defs#reactionView`
+const chatBskyConvoDefsReactionView = 'chat.bsky.convo.defs#reactionView';
+
+/// `chat.bsky.convo.defs#reactionViewSender`
+const chatBskyConvoDefsReactionViewSender =
+    'chat.bsky.convo.defs#reactionViewSender';
+
 /// `chat.bsky.convo.deleteMessageForSelf`
 const chatBskyConvoDeleteMessageForSelf =
     'chat.bsky.convo.deleteMessageForSelf';
 
 /// `chat.bsky.convo.getConvo`
 const chatBskyConvoGetConvo = 'chat.bsky.convo.getConvo';
+
+/// `chat.bsky.convo.getConvoAvailability`
+const chatBskyConvoGetConvoAvailability =
+    'chat.bsky.convo.getConvoAvailability';
 
 /// `chat.bsky.convo.getConvoForMembers`
 const chatBskyConvoGetConvoForMembers = 'chat.bsky.convo.getConvoForMembers';
@@ -730,6 +770,9 @@ const chatBskyConvoListConvos = 'chat.bsky.convo.listConvos';
 /// `chat.bsky.convo.muteConvo`
 const chatBskyConvoMuteConvo = 'chat.bsky.convo.muteConvo';
 
+/// `chat.bsky.convo.removeReaction`
+const chatBskyConvoRemoveReaction = 'chat.bsky.convo.removeReaction';
+
 /// `chat.bsky.convo.sendMessage`
 const chatBskyConvoSendMessage = 'chat.bsky.convo.sendMessage';
 
@@ -742,6 +785,9 @@ const chatBskyConvoSendMessageBatchBatchItem =
 
 /// `chat.bsky.convo.unmuteConvo`
 const chatBskyConvoUnmuteConvo = 'chat.bsky.convo.unmuteConvo';
+
+/// `chat.bsky.convo.updateAllRead`
+const chatBskyConvoUpdateAllRead = 'chat.bsky.convo.updateAllRead';
 
 /// `chat.bsky.convo.updateRead`
 const chatBskyConvoUpdateRead = 'chat.bsky.convo.updateRead';

@@ -31,6 +31,6 @@ Enumerates all the DID, rev, and commit CID for all repos hosted by this service
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **head** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | Current repo commit CID |
-| **rev** | string | - | ✅ | - |
+| **rev** | string (tid) | - | ✅ | - |
 | **active** | boolean | - | ❌ | - |
-| **status** | string | takendown<br/>suspended<br/>deactivated | ❌ | If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted. |
+| **status** | string | takendown<br/>suspended<br/>deleted<br/>deactivated<br/>desynchronized<br/>throttled | ❌ | If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted. |

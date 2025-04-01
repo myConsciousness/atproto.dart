@@ -30,6 +30,7 @@ description: chat.bsky.convo.defs
 | **text** | string | - | ✅ | - |
 | **facets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | Annotations of text (mentions, URLs, hashtags, etc) |
 | **embed** | union of <br/>[app.bsky.embed.record#view](../../../../lexicons/app/bsky/embed/record.md#view) | - | ❌ | - |
+| **reactions** | array of [#reactionView](#reactionview) | - | ❌ | Reactions to this message, in ascending order of creation time. |
 | **sender** | [#messageViewSender](#messageviewsender) | - | ✅ | - |
 | **sentAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
@@ -48,6 +49,27 @@ description: chat.bsky.convo.defs
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 
+## #reactionView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **value** | string | - | ✅ | - |
+| **sender** | [#reactionViewSender](#reactionviewsender) | - | ✅ | - |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
+## #reactionViewSender
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+
+## #messageAndReactionView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **message** | [#messageView](#messageview) | - | ✅ | - |
+| **reaction** | [#reactionView](#reactionview) | - | ✅ | - |
+
 ## #convoView
 
 | Property | Type | Known Values | Required | Description |
@@ -56,8 +78,9 @@ description: chat.bsky.convo.defs
 | **rev** | string | - | ✅ | - |
 | **members** | array of [chat.bsky.actor.defs#profileViewBasic](../../../../lexicons/chat/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
 | **lastMessage** | union of <br/>[#messageView](#messageview)<br/>[#deletedMessageView](#deletedmessageview) | - | ❌ | - |
+| **lastReaction** | union of <br/>[#messageAndReactionView](#messageandreactionview) | - | ❌ | - |
 | **muted** | boolean | - | ✅ | - |
-| **opened** | boolean | - | ❌ | - |
+| **status** | string | request<br/>accepted | ❌ | - |
 | **unreadCount** | integer | - | ✅ | - |
 
 ## #logBeginConvo
@@ -67,7 +90,28 @@ description: chat.bsky.convo.defs
 | **rev** | string | - | ✅ | - |
 | **convoId** | string | - | ✅ | - |
 
+## #logAcceptConvo
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rev** | string | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
+
 ## #logLeaveConvo
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rev** | string | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
+
+## #logMuteConvo
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rev** | string | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
+
+## #logUnmuteConvo
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -89,3 +133,29 @@ description: chat.bsky.convo.defs
 | **rev** | string | - | ✅ | - |
 | **convoId** | string | - | ✅ | - |
 | **message** | union of <br/>[#messageView](#messageview)<br/>[#deletedMessageView](#deletedmessageview) | - | ✅ | - |
+
+## #logReadMessage
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rev** | string | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
+| **message** | union of <br/>[#messageView](#messageview)<br/>[#deletedMessageView](#deletedmessageview) | - | ✅ | - |
+
+## #logAddReaction
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rev** | string | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
+| **message** | union of <br/>[#messageView](#messageview)<br/>[#deletedMessageView](#deletedmessageview) | - | ✅ | - |
+| **reaction** | [#reactionView](#reactionview) | - | ✅ | - |
+
+## #logRemoveReaction
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **rev** | string | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
+| **message** | union of <br/>[#messageView](#messageview)<br/>[#deletedMessageView](#deletedmessageview) | - | ✅ | - |
+| **reaction** | [#reactionView](#reactionview) | - | ✅ | - |

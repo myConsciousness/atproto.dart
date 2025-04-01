@@ -13,6 +13,9 @@ List all members with access to the ozone service.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **q** | string | - | ❌ | - |
+| **disabled** | boolean | - | ❌ | - |
+| **roles** | array | - | ❌ | - |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

@@ -15,8 +15,7 @@ Get data blocks needed to prove the existence or non-existence of record in the 
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | - |
-| **rkey** | string | - | ✅ | Record Key |
-| **commit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit |
+| **rkey** | string (record-key) | - | ✅ | Record Key |
 
 ### Output
 
