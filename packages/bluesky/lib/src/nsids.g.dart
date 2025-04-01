@@ -361,6 +361,13 @@ const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
 const appBskyUnspeccedGetTrendingTopics =
     NSID(ids.appBskyUnspeccedGetTrendingTopics);
 
+/// `app.bsky.unspecced.getTrends`
+const appBskyUnspeccedGetTrends = NSID(ids.appBskyUnspeccedGetTrends);
+
+/// `app.bsky.unspecced.getTrendsSkeleton`
+const appBskyUnspeccedGetTrendsSkeleton =
+    NSID(ids.appBskyUnspeccedGetTrendsSkeleton);
+
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =
     NSID(ids.appBskyUnspeccedSearchActorsSkeleton);

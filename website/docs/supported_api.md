@@ -158,6 +158,8 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
 | **[app.bsky.unspecced.searchActorsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchActorsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchActorsSkeleton.md) | ✅ |
+| **[app.bsky.unspecced.getTrends](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTrends.html)** | [Reference](lexicons/app/bsky/unspecced/getTrends.md) | ❌ |
+| **[app.bsky.unspecced.getTrendsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTrendsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getTrendsSkeleton.md) | ❌ |
 | **[app.bsky.unspecced.getTrendingTopics](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTrendingTopics.html)** | [Reference](lexicons/app/bsky/unspecced/getTrendingTopics.md) | ❌ |
 | **[app.bsky.unspecced.getConfig](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getConfig.html)** | [Reference](lexicons/app/bsky/unspecced/getConfig.md) | ❌ |
 | **[app.bsky.unspecced.getPopularFeedGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getPopularFeedGenerators.html)** | [Reference](lexicons/app/bsky/unspecced/getPopularFeedGenerators.md) | ✅ |

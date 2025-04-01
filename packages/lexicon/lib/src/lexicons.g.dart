@@ -4087,6 +4087,91 @@ const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
   }
 };
 
+/// `app.bsky.unspecced.getTrends`
+const appBskyUnspeccedGetTrends = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrends",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get the current trends on the network",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["trends"],
+          "properties": {
+            "trends": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#trendView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getTrendsSkeleton`
+const appBskyUnspeccedGetTrendsSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrendsSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the skeleton of trends on the network. Intended to be called and hydrated by app.bsky.unspecced.getTrends",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries)."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["trends"],
+          "properties": {
+            "trends": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#skeletonTrend"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.unspecced.getTrendingTopics`
 const appBskyUnspeccedGetTrendingTopics = <String, dynamic>{
   "lexicon": 1,
@@ -4195,6 +4280,63 @@ const appBskyUnspeccedDefs = <String, dynamic>{
         "displayName": {"type": "string"},
         "description": {"type": "string"},
         "link": {"type": "string"}
+      }
+    },
+    "skeletonTrend": {
+      "type": "object",
+      "required": [
+        "topic",
+        "displayName",
+        "link",
+        "startedAt",
+        "postCount",
+        "dids"
+      ],
+      "properties": {
+        "topic": {"type": "string"},
+        "displayName": {"type": "string"},
+        "link": {"type": "string"},
+        "startedAt": {"type": "string", "format": "datetime"},
+        "postCount": {"type": "integer"},
+        "status": {
+          "type": "string",
+          "knownValues": ["hot"]
+        },
+        "category": {"type": "string"},
+        "dids": {
+          "type": "array",
+          "items": {"type": "string", "format": "did"}
+        }
+      }
+    },
+    "trendView": {
+      "type": "object",
+      "required": [
+        "topic",
+        "displayName",
+        "link",
+        "startedAt",
+        "postCount",
+        "actors"
+      ],
+      "properties": {
+        "topic": {"type": "string"},
+        "displayName": {"type": "string"},
+        "link": {"type": "string"},
+        "startedAt": {"type": "string", "format": "datetime"},
+        "postCount": {"type": "integer"},
+        "status": {
+          "type": "string",
+          "knownValues": ["hot"]
+        },
+        "category": {"type": "string"},
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic"
+          }
+        }
       }
     }
   }
@@ -12484,6 +12626,8 @@ const lexicons = <Map<String, dynamic>>[
   appBskyNotificationUpdateSeen,
   appBskyNotificationRegisterPush,
   appBskyUnspeccedSearchActorsSkeleton,
+  appBskyUnspeccedGetTrends,
+  appBskyUnspeccedGetTrendsSkeleton,
   appBskyUnspeccedGetTrendingTopics,
   appBskyUnspeccedGetConfig,
   appBskyUnspeccedDefs,
