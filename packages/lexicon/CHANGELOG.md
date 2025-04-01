@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.5
+
+- Add `record-key` on `LexString` as JSON value.
+
 ## v0.2.4
 
 - Add `record-key` on `LexString`.

@@ -66,5 +66,5 @@ const _$LexStringFormatEnumMap = {
   LexStringFormat.cid: 'cid',
   LexStringFormat.language: 'language',
   LexStringFormat.tid: 'tid',
-  LexStringFormat.recordKey: 'recordKey',
+  LexStringFormat.recordKey: 'record-key',
 };

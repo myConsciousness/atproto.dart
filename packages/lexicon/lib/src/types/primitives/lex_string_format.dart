@@ -14,6 +14,7 @@ enum LexStringFormat {
   cid('cid'),
   language('language'),
   tid('tid'),
+  @JsonValue('record-key')
   recordKey('record-key'),
   ;
 
