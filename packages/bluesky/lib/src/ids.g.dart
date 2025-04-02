@@ -598,6 +598,13 @@ const appBskyUnspeccedDefsSkeletonSearchPost =
 const appBskyUnspeccedDefsSkeletonSearchStarterPack =
     'app.bsky.unspecced.defs#skeletonSearchStarterPack';
 
+/// `app.bsky.unspecced.defs#skeletonTrend`
+const appBskyUnspeccedDefsSkeletonTrend =
+    'app.bsky.unspecced.defs#skeletonTrend';
+
+/// `app.bsky.unspecced.defs#trendView`
+const appBskyUnspeccedDefsTrendView = 'app.bsky.unspecced.defs#trendView';
+
 /// `app.bsky.unspecced.defs#trendingTopic`
 const appBskyUnspeccedDefsTrendingTopic =
     'app.bsky.unspecced.defs#trendingTopic';
@@ -608,6 +615,14 @@ const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     'app.bsky.unspecced.getPopularFeedGenerators';
+
+/// `app.bsky.unspecced.getSuggestedStarterPacks`
+const appBskyUnspeccedGetSuggestedStarterPacks =
+    'app.bsky.unspecced.getSuggestedStarterPacks';
+
+/// `app.bsky.unspecced.getSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetSuggestedStarterPacksSkeleton =
+    'app.bsky.unspecced.getSuggestedStarterPacksSkeleton';
 
 /// `app.bsky.unspecced.getSuggestionsSkeleton`
 const appBskyUnspeccedGetSuggestionsSkeleton =
@@ -624,6 +639,13 @@ const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
 /// `app.bsky.unspecced.getTrendingTopics`
 const appBskyUnspeccedGetTrendingTopics =
     'app.bsky.unspecced.getTrendingTopics';
+
+/// `app.bsky.unspecced.getTrends`
+const appBskyUnspeccedGetTrends = 'app.bsky.unspecced.getTrends';
+
+/// `app.bsky.unspecced.getTrendsSkeleton`
+const appBskyUnspeccedGetTrendsSkeleton =
+    'app.bsky.unspecced.getTrendsSkeleton';
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =

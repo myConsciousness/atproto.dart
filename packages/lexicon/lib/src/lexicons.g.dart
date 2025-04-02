@@ -4087,6 +4087,130 @@ const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
   }
 };
 
+/// `app.bsky.unspecced.getTrends`
+const appBskyUnspeccedGetTrends = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrends",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get the current trends on the network",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["trends"],
+          "properties": {
+            "trends": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#trendView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getSuggestedStarterPacks`
+const appBskyUnspeccedGetSuggestedStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedStarterPacks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested starterpacks",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#starterPackView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getTrendsSkeleton`
+const appBskyUnspeccedGetTrendsSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrendsSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the skeleton of trends on the network. Intended to be called and then hydrated through app.bsky.unspecced.getTrends",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries)."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["trends"],
+          "properties": {
+            "trends": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#skeletonTrend"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.unspecced.getTrendingTopics`
 const appBskyUnspeccedGetTrendingTopics = <String, dynamic>{
   "lexicon": 1,
@@ -4195,6 +4319,63 @@ const appBskyUnspeccedDefs = <String, dynamic>{
         "displayName": {"type": "string"},
         "description": {"type": "string"},
         "link": {"type": "string"}
+      }
+    },
+    "skeletonTrend": {
+      "type": "object",
+      "required": [
+        "topic",
+        "displayName",
+        "link",
+        "startedAt",
+        "postCount",
+        "dids"
+      ],
+      "properties": {
+        "topic": {"type": "string"},
+        "displayName": {"type": "string"},
+        "link": {"type": "string"},
+        "startedAt": {"type": "string", "format": "datetime"},
+        "postCount": {"type": "integer"},
+        "status": {
+          "type": "string",
+          "knownValues": ["hot"]
+        },
+        "category": {"type": "string"},
+        "dids": {
+          "type": "array",
+          "items": {"type": "string", "format": "did"}
+        }
+      }
+    },
+    "trendView": {
+      "type": "object",
+      "required": [
+        "topic",
+        "displayName",
+        "link",
+        "startedAt",
+        "postCount",
+        "actors"
+      ],
+      "properties": {
+        "topic": {"type": "string"},
+        "displayName": {"type": "string"},
+        "link": {"type": "string"},
+        "startedAt": {"type": "string", "format": "datetime"},
+        "postCount": {"type": "integer"},
+        "status": {
+          "type": "string",
+          "knownValues": ["hot"]
+        },
+        "category": {"type": "string"},
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic"
+          }
+        }
       }
     }
   }
@@ -4458,6 +4639,49 @@ const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
       "errors": [
         {"name": "BadQueryString"}
       ]
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetSuggestedStarterPacksSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedStarterPacksSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of suggested starterpacks. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedStarterpacks",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries)."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "starterPacks": {
+              "type": "array",
+              "items": {"type": "string", "format": "at-uri"}
+            }
+          }
+        }
+      }
     }
   }
 };
@@ -12484,6 +12708,9 @@ const lexicons = <Map<String, dynamic>>[
   appBskyNotificationUpdateSeen,
   appBskyNotificationRegisterPush,
   appBskyUnspeccedSearchActorsSkeleton,
+  appBskyUnspeccedGetTrends,
+  appBskyUnspeccedGetSuggestedStarterPacks,
+  appBskyUnspeccedGetTrendsSkeleton,
   appBskyUnspeccedGetTrendingTopics,
   appBskyUnspeccedGetConfig,
   appBskyUnspeccedDefs,
@@ -12491,6 +12718,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyUnspeccedSearchStarterPacksSkeleton,
   appBskyUnspeccedGetTaggedSuggestions,
   appBskyUnspeccedSearchPostsSkeleton,
+  appBskyUnspeccedGetSuggestedStarterPacksSkeleton,
   appBskyUnspeccedGetSuggestionsSkeleton,
   appBskyEmbedRecord,
   appBskyEmbedVideo,
