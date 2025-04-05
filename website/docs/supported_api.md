@@ -157,13 +157,21 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
+| **[app.bsky.unspecced.getSuggestedFeedsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestedFeedsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestedFeedsSkeleton.md) | ❌ |
 | **[app.bsky.unspecced.searchActorsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchActorsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchActorsSkeleton.md) | ✅ |
+| **[app.bsky.unspecced.getTrends](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTrends.html)** | [Reference](lexicons/app/bsky/unspecced/getTrends.md) | ❌ |
+| **[app.bsky.unspecced.getSuggestedStarterPacks](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestedStarterPacks.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestedStarterPacks.md) | ❌ |
+| **[app.bsky.unspecced.getTrendsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTrendsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getTrendsSkeleton.md) | ❌ |
 | **[app.bsky.unspecced.getTrendingTopics](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTrendingTopics.html)** | [Reference](lexicons/app/bsky/unspecced/getTrendingTopics.md) | ❌ |
 | **[app.bsky.unspecced.getConfig](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getConfig.html)** | [Reference](lexicons/app/bsky/unspecced/getConfig.md) | ❌ |
+| **[app.bsky.unspecced.getSuggestedUsersSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestedUsersSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestedUsersSkeleton.md) | ❌ |
+| **[app.bsky.unspecced.getSuggestedFeeds](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestedFeeds.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestedFeeds.md) | ❌ |
+| **[app.bsky.unspecced.getSuggestedUsers](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestedUsers.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestedUsers.md) | ❌ |
 | **[app.bsky.unspecced.getPopularFeedGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getPopularFeedGenerators.html)** | [Reference](lexicons/app/bsky/unspecced/getPopularFeedGenerators.md) | ✅ |
 | **[app.bsky.unspecced.searchStarterPacksSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchStarterPacksSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchStarterPacksSkeleton.md) | ✅ |
 | **[app.bsky.unspecced.getTaggedSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTaggedSuggestions.html)** | [Reference](lexicons/app/bsky/unspecced/getTaggedSuggestions.md) | ❌ |
 | **[app.bsky.unspecced.searchPostsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchPostsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchPostsSkeleton.md) | ✅ |
+| **[app.bsky.unspecced.getSuggestedStarterPacksSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestedStarterPacksSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestedStarterPacksSkeleton.md) | ❌ |
 | **[app.bsky.unspecced.getSuggestionsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestionsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestionsSkeleton.md) | ✅ |
 
 ### app.bsky.labeler
