@@ -31,3 +31,29 @@ description: app.bsky.unspecced.defs
 | **displayName** | string | - | ❌ | - |
 | **description** | string | - | ❌ | - |
 | **link** | string | - | ✅ | - |
+
+## #skeletonTrend
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **topic** | string | - | ✅ | - |
+| **displayName** | string | - | ✅ | - |
+| **link** | string | - | ✅ | - |
+| **startedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **postCount** | integer | - | ✅ | - |
+| **status** | string | hot | ❌ | - |
+| **category** | string | - | ❌ | - |
+| **dids** | array of string | - | ✅ | - |
+
+## #trendView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **topic** | string | - | ✅ | - |
+| **displayName** | string | - | ✅ | - |
+| **link** | string | - | ✅ | - |
+| **startedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **postCount** | integer | - | ✅ | - |
+| **status** | string | hot | ❌ | - |
+| **category** | string | - | ❌ | - |
+| **actors** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
