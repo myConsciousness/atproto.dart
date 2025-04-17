@@ -419,7 +419,10 @@ const comAtprotoSyncRequestCrawl = <String, dynamic>{
             }
           }
         }
-      }
+      },
+      "errors": [
+        {"name": "HostBanned"}
+      ]
     }
   }
 };
@@ -882,6 +885,66 @@ const comAtprotoSyncGetRecord = <String, dynamic>{
   }
 };
 
+/// `com.atproto.sync.getHostStatus`
+const comAtprotoSyncGetHostStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.getHostStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Returns information about a specified upstream host, as consumed by the server. Implemented by relays.",
+      "parameters": {
+        "type": "params",
+        "required": ["hostname"],
+        "properties": {
+          "hostname": {
+            "type": "string",
+            "description":
+                "Hostname of the host (eg, PDS or relay) being queried."
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["hostname"],
+          "properties": {
+            "hostname": {"type": "string"},
+            "seq": {
+              "type": "integer",
+              "description":
+                  "Recent repo stream event sequence number. May be delayed from actual stream processing (eg, persisted cursor not in-memory cursor)."
+            },
+            "accountCount": {
+              "type": "integer",
+              "description":
+                  "Number of accounts on the server which are associated with the upstream host. Note that the upstream may actually have more accounts."
+            },
+            "status": {"type": "ref", "ref": "com.atproto.sync.defs#hostStatus"}
+          }
+        }
+      },
+      "errors": [
+        {"name": "HostNotFound"}
+      ]
+    }
+  }
+};
+
+/// `com.atproto.sync.defs`
+const comAtprotoSyncDefs = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.defs",
+  "defs": {
+    "hostStatus": {
+      "type": "string",
+      "knownValues": ["active", "idle", "offline", "throttled", "banned"]
+    }
+  }
+};
+
 /// `com.atproto.sync.getCheckout`
 const comAtprotoSyncGetCheckout = <String, dynamic>{
   "lexicon": 1,
@@ -1088,6 +1151,64 @@ const comAtprotoSyncListBlobs = <String, dynamic>{
         {"name": "RepoSuspended"},
         {"name": "RepoDeactivated"}
       ]
+    }
+  }
+};
+
+/// `com.atproto.sync.listHosts`
+const comAtprotoSyncListHosts = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.listHosts",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 200,
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["hosts"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "hosts": {
+              "type": "array",
+              "description":
+                  "Sort order is not formally specified. Recommended order is by time host was first seen by the server, with oldest first.",
+              "items": {"type": "ref", "ref": "#host"}
+            }
+          }
+        }
+      }
+    },
+    "host": {
+      "type": "object",
+      "required": ["hostname"],
+      "properties": {
+        "hostname": {
+          "type": "string",
+          "description": "hostname of server; not a URL (no scheme)"
+        },
+        "seq": {
+          "type": "integer",
+          "description":
+              "Recent repo stream event sequence number. May be delayed from actual stream processing (eg, persisted cursor not in-memory cursor)."
+        },
+        "accountCount": {"type": "integer"},
+        "status": {"type": "ref", "ref": "com.atproto.sync.defs#hostStatus"}
+      }
     }
   }
 };
@@ -4018,6 +4139,49 @@ const appBskyNotificationRegisterPush = <String, dynamic>{
   }
 };
 
+/// `app.bsky.unspecced.getSuggestedFeedsSkeleton`
+const appBskyUnspeccedGetSuggestedFeedsSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedFeedsSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of suggested feeds. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedFeeds",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries)."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feeds"],
+          "properties": {
+            "feeds": {
+              "type": "array",
+              "items": {"type": "string", "format": "at-uri"}
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
   "lexicon": 1,
@@ -4083,6 +4247,130 @@ const appBskyUnspeccedSearchActorsSkeleton = <String, dynamic>{
       "errors": [
         {"name": "BadQueryString"}
       ]
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getTrends`
+const appBskyUnspeccedGetTrends = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrends",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get the current trends on the network",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["trends"],
+          "properties": {
+            "trends": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#trendView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getSuggestedStarterPacks`
+const appBskyUnspeccedGetSuggestedStarterPacks = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedStarterPacks",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested starterpacks",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "starterPacks": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.graph.defs#starterPackView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getTrendsSkeleton`
+const appBskyUnspeccedGetTrendsSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getTrendsSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the skeleton of trends on the network. Intended to be called and then hydrated through app.bsky.unspecced.getTrends",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries)."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["trends"],
+          "properties": {
+            "trends": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.unspecced.defs#skeletonTrend"
+              }
+            }
+          }
+        }
+      }
     }
   }
 };
@@ -4161,6 +4449,53 @@ const appBskyUnspeccedGetConfig = <String, dynamic>{
   }
 };
 
+/// `app.bsky.unspecced.getSuggestedUsersSkeleton`
+const appBskyUnspeccedGetSuggestedUsersSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedUsersSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of suggested users. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsers",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries)."
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of users to get suggestions for."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["dids"],
+          "properties": {
+            "dids": {
+              "type": "array",
+              "items": {"type": "string", "format": "did"}
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.unspecced.defs`
 const appBskyUnspeccedDefs = <String, dynamic>{
   "lexicon": 1,
@@ -4195,6 +4530,142 @@ const appBskyUnspeccedDefs = <String, dynamic>{
         "displayName": {"type": "string"},
         "description": {"type": "string"},
         "link": {"type": "string"}
+      }
+    },
+    "skeletonTrend": {
+      "type": "object",
+      "required": [
+        "topic",
+        "displayName",
+        "link",
+        "startedAt",
+        "postCount",
+        "dids"
+      ],
+      "properties": {
+        "topic": {"type": "string"},
+        "displayName": {"type": "string"},
+        "link": {"type": "string"},
+        "startedAt": {"type": "string", "format": "datetime"},
+        "postCount": {"type": "integer"},
+        "status": {
+          "type": "string",
+          "knownValues": ["hot"]
+        },
+        "category": {"type": "string"},
+        "dids": {
+          "type": "array",
+          "items": {"type": "string", "format": "did"}
+        }
+      }
+    },
+    "trendView": {
+      "type": "object",
+      "required": [
+        "topic",
+        "displayName",
+        "link",
+        "startedAt",
+        "postCount",
+        "actors"
+      ],
+      "properties": {
+        "topic": {"type": "string"},
+        "displayName": {"type": "string"},
+        "link": {"type": "string"},
+        "startedAt": {"type": "string", "format": "datetime"},
+        "postCount": {"type": "integer"},
+        "status": {
+          "type": "string",
+          "knownValues": ["hot"]
+        },
+        "category": {"type": "string"},
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic"
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getSuggestedFeeds`
+const appBskyUnspeccedGetSuggestedFeeds = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedFeeds",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested feeds",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feeds"],
+          "properties": {
+            "feeds": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "app.bsky.feed.defs#generatorView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getSuggestedUsers`
+const appBskyUnspeccedGetSuggestedUsers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedUsers",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get a list of suggested users",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Category of users to get suggestions for."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 50
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["actors"],
+          "properties": {
+            "actors": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
+            }
+          }
+        }
       }
     }
   }
@@ -4458,6 +4929,49 @@ const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
       "errors": [
         {"name": "BadQueryString"}
       ]
+    }
+  }
+};
+
+/// `app.bsky.unspecced.getSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetSuggestedStarterPacksSkeleton = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getSuggestedStarterPacksSkeleton",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of suggested starterpacks. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedStarterpacks",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries)."
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 25
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["starterPacks"],
+          "properties": {
+            "starterPacks": {
+              "type": "array",
+              "items": {"type": "string", "format": "at-uri"}
+            }
+          }
+        }
+      }
     }
   }
 };
@@ -5274,6 +5788,47 @@ const appBskyGraphUnmuteActorList = <String, dynamic>{
           "required": ["list"],
           "properties": {
             "list": {"type": "string", "format": "at-uri"}
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.graph.verification`
+const appBskyGraphVerification = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.verification",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description":
+          "Record declaring a verification relationship between two accounts. Verifications are only considered valid by an app if issued by an account the app considers trusted.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "handle", "displayName", "createdAt"],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the subject the verification applies to."
+          },
+          "handle": {
+            "type": "string",
+            "format": "handle",
+            "description":
+                "Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying."
+          },
+          "displayName": {
+            "type": "string",
+            "description":
+                "Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Date of when the verification was created."
           }
         }
       }
@@ -6435,7 +6990,8 @@ const appBskyActorDefs = <String, dynamic>{
           "type": "array",
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         },
-        "createdAt": {"type": "string", "format": "datetime"}
+        "createdAt": {"type": "string", "format": "datetime"},
+        "verification": {"type": "ref", "ref": "#verificationState"}
       }
     },
     "profileView": {
@@ -6458,7 +7014,8 @@ const appBskyActorDefs = <String, dynamic>{
         "labels": {
           "type": "array",
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
-        }
+        },
+        "verification": {"type": "ref", "ref": "#verificationState"}
       }
     },
     "profileViewDetailed": {
@@ -6490,7 +7047,8 @@ const appBskyActorDefs = <String, dynamic>{
           "type": "array",
           "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
         },
-        "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"}
+        "pinnedPost": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        "verification": {"type": "ref", "ref": "#verificationState"}
       }
     },
     "profileAssociated": {
@@ -6545,6 +7103,57 @@ const appBskyActorDefs = <String, dynamic>{
           "items": {"type": "ref", "ref": "#profileViewBasic"},
           "minLength": 0,
           "maxLength": 5
+        }
+      }
+    },
+    "verificationState": {
+      "type": "object",
+      "description":
+          "Represents the verification information about the user this object is attached to.",
+      "required": ["verifications", "verifiedStatus", "trustedVerifierStatus"],
+      "properties": {
+        "verifications": {
+          "type": "array",
+          "description":
+              "All verifications issued by trusted verifiers on behalf of this user. Verifications by untrusted verifiers are not included.",
+          "items": {"type": "ref", "ref": "#verificationView"}
+        },
+        "verifiedStatus": {
+          "type": "string",
+          "description": "The user's status as a verified account.",
+          "knownValues": ["valid", "invalid", "none"]
+        },
+        "trustedVerifierStatus": {
+          "type": "string",
+          "description": "The user's status as a trusted verifier.",
+          "knownValues": ["valid", "invalid", "none"]
+        }
+      }
+    },
+    "verificationView": {
+      "type": "object",
+      "description": "An individual verification for an associated subject.",
+      "required": ["issuer", "uri", "isValid", "createdAt"],
+      "properties": {
+        "issuer": {
+          "type": "string",
+          "format": "did",
+          "description": "The user who issued this verification."
+        },
+        "uri": {
+          "type": "string",
+          "format": "at-uri",
+          "description": "The AT-URI of the verification record."
+        },
+        "isValid": {
+          "type": "boolean",
+          "description":
+              "True if the verification passes validation, otherwise false."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Timestamp when the verification was created."
         }
       }
     },
@@ -9423,7 +10032,7 @@ const chatBskyConvoRemoveReaction = <String, dynamic>{
             "value": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 32,
+              "maxLength": 64,
               "minGraphemes": 1,
               "maxGraphemes": 1
             }
@@ -9524,7 +10133,7 @@ const chatBskyConvoAddReaction = <String, dynamic>{
             "value": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 32,
+              "maxLength": 64,
               "minGraphemes": 1,
               "maxGraphemes": 1
             }
@@ -12404,11 +13013,14 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoSyncListRepos,
   comAtprotoSyncSubscribeRepos,
   comAtprotoSyncGetRecord,
+  comAtprotoSyncGetHostStatus,
+  comAtprotoSyncDefs,
   comAtprotoSyncGetCheckout,
   comAtprotoSyncGetRepoStatus,
   comAtprotoSyncGetRepo,
   comAtprotoSyncGetBlocks,
   comAtprotoSyncListBlobs,
+  comAtprotoSyncListHosts,
   comAtprotoSyncNotifyOfUpdate,
   comAtprotoSyncListReposByCollection,
   comAtprotoModerationCreateReport,
@@ -12483,14 +13095,22 @@ const lexicons = <Map<String, dynamic>>[
   appBskyNotificationListNotifications,
   appBskyNotificationUpdateSeen,
   appBskyNotificationRegisterPush,
+  appBskyUnspeccedGetSuggestedFeedsSkeleton,
   appBskyUnspeccedSearchActorsSkeleton,
+  appBskyUnspeccedGetTrends,
+  appBskyUnspeccedGetSuggestedStarterPacks,
+  appBskyUnspeccedGetTrendsSkeleton,
   appBskyUnspeccedGetTrendingTopics,
   appBskyUnspeccedGetConfig,
+  appBskyUnspeccedGetSuggestedUsersSkeleton,
   appBskyUnspeccedDefs,
+  appBskyUnspeccedGetSuggestedFeeds,
+  appBskyUnspeccedGetSuggestedUsers,
   appBskyUnspeccedGetPopularFeedGenerators,
   appBskyUnspeccedSearchStarterPacksSkeleton,
   appBskyUnspeccedGetTaggedSuggestions,
   appBskyUnspeccedSearchPostsSkeleton,
+  appBskyUnspeccedGetSuggestedStarterPacksSkeleton,
   appBskyUnspeccedGetSuggestionsSkeleton,
   appBskyEmbedRecord,
   appBskyEmbedVideo,
@@ -12508,6 +13128,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyGraphGetSuggestedFollowsByActor,
   appBskyGraphGetLists,
   appBskyGraphUnmuteActorList,
+  appBskyGraphVerification,
   appBskyGraphGetListMutes,
   appBskyGraphSearchStarterPacks,
   appBskyGraphGetList,
