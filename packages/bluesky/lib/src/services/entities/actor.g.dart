@@ -29,6 +29,12 @@ _$ActorImpl _$$ActorImplFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? defaultActorViewer
                   : ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
+          verification: $checkedConvert(
+              'verification',
+              (v) => v == null
+                  ? defaultActorVerification
+                  : ActorVerification.fromJson(
+                      Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -51,6 +57,7 @@ Map<String, dynamic> _$$ActorImplToJson(_$ActorImpl instance) =>
       if (instance.avatar case final value?) 'avatar': value,
       if (instance.associated?.toJson() case final value?) 'associated': value,
       'viewer': instance.viewer.toJson(),
+      'verification': instance.verification.toJson(),
       if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
         'labels': value,
       if (instance.indexedAt?.toIso8601String() case final value?)
