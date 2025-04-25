@@ -15,6 +15,7 @@ import 'personal_details_preference.dart';
 import 'saved_feeds_pref_v2.dart';
 import 'saved_feeds_preference.dart';
 import 'thread_view_preference.dart';
+import 'verification_preference.dart';
 
 part 'preference.freezed.dart';
 
@@ -70,6 +71,10 @@ class Preference with _$Preference {
   const factory Preference.postInteractionSettingsPref({
     required PostInteractionSettingsPref data,
   }) = UPreferencePostInteractionSettingsPref;
+
+  const factory Preference.verification({
+    required VerificationPreference data,
+  }) = UPreferenceVerificationPreference;
 
   const factory Preference.unknown({
     required Map<String, dynamic> data,

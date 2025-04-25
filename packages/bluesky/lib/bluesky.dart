@@ -146,6 +146,7 @@ export 'package:bluesky/src/services/entities/thread_rule.dart';
 export 'package:bluesky/src/services/entities/thread_view_preference.dart';
 export 'package:bluesky/src/services/entities/threadgate_record.dart';
 export 'package:bluesky/src/services/entities/threadgate_view.dart';
+export 'package:bluesky/src/services/entities/verification_preference.dart';
 export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';
 export 'package:bluesky/src/services/extensions/grouped_notification.dart';

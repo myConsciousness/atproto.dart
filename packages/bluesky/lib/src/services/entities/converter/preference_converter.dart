@@ -20,8 +20,7 @@ import '../thread_view_preference.dart';
 
 const preferenceConverter = _PreferenceConverter();
 
-final class _PreferenceConverter
-    implements JsonConverter<Preference, Map<String, dynamic>> {
+final class _PreferenceConverter implements JsonConverter<Preference, Map<String, dynamic>> {
   const _PreferenceConverter();
 
   @override
@@ -99,6 +98,7 @@ final class _PreferenceConverter
         hiddenPosts: (data) => data.toJson(),
         labelersPref: (data) => data.toJson(),
         postInteractionSettingsPref: (data) => data.toJson(),
+        verification: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }
