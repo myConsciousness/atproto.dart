@@ -40,7 +40,8 @@ class ActorProfile with _$ActorProfile {
     StrongRef? pinnedPost,
   }) = _ActorProfile;
 
-  factory ActorProfile.fromJson(Map<String, Object?> json) => _$ActorProfileFromJson(json);
+  factory ActorProfile.fromJson(Map<String, Object?> json) =>
+      _$ActorProfileFromJson(json);
 
   /// Returns true if authenticated user has muted this actor,
   /// otherwise false.

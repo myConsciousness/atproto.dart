@@ -21,5 +21,6 @@ class VerificationView with _$VerificationView {
     DateTime? createdAt,
   }) = _VerificationView;
 
-  factory VerificationView.fromJson(Map<String, Object?> json) => _$VerificationViewFromJson(json);
+  factory VerificationView.fromJson(Map<String, Object?> json) =>
+      _$VerificationViewFromJson(json);
 }

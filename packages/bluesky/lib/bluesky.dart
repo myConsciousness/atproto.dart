@@ -74,11 +74,13 @@ export 'package:bluesky/src/services/entities/interests_preference.dart';
 export 'package:bluesky/src/services/entities/labeler_policies.dart';
 export 'package:bluesky/src/services/entities/labeler_pref_item.dart';
 export 'package:bluesky/src/services/entities/labeler_service_record.dart';
-export 'package:bluesky/src/services/entities/labeler_service_view.dart' hide labelerServiceViewConverter;
+export 'package:bluesky/src/services/entities/labeler_service_view.dart'
+    hide labelerServiceViewConverter;
 export 'package:bluesky/src/services/entities/labeler_services.dart';
 export 'package:bluesky/src/services/entities/labeler_view.dart';
 export 'package:bluesky/src/services/entities/labeler_view_detailed.dart';
-export 'package:bluesky/src/services/entities/labeler_viewer_state.dart' hide defaultLabelerViewerState;
+export 'package:bluesky/src/services/entities/labeler_viewer_state.dart'
+    hide defaultLabelerViewerState;
 export 'package:bluesky/src/services/entities/labelers_pref.dart';
 export 'package:bluesky/src/services/entities/like.dart';
 export 'package:bluesky/src/services/entities/like_record.dart';

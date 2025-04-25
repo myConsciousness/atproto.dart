@@ -30,7 +30,8 @@ class ActorVerification with _$ActorVerification {
     VerificationStatus? trustedVerifierStatus,
   }) = _ActorVerification;
 
-  factory ActorVerification.fromJson(Map<String, Object?> json) => _$ActorVerificationFromJson(json);
+  factory ActorVerification.fromJson(Map<String, Object?> json) =>
+      _$ActorVerificationFromJson(json);
 
   /// Returns true if the actor is verified,
   /// otherwise false.
@@ -42,7 +43,8 @@ class ActorVerification with _$ActorVerification {
 
   /// Returns true if the actor is a trusted verifier,
   /// otherwise false.
-  bool get isTrustedVerifier => trustedVerifierStatus == VerificationStatus.valid;
+  bool get isTrustedVerifier =>
+      trustedVerifierStatus == VerificationStatus.valid;
 
   /// Returns true if the actor is not a trusted verifier,
   /// otherwise false.
