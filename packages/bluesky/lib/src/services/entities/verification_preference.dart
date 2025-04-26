@@ -4,6 +4,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import '../../ids.g.dart';
+
 part 'verification_preference.freezed.dart';
 part 'verification_preference.g.dart';
 
@@ -15,6 +18,7 @@ class VerificationPreference with _$VerificationPreference {
 
   @jsonSerializable
   const factory VerificationPreference({
+    @typeKey @Default(appBskyActorDefsVerificationPrefs) String type,
     @Default(false) bool hideBadges,
   }) = _VerificationPreference;
 

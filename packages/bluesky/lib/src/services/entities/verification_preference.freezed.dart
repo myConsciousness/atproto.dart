@@ -21,6 +21,8 @@ VerificationPreference _$VerificationPreferenceFromJson(
 
 /// @nodoc
 mixin _$VerificationPreference {
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
   bool get hideBadges => throw _privateConstructorUsedError;
 
   /// Serializes this VerificationPreference to a JSON map.
@@ -39,7 +41,7 @@ abstract class $VerificationPreferenceCopyWith<$Res> {
           $Res Function(VerificationPreference) then) =
       _$VerificationPreferenceCopyWithImpl<$Res, VerificationPreference>;
   @useResult
-  $Res call({bool hideBadges});
+  $Res call({@typeKey String type, bool hideBadges});
 }
 
 /// @nodoc
@@ -58,9 +60,14 @@ class _$VerificationPreferenceCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? hideBadges = null,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       hideBadges: null == hideBadges
           ? _value.hideBadges
           : hideBadges // ignore: cast_nullable_to_non_nullable
@@ -78,7 +85,7 @@ abstract class _$$VerificationPreferenceImplCopyWith<$Res>
       __$$VerificationPreferenceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool hideBadges});
+  $Res call({@typeKey String type, bool hideBadges});
 }
 
 /// @nodoc
@@ -96,9 +103,14 @@ class __$$VerificationPreferenceImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? hideBadges = null,
   }) {
     return _then(_$VerificationPreferenceImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       hideBadges: null == hideBadges
           ? _value.hideBadges
           : hideBadges // ignore: cast_nullable_to_non_nullable
@@ -111,18 +123,24 @@ class __$$VerificationPreferenceImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$VerificationPreferenceImpl extends _VerificationPreference {
-  const _$VerificationPreferenceImpl({this.hideBadges = false}) : super._();
+  const _$VerificationPreferenceImpl(
+      {@typeKey this.type = appBskyActorDefsVerificationPrefs,
+      this.hideBadges = false})
+      : super._();
 
   factory _$VerificationPreferenceImpl.fromJson(Map<String, dynamic> json) =>
       _$$VerificationPreferenceImplFromJson(json);
 
+  @override
+  @typeKey
+  final String type;
   @override
   @JsonKey()
   final bool hideBadges;
 
   @override
   String toString() {
-    return 'VerificationPreference(hideBadges: $hideBadges)';
+    return 'VerificationPreference(type: $type, hideBadges: $hideBadges)';
   }
 
   @override
@@ -130,13 +148,14 @@ class _$VerificationPreferenceImpl extends _VerificationPreference {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VerificationPreferenceImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.hideBadges, hideBadges) ||
                 other.hideBadges == hideBadges));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, hideBadges);
+  int get hashCode => Object.hash(runtimeType, type, hideBadges);
 
   /// Create a copy of VerificationPreference
   /// with the given fields replaced by the non-null parameter values.
@@ -156,13 +175,17 @@ class _$VerificationPreferenceImpl extends _VerificationPreference {
 }
 
 abstract class _VerificationPreference extends VerificationPreference {
-  const factory _VerificationPreference({final bool hideBadges}) =
-      _$VerificationPreferenceImpl;
+  const factory _VerificationPreference(
+      {@typeKey final String type,
+      final bool hideBadges}) = _$VerificationPreferenceImpl;
   const _VerificationPreference._() : super._();
 
   factory _VerificationPreference.fromJson(Map<String, dynamic> json) =
       _$VerificationPreferenceImpl.fromJson;
 
+  @override
+  @typeKey
+  String get type;
   @override
   bool get hideBadges;
 

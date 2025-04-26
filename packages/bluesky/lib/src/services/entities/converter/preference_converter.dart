@@ -17,10 +17,12 @@ import '../preference.dart';
 import '../saved_feeds_pref_v2.dart';
 import '../saved_feeds_preference.dart';
 import '../thread_view_preference.dart';
+import '../verification_preference.dart';
 
 const preferenceConverter = _PreferenceConverter();
 
-final class _PreferenceConverter implements JsonConverter<Preference, Map<String, dynamic>> {
+final class _PreferenceConverter
+    implements JsonConverter<Preference, Map<String, dynamic>> {
   const _PreferenceConverter();
 
   @override
@@ -75,6 +77,10 @@ final class _PreferenceConverter implements JsonConverter<Preference, Map<String
       } else if (type == ids.appBskyActorDefsPostInteractionSettingsPref) {
         return Preference.postInteractionSettingsPref(
           data: PostInteractionSettingsPref.fromJson(json),
+        );
+      } else if (type == ids.appBskyActorDefsVerificationPrefs) {
+        return Preference.verification(
+          data: VerificationPreference.fromJson(json),
         );
       }
 
