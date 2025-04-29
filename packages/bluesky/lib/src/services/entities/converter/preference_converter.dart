@@ -86,19 +86,23 @@ final class _PreferenceConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Preference object) => object.when(
-        adultContent: (data) => data.toJson(),
-        contentLabel: (data) => data.toJson(),
-        savedFeeds: (data) => data.toJson(),
-        savedFeedsV2: (data) => data.toJson(),
-        personalDetails: (data) => data.toJson(),
-        feedView: (data) => data.toJson(),
-        threadView: (data) => data.toJson(),
-        interests: (data) => data.toJson(),
-        mutedWords: (data) => data.toJson(),
-        hiddenPosts: (data) => data.toJson(),
-        labelersPref: (data) => data.toJson(),
-        postInteractionSettingsPref: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(Preference object) => switch (object) {
+        UPreferenceAdultContent(data: final data) => data.toJson(),
+        UPreferenceContentLabel(data: final data) => data.toJson(),
+        UPreferenceSavedFeeds(data: final data) => data.toJson(),
+        UPreferenceSavedFeedsV2(data: final data) => data.toJson(),
+        UPreferencePersonalDetails(data: final data) => data.toJson(),
+        UPreferenceFeedView(data: final data) => data.toJson(),
+        UPreferenceThreadView(data: final data) => data.toJson(),
+        UPreferenceInterests(data: final data) => data.toJson(),
+        UPreferenceMutedWords(data: final data) => data.toJson(),
+        UPreferenceHiddenPosts(data: final data) => data.toJson(),
+        UPreferenceLabelersPref(data: final data) => data.toJson(),
+        UPreferencePostInteractionSettingsPref(data: final data) =>
+          data.toJson(),
+        UPreferenceUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown Preference type: ${object.runtimeType}'),
+      };
 }

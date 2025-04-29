@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,96 +10,62 @@ part of 'post_interaction_settings_pref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PostInteractionSettingsPref _$PostInteractionSettingsPrefFromJson(
-    Map<String, dynamic> json) {
-  return _PostInteractionSettingsPref.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PostInteractionSettingsPref {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @threadRuleConverter
-  List<ThreadRule>? get threadgateAllowRules =>
-      throw _privateConstructorUsedError;
+  List<ThreadRule>? get threadgateAllowRules;
   @UPostRuleConverter()
-  List<UPostRule>? get postgateEmbeddingRules =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this PostInteractionSettingsPref to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<UPostRule>? get postgateEmbeddingRules;
 
   /// Create a copy of PostInteractionSettingsPref
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PostInteractionSettingsPrefCopyWith<PostInteractionSettingsPref>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PostInteractionSettingsPrefCopyWith<$Res> {
-  factory $PostInteractionSettingsPrefCopyWith(
-          PostInteractionSettingsPref value,
-          $Res Function(PostInteractionSettingsPref) then) =
-      _$PostInteractionSettingsPrefCopyWithImpl<$Res,
-          PostInteractionSettingsPref>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @threadRuleConverter List<ThreadRule>? threadgateAllowRules,
-      @UPostRuleConverter() List<UPostRule>? postgateEmbeddingRules});
-}
-
-/// @nodoc
-class _$PostInteractionSettingsPrefCopyWithImpl<$Res,
-        $Val extends PostInteractionSettingsPref>
-    implements $PostInteractionSettingsPrefCopyWith<$Res> {
-  _$PostInteractionSettingsPrefCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PostInteractionSettingsPref
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $PostInteractionSettingsPrefCopyWith<PostInteractionSettingsPref>
+      get copyWith => _$PostInteractionSettingsPrefCopyWithImpl<
+              PostInteractionSettingsPref>(
+          this as PostInteractionSettingsPref, _$identity);
+
+  /// Serializes this PostInteractionSettingsPref to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? threadgateAllowRules = freezed,
-    Object? postgateEmbeddingRules = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      threadgateAllowRules: freezed == threadgateAllowRules
-          ? _value.threadgateAllowRules
-          : threadgateAllowRules // ignore: cast_nullable_to_non_nullable
-              as List<ThreadRule>?,
-      postgateEmbeddingRules: freezed == postgateEmbeddingRules
-          ? _value.postgateEmbeddingRules
-          : postgateEmbeddingRules // ignore: cast_nullable_to_non_nullable
-              as List<UPostRule>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PostInteractionSettingsPref &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality()
+                .equals(other.threadgateAllowRules, threadgateAllowRules) &&
+            const DeepCollectionEquality()
+                .equals(other.postgateEmbeddingRules, postgateEmbeddingRules));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      const DeepCollectionEquality().hash(threadgateAllowRules),
+      const DeepCollectionEquality().hash(postgateEmbeddingRules));
+
+  @override
+  String toString() {
+    return 'PostInteractionSettingsPref(type: $type, threadgateAllowRules: $threadgateAllowRules, postgateEmbeddingRules: $postgateEmbeddingRules)';
   }
 }
 
 /// @nodoc
-abstract class _$$PostInteractionSettingsPrefImplCopyWith<$Res>
-    implements $PostInteractionSettingsPrefCopyWith<$Res> {
-  factory _$$PostInteractionSettingsPrefImplCopyWith(
-          _$PostInteractionSettingsPrefImpl value,
-          $Res Function(_$PostInteractionSettingsPrefImpl) then) =
-      __$$PostInteractionSettingsPrefImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PostInteractionSettingsPrefCopyWith<$Res> {
+  factory $PostInteractionSettingsPrefCopyWith(
+          PostInteractionSettingsPref value,
+          $Res Function(PostInteractionSettingsPref) _then) =
+      _$PostInteractionSettingsPrefCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -107,14 +74,12 @@ abstract class _$$PostInteractionSettingsPrefImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PostInteractionSettingsPrefImplCopyWithImpl<$Res>
-    extends _$PostInteractionSettingsPrefCopyWithImpl<$Res,
-        _$PostInteractionSettingsPrefImpl>
-    implements _$$PostInteractionSettingsPrefImplCopyWith<$Res> {
-  __$$PostInteractionSettingsPrefImplCopyWithImpl(
-      _$PostInteractionSettingsPrefImpl _value,
-      $Res Function(_$PostInteractionSettingsPrefImpl) _then)
-      : super(_value, _then);
+class _$PostInteractionSettingsPrefCopyWithImpl<$Res>
+    implements $PostInteractionSettingsPrefCopyWith<$Res> {
+  _$PostInteractionSettingsPrefCopyWithImpl(this._self, this._then);
+
+  final PostInteractionSettingsPref _self;
+  final $Res Function(PostInteractionSettingsPref) _then;
 
   /// Create a copy of PostInteractionSettingsPref
   /// with the given fields replaced by the non-null parameter values.
@@ -125,17 +90,17 @@ class __$$PostInteractionSettingsPrefImplCopyWithImpl<$Res>
     Object? threadgateAllowRules = freezed,
     Object? postgateEmbeddingRules = freezed,
   }) {
-    return _then(_$PostInteractionSettingsPrefImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       threadgateAllowRules: freezed == threadgateAllowRules
-          ? _value._threadgateAllowRules
+          ? _self.threadgateAllowRules
           : threadgateAllowRules // ignore: cast_nullable_to_non_nullable
               as List<ThreadRule>?,
       postgateEmbeddingRules: freezed == postgateEmbeddingRules
-          ? _value._postgateEmbeddingRules
+          ? _self.postgateEmbeddingRules
           : postgateEmbeddingRules // ignore: cast_nullable_to_non_nullable
               as List<UPostRule>?,
     ));
@@ -145,18 +110,15 @@ class __$$PostInteractionSettingsPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$PostInteractionSettingsPrefImpl
-    implements _PostInteractionSettingsPref {
-  const _$PostInteractionSettingsPrefImpl(
+class _PostInteractionSettingsPref implements PostInteractionSettingsPref {
+  const _PostInteractionSettingsPref(
       {@typeKey this.type = appBskyActorDefsPostInteractionSettingsPref,
       @threadRuleConverter final List<ThreadRule>? threadgateAllowRules,
       @UPostRuleConverter() final List<UPostRule>? postgateEmbeddingRules})
       : _threadgateAllowRules = threadgateAllowRules,
         _postgateEmbeddingRules = postgateEmbeddingRules;
-
-  factory _$PostInteractionSettingsPrefImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PostInteractionSettingsPrefImplFromJson(json);
+  factory _PostInteractionSettingsPref.fromJson(Map<String, dynamic> json) =>
+      _$PostInteractionSettingsPrefFromJson(json);
 
   @override
   @typeKey
@@ -185,16 +147,27 @@ class _$PostInteractionSettingsPrefImpl
     return EqualUnmodifiableListView(value);
   }
 
+  /// Create a copy of PostInteractionSettingsPref
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PostInteractionSettingsPref(type: $type, threadgateAllowRules: $threadgateAllowRules, postgateEmbeddingRules: $postgateEmbeddingRules)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PostInteractionSettingsPrefCopyWith<_PostInteractionSettingsPref>
+      get copyWith => __$PostInteractionSettingsPrefCopyWithImpl<
+          _PostInteractionSettingsPref>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PostInteractionSettingsPrefToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostInteractionSettingsPrefImpl &&
+            other is _PostInteractionSettingsPref &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality()
                 .equals(other._threadgateAllowRules, _threadgateAllowRules) &&
@@ -210,49 +183,59 @@ class _$PostInteractionSettingsPrefImpl
       const DeepCollectionEquality().hash(_threadgateAllowRules),
       const DeepCollectionEquality().hash(_postgateEmbeddingRules));
 
-  /// Create a copy of PostInteractionSettingsPref
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PostInteractionSettingsPrefImplCopyWith<_$PostInteractionSettingsPrefImpl>
-      get copyWith => __$$PostInteractionSettingsPrefImplCopyWithImpl<
-          _$PostInteractionSettingsPrefImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostInteractionSettingsPrefImplToJson(
-      this,
-    );
+  String toString() {
+    return 'PostInteractionSettingsPref(type: $type, threadgateAllowRules: $threadgateAllowRules, postgateEmbeddingRules: $postgateEmbeddingRules)';
   }
 }
 
-abstract class _PostInteractionSettingsPref
-    implements PostInteractionSettingsPref {
-  const factory _PostInteractionSettingsPref(
-          {@typeKey final String type,
-          @threadRuleConverter final List<ThreadRule>? threadgateAllowRules,
-          @UPostRuleConverter()
-          final List<UPostRule>? postgateEmbeddingRules}) =
-      _$PostInteractionSettingsPrefImpl;
+/// @nodoc
+abstract mixin class _$PostInteractionSettingsPrefCopyWith<$Res>
+    implements $PostInteractionSettingsPrefCopyWith<$Res> {
+  factory _$PostInteractionSettingsPrefCopyWith(
+          _PostInteractionSettingsPref value,
+          $Res Function(_PostInteractionSettingsPref) _then) =
+      __$PostInteractionSettingsPrefCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @threadRuleConverter List<ThreadRule>? threadgateAllowRules,
+      @UPostRuleConverter() List<UPostRule>? postgateEmbeddingRules});
+}
 
-  factory _PostInteractionSettingsPref.fromJson(Map<String, dynamic> json) =
-      _$PostInteractionSettingsPrefImpl.fromJson;
+/// @nodoc
+class __$PostInteractionSettingsPrefCopyWithImpl<$Res>
+    implements _$PostInteractionSettingsPrefCopyWith<$Res> {
+  __$PostInteractionSettingsPrefCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @threadRuleConverter
-  List<ThreadRule>? get threadgateAllowRules;
-  @override
-  @UPostRuleConverter()
-  List<UPostRule>? get postgateEmbeddingRules;
+  final _PostInteractionSettingsPref _self;
+  final $Res Function(_PostInteractionSettingsPref) _then;
 
   /// Create a copy of PostInteractionSettingsPref
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PostInteractionSettingsPrefImplCopyWith<_$PostInteractionSettingsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? threadgateAllowRules = freezed,
+    Object? postgateEmbeddingRules = freezed,
+  }) {
+    return _then(_PostInteractionSettingsPref(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      threadgateAllowRules: freezed == threadgateAllowRules
+          ? _self._threadgateAllowRules
+          : threadgateAllowRules // ignore: cast_nullable_to_non_nullable
+              as List<ThreadRule>?,
+      postgateEmbeddingRules: freezed == postgateEmbeddingRules
+          ? _self._postgateEmbeddingRules
+          : postgateEmbeddingRules // ignore: cast_nullable_to_non_nullable
+              as List<UPostRule>?,
+    ));
+  }
 }
+
+// dart format on

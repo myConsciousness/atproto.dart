@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,58 @@ part of 'app_passwords.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AppPasswords _$AppPasswordsFromJson(Map<String, dynamic> json) {
-  return _AppPasswords.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AppPasswords {
-  List<SealedAppPassword> get passwords => throw _privateConstructorUsedError;
-
-  /// Serializes this AppPasswords to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<SealedAppPassword> get passwords;
 
   /// Create a copy of AppPasswords
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $AppPasswordsCopyWith<AppPasswords> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AppPasswordsCopyWith<$Res> {
-  factory $AppPasswordsCopyWith(
-          AppPasswords value, $Res Function(AppPasswords) then) =
-      _$AppPasswordsCopyWithImpl<$Res, AppPasswords>;
-  @useResult
-  $Res call({List<SealedAppPassword> passwords});
-}
-
-/// @nodoc
-class _$AppPasswordsCopyWithImpl<$Res, $Val extends AppPasswords>
-    implements $AppPasswordsCopyWith<$Res> {
-  _$AppPasswordsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of AppPasswords
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $AppPasswordsCopyWith<AppPasswords> get copyWith =>
+      _$AppPasswordsCopyWithImpl<AppPasswords>(
+          this as AppPasswords, _$identity);
+
+  /// Serializes this AppPasswords to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? passwords = null,
-  }) {
-    return _then(_value.copyWith(
-      passwords: null == passwords
-          ? _value.passwords
-          : passwords // ignore: cast_nullable_to_non_nullable
-              as List<SealedAppPassword>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AppPasswords &&
+            const DeepCollectionEquality().equals(other.passwords, passwords));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(passwords));
+
+  @override
+  String toString() {
+    return 'AppPasswords(passwords: $passwords)';
   }
 }
 
 /// @nodoc
-abstract class _$$AppPasswordsImplCopyWith<$Res>
-    implements $AppPasswordsCopyWith<$Res> {
-  factory _$$AppPasswordsImplCopyWith(
-          _$AppPasswordsImpl value, $Res Function(_$AppPasswordsImpl) then) =
-      __$$AppPasswordsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $AppPasswordsCopyWith<$Res> {
+  factory $AppPasswordsCopyWith(
+          AppPasswords value, $Res Function(AppPasswords) _then) =
+      _$AppPasswordsCopyWithImpl;
   @useResult
   $Res call({List<SealedAppPassword> passwords});
 }
 
 /// @nodoc
-class __$$AppPasswordsImplCopyWithImpl<$Res>
-    extends _$AppPasswordsCopyWithImpl<$Res, _$AppPasswordsImpl>
-    implements _$$AppPasswordsImplCopyWith<$Res> {
-  __$$AppPasswordsImplCopyWithImpl(
-      _$AppPasswordsImpl _value, $Res Function(_$AppPasswordsImpl) _then)
-      : super(_value, _then);
+class _$AppPasswordsCopyWithImpl<$Res> implements $AppPasswordsCopyWith<$Res> {
+  _$AppPasswordsCopyWithImpl(this._self, this._then);
+
+  final AppPasswords _self;
+  final $Res Function(AppPasswords) _then;
 
   /// Create a copy of AppPasswords
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +70,9 @@ class __$$AppPasswordsImplCopyWithImpl<$Res>
   $Res call({
     Object? passwords = null,
   }) {
-    return _then(_$AppPasswordsImpl(
+    return _then(_self.copyWith(
       passwords: null == passwords
-          ? _value._passwords
+          ? _self.passwords
           : passwords // ignore: cast_nullable_to_non_nullable
               as List<SealedAppPassword>,
     ));
@@ -104,12 +81,11 @@ class __$$AppPasswordsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AppPasswordsImpl implements _AppPasswords {
-  const _$AppPasswordsImpl({required final List<SealedAppPassword> passwords})
+class _AppPasswords implements AppPasswords {
+  const _AppPasswords({required final List<SealedAppPassword> passwords})
       : _passwords = passwords;
-
-  factory _$AppPasswordsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppPasswordsImplFromJson(json);
+  factory _AppPasswords.fromJson(Map<String, dynamic> json) =>
+      _$AppPasswordsFromJson(json);
 
   final List<SealedAppPassword> _passwords;
   @override
@@ -119,16 +95,26 @@ class _$AppPasswordsImpl implements _AppPasswords {
     return EqualUnmodifiableListView(_passwords);
   }
 
+  /// Create a copy of AppPasswords
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'AppPasswords(passwords: $passwords)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$AppPasswordsCopyWith<_AppPasswords> get copyWith =>
+      __$AppPasswordsCopyWithImpl<_AppPasswords>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$AppPasswordsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AppPasswordsImpl &&
+            other is _AppPasswords &&
             const DeepCollectionEquality()
                 .equals(other._passwords, _passwords));
   }
@@ -138,36 +124,45 @@ class _$AppPasswordsImpl implements _AppPasswords {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_passwords));
 
-  /// Create a copy of AppPasswords
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$AppPasswordsImplCopyWith<_$AppPasswordsImpl> get copyWith =>
-      __$$AppPasswordsImplCopyWithImpl<_$AppPasswordsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AppPasswordsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'AppPasswords(passwords: $passwords)';
   }
 }
 
-abstract class _AppPasswords implements AppPasswords {
-  const factory _AppPasswords(
-      {required final List<SealedAppPassword> passwords}) = _$AppPasswordsImpl;
-
-  factory _AppPasswords.fromJson(Map<String, dynamic> json) =
-      _$AppPasswordsImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$AppPasswordsCopyWith<$Res>
+    implements $AppPasswordsCopyWith<$Res> {
+  factory _$AppPasswordsCopyWith(
+          _AppPasswords value, $Res Function(_AppPasswords) _then) =
+      __$AppPasswordsCopyWithImpl;
   @override
-  List<SealedAppPassword> get passwords;
+  @useResult
+  $Res call({List<SealedAppPassword> passwords});
+}
+
+/// @nodoc
+class __$AppPasswordsCopyWithImpl<$Res>
+    implements _$AppPasswordsCopyWith<$Res> {
+  __$AppPasswordsCopyWithImpl(this._self, this._then);
+
+  final _AppPasswords _self;
+  final $Res Function(_AppPasswords) _then;
 
   /// Create a copy of AppPasswords
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppPasswordsImplCopyWith<_$AppPasswordsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? passwords = null,
+  }) {
+    return _then(_AppPasswords(
+      passwords: null == passwords
+          ? _self._passwords
+          : passwords // ignore: cast_nullable_to_non_nullable
+              as List<SealedAppPassword>,
+    ));
+  }
 }
+
+// dart format on

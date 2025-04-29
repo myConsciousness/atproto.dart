@@ -41,10 +41,13 @@ final class _PostThreadViewConverter
   }
 
   @override
-  Map<String, dynamic> toJson(PostThreadView object) => object.when(
-        record: (data) => data.toJson(),
-        notFound: (data) => data.toJson(),
-        blocked: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(PostThreadView object) => switch (object) {
+        UPostThreadViewRecord(data: final data) => data.toJson(),
+        UPostThreadViewNotFound(data: final data) => data.toJson(),
+        UPostThreadViewBlocked(data: final data) => data.toJson(),
+        UPostThreadViewUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown PostThreadView type: ${object.runtimeType}'),
+      };
 }

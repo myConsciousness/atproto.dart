@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,87 +10,58 @@ part of 'muted_word.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MutedWord _$MutedWordFromJson(Map<String, dynamic> json) {
-  return _MutedWord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MutedWord {
-  String get value => throw _privateConstructorUsedError;
-  List<String> get targets => throw _privateConstructorUsedError;
-
-  /// Serializes this MutedWord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get value;
+  List<String> get targets;
 
   /// Create a copy of MutedWord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MutedWordCopyWith<MutedWord> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MutedWordCopyWith<$Res> {
-  factory $MutedWordCopyWith(MutedWord value, $Res Function(MutedWord) then) =
-      _$MutedWordCopyWithImpl<$Res, MutedWord>;
-  @useResult
-  $Res call({String value, List<String> targets});
-}
-
-/// @nodoc
-class _$MutedWordCopyWithImpl<$Res, $Val extends MutedWord>
-    implements $MutedWordCopyWith<$Res> {
-  _$MutedWordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MutedWord
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $MutedWordCopyWith<MutedWord> get copyWith =>
+      _$MutedWordCopyWithImpl<MutedWord>(this as MutedWord, _$identity);
+
+  /// Serializes this MutedWord to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? value = null,
-    Object? targets = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-      targets: null == targets
-          ? _value.targets
-          : targets // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MutedWord &&
+            (identical(other.value, value) || other.value == value) &&
+            const DeepCollectionEquality().equals(other.targets, targets));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, value, const DeepCollectionEquality().hash(targets));
+
+  @override
+  String toString() {
+    return 'MutedWord(value: $value, targets: $targets)';
   }
 }
 
 /// @nodoc
-abstract class _$$MutedWordImplCopyWith<$Res>
-    implements $MutedWordCopyWith<$Res> {
-  factory _$$MutedWordImplCopyWith(
-          _$MutedWordImpl value, $Res Function(_$MutedWordImpl) then) =
-      __$$MutedWordImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MutedWordCopyWith<$Res> {
+  factory $MutedWordCopyWith(MutedWord value, $Res Function(MutedWord) _then) =
+      _$MutedWordCopyWithImpl;
   @useResult
   $Res call({String value, List<String> targets});
 }
 
 /// @nodoc
-class __$$MutedWordImplCopyWithImpl<$Res>
-    extends _$MutedWordCopyWithImpl<$Res, _$MutedWordImpl>
-    implements _$$MutedWordImplCopyWith<$Res> {
-  __$$MutedWordImplCopyWithImpl(
-      _$MutedWordImpl _value, $Res Function(_$MutedWordImpl) _then)
-      : super(_value, _then);
+class _$MutedWordCopyWithImpl<$Res> implements $MutedWordCopyWith<$Res> {
+  _$MutedWordCopyWithImpl(this._self, this._then);
+
+  final MutedWord _self;
+  final $Res Function(MutedWord) _then;
 
   /// Create a copy of MutedWord
   /// with the given fields replaced by the non-null parameter values.
@@ -99,13 +71,13 @@ class __$$MutedWordImplCopyWithImpl<$Res>
     Object? value = null,
     Object? targets = null,
   }) {
-    return _then(_$MutedWordImpl(
+    return _then(_self.copyWith(
       value: null == value
-          ? _value.value
+          ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
       targets: null == targets
-          ? _value._targets
+          ? _self.targets
           : targets // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -114,13 +86,11 @@ class __$$MutedWordImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MutedWordImpl implements _MutedWord {
-  const _$MutedWordImpl(
-      {required this.value, required final List<String> targets})
+class _MutedWord implements MutedWord {
+  const _MutedWord({required this.value, required final List<String> targets})
       : _targets = targets;
-
-  factory _$MutedWordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MutedWordImplFromJson(json);
+  factory _MutedWord.fromJson(Map<String, dynamic> json) =>
+      _$MutedWordFromJson(json);
 
   @override
   final String value;
@@ -132,16 +102,26 @@ class _$MutedWordImpl implements _MutedWord {
     return EqualUnmodifiableListView(_targets);
   }
 
+  /// Create a copy of MutedWord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MutedWord(value: $value, targets: $targets)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MutedWordCopyWith<_MutedWord> get copyWith =>
+      __$MutedWordCopyWithImpl<_MutedWord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MutedWordToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MutedWordImpl &&
+            other is _MutedWord &&
             (identical(other.value, value) || other.value == value) &&
             const DeepCollectionEquality().equals(other._targets, _targets));
   }
@@ -151,39 +131,49 @@ class _$MutedWordImpl implements _MutedWord {
   int get hashCode => Object.hash(
       runtimeType, value, const DeepCollectionEquality().hash(_targets));
 
-  /// Create a copy of MutedWord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MutedWordImplCopyWith<_$MutedWordImpl> get copyWith =>
-      __$$MutedWordImplCopyWithImpl<_$MutedWordImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MutedWordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MutedWord(value: $value, targets: $targets)';
   }
 }
 
-abstract class _MutedWord implements MutedWord {
-  const factory _MutedWord(
-      {required final String value,
-      required final List<String> targets}) = _$MutedWordImpl;
-
-  factory _MutedWord.fromJson(Map<String, dynamic> json) =
-      _$MutedWordImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$MutedWordCopyWith<$Res>
+    implements $MutedWordCopyWith<$Res> {
+  factory _$MutedWordCopyWith(
+          _MutedWord value, $Res Function(_MutedWord) _then) =
+      __$MutedWordCopyWithImpl;
   @override
-  String get value;
-  @override
-  List<String> get targets;
+  @useResult
+  $Res call({String value, List<String> targets});
+}
+
+/// @nodoc
+class __$MutedWordCopyWithImpl<$Res> implements _$MutedWordCopyWith<$Res> {
+  __$MutedWordCopyWithImpl(this._self, this._then);
+
+  final _MutedWord _self;
+  final $Res Function(_MutedWord) _then;
 
   /// Create a copy of MutedWord
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MutedWordImplCopyWith<_$MutedWordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? value = null,
+    Object? targets = null,
+  }) {
+    return _then(_MutedWord(
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      targets: null == targets
+          ? _self._targets
+          : targets // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
 }
+
+// dart format on

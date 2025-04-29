@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,58 @@ part of 'mutes.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Mutes _$MutesFromJson(Map<String, dynamic> json) {
-  return _Mutes.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Mutes {
-  List<Actor> get mutes => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this Mutes to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Actor> get mutes;
+  String? get cursor;
 
   /// Create a copy of Mutes
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MutesCopyWith<Mutes> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MutesCopyWith<$Res> {
-  factory $MutesCopyWith(Mutes value, $Res Function(Mutes) then) =
-      _$MutesCopyWithImpl<$Res, Mutes>;
-  @useResult
-  $Res call({List<Actor> mutes, String? cursor});
-}
-
-/// @nodoc
-class _$MutesCopyWithImpl<$Res, $Val extends Mutes>
-    implements $MutesCopyWith<$Res> {
-  _$MutesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Mutes
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $MutesCopyWith<Mutes> get copyWith =>
+      _$MutesCopyWithImpl<Mutes>(this as Mutes, _$identity);
+
+  /// Serializes this Mutes to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? mutes = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      mutes: null == mutes
-          ? _value.mutes
-          : mutes // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Mutes &&
+            const DeepCollectionEquality().equals(other.mutes, mutes) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(mutes), cursor);
+
+  @override
+  String toString() {
+    return 'Mutes(mutes: $mutes, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$MutesImplCopyWith<$Res> implements $MutesCopyWith<$Res> {
-  factory _$$MutesImplCopyWith(
-          _$MutesImpl value, $Res Function(_$MutesImpl) then) =
-      __$$MutesImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MutesCopyWith<$Res> {
+  factory $MutesCopyWith(Mutes value, $Res Function(Mutes) _then) =
+      _$MutesCopyWithImpl;
   @useResult
   $Res call({List<Actor> mutes, String? cursor});
 }
 
 /// @nodoc
-class __$$MutesImplCopyWithImpl<$Res>
-    extends _$MutesCopyWithImpl<$Res, _$MutesImpl>
-    implements _$$MutesImplCopyWith<$Res> {
-  __$$MutesImplCopyWithImpl(
-      _$MutesImpl _value, $Res Function(_$MutesImpl) _then)
-      : super(_value, _then);
+class _$MutesCopyWithImpl<$Res> implements $MutesCopyWith<$Res> {
+  _$MutesCopyWithImpl(this._self, this._then);
+
+  final Mutes _self;
+  final $Res Function(Mutes) _then;
 
   /// Create a copy of Mutes
   /// with the given fields replaced by the non-null parameter values.
@@ -97,13 +71,13 @@ class __$$MutesImplCopyWithImpl<$Res>
     Object? mutes = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$MutesImpl(
+    return _then(_self.copyWith(
       mutes: null == mutes
-          ? _value._mutes
+          ? _self.mutes
           : mutes // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -112,12 +86,10 @@ class __$$MutesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MutesImpl implements _Mutes {
-  const _$MutesImpl({required final List<Actor> mutes, this.cursor})
+class _Mutes implements Mutes {
+  const _Mutes({required final List<Actor> mutes, this.cursor})
       : _mutes = mutes;
-
-  factory _$MutesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MutesImplFromJson(json);
+  factory _Mutes.fromJson(Map<String, dynamic> json) => _$MutesFromJson(json);
 
   final List<Actor> _mutes;
   @override
@@ -130,16 +102,26 @@ class _$MutesImpl implements _Mutes {
   @override
   final String? cursor;
 
+  /// Create a copy of Mutes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Mutes(mutes: $mutes, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MutesCopyWith<_Mutes> get copyWith =>
+      __$MutesCopyWithImpl<_Mutes>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MutesToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MutesImpl &&
+            other is _Mutes &&
             const DeepCollectionEquality().equals(other._mutes, _mutes) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -149,37 +131,47 @@ class _$MutesImpl implements _Mutes {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_mutes), cursor);
 
-  /// Create a copy of Mutes
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MutesImplCopyWith<_$MutesImpl> get copyWith =>
-      __$$MutesImplCopyWithImpl<_$MutesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MutesImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Mutes(mutes: $mutes, cursor: $cursor)';
   }
 }
 
-abstract class _Mutes implements Mutes {
-  const factory _Mutes(
-      {required final List<Actor> mutes, final String? cursor}) = _$MutesImpl;
-
-  factory _Mutes.fromJson(Map<String, dynamic> json) = _$MutesImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$MutesCopyWith<$Res> implements $MutesCopyWith<$Res> {
+  factory _$MutesCopyWith(_Mutes value, $Res Function(_Mutes) _then) =
+      __$MutesCopyWithImpl;
   @override
-  List<Actor> get mutes;
-  @override
-  String? get cursor;
+  @useResult
+  $Res call({List<Actor> mutes, String? cursor});
+}
+
+/// @nodoc
+class __$MutesCopyWithImpl<$Res> implements _$MutesCopyWith<$Res> {
+  __$MutesCopyWithImpl(this._self, this._then);
+
+  final _Mutes _self;
+  final $Res Function(_Mutes) _then;
 
   /// Create a copy of Mutes
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MutesImplCopyWith<_$MutesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? mutes = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_Mutes(
+      mutes: null == mutes
+          ? _self._mutes
+          : mutes // ignore: cast_nullable_to_non_nullable
+              as List<Actor>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,75 +10,54 @@ part of 'did.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DID _$DIDFromJson(Map<String, dynamic> json) {
-  return _DID.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DID {
-  String get did => throw _privateConstructorUsedError;
-
-  /// Serializes this DID to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get did;
 
   /// Create a copy of DID
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DIDCopyWith<DID> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DIDCopyWith<$Res> {
-  factory $DIDCopyWith(DID value, $Res Function(DID) then) =
-      _$DIDCopyWithImpl<$Res, DID>;
-  @useResult
-  $Res call({String did});
-}
-
-/// @nodoc
-class _$DIDCopyWithImpl<$Res, $Val extends DID> implements $DIDCopyWith<$Res> {
-  _$DIDCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DID
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $DIDCopyWith<DID> get copyWith =>
+      _$DIDCopyWithImpl<DID>(this as DID, _$identity);
+
+  /// Serializes this DID to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? did = null,
-  }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DID &&
+            (identical(other.did, did) || other.did == did));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, did);
+
+  @override
+  String toString() {
+    return 'DID(did: $did)';
   }
 }
 
 /// @nodoc
-abstract class _$$DIDImplCopyWith<$Res> implements $DIDCopyWith<$Res> {
-  factory _$$DIDImplCopyWith(_$DIDImpl value, $Res Function(_$DIDImpl) then) =
-      __$$DIDImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $DIDCopyWith<$Res> {
+  factory $DIDCopyWith(DID value, $Res Function(DID) _then) = _$DIDCopyWithImpl;
   @useResult
   $Res call({String did});
 }
 
 /// @nodoc
-class __$$DIDImplCopyWithImpl<$Res> extends _$DIDCopyWithImpl<$Res, _$DIDImpl>
-    implements _$$DIDImplCopyWith<$Res> {
-  __$$DIDImplCopyWithImpl(_$DIDImpl _value, $Res Function(_$DIDImpl) _then)
-      : super(_value, _then);
+class _$DIDCopyWithImpl<$Res> implements $DIDCopyWith<$Res> {
+  _$DIDCopyWithImpl(this._self, this._then);
+
+  final DID _self;
+  final $Res Function(DID) _then;
 
   /// Create a copy of DID
   /// with the given fields replaced by the non-null parameter values.
@@ -86,9 +66,9 @@ class __$$DIDImplCopyWithImpl<$Res> extends _$DIDCopyWithImpl<$Res, _$DIDImpl>
   $Res call({
     Object? did = null,
   }) {
-    return _then(_$DIDImpl(
+    return _then(_self.copyWith(
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -97,25 +77,33 @@ class __$$DIDImplCopyWithImpl<$Res> extends _$DIDCopyWithImpl<$Res, _$DIDImpl>
 
 /// @nodoc
 @JsonSerializable()
-class _$DIDImpl implements _DID {
-  const _$DIDImpl({required this.did});
-
-  factory _$DIDImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DIDImplFromJson(json);
+class _DID implements DID {
+  const _DID({required this.did});
+  factory _DID.fromJson(Map<String, dynamic> json) => _$DIDFromJson(json);
 
   @override
   final String did;
 
+  /// Create a copy of DID
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'DID(did: $did)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DIDCopyWith<_DID> get copyWith =>
+      __$DIDCopyWithImpl<_DID>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DIDToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DIDImpl &&
+            other is _DID &&
             (identical(other.did, did) || other.did == did));
   }
 
@@ -123,34 +111,42 @@ class _$DIDImpl implements _DID {
   @override
   int get hashCode => Object.hash(runtimeType, did);
 
-  /// Create a copy of DID
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DIDImplCopyWith<_$DIDImpl> get copyWith =>
-      __$$DIDImplCopyWithImpl<_$DIDImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DIDImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DID(did: $did)';
   }
 }
 
-abstract class _DID implements DID {
-  const factory _DID({required final String did}) = _$DIDImpl;
-
-  factory _DID.fromJson(Map<String, dynamic> json) = _$DIDImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$DIDCopyWith<$Res> implements $DIDCopyWith<$Res> {
+  factory _$DIDCopyWith(_DID value, $Res Function(_DID) _then) =
+      __$DIDCopyWithImpl;
   @override
-  String get did;
+  @useResult
+  $Res call({String did});
+}
+
+/// @nodoc
+class __$DIDCopyWithImpl<$Res> implements _$DIDCopyWith<$Res> {
+  __$DIDCopyWithImpl(this._self, this._then);
+
+  final _DID _self;
+  final $Res Function(_DID) _then;
 
   /// Create a copy of DID
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DIDImplCopyWith<_$DIDImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+  }) {
+    return _then(_DID(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

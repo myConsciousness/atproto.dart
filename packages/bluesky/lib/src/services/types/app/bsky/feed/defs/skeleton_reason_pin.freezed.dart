@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,83 +10,59 @@ part of 'skeleton_reason_pin.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SkeletonReasonPin _$SkeletonReasonPinFromJson(Map<String, dynamic> json) {
-  return _SkeletonReasonPin.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SkeletonReasonPin {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-
-  /// Serializes this SkeletonReasonPin to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
 
   /// Create a copy of SkeletonReasonPin
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SkeletonReasonPinCopyWith<SkeletonReasonPin> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SkeletonReasonPinCopyWith<$Res> {
-  factory $SkeletonReasonPinCopyWith(
-          SkeletonReasonPin value, $Res Function(SkeletonReasonPin) then) =
-      _$SkeletonReasonPinCopyWithImpl<$Res, SkeletonReasonPin>;
-  @useResult
-  $Res call({@typeKey String type});
-}
-
-/// @nodoc
-class _$SkeletonReasonPinCopyWithImpl<$Res, $Val extends SkeletonReasonPin>
-    implements $SkeletonReasonPinCopyWith<$Res> {
-  _$SkeletonReasonPinCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SkeletonReasonPin
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SkeletonReasonPinCopyWith<SkeletonReasonPin> get copyWith =>
+      _$SkeletonReasonPinCopyWithImpl<SkeletonReasonPin>(
+          this as SkeletonReasonPin, _$identity);
+
+  /// Serializes this SkeletonReasonPin to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SkeletonReasonPin &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type);
+
+  @override
+  String toString() {
+    return 'SkeletonReasonPin(type: $type)';
   }
 }
 
 /// @nodoc
-abstract class _$$SkeletonReasonPinImplCopyWith<$Res>
-    implements $SkeletonReasonPinCopyWith<$Res> {
-  factory _$$SkeletonReasonPinImplCopyWith(_$SkeletonReasonPinImpl value,
-          $Res Function(_$SkeletonReasonPinImpl) then) =
-      __$$SkeletonReasonPinImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SkeletonReasonPinCopyWith<$Res> {
+  factory $SkeletonReasonPinCopyWith(
+          SkeletonReasonPin value, $Res Function(SkeletonReasonPin) _then) =
+      _$SkeletonReasonPinCopyWithImpl;
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class __$$SkeletonReasonPinImplCopyWithImpl<$Res>
-    extends _$SkeletonReasonPinCopyWithImpl<$Res, _$SkeletonReasonPinImpl>
-    implements _$$SkeletonReasonPinImplCopyWith<$Res> {
-  __$$SkeletonReasonPinImplCopyWithImpl(_$SkeletonReasonPinImpl _value,
-      $Res Function(_$SkeletonReasonPinImpl) _then)
-      : super(_value, _then);
+class _$SkeletonReasonPinCopyWithImpl<$Res>
+    implements $SkeletonReasonPinCopyWith<$Res> {
+  _$SkeletonReasonPinCopyWithImpl(this._self, this._then);
+
+  final SkeletonReasonPin _self;
+  final $Res Function(SkeletonReasonPin) _then;
 
   /// Create a copy of SkeletonReasonPin
   /// with the given fields replaced by the non-null parameter values.
@@ -94,9 +71,9 @@ class __$$SkeletonReasonPinImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$SkeletonReasonPinImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -106,27 +83,36 @@ class __$$SkeletonReasonPinImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SkeletonReasonPinImpl implements _SkeletonReasonPin {
-  const _$SkeletonReasonPinImpl(
+class _SkeletonReasonPin implements SkeletonReasonPin {
+  const _SkeletonReasonPin(
       {@typeKey this.type = appBskyFeedDefsSkeletonReasonPin});
-
-  factory _$SkeletonReasonPinImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonReasonPinImplFromJson(json);
+  factory _SkeletonReasonPin.fromJson(Map<String, dynamic> json) =>
+      _$SkeletonReasonPinFromJson(json);
 
   @override
   @typeKey
   final String type;
 
+  /// Create a copy of SkeletonReasonPin
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SkeletonReasonPin(type: $type)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SkeletonReasonPinCopyWith<_SkeletonReasonPin> get copyWith =>
+      __$SkeletonReasonPinCopyWithImpl<_SkeletonReasonPin>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SkeletonReasonPinToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonReasonPinImpl &&
+            other is _SkeletonReasonPin &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -134,38 +120,45 @@ class _$SkeletonReasonPinImpl implements _SkeletonReasonPin {
   @override
   int get hashCode => Object.hash(runtimeType, type);
 
-  /// Create a copy of SkeletonReasonPin
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SkeletonReasonPinImplCopyWith<_$SkeletonReasonPinImpl> get copyWith =>
-      __$$SkeletonReasonPinImplCopyWithImpl<_$SkeletonReasonPinImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SkeletonReasonPinImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SkeletonReasonPin(type: $type)';
   }
 }
 
-abstract class _SkeletonReasonPin implements SkeletonReasonPin {
-  const factory _SkeletonReasonPin({@typeKey final String type}) =
-      _$SkeletonReasonPinImpl;
-
-  factory _SkeletonReasonPin.fromJson(Map<String, dynamic> json) =
-      _$SkeletonReasonPinImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SkeletonReasonPinCopyWith<$Res>
+    implements $SkeletonReasonPinCopyWith<$Res> {
+  factory _$SkeletonReasonPinCopyWith(
+          _SkeletonReasonPin value, $Res Function(_SkeletonReasonPin) _then) =
+      __$SkeletonReasonPinCopyWithImpl;
   @override
-  @typeKey
-  String get type;
+  @useResult
+  $Res call({@typeKey String type});
+}
+
+/// @nodoc
+class __$SkeletonReasonPinCopyWithImpl<$Res>
+    implements _$SkeletonReasonPinCopyWith<$Res> {
+  __$SkeletonReasonPinCopyWithImpl(this._self, this._then);
+
+  final _SkeletonReasonPin _self;
+  final $Res Function(_SkeletonReasonPin) _then;
 
   /// Create a copy of SkeletonReasonPin
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SkeletonReasonPinImplCopyWith<_$SkeletonReasonPinImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_SkeletonReasonPin(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

@@ -11,7 +11,7 @@ const defaultLabelerViewerState = LabelerViewerState();
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs/#labelerviewerstate
 @freezed
-class LabelerViewerState with _$LabelerViewerState {
+abstract class LabelerViewerState with _$LabelerViewerState {
   @jsonSerializable
   const factory LabelerViewerState({
     @AtUriConverter() AtUri? like,

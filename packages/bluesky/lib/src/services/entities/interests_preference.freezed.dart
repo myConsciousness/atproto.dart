@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,89 +10,62 @@ part of 'interests_preference.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-InterestsPreference _$InterestsPreferenceFromJson(Map<String, dynamic> json) {
-  return _InterestsPreference.fromJson(json);
-}
 
 /// @nodoc
 mixin _$InterestsPreference {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  List<String> get tags => throw _privateConstructorUsedError;
-
-  /// Serializes this InterestsPreference to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  List<String> get tags;
 
   /// Create a copy of InterestsPreference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $InterestsPreferenceCopyWith<InterestsPreference> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $InterestsPreferenceCopyWith<$Res> {
-  factory $InterestsPreferenceCopyWith(
-          InterestsPreference value, $Res Function(InterestsPreference) then) =
-      _$InterestsPreferenceCopyWithImpl<$Res, InterestsPreference>;
-  @useResult
-  $Res call({@typeKey String type, List<String> tags});
-}
-
-/// @nodoc
-class _$InterestsPreferenceCopyWithImpl<$Res, $Val extends InterestsPreference>
-    implements $InterestsPreferenceCopyWith<$Res> {
-  _$InterestsPreferenceCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of InterestsPreference
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $InterestsPreferenceCopyWith<InterestsPreference> get copyWith =>
+      _$InterestsPreferenceCopyWithImpl<InterestsPreference>(
+          this as InterestsPreference, _$identity);
+
+  /// Serializes this InterestsPreference to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? tags = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      tags: null == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is InterestsPreference &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality().equals(other.tags, tags));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, type, const DeepCollectionEquality().hash(tags));
+
+  @override
+  String toString() {
+    return 'InterestsPreference(type: $type, tags: $tags)';
   }
 }
 
 /// @nodoc
-abstract class _$$InterestsPreferenceImplCopyWith<$Res>
-    implements $InterestsPreferenceCopyWith<$Res> {
-  factory _$$InterestsPreferenceImplCopyWith(_$InterestsPreferenceImpl value,
-          $Res Function(_$InterestsPreferenceImpl) then) =
-      __$$InterestsPreferenceImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $InterestsPreferenceCopyWith<$Res> {
+  factory $InterestsPreferenceCopyWith(
+          InterestsPreference value, $Res Function(InterestsPreference) _then) =
+      _$InterestsPreferenceCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, List<String> tags});
 }
 
 /// @nodoc
-class __$$InterestsPreferenceImplCopyWithImpl<$Res>
-    extends _$InterestsPreferenceCopyWithImpl<$Res, _$InterestsPreferenceImpl>
-    implements _$$InterestsPreferenceImplCopyWith<$Res> {
-  __$$InterestsPreferenceImplCopyWithImpl(_$InterestsPreferenceImpl _value,
-      $Res Function(_$InterestsPreferenceImpl) _then)
-      : super(_value, _then);
+class _$InterestsPreferenceCopyWithImpl<$Res>
+    implements $InterestsPreferenceCopyWith<$Res> {
+  _$InterestsPreferenceCopyWithImpl(this._self, this._then);
+
+  final InterestsPreference _self;
+  final $Res Function(InterestsPreference) _then;
 
   /// Create a copy of InterestsPreference
   /// with the given fields replaced by the non-null parameter values.
@@ -101,13 +75,13 @@ class __$$InterestsPreferenceImplCopyWithImpl<$Res>
     Object? type = null,
     Object? tags = null,
   }) {
-    return _then(_$InterestsPreferenceImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       tags: null == tags
-          ? _value._tags
+          ? _self.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -117,14 +91,13 @@ class __$$InterestsPreferenceImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$InterestsPreferenceImpl implements _InterestsPreference {
-  const _$InterestsPreferenceImpl(
+class _InterestsPreference implements InterestsPreference {
+  const _InterestsPreference(
       {@typeKey this.type = appBskyActorDefsInterestsPref,
       required final List<String> tags})
       : _tags = tags;
-
-  factory _$InterestsPreferenceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$InterestsPreferenceImplFromJson(json);
+  factory _InterestsPreference.fromJson(Map<String, dynamic> json) =>
+      _$InterestsPreferenceFromJson(json);
 
   @override
   @typeKey
@@ -137,16 +110,27 @@ class _$InterestsPreferenceImpl implements _InterestsPreference {
     return EqualUnmodifiableListView(_tags);
   }
 
+  /// Create a copy of InterestsPreference
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'InterestsPreference(type: $type, tags: $tags)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$InterestsPreferenceCopyWith<_InterestsPreference> get copyWith =>
+      __$InterestsPreferenceCopyWithImpl<_InterestsPreference>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$InterestsPreferenceToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InterestsPreferenceImpl &&
+            other is _InterestsPreference &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._tags, _tags));
   }
@@ -156,41 +140,50 @@ class _$InterestsPreferenceImpl implements _InterestsPreference {
   int get hashCode => Object.hash(
       runtimeType, type, const DeepCollectionEquality().hash(_tags));
 
-  /// Create a copy of InterestsPreference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$InterestsPreferenceImplCopyWith<_$InterestsPreferenceImpl> get copyWith =>
-      __$$InterestsPreferenceImplCopyWithImpl<_$InterestsPreferenceImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$InterestsPreferenceImplToJson(
-      this,
-    );
+  String toString() {
+    return 'InterestsPreference(type: $type, tags: $tags)';
   }
 }
 
-abstract class _InterestsPreference implements InterestsPreference {
-  const factory _InterestsPreference(
-      {@typeKey final String type,
-      required final List<String> tags}) = _$InterestsPreferenceImpl;
-
-  factory _InterestsPreference.fromJson(Map<String, dynamic> json) =
-      _$InterestsPreferenceImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$InterestsPreferenceCopyWith<$Res>
+    implements $InterestsPreferenceCopyWith<$Res> {
+  factory _$InterestsPreferenceCopyWith(_InterestsPreference value,
+          $Res Function(_InterestsPreference) _then) =
+      __$InterestsPreferenceCopyWithImpl;
   @override
-  @typeKey
-  String get type;
-  @override
-  List<String> get tags;
+  @useResult
+  $Res call({@typeKey String type, List<String> tags});
+}
+
+/// @nodoc
+class __$InterestsPreferenceCopyWithImpl<$Res>
+    implements _$InterestsPreferenceCopyWith<$Res> {
+  __$InterestsPreferenceCopyWithImpl(this._self, this._then);
+
+  final _InterestsPreference _self;
+  final $Res Function(_InterestsPreference) _then;
 
   /// Create a copy of InterestsPreference
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InterestsPreferenceImplCopyWith<_$InterestsPreferenceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? tags = null,
+  }) {
+    return _then(_InterestsPreference(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      tags: null == tags
+          ? _self._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
 }
+
+// dart format on

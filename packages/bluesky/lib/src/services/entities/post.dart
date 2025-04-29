@@ -21,7 +21,7 @@ part 'post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
-class Post with _$Post {
+abstract class Post with _$Post {
   // ignore: unused_element
   const Post._();
 

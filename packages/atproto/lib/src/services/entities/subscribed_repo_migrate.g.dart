@@ -8,11 +8,11 @@ part of 'subscribed_repo_migrate.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MigrateImpl _$$MigrateImplFromJson(Map json) => $checkedCreate(
-      r'_$MigrateImpl',
+_Migrate _$MigrateFromJson(Map json) => $checkedCreate(
+      '_Migrate',
       json,
       ($checkedConvert) {
-        final val = _$MigrateImpl(
+        final val = _Migrate(
           did: $checkedConvert('did', (v) => v as String),
           migrateTo: $checkedConvert('migrateTo', (v) => v as String?),
           cursor: $checkedConvert('seq', (v) => (v as num).toInt()),
@@ -24,8 +24,7 @@ _$MigrateImpl _$$MigrateImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'cursor': 'seq', 'createdAt': 'time'},
     );
 
-Map<String, dynamic> _$$MigrateImplToJson(_$MigrateImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$MigrateToJson(_Migrate instance) => <String, dynamic>{
       'did': instance.did,
       if (instance.migrateTo case final value?) 'migrateTo': value,
       'seq': instance.cursor,

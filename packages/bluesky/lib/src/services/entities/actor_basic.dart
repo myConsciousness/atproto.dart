@@ -16,7 +16,7 @@ part 'actor_basic.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileviewbasic
 @freezed
-class ActorBasic with _$ActorBasic {
+abstract class ActorBasic with _$ActorBasic {
   // ignore: unused_element
   const ActorBasic._();
 

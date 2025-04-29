@@ -8,11 +8,11 @@ part of 'current_session.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CurrentSessionImpl _$$CurrentSessionImplFromJson(Map json) => $checkedCreate(
-      r'_$CurrentSessionImpl',
+_CurrentSession _$CurrentSessionFromJson(Map json) => $checkedCreate(
+      '_CurrentSession',
       json,
       ($checkedConvert) {
-        final val = _$CurrentSessionImpl(
+        final val = _CurrentSession(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String?),
@@ -33,8 +33,7 @@ _$CurrentSessionImpl _$$CurrentSessionImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isEmailConfirmed': 'emailConfirmed'},
     );
 
-Map<String, dynamic> _$$CurrentSessionImplToJson(
-        _$CurrentSessionImpl instance) =>
+Map<String, dynamic> _$CurrentSessionToJson(_CurrentSession instance) =>
     <String, dynamic>{
       'did': instance.did,
       'handle': instance.handle,

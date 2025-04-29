@@ -8,7 +8,8 @@ import '../mod_object.dart';
 part 'moderation_subject_feed_generator.freezed.dart';
 
 @modObject
-class ModerationSubjectFeedGenerator with _$ModerationSubjectFeedGenerator {
+abstract class ModerationSubjectFeedGenerator
+    with _$ModerationSubjectFeedGenerator {
   const factory ModerationSubjectFeedGenerator.generatorView({
     required FeedGeneratorView data,
   }) = UModerationSubjectFeedGenerator;

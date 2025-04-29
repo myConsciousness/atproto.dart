@@ -6,7 +6,7 @@ part 'repo_commit.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getrepo/#output
 @freezed
-class RepoCommit with _$RepoCommit {
+abstract class RepoCommit with _$RepoCommit {
   const factory RepoCommit({
     required String cid,
     required Map<String, dynamic> commit,

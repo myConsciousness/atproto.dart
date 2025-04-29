@@ -17,7 +17,7 @@ part 'list_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#listview
 @freezed
-class ListView with _$ListView {
+abstract class ListView with _$ListView {
   // ignore: unused_element
   const ListView._();
 

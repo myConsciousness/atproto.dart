@@ -8,11 +8,11 @@ part of 'report.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReportImpl _$$ReportImplFromJson(Map json) => $checkedCreate(
-      r'_$ReportImpl',
+_Report _$ReportFromJson(Map json) => $checkedCreate(
+      '_Report',
       json,
       ($checkedConvert) {
-        final val = _$ReportImpl(
+        final val = _Report(
           id: $checkedConvert('id', (v) => (v as num).toInt()),
           reasonType: $checkedConvert('reasonType',
               (v) => $enumDecode(_$ModerationReasonTypeEnumMap, v)),
@@ -28,8 +28,7 @@ _$ReportImpl _$$ReportImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ReportImplToJson(_$ReportImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ReportToJson(_Report instance) => <String, dynamic>{
       'id': instance.id,
       'reasonType': _$ModerationReasonTypeEnumMap[instance.reasonType]!,
       'subject': reportSubjectConverter.toJson(instance.subject),

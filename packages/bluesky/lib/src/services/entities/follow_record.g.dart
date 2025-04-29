@@ -8,11 +8,11 @@ part of 'follow_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FollowRecordImpl _$$FollowRecordImplFromJson(Map json) => $checkedCreate(
-      r'_$FollowRecordImpl',
+_FollowRecord _$FollowRecordFromJson(Map json) => $checkedCreate(
+      '_FollowRecord',
       json,
       ($checkedConvert) {
-        final val = _$FollowRecordImpl(
+        final val = _FollowRecord(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphFollow),
           did: $checkedConvert('subject', (v) => v as String),
@@ -24,7 +24,7 @@ _$FollowRecordImpl _$$FollowRecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type', 'did': 'subject'},
     );
 
-Map<String, dynamic> _$$FollowRecordImplToJson(_$FollowRecordImpl instance) =>
+Map<String, dynamic> _$FollowRecordToJson(_FollowRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'subject': instance.did,

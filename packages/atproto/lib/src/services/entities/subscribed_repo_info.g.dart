@@ -8,11 +8,11 @@ part of 'subscribed_repo_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$InfoImpl _$$InfoImplFromJson(Map json) => $checkedCreate(
-      r'_$InfoImpl',
+_Info _$InfoFromJson(Map json) => $checkedCreate(
+      '_Info',
       json,
       ($checkedConvert) {
-        final val = _$InfoImpl(
+        final val = _Info(
           name: $checkedConvert('name', (v) => v as String),
           message: $checkedConvert('message', (v) => v as String?),
         );
@@ -20,8 +20,7 @@ _$InfoImpl _$$InfoImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$InfoImplToJson(_$InfoImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$InfoToJson(_Info instance) => <String, dynamic>{
       'name': instance.name,
       if (instance.message case final value?) 'message': value,
     };

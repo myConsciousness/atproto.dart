@@ -10,7 +10,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog/#main
 @freezed
-class GetLogOutput with _$GetLogOutput {
+abstract class GetLogOutput with _$GetLogOutput {
   @jsonSerializable
   const factory GetLogOutput({
     @unionConvoLogConverter required List<UConvoLog> logs,

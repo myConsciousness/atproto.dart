@@ -8,11 +8,11 @@ part of 'feed_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedViewImpl _$$FeedViewImplFromJson(Map json) => $checkedCreate(
-      r'_$FeedViewImpl',
+_FeedView _$FeedViewFromJson(Map json) => $checkedCreate(
+      '_FeedView',
       json,
       ($checkedConvert) {
-        final val = _$FeedViewImpl(
+        final val = _FeedView(
           post: $checkedConvert('post',
               (v) => Post.fromJson(Map<String, Object?>.from(v as Map))),
           reply: $checkedConvert(
@@ -30,8 +30,7 @@ _$FeedViewImpl _$$FeedViewImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$FeedViewImplToJson(_$FeedViewImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$FeedViewToJson(_FeedView instance) => <String, dynamic>{
       'post': instance.post.toJson(),
       if (instance.reply?.toJson() case final value?) 'reply': value,
       if (_$JsonConverterToJson<Map<String, dynamic>, Reason>(

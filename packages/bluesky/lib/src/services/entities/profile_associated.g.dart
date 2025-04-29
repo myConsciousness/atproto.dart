@@ -8,12 +8,11 @@ part of 'profile_associated.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ProfileAssociatedImpl',
+_ProfileAssociated _$ProfileAssociatedFromJson(Map json) => $checkedCreate(
+      '_ProfileAssociated',
       json,
       ($checkedConvert) {
-        final val = _$ProfileAssociatedImpl(
+        final val = _ProfileAssociated(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsProfileAssociated),
           lists: $checkedConvert('lists', (v) => (v as num?)?.toInt() ?? 0),
@@ -34,8 +33,7 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ProfileAssociatedImplToJson(
-        _$ProfileAssociatedImpl instance) =>
+Map<String, dynamic> _$ProfileAssociatedToJson(_ProfileAssociated instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'lists': instance.lists,

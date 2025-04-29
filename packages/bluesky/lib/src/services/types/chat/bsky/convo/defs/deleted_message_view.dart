@@ -10,7 +10,7 @@ part 'deleted_message_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#deletedmessageview
 @freezed
-class DeletedMessageView with _$DeletedMessageView {
+abstract class DeletedMessageView with _$DeletedMessageView {
   @jsonSerializable
   const factory DeletedMessageView({
     required String id,

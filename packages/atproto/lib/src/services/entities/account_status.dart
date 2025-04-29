@@ -6,7 +6,7 @@ part 'account_status.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus/#output
 @freezed
-class AccountStatus with _$AccountStatus {
+abstract class AccountStatus with _$AccountStatus {
   const factory AccountStatus({
     required bool activated,
     required bool validDid,

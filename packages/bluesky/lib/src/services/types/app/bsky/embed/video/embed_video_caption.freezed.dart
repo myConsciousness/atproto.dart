@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,38 +10,53 @@ part of 'embed_video_caption.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EmbedVideoCaption _$EmbedVideoCaptionFromJson(Map<String, dynamic> json) {
-  return _EmbedVideoCaption.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EmbedVideoCaption {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get lang => throw _privateConstructorUsedError;
+  String get type;
+  String get lang;
   @BlobConverter()
-  Blob get file => throw _privateConstructorUsedError;
-
-  /// Serializes this EmbedVideoCaption to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Blob get file;
 
   /// Create a copy of EmbedVideoCaption
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $EmbedVideoCaptionCopyWith<EmbedVideoCaption> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$EmbedVideoCaptionCopyWithImpl<EmbedVideoCaption>(
+          this as EmbedVideoCaption, _$identity);
+
+  /// Serializes this EmbedVideoCaption to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EmbedVideoCaption &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.lang, lang) || other.lang == lang) &&
+            (identical(other.file, file) || other.file == file));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, lang, file);
+
+  @override
+  String toString() {
+    return 'EmbedVideoCaption(type: $type, lang: $lang, file: $file)';
+  }
 }
 
 /// @nodoc
-abstract class $EmbedVideoCaptionCopyWith<$Res> {
+abstract mixin class $EmbedVideoCaptionCopyWith<$Res> {
   factory $EmbedVideoCaptionCopyWith(
-          EmbedVideoCaption value, $Res Function(EmbedVideoCaption) then) =
-      _$EmbedVideoCaptionCopyWithImpl<$Res, EmbedVideoCaption>;
+          EmbedVideoCaption value, $Res Function(EmbedVideoCaption) _then) =
+      _$EmbedVideoCaptionCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, String lang, @BlobConverter() Blob file});
 
@@ -48,14 +64,12 @@ abstract class $EmbedVideoCaptionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmbedVideoCaptionCopyWithImpl<$Res, $Val extends EmbedVideoCaption>
+class _$EmbedVideoCaptionCopyWithImpl<$Res>
     implements $EmbedVideoCaptionCopyWith<$Res> {
-  _$EmbedVideoCaptionCopyWithImpl(this._value, this._then);
+  _$EmbedVideoCaptionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final EmbedVideoCaption _self;
+  final $Res Function(EmbedVideoCaption) _then;
 
   /// Create a copy of EmbedVideoCaption
   /// with the given fields replaced by the non-null parameter values.
@@ -66,20 +80,20 @@ class _$EmbedVideoCaptionCopyWithImpl<$Res, $Val extends EmbedVideoCaption>
     Object? lang = null,
     Object? file = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       lang: null == lang
-          ? _value.lang
+          ? _self.lang
           : lang // ignore: cast_nullable_to_non_nullable
               as String,
       file: null == file
-          ? _value.file
+          ? _self.file
           : file // ignore: cast_nullable_to_non_nullable
               as Blob,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of EmbedVideoCaption
@@ -87,71 +101,22 @@ class _$EmbedVideoCaptionCopyWithImpl<$Res, $Val extends EmbedVideoCaption>
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res> get file {
-    return $BlobCopyWith<$Res>(_value.file, (value) {
-      return _then(_value.copyWith(file: value) as $Val);
+    return $BlobCopyWith<$Res>(_self.file, (value) {
+      return _then(_self.copyWith(file: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$EmbedVideoCaptionImplCopyWith<$Res>
-    implements $EmbedVideoCaptionCopyWith<$Res> {
-  factory _$$EmbedVideoCaptionImplCopyWith(_$EmbedVideoCaptionImpl value,
-          $Res Function(_$EmbedVideoCaptionImpl) then) =
-      __$$EmbedVideoCaptionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, String lang, @BlobConverter() Blob file});
-
-  @override
-  $BlobCopyWith<$Res> get file;
-}
-
-/// @nodoc
-class __$$EmbedVideoCaptionImplCopyWithImpl<$Res>
-    extends _$EmbedVideoCaptionCopyWithImpl<$Res, _$EmbedVideoCaptionImpl>
-    implements _$$EmbedVideoCaptionImplCopyWith<$Res> {
-  __$$EmbedVideoCaptionImplCopyWithImpl(_$EmbedVideoCaptionImpl _value,
-      $Res Function(_$EmbedVideoCaptionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of EmbedVideoCaption
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? lang = null,
-    Object? file = null,
-  }) {
-    return _then(_$EmbedVideoCaptionImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      lang: null == lang
-          ? _value.lang
-          : lang // ignore: cast_nullable_to_non_nullable
-              as String,
-      file: null == file
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as Blob,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$EmbedVideoCaptionImpl implements _EmbedVideoCaption {
-  const _$EmbedVideoCaptionImpl(
+class _EmbedVideoCaption implements EmbedVideoCaption {
+  const _EmbedVideoCaption(
       {@typeKey this.type = appBskyEmbedVideoCaption,
       required this.lang,
       @BlobConverter() required this.file});
-
-  factory _$EmbedVideoCaptionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedVideoCaptionImplFromJson(json);
+  factory _EmbedVideoCaption.fromJson(Map<String, dynamic> json) =>
+      _$EmbedVideoCaptionFromJson(json);
 
   @override
   @typeKey
@@ -162,16 +127,26 @@ class _$EmbedVideoCaptionImpl implements _EmbedVideoCaption {
   @BlobConverter()
   final Blob file;
 
+  /// Create a copy of EmbedVideoCaption
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'EmbedVideoCaption(type: $type, lang: $lang, file: $file)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$EmbedVideoCaptionCopyWith<_EmbedVideoCaption> get copyWith =>
+      __$EmbedVideoCaptionCopyWithImpl<_EmbedVideoCaption>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EmbedVideoCaptionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedVideoCaptionImpl &&
+            other is _EmbedVideoCaption &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.lang, lang) || other.lang == lang) &&
             (identical(other.file, file) || other.file == file));
@@ -181,45 +156,68 @@ class _$EmbedVideoCaptionImpl implements _EmbedVideoCaption {
   @override
   int get hashCode => Object.hash(runtimeType, type, lang, file);
 
-  /// Create a copy of EmbedVideoCaption
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EmbedVideoCaptionImplCopyWith<_$EmbedVideoCaptionImpl> get copyWith =>
-      __$$EmbedVideoCaptionImplCopyWithImpl<_$EmbedVideoCaptionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EmbedVideoCaptionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'EmbedVideoCaption(type: $type, lang: $lang, file: $file)';
   }
 }
 
-abstract class _EmbedVideoCaption implements EmbedVideoCaption {
-  const factory _EmbedVideoCaption(
-      {@typeKey final String type,
-      required final String lang,
-      @BlobConverter() required final Blob file}) = _$EmbedVideoCaptionImpl;
+/// @nodoc
+abstract mixin class _$EmbedVideoCaptionCopyWith<$Res>
+    implements $EmbedVideoCaptionCopyWith<$Res> {
+  factory _$EmbedVideoCaptionCopyWith(
+          _EmbedVideoCaption value, $Res Function(_EmbedVideoCaption) _then) =
+      __$EmbedVideoCaptionCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, String lang, @BlobConverter() Blob file});
 
-  factory _EmbedVideoCaption.fromJson(Map<String, dynamic> json) =
-      _$EmbedVideoCaptionImpl.fromJson;
+  @override
+  $BlobCopyWith<$Res> get file;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  String get lang;
-  @override
-  @BlobConverter()
-  Blob get file;
+/// @nodoc
+class __$EmbedVideoCaptionCopyWithImpl<$Res>
+    implements _$EmbedVideoCaptionCopyWith<$Res> {
+  __$EmbedVideoCaptionCopyWithImpl(this._self, this._then);
+
+  final _EmbedVideoCaption _self;
+  final $Res Function(_EmbedVideoCaption) _then;
 
   /// Create a copy of EmbedVideoCaption
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EmbedVideoCaptionImplCopyWith<_$EmbedVideoCaptionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? lang = null,
+    Object? file = null,
+  }) {
+    return _then(_EmbedVideoCaption(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      lang: null == lang
+          ? _self.lang
+          : lang // ignore: cast_nullable_to_non_nullable
+              as String,
+      file: null == file
+          ? _self.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as Blob,
+    ));
+  }
+
+  /// Create a copy of EmbedVideoCaption
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BlobCopyWith<$Res> get file {
+    return $BlobCopyWith<$Res>(_self.file, (value) {
+      return _then(_self.copyWith(file: value));
+    });
+  }
 }
+
+// dart format on

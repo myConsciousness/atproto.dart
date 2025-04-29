@@ -8,11 +8,11 @@ part of 'known_followers.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$KnownFollowersImpl _$$KnownFollowersImplFromJson(Map json) => $checkedCreate(
-      r'_$KnownFollowersImpl',
+_KnownFollowers _$KnownFollowersFromJson(Map json) => $checkedCreate(
+      '_KnownFollowers',
       json,
       ($checkedConvert) {
-        final val = _$KnownFollowersImpl(
+        final val = _KnownFollowers(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsKnownFollowers),
           count: $checkedConvert('count', (v) => (v as num).toInt()),
@@ -28,8 +28,7 @@ _$KnownFollowersImpl _$$KnownFollowersImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$KnownFollowersImplToJson(
-        _$KnownFollowersImpl instance) =>
+Map<String, dynamic> _$KnownFollowersToJson(_KnownFollowers instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'count': instance.count,

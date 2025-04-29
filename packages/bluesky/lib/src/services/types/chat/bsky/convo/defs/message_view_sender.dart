@@ -7,7 +7,7 @@ part 'message_view_sender.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#messageviewsender
 @freezed
-class MessageViewSender with _$MessageViewSender {
+abstract class MessageViewSender with _$MessageViewSender {
   @jsonSerializable
   const factory MessageViewSender({
     required String did,

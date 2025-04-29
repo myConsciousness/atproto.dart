@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,96 +10,58 @@ part of 'create_action.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CreateAction _$CreateActionFromJson(Map<String, dynamic> json) {
-  return _CreateAction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CreateAction {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @nsidConverter
-  NSID get collection => throw _privateConstructorUsedError;
-  String? get rkey => throw _privateConstructorUsedError;
+  NSID get collection;
+  String? get rkey;
   @JsonKey(name: 'value')
-  Map<String, dynamic> get record => throw _privateConstructorUsedError;
-
-  /// Serializes this CreateAction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> get record;
 
   /// Create a copy of CreateAction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CreateActionCopyWith<CreateAction> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreateActionCopyWith<$Res> {
-  factory $CreateActionCopyWith(
-          CreateAction value, $Res Function(CreateAction) then) =
-      _$CreateActionCopyWithImpl<$Res, CreateAction>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @nsidConverter NSID collection,
-      String? rkey,
-      @JsonKey(name: 'value') Map<String, dynamic> record});
-}
-
-/// @nodoc
-class _$CreateActionCopyWithImpl<$Res, $Val extends CreateAction>
-    implements $CreateActionCopyWith<$Res> {
-  _$CreateActionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of CreateAction
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CreateActionCopyWith<CreateAction> get copyWith =>
+      _$CreateActionCopyWithImpl<CreateAction>(
+          this as CreateAction, _$identity);
+
+  /// Serializes this CreateAction to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? collection = null,
-    Object? rkey = freezed,
-    Object? record = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      collection: null == collection
-          ? _value.collection
-          : collection // ignore: cast_nullable_to_non_nullable
-              as NSID,
-      rkey: freezed == rkey
-          ? _value.rkey
-          : rkey // ignore: cast_nullable_to_non_nullable
-              as String?,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CreateAction &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.collection, collection) ||
+                other.collection == collection) &&
+            (identical(other.rkey, rkey) || other.rkey == rkey) &&
+            const DeepCollectionEquality().equals(other.record, record));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, collection, rkey,
+      const DeepCollectionEquality().hash(record));
+
+  @override
+  String toString() {
+    return 'CreateAction(type: $type, collection: $collection, rkey: $rkey, record: $record)';
   }
 }
 
 /// @nodoc
-abstract class _$$CreateActionImplCopyWith<$Res>
-    implements $CreateActionCopyWith<$Res> {
-  factory _$$CreateActionImplCopyWith(
-          _$CreateActionImpl value, $Res Function(_$CreateActionImpl) then) =
-      __$$CreateActionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CreateActionCopyWith<$Res> {
+  factory $CreateActionCopyWith(
+          CreateAction value, $Res Function(CreateAction) _then) =
+      _$CreateActionCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -108,12 +71,11 @@ abstract class _$$CreateActionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CreateActionImplCopyWithImpl<$Res>
-    extends _$CreateActionCopyWithImpl<$Res, _$CreateActionImpl>
-    implements _$$CreateActionImplCopyWith<$Res> {
-  __$$CreateActionImplCopyWithImpl(
-      _$CreateActionImpl _value, $Res Function(_$CreateActionImpl) _then)
-      : super(_value, _then);
+class _$CreateActionCopyWithImpl<$Res> implements $CreateActionCopyWith<$Res> {
+  _$CreateActionCopyWithImpl(this._self, this._then);
+
+  final CreateAction _self;
+  final $Res Function(CreateAction) _then;
 
   /// Create a copy of CreateAction
   /// with the given fields replaced by the non-null parameter values.
@@ -125,21 +87,21 @@ class __$$CreateActionImplCopyWithImpl<$Res>
     Object? rkey = freezed,
     Object? record = null,
   }) {
-    return _then(_$CreateActionImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       collection: null == collection
-          ? _value.collection
+          ? _self.collection
           : collection // ignore: cast_nullable_to_non_nullable
               as NSID,
       rkey: freezed == rkey
-          ? _value.rkey
+          ? _self.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String?,
       record: null == record
-          ? _value._record
+          ? _self.record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -149,16 +111,15 @@ class __$$CreateActionImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$CreateActionImpl implements _CreateAction {
-  const _$CreateActionImpl(
+class _CreateAction implements CreateAction {
+  const _CreateAction(
       {@typeKey this.type = comAtprotoRepoApplyWritesCreate,
       @nsidConverter required this.collection,
       this.rkey,
       @JsonKey(name: 'value') required final Map<String, dynamic> record})
       : _record = record;
-
-  factory _$CreateActionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateActionImplFromJson(json);
+  factory _CreateAction.fromJson(Map<String, dynamic> json) =>
+      _$CreateActionFromJson(json);
 
   @override
   @typeKey
@@ -177,16 +138,26 @@ class _$CreateActionImpl implements _CreateAction {
     return EqualUnmodifiableMapView(_record);
   }
 
+  /// Create a copy of CreateAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CreateAction(type: $type, collection: $collection, rkey: $rkey, record: $record)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CreateActionCopyWith<_CreateAction> get copyWith =>
+      __$CreateActionCopyWithImpl<_CreateAction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CreateActionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateActionImpl &&
+            other is _CreateAction &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
@@ -199,49 +170,64 @@ class _$CreateActionImpl implements _CreateAction {
   int get hashCode => Object.hash(runtimeType, type, collection, rkey,
       const DeepCollectionEquality().hash(_record));
 
-  /// Create a copy of CreateAction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CreateActionImplCopyWith<_$CreateActionImpl> get copyWith =>
-      __$$CreateActionImplCopyWithImpl<_$CreateActionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreateActionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'CreateAction(type: $type, collection: $collection, rkey: $rkey, record: $record)';
   }
 }
 
-abstract class _CreateAction implements CreateAction {
-  const factory _CreateAction(
-          {@typeKey final String type,
-          @nsidConverter required final NSID collection,
-          final String? rkey,
-          @JsonKey(name: 'value') required final Map<String, dynamic> record}) =
-      _$CreateActionImpl;
+/// @nodoc
+abstract mixin class _$CreateActionCopyWith<$Res>
+    implements $CreateActionCopyWith<$Res> {
+  factory _$CreateActionCopyWith(
+          _CreateAction value, $Res Function(_CreateAction) _then) =
+      __$CreateActionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @nsidConverter NSID collection,
+      String? rkey,
+      @JsonKey(name: 'value') Map<String, dynamic> record});
+}
 
-  factory _CreateAction.fromJson(Map<String, dynamic> json) =
-      _$CreateActionImpl.fromJson;
+/// @nodoc
+class __$CreateActionCopyWithImpl<$Res>
+    implements _$CreateActionCopyWith<$Res> {
+  __$CreateActionCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @nsidConverter
-  NSID get collection;
-  @override
-  String? get rkey;
-  @override
-  @JsonKey(name: 'value')
-  Map<String, dynamic> get record;
+  final _CreateAction _self;
+  final $Res Function(_CreateAction) _then;
 
   /// Create a copy of CreateAction
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CreateActionImplCopyWith<_$CreateActionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? collection = null,
+    Object? rkey = freezed,
+    Object? record = null,
+  }) {
+    return _then(_CreateAction(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      collection: null == collection
+          ? _self.collection
+          : collection // ignore: cast_nullable_to_non_nullable
+              as NSID,
+      rkey: freezed == rkey
+          ? _self.rkey
+          : rkey // ignore: cast_nullable_to_non_nullable
+              as String?,
+      record: null == record
+          ? _self._record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

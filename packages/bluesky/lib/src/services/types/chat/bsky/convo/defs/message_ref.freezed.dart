@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,148 +10,30 @@ part of 'message_ref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MessageRef _$MessageRefFromJson(Map<String, dynamic> json) {
-  return _MessageRef.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MessageRef {
-  String get did => throw _privateConstructorUsedError;
-  String get convoId => throw _privateConstructorUsedError;
-  String get messageId => throw _privateConstructorUsedError;
-
-  /// Serializes this MessageRef to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get did;
+  String get convoId;
+  String get messageId;
 
   /// Create a copy of MessageRef
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $MessageRefCopyWith<MessageRef> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$MessageRefCopyWithImpl<MessageRef>(this as MessageRef, _$identity);
 
-/// @nodoc
-abstract class $MessageRefCopyWith<$Res> {
-  factory $MessageRefCopyWith(
-          MessageRef value, $Res Function(MessageRef) then) =
-      _$MessageRefCopyWithImpl<$Res, MessageRef>;
-  @useResult
-  $Res call({String did, String convoId, String messageId});
-}
-
-/// @nodoc
-class _$MessageRefCopyWithImpl<$Res, $Val extends MessageRef>
-    implements $MessageRefCopyWith<$Res> {
-  _$MessageRefCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MessageRef
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? did = null,
-    Object? convoId = null,
-    Object? messageId = null,
-  }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      convoId: null == convoId
-          ? _value.convoId
-          : convoId // ignore: cast_nullable_to_non_nullable
-              as String,
-      messageId: null == messageId
-          ? _value.messageId
-          : messageId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$MessageRefImplCopyWith<$Res>
-    implements $MessageRefCopyWith<$Res> {
-  factory _$$MessageRefImplCopyWith(
-          _$MessageRefImpl value, $Res Function(_$MessageRefImpl) then) =
-      __$$MessageRefImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String did, String convoId, String messageId});
-}
-
-/// @nodoc
-class __$$MessageRefImplCopyWithImpl<$Res>
-    extends _$MessageRefCopyWithImpl<$Res, _$MessageRefImpl>
-    implements _$$MessageRefImplCopyWith<$Res> {
-  __$$MessageRefImplCopyWithImpl(
-      _$MessageRefImpl _value, $Res Function(_$MessageRefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MessageRef
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? did = null,
-    Object? convoId = null,
-    Object? messageId = null,
-  }) {
-    return _then(_$MessageRefImpl(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      convoId: null == convoId
-          ? _value.convoId
-          : convoId // ignore: cast_nullable_to_non_nullable
-              as String,
-      messageId: null == messageId
-          ? _value.messageId
-          : messageId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$MessageRefImpl implements _MessageRef {
-  const _$MessageRefImpl(
-      {required this.did, required this.convoId, required this.messageId});
-
-  factory _$MessageRefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MessageRefImplFromJson(json);
-
-  @override
-  final String did;
-  @override
-  final String convoId;
-  @override
-  final String messageId;
-
-  @override
-  String toString() {
-    return 'MessageRef(did: $did, convoId: $convoId, messageId: $messageId)';
-  }
+  /// Serializes this MessageRef to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageRefImpl &&
+            other is MessageRef &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.convoId, convoId) || other.convoId == convoId) &&
             (identical(other.messageId, messageId) ||
@@ -161,42 +44,148 @@ class _$MessageRefImpl implements _MessageRef {
   @override
   int get hashCode => Object.hash(runtimeType, did, convoId, messageId);
 
-  /// Create a copy of MessageRef
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MessageRefImplCopyWith<_$MessageRefImpl> get copyWith =>
-      __$$MessageRefImplCopyWithImpl<_$MessageRefImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MessageRefImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MessageRef(did: $did, convoId: $convoId, messageId: $messageId)';
   }
 }
 
-abstract class _MessageRef implements MessageRef {
-  const factory _MessageRef(
-      {required final String did,
-      required final String convoId,
-      required final String messageId}) = _$MessageRefImpl;
+/// @nodoc
+abstract mixin class $MessageRefCopyWith<$Res> {
+  factory $MessageRefCopyWith(
+          MessageRef value, $Res Function(MessageRef) _then) =
+      _$MessageRefCopyWithImpl;
+  @useResult
+  $Res call({String did, String convoId, String messageId});
+}
 
-  factory _MessageRef.fromJson(Map<String, dynamic> json) =
-      _$MessageRefImpl.fromJson;
+/// @nodoc
+class _$MessageRefCopyWithImpl<$Res> implements $MessageRefCopyWith<$Res> {
+  _$MessageRefCopyWithImpl(this._self, this._then);
+
+  final MessageRef _self;
+  final $Res Function(MessageRef) _then;
+
+  /// Create a copy of MessageRef
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? did = null,
+    Object? convoId = null,
+    Object? messageId = null,
+  }) {
+    return _then(_self.copyWith(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      convoId: null == convoId
+          ? _self.convoId
+          : convoId // ignore: cast_nullable_to_non_nullable
+              as String,
+      messageId: null == messageId
+          ? _self.messageId
+          : messageId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _MessageRef implements MessageRef {
+  const _MessageRef(
+      {required this.did, required this.convoId, required this.messageId});
+  factory _MessageRef.fromJson(Map<String, dynamic> json) =>
+      _$MessageRefFromJson(json);
 
   @override
-  String get did;
+  final String did;
   @override
-  String get convoId;
+  final String convoId;
   @override
-  String get messageId;
+  final String messageId;
 
   /// Create a copy of MessageRef
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MessageRefImplCopyWith<_$MessageRefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$MessageRefCopyWith<_MessageRef> get copyWith =>
+      __$MessageRefCopyWithImpl<_MessageRef>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MessageRefToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _MessageRef &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.convoId, convoId) || other.convoId == convoId) &&
+            (identical(other.messageId, messageId) ||
+                other.messageId == messageId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, did, convoId, messageId);
+
+  @override
+  String toString() {
+    return 'MessageRef(did: $did, convoId: $convoId, messageId: $messageId)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$MessageRefCopyWith<$Res>
+    implements $MessageRefCopyWith<$Res> {
+  factory _$MessageRefCopyWith(
+          _MessageRef value, $Res Function(_MessageRef) _then) =
+      __$MessageRefCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String did, String convoId, String messageId});
+}
+
+/// @nodoc
+class __$MessageRefCopyWithImpl<$Res> implements _$MessageRefCopyWith<$Res> {
+  __$MessageRefCopyWithImpl(this._self, this._then);
+
+  final _MessageRef _self;
+  final $Res Function(_MessageRef) _then;
+
+  /// Create a copy of MessageRef
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+    Object? convoId = null,
+    Object? messageId = null,
+  }) {
+    return _then(_MessageRef(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      convoId: null == convoId
+          ? _self.convoId
+          : convoId // ignore: cast_nullable_to_non_nullable
+              as String,
+      messageId: null == messageId
+          ? _self.messageId
+          : messageId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

@@ -11,7 +11,7 @@ part 'lex_xrpc_subscription_message.freezed.dart';
 part 'lex_xrpc_subscription_message.g.dart';
 
 @freezed
-class LexXrpcSubscriptionMessage with _$LexXrpcSubscriptionMessage {
+abstract class LexXrpcSubscriptionMessage with _$LexXrpcSubscriptionMessage {
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcSubscriptionMessage({
     String? description,

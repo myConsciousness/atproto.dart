@@ -10,7 +10,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getMessages/#main
 @freezed
-class GetMessagesOutput with _$GetMessagesOutput {
+abstract class GetMessagesOutput with _$GetMessagesOutput {
   @jsonSerializable
   const factory GetMessagesOutput({
     @unionConvoMessageViewConverter required List<UConvoMessageView> messages,

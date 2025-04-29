@@ -7,7 +7,7 @@ part 'metadata.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata/#metadata
 @freezed
-class Metadata with _$Metadata {
+abstract class Metadata with _$Metadata {
   @jsonSerializable
   const factory Metadata({
     required int messagesSent,

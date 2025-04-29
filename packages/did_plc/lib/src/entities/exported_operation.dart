@@ -12,7 +12,7 @@ part 'exported_operation.freezed.dart';
 part 'exported_operation.g.dart';
 
 @freezed
-class ExportedOperation with _$ExportedOperation {
+abstract class ExportedOperation with _$ExportedOperation {
   /// Creates an instance of [ExportedOperation].
   @jsonSerializable
   const factory ExportedOperation({

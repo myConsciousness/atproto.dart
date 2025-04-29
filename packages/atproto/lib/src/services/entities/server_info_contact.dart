@@ -7,7 +7,7 @@ part 'server_info_contact.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeserver/#contact
 @freezed
-class ServerInfoContact with _$ServerInfoContact {
+abstract class ServerInfoContact with _$ServerInfoContact {
   @jsonSerializable
   const factory ServerInfoContact({
     String? email,

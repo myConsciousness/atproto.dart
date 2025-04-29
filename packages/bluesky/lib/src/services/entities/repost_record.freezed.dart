@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,175 +10,33 @@ part of 'repost_record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RepostRecord _$RepostRecordFromJson(Map<String, dynamic> json) {
-  return _RepostRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RepostRecord {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @JsonKey(name: 'subject')
-  StrongRef get ref => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-
-  /// Serializes this RepostRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  StrongRef get ref;
+  DateTime get createdAt;
 
   /// Create a copy of RepostRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $RepostRecordCopyWith<RepostRecord> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$RepostRecordCopyWithImpl<RepostRecord>(
+          this as RepostRecord, _$identity);
 
-/// @nodoc
-abstract class $RepostRecordCopyWith<$Res> {
-  factory $RepostRecordCopyWith(
-          RepostRecord value, $Res Function(RepostRecord) then) =
-      _$RepostRecordCopyWithImpl<$Res, RepostRecord>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @JsonKey(name: 'subject') StrongRef ref,
-      DateTime createdAt});
-
-  $StrongRefCopyWith<$Res> get ref;
-}
-
-/// @nodoc
-class _$RepostRecordCopyWithImpl<$Res, $Val extends RepostRecord>
-    implements $RepostRecordCopyWith<$Res> {
-  _$RepostRecordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RepostRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? ref = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      ref: null == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
-
-  /// Create a copy of RepostRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StrongRefCopyWith<$Res> get ref {
-    return $StrongRefCopyWith<$Res>(_value.ref, (value) {
-      return _then(_value.copyWith(ref: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$RepostRecordImplCopyWith<$Res>
-    implements $RepostRecordCopyWith<$Res> {
-  factory _$$RepostRecordImplCopyWith(
-          _$RepostRecordImpl value, $Res Function(_$RepostRecordImpl) then) =
-      __$$RepostRecordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @JsonKey(name: 'subject') StrongRef ref,
-      DateTime createdAt});
-
-  @override
-  $StrongRefCopyWith<$Res> get ref;
-}
-
-/// @nodoc
-class __$$RepostRecordImplCopyWithImpl<$Res>
-    extends _$RepostRecordCopyWithImpl<$Res, _$RepostRecordImpl>
-    implements _$$RepostRecordImplCopyWith<$Res> {
-  __$$RepostRecordImplCopyWithImpl(
-      _$RepostRecordImpl _value, $Res Function(_$RepostRecordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RepostRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? ref = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_$RepostRecordImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      ref: null == ref
-          ? _value.ref
-          : ref // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$RepostRecordImpl implements _RepostRecord {
-  const _$RepostRecordImpl(
-      {@typeKey this.type = appBskyFeedRepost,
-      @JsonKey(name: 'subject') required this.ref,
-      required this.createdAt});
-
-  factory _$RepostRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RepostRecordImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  @JsonKey(name: 'subject')
-  final StrongRef ref;
-  @override
-  final DateTime createdAt;
-
-  @override
-  String toString() {
-    return 'RepostRecord(type: $type, ref: $ref, createdAt: $createdAt)';
-  }
+  /// Serializes this RepostRecord to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RepostRecordImpl &&
+            other is RepostRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.ref, ref) || other.ref == ref) &&
             (identical(other.createdAt, createdAt) ||
@@ -188,44 +47,184 @@ class _$RepostRecordImpl implements _RepostRecord {
   @override
   int get hashCode => Object.hash(runtimeType, type, ref, createdAt);
 
-  /// Create a copy of RepostRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RepostRecordImplCopyWith<_$RepostRecordImpl> get copyWith =>
-      __$$RepostRecordImplCopyWithImpl<_$RepostRecordImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RepostRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RepostRecord(type: $type, ref: $ref, createdAt: $createdAt)';
   }
 }
 
-abstract class _RepostRecord implements RepostRecord {
-  const factory _RepostRecord(
-      {@typeKey final String type,
-      @JsonKey(name: 'subject') required final StrongRef ref,
-      required final DateTime createdAt}) = _$RepostRecordImpl;
+/// @nodoc
+abstract mixin class $RepostRecordCopyWith<$Res> {
+  factory $RepostRecordCopyWith(
+          RepostRecord value, $Res Function(RepostRecord) _then) =
+      _$RepostRecordCopyWithImpl;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @JsonKey(name: 'subject') StrongRef ref,
+      DateTime createdAt});
 
-  factory _RepostRecord.fromJson(Map<String, dynamic> json) =
-      _$RepostRecordImpl.fromJson;
+  $StrongRefCopyWith<$Res> get ref;
+}
+
+/// @nodoc
+class _$RepostRecordCopyWithImpl<$Res> implements $RepostRecordCopyWith<$Res> {
+  _$RepostRecordCopyWithImpl(this._self, this._then);
+
+  final RepostRecord _self;
+  final $Res Function(RepostRecord) _then;
+
+  /// Create a copy of RepostRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? ref = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      ref: null == ref
+          ? _self.ref
+          : ref // ignore: cast_nullable_to_non_nullable
+              as StrongRef,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of RepostRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res> get ref {
+    return $StrongRefCopyWith<$Res>(_self.ref, (value) {
+      return _then(_self.copyWith(ref: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _RepostRecord implements RepostRecord {
+  const _RepostRecord(
+      {@typeKey this.type = appBskyFeedRepost,
+      @JsonKey(name: 'subject') required this.ref,
+      required this.createdAt});
+  factory _RepostRecord.fromJson(Map<String, dynamic> json) =>
+      _$RepostRecordFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
   @JsonKey(name: 'subject')
-  StrongRef get ref;
+  final StrongRef ref;
   @override
-  DateTime get createdAt;
+  final DateTime createdAt;
 
   /// Create a copy of RepostRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RepostRecordImplCopyWith<_$RepostRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$RepostRecordCopyWith<_RepostRecord> get copyWith =>
+      __$RepostRecordCopyWithImpl<_RepostRecord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RepostRecordToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RepostRecord &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.ref, ref) || other.ref == ref) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, ref, createdAt);
+
+  @override
+  String toString() {
+    return 'RepostRecord(type: $type, ref: $ref, createdAt: $createdAt)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$RepostRecordCopyWith<$Res>
+    implements $RepostRecordCopyWith<$Res> {
+  factory _$RepostRecordCopyWith(
+          _RepostRecord value, $Res Function(_RepostRecord) _then) =
+      __$RepostRecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @JsonKey(name: 'subject') StrongRef ref,
+      DateTime createdAt});
+
+  @override
+  $StrongRefCopyWith<$Res> get ref;
+}
+
+/// @nodoc
+class __$RepostRecordCopyWithImpl<$Res>
+    implements _$RepostRecordCopyWith<$Res> {
+  __$RepostRecordCopyWithImpl(this._self, this._then);
+
+  final _RepostRecord _self;
+  final $Res Function(_RepostRecord) _then;
+
+  /// Create a copy of RepostRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? ref = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_RepostRecord(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      ref: null == ref
+          ? _self.ref
+          : ref // ignore: cast_nullable_to_non_nullable
+              as StrongRef,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of RepostRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res> get ref {
+    return $StrongRefCopyWith<$Res>(_self.ref, (value) {
+      return _then(_self.copyWith(ref: value));
+    });
+  }
+}
+
+// dart format on

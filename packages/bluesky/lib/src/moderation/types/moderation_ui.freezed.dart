@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,93 +10,58 @@ part of 'moderation_ui.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ModerationUI {
-  bool get noOverride => throw _privateConstructorUsedError;
-  List<ModerationCause> get filters => throw _privateConstructorUsedError;
-  List<ModerationCause> get blurs => throw _privateConstructorUsedError;
-  List<ModerationCause> get alerts => throw _privateConstructorUsedError;
-  List<ModerationCause> get informs => throw _privateConstructorUsedError;
+  bool get noOverride;
+  List<ModerationCause> get filters;
+  List<ModerationCause> get blurs;
+  List<ModerationCause> get alerts;
+  List<ModerationCause> get informs;
 
   /// Create a copy of ModerationUI
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ModerationUICopyWith<ModerationUI> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ModerationUICopyWith<$Res> {
-  factory $ModerationUICopyWith(
-          ModerationUI value, $Res Function(ModerationUI) then) =
-      _$ModerationUICopyWithImpl<$Res, ModerationUI>;
-  @useResult
-  $Res call(
-      {bool noOverride,
-      List<ModerationCause> filters,
-      List<ModerationCause> blurs,
-      List<ModerationCause> alerts,
-      List<ModerationCause> informs});
-}
-
-/// @nodoc
-class _$ModerationUICopyWithImpl<$Res, $Val extends ModerationUI>
-    implements $ModerationUICopyWith<$Res> {
-  _$ModerationUICopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ModerationUI
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ModerationUICopyWith<ModerationUI> get copyWith =>
+      _$ModerationUICopyWithImpl<ModerationUI>(
+          this as ModerationUI, _$identity);
+
   @override
-  $Res call({
-    Object? noOverride = null,
-    Object? filters = null,
-    Object? blurs = null,
-    Object? alerts = null,
-    Object? informs = null,
-  }) {
-    return _then(_value.copyWith(
-      noOverride: null == noOverride
-          ? _value.noOverride
-          : noOverride // ignore: cast_nullable_to_non_nullable
-              as bool,
-      filters: null == filters
-          ? _value.filters
-          : filters // ignore: cast_nullable_to_non_nullable
-              as List<ModerationCause>,
-      blurs: null == blurs
-          ? _value.blurs
-          : blurs // ignore: cast_nullable_to_non_nullable
-              as List<ModerationCause>,
-      alerts: null == alerts
-          ? _value.alerts
-          : alerts // ignore: cast_nullable_to_non_nullable
-              as List<ModerationCause>,
-      informs: null == informs
-          ? _value.informs
-          : informs // ignore: cast_nullable_to_non_nullable
-              as List<ModerationCause>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationUI &&
+            (identical(other.noOverride, noOverride) ||
+                other.noOverride == noOverride) &&
+            const DeepCollectionEquality().equals(other.filters, filters) &&
+            const DeepCollectionEquality().equals(other.blurs, blurs) &&
+            const DeepCollectionEquality().equals(other.alerts, alerts) &&
+            const DeepCollectionEquality().equals(other.informs, informs));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      noOverride,
+      const DeepCollectionEquality().hash(filters),
+      const DeepCollectionEquality().hash(blurs),
+      const DeepCollectionEquality().hash(alerts),
+      const DeepCollectionEquality().hash(informs));
+
+  @override
+  String toString() {
+    return 'ModerationUI(noOverride: $noOverride, filters: $filters, blurs: $blurs, alerts: $alerts, informs: $informs)';
   }
 }
 
 /// @nodoc
-abstract class _$$ModerationUIImplCopyWith<$Res>
-    implements $ModerationUICopyWith<$Res> {
-  factory _$$ModerationUIImplCopyWith(
-          _$ModerationUIImpl value, $Res Function(_$ModerationUIImpl) then) =
-      __$$ModerationUIImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ModerationUICopyWith<$Res> {
+  factory $ModerationUICopyWith(
+          ModerationUI value, $Res Function(ModerationUI) _then) =
+      _$ModerationUICopyWithImpl;
   @useResult
   $Res call(
       {bool noOverride,
@@ -106,12 +72,11 @@ abstract class _$$ModerationUIImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ModerationUIImplCopyWithImpl<$Res>
-    extends _$ModerationUICopyWithImpl<$Res, _$ModerationUIImpl>
-    implements _$$ModerationUIImplCopyWith<$Res> {
-  __$$ModerationUIImplCopyWithImpl(
-      _$ModerationUIImpl _value, $Res Function(_$ModerationUIImpl) _then)
-      : super(_value, _then);
+class _$ModerationUICopyWithImpl<$Res> implements $ModerationUICopyWith<$Res> {
+  _$ModerationUICopyWithImpl(this._self, this._then);
+
+  final ModerationUI _self;
+  final $Res Function(ModerationUI) _then;
 
   /// Create a copy of ModerationUI
   /// with the given fields replaced by the non-null parameter values.
@@ -124,25 +89,25 @@ class __$$ModerationUIImplCopyWithImpl<$Res>
     Object? alerts = null,
     Object? informs = null,
   }) {
-    return _then(_$ModerationUIImpl(
+    return _then(_self.copyWith(
       noOverride: null == noOverride
-          ? _value.noOverride
+          ? _self.noOverride
           : noOverride // ignore: cast_nullable_to_non_nullable
               as bool,
       filters: null == filters
-          ? _value._filters
+          ? _self.filters
           : filters // ignore: cast_nullable_to_non_nullable
               as List<ModerationCause>,
       blurs: null == blurs
-          ? _value._blurs
+          ? _self.blurs
           : blurs // ignore: cast_nullable_to_non_nullable
               as List<ModerationCause>,
       alerts: null == alerts
-          ? _value._alerts
+          ? _self.alerts
           : alerts // ignore: cast_nullable_to_non_nullable
               as List<ModerationCause>,
       informs: null == informs
-          ? _value._informs
+          ? _self.informs
           : informs // ignore: cast_nullable_to_non_nullable
               as List<ModerationCause>,
     ));
@@ -151,8 +116,8 @@ class __$$ModerationUIImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ModerationUIImpl implements _ModerationUI {
-  const _$ModerationUIImpl(
+class _ModerationUI implements ModerationUI {
+  const _ModerationUI(
       {this.noOverride = false,
       final List<ModerationCause> filters = const [],
       final List<ModerationCause> blurs = const [],
@@ -202,16 +167,19 @@ class _$ModerationUIImpl implements _ModerationUI {
     return EqualUnmodifiableListView(_informs);
   }
 
+  /// Create a copy of ModerationUI
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ModerationUI(noOverride: $noOverride, filters: $filters, blurs: $blurs, alerts: $alerts, informs: $informs)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ModerationUICopyWith<_ModerationUI> get copyWith =>
+      __$ModerationUICopyWithImpl<_ModerationUI>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationUIImpl &&
+            other is _ModerationUI &&
             (identical(other.noOverride, noOverride) ||
                 other.noOverride == noOverride) &&
             const DeepCollectionEquality().equals(other._filters, _filters) &&
@@ -229,38 +197,70 @@ class _$ModerationUIImpl implements _ModerationUI {
       const DeepCollectionEquality().hash(_alerts),
       const DeepCollectionEquality().hash(_informs));
 
+  @override
+  String toString() {
+    return 'ModerationUI(noOverride: $noOverride, filters: $filters, blurs: $blurs, alerts: $alerts, informs: $informs)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ModerationUICopyWith<$Res>
+    implements $ModerationUICopyWith<$Res> {
+  factory _$ModerationUICopyWith(
+          _ModerationUI value, $Res Function(_ModerationUI) _then) =
+      __$ModerationUICopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {bool noOverride,
+      List<ModerationCause> filters,
+      List<ModerationCause> blurs,
+      List<ModerationCause> alerts,
+      List<ModerationCause> informs});
+}
+
+/// @nodoc
+class __$ModerationUICopyWithImpl<$Res>
+    implements _$ModerationUICopyWith<$Res> {
+  __$ModerationUICopyWithImpl(this._self, this._then);
+
+  final _ModerationUI _self;
+  final $Res Function(_ModerationUI) _then;
+
   /// Create a copy of ModerationUI
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModerationUIImplCopyWith<_$ModerationUIImpl> get copyWith =>
-      __$$ModerationUIImplCopyWithImpl<_$ModerationUIImpl>(this, _$identity);
+  $Res call({
+    Object? noOverride = null,
+    Object? filters = null,
+    Object? blurs = null,
+    Object? alerts = null,
+    Object? informs = null,
+  }) {
+    return _then(_ModerationUI(
+      noOverride: null == noOverride
+          ? _self.noOverride
+          : noOverride // ignore: cast_nullable_to_non_nullable
+              as bool,
+      filters: null == filters
+          ? _self._filters
+          : filters // ignore: cast_nullable_to_non_nullable
+              as List<ModerationCause>,
+      blurs: null == blurs
+          ? _self._blurs
+          : blurs // ignore: cast_nullable_to_non_nullable
+              as List<ModerationCause>,
+      alerts: null == alerts
+          ? _self._alerts
+          : alerts // ignore: cast_nullable_to_non_nullable
+              as List<ModerationCause>,
+      informs: null == informs
+          ? _self._informs
+          : informs // ignore: cast_nullable_to_non_nullable
+              as List<ModerationCause>,
+    ));
+  }
 }
 
-abstract class _ModerationUI implements ModerationUI {
-  const factory _ModerationUI(
-      {final bool noOverride,
-      final List<ModerationCause> filters,
-      final List<ModerationCause> blurs,
-      final List<ModerationCause> alerts,
-      final List<ModerationCause> informs}) = _$ModerationUIImpl;
-
-  @override
-  bool get noOverride;
-  @override
-  List<ModerationCause> get filters;
-  @override
-  List<ModerationCause> get blurs;
-  @override
-  List<ModerationCause> get alerts;
-  @override
-  List<ModerationCause> get informs;
-
-  /// Create a copy of ModerationUI
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModerationUIImplCopyWith<_$ModerationUIImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

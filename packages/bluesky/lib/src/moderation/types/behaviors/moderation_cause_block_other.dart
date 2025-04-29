@@ -8,7 +8,7 @@ import 'moderation_cause_source.dart';
 part 'moderation_cause_block_other.freezed.dart';
 
 @modObject
-class ModerationCauseBlockOther with _$ModerationCauseBlockOther {
+abstract class ModerationCauseBlockOther with _$ModerationCauseBlockOther {
   const factory ModerationCauseBlockOther({
     required ModerationCauseSource source,
     @Default(4) int priority,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,29 +10,49 @@ part of 'moderation_cause_blocked_by.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ModerationCauseBlockedBy {
-  ModerationCauseSource get source => throw _privateConstructorUsedError;
-  int get priority => throw _privateConstructorUsedError;
-  bool get downgraded => throw _privateConstructorUsedError;
+  ModerationCauseSource get source;
+  int get priority;
+  bool get downgraded;
 
   /// Create a copy of ModerationCauseBlockedBy
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ModerationCauseBlockedByCopyWith<ModerationCauseBlockedBy> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ModerationCauseBlockedByCopyWithImpl<ModerationCauseBlockedBy>(
+          this as ModerationCauseBlockedBy, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationCauseBlockedBy &&
+            (identical(other.source, source) || other.source == source) &&
+            (identical(other.priority, priority) ||
+                other.priority == priority) &&
+            (identical(other.downgraded, downgraded) ||
+                other.downgraded == downgraded));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, source, priority, downgraded);
+
+  @override
+  String toString() {
+    return 'ModerationCauseBlockedBy(source: $source, priority: $priority, downgraded: $downgraded)';
+  }
 }
 
 /// @nodoc
-abstract class $ModerationCauseBlockedByCopyWith<$Res> {
+abstract mixin class $ModerationCauseBlockedByCopyWith<$Res> {
   factory $ModerationCauseBlockedByCopyWith(ModerationCauseBlockedBy value,
-          $Res Function(ModerationCauseBlockedBy) then) =
-      _$ModerationCauseBlockedByCopyWithImpl<$Res, ModerationCauseBlockedBy>;
+          $Res Function(ModerationCauseBlockedBy) _then) =
+      _$ModerationCauseBlockedByCopyWithImpl;
   @useResult
   $Res call({ModerationCauseSource source, int priority, bool downgraded});
 
@@ -39,15 +60,12 @@ abstract class $ModerationCauseBlockedByCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ModerationCauseBlockedByCopyWithImpl<$Res,
-        $Val extends ModerationCauseBlockedBy>
+class _$ModerationCauseBlockedByCopyWithImpl<$Res>
     implements $ModerationCauseBlockedByCopyWith<$Res> {
-  _$ModerationCauseBlockedByCopyWithImpl(this._value, this._then);
+  _$ModerationCauseBlockedByCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModerationCauseBlockedBy _self;
+  final $Res Function(ModerationCauseBlockedBy) _then;
 
   /// Create a copy of ModerationCauseBlockedBy
   /// with the given fields replaced by the non-null parameter values.
@@ -58,20 +76,20 @@ class _$ModerationCauseBlockedByCopyWithImpl<$Res,
     Object? priority = null,
     Object? downgraded = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       source: null == source
-          ? _value.source
+          ? _self.source
           : source // ignore: cast_nullable_to_non_nullable
               as ModerationCauseSource,
       priority: null == priority
-          ? _value.priority
+          ? _self.priority
           : priority // ignore: cast_nullable_to_non_nullable
               as int,
       downgraded: null == downgraded
-          ? _value.downgraded
+          ? _self.downgraded
           : downgraded // ignore: cast_nullable_to_non_nullable
               as bool,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ModerationCauseBlockedBy
@@ -79,67 +97,16 @@ class _$ModerationCauseBlockedByCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $ModerationCauseSourceCopyWith<$Res> get source {
-    return $ModerationCauseSourceCopyWith<$Res>(_value.source, (value) {
-      return _then(_value.copyWith(source: value) as $Val);
+    return $ModerationCauseSourceCopyWith<$Res>(_self.source, (value) {
+      return _then(_self.copyWith(source: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ModerationCauseBlockedByImplCopyWith<$Res>
-    implements $ModerationCauseBlockedByCopyWith<$Res> {
-  factory _$$ModerationCauseBlockedByImplCopyWith(
-          _$ModerationCauseBlockedByImpl value,
-          $Res Function(_$ModerationCauseBlockedByImpl) then) =
-      __$$ModerationCauseBlockedByImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ModerationCauseSource source, int priority, bool downgraded});
 
-  @override
-  $ModerationCauseSourceCopyWith<$Res> get source;
-}
-
-/// @nodoc
-class __$$ModerationCauseBlockedByImplCopyWithImpl<$Res>
-    extends _$ModerationCauseBlockedByCopyWithImpl<$Res,
-        _$ModerationCauseBlockedByImpl>
-    implements _$$ModerationCauseBlockedByImplCopyWith<$Res> {
-  __$$ModerationCauseBlockedByImplCopyWithImpl(
-      _$ModerationCauseBlockedByImpl _value,
-      $Res Function(_$ModerationCauseBlockedByImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ModerationCauseBlockedBy
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? source = null,
-    Object? priority = null,
-    Object? downgraded = null,
-  }) {
-    return _then(_$ModerationCauseBlockedByImpl(
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as ModerationCauseSource,
-      priority: null == priority
-          ? _value.priority
-          : priority // ignore: cast_nullable_to_non_nullable
-              as int,
-      downgraded: null == downgraded
-          ? _value.downgraded
-          : downgraded // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ModerationCauseBlockedByImpl implements _ModerationCauseBlockedBy {
-  const _$ModerationCauseBlockedByImpl(
+class _ModerationCauseBlockedBy implements ModerationCauseBlockedBy {
+  const _ModerationCauseBlockedBy(
       {required this.source, this.priority = 4, this.downgraded = false});
 
   @override
@@ -151,16 +118,20 @@ class _$ModerationCauseBlockedByImpl implements _ModerationCauseBlockedBy {
   @JsonKey()
   final bool downgraded;
 
+  /// Create a copy of ModerationCauseBlockedBy
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ModerationCauseBlockedBy(source: $source, priority: $priority, downgraded: $downgraded)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ModerationCauseBlockedByCopyWith<_ModerationCauseBlockedBy> get copyWith =>
+      __$ModerationCauseBlockedByCopyWithImpl<_ModerationCauseBlockedBy>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationCauseBlockedByImpl &&
+            other is _ModerationCauseBlockedBy &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.priority, priority) ||
                 other.priority == priority) &&
@@ -171,33 +142,68 @@ class _$ModerationCauseBlockedByImpl implements _ModerationCauseBlockedBy {
   @override
   int get hashCode => Object.hash(runtimeType, source, priority, downgraded);
 
+  @override
+  String toString() {
+    return 'ModerationCauseBlockedBy(source: $source, priority: $priority, downgraded: $downgraded)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ModerationCauseBlockedByCopyWith<$Res>
+    implements $ModerationCauseBlockedByCopyWith<$Res> {
+  factory _$ModerationCauseBlockedByCopyWith(_ModerationCauseBlockedBy value,
+          $Res Function(_ModerationCauseBlockedBy) _then) =
+      __$ModerationCauseBlockedByCopyWithImpl;
+  @override
+  @useResult
+  $Res call({ModerationCauseSource source, int priority, bool downgraded});
+
+  @override
+  $ModerationCauseSourceCopyWith<$Res> get source;
+}
+
+/// @nodoc
+class __$ModerationCauseBlockedByCopyWithImpl<$Res>
+    implements _$ModerationCauseBlockedByCopyWith<$Res> {
+  __$ModerationCauseBlockedByCopyWithImpl(this._self, this._then);
+
+  final _ModerationCauseBlockedBy _self;
+  final $Res Function(_ModerationCauseBlockedBy) _then;
+
   /// Create a copy of ModerationCauseBlockedBy
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModerationCauseBlockedByImplCopyWith<_$ModerationCauseBlockedByImpl>
-      get copyWith => __$$ModerationCauseBlockedByImplCopyWithImpl<
-          _$ModerationCauseBlockedByImpl>(this, _$identity);
-}
-
-abstract class _ModerationCauseBlockedBy implements ModerationCauseBlockedBy {
-  const factory _ModerationCauseBlockedBy(
-      {required final ModerationCauseSource source,
-      final int priority,
-      final bool downgraded}) = _$ModerationCauseBlockedByImpl;
-
-  @override
-  ModerationCauseSource get source;
-  @override
-  int get priority;
-  @override
-  bool get downgraded;
+  $Res call({
+    Object? source = null,
+    Object? priority = null,
+    Object? downgraded = null,
+  }) {
+    return _then(_ModerationCauseBlockedBy(
+      source: null == source
+          ? _self.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as ModerationCauseSource,
+      priority: null == priority
+          ? _self.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as int,
+      downgraded: null == downgraded
+          ? _self.downgraded
+          : downgraded // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 
   /// Create a copy of ModerationCauseBlockedBy
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModerationCauseBlockedByImplCopyWith<_$ModerationCauseBlockedByImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $ModerationCauseSourceCopyWith<$Res> get source {
+    return $ModerationCauseSourceCopyWith<$Res>(_self.source, (value) {
+      return _then(_self.copyWith(source: value));
+    });
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,36 +10,52 @@ part of 'facet.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Facet _$FacetFromJson(Map<String, dynamic> json) {
-  return _Facet.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Facet {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  ByteSlice get index => throw _privateConstructorUsedError;
+  String get type;
+  ByteSlice get index;
   @facetFeatureConverter
-  List<FacetFeature> get features => throw _privateConstructorUsedError;
-
-  /// Serializes this Facet to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<FacetFeature> get features;
 
   /// Create a copy of Facet
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FacetCopyWith<Facet> get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $FacetCopyWith<Facet> get copyWith =>
+      _$FacetCopyWithImpl<Facet>(this as Facet, _$identity);
+
+  /// Serializes this Facet to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Facet &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.index, index) || other.index == index) &&
+            const DeepCollectionEquality().equals(other.features, features));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, type, index, const DeepCollectionEquality().hash(features));
+
+  @override
+  String toString() {
+    return 'Facet(type: $type, index: $index, features: $features)';
+  }
 }
 
 /// @nodoc
-abstract class $FacetCopyWith<$Res> {
-  factory $FacetCopyWith(Facet value, $Res Function(Facet) then) =
-      _$FacetCopyWithImpl<$Res, Facet>;
+abstract mixin class $FacetCopyWith<$Res> {
+  factory $FacetCopyWith(Facet value, $Res Function(Facet) _then) =
+      _$FacetCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -49,14 +66,11 @@ abstract class $FacetCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FacetCopyWithImpl<$Res, $Val extends Facet>
-    implements $FacetCopyWith<$Res> {
-  _$FacetCopyWithImpl(this._value, this._then);
+class _$FacetCopyWithImpl<$Res> implements $FacetCopyWith<$Res> {
+  _$FacetCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Facet _self;
+  final $Res Function(Facet) _then;
 
   /// Create a copy of Facet
   /// with the given fields replaced by the non-null parameter values.
@@ -67,20 +81,20 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
     Object? index = null,
     Object? features = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       index: null == index
-          ? _value.index
+          ? _self.index
           : index // ignore: cast_nullable_to_non_nullable
               as ByteSlice,
       features: null == features
-          ? _value.features
+          ? _self.features
           : features // ignore: cast_nullable_to_non_nullable
               as List<FacetFeature>,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of Facet
@@ -88,74 +102,22 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
   @override
   @pragma('vm:prefer-inline')
   $ByteSliceCopyWith<$Res> get index {
-    return $ByteSliceCopyWith<$Res>(_value.index, (value) {
-      return _then(_value.copyWith(index: value) as $Val);
+    return $ByteSliceCopyWith<$Res>(_self.index, (value) {
+      return _then(_self.copyWith(index: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$FacetImplCopyWith<$Res> implements $FacetCopyWith<$Res> {
-  factory _$$FacetImplCopyWith(
-          _$FacetImpl value, $Res Function(_$FacetImpl) then) =
-      __$$FacetImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      ByteSlice index,
-      @facetFeatureConverter List<FacetFeature> features});
-
-  @override
-  $ByteSliceCopyWith<$Res> get index;
-}
-
-/// @nodoc
-class __$$FacetImplCopyWithImpl<$Res>
-    extends _$FacetCopyWithImpl<$Res, _$FacetImpl>
-    implements _$$FacetImplCopyWith<$Res> {
-  __$$FacetImplCopyWithImpl(
-      _$FacetImpl _value, $Res Function(_$FacetImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Facet
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? index = null,
-    Object? features = null,
-  }) {
-    return _then(_$FacetImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as ByteSlice,
-      features: null == features
-          ? _value._features
-          : features // ignore: cast_nullable_to_non_nullable
-              as List<FacetFeature>,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$FacetImpl implements _Facet {
-  const _$FacetImpl(
+class _Facet implements Facet {
+  const _Facet(
       {@typeKey this.type = appBskyRichtextFacet,
       required this.index,
       @facetFeatureConverter required final List<FacetFeature> features})
       : _features = features;
-
-  factory _$FacetImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FacetImplFromJson(json);
+  factory _Facet.fromJson(Map<String, dynamic> json) => _$FacetFromJson(json);
 
   @override
   @typeKey
@@ -171,16 +133,26 @@ class _$FacetImpl implements _Facet {
     return EqualUnmodifiableListView(_features);
   }
 
+  /// Create a copy of Facet
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Facet(type: $type, index: $index, features: $features)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FacetCopyWith<_Facet> get copyWith =>
+      __$FacetCopyWithImpl<_Facet>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FacetToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FacetImpl &&
+            other is _Facet &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.index, index) || other.index == index) &&
             const DeepCollectionEquality().equals(other._features, _features));
@@ -191,44 +163,68 @@ class _$FacetImpl implements _Facet {
   int get hashCode => Object.hash(
       runtimeType, type, index, const DeepCollectionEquality().hash(_features));
 
-  /// Create a copy of Facet
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>
-      __$$FacetImplCopyWithImpl<_$FacetImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FacetImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Facet(type: $type, index: $index, features: $features)';
   }
 }
 
-abstract class _Facet implements Facet {
-  const factory _Facet(
-          {@typeKey final String type,
-          required final ByteSlice index,
-          @facetFeatureConverter required final List<FacetFeature> features}) =
-      _$FacetImpl;
+/// @nodoc
+abstract mixin class _$FacetCopyWith<$Res> implements $FacetCopyWith<$Res> {
+  factory _$FacetCopyWith(_Facet value, $Res Function(_Facet) _then) =
+      __$FacetCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      ByteSlice index,
+      @facetFeatureConverter List<FacetFeature> features});
 
-  factory _Facet.fromJson(Map<String, dynamic> json) = _$FacetImpl.fromJson;
+  @override
+  $ByteSliceCopyWith<$Res> get index;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  ByteSlice get index;
-  @override
-  @facetFeatureConverter
-  List<FacetFeature> get features;
+/// @nodoc
+class __$FacetCopyWithImpl<$Res> implements _$FacetCopyWith<$Res> {
+  __$FacetCopyWithImpl(this._self, this._then);
+
+  final _Facet _self;
+  final $Res Function(_Facet) _then;
 
   /// Create a copy of Facet
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? index = null,
+    Object? features = null,
+  }) {
+    return _then(_Facet(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      index: null == index
+          ? _self.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as ByteSlice,
+      features: null == features
+          ? _self._features
+          : features // ignore: cast_nullable_to_non_nullable
+              as List<FacetFeature>,
+    ));
+  }
+
+  /// Create a copy of Facet
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ByteSliceCopyWith<$Res> get index {
+    return $ByteSliceCopyWith<$Res>(_self.index, (value) {
+      return _then(_self.copyWith(index: value));
+    });
+  }
 }
+
+// dart format on

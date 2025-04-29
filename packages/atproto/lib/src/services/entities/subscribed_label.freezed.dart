@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'subscribed_label.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 SubscribedLabel _$SubscribedLabelFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'labels':
@@ -31,83 +29,89 @@ SubscribedLabel _$SubscribedLabelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SubscribedLabel {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SubscribedLabelLabels data) labels,
-    required TResult Function(SubscribedLabelInfo data) info,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SubscribedLabelLabels data)? labels,
-    TResult? Function(SubscribedLabelInfo data)? info,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SubscribedLabelLabels data)? labels,
-    TResult Function(SubscribedLabelInfo data)? info,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(USubscribedLabelLabels value) labels,
-    required TResult Function(USubscribedLabelInfo value) info,
-    required TResult Function(USubscribedLabelUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubscribedLabelLabels value)? labels,
-    TResult? Function(USubscribedLabelInfo value)? info,
-    TResult? Function(USubscribedLabelUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubscribedLabelLabels value)? labels,
-    TResult Function(USubscribedLabelInfo value)? info,
-    TResult Function(USubscribedLabelUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
 
   /// Serializes this SubscribedLabel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SubscribedLabel &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'SubscribedLabel(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $SubscribedLabelCopyWith<$Res> {
-  factory $SubscribedLabelCopyWith(
-          SubscribedLabel value, $Res Function(SubscribedLabel) then) =
-      _$SubscribedLabelCopyWithImpl<$Res, SubscribedLabel>;
+class $SubscribedLabelCopyWith<$Res> {
+  $SubscribedLabelCopyWith(
+      SubscribedLabel _, $Res Function(SubscribedLabel) __);
 }
 
 /// @nodoc
-class _$SubscribedLabelCopyWithImpl<$Res, $Val extends SubscribedLabel>
-    implements $SubscribedLabelCopyWith<$Res> {
-  _$SubscribedLabelCopyWithImpl(this._value, this._then);
+@JsonSerializable()
+class USubscribedLabelLabels implements SubscribedLabel {
+  const USubscribedLabelLabels({required this.data, final String? $type})
+      : $type = $type ?? 'labels';
+  factory USubscribedLabelLabels.fromJson(Map<String, dynamic> json) =>
+      _$USubscribedLabelLabelsFromJson(json);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  @override
+  final SubscribedLabelLabels data;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   /// Create a copy of SubscribedLabel
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $USubscribedLabelLabelsCopyWith<USubscribedLabelLabels> get copyWith =>
+      _$USubscribedLabelLabelsCopyWithImpl<USubscribedLabelLabels>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$USubscribedLabelLabelsToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is USubscribedLabelLabels &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'SubscribedLabel.labels(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$USubscribedLabelLabelsImplCopyWith<$Res> {
-  factory _$$USubscribedLabelLabelsImplCopyWith(
-          _$USubscribedLabelLabelsImpl value,
-          $Res Function(_$USubscribedLabelLabelsImpl) then) =
-      __$$USubscribedLabelLabelsImplCopyWithImpl<$Res>;
+abstract mixin class $USubscribedLabelLabelsCopyWith<$Res>
+    implements $SubscribedLabelCopyWith<$Res> {
+  factory $USubscribedLabelLabelsCopyWith(USubscribedLabelLabels value,
+          $Res Function(USubscribedLabelLabels) _then) =
+      _$USubscribedLabelLabelsCopyWithImpl;
   @useResult
   $Res call({SubscribedLabelLabels data});
 
@@ -115,24 +119,22 @@ abstract class _$$USubscribedLabelLabelsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubscribedLabelLabelsImplCopyWithImpl<$Res>
-    extends _$SubscribedLabelCopyWithImpl<$Res, _$USubscribedLabelLabelsImpl>
-    implements _$$USubscribedLabelLabelsImplCopyWith<$Res> {
-  __$$USubscribedLabelLabelsImplCopyWithImpl(
-      _$USubscribedLabelLabelsImpl _value,
-      $Res Function(_$USubscribedLabelLabelsImpl) _then)
-      : super(_value, _then);
+class _$USubscribedLabelLabelsCopyWithImpl<$Res>
+    implements $USubscribedLabelLabelsCopyWith<$Res> {
+  _$USubscribedLabelLabelsCopyWithImpl(this._self, this._then);
+
+  final USubscribedLabelLabels _self;
+  final $Res Function(USubscribedLabelLabels) _then;
 
   /// Create a copy of SubscribedLabel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedLabelLabelsImpl(
+    return _then(USubscribedLabelLabels(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as SubscribedLabelLabels,
     ));
@@ -143,37 +145,46 @@ class __$$USubscribedLabelLabelsImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $SubscribedLabelLabelsCopyWith<$Res> get data {
-    return $SubscribedLabelLabelsCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $SubscribedLabelLabelsCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedLabelLabelsImpl implements USubscribedLabelLabels {
-  const _$USubscribedLabelLabelsImpl({required this.data, final String? $type})
-      : $type = $type ?? 'labels';
-
-  factory _$USubscribedLabelLabelsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedLabelLabelsImplFromJson(json);
+class USubscribedLabelInfo implements SubscribedLabel {
+  const USubscribedLabelInfo({required this.data, final String? $type})
+      : $type = $type ?? 'info';
+  factory USubscribedLabelInfo.fromJson(Map<String, dynamic> json) =>
+      _$USubscribedLabelInfoFromJson(json);
 
   @override
-  final SubscribedLabelLabels data;
+  final SubscribedLabelInfo data;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $USubscribedLabelInfoCopyWith<USubscribedLabelInfo> get copyWith =>
+      _$USubscribedLabelInfoCopyWithImpl<USubscribedLabelInfo>(
+          this, _$identity);
+
   @override
-  String toString() {
-    return 'SubscribedLabel.labels(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$USubscribedLabelInfoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedLabelLabelsImpl &&
+            other is USubscribedLabelInfo &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -181,114 +192,18 @@ class _$USubscribedLabelLabelsImpl implements USubscribedLabelLabels {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of SubscribedLabel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$USubscribedLabelLabelsImplCopyWith<_$USubscribedLabelLabelsImpl>
-      get copyWith => __$$USubscribedLabelLabelsImplCopyWithImpl<
-          _$USubscribedLabelLabelsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SubscribedLabelLabels data) labels,
-    required TResult Function(SubscribedLabelInfo data) info,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return labels(data);
+  String toString() {
+    return 'SubscribedLabel.info(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SubscribedLabelLabels data)? labels,
-    TResult? Function(SubscribedLabelInfo data)? info,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return labels?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SubscribedLabelLabels data)? labels,
-    TResult Function(SubscribedLabelInfo data)? info,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labels != null) {
-      return labels(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(USubscribedLabelLabels value) labels,
-    required TResult Function(USubscribedLabelInfo value) info,
-    required TResult Function(USubscribedLabelUnknown value) unknown,
-  }) {
-    return labels(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubscribedLabelLabels value)? labels,
-    TResult? Function(USubscribedLabelInfo value)? info,
-    TResult? Function(USubscribedLabelUnknown value)? unknown,
-  }) {
-    return labels?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubscribedLabelLabels value)? labels,
-    TResult Function(USubscribedLabelInfo value)? info,
-    TResult Function(USubscribedLabelUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labels != null) {
-      return labels(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$USubscribedLabelLabelsImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class USubscribedLabelLabels implements SubscribedLabel {
-  const factory USubscribedLabelLabels(
-          {required final SubscribedLabelLabels data}) =
-      _$USubscribedLabelLabelsImpl;
-
-  factory USubscribedLabelLabels.fromJson(Map<String, dynamic> json) =
-      _$USubscribedLabelLabelsImpl.fromJson;
-
-  @override
-  SubscribedLabelLabels get data;
-
-  /// Create a copy of SubscribedLabel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$USubscribedLabelLabelsImplCopyWith<_$USubscribedLabelLabelsImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$USubscribedLabelInfoImplCopyWith<$Res> {
-  factory _$$USubscribedLabelInfoImplCopyWith(_$USubscribedLabelInfoImpl value,
-          $Res Function(_$USubscribedLabelInfoImpl) then) =
-      __$$USubscribedLabelInfoImplCopyWithImpl<$Res>;
+abstract mixin class $USubscribedLabelInfoCopyWith<$Res>
+    implements $SubscribedLabelCopyWith<$Res> {
+  factory $USubscribedLabelInfoCopyWith(USubscribedLabelInfo value,
+          $Res Function(USubscribedLabelInfo) _then) =
+      _$USubscribedLabelInfoCopyWithImpl;
   @useResult
   $Res call({SubscribedLabelInfo data});
 
@@ -296,23 +211,22 @@ abstract class _$$USubscribedLabelInfoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$USubscribedLabelInfoImplCopyWithImpl<$Res>
-    extends _$SubscribedLabelCopyWithImpl<$Res, _$USubscribedLabelInfoImpl>
-    implements _$$USubscribedLabelInfoImplCopyWith<$Res> {
-  __$$USubscribedLabelInfoImplCopyWithImpl(_$USubscribedLabelInfoImpl _value,
-      $Res Function(_$USubscribedLabelInfoImpl) _then)
-      : super(_value, _then);
+class _$USubscribedLabelInfoCopyWithImpl<$Res>
+    implements $USubscribedLabelInfoCopyWith<$Res> {
+  _$USubscribedLabelInfoCopyWithImpl(this._self, this._then);
+
+  final USubscribedLabelInfo _self;
+  final $Res Function(USubscribedLabelInfo) _then;
 
   /// Create a copy of SubscribedLabel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$USubscribedLabelInfoImpl(
+    return _then(USubscribedLabelInfo(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as SubscribedLabelInfo,
     ));
@@ -323,192 +237,21 @@ class __$$USubscribedLabelInfoImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $SubscribedLabelInfoCopyWith<$Res> get data {
-    return $SubscribedLabelInfoCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $SubscribedLabelInfoCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$USubscribedLabelInfoImpl implements USubscribedLabelInfo {
-  const _$USubscribedLabelInfoImpl({required this.data, final String? $type})
-      : $type = $type ?? 'info';
-
-  factory _$USubscribedLabelInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedLabelInfoImplFromJson(json);
-
-  @override
-  final SubscribedLabelInfo data;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'SubscribedLabel.info(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$USubscribedLabelInfoImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of SubscribedLabel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$USubscribedLabelInfoImplCopyWith<_$USubscribedLabelInfoImpl>
-      get copyWith =>
-          __$$USubscribedLabelInfoImplCopyWithImpl<_$USubscribedLabelInfoImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SubscribedLabelLabels data) labels,
-    required TResult Function(SubscribedLabelInfo data) info,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return info(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SubscribedLabelLabels data)? labels,
-    TResult? Function(SubscribedLabelInfo data)? info,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return info?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SubscribedLabelLabels data)? labels,
-    TResult Function(SubscribedLabelInfo data)? info,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (info != null) {
-      return info(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(USubscribedLabelLabels value) labels,
-    required TResult Function(USubscribedLabelInfo value) info,
-    required TResult Function(USubscribedLabelUnknown value) unknown,
-  }) {
-    return info(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubscribedLabelLabels value)? labels,
-    TResult? Function(USubscribedLabelInfo value)? info,
-    TResult? Function(USubscribedLabelUnknown value)? unknown,
-  }) {
-    return info?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubscribedLabelLabels value)? labels,
-    TResult Function(USubscribedLabelInfo value)? info,
-    TResult Function(USubscribedLabelUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (info != null) {
-      return info(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$USubscribedLabelInfoImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class USubscribedLabelInfo implements SubscribedLabel {
-  const factory USubscribedLabelInfo(
-      {required final SubscribedLabelInfo data}) = _$USubscribedLabelInfoImpl;
-
-  factory USubscribedLabelInfo.fromJson(Map<String, dynamic> json) =
-      _$USubscribedLabelInfoImpl.fromJson;
-
-  @override
-  SubscribedLabelInfo get data;
-
-  /// Create a copy of SubscribedLabel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$USubscribedLabelInfoImplCopyWith<_$USubscribedLabelInfoImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$USubscribedLabelUnknownImplCopyWith<$Res> {
-  factory _$$USubscribedLabelUnknownImplCopyWith(
-          _$USubscribedLabelUnknownImpl value,
-          $Res Function(_$USubscribedLabelUnknownImpl) then) =
-      __$$USubscribedLabelUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$USubscribedLabelUnknownImplCopyWithImpl<$Res>
-    extends _$SubscribedLabelCopyWithImpl<$Res, _$USubscribedLabelUnknownImpl>
-    implements _$$USubscribedLabelUnknownImplCopyWith<$Res> {
-  __$$USubscribedLabelUnknownImplCopyWithImpl(
-      _$USubscribedLabelUnknownImpl _value,
-      $Res Function(_$USubscribedLabelUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SubscribedLabel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$USubscribedLabelUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$USubscribedLabelUnknownImpl implements USubscribedLabelUnknown {
-  const _$USubscribedLabelUnknownImpl(
+class USubscribedLabelUnknown implements SubscribedLabel {
+  const USubscribedLabelUnknown(
       {required final Map<String, dynamic> data, final String? $type})
       : _data = data,
         $type = $type ?? 'unknown';
-
-  factory _$USubscribedLabelUnknownImpl.fromJson(Map<String, dynamic> json) =>
-      _$$USubscribedLabelUnknownImplFromJson(json);
+  factory USubscribedLabelUnknown.fromJson(Map<String, dynamic> json) =>
+      _$USubscribedLabelUnknownFromJson(json);
 
   final Map<String, dynamic> _data;
   @override
@@ -521,16 +264,26 @@ class _$USubscribedLabelUnknownImpl implements USubscribedLabelUnknown {
   @JsonKey(name: 'runtimeType')
   final String $type;
 
+  /// Create a copy of SubscribedLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $USubscribedLabelUnknownCopyWith<USubscribedLabelUnknown> get copyWith =>
+      _$USubscribedLabelUnknownCopyWithImpl<USubscribedLabelUnknown>(
+          this, _$identity);
+
   @override
-  String toString() {
-    return 'SubscribedLabel.unknown(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$USubscribedLabelUnknownToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$USubscribedLabelUnknownImpl &&
+            other is USubscribedLabelUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -539,105 +292,43 @@ class _$USubscribedLabelUnknownImpl implements USubscribedLabelUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'SubscribedLabel.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $USubscribedLabelUnknownCopyWith<$Res>
+    implements $SubscribedLabelCopyWith<$Res> {
+  factory $USubscribedLabelUnknownCopyWith(USubscribedLabelUnknown value,
+          $Res Function(USubscribedLabelUnknown) _then) =
+      _$USubscribedLabelUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$USubscribedLabelUnknownCopyWithImpl<$Res>
+    implements $USubscribedLabelUnknownCopyWith<$Res> {
+  _$USubscribedLabelUnknownCopyWithImpl(this._self, this._then);
+
+  final USubscribedLabelUnknown _self;
+  final $Res Function(USubscribedLabelUnknown) _then;
+
   /// Create a copy of SubscribedLabel
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$USubscribedLabelUnknownImplCopyWith<_$USubscribedLabelUnknownImpl>
-      get copyWith => __$$USubscribedLabelUnknownImplCopyWithImpl<
-          _$USubscribedLabelUnknownImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(SubscribedLabelLabels data) labels,
-    required TResult Function(SubscribedLabelInfo data) info,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SubscribedLabelLabels data)? labels,
-    TResult? Function(SubscribedLabelInfo data)? info,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SubscribedLabelLabels data)? labels,
-    TResult Function(SubscribedLabelInfo data)? info,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(USubscribedLabelLabels value) labels,
-    required TResult Function(USubscribedLabelInfo value) info,
-    required TResult Function(USubscribedLabelUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubscribedLabelLabels value)? labels,
-    TResult? Function(USubscribedLabelInfo value)? info,
-    TResult? Function(USubscribedLabelUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubscribedLabelLabels value)? labels,
-    TResult Function(USubscribedLabelInfo value)? info,
-    TResult Function(USubscribedLabelUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$USubscribedLabelUnknownImplToJson(
-      this,
-    );
+    return _then(USubscribedLabelUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class USubscribedLabelUnknown implements SubscribedLabel {
-  const factory USubscribedLabelUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$USubscribedLabelUnknownImpl;
-
-  factory USubscribedLabelUnknown.fromJson(Map<String, dynamic> json) =
-      _$USubscribedLabelUnknownImpl.fromJson;
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of SubscribedLabel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$USubscribedLabelUnknownImplCopyWith<_$USubscribedLabelUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

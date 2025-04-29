@@ -9,7 +9,7 @@ part 'generator_feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describefeedgenerator/#links
 @freezed
-class GeneratorFeed with _$GeneratorFeed {
+abstract class GeneratorFeed with _$GeneratorFeed {
   @jsonSerializable
   const factory GeneratorFeed({
     @AtUriConverter() required AtUri uri,

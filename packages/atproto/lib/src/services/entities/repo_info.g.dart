@@ -8,11 +8,11 @@ part of 'repo_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RepoInfoImpl _$$RepoInfoImplFromJson(Map json) => $checkedCreate(
-      r'_$RepoInfoImpl',
+_RepoInfo _$RepoInfoFromJson(Map json) => $checkedCreate(
+      '_RepoInfo',
       json,
       ($checkedConvert) {
-        final val = _$RepoInfoImpl(
+        final val = _RepoInfo(
           handle: $checkedConvert('handle', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String),
           didDoc: $checkedConvert(
@@ -27,8 +27,7 @@ _$RepoInfoImpl _$$RepoInfoImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'hasCorrectHandle': 'handleIsCorrect'},
     );
 
-Map<String, dynamic> _$$RepoInfoImplToJson(_$RepoInfoImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$RepoInfoToJson(_RepoInfo instance) => <String, dynamic>{
       'handle': instance.handle,
       'did': instance.did,
       'didDoc': instance.didDoc,

@@ -7,7 +7,7 @@ part 'lex_ref.freezed.dart';
 part 'lex_ref.g.dart';
 
 @freezed
-class LexRef with _$LexRef {
+abstract class LexRef with _$LexRef {
   @JsonSerializable(includeIfNull: false)
   const factory LexRef({
     @Default('ref') String type,

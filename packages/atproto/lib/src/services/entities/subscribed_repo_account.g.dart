@@ -8,11 +8,11 @@ part of 'subscribed_repo_account.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AccountImpl _$$AccountImplFromJson(Map json) => $checkedCreate(
-      r'_$AccountImpl',
+_Account _$AccountFromJson(Map json) => $checkedCreate(
+      '_Account',
       json,
       ($checkedConvert) {
-        final val = _$AccountImpl(
+        final val = _Account(
           seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           did: $checkedConvert('did', (v) => v as String),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
@@ -23,8 +23,7 @@ _$AccountImpl _$$AccountImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$AccountImplToJson(_$AccountImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$AccountToJson(_Account instance) => <String, dynamic>{
       'seq': instance.seq,
       'did': instance.did,
       'time': instance.time.toIso8601String(),

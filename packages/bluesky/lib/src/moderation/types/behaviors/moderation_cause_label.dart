@@ -18,7 +18,7 @@ const _assertEvalPriority = 'priority == 1 || '
     'priority == 8';
 
 @modObject
-class ModerationCauseLabel with _$ModerationCauseLabel {
+abstract class ModerationCauseLabel with _$ModerationCauseLabel {
   const factory ModerationCauseLabel({
     required ModerationCauseSource source,
     required Label label,

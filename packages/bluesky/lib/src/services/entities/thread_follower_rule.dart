@@ -12,7 +12,7 @@ part 'thread_follower_rule.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#followerrule
 @freezed
-class ThreadFollowerRule with _$ThreadFollowerRule {
+abstract class ThreadFollowerRule with _$ThreadFollowerRule {
   @jsonSerializable
   const factory ThreadFollowerRule({
     @typeKey @Default(appBskyFeedThreadgateFollowerRule) String type,

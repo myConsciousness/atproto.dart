@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,83 +10,59 @@ part of 'generator_feed.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GeneratorFeed _$GeneratorFeedFromJson(Map<String, dynamic> json) {
-  return _GeneratorFeed.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GeneratorFeed {
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-
-  /// Serializes this GeneratorFeed to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
 
   /// Create a copy of GeneratorFeed
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GeneratorFeedCopyWith<GeneratorFeed> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GeneratorFeedCopyWith<$Res> {
-  factory $GeneratorFeedCopyWith(
-          GeneratorFeed value, $Res Function(GeneratorFeed) then) =
-      _$GeneratorFeedCopyWithImpl<$Res, GeneratorFeed>;
-  @useResult
-  $Res call({@AtUriConverter() AtUri uri});
-}
-
-/// @nodoc
-class _$GeneratorFeedCopyWithImpl<$Res, $Val extends GeneratorFeed>
-    implements $GeneratorFeedCopyWith<$Res> {
-  _$GeneratorFeedCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GeneratorFeed
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $GeneratorFeedCopyWith<GeneratorFeed> get copyWith =>
+      _$GeneratorFeedCopyWithImpl<GeneratorFeed>(
+          this as GeneratorFeed, _$identity);
+
+  /// Serializes this GeneratorFeed to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? uri = null,
-  }) {
-    return _then(_value.copyWith(
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GeneratorFeed &&
+            (identical(other.uri, uri) || other.uri == uri));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, uri);
+
+  @override
+  String toString() {
+    return 'GeneratorFeed(uri: $uri)';
   }
 }
 
 /// @nodoc
-abstract class _$$GeneratorFeedImplCopyWith<$Res>
-    implements $GeneratorFeedCopyWith<$Res> {
-  factory _$$GeneratorFeedImplCopyWith(
-          _$GeneratorFeedImpl value, $Res Function(_$GeneratorFeedImpl) then) =
-      __$$GeneratorFeedImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GeneratorFeedCopyWith<$Res> {
+  factory $GeneratorFeedCopyWith(
+          GeneratorFeed value, $Res Function(GeneratorFeed) _then) =
+      _$GeneratorFeedCopyWithImpl;
   @useResult
   $Res call({@AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
-class __$$GeneratorFeedImplCopyWithImpl<$Res>
-    extends _$GeneratorFeedCopyWithImpl<$Res, _$GeneratorFeedImpl>
-    implements _$$GeneratorFeedImplCopyWith<$Res> {
-  __$$GeneratorFeedImplCopyWithImpl(
-      _$GeneratorFeedImpl _value, $Res Function(_$GeneratorFeedImpl) _then)
-      : super(_value, _then);
+class _$GeneratorFeedCopyWithImpl<$Res>
+    implements $GeneratorFeedCopyWith<$Res> {
+  _$GeneratorFeedCopyWithImpl(this._self, this._then);
+
+  final GeneratorFeed _self;
+  final $Res Function(GeneratorFeed) _then;
 
   /// Create a copy of GeneratorFeed
   /// with the given fields replaced by the non-null parameter values.
@@ -94,9 +71,9 @@ class __$$GeneratorFeedImplCopyWithImpl<$Res>
   $Res call({
     Object? uri = null,
   }) {
-    return _then(_$GeneratorFeedImpl(
+    return _then(_self.copyWith(
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
     ));
@@ -106,26 +83,35 @@ class __$$GeneratorFeedImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GeneratorFeedImpl implements _GeneratorFeed {
-  const _$GeneratorFeedImpl({@AtUriConverter() required this.uri});
-
-  factory _$GeneratorFeedImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GeneratorFeedImplFromJson(json);
+class _GeneratorFeed implements GeneratorFeed {
+  const _GeneratorFeed({@AtUriConverter() required this.uri});
+  factory _GeneratorFeed.fromJson(Map<String, dynamic> json) =>
+      _$GeneratorFeedFromJson(json);
 
   @override
   @AtUriConverter()
   final AtUri uri;
 
+  /// Create a copy of GeneratorFeed
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GeneratorFeed(uri: $uri)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GeneratorFeedCopyWith<_GeneratorFeed> get copyWith =>
+      __$GeneratorFeedCopyWithImpl<_GeneratorFeed>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GeneratorFeedToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GeneratorFeedImpl &&
+            other is _GeneratorFeed &&
             (identical(other.uri, uri) || other.uri == uri));
   }
 
@@ -133,37 +119,45 @@ class _$GeneratorFeedImpl implements _GeneratorFeed {
   @override
   int get hashCode => Object.hash(runtimeType, uri);
 
-  /// Create a copy of GeneratorFeed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GeneratorFeedImplCopyWith<_$GeneratorFeedImpl> get copyWith =>
-      __$$GeneratorFeedImplCopyWithImpl<_$GeneratorFeedImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GeneratorFeedImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GeneratorFeed(uri: $uri)';
   }
 }
 
-abstract class _GeneratorFeed implements GeneratorFeed {
-  const factory _GeneratorFeed({@AtUriConverter() required final AtUri uri}) =
-      _$GeneratorFeedImpl;
-
-  factory _GeneratorFeed.fromJson(Map<String, dynamic> json) =
-      _$GeneratorFeedImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$GeneratorFeedCopyWith<$Res>
+    implements $GeneratorFeedCopyWith<$Res> {
+  factory _$GeneratorFeedCopyWith(
+          _GeneratorFeed value, $Res Function(_GeneratorFeed) _then) =
+      __$GeneratorFeedCopyWithImpl;
   @override
-  @AtUriConverter()
-  AtUri get uri;
+  @useResult
+  $Res call({@AtUriConverter() AtUri uri});
+}
+
+/// @nodoc
+class __$GeneratorFeedCopyWithImpl<$Res>
+    implements _$GeneratorFeedCopyWith<$Res> {
+  __$GeneratorFeedCopyWithImpl(this._self, this._then);
+
+  final _GeneratorFeed _self;
+  final $Res Function(_GeneratorFeed) _then;
 
   /// Create a copy of GeneratorFeed
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GeneratorFeedImplCopyWith<_$GeneratorFeedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? uri = null,
+  }) {
+    return _then(_GeneratorFeed(
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+    ));
+  }
 }
+
+// dart format on

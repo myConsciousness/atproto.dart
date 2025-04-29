@@ -12,7 +12,7 @@ part 'thread_rule.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#input
 @freezed
-class ThreadRule with _$ThreadRule {
+abstract class ThreadRule with _$ThreadRule {
   // ignore: unused_element
   const ThreadRule._();
 

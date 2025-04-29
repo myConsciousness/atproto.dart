@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,173 +10,32 @@ part of 'log_create_message.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LogCreateMessage _$LogCreateMessageFromJson(Map<String, dynamic> json) {
-  return _LogCreateMessage.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LogCreateMessage {
-  String get rev => throw _privateConstructorUsedError;
-  String get convoId => throw _privateConstructorUsedError;
+  String get rev;
+  String get convoId;
   @unionConvoMessageViewConverter
-  UConvoMessageView get message => throw _privateConstructorUsedError;
-
-  /// Serializes this LogCreateMessage to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  UConvoMessageView get message;
 
   /// Create a copy of LogCreateMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $LogCreateMessageCopyWith<LogCreateMessage> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$LogCreateMessageCopyWithImpl<LogCreateMessage>(
+          this as LogCreateMessage, _$identity);
 
-/// @nodoc
-abstract class $LogCreateMessageCopyWith<$Res> {
-  factory $LogCreateMessageCopyWith(
-          LogCreateMessage value, $Res Function(LogCreateMessage) then) =
-      _$LogCreateMessageCopyWithImpl<$Res, LogCreateMessage>;
-  @useResult
-  $Res call(
-      {String rev,
-      String convoId,
-      @unionConvoMessageViewConverter UConvoMessageView message});
-
-  $UConvoMessageViewCopyWith<$Res> get message;
-}
-
-/// @nodoc
-class _$LogCreateMessageCopyWithImpl<$Res, $Val extends LogCreateMessage>
-    implements $LogCreateMessageCopyWith<$Res> {
-  _$LogCreateMessageCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LogCreateMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rev = null,
-    Object? convoId = null,
-    Object? message = null,
-  }) {
-    return _then(_value.copyWith(
-      rev: null == rev
-          ? _value.rev
-          : rev // ignore: cast_nullable_to_non_nullable
-              as String,
-      convoId: null == convoId
-          ? _value.convoId
-          : convoId // ignore: cast_nullable_to_non_nullable
-              as String,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageView,
-    ) as $Val);
-  }
-
-  /// Create a copy of LogCreateMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UConvoMessageViewCopyWith<$Res> get message {
-    return $UConvoMessageViewCopyWith<$Res>(_value.message, (value) {
-      return _then(_value.copyWith(message: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$LogCreateMessageImplCopyWith<$Res>
-    implements $LogCreateMessageCopyWith<$Res> {
-  factory _$$LogCreateMessageImplCopyWith(_$LogCreateMessageImpl value,
-          $Res Function(_$LogCreateMessageImpl) then) =
-      __$$LogCreateMessageImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String rev,
-      String convoId,
-      @unionConvoMessageViewConverter UConvoMessageView message});
-
-  @override
-  $UConvoMessageViewCopyWith<$Res> get message;
-}
-
-/// @nodoc
-class __$$LogCreateMessageImplCopyWithImpl<$Res>
-    extends _$LogCreateMessageCopyWithImpl<$Res, _$LogCreateMessageImpl>
-    implements _$$LogCreateMessageImplCopyWith<$Res> {
-  __$$LogCreateMessageImplCopyWithImpl(_$LogCreateMessageImpl _value,
-      $Res Function(_$LogCreateMessageImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LogCreateMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rev = null,
-    Object? convoId = null,
-    Object? message = null,
-  }) {
-    return _then(_$LogCreateMessageImpl(
-      rev: null == rev
-          ? _value.rev
-          : rev // ignore: cast_nullable_to_non_nullable
-              as String,
-      convoId: null == convoId
-          ? _value.convoId
-          : convoId // ignore: cast_nullable_to_non_nullable
-              as String,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageView,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$LogCreateMessageImpl implements _LogCreateMessage {
-  const _$LogCreateMessageImpl(
-      {required this.rev,
-      required this.convoId,
-      @unionConvoMessageViewConverter required this.message});
-
-  factory _$LogCreateMessageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LogCreateMessageImplFromJson(json);
-
-  @override
-  final String rev;
-  @override
-  final String convoId;
-  @override
-  @unionConvoMessageViewConverter
-  final UConvoMessageView message;
-
-  @override
-  String toString() {
-    return 'LogCreateMessage(rev: $rev, convoId: $convoId, message: $message)';
-  }
+  /// Serializes this LogCreateMessage to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LogCreateMessageImpl &&
+            other is LogCreateMessage &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.convoId, convoId) || other.convoId == convoId) &&
             (identical(other.message, message) || other.message == message));
@@ -185,45 +45,183 @@ class _$LogCreateMessageImpl implements _LogCreateMessage {
   @override
   int get hashCode => Object.hash(runtimeType, rev, convoId, message);
 
-  /// Create a copy of LogCreateMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LogCreateMessageImplCopyWith<_$LogCreateMessageImpl> get copyWith =>
-      __$$LogCreateMessageImplCopyWithImpl<_$LogCreateMessageImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LogCreateMessageImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LogCreateMessage(rev: $rev, convoId: $convoId, message: $message)';
   }
 }
 
-abstract class _LogCreateMessage implements LogCreateMessage {
-  const factory _LogCreateMessage(
-      {required final String rev,
-      required final String convoId,
-      @unionConvoMessageViewConverter
-      required final UConvoMessageView message}) = _$LogCreateMessageImpl;
+/// @nodoc
+abstract mixin class $LogCreateMessageCopyWith<$Res> {
+  factory $LogCreateMessageCopyWith(
+          LogCreateMessage value, $Res Function(LogCreateMessage) _then) =
+      _$LogCreateMessageCopyWithImpl;
+  @useResult
+  $Res call(
+      {String rev,
+      String convoId,
+      @unionConvoMessageViewConverter UConvoMessageView message});
 
-  factory _LogCreateMessage.fromJson(Map<String, dynamic> json) =
-      _$LogCreateMessageImpl.fromJson;
+  $UConvoMessageViewCopyWith<$Res> get message;
+}
+
+/// @nodoc
+class _$LogCreateMessageCopyWithImpl<$Res>
+    implements $LogCreateMessageCopyWith<$Res> {
+  _$LogCreateMessageCopyWithImpl(this._self, this._then);
+
+  final LogCreateMessage _self;
+  final $Res Function(LogCreateMessage) _then;
+
+  /// Create a copy of LogCreateMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rev = null,
+    Object? convoId = null,
+    Object? message = null,
+  }) {
+    return _then(_self.copyWith(
+      rev: null == rev
+          ? _self.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
+      convoId: null == convoId
+          ? _self.convoId
+          : convoId // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as UConvoMessageView,
+    ));
+  }
+
+  /// Create a copy of LogCreateMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UConvoMessageViewCopyWith<$Res> get message {
+    return $UConvoMessageViewCopyWith<$Res>(_self.message, (value) {
+      return _then(_self.copyWith(message: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _LogCreateMessage implements LogCreateMessage {
+  const _LogCreateMessage(
+      {required this.rev,
+      required this.convoId,
+      @unionConvoMessageViewConverter required this.message});
+  factory _LogCreateMessage.fromJson(Map<String, dynamic> json) =>
+      _$LogCreateMessageFromJson(json);
 
   @override
-  String get rev;
+  final String rev;
   @override
-  String get convoId;
+  final String convoId;
   @override
   @unionConvoMessageViewConverter
-  UConvoMessageView get message;
+  final UConvoMessageView message;
 
   /// Create a copy of LogCreateMessage
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LogCreateMessageImplCopyWith<_$LogCreateMessageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$LogCreateMessageCopyWith<_LogCreateMessage> get copyWith =>
+      __$LogCreateMessageCopyWithImpl<_LogCreateMessage>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LogCreateMessageToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LogCreateMessage &&
+            (identical(other.rev, rev) || other.rev == rev) &&
+            (identical(other.convoId, convoId) || other.convoId == convoId) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, rev, convoId, message);
+
+  @override
+  String toString() {
+    return 'LogCreateMessage(rev: $rev, convoId: $convoId, message: $message)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$LogCreateMessageCopyWith<$Res>
+    implements $LogCreateMessageCopyWith<$Res> {
+  factory _$LogCreateMessageCopyWith(
+          _LogCreateMessage value, $Res Function(_LogCreateMessage) _then) =
+      __$LogCreateMessageCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String rev,
+      String convoId,
+      @unionConvoMessageViewConverter UConvoMessageView message});
+
+  @override
+  $UConvoMessageViewCopyWith<$Res> get message;
+}
+
+/// @nodoc
+class __$LogCreateMessageCopyWithImpl<$Res>
+    implements _$LogCreateMessageCopyWith<$Res> {
+  __$LogCreateMessageCopyWithImpl(this._self, this._then);
+
+  final _LogCreateMessage _self;
+  final $Res Function(_LogCreateMessage) _then;
+
+  /// Create a copy of LogCreateMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? rev = null,
+    Object? convoId = null,
+    Object? message = null,
+  }) {
+    return _then(_LogCreateMessage(
+      rev: null == rev
+          ? _self.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
+      convoId: null == convoId
+          ? _self.convoId
+          : convoId // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as UConvoMessageView,
+    ));
+  }
+
+  /// Create a copy of LogCreateMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UConvoMessageViewCopyWith<$Res> get message {
+    return $UConvoMessageViewCopyWith<$Res>(_self.message, (value) {
+      return _then(_self.copyWith(message: value));
+    });
+  }
+}
+
+// dart format on

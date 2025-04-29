@@ -56,13 +56,23 @@ final class _LexXrpcParametersPropertyConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexXrpcParametersProperty object) => object.when(
-        primitiveArray: (data) => data.toJson(),
-        primitive: (data) => data.when(
-          boolean: (data) => data.toJson(),
-          integer: (data) => data.toJson(),
-          string: (data) => data.toJson(),
-          unknown: (data) => data.toJson(),
-        ),
-      );
+  Map<String, dynamic> toJson(LexXrpcParametersProperty object) =>
+      switch (object) {
+        ULexXrpcParametersPropertyPrimitiveArray(data: final data) =>
+          data.toJson(),
+        ULexXrpcParametersPropertyPrimitive(data: final data) => switch (data) {
+            ULexPrimitiveBoolean(data: final data) => data.toJson(),
+            ULexPrimitiveInteger(data: final data) => data.toJson(),
+            ULexPrimitiveString(data: final data) => data.toJson(),
+            ULexPrimitiveUnknown(data: final data) => data.toJson(),
+            // Add wildcard case for inner switch exhaustiveness
+            _ => throw UnimplementedError(
+                'Unknown LexPrimitive type: ${data.runtimeType}',
+              ),
+          },
+        // Add wildcard case for outer switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown LexXrpcParametersProperty type: ${object.runtimeType}',
+          ),
+      };
 }

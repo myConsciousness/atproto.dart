@@ -9,7 +9,7 @@ part 'repos.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listrepos/#output
 @freezed
-class Repos with _$Repos {
+abstract class Repos with _$Repos {
   const factory Repos({
     required List<Repo> repos,
     String? cursor,

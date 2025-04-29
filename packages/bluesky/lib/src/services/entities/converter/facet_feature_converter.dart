@@ -42,10 +42,13 @@ final class _FacetFeatureConverter
   }
 
   @override
-  Map<String, dynamic> toJson(FacetFeature object) => object.when(
-        mention: (data) => data.toJson(),
-        link: (data) => data.toJson(),
-        tag: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(FacetFeature object) => switch (object) {
+        UFacetFeatureMention(data: final data) => data.toJson(),
+        UFacetFeatureLink(data: final data) => data.toJson(),
+        UFacetFeatureTag(data: final data) => data.toJson(),
+        UFacetFeatureUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown FacetFeature type: ${object.runtimeType}'),
+      };
 }

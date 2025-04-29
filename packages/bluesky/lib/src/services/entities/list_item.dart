@@ -12,7 +12,7 @@ part 'list_item.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listitemview
 @freezed
-class ListItem with _$ListItem {
+abstract class ListItem with _$ListItem {
   const factory ListItem({
     @AtUriConverter() required AtUri uri,
     required Actor subject,

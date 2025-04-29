@@ -8,12 +8,12 @@ part of 'length_exceeded_entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LengthExceededEntityImpl _$$LengthExceededEntityImplFromJson(Map json) =>
+_LengthExceededEntity _$LengthExceededEntityFromJson(Map json) =>
     $checkedCreate(
-      r'_$LengthExceededEntityImpl',
+      '_LengthExceededEntity',
       json,
       ($checkedConvert) {
-        final val = _$LengthExceededEntityImpl(
+        final val = _LengthExceededEntity(
           value: $checkedConvert('value', (v) => v as String),
           indices: $checkedConvert('indices',
               (v) => ByteIndices.fromJson(Map<String, Object?>.from(v as Map))),
@@ -22,8 +22,8 @@ _$LengthExceededEntityImpl _$$LengthExceededEntityImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$LengthExceededEntityImplToJson(
-        _$LengthExceededEntityImpl instance) =>
+Map<String, dynamic> _$LengthExceededEntityToJson(
+        _LengthExceededEntity instance) =>
     <String, dynamic>{
       'value': instance.value,
       'indices': instance.indices.toJson(),

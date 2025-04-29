@@ -14,7 +14,7 @@ part 'grouped_notification.g.dart';
 
 /// A class that encapsulates a grouped notification.
 @freezed
-class GroupedNotification with _$GroupedNotification {
+abstract class GroupedNotification with _$GroupedNotification {
   /// Creates a new instance of [GroupedNotification].
   @jsonSerializable
   const factory GroupedNotification({

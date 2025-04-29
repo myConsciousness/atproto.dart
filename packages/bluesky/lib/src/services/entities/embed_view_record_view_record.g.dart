@@ -8,13 +8,12 @@ part of 'embed_view_record_view_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedViewRecordViewRecordImpl _$$EmbedViewRecordViewRecordImplFromJson(
-        Map json) =>
+_EmbedViewRecordViewRecord _$EmbedViewRecordViewRecordFromJson(Map json) =>
     $checkedCreate(
-      r'_$EmbedViewRecordViewRecordImpl',
+      '_EmbedViewRecordViewRecord',
       json,
       ($checkedConvert) {
-        final val = _$EmbedViewRecordViewRecordImpl(
+        final val = _EmbedViewRecordViewRecord(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordViewRecord),
           uri: $checkedConvert(
@@ -52,8 +51,8 @@ _$EmbedViewRecordViewRecordImpl _$$EmbedViewRecordViewRecordImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$EmbedViewRecordViewRecordImplToJson(
-        _$EmbedViewRecordViewRecordImpl instance) =>
+Map<String, dynamic> _$EmbedViewRecordViewRecordToJson(
+        _EmbedViewRecordViewRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),

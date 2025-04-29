@@ -39,10 +39,14 @@ final class _CompatibleOpOrTombstoneConverter
   }
 
   @override
-  Map<String, dynamic> toJson(CompatibleOpOrTombstone object) => object.when(
-        op: (data) => data.toJson(),
-        tombstone: (data) => data.toJson(),
-        createOpV1: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(CompatibleOpOrTombstone object) =>
+      switch (object) {
+        UCompatibleOpOrTombstoneOp(data: final v) => v.toJson(),
+        UCompatibleOpOrTombstoneTombstone(data: final v) => v.toJson(),
+        UCompatibleOpOrTombstoneCreateOperationV1(data: final v) => v.toJson(),
+        UCompatibleOpOrTombstoneUnknown(data: final v) => v,
+        // Add wildcard to satisfy exhaustiveness check
+        _ => throw UnimplementedError(
+            'Unknown CompatibleOpOrTombstone type: ${object.runtimeType}'),
+      };
 }

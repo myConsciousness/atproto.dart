@@ -9,7 +9,7 @@ part 'embed_external_thumbnail.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#viewexternal
 @freezed
-class EmbedExternalThumbnail with _$EmbedExternalThumbnail {
+abstract class EmbedExternalThumbnail with _$EmbedExternalThumbnail {
   @jsonSerializable
   const factory EmbedExternalThumbnail({
     required String uri,

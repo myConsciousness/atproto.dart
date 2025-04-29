@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,42 +10,75 @@ part of 'generator_param.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GeneratorParam _$GeneratorParamFromJson(Map<String, dynamic> json) {
-  return _GeneratorParam.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GeneratorParam {
-  String get did => throw _privateConstructorUsedError;
-  String get displayName => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
-  Blob? get avatar => throw _privateConstructorUsedError;
+  String get did;
+  String get displayName;
+  String? get description;
+  List<Facet>? get descriptionFacets;
+  Blob? get avatar;
   @labelsConverter
-  Labels? get labels => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
-
-  /// Serializes this GeneratorParam to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Labels? get labels;
+  DateTime? get createdAt;
+  Map<String, dynamic> get unspecced;
 
   /// Create a copy of GeneratorParam
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $GeneratorParamCopyWith<GeneratorParam> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$GeneratorParamCopyWithImpl<GeneratorParam>(
+          this as GeneratorParam, _$identity);
+
+  /// Serializes this GeneratorParam to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GeneratorParam &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            const DeepCollectionEquality()
+                .equals(other.descriptionFacets, descriptionFacets) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other.unspecced, unspecced));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      did,
+      displayName,
+      description,
+      const DeepCollectionEquality().hash(descriptionFacets),
+      avatar,
+      labels,
+      createdAt,
+      const DeepCollectionEquality().hash(unspecced));
+
+  @override
+  String toString() {
+    return 'GeneratorParam(did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
+  }
 }
 
 /// @nodoc
-abstract class $GeneratorParamCopyWith<$Res> {
+abstract mixin class $GeneratorParamCopyWith<$Res> {
   factory $GeneratorParamCopyWith(
-          GeneratorParam value, $Res Function(GeneratorParam) then) =
-      _$GeneratorParamCopyWithImpl<$Res, GeneratorParam>;
+          GeneratorParam value, $Res Function(GeneratorParam) _then) =
+      _$GeneratorParamCopyWithImpl;
   @useResult
   $Res call(
       {String did,
@@ -61,14 +95,12 @@ abstract class $GeneratorParamCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
+class _$GeneratorParamCopyWithImpl<$Res>
     implements $GeneratorParamCopyWith<$Res> {
-  _$GeneratorParamCopyWithImpl(this._value, this._then);
+  _$GeneratorParamCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final GeneratorParam _self;
+  final $Res Function(GeneratorParam) _then;
 
   /// Create a copy of GeneratorParam
   /// with the given fields replaced by the non-null parameter values.
@@ -84,40 +116,40 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       displayName: null == displayName
-          ? _value.displayName
+          ? _self.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String,
       description: freezed == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       descriptionFacets: freezed == descriptionFacets
-          ? _value.descriptionFacets
+          ? _self.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
               as List<Facet>?,
       avatar: freezed == avatar
-          ? _value.avatar
+          ? _self.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
       createdAt: freezed == createdAt
-          ? _value.createdAt
+          ? _self.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       unspecced: null == unspecced
-          ? _value.unspecced
+          ? _self.unspecced
           : unspecced // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of GeneratorParam
@@ -125,12 +157,12 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get avatar {
-    if (_value.avatar == null) {
+    if (_self.avatar == null) {
       return null;
     }
 
-    return $BlobCopyWith<$Res>(_value.avatar!, (value) {
-      return _then(_value.copyWith(avatar: value) as $Val);
+    return $BlobCopyWith<$Res>(_self.avatar!, (value) {
+      return _then(_self.copyWith(avatar: value));
     });
   }
 
@@ -139,104 +171,21 @@ class _$GeneratorParamCopyWithImpl<$Res, $Val extends GeneratorParam>
   @override
   @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
-    if (_value.labels == null) {
+    if (_self.labels == null) {
       return null;
     }
 
-    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
-      return _then(_value.copyWith(labels: value) as $Val);
+    return $LabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$GeneratorParamImplCopyWith<$Res>
-    implements $GeneratorParamCopyWith<$Res> {
-  factory _$$GeneratorParamImplCopyWith(_$GeneratorParamImpl value,
-          $Res Function(_$GeneratorParamImpl) then) =
-      __$$GeneratorParamImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String did,
-      String displayName,
-      String? description,
-      List<Facet>? descriptionFacets,
-      Blob? avatar,
-      @labelsConverter Labels? labels,
-      DateTime? createdAt,
-      Map<String, dynamic> unspecced});
-
-  @override
-  $BlobCopyWith<$Res>? get avatar;
-  @override
-  $LabelsCopyWith<$Res>? get labels;
-}
-
-/// @nodoc
-class __$$GeneratorParamImplCopyWithImpl<$Res>
-    extends _$GeneratorParamCopyWithImpl<$Res, _$GeneratorParamImpl>
-    implements _$$GeneratorParamImplCopyWith<$Res> {
-  __$$GeneratorParamImplCopyWithImpl(
-      _$GeneratorParamImpl _value, $Res Function(_$GeneratorParamImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of GeneratorParam
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? did = null,
-    Object? displayName = null,
-    Object? description = freezed,
-    Object? descriptionFacets = freezed,
-    Object? avatar = freezed,
-    Object? labels = freezed,
-    Object? createdAt = freezed,
-    Object? unspecced = null,
-  }) {
-    return _then(_$GeneratorParamImpl(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: null == displayName
-          ? _value.displayName
-          : displayName // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      descriptionFacets: freezed == descriptionFacets
-          ? _value._descriptionFacets
-          : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
-      avatar: freezed == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as Blob?,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      unspecced: null == unspecced
-          ? _value._unspecced
-          : unspecced // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$GeneratorParamImpl implements _GeneratorParam {
-  const _$GeneratorParamImpl(
+class _GeneratorParam implements GeneratorParam {
+  const _GeneratorParam(
       {required this.did,
       required this.displayName,
       this.description,
@@ -247,9 +196,8 @@ class _$GeneratorParamImpl implements _GeneratorParam {
       final Map<String, dynamic> unspecced = emptyJson})
       : _descriptionFacets = descriptionFacets,
         _unspecced = unspecced;
-
-  factory _$GeneratorParamImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GeneratorParamImplFromJson(json);
+  factory _GeneratorParam.fromJson(Map<String, dynamic> json) =>
+      _$GeneratorParamFromJson(json);
 
   @override
   final String did;
@@ -284,16 +232,26 @@ class _$GeneratorParamImpl implements _GeneratorParam {
     return EqualUnmodifiableMapView(_unspecced);
   }
 
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GeneratorParam(did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GeneratorParamCopyWith<_GeneratorParam> get copyWith =>
+      __$GeneratorParamCopyWithImpl<_GeneratorParam>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GeneratorParamToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GeneratorParamImpl &&
+            other is _GeneratorParam &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
@@ -322,59 +280,121 @@ class _$GeneratorParamImpl implements _GeneratorParam {
       createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
-  /// Create a copy of GeneratorParam
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GeneratorParamImplCopyWith<_$GeneratorParamImpl> get copyWith =>
-      __$$GeneratorParamImplCopyWithImpl<_$GeneratorParamImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GeneratorParamImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GeneratorParam(did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
   }
 }
 
-abstract class _GeneratorParam implements GeneratorParam {
-  const factory _GeneratorParam(
-      {required final String did,
-      required final String displayName,
-      final String? description,
-      final List<Facet>? descriptionFacets,
-      final Blob? avatar,
-      @labelsConverter final Labels? labels,
-      final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$GeneratorParamImpl;
+/// @nodoc
+abstract mixin class _$GeneratorParamCopyWith<$Res>
+    implements $GeneratorParamCopyWith<$Res> {
+  factory _$GeneratorParamCopyWith(
+          _GeneratorParam value, $Res Function(_GeneratorParam) _then) =
+      __$GeneratorParamCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String did,
+      String displayName,
+      String? description,
+      List<Facet>? descriptionFacets,
+      Blob? avatar,
+      @labelsConverter Labels? labels,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
-  factory _GeneratorParam.fromJson(Map<String, dynamic> json) =
-      _$GeneratorParamImpl.fromJson;
+  @override
+  $BlobCopyWith<$Res>? get avatar;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
+}
 
-  @override
-  String get did;
-  @override
-  String get displayName;
-  @override
-  String? get description;
-  @override
-  List<Facet>? get descriptionFacets;
-  @override
-  Blob? get avatar;
-  @override
-  @labelsConverter
-  Labels? get labels;
-  @override
-  DateTime? get createdAt;
-  @override
-  Map<String, dynamic> get unspecced;
+/// @nodoc
+class __$GeneratorParamCopyWithImpl<$Res>
+    implements _$GeneratorParamCopyWith<$Res> {
+  __$GeneratorParamCopyWithImpl(this._self, this._then);
+
+  final _GeneratorParam _self;
+  final $Res Function(_GeneratorParam) _then;
 
   /// Create a copy of GeneratorParam
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GeneratorParamImplCopyWith<_$GeneratorParamImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+    Object? displayName = null,
+    Object? description = freezed,
+    Object? descriptionFacets = freezed,
+    Object? avatar = freezed,
+    Object? labels = freezed,
+    Object? createdAt = freezed,
+    Object? unspecced = null,
+  }) {
+    return _then(_GeneratorParam(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: null == displayName
+          ? _self.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      descriptionFacets: freezed == descriptionFacets
+          ? _self._descriptionFacets
+          : descriptionFacets // ignore: cast_nullable_to_non_nullable
+              as List<Facet>?,
+      avatar: freezed == avatar
+          ? _self.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as Blob?,
+      labels: freezed == labels
+          ? _self.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
+      createdAt: freezed == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      unspecced: null == unspecced
+          ? _self._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BlobCopyWith<$Res>? get avatar {
+    if (_self.avatar == null) {
+      return null;
+    }
+
+    return $BlobCopyWith<$Res>(_self.avatar!, (value) {
+      return _then(_self.copyWith(avatar: value));
+    });
+  }
+
+  /// Create a copy of GeneratorParam
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_self.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
+    });
+  }
 }
+
+// dart format on

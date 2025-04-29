@@ -8,11 +8,11 @@ part of 'list_item_param.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListItemParamImpl _$$ListItemParamImplFromJson(Map json) => $checkedCreate(
-      r'_$ListItemParamImpl',
+_ListItemParam _$ListItemParamFromJson(Map json) => $checkedCreate(
+      '_ListItemParam',
       json,
       ($checkedConvert) {
-        final val = _$ListItemParamImpl(
+        final val = _ListItemParam(
           subject: $checkedConvert('subject', (v) => v as String),
           list: $checkedConvert(
               'list', (v) => const AtUriConverter().fromJson(v as String)),
@@ -30,7 +30,7 @@ _$ListItemParamImpl _$$ListItemParamImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ListItemParamImplToJson(_$ListItemParamImpl instance) =>
+Map<String, dynamic> _$ListItemParamToJson(_ListItemParam instance) =>
     <String, dynamic>{
       'subject': instance.subject,
       'list': const AtUriConverter().toJson(instance.list),

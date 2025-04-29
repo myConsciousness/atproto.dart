@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,59 @@ part of 'record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DeclarationRecord _$DeclarationRecordFromJson(Map<String, dynamic> json) {
-  return _DeclarationRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DeclarationRecord {
-  String get allowIncoming => throw _privateConstructorUsedError;
-
-  /// Serializes this DeclarationRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get allowIncoming;
 
   /// Create a copy of DeclarationRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DeclarationRecordCopyWith<DeclarationRecord> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DeclarationRecordCopyWith<$Res> {
-  factory $DeclarationRecordCopyWith(
-          DeclarationRecord value, $Res Function(DeclarationRecord) then) =
-      _$DeclarationRecordCopyWithImpl<$Res, DeclarationRecord>;
-  @useResult
-  $Res call({String allowIncoming});
-}
-
-/// @nodoc
-class _$DeclarationRecordCopyWithImpl<$Res, $Val extends DeclarationRecord>
-    implements $DeclarationRecordCopyWith<$Res> {
-  _$DeclarationRecordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DeclarationRecord
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $DeclarationRecordCopyWith<DeclarationRecord> get copyWith =>
+      _$DeclarationRecordCopyWithImpl<DeclarationRecord>(
+          this as DeclarationRecord, _$identity);
+
+  /// Serializes this DeclarationRecord to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? allowIncoming = null,
-  }) {
-    return _then(_value.copyWith(
-      allowIncoming: null == allowIncoming
-          ? _value.allowIncoming
-          : allowIncoming // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DeclarationRecord &&
+            (identical(other.allowIncoming, allowIncoming) ||
+                other.allowIncoming == allowIncoming));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, allowIncoming);
+
+  @override
+  String toString() {
+    return 'DeclarationRecord(allowIncoming: $allowIncoming)';
   }
 }
 
 /// @nodoc
-abstract class _$$DeclarationRecordImplCopyWith<$Res>
-    implements $DeclarationRecordCopyWith<$Res> {
-  factory _$$DeclarationRecordImplCopyWith(_$DeclarationRecordImpl value,
-          $Res Function(_$DeclarationRecordImpl) then) =
-      __$$DeclarationRecordImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $DeclarationRecordCopyWith<$Res> {
+  factory $DeclarationRecordCopyWith(
+          DeclarationRecord value, $Res Function(DeclarationRecord) _then) =
+      _$DeclarationRecordCopyWithImpl;
   @useResult
   $Res call({String allowIncoming});
 }
 
 /// @nodoc
-class __$$DeclarationRecordImplCopyWithImpl<$Res>
-    extends _$DeclarationRecordCopyWithImpl<$Res, _$DeclarationRecordImpl>
-    implements _$$DeclarationRecordImplCopyWith<$Res> {
-  __$$DeclarationRecordImplCopyWithImpl(_$DeclarationRecordImpl _value,
-      $Res Function(_$DeclarationRecordImpl) _then)
-      : super(_value, _then);
+class _$DeclarationRecordCopyWithImpl<$Res>
+    implements $DeclarationRecordCopyWith<$Res> {
+  _$DeclarationRecordCopyWithImpl(this._self, this._then);
+
+  final DeclarationRecord _self;
+  final $Res Function(DeclarationRecord) _then;
 
   /// Create a copy of DeclarationRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +71,9 @@ class __$$DeclarationRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? allowIncoming = null,
   }) {
-    return _then(_$DeclarationRecordImpl(
+    return _then(_self.copyWith(
       allowIncoming: null == allowIncoming
-          ? _value.allowIncoming
+          ? _self.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -105,25 +83,34 @@ class __$$DeclarationRecordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$DeclarationRecordImpl implements _DeclarationRecord {
-  const _$DeclarationRecordImpl({required this.allowIncoming});
-
-  factory _$DeclarationRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DeclarationRecordImplFromJson(json);
+class _DeclarationRecord implements DeclarationRecord {
+  const _DeclarationRecord({required this.allowIncoming});
+  factory _DeclarationRecord.fromJson(Map<String, dynamic> json) =>
+      _$DeclarationRecordFromJson(json);
 
   @override
   final String allowIncoming;
 
+  /// Create a copy of DeclarationRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'DeclarationRecord(allowIncoming: $allowIncoming)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DeclarationRecordCopyWith<_DeclarationRecord> get copyWith =>
+      __$DeclarationRecordCopyWithImpl<_DeclarationRecord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DeclarationRecordToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DeclarationRecordImpl &&
+            other is _DeclarationRecord &&
             (identical(other.allowIncoming, allowIncoming) ||
                 other.allowIncoming == allowIncoming));
   }
@@ -132,37 +119,45 @@ class _$DeclarationRecordImpl implements _DeclarationRecord {
   @override
   int get hashCode => Object.hash(runtimeType, allowIncoming);
 
-  /// Create a copy of DeclarationRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DeclarationRecordImplCopyWith<_$DeclarationRecordImpl> get copyWith =>
-      __$$DeclarationRecordImplCopyWithImpl<_$DeclarationRecordImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DeclarationRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DeclarationRecord(allowIncoming: $allowIncoming)';
   }
 }
 
-abstract class _DeclarationRecord implements DeclarationRecord {
-  const factory _DeclarationRecord({required final String allowIncoming}) =
-      _$DeclarationRecordImpl;
-
-  factory _DeclarationRecord.fromJson(Map<String, dynamic> json) =
-      _$DeclarationRecordImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$DeclarationRecordCopyWith<$Res>
+    implements $DeclarationRecordCopyWith<$Res> {
+  factory _$DeclarationRecordCopyWith(
+          _DeclarationRecord value, $Res Function(_DeclarationRecord) _then) =
+      __$DeclarationRecordCopyWithImpl;
   @override
-  String get allowIncoming;
+  @useResult
+  $Res call({String allowIncoming});
+}
+
+/// @nodoc
+class __$DeclarationRecordCopyWithImpl<$Res>
+    implements _$DeclarationRecordCopyWith<$Res> {
+  __$DeclarationRecordCopyWithImpl(this._self, this._then);
+
+  final _DeclarationRecord _self;
+  final $Res Function(_DeclarationRecord) _then;
 
   /// Create a copy of DeclarationRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DeclarationRecordImplCopyWith<_$DeclarationRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? allowIncoming = null,
+  }) {
+    return _then(_DeclarationRecord(
+      allowIncoming: null == allowIncoming
+          ? _self.allowIncoming
+          : allowIncoming // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

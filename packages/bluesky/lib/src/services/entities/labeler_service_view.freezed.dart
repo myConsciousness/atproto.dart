@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,90 +10,77 @@ part of 'labeler_service_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LabelerServiceView {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(LabelerViewDetailed data) labelerViewDetailed,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(LabelerViewDetailed data)? labelerViewDetailed,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(LabelerViewDetailed data)? labelerViewDetailed,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULabelerServiceViewLabelerView value) labelerView,
-    required TResult Function(ULabelerServiceViewLabelerViewDetailed value)
-        labelerViewDetailed,
-    required TResult Function(ULabelerServiceViewUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULabelerServiceViewLabelerView value)? labelerView,
-    TResult? Function(ULabelerServiceViewLabelerViewDetailed value)?
-        labelerViewDetailed,
-    TResult? Function(ULabelerServiceViewUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULabelerServiceViewLabelerView value)? labelerView,
-    TResult Function(ULabelerServiceViewLabelerViewDetailed value)?
-        labelerViewDetailed,
-    TResult Function(ULabelerServiceViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LabelerServiceView &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'LabelerServiceView(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $LabelerServiceViewCopyWith<$Res> {
-  factory $LabelerServiceViewCopyWith(
-          LabelerServiceView value, $Res Function(LabelerServiceView) then) =
-      _$LabelerServiceViewCopyWithImpl<$Res, LabelerServiceView>;
+class $LabelerServiceViewCopyWith<$Res> {
+  $LabelerServiceViewCopyWith(
+      LabelerServiceView _, $Res Function(LabelerServiceView) __);
 }
 
 /// @nodoc
-class _$LabelerServiceViewCopyWithImpl<$Res, $Val extends LabelerServiceView>
-    implements $LabelerServiceViewCopyWith<$Res> {
-  _$LabelerServiceViewCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class ULabelerServiceViewLabelerView extends LabelerServiceView {
+  const ULabelerServiceViewLabelerView({required this.data}) : super._();
+
+  @override
+  final LabelerView data;
 
   /// Create a copy of LabelerServiceView
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ULabelerServiceViewLabelerViewCopyWith<ULabelerServiceViewLabelerView>
+      get copyWith => _$ULabelerServiceViewLabelerViewCopyWithImpl<
+          ULabelerServiceViewLabelerView>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ULabelerServiceViewLabelerView &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'LabelerServiceView.labelerView(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$ULabelerServiceViewLabelerViewImplCopyWith<$Res> {
-  factory _$$ULabelerServiceViewLabelerViewImplCopyWith(
-          _$ULabelerServiceViewLabelerViewImpl value,
-          $Res Function(_$ULabelerServiceViewLabelerViewImpl) then) =
-      __$$ULabelerServiceViewLabelerViewImplCopyWithImpl<$Res>;
+abstract mixin class $ULabelerServiceViewLabelerViewCopyWith<$Res>
+    implements $LabelerServiceViewCopyWith<$Res> {
+  factory $ULabelerServiceViewLabelerViewCopyWith(
+          ULabelerServiceViewLabelerView value,
+          $Res Function(ULabelerServiceViewLabelerView) _then) =
+      _$ULabelerServiceViewLabelerViewCopyWithImpl;
   @useResult
   $Res call({LabelerView data});
 
@@ -100,25 +88,22 @@ abstract class _$$ULabelerServiceViewLabelerViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULabelerServiceViewLabelerViewImplCopyWithImpl<$Res>
-    extends _$LabelerServiceViewCopyWithImpl<$Res,
-        _$ULabelerServiceViewLabelerViewImpl>
-    implements _$$ULabelerServiceViewLabelerViewImplCopyWith<$Res> {
-  __$$ULabelerServiceViewLabelerViewImplCopyWithImpl(
-      _$ULabelerServiceViewLabelerViewImpl _value,
-      $Res Function(_$ULabelerServiceViewLabelerViewImpl) _then)
-      : super(_value, _then);
+class _$ULabelerServiceViewLabelerViewCopyWithImpl<$Res>
+    implements $ULabelerServiceViewLabelerViewCopyWith<$Res> {
+  _$ULabelerServiceViewLabelerViewCopyWithImpl(this._self, this._then);
+
+  final ULabelerServiceViewLabelerView _self;
+  final $Res Function(ULabelerServiceViewLabelerView) _then;
 
   /// Create a copy of LabelerServiceView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULabelerServiceViewLabelerViewImpl(
+    return _then(ULabelerServiceViewLabelerView(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as LabelerView,
     ));
@@ -129,141 +114,54 @@ class __$$ULabelerServiceViewLabelerViewImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $LabelerViewCopyWith<$Res> get data {
-    return $LabelerViewCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $LabelerViewCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$ULabelerServiceViewLabelerViewImpl
-    extends ULabelerServiceViewLabelerView {
-  const _$ULabelerServiceViewLabelerViewImpl({required this.data}) : super._();
+class ULabelerServiceViewLabelerViewDetailed extends LabelerServiceView {
+  const ULabelerServiceViewLabelerViewDetailed({required this.data})
+      : super._();
 
   @override
-  final LabelerView data;
+  final LabelerViewDetailed data;
 
-  @override
-  String toString() {
-    return 'LabelerServiceView.labelerView(data: $data)';
-  }
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ULabelerServiceViewLabelerViewDetailedCopyWith<
+          ULabelerServiceViewLabelerViewDetailed>
+      get copyWith => _$ULabelerServiceViewLabelerViewDetailedCopyWithImpl<
+          ULabelerServiceViewLabelerViewDetailed>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULabelerServiceViewLabelerViewImpl &&
+            other is ULabelerServiceViewLabelerViewDetailed &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LabelerServiceView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ULabelerServiceViewLabelerViewImplCopyWith<
-          _$ULabelerServiceViewLabelerViewImpl>
-      get copyWith => __$$ULabelerServiceViewLabelerViewImplCopyWithImpl<
-          _$ULabelerServiceViewLabelerViewImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(LabelerViewDetailed data) labelerViewDetailed,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return labelerView(data);
+  String toString() {
+    return 'LabelerServiceView.labelerViewDetailed(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(LabelerViewDetailed data)? labelerViewDetailed,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return labelerView?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(LabelerViewDetailed data)? labelerViewDetailed,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labelerView != null) {
-      return labelerView(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULabelerServiceViewLabelerView value) labelerView,
-    required TResult Function(ULabelerServiceViewLabelerViewDetailed value)
-        labelerViewDetailed,
-    required TResult Function(ULabelerServiceViewUnknown value) unknown,
-  }) {
-    return labelerView(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULabelerServiceViewLabelerView value)? labelerView,
-    TResult? Function(ULabelerServiceViewLabelerViewDetailed value)?
-        labelerViewDetailed,
-    TResult? Function(ULabelerServiceViewUnknown value)? unknown,
-  }) {
-    return labelerView?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULabelerServiceViewLabelerView value)? labelerView,
-    TResult Function(ULabelerServiceViewLabelerViewDetailed value)?
-        labelerViewDetailed,
-    TResult Function(ULabelerServiceViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labelerView != null) {
-      return labelerView(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ULabelerServiceViewLabelerView extends LabelerServiceView {
-  const factory ULabelerServiceViewLabelerView(
-      {required final LabelerView data}) = _$ULabelerServiceViewLabelerViewImpl;
-  const ULabelerServiceViewLabelerView._() : super._();
-
-  @override
-  LabelerView get data;
-
-  /// Create a copy of LabelerServiceView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULabelerServiceViewLabelerViewImplCopyWith<
-          _$ULabelerServiceViewLabelerViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULabelerServiceViewLabelerViewDetailedImplCopyWith<$Res> {
-  factory _$$ULabelerServiceViewLabelerViewDetailedImplCopyWith(
-          _$ULabelerServiceViewLabelerViewDetailedImpl value,
-          $Res Function(_$ULabelerServiceViewLabelerViewDetailedImpl) then) =
-      __$$ULabelerServiceViewLabelerViewDetailedImplCopyWithImpl<$Res>;
+abstract mixin class $ULabelerServiceViewLabelerViewDetailedCopyWith<$Res>
+    implements $LabelerServiceViewCopyWith<$Res> {
+  factory $ULabelerServiceViewLabelerViewDetailedCopyWith(
+          ULabelerServiceViewLabelerViewDetailed value,
+          $Res Function(ULabelerServiceViewLabelerViewDetailed) _then) =
+      _$ULabelerServiceViewLabelerViewDetailedCopyWithImpl;
   @useResult
   $Res call({LabelerViewDetailed data});
 
@@ -271,25 +169,22 @@ abstract class _$$ULabelerServiceViewLabelerViewDetailedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULabelerServiceViewLabelerViewDetailedImplCopyWithImpl<$Res>
-    extends _$LabelerServiceViewCopyWithImpl<$Res,
-        _$ULabelerServiceViewLabelerViewDetailedImpl>
-    implements _$$ULabelerServiceViewLabelerViewDetailedImplCopyWith<$Res> {
-  __$$ULabelerServiceViewLabelerViewDetailedImplCopyWithImpl(
-      _$ULabelerServiceViewLabelerViewDetailedImpl _value,
-      $Res Function(_$ULabelerServiceViewLabelerViewDetailedImpl) _then)
-      : super(_value, _then);
+class _$ULabelerServiceViewLabelerViewDetailedCopyWithImpl<$Res>
+    implements $ULabelerServiceViewLabelerViewDetailedCopyWith<$Res> {
+  _$ULabelerServiceViewLabelerViewDetailedCopyWithImpl(this._self, this._then);
+
+  final ULabelerServiceViewLabelerViewDetailed _self;
+  final $Res Function(ULabelerServiceViewLabelerViewDetailed) _then;
 
   /// Create a copy of LabelerServiceView
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULabelerServiceViewLabelerViewDetailedImpl(
+    return _then(ULabelerServiceViewLabelerViewDetailed(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as LabelerViewDetailed,
     ));
@@ -300,180 +195,16 @@ class __$$ULabelerServiceViewLabelerViewDetailedImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $LabelerViewDetailedCopyWith<$Res> get data {
-    return $LabelerViewDetailedCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $LabelerViewDetailedCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$ULabelerServiceViewLabelerViewDetailedImpl
-    extends ULabelerServiceViewLabelerViewDetailed {
-  const _$ULabelerServiceViewLabelerViewDetailedImpl({required this.data})
-      : super._();
-
-  @override
-  final LabelerViewDetailed data;
-
-  @override
-  String toString() {
-    return 'LabelerServiceView.labelerViewDetailed(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULabelerServiceViewLabelerViewDetailedImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of LabelerServiceView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULabelerServiceViewLabelerViewDetailedImplCopyWith<
-          _$ULabelerServiceViewLabelerViewDetailedImpl>
-      get copyWith =>
-          __$$ULabelerServiceViewLabelerViewDetailedImplCopyWithImpl<
-              _$ULabelerServiceViewLabelerViewDetailedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(LabelerViewDetailed data) labelerViewDetailed,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return labelerViewDetailed(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(LabelerViewDetailed data)? labelerViewDetailed,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return labelerViewDetailed?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(LabelerViewDetailed data)? labelerViewDetailed,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labelerViewDetailed != null) {
-      return labelerViewDetailed(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULabelerServiceViewLabelerView value) labelerView,
-    required TResult Function(ULabelerServiceViewLabelerViewDetailed value)
-        labelerViewDetailed,
-    required TResult Function(ULabelerServiceViewUnknown value) unknown,
-  }) {
-    return labelerViewDetailed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULabelerServiceViewLabelerView value)? labelerView,
-    TResult? Function(ULabelerServiceViewLabelerViewDetailed value)?
-        labelerViewDetailed,
-    TResult? Function(ULabelerServiceViewUnknown value)? unknown,
-  }) {
-    return labelerViewDetailed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULabelerServiceViewLabelerView value)? labelerView,
-    TResult Function(ULabelerServiceViewLabelerViewDetailed value)?
-        labelerViewDetailed,
-    TResult Function(ULabelerServiceViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (labelerViewDetailed != null) {
-      return labelerViewDetailed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ULabelerServiceViewLabelerViewDetailed
-    extends LabelerServiceView {
-  const factory ULabelerServiceViewLabelerViewDetailed(
-          {required final LabelerViewDetailed data}) =
-      _$ULabelerServiceViewLabelerViewDetailedImpl;
-  const ULabelerServiceViewLabelerViewDetailed._() : super._();
-
-  @override
-  LabelerViewDetailed get data;
-
-  /// Create a copy of LabelerServiceView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULabelerServiceViewLabelerViewDetailedImplCopyWith<
-          _$ULabelerServiceViewLabelerViewDetailedImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ULabelerServiceViewUnknownImplCopyWith<$Res> {
-  factory _$$ULabelerServiceViewUnknownImplCopyWith(
-          _$ULabelerServiceViewUnknownImpl value,
-          $Res Function(_$ULabelerServiceViewUnknownImpl) then) =
-      __$$ULabelerServiceViewUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$ULabelerServiceViewUnknownImplCopyWithImpl<$Res>
-    extends _$LabelerServiceViewCopyWithImpl<$Res,
-        _$ULabelerServiceViewUnknownImpl>
-    implements _$$ULabelerServiceViewUnknownImplCopyWith<$Res> {
-  __$$ULabelerServiceViewUnknownImplCopyWithImpl(
-      _$ULabelerServiceViewUnknownImpl _value,
-      $Res Function(_$ULabelerServiceViewUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LabelerServiceView
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ULabelerServiceViewUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ULabelerServiceViewUnknownImpl extends ULabelerServiceViewUnknown {
-  const _$ULabelerServiceViewUnknownImpl(
-      {required final Map<String, dynamic> data})
+class ULabelerServiceViewUnknown extends LabelerServiceView {
+  const ULabelerServiceViewUnknown({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -485,16 +216,20 @@ class _$ULabelerServiceViewUnknownImpl extends ULabelerServiceViewUnknown {
     return EqualUnmodifiableMapView(_data);
   }
 
-  @override
-  String toString() {
-    return 'LabelerServiceView.unknown(data: $data)';
-  }
+  /// Create a copy of LabelerServiceView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ULabelerServiceViewUnknownCopyWith<ULabelerServiceViewUnknown>
+      get copyWith =>
+          _$ULabelerServiceViewUnknownCopyWithImpl<ULabelerServiceViewUnknown>(
+              this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULabelerServiceViewUnknownImpl &&
+            other is ULabelerServiceViewUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -502,99 +237,43 @@ class _$ULabelerServiceViewUnknownImpl extends ULabelerServiceViewUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'LabelerServiceView.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ULabelerServiceViewUnknownCopyWith<$Res>
+    implements $LabelerServiceViewCopyWith<$Res> {
+  factory $ULabelerServiceViewUnknownCopyWith(ULabelerServiceViewUnknown value,
+          $Res Function(ULabelerServiceViewUnknown) _then) =
+      _$ULabelerServiceViewUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$ULabelerServiceViewUnknownCopyWithImpl<$Res>
+    implements $ULabelerServiceViewUnknownCopyWith<$Res> {
+  _$ULabelerServiceViewUnknownCopyWithImpl(this._self, this._then);
+
+  final ULabelerServiceViewUnknown _self;
+  final $Res Function(ULabelerServiceViewUnknown) _then;
+
   /// Create a copy of LabelerServiceView
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$ULabelerServiceViewUnknownImplCopyWith<_$ULabelerServiceViewUnknownImpl>
-      get copyWith => __$$ULabelerServiceViewUnknownImplCopyWithImpl<
-          _$ULabelerServiceViewUnknownImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LabelerView data) labelerView,
-    required TResult Function(LabelerViewDetailed data) labelerViewDetailed,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LabelerView data)? labelerView,
-    TResult? Function(LabelerViewDetailed data)? labelerViewDetailed,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LabelerView data)? labelerView,
-    TResult Function(LabelerViewDetailed data)? labelerViewDetailed,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULabelerServiceViewLabelerView value) labelerView,
-    required TResult Function(ULabelerServiceViewLabelerViewDetailed value)
-        labelerViewDetailed,
-    required TResult Function(ULabelerServiceViewUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULabelerServiceViewLabelerView value)? labelerView,
-    TResult? Function(ULabelerServiceViewLabelerViewDetailed value)?
-        labelerViewDetailed,
-    TResult? Function(ULabelerServiceViewUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULabelerServiceViewLabelerView value)? labelerView,
-    TResult Function(ULabelerServiceViewLabelerViewDetailed value)?
-        labelerViewDetailed,
-    TResult Function(ULabelerServiceViewUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
+    return _then(ULabelerServiceViewUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class ULabelerServiceViewUnknown extends LabelerServiceView {
-  const factory ULabelerServiceViewUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$ULabelerServiceViewUnknownImpl;
-  const ULabelerServiceViewUnknown._() : super._();
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of LabelerServiceView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULabelerServiceViewUnknownImplCopyWith<_$ULabelerServiceViewUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

@@ -16,7 +16,7 @@ part 'notification.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#notification
 @freezed
-class Notification with _$Notification {
+abstract class Notification with _$Notification {
   @jsonSerializable
   const factory Notification({
     required String cid,

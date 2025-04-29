@@ -12,7 +12,7 @@ part 'image.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#image
 @freezed
-class Image with _$Image {
+abstract class Image with _$Image {
   @jsonSerializable
   const factory Image({
     required String alt,

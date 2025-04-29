@@ -13,7 +13,7 @@ part 'content_label_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#contentlabelpref
 @freezed
-class ContentLabelPreference with _$ContentLabelPreference {
+abstract class ContentLabelPreference with _$ContentLabelPreference {
   @jsonSerializable
   const factory ContentLabelPreference({
     @typeKey @Default(appBskyActorDefsContentLabelPref) String type,

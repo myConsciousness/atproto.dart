@@ -6,7 +6,7 @@ part 'sealed_app_password.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords#apppassword
 @freezed
-class SealedAppPassword with _$SealedAppPassword {
+abstract class SealedAppPassword with _$SealedAppPassword {
   const factory SealedAppPassword({
     required String name,
     required DateTime createdAt,

@@ -6,7 +6,7 @@ part 'repo_block.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getblocks/#output
 @freezed
-class RepoBlock with _$RepoBlock {
+abstract class RepoBlock with _$RepoBlock {
   const factory RepoBlock({
     required String cid,
     required String commitCid,

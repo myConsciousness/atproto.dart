@@ -7,7 +7,7 @@ part 'subscribed_repo_info.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#info
 @freezed
-class Info with _$Info {
+abstract class Info with _$Info {
   @jsonSerializable
   const factory Info({
     required String name,

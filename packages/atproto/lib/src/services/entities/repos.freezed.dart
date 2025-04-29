@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,58 @@ part of 'repos.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Repos _$ReposFromJson(Map<String, dynamic> json) {
-  return _Repos.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Repos {
-  List<Repo> get repos => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this Repos to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Repo> get repos;
+  String? get cursor;
 
   /// Create a copy of Repos
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ReposCopyWith<Repos> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ReposCopyWith<$Res> {
-  factory $ReposCopyWith(Repos value, $Res Function(Repos) then) =
-      _$ReposCopyWithImpl<$Res, Repos>;
-  @useResult
-  $Res call({List<Repo> repos, String? cursor});
-}
-
-/// @nodoc
-class _$ReposCopyWithImpl<$Res, $Val extends Repos>
-    implements $ReposCopyWith<$Res> {
-  _$ReposCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Repos
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ReposCopyWith<Repos> get copyWith =>
+      _$ReposCopyWithImpl<Repos>(this as Repos, _$identity);
+
+  /// Serializes this Repos to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? repos = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      repos: null == repos
-          ? _value.repos
-          : repos // ignore: cast_nullable_to_non_nullable
-              as List<Repo>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Repos &&
+            const DeepCollectionEquality().equals(other.repos, repos) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(repos), cursor);
+
+  @override
+  String toString() {
+    return 'Repos(repos: $repos, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$ReposImplCopyWith<$Res> implements $ReposCopyWith<$Res> {
-  factory _$$ReposImplCopyWith(
-          _$ReposImpl value, $Res Function(_$ReposImpl) then) =
-      __$$ReposImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ReposCopyWith<$Res> {
+  factory $ReposCopyWith(Repos value, $Res Function(Repos) _then) =
+      _$ReposCopyWithImpl;
   @useResult
   $Res call({List<Repo> repos, String? cursor});
 }
 
 /// @nodoc
-class __$$ReposImplCopyWithImpl<$Res>
-    extends _$ReposCopyWithImpl<$Res, _$ReposImpl>
-    implements _$$ReposImplCopyWith<$Res> {
-  __$$ReposImplCopyWithImpl(
-      _$ReposImpl _value, $Res Function(_$ReposImpl) _then)
-      : super(_value, _then);
+class _$ReposCopyWithImpl<$Res> implements $ReposCopyWith<$Res> {
+  _$ReposCopyWithImpl(this._self, this._then);
+
+  final Repos _self;
+  final $Res Function(Repos) _then;
 
   /// Create a copy of Repos
   /// with the given fields replaced by the non-null parameter values.
@@ -97,13 +71,13 @@ class __$$ReposImplCopyWithImpl<$Res>
     Object? repos = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$ReposImpl(
+    return _then(_self.copyWith(
       repos: null == repos
-          ? _value._repos
+          ? _self.repos
           : repos // ignore: cast_nullable_to_non_nullable
               as List<Repo>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -112,12 +86,9 @@ class __$$ReposImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ReposImpl implements _Repos {
-  const _$ReposImpl({required final List<Repo> repos, this.cursor})
-      : _repos = repos;
-
-  factory _$ReposImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ReposImplFromJson(json);
+class _Repos implements Repos {
+  const _Repos({required final List<Repo> repos, this.cursor}) : _repos = repos;
+  factory _Repos.fromJson(Map<String, dynamic> json) => _$ReposFromJson(json);
 
   final List<Repo> _repos;
   @override
@@ -130,16 +101,26 @@ class _$ReposImpl implements _Repos {
   @override
   final String? cursor;
 
+  /// Create a copy of Repos
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Repos(repos: $repos, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ReposCopyWith<_Repos> get copyWith =>
+      __$ReposCopyWithImpl<_Repos>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ReposToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReposImpl &&
+            other is _Repos &&
             const DeepCollectionEquality().equals(other._repos, _repos) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -149,37 +130,47 @@ class _$ReposImpl implements _Repos {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_repos), cursor);
 
-  /// Create a copy of Repos
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ReposImplCopyWith<_$ReposImpl> get copyWith =>
-      __$$ReposImplCopyWithImpl<_$ReposImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ReposImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Repos(repos: $repos, cursor: $cursor)';
   }
 }
 
-abstract class _Repos implements Repos {
-  const factory _Repos(
-      {required final List<Repo> repos, final String? cursor}) = _$ReposImpl;
-
-  factory _Repos.fromJson(Map<String, dynamic> json) = _$ReposImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ReposCopyWith<$Res> implements $ReposCopyWith<$Res> {
+  factory _$ReposCopyWith(_Repos value, $Res Function(_Repos) _then) =
+      __$ReposCopyWithImpl;
   @override
-  List<Repo> get repos;
-  @override
-  String? get cursor;
+  @useResult
+  $Res call({List<Repo> repos, String? cursor});
+}
+
+/// @nodoc
+class __$ReposCopyWithImpl<$Res> implements _$ReposCopyWith<$Res> {
+  __$ReposCopyWithImpl(this._self, this._then);
+
+  final _Repos _self;
+  final $Res Function(_Repos) _then;
 
   /// Create a copy of Repos
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ReposImplCopyWith<_$ReposImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? repos = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_Repos(
+      repos: null == repos
+          ? _self._repos
+          : repos // ignore: cast_nullable_to_non_nullable
+              as List<Repo>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

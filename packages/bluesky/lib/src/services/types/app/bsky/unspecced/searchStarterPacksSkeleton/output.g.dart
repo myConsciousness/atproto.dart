@@ -8,28 +8,29 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SearchStarterPacksSkeletonOutputImpl
-    _$$SearchStarterPacksSkeletonOutputImplFromJson(Map json) => $checkedCreate(
-          r'_$SearchStarterPacksSkeletonOutputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$SearchStarterPacksSkeletonOutputImpl(
-              cursor: $checkedConvert('cursor', (v) => v as String?),
-              hitsTotal: $checkedConvert(
-                  'hitsTotal', (v) => (v as num?)?.toInt() ?? 0),
-              starterPacks: $checkedConvert(
-                  'starterPacks',
-                  (v) => (v as List<dynamic>)
-                      .map((e) => SkeletonSearchStarterPack.fromJson(
-                          Map<String, Object?>.from(e as Map)))
-                      .toList()),
-            );
-            return val;
-          },
+_SearchStarterPacksSkeletonOutput _$SearchStarterPacksSkeletonOutputFromJson(
+        Map json) =>
+    $checkedCreate(
+      '_SearchStarterPacksSkeletonOutput',
+      json,
+      ($checkedConvert) {
+        final val = _SearchStarterPacksSkeletonOutput(
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          hitsTotal:
+              $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt() ?? 0),
+          starterPacks: $checkedConvert(
+              'starterPacks',
+              (v) => (v as List<dynamic>)
+                  .map((e) => SkeletonSearchStarterPack.fromJson(
+                      Map<String, Object?>.from(e as Map)))
+                  .toList()),
         );
+        return val;
+      },
+    );
 
-Map<String, dynamic> _$$SearchStarterPacksSkeletonOutputImplToJson(
-        _$SearchStarterPacksSkeletonOutputImpl instance) =>
+Map<String, dynamic> _$SearchStarterPacksSkeletonOutputToJson(
+        _SearchStarterPacksSkeletonOutput instance) =>
     <String, dynamic>{
       if (instance.cursor case final value?) 'cursor': value,
       'hitsTotal': instance.hitsTotal,

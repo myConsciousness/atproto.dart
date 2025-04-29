@@ -14,7 +14,7 @@ final _grouper = const NotificationsGrouper();
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#output
 @freezed
-class Notifications with _$Notifications {
+abstract class Notifications with _$Notifications {
   // ignore: unused_element
   const Notifications._();
 

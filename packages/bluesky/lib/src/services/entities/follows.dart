@@ -11,7 +11,7 @@ part 'follows.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getfollows/#output
 @freezed
-class Follows with _$Follows {
+abstract class Follows with _$Follows {
   const factory Follows({
     required Actor subject,
     required List<Actor> follows,

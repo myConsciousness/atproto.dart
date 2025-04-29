@@ -12,7 +12,7 @@ part 'generator_param.freezed.dart';
 part 'generator_param.g.dart';
 
 @freezed
-class GeneratorParam with _$GeneratorParam {
+abstract class GeneratorParam with _$GeneratorParam {
   @jsonSerializable
   const factory GeneratorParam({
     required String did,

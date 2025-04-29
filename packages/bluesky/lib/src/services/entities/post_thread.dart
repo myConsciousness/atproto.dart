@@ -11,7 +11,7 @@ part 'post_thread.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getpostthread/#output
 @freezed
-class PostThread with _$PostThread {
+abstract class PostThread with _$PostThread {
   const factory PostThread({
     @postThreadViewConverter required PostThreadView thread,
     ThreadgateView? threadgate,

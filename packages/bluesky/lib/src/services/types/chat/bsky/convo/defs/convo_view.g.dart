@@ -8,11 +8,11 @@ part of 'convo_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
-      r'_$ConvoViewImpl',
+_ConvoView _$ConvoViewFromJson(Map json) => $checkedCreate(
+      '_ConvoView',
       json,
       ($checkedConvert) {
-        final val = _$ConvoViewImpl(
+        final val = _ConvoView(
           id: $checkedConvert('id', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
           members: $checkedConvert(
@@ -35,7 +35,7 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ConvoViewImplToJson(_$ConvoViewImpl instance) =>
+Map<String, dynamic> _$ConvoViewToJson(_ConvoView instance) =>
     <String, dynamic>{
       'id': instance.id,
       'rev': instance.rev,

@@ -15,7 +15,7 @@ part 'post_param.freezed.dart';
 part 'post_param.g.dart';
 
 @freezed
-class PostParam with _$PostParam {
+abstract class PostParam with _$PostParam {
   @jsonSerializable
   const factory PostParam({
     required String text,

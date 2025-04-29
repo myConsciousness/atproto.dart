@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,93 +10,59 @@ part of 'suggestions_skeleton.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SuggestionsSkeleton _$SuggestionsSkeletonFromJson(Map<String, dynamic> json) {
-  return _SuggestionsSkeleton.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SuggestionsSkeleton {
-  List<SkeletonActor> get actors => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-  String? get relativeToDid => throw _privateConstructorUsedError;
-  int? get recId => throw _privateConstructorUsedError;
-
-  /// Serializes this SuggestionsSkeleton to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<SkeletonActor> get actors;
+  String? get cursor;
+  String? get relativeToDid;
+  int? get recId;
 
   /// Create a copy of SuggestionsSkeleton
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SuggestionsSkeletonCopyWith<SuggestionsSkeleton> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SuggestionsSkeletonCopyWith<$Res> {
-  factory $SuggestionsSkeletonCopyWith(
-          SuggestionsSkeleton value, $Res Function(SuggestionsSkeleton) then) =
-      _$SuggestionsSkeletonCopyWithImpl<$Res, SuggestionsSkeleton>;
-  @useResult
-  $Res call(
-      {List<SkeletonActor> actors,
-      String? cursor,
-      String? relativeToDid,
-      int? recId});
-}
-
-/// @nodoc
-class _$SuggestionsSkeletonCopyWithImpl<$Res, $Val extends SuggestionsSkeleton>
-    implements $SuggestionsSkeletonCopyWith<$Res> {
-  _$SuggestionsSkeletonCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SuggestionsSkeleton
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SuggestionsSkeletonCopyWith<SuggestionsSkeleton> get copyWith =>
+      _$SuggestionsSkeletonCopyWithImpl<SuggestionsSkeleton>(
+          this as SuggestionsSkeleton, _$identity);
+
+  /// Serializes this SuggestionsSkeleton to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? actors = null,
-    Object? cursor = freezed,
-    Object? relativeToDid = freezed,
-    Object? recId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      actors: null == actors
-          ? _value.actors
-          : actors // ignore: cast_nullable_to_non_nullable
-              as List<SkeletonActor>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      relativeToDid: freezed == relativeToDid
-          ? _value.relativeToDid
-          : relativeToDid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      recId: freezed == recId
-          ? _value.recId
-          : recId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SuggestionsSkeleton &&
+            const DeepCollectionEquality().equals(other.actors, actors) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.relativeToDid, relativeToDid) ||
+                other.relativeToDid == relativeToDid) &&
+            (identical(other.recId, recId) || other.recId == recId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(actors),
+      cursor,
+      relativeToDid,
+      recId);
+
+  @override
+  String toString() {
+    return 'SuggestionsSkeleton(actors: $actors, cursor: $cursor, relativeToDid: $relativeToDid, recId: $recId)';
   }
 }
 
 /// @nodoc
-abstract class _$$SuggestionsSkeletonImplCopyWith<$Res>
-    implements $SuggestionsSkeletonCopyWith<$Res> {
-  factory _$$SuggestionsSkeletonImplCopyWith(_$SuggestionsSkeletonImpl value,
-          $Res Function(_$SuggestionsSkeletonImpl) then) =
-      __$$SuggestionsSkeletonImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SuggestionsSkeletonCopyWith<$Res> {
+  factory $SuggestionsSkeletonCopyWith(
+          SuggestionsSkeleton value, $Res Function(SuggestionsSkeleton) _then) =
+      _$SuggestionsSkeletonCopyWithImpl;
   @useResult
   $Res call(
       {List<SkeletonActor> actors,
@@ -105,12 +72,12 @@ abstract class _$$SuggestionsSkeletonImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SuggestionsSkeletonImplCopyWithImpl<$Res>
-    extends _$SuggestionsSkeletonCopyWithImpl<$Res, _$SuggestionsSkeletonImpl>
-    implements _$$SuggestionsSkeletonImplCopyWith<$Res> {
-  __$$SuggestionsSkeletonImplCopyWithImpl(_$SuggestionsSkeletonImpl _value,
-      $Res Function(_$SuggestionsSkeletonImpl) _then)
-      : super(_value, _then);
+class _$SuggestionsSkeletonCopyWithImpl<$Res>
+    implements $SuggestionsSkeletonCopyWith<$Res> {
+  _$SuggestionsSkeletonCopyWithImpl(this._self, this._then);
+
+  final SuggestionsSkeleton _self;
+  final $Res Function(SuggestionsSkeleton) _then;
 
   /// Create a copy of SuggestionsSkeleton
   /// with the given fields replaced by the non-null parameter values.
@@ -122,21 +89,21 @@ class __$$SuggestionsSkeletonImplCopyWithImpl<$Res>
     Object? relativeToDid = freezed,
     Object? recId = freezed,
   }) {
-    return _then(_$SuggestionsSkeletonImpl(
+    return _then(_self.copyWith(
       actors: null == actors
-          ? _value._actors
+          ? _self.actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<SkeletonActor>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
       relativeToDid: freezed == relativeToDid
-          ? _value.relativeToDid
+          ? _self.relativeToDid
           : relativeToDid // ignore: cast_nullable_to_non_nullable
               as String?,
       recId: freezed == recId
-          ? _value.recId
+          ? _self.recId
           : recId // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
@@ -145,16 +112,15 @@ class __$$SuggestionsSkeletonImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SuggestionsSkeletonImpl implements _SuggestionsSkeleton {
-  const _$SuggestionsSkeletonImpl(
+class _SuggestionsSkeleton implements SuggestionsSkeleton {
+  const _SuggestionsSkeleton(
       {required final List<SkeletonActor> actors,
       this.cursor,
       this.relativeToDid,
       this.recId})
       : _actors = actors;
-
-  factory _$SuggestionsSkeletonImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SuggestionsSkeletonImplFromJson(json);
+  factory _SuggestionsSkeleton.fromJson(Map<String, dynamic> json) =>
+      _$SuggestionsSkeletonFromJson(json);
 
   final List<SkeletonActor> _actors;
   @override
@@ -171,16 +137,27 @@ class _$SuggestionsSkeletonImpl implements _SuggestionsSkeleton {
   @override
   final int? recId;
 
+  /// Create a copy of SuggestionsSkeleton
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SuggestionsSkeleton(actors: $actors, cursor: $cursor, relativeToDid: $relativeToDid, recId: $recId)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SuggestionsSkeletonCopyWith<_SuggestionsSkeleton> get copyWith =>
+      __$SuggestionsSkeletonCopyWithImpl<_SuggestionsSkeleton>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SuggestionsSkeletonToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuggestionsSkeletonImpl &&
+            other is _SuggestionsSkeleton &&
             const DeepCollectionEquality().equals(other._actors, _actors) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             (identical(other.relativeToDid, relativeToDid) ||
@@ -197,46 +174,64 @@ class _$SuggestionsSkeletonImpl implements _SuggestionsSkeleton {
       relativeToDid,
       recId);
 
-  /// Create a copy of SuggestionsSkeleton
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SuggestionsSkeletonImplCopyWith<_$SuggestionsSkeletonImpl> get copyWith =>
-      __$$SuggestionsSkeletonImplCopyWithImpl<_$SuggestionsSkeletonImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SuggestionsSkeletonImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SuggestionsSkeleton(actors: $actors, cursor: $cursor, relativeToDid: $relativeToDid, recId: $recId)';
   }
 }
 
-abstract class _SuggestionsSkeleton implements SuggestionsSkeleton {
-  const factory _SuggestionsSkeleton(
-      {required final List<SkeletonActor> actors,
-      final String? cursor,
-      final String? relativeToDid,
-      final int? recId}) = _$SuggestionsSkeletonImpl;
+/// @nodoc
+abstract mixin class _$SuggestionsSkeletonCopyWith<$Res>
+    implements $SuggestionsSkeletonCopyWith<$Res> {
+  factory _$SuggestionsSkeletonCopyWith(_SuggestionsSkeleton value,
+          $Res Function(_SuggestionsSkeleton) _then) =
+      __$SuggestionsSkeletonCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {List<SkeletonActor> actors,
+      String? cursor,
+      String? relativeToDid,
+      int? recId});
+}
 
-  factory _SuggestionsSkeleton.fromJson(Map<String, dynamic> json) =
-      _$SuggestionsSkeletonImpl.fromJson;
+/// @nodoc
+class __$SuggestionsSkeletonCopyWithImpl<$Res>
+    implements _$SuggestionsSkeletonCopyWith<$Res> {
+  __$SuggestionsSkeletonCopyWithImpl(this._self, this._then);
 
-  @override
-  List<SkeletonActor> get actors;
-  @override
-  String? get cursor;
-  @override
-  String? get relativeToDid;
-  @override
-  int? get recId;
+  final _SuggestionsSkeleton _self;
+  final $Res Function(_SuggestionsSkeleton) _then;
 
   /// Create a copy of SuggestionsSkeleton
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuggestionsSkeletonImplCopyWith<_$SuggestionsSkeletonImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? actors = null,
+    Object? cursor = freezed,
+    Object? relativeToDid = freezed,
+    Object? recId = freezed,
+  }) {
+    return _then(_SuggestionsSkeleton(
+      actors: null == actors
+          ? _self._actors
+          : actors // ignore: cast_nullable_to_non_nullable
+              as List<SkeletonActor>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      relativeToDid: freezed == relativeToDid
+          ? _self.relativeToDid
+          : relativeToDid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      recId: freezed == recId
+          ? _self.recId
+          : recId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
 }
+
+// dart format on

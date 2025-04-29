@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,179 +10,33 @@ part of 'content_label_preference.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ContentLabelPreference _$ContentLabelPreferenceFromJson(
-    Map<String, dynamic> json) {
-  return _ContentLabelPreference.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ContentLabelPreference {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get label => throw _privateConstructorUsedError;
-  String? get labelerDid => throw _privateConstructorUsedError;
-  ContentLabelVisibility get visibility => throw _privateConstructorUsedError;
-
-  /// Serializes this ContentLabelPreference to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  String get label;
+  String? get labelerDid;
+  ContentLabelVisibility get visibility;
 
   /// Create a copy of ContentLabelPreference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ContentLabelPreferenceCopyWith<ContentLabelPreference> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ContentLabelPreferenceCopyWithImpl<ContentLabelPreference>(
+          this as ContentLabelPreference, _$identity);
 
-/// @nodoc
-abstract class $ContentLabelPreferenceCopyWith<$Res> {
-  factory $ContentLabelPreferenceCopyWith(ContentLabelPreference value,
-          $Res Function(ContentLabelPreference) then) =
-      _$ContentLabelPreferenceCopyWithImpl<$Res, ContentLabelPreference>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String label,
-      String? labelerDid,
-      ContentLabelVisibility visibility});
-}
-
-/// @nodoc
-class _$ContentLabelPreferenceCopyWithImpl<$Res,
-        $Val extends ContentLabelPreference>
-    implements $ContentLabelPreferenceCopyWith<$Res> {
-  _$ContentLabelPreferenceCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ContentLabelPreference
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? label = null,
-    Object? labelerDid = freezed,
-    Object? visibility = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      labelerDid: freezed == labelerDid
-          ? _value.labelerDid
-          : labelerDid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      visibility: null == visibility
-          ? _value.visibility
-          : visibility // ignore: cast_nullable_to_non_nullable
-              as ContentLabelVisibility,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ContentLabelPreferenceImplCopyWith<$Res>
-    implements $ContentLabelPreferenceCopyWith<$Res> {
-  factory _$$ContentLabelPreferenceImplCopyWith(
-          _$ContentLabelPreferenceImpl value,
-          $Res Function(_$ContentLabelPreferenceImpl) then) =
-      __$$ContentLabelPreferenceImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String label,
-      String? labelerDid,
-      ContentLabelVisibility visibility});
-}
-
-/// @nodoc
-class __$$ContentLabelPreferenceImplCopyWithImpl<$Res>
-    extends _$ContentLabelPreferenceCopyWithImpl<$Res,
-        _$ContentLabelPreferenceImpl>
-    implements _$$ContentLabelPreferenceImplCopyWith<$Res> {
-  __$$ContentLabelPreferenceImplCopyWithImpl(
-      _$ContentLabelPreferenceImpl _value,
-      $Res Function(_$ContentLabelPreferenceImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ContentLabelPreference
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? label = null,
-    Object? labelerDid = freezed,
-    Object? visibility = null,
-  }) {
-    return _then(_$ContentLabelPreferenceImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      labelerDid: freezed == labelerDid
-          ? _value.labelerDid
-          : labelerDid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      visibility: null == visibility
-          ? _value.visibility
-          : visibility // ignore: cast_nullable_to_non_nullable
-              as ContentLabelVisibility,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$ContentLabelPreferenceImpl implements _ContentLabelPreference {
-  const _$ContentLabelPreferenceImpl(
-      {@typeKey this.type = appBskyActorDefsContentLabelPref,
-      required this.label,
-      this.labelerDid,
-      required this.visibility});
-
-  factory _$ContentLabelPreferenceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ContentLabelPreferenceImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final String label;
-  @override
-  final String? labelerDid;
-  @override
-  final ContentLabelVisibility visibility;
-
-  @override
-  String toString() {
-    return 'ContentLabelPreference(type: $type, label: $label, labelerDid: $labelerDid, visibility: $visibility)';
-  }
+  /// Serializes this ContentLabelPreference to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContentLabelPreferenceImpl &&
+            other is ContentLabelPreference &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.label, label) || other.label == label) &&
             (identical(other.labelerDid, labelerDid) ||
@@ -195,48 +50,178 @@ class _$ContentLabelPreferenceImpl implements _ContentLabelPreference {
   int get hashCode =>
       Object.hash(runtimeType, type, label, labelerDid, visibility);
 
-  /// Create a copy of ContentLabelPreference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ContentLabelPreferenceImplCopyWith<_$ContentLabelPreferenceImpl>
-      get copyWith => __$$ContentLabelPreferenceImplCopyWithImpl<
-          _$ContentLabelPreferenceImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ContentLabelPreferenceImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ContentLabelPreference(type: $type, label: $label, labelerDid: $labelerDid, visibility: $visibility)';
   }
 }
 
-abstract class _ContentLabelPreference implements ContentLabelPreference {
-  const factory _ContentLabelPreference(
-          {@typeKey final String type,
-          required final String label,
-          final String? labelerDid,
-          required final ContentLabelVisibility visibility}) =
-      _$ContentLabelPreferenceImpl;
+/// @nodoc
+abstract mixin class $ContentLabelPreferenceCopyWith<$Res> {
+  factory $ContentLabelPreferenceCopyWith(ContentLabelPreference value,
+          $Res Function(ContentLabelPreference) _then) =
+      _$ContentLabelPreferenceCopyWithImpl;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String label,
+      String? labelerDid,
+      ContentLabelVisibility visibility});
+}
 
-  factory _ContentLabelPreference.fromJson(Map<String, dynamic> json) =
-      _$ContentLabelPreferenceImpl.fromJson;
+/// @nodoc
+class _$ContentLabelPreferenceCopyWithImpl<$Res>
+    implements $ContentLabelPreferenceCopyWith<$Res> {
+  _$ContentLabelPreferenceCopyWithImpl(this._self, this._then);
+
+  final ContentLabelPreference _self;
+  final $Res Function(ContentLabelPreference) _then;
+
+  /// Create a copy of ContentLabelPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? label = null,
+    Object? labelerDid = freezed,
+    Object? visibility = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: null == label
+          ? _self.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      labelerDid: freezed == labelerDid
+          ? _self.labelerDid
+          : labelerDid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      visibility: null == visibility
+          ? _self.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
+              as ContentLabelVisibility,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _ContentLabelPreference implements ContentLabelPreference {
+  const _ContentLabelPreference(
+      {@typeKey this.type = appBskyActorDefsContentLabelPref,
+      required this.label,
+      this.labelerDid,
+      required this.visibility});
+  factory _ContentLabelPreference.fromJson(Map<String, dynamic> json) =>
+      _$ContentLabelPreferenceFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
-  String get label;
+  final String label;
   @override
-  String? get labelerDid;
+  final String? labelerDid;
   @override
-  ContentLabelVisibility get visibility;
+  final ContentLabelVisibility visibility;
 
   /// Create a copy of ContentLabelPreference
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ContentLabelPreferenceImplCopyWith<_$ContentLabelPreferenceImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ContentLabelPreferenceCopyWith<_ContentLabelPreference> get copyWith =>
+      __$ContentLabelPreferenceCopyWithImpl<_ContentLabelPreference>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ContentLabelPreferenceToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ContentLabelPreference &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.label, label) || other.label == label) &&
+            (identical(other.labelerDid, labelerDid) ||
+                other.labelerDid == labelerDid) &&
+            (identical(other.visibility, visibility) ||
+                other.visibility == visibility));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, type, label, labelerDid, visibility);
+
+  @override
+  String toString() {
+    return 'ContentLabelPreference(type: $type, label: $label, labelerDid: $labelerDid, visibility: $visibility)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ContentLabelPreferenceCopyWith<$Res>
+    implements $ContentLabelPreferenceCopyWith<$Res> {
+  factory _$ContentLabelPreferenceCopyWith(_ContentLabelPreference value,
+          $Res Function(_ContentLabelPreference) _then) =
+      __$ContentLabelPreferenceCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String label,
+      String? labelerDid,
+      ContentLabelVisibility visibility});
+}
+
+/// @nodoc
+class __$ContentLabelPreferenceCopyWithImpl<$Res>
+    implements _$ContentLabelPreferenceCopyWith<$Res> {
+  __$ContentLabelPreferenceCopyWithImpl(this._self, this._then);
+
+  final _ContentLabelPreference _self;
+  final $Res Function(_ContentLabelPreference) _then;
+
+  /// Create a copy of ContentLabelPreference
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? label = null,
+    Object? labelerDid = freezed,
+    Object? visibility = null,
+  }) {
+    return _then(_ContentLabelPreference(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      label: null == label
+          ? _self.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      labelerDid: freezed == labelerDid
+          ? _self.labelerDid
+          : labelerDid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      visibility: null == visibility
+          ? _self.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
+              as ContentLabelVisibility,
+    ));
+  }
+}
+
+// dart format on

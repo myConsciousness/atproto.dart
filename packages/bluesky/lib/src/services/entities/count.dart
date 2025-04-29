@@ -6,7 +6,7 @@ part 'count.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getunreadcount/#output
 @freezed
-class Count with _$Count {
+abstract class Count with _$Count {
   const factory Count({
     @Default(0) int count,
   }) = _Count;

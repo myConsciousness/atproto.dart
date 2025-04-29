@@ -8,12 +8,11 @@ part of 'labeler_viewer_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelerViewerStateImpl _$$LabelerViewerStateImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$LabelerViewerStateImpl',
+_LabelerViewerState _$LabelerViewerStateFromJson(Map json) => $checkedCreate(
+      '_LabelerViewerState',
       json,
       ($checkedConvert) {
-        final val = _$LabelerViewerStateImpl(
+        final val = _LabelerViewerState(
           like: $checkedConvert(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -23,8 +22,7 @@ _$LabelerViewerStateImpl _$$LabelerViewerStateImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$LabelerViewerStateImplToJson(
-        _$LabelerViewerStateImpl instance) =>
+Map<String, dynamic> _$LabelerViewerStateToJson(_LabelerViewerState instance) =>
     <String, dynamic>{
       if (_$JsonConverterToJson<String, AtUri>(
               instance.like, const AtUriConverter().toJson)

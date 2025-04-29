@@ -12,7 +12,7 @@ part 'feed_interaction.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#interaction
 @freezed
-class FeedInteraction with _$FeedInteraction {
+abstract class FeedInteraction with _$FeedInteraction {
   @jsonSerializable
   const factory FeedInteraction({
     @typeKey @Default(appBskyFeedDefsInteraction) String type,

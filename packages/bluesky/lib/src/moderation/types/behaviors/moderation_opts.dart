@@ -9,7 +9,7 @@ import 'moderation_prefs.dart';
 part 'moderation_opts.freezed.dart';
 
 @modObject
-class ModerationOpts with _$ModerationOpts {
+abstract class ModerationOpts with _$ModerationOpts {
   const factory ModerationOpts({
     String? userDid,
     required ModerationPrefs prefs,

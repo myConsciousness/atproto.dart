@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,80 +10,54 @@ part of 'labeler_policies.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LabelerPolicies _$LabelerPoliciesFromJson(Map<String, dynamic> json) {
-  return _LabelerPolicies.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LabelerPolicies {
-  List<String> get labelValues => throw _privateConstructorUsedError;
-  List<LabelValueDefinition>? get labelValueDefinitions =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this LabelerPolicies to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<String> get labelValues;
+  List<LabelValueDefinition>? get labelValueDefinitions;
 
   /// Create a copy of LabelerPolicies
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LabelerPoliciesCopyWith<LabelerPolicies> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LabelerPoliciesCopyWith<$Res> {
-  factory $LabelerPoliciesCopyWith(
-          LabelerPolicies value, $Res Function(LabelerPolicies) then) =
-      _$LabelerPoliciesCopyWithImpl<$Res, LabelerPolicies>;
-  @useResult
-  $Res call(
-      {List<String> labelValues,
-      List<LabelValueDefinition>? labelValueDefinitions});
-}
-
-/// @nodoc
-class _$LabelerPoliciesCopyWithImpl<$Res, $Val extends LabelerPolicies>
-    implements $LabelerPoliciesCopyWith<$Res> {
-  _$LabelerPoliciesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LabelerPolicies
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LabelerPoliciesCopyWith<LabelerPolicies> get copyWith =>
+      _$LabelerPoliciesCopyWithImpl<LabelerPolicies>(
+          this as LabelerPolicies, _$identity);
+
+  /// Serializes this LabelerPolicies to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? labelValues = null,
-    Object? labelValueDefinitions = freezed,
-  }) {
-    return _then(_value.copyWith(
-      labelValues: null == labelValues
-          ? _value.labelValues
-          : labelValues // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      labelValueDefinitions: freezed == labelValueDefinitions
-          ? _value.labelValueDefinitions
-          : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
-              as List<LabelValueDefinition>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LabelerPolicies &&
+            const DeepCollectionEquality()
+                .equals(other.labelValues, labelValues) &&
+            const DeepCollectionEquality()
+                .equals(other.labelValueDefinitions, labelValueDefinitions));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(labelValues),
+      const DeepCollectionEquality().hash(labelValueDefinitions));
+
+  @override
+  String toString() {
+    return 'LabelerPolicies(labelValues: $labelValues, labelValueDefinitions: $labelValueDefinitions)';
   }
 }
 
 /// @nodoc
-abstract class _$$LabelerPoliciesImplCopyWith<$Res>
-    implements $LabelerPoliciesCopyWith<$Res> {
-  factory _$$LabelerPoliciesImplCopyWith(_$LabelerPoliciesImpl value,
-          $Res Function(_$LabelerPoliciesImpl) then) =
-      __$$LabelerPoliciesImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LabelerPoliciesCopyWith<$Res> {
+  factory $LabelerPoliciesCopyWith(
+          LabelerPolicies value, $Res Function(LabelerPolicies) _then) =
+      _$LabelerPoliciesCopyWithImpl;
   @useResult
   $Res call(
       {List<String> labelValues,
@@ -90,12 +65,12 @@ abstract class _$$LabelerPoliciesImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$LabelerPoliciesImplCopyWithImpl<$Res>
-    extends _$LabelerPoliciesCopyWithImpl<$Res, _$LabelerPoliciesImpl>
-    implements _$$LabelerPoliciesImplCopyWith<$Res> {
-  __$$LabelerPoliciesImplCopyWithImpl(
-      _$LabelerPoliciesImpl _value, $Res Function(_$LabelerPoliciesImpl) _then)
-      : super(_value, _then);
+class _$LabelerPoliciesCopyWithImpl<$Res>
+    implements $LabelerPoliciesCopyWith<$Res> {
+  _$LabelerPoliciesCopyWithImpl(this._self, this._then);
+
+  final LabelerPolicies _self;
+  final $Res Function(LabelerPolicies) _then;
 
   /// Create a copy of LabelerPolicies
   /// with the given fields replaced by the non-null parameter values.
@@ -105,13 +80,13 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
     Object? labelValues = null,
     Object? labelValueDefinitions = freezed,
   }) {
-    return _then(_$LabelerPoliciesImpl(
+    return _then(_self.copyWith(
       labelValues: null == labelValues
-          ? _value._labelValues
+          ? _self.labelValues
           : labelValues // ignore: cast_nullable_to_non_nullable
               as List<String>,
       labelValueDefinitions: freezed == labelValueDefinitions
-          ? _value._labelValueDefinitions
+          ? _self.labelValueDefinitions
           : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
               as List<LabelValueDefinition>?,
     ));
@@ -121,15 +96,14 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$LabelerPoliciesImpl implements _LabelerPolicies {
-  const _$LabelerPoliciesImpl(
+class _LabelerPolicies implements LabelerPolicies {
+  const _LabelerPolicies(
       {required final List<String> labelValues,
       final List<LabelValueDefinition>? labelValueDefinitions})
       : _labelValues = labelValues,
         _labelValueDefinitions = labelValueDefinitions;
-
-  factory _$LabelerPoliciesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LabelerPoliciesImplFromJson(json);
+  factory _LabelerPolicies.fromJson(Map<String, dynamic> json) =>
+      _$LabelerPoliciesFromJson(json);
 
   final List<String> _labelValues;
   @override
@@ -150,16 +124,26 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Create a copy of LabelerPolicies
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LabelerPolicies(labelValues: $labelValues, labelValueDefinitions: $labelValueDefinitions)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LabelerPoliciesCopyWith<_LabelerPolicies> get copyWith =>
+      __$LabelerPoliciesCopyWithImpl<_LabelerPolicies>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LabelerPoliciesToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LabelerPoliciesImpl &&
+            other is _LabelerPolicies &&
             const DeepCollectionEquality()
                 .equals(other._labelValues, _labelValues) &&
             const DeepCollectionEquality()
@@ -173,41 +157,52 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
       const DeepCollectionEquality().hash(_labelValues),
       const DeepCollectionEquality().hash(_labelValueDefinitions));
 
-  /// Create a copy of LabelerPolicies
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LabelerPoliciesImplCopyWith<_$LabelerPoliciesImpl> get copyWith =>
-      __$$LabelerPoliciesImplCopyWithImpl<_$LabelerPoliciesImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LabelerPoliciesImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LabelerPolicies(labelValues: $labelValues, labelValueDefinitions: $labelValueDefinitions)';
   }
 }
 
-abstract class _LabelerPolicies implements LabelerPolicies {
-  const factory _LabelerPolicies(
-          {required final List<String> labelValues,
-          final List<LabelValueDefinition>? labelValueDefinitions}) =
-      _$LabelerPoliciesImpl;
-
-  factory _LabelerPolicies.fromJson(Map<String, dynamic> json) =
-      _$LabelerPoliciesImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$LabelerPoliciesCopyWith<$Res>
+    implements $LabelerPoliciesCopyWith<$Res> {
+  factory _$LabelerPoliciesCopyWith(
+          _LabelerPolicies value, $Res Function(_LabelerPolicies) _then) =
+      __$LabelerPoliciesCopyWithImpl;
   @override
-  List<String> get labelValues;
-  @override
-  List<LabelValueDefinition>? get labelValueDefinitions;
+  @useResult
+  $Res call(
+      {List<String> labelValues,
+      List<LabelValueDefinition>? labelValueDefinitions});
+}
+
+/// @nodoc
+class __$LabelerPoliciesCopyWithImpl<$Res>
+    implements _$LabelerPoliciesCopyWith<$Res> {
+  __$LabelerPoliciesCopyWithImpl(this._self, this._then);
+
+  final _LabelerPolicies _self;
+  final $Res Function(_LabelerPolicies) _then;
 
   /// Create a copy of LabelerPolicies
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LabelerPoliciesImplCopyWith<_$LabelerPoliciesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? labelValues = null,
+    Object? labelValueDefinitions = freezed,
+  }) {
+    return _then(_LabelerPolicies(
+      labelValues: null == labelValues
+          ? _self._labelValues
+          : labelValues // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      labelValueDefinitions: freezed == labelValueDefinitions
+          ? _self._labelValueDefinitions
+          : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
+              as List<LabelValueDefinition>?,
+    ));
+  }
 }
+
+// dart format on

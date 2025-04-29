@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,59 @@ part of 'actor_profiles.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ActorProfiles _$ActorProfilesFromJson(Map<String, dynamic> json) {
-  return _ActorProfiles.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ActorProfiles {
-  List<ActorProfile> get profiles => throw _privateConstructorUsedError;
-
-  /// Serializes this ActorProfiles to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<ActorProfile> get profiles;
 
   /// Create a copy of ActorProfiles
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ActorProfilesCopyWith<ActorProfiles> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ActorProfilesCopyWith<$Res> {
-  factory $ActorProfilesCopyWith(
-          ActorProfiles value, $Res Function(ActorProfiles) then) =
-      _$ActorProfilesCopyWithImpl<$Res, ActorProfiles>;
-  @useResult
-  $Res call({List<ActorProfile> profiles});
-}
-
-/// @nodoc
-class _$ActorProfilesCopyWithImpl<$Res, $Val extends ActorProfiles>
-    implements $ActorProfilesCopyWith<$Res> {
-  _$ActorProfilesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ActorProfiles
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ActorProfilesCopyWith<ActorProfiles> get copyWith =>
+      _$ActorProfilesCopyWithImpl<ActorProfiles>(
+          this as ActorProfiles, _$identity);
+
+  /// Serializes this ActorProfiles to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? profiles = null,
-  }) {
-    return _then(_value.copyWith(
-      profiles: null == profiles
-          ? _value.profiles
-          : profiles // ignore: cast_nullable_to_non_nullable
-              as List<ActorProfile>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ActorProfiles &&
+            const DeepCollectionEquality().equals(other.profiles, profiles));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(profiles));
+
+  @override
+  String toString() {
+    return 'ActorProfiles(profiles: $profiles)';
   }
 }
 
 /// @nodoc
-abstract class _$$ActorProfilesImplCopyWith<$Res>
-    implements $ActorProfilesCopyWith<$Res> {
-  factory _$$ActorProfilesImplCopyWith(
-          _$ActorProfilesImpl value, $Res Function(_$ActorProfilesImpl) then) =
-      __$$ActorProfilesImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ActorProfilesCopyWith<$Res> {
+  factory $ActorProfilesCopyWith(
+          ActorProfiles value, $Res Function(ActorProfiles) _then) =
+      _$ActorProfilesCopyWithImpl;
   @useResult
   $Res call({List<ActorProfile> profiles});
 }
 
 /// @nodoc
-class __$$ActorProfilesImplCopyWithImpl<$Res>
-    extends _$ActorProfilesCopyWithImpl<$Res, _$ActorProfilesImpl>
-    implements _$$ActorProfilesImplCopyWith<$Res> {
-  __$$ActorProfilesImplCopyWithImpl(
-      _$ActorProfilesImpl _value, $Res Function(_$ActorProfilesImpl) _then)
-      : super(_value, _then);
+class _$ActorProfilesCopyWithImpl<$Res>
+    implements $ActorProfilesCopyWith<$Res> {
+  _$ActorProfilesCopyWithImpl(this._self, this._then);
+
+  final ActorProfiles _self;
+  final $Res Function(ActorProfiles) _then;
 
   /// Create a copy of ActorProfiles
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +71,9 @@ class __$$ActorProfilesImplCopyWithImpl<$Res>
   $Res call({
     Object? profiles = null,
   }) {
-    return _then(_$ActorProfilesImpl(
+    return _then(_self.copyWith(
       profiles: null == profiles
-          ? _value._profiles
+          ? _self.profiles
           : profiles // ignore: cast_nullable_to_non_nullable
               as List<ActorProfile>,
     ));
@@ -104,12 +82,11 @@ class __$$ActorProfilesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ActorProfilesImpl implements _ActorProfiles {
-  const _$ActorProfilesImpl({required final List<ActorProfile> profiles})
+class _ActorProfiles implements ActorProfiles {
+  const _ActorProfiles({required final List<ActorProfile> profiles})
       : _profiles = profiles;
-
-  factory _$ActorProfilesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorProfilesImplFromJson(json);
+  factory _ActorProfiles.fromJson(Map<String, dynamic> json) =>
+      _$ActorProfilesFromJson(json);
 
   final List<ActorProfile> _profiles;
   @override
@@ -119,16 +96,26 @@ class _$ActorProfilesImpl implements _ActorProfiles {
     return EqualUnmodifiableListView(_profiles);
   }
 
+  /// Create a copy of ActorProfiles
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ActorProfiles(profiles: $profiles)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ActorProfilesCopyWith<_ActorProfiles> get copyWith =>
+      __$ActorProfilesCopyWithImpl<_ActorProfiles>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ActorProfilesToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorProfilesImpl &&
+            other is _ActorProfiles &&
             const DeepCollectionEquality().equals(other._profiles, _profiles));
   }
 
@@ -137,36 +124,45 @@ class _$ActorProfilesImpl implements _ActorProfiles {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_profiles));
 
-  /// Create a copy of ActorProfiles
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ActorProfilesImplCopyWith<_$ActorProfilesImpl> get copyWith =>
-      __$$ActorProfilesImplCopyWithImpl<_$ActorProfilesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ActorProfilesImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ActorProfiles(profiles: $profiles)';
   }
 }
 
-abstract class _ActorProfiles implements ActorProfiles {
-  const factory _ActorProfiles({required final List<ActorProfile> profiles}) =
-      _$ActorProfilesImpl;
-
-  factory _ActorProfiles.fromJson(Map<String, dynamic> json) =
-      _$ActorProfilesImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ActorProfilesCopyWith<$Res>
+    implements $ActorProfilesCopyWith<$Res> {
+  factory _$ActorProfilesCopyWith(
+          _ActorProfiles value, $Res Function(_ActorProfiles) _then) =
+      __$ActorProfilesCopyWithImpl;
   @override
-  List<ActorProfile> get profiles;
+  @useResult
+  $Res call({List<ActorProfile> profiles});
+}
+
+/// @nodoc
+class __$ActorProfilesCopyWithImpl<$Res>
+    implements _$ActorProfilesCopyWith<$Res> {
+  __$ActorProfilesCopyWithImpl(this._self, this._then);
+
+  final _ActorProfiles _self;
+  final $Res Function(_ActorProfiles) _then;
 
   /// Create a copy of ActorProfiles
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ActorProfilesImplCopyWith<_$ActorProfilesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? profiles = null,
+  }) {
+    return _then(_ActorProfiles(
+      profiles: null == profiles
+          ? _self._profiles
+          : profiles // ignore: cast_nullable_to_non_nullable
+              as List<ActorProfile>,
+    ));
+  }
 }
+
+// dart format on

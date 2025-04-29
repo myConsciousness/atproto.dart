@@ -17,7 +17,7 @@ part 'feed_generator_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#generatorview
 @freezed
-class FeedGeneratorView with _$FeedGeneratorView {
+abstract class FeedGeneratorView with _$FeedGeneratorView {
   @jsonSerializable
   const factory FeedGeneratorView({
     @typeKey @Default(appBskyFeedDefsGeneratorView) String type,

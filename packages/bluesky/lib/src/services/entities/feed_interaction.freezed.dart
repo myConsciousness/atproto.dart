@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,95 +10,56 @@ part of 'feed_interaction.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FeedInteraction _$FeedInteractionFromJson(Map<String, dynamic> json) {
-  return _FeedInteraction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FeedInteraction {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri? get item => throw _privateConstructorUsedError;
-  String? get event => throw _privateConstructorUsedError;
-  String? get feedContext => throw _privateConstructorUsedError;
-
-  /// Serializes this FeedInteraction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri? get item;
+  String? get event;
+  String? get feedContext;
 
   /// Create a copy of FeedInteraction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FeedInteractionCopyWith<FeedInteraction> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FeedInteractionCopyWith<$Res> {
-  factory $FeedInteractionCopyWith(
-          FeedInteraction value, $Res Function(FeedInteraction) then) =
-      _$FeedInteractionCopyWithImpl<$Res, FeedInteraction>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @AtUriConverter() AtUri? item,
-      String? event,
-      String? feedContext});
-}
-
-/// @nodoc
-class _$FeedInteractionCopyWithImpl<$Res, $Val extends FeedInteraction>
-    implements $FeedInteractionCopyWith<$Res> {
-  _$FeedInteractionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FeedInteraction
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $FeedInteractionCopyWith<FeedInteraction> get copyWith =>
+      _$FeedInteractionCopyWithImpl<FeedInteraction>(
+          this as FeedInteraction, _$identity);
+
+  /// Serializes this FeedInteraction to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? item = freezed,
-    Object? event = freezed,
-    Object? feedContext = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      item: freezed == item
-          ? _value.item
-          : item // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-      event: freezed == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String?,
-      feedContext: freezed == feedContext
-          ? _value.feedContext
-          : feedContext // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FeedInteraction &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.item, item) || other.item == item) &&
+            (identical(other.event, event) || other.event == event) &&
+            (identical(other.feedContext, feedContext) ||
+                other.feedContext == feedContext));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, item, event, feedContext);
+
+  @override
+  String toString() {
+    return 'FeedInteraction(type: $type, item: $item, event: $event, feedContext: $feedContext)';
   }
 }
 
 /// @nodoc
-abstract class _$$FeedInteractionImplCopyWith<$Res>
-    implements $FeedInteractionCopyWith<$Res> {
-  factory _$$FeedInteractionImplCopyWith(_$FeedInteractionImpl value,
-          $Res Function(_$FeedInteractionImpl) then) =
-      __$$FeedInteractionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $FeedInteractionCopyWith<$Res> {
+  factory $FeedInteractionCopyWith(
+          FeedInteraction value, $Res Function(FeedInteraction) _then) =
+      _$FeedInteractionCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -107,12 +69,12 @@ abstract class _$$FeedInteractionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FeedInteractionImplCopyWithImpl<$Res>
-    extends _$FeedInteractionCopyWithImpl<$Res, _$FeedInteractionImpl>
-    implements _$$FeedInteractionImplCopyWith<$Res> {
-  __$$FeedInteractionImplCopyWithImpl(
-      _$FeedInteractionImpl _value, $Res Function(_$FeedInteractionImpl) _then)
-      : super(_value, _then);
+class _$FeedInteractionCopyWithImpl<$Res>
+    implements $FeedInteractionCopyWith<$Res> {
+  _$FeedInteractionCopyWithImpl(this._self, this._then);
+
+  final FeedInteraction _self;
+  final $Res Function(FeedInteraction) _then;
 
   /// Create a copy of FeedInteraction
   /// with the given fields replaced by the non-null parameter values.
@@ -124,21 +86,21 @@ class __$$FeedInteractionImplCopyWithImpl<$Res>
     Object? event = freezed,
     Object? feedContext = freezed,
   }) {
-    return _then(_$FeedInteractionImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       item: freezed == item
-          ? _value.item
+          ? _self.item
           : item // ignore: cast_nullable_to_non_nullable
               as AtUri?,
       event: freezed == event
-          ? _value.event
+          ? _self.event
           : event // ignore: cast_nullable_to_non_nullable
               as String?,
       feedContext: freezed == feedContext
-          ? _value.feedContext
+          ? _self.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -148,15 +110,14 @@ class __$$FeedInteractionImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedInteractionImpl implements _FeedInteraction {
-  const _$FeedInteractionImpl(
+class _FeedInteraction implements FeedInteraction {
+  const _FeedInteraction(
       {@typeKey this.type = appBskyFeedDefsInteraction,
       @AtUriConverter() this.item,
       this.event,
       this.feedContext});
-
-  factory _$FeedInteractionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedInteractionImplFromJson(json);
+  factory _FeedInteraction.fromJson(Map<String, dynamic> json) =>
+      _$FeedInteractionFromJson(json);
 
   @override
   @typeKey
@@ -169,16 +130,26 @@ class _$FeedInteractionImpl implements _FeedInteraction {
   @override
   final String? feedContext;
 
+  /// Create a copy of FeedInteraction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'FeedInteraction(type: $type, item: $item, event: $event, feedContext: $feedContext)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FeedInteractionCopyWith<_FeedInteraction> get copyWith =>
+      __$FeedInteractionCopyWithImpl<_FeedInteraction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FeedInteractionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedInteractionImpl &&
+            other is _FeedInteraction &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.item, item) || other.item == item) &&
             (identical(other.event, event) || other.event == event) &&
@@ -190,48 +161,64 @@ class _$FeedInteractionImpl implements _FeedInteraction {
   @override
   int get hashCode => Object.hash(runtimeType, type, item, event, feedContext);
 
-  /// Create a copy of FeedInteraction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FeedInteractionImplCopyWith<_$FeedInteractionImpl> get copyWith =>
-      __$$FeedInteractionImplCopyWithImpl<_$FeedInteractionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FeedInteractionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'FeedInteraction(type: $type, item: $item, event: $event, feedContext: $feedContext)';
   }
 }
 
-abstract class _FeedInteraction implements FeedInteraction {
-  const factory _FeedInteraction(
-      {@typeKey final String type,
-      @AtUriConverter() final AtUri? item,
-      final String? event,
-      final String? feedContext}) = _$FeedInteractionImpl;
+/// @nodoc
+abstract mixin class _$FeedInteractionCopyWith<$Res>
+    implements $FeedInteractionCopyWith<$Res> {
+  factory _$FeedInteractionCopyWith(
+          _FeedInteraction value, $Res Function(_FeedInteraction) _then) =
+      __$FeedInteractionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @AtUriConverter() AtUri? item,
+      String? event,
+      String? feedContext});
+}
 
-  factory _FeedInteraction.fromJson(Map<String, dynamic> json) =
-      _$FeedInteractionImpl.fromJson;
+/// @nodoc
+class __$FeedInteractionCopyWithImpl<$Res>
+    implements _$FeedInteractionCopyWith<$Res> {
+  __$FeedInteractionCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  AtUri? get item;
-  @override
-  String? get event;
-  @override
-  String? get feedContext;
+  final _FeedInteraction _self;
+  final $Res Function(_FeedInteraction) _then;
 
   /// Create a copy of FeedInteraction
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FeedInteractionImplCopyWith<_$FeedInteractionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? item = freezed,
+    Object? event = freezed,
+    Object? feedContext = freezed,
+  }) {
+    return _then(_FeedInteraction(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      item: freezed == item
+          ? _self.item
+          : item // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+      event: freezed == event
+          ? _self.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as String?,
+      feedContext: freezed == feedContext
+          ? _self.feedContext
+          : feedContext // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

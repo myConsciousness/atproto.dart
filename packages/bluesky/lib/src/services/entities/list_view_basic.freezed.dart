@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,44 +10,67 @@ part of 'list_view_basic.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ListViewBasic _$ListViewBasicFromJson(Map<String, dynamic> json) {
-  return _ListViewBasic.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ListViewBasic {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get purpose => throw _privateConstructorUsedError;
+  String get type;
+  String get purpose;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-  String get cid => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String? get avatar => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
-  ListViewer get viewer => throw _privateConstructorUsedError;
-  DateTime get indexedAt => throw _privateConstructorUsedError;
-
-  /// Serializes this ListViewBasic to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
+  String get cid;
+  String get name;
+  String? get avatar;
+  List<Label>? get labels;
+  ListViewer get viewer;
+  DateTime get indexedAt;
 
   /// Create a copy of ListViewBasic
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ListViewBasicCopyWith<ListViewBasic> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ListViewBasicCopyWithImpl<ListViewBasic>(
+          this as ListViewBasic, _$identity);
+
+  /// Serializes this ListViewBasic to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ListViewBasic &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.purpose, purpose) || other.purpose == purpose) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.indexedAt, indexedAt) ||
+                other.indexedAt == indexedAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, purpose, uri, cid, name,
+      avatar, const DeepCollectionEquality().hash(labels), viewer, indexedAt);
+
+  @override
+  String toString() {
+    return 'ListViewBasic(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
+  }
 }
 
 /// @nodoc
-abstract class $ListViewBasicCopyWith<$Res> {
+abstract mixin class $ListViewBasicCopyWith<$Res> {
   factory $ListViewBasicCopyWith(
-          ListViewBasic value, $Res Function(ListViewBasic) then) =
-      _$ListViewBasicCopyWithImpl<$Res, ListViewBasic>;
+          ListViewBasic value, $Res Function(ListViewBasic) _then) =
+      _$ListViewBasicCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -63,14 +87,12 @@ abstract class $ListViewBasicCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
+class _$ListViewBasicCopyWithImpl<$Res>
     implements $ListViewBasicCopyWith<$Res> {
-  _$ListViewBasicCopyWithImpl(this._value, this._then);
+  _$ListViewBasicCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ListViewBasic _self;
+  final $Res Function(ListViewBasic) _then;
 
   /// Create a copy of ListViewBasic
   /// with the given fields replaced by the non-null parameter values.
@@ -87,44 +109,44 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       purpose: null == purpose
-          ? _value.purpose
+          ? _self.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       cid: null == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       avatar: freezed == avatar
-          ? _value.avatar
+          ? _self.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
       viewer: null == viewer
-          ? _value.viewer
+          ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ListViewer,
       indexedAt: null == indexedAt
-          ? _value.indexedAt
+          ? _self.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ListViewBasic
@@ -132,104 +154,17 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
   @override
   @pragma('vm:prefer-inline')
   $ListViewerCopyWith<$Res> get viewer {
-    return $ListViewerCopyWith<$Res>(_value.viewer, (value) {
-      return _then(_value.copyWith(viewer: value) as $Val);
+    return $ListViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$ListViewBasicImplCopyWith<$Res>
-    implements $ListViewBasicCopyWith<$Res> {
-  factory _$$ListViewBasicImplCopyWith(
-          _$ListViewBasicImpl value, $Res Function(_$ListViewBasicImpl) then) =
-      __$$ListViewBasicImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String purpose,
-      @AtUriConverter() AtUri uri,
-      String cid,
-      String name,
-      String? avatar,
-      List<Label>? labels,
-      ListViewer viewer,
-      DateTime indexedAt});
-
-  @override
-  $ListViewerCopyWith<$Res> get viewer;
-}
-
-/// @nodoc
-class __$$ListViewBasicImplCopyWithImpl<$Res>
-    extends _$ListViewBasicCopyWithImpl<$Res, _$ListViewBasicImpl>
-    implements _$$ListViewBasicImplCopyWith<$Res> {
-  __$$ListViewBasicImplCopyWithImpl(
-      _$ListViewBasicImpl _value, $Res Function(_$ListViewBasicImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ListViewBasic
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? purpose = null,
-    Object? uri = null,
-    Object? cid = null,
-    Object? name = null,
-    Object? avatar = freezed,
-    Object? labels = freezed,
-    Object? viewer = null,
-    Object? indexedAt = null,
-  }) {
-    return _then(_$ListViewBasicImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      purpose: null == purpose
-          ? _value.purpose
-          : purpose // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      avatar: freezed == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as String?,
-      labels: freezed == labels
-          ? _value._labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
-      viewer: null == viewer
-          ? _value.viewer
-          : viewer // ignore: cast_nullable_to_non_nullable
-              as ListViewer,
-      indexedAt: null == indexedAt
-          ? _value.indexedAt
-          : indexedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$ListViewBasicImpl extends _ListViewBasic {
-  const _$ListViewBasicImpl(
+class _ListViewBasic extends ListViewBasic {
+  const _ListViewBasic(
       {@typeKey this.type = appBskyGraphDefsListViewBasic,
       this.purpose = appBskyGraphDefsModlist,
       @AtUriConverter() required this.uri,
@@ -241,9 +176,8 @@ class _$ListViewBasicImpl extends _ListViewBasic {
       required this.indexedAt})
       : _labels = labels,
         super._();
-
-  factory _$ListViewBasicImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListViewBasicImplFromJson(json);
+  factory _ListViewBasic.fromJson(Map<String, dynamic> json) =>
+      _$ListViewBasicFromJson(json);
 
   @override
   @typeKey
@@ -276,16 +210,26 @@ class _$ListViewBasicImpl extends _ListViewBasic {
   @override
   final DateTime indexedAt;
 
+  /// Create a copy of ListViewBasic
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ListViewBasic(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ListViewBasicCopyWith<_ListViewBasic> get copyWith =>
+      __$ListViewBasicCopyWithImpl<_ListViewBasic>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ListViewBasicToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListViewBasicImpl &&
+            other is _ListViewBasic &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.uri, uri) || other.uri == uri) &&
@@ -303,63 +247,107 @@ class _$ListViewBasicImpl extends _ListViewBasic {
   int get hashCode => Object.hash(runtimeType, type, purpose, uri, cid, name,
       avatar, const DeepCollectionEquality().hash(_labels), viewer, indexedAt);
 
-  /// Create a copy of ListViewBasic
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ListViewBasicImplCopyWith<_$ListViewBasicImpl> get copyWith =>
-      __$$ListViewBasicImplCopyWithImpl<_$ListViewBasicImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ListViewBasicImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ListViewBasic(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
   }
 }
 
-abstract class _ListViewBasic extends ListViewBasic {
-  const factory _ListViewBasic(
-      {@typeKey final String type,
-      final String purpose,
-      @AtUriConverter() required final AtUri uri,
-      required final String cid,
-      required final String name,
-      final String? avatar,
-      final List<Label>? labels,
-      final ListViewer viewer,
-      required final DateTime indexedAt}) = _$ListViewBasicImpl;
-  const _ListViewBasic._() : super._();
+/// @nodoc
+abstract mixin class _$ListViewBasicCopyWith<$Res>
+    implements $ListViewBasicCopyWith<$Res> {
+  factory _$ListViewBasicCopyWith(
+          _ListViewBasic value, $Res Function(_ListViewBasic) _then) =
+      __$ListViewBasicCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String purpose,
+      @AtUriConverter() AtUri uri,
+      String cid,
+      String name,
+      String? avatar,
+      List<Label>? labels,
+      ListViewer viewer,
+      DateTime indexedAt});
 
-  factory _ListViewBasic.fromJson(Map<String, dynamic> json) =
-      _$ListViewBasicImpl.fromJson;
+  @override
+  $ListViewerCopyWith<$Res> get viewer;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  String get purpose;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  String get cid;
-  @override
-  String get name;
-  @override
-  String? get avatar;
-  @override
-  List<Label>? get labels;
-  @override
-  ListViewer get viewer;
-  @override
-  DateTime get indexedAt;
+/// @nodoc
+class __$ListViewBasicCopyWithImpl<$Res>
+    implements _$ListViewBasicCopyWith<$Res> {
+  __$ListViewBasicCopyWithImpl(this._self, this._then);
+
+  final _ListViewBasic _self;
+  final $Res Function(_ListViewBasic) _then;
 
   /// Create a copy of ListViewBasic
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ListViewBasicImplCopyWith<_$ListViewBasicImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? purpose = null,
+    Object? uri = null,
+    Object? cid = null,
+    Object? name = null,
+    Object? avatar = freezed,
+    Object? labels = freezed,
+    Object? viewer = null,
+    Object? indexedAt = null,
+  }) {
+    return _then(_ListViewBasic(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      purpose: null == purpose
+          ? _self.purpose
+          : purpose // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatar: freezed == avatar
+          ? _self.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      labels: freezed == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
+      viewer: null == viewer
+          ? _self.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as ListViewer,
+      indexedAt: null == indexedAt
+          ? _self.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of ListViewBasic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ListViewerCopyWith<$Res> get viewer {
+    return $ListViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
+    });
+  }
 }
+
+// dart format on

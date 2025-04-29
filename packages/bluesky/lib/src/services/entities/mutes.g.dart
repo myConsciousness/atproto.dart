@@ -8,11 +8,11 @@ part of 'mutes.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MutesImpl _$$MutesImplFromJson(Map json) => $checkedCreate(
-      r'_$MutesImpl',
+_Mutes _$MutesFromJson(Map json) => $checkedCreate(
+      '_Mutes',
       json,
       ($checkedConvert) {
-        final val = _$MutesImpl(
+        final val = _Mutes(
           mutes: $checkedConvert(
               'mutes',
               (v) => (v as List<dynamic>)
@@ -25,8 +25,7 @@ _$MutesImpl _$$MutesImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$MutesImplToJson(_$MutesImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$MutesToJson(_Mutes instance) => <String, dynamic>{
       'mutes': instance.mutes.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,
     };

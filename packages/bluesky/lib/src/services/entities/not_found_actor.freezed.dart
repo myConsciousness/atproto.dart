@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,98 +10,66 @@ part of 'not_found_actor.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-NotFoundActor _$NotFoundActorFromJson(Map<String, dynamic> json) {
-  return _NotFoundActor.fromJson(json);
-}
 
 /// @nodoc
 mixin _$NotFoundActor {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  String get actor => throw _privateConstructorUsedError;
-  bool get notFound => throw _privateConstructorUsedError;
-
-  /// Serializes this NotFoundActor to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get actor;
+  bool get notFound;
 
   /// Create a copy of NotFoundActor
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $NotFoundActorCopyWith<NotFoundActor> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $NotFoundActorCopyWith<$Res> {
-  factory $NotFoundActorCopyWith(
-          NotFoundActor value, $Res Function(NotFoundActor) then) =
-      _$NotFoundActorCopyWithImpl<$Res, NotFoundActor>;
-  @useResult
-  $Res call(
-      {@typeKey String type, @AtUriConverter() String actor, bool notFound});
-}
-
-/// @nodoc
-class _$NotFoundActorCopyWithImpl<$Res, $Val extends NotFoundActor>
-    implements $NotFoundActorCopyWith<$Res> {
-  _$NotFoundActorCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of NotFoundActor
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $NotFoundActorCopyWith<NotFoundActor> get copyWith =>
+      _$NotFoundActorCopyWithImpl<NotFoundActor>(
+          this as NotFoundActor, _$identity);
+
+  /// Serializes this NotFoundActor to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? actor = null,
-    Object? notFound = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      actor: null == actor
-          ? _value.actor
-          : actor // ignore: cast_nullable_to_non_nullable
-              as String,
-      notFound: null == notFound
-          ? _value.notFound
-          : notFound // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is NotFoundActor &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.actor, actor) || other.actor == actor) &&
+            (identical(other.notFound, notFound) ||
+                other.notFound == notFound));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, actor, notFound);
+
+  @override
+  String toString() {
+    return 'NotFoundActor(type: $type, actor: $actor, notFound: $notFound)';
   }
 }
 
 /// @nodoc
-abstract class _$$NotFoundActorImplCopyWith<$Res>
-    implements $NotFoundActorCopyWith<$Res> {
-  factory _$$NotFoundActorImplCopyWith(
-          _$NotFoundActorImpl value, $Res Function(_$NotFoundActorImpl) then) =
-      __$$NotFoundActorImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $NotFoundActorCopyWith<$Res> {
+  factory $NotFoundActorCopyWith(
+          NotFoundActor value, $Res Function(NotFoundActor) _then) =
+      _$NotFoundActorCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type, @AtUriConverter() String actor, bool notFound});
 }
 
 /// @nodoc
-class __$$NotFoundActorImplCopyWithImpl<$Res>
-    extends _$NotFoundActorCopyWithImpl<$Res, _$NotFoundActorImpl>
-    implements _$$NotFoundActorImplCopyWith<$Res> {
-  __$$NotFoundActorImplCopyWithImpl(
-      _$NotFoundActorImpl _value, $Res Function(_$NotFoundActorImpl) _then)
-      : super(_value, _then);
+class _$NotFoundActorCopyWithImpl<$Res>
+    implements $NotFoundActorCopyWith<$Res> {
+  _$NotFoundActorCopyWithImpl(this._self, this._then);
+
+  final NotFoundActor _self;
+  final $Res Function(NotFoundActor) _then;
 
   /// Create a copy of NotFoundActor
   /// with the given fields replaced by the non-null parameter values.
@@ -111,17 +80,17 @@ class __$$NotFoundActorImplCopyWithImpl<$Res>
     Object? actor = null,
     Object? notFound = null,
   }) {
-    return _then(_$NotFoundActorImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       actor: null == actor
-          ? _value.actor
+          ? _self.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as String,
       notFound: null == notFound
-          ? _value.notFound
+          ? _self.notFound
           : notFound // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -130,14 +99,13 @@ class __$$NotFoundActorImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NotFoundActorImpl implements _NotFoundActor {
-  const _$NotFoundActorImpl(
+class _NotFoundActor implements NotFoundActor {
+  const _NotFoundActor(
       {@typeKey this.type = appBskyGraphDefsNotFoundActor,
       @AtUriConverter() required this.actor,
       this.notFound = true});
-
-  factory _$NotFoundActorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NotFoundActorImplFromJson(json);
+  factory _NotFoundActor.fromJson(Map<String, dynamic> json) =>
+      _$NotFoundActorFromJson(json);
 
   @override
   @typeKey
@@ -149,16 +117,26 @@ class _$NotFoundActorImpl implements _NotFoundActor {
   @JsonKey()
   final bool notFound;
 
+  /// Create a copy of NotFoundActor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'NotFoundActor(type: $type, actor: $actor, notFound: $notFound)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$NotFoundActorCopyWith<_NotFoundActor> get copyWith =>
+      __$NotFoundActorCopyWithImpl<_NotFoundActor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$NotFoundActorToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotFoundActorImpl &&
+            other is _NotFoundActor &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.actor, actor) || other.actor == actor) &&
             (identical(other.notFound, notFound) ||
@@ -169,44 +147,56 @@ class _$NotFoundActorImpl implements _NotFoundActor {
   @override
   int get hashCode => Object.hash(runtimeType, type, actor, notFound);
 
-  /// Create a copy of NotFoundActor
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$NotFoundActorImplCopyWith<_$NotFoundActorImpl> get copyWith =>
-      __$$NotFoundActorImplCopyWithImpl<_$NotFoundActorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NotFoundActorImplToJson(
-      this,
-    );
+  String toString() {
+    return 'NotFoundActor(type: $type, actor: $actor, notFound: $notFound)';
   }
 }
 
-abstract class _NotFoundActor implements NotFoundActor {
-  const factory _NotFoundActor(
-      {@typeKey final String type,
-      @AtUriConverter() required final String actor,
-      final bool notFound}) = _$NotFoundActorImpl;
+/// @nodoc
+abstract mixin class _$NotFoundActorCopyWith<$Res>
+    implements $NotFoundActorCopyWith<$Res> {
+  factory _$NotFoundActorCopyWith(
+          _NotFoundActor value, $Res Function(_NotFoundActor) _then) =
+      __$NotFoundActorCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type, @AtUriConverter() String actor, bool notFound});
+}
 
-  factory _NotFoundActor.fromJson(Map<String, dynamic> json) =
-      _$NotFoundActorImpl.fromJson;
+/// @nodoc
+class __$NotFoundActorCopyWithImpl<$Res>
+    implements _$NotFoundActorCopyWith<$Res> {
+  __$NotFoundActorCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  String get actor;
-  @override
-  bool get notFound;
+  final _NotFoundActor _self;
+  final $Res Function(_NotFoundActor) _then;
 
   /// Create a copy of NotFoundActor
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$NotFoundActorImplCopyWith<_$NotFoundActorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? actor = null,
+    Object? notFound = null,
+  }) {
+    return _then(_NotFoundActor(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      actor: null == actor
+          ? _self.actor
+          : actor // ignore: cast_nullable_to_non_nullable
+              as String,
+      notFound: null == notFound
+          ? _self.notFound
+          : notFound // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
+
+// dart format on

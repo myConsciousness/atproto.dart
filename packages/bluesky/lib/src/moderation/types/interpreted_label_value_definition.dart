@@ -8,7 +8,8 @@ import 'mod_object.dart';
 part 'interpreted_label_value_definition.freezed.dart';
 
 @modObject
-class InterpretedLabelValueDefinition with _$InterpretedLabelValueDefinition {
+abstract class InterpretedLabelValueDefinition
+    with _$InterpretedLabelValueDefinition {
   const factory InterpretedLabelValueDefinition({
     required String identifier,
     @Default([]) List<LabelValueDefinitionFlag> flags,

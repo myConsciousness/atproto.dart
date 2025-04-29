@@ -8,11 +8,11 @@ part of 'skeleton_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SkeletonPostImpl _$$SkeletonPostImplFromJson(Map json) => $checkedCreate(
-      r'_$SkeletonPostImpl',
+_SkeletonPost _$SkeletonPostFromJson(Map json) => $checkedCreate(
+      '_SkeletonPost',
       json,
       ($checkedConvert) {
-        final val = _$SkeletonPostImpl(
+        final val = _SkeletonPost(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
         );
@@ -20,7 +20,7 @@ _$SkeletonPostImpl _$$SkeletonPostImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$SkeletonPostImplToJson(_$SkeletonPostImpl instance) =>
+Map<String, dynamic> _$SkeletonPostToJson(_SkeletonPost instance) =>
     <String, dynamic>{
       'uri': const AtUriConverter().toJson(instance.uri),
     };

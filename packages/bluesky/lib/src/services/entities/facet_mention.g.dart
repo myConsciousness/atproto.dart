@@ -8,11 +8,11 @@ part of 'facet_mention.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FacetMentionImpl _$$FacetMentionImplFromJson(Map json) => $checkedCreate(
-      r'_$FacetMentionImpl',
+_FacetMention _$FacetMentionFromJson(Map json) => $checkedCreate(
+      '_FacetMention',
       json,
       ($checkedConvert) {
-        final val = _$FacetMentionImpl(
+        final val = _FacetMention(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyRichtextFacetMention),
           did: $checkedConvert('did', (v) => v as String),
@@ -22,7 +22,7 @@ _$FacetMentionImpl _$$FacetMentionImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FacetMentionImplToJson(_$FacetMentionImpl instance) =>
+Map<String, dynamic> _$FacetMentionToJson(_FacetMention instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'did': instance.did,

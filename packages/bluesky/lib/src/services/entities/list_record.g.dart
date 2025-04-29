@@ -8,11 +8,11 @@ part of 'list_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListRecordImpl _$$ListRecordImplFromJson(Map json) => $checkedCreate(
-      r'_$ListRecordImpl',
+_ListRecord _$ListRecordFromJson(Map json) => $checkedCreate(
+      '_ListRecord',
       json,
       ($checkedConvert) {
-        final val = _$ListRecordImpl(
+        final val = _ListRecord(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphList),
           name: $checkedConvert('name', (v) => v as String),
@@ -41,7 +41,7 @@ _$ListRecordImpl _$$ListRecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ListRecordImplToJson(_$ListRecordImpl instance) =>
+Map<String, dynamic> _$ListRecordToJson(_ListRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'name': instance.name,

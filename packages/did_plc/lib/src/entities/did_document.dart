@@ -12,7 +12,7 @@ part 'did_document.freezed.dart';
 part 'did_document.g.dart';
 
 @freezed
-class DidDocument with _$DidDocument {
+abstract class DidDocument with _$DidDocument {
   /// Creates an instance of [DidDocument].
   @jsonSerializable
   const factory DidDocument({

@@ -12,7 +12,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getStarterPacks/#output
 @freezed
-class GetStarterPacksOutput with _$GetStarterPacksOutput {
+abstract class GetStarterPacksOutput with _$GetStarterPacksOutput {
   @jsonSerializable
   const factory GetStarterPacksOutput({
     required List<StarterPackViewBasic> starterPacks,

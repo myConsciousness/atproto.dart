@@ -8,11 +8,11 @@ part of 'like_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LikeRecordImpl _$$LikeRecordImplFromJson(Map json) => $checkedCreate(
-      r'_$LikeRecordImpl',
+_LikeRecord _$LikeRecordFromJson(Map json) => $checkedCreate(
+      '_LikeRecord',
       json,
       ($checkedConvert) {
-        final val = _$LikeRecordImpl(
+        final val = _LikeRecord(
           type:
               $checkedConvert(r'$type', (v) => v as String? ?? appBskyFeedLike),
           ref: $checkedConvert('subject',
@@ -25,7 +25,7 @@ _$LikeRecordImpl _$$LikeRecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type', 'ref': 'subject'},
     );
 
-Map<String, dynamic> _$$LikeRecordImplToJson(_$LikeRecordImpl instance) =>
+Map<String, dynamic> _$LikeRecordToJson(_LikeRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'subject': instance.ref.toJson(),

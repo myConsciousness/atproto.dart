@@ -8,11 +8,11 @@ part of 'metadata.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MetadataImpl _$$MetadataImplFromJson(Map json) => $checkedCreate(
-      r'_$MetadataImpl',
+_Metadata _$MetadataFromJson(Map json) => $checkedCreate(
+      '_Metadata',
       json,
       ($checkedConvert) {
-        final val = _$MetadataImpl(
+        final val = _Metadata(
           messagesSent:
               $checkedConvert('messagesSent', (v) => (v as num).toInt()),
           messagesReceived:
@@ -25,8 +25,7 @@ _$MetadataImpl _$$MetadataImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$MetadataImplToJson(_$MetadataImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$MetadataToJson(_Metadata instance) => <String, dynamic>{
       'messagesSent': instance.messagesSent,
       'messagesReceived': instance.messagesReceived,
       'convos': instance.convos,

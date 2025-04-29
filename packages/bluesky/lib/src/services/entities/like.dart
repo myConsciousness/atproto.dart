@@ -9,7 +9,7 @@ part 'like.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getlikes/#like
 @freezed
-class Like with _$Like {
+abstract class Like with _$Like {
   const factory Like({
     required Actor actor,
     required DateTime createdAt,

@@ -9,7 +9,7 @@ part 'records.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listrecords/#output
 @freezed
-class Records with _$Records {
+abstract class Records with _$Records {
   const factory Records({
     required List<Record> records,
     String? cursor,

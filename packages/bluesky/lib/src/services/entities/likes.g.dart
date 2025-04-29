@@ -8,11 +8,11 @@ part of 'likes.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LikesImpl _$$LikesImplFromJson(Map json) => $checkedCreate(
-      r'_$LikesImpl',
+_Likes _$LikesFromJson(Map json) => $checkedCreate(
+      '_Likes',
       json,
       ($checkedConvert) {
-        final val = _$LikesImpl(
+        final val = _Likes(
           likes: $checkedConvert(
               'likes',
               (v) => (v as List<dynamic>)
@@ -28,8 +28,7 @@ _$LikesImpl _$$LikesImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LikesImplToJson(_$LikesImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LikesToJson(_Likes instance) => <String, dynamic>{
       'likes': instance.likes.map((e) => e.toJson()).toList(),
       'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,

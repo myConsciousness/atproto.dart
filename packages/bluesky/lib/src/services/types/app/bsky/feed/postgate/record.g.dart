@@ -8,11 +8,11 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PostgateRecordImpl _$$PostgateRecordImplFromJson(Map json) => $checkedCreate(
-      r'_$PostgateRecordImpl',
+_PostgateRecord _$PostgateRecordFromJson(Map json) => $checkedCreate(
+      '_PostgateRecord',
       json,
       ($checkedConvert) {
-        final val = _$PostgateRecordImpl(
+        final val = _PostgateRecord(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedPostgate),
           post: $checkedConvert(
@@ -36,8 +36,7 @@ _$PostgateRecordImpl _$$PostgateRecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$PostgateRecordImplToJson(
-        _$PostgateRecordImpl instance) =>
+Map<String, dynamic> _$PostgateRecordToJson(_PostgateRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'post': const AtUriConverter().toJson(instance.post),

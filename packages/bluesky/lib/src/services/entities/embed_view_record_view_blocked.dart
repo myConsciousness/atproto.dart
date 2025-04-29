@@ -13,7 +13,7 @@ part 'embed_view_record_view_blocked.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewblocked
 @freezed
-class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
+abstract class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
   const factory EmbedViewRecordViewBlocked({
     @typeKey @Default(appBskyEmbedRecordViewBlocked) String type,
     @AtUriConverter() required AtUri uri,

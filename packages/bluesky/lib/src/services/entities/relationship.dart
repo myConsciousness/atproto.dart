@@ -10,7 +10,7 @@ part 'relationship.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships#output
 @freezed
-class Relationship with _$Relationship {
+abstract class Relationship with _$Relationship {
   // ignore: unused_element
   const Relationship._();
 

@@ -8,11 +8,11 @@ part of 'xrpc_error.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$XRPCErrorImpl _$$XRPCErrorImplFromJson(Map json) => $checkedCreate(
-      r'_$XRPCErrorImpl',
+_XRPCError _$XRPCErrorFromJson(Map json) => $checkedCreate(
+      '_XRPCError',
       json,
       ($checkedConvert) {
-        final val = _$XRPCErrorImpl(
+        final val = _XRPCError(
           error: $checkedConvert('error', (v) => v as String),
           message: $checkedConvert('message', (v) => v as String?),
         );
@@ -20,7 +20,7 @@ _$XRPCErrorImpl _$$XRPCErrorImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$XRPCErrorImplToJson(_$XRPCErrorImpl instance) =>
+Map<String, dynamic> _$XRPCErrorToJson(_XRPCError instance) =>
     <String, dynamic>{
       'error': instance.error,
       'message': instance.message,

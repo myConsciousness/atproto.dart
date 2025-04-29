@@ -8,11 +8,11 @@ part of 'subscribed_repo_handle.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$HandleImpl _$$HandleImplFromJson(Map json) => $checkedCreate(
-      r'_$HandleImpl',
+_Handle _$HandleFromJson(Map json) => $checkedCreate(
+      '_Handle',
       json,
       ($checkedConvert) {
-        final val = _$HandleImpl(
+        final val = _Handle(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           cursor: $checkedConvert('seq', (v) => (v as num).toInt()),
@@ -24,8 +24,7 @@ _$HandleImpl _$$HandleImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'cursor': 'seq', 'createdAt': 'time'},
     );
 
-Map<String, dynamic> _$$HandleImplToJson(_$HandleImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$HandleToJson(_Handle instance) => <String, dynamic>{
       'did': instance.did,
       'handle': instance.handle,
       'seq': instance.cursor,

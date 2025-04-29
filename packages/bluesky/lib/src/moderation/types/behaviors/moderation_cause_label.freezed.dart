@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,38 +10,74 @@ part of 'moderation_cause_label.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ModerationCauseLabel {
-  ModerationCauseSource get source => throw _privateConstructorUsedError;
-  Label get label => throw _privateConstructorUsedError;
-  InterpretedLabelValueDefinition get labelDef =>
-      throw _privateConstructorUsedError;
-  LabelTarget get target => throw _privateConstructorUsedError;
-  LabelPreference get setting => throw _privateConstructorUsedError;
-  Map<ModerationBehaviorContext, ModerationBehavior> get behavior =>
-      throw _privateConstructorUsedError;
-  bool get noOverride => throw _privateConstructorUsedError;
+  ModerationCauseSource get source;
+  Label get label;
+  InterpretedLabelValueDefinition get labelDef;
+  LabelTarget get target;
+  LabelPreference get setting;
+  Map<ModerationBehaviorContext, ModerationBehavior> get behavior;
+  bool get noOverride;
   @Assert(_assertEvalPriority)
-  int get priority => throw _privateConstructorUsedError;
-  bool get downgraded => throw _privateConstructorUsedError;
+  int get priority;
+  bool get downgraded;
 
   /// Create a copy of ModerationCauseLabel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ModerationCauseLabelCopyWith<ModerationCauseLabel> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ModerationCauseLabelCopyWithImpl<ModerationCauseLabel>(
+          this as ModerationCauseLabel, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationCauseLabel &&
+            (identical(other.source, source) || other.source == source) &&
+            (identical(other.label, label) || other.label == label) &&
+            (identical(other.labelDef, labelDef) ||
+                other.labelDef == labelDef) &&
+            (identical(other.target, target) || other.target == target) &&
+            (identical(other.setting, setting) || other.setting == setting) &&
+            const DeepCollectionEquality().equals(other.behavior, behavior) &&
+            (identical(other.noOverride, noOverride) ||
+                other.noOverride == noOverride) &&
+            (identical(other.priority, priority) ||
+                other.priority == priority) &&
+            (identical(other.downgraded, downgraded) ||
+                other.downgraded == downgraded));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      source,
+      label,
+      labelDef,
+      target,
+      setting,
+      const DeepCollectionEquality().hash(behavior),
+      noOverride,
+      priority,
+      downgraded);
+
+  @override
+  String toString() {
+    return 'ModerationCauseLabel(source: $source, label: $label, labelDef: $labelDef, target: $target, setting: $setting, behavior: $behavior, noOverride: $noOverride, priority: $priority, downgraded: $downgraded)';
+  }
 }
 
 /// @nodoc
-abstract class $ModerationCauseLabelCopyWith<$Res> {
+abstract mixin class $ModerationCauseLabelCopyWith<$Res> {
   factory $ModerationCauseLabelCopyWith(ModerationCauseLabel value,
-          $Res Function(ModerationCauseLabel) then) =
-      _$ModerationCauseLabelCopyWithImpl<$Res, ModerationCauseLabel>;
+          $Res Function(ModerationCauseLabel) _then) =
+      _$ModerationCauseLabelCopyWithImpl;
   @useResult
   $Res call(
       {ModerationCauseSource source,
@@ -59,15 +96,12 @@ abstract class $ModerationCauseLabelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ModerationCauseLabelCopyWithImpl<$Res,
-        $Val extends ModerationCauseLabel>
+class _$ModerationCauseLabelCopyWithImpl<$Res>
     implements $ModerationCauseLabelCopyWith<$Res> {
-  _$ModerationCauseLabelCopyWithImpl(this._value, this._then);
+  _$ModerationCauseLabelCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModerationCauseLabel _self;
+  final $Res Function(ModerationCauseLabel) _then;
 
   /// Create a copy of ModerationCauseLabel
   /// with the given fields replaced by the non-null parameter values.
@@ -84,44 +118,44 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
     Object? priority = null,
     Object? downgraded = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       source: null == source
-          ? _value.source
+          ? _self.source
           : source // ignore: cast_nullable_to_non_nullable
               as ModerationCauseSource,
       label: null == label
-          ? _value.label
+          ? _self.label
           : label // ignore: cast_nullable_to_non_nullable
               as Label,
       labelDef: null == labelDef
-          ? _value.labelDef
+          ? _self.labelDef
           : labelDef // ignore: cast_nullable_to_non_nullable
               as InterpretedLabelValueDefinition,
       target: null == target
-          ? _value.target
+          ? _self.target
           : target // ignore: cast_nullable_to_non_nullable
               as LabelTarget,
       setting: null == setting
-          ? _value.setting
+          ? _self.setting
           : setting // ignore: cast_nullable_to_non_nullable
               as LabelPreference,
       behavior: null == behavior
-          ? _value.behavior
+          ? _self.behavior
           : behavior // ignore: cast_nullable_to_non_nullable
               as Map<ModerationBehaviorContext, ModerationBehavior>,
       noOverride: null == noOverride
-          ? _value.noOverride
+          ? _self.noOverride
           : noOverride // ignore: cast_nullable_to_non_nullable
               as bool,
       priority: null == priority
-          ? _value.priority
+          ? _self.priority
           : priority // ignore: cast_nullable_to_non_nullable
               as int,
       downgraded: null == downgraded
-          ? _value.downgraded
+          ? _self.downgraded
           : downgraded // ignore: cast_nullable_to_non_nullable
               as bool,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ModerationCauseLabel
@@ -129,8 +163,8 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $ModerationCauseSourceCopyWith<$Res> get source {
-    return $ModerationCauseSourceCopyWith<$Res>(_value.source, (value) {
-      return _then(_value.copyWith(source: value) as $Val);
+    return $ModerationCauseSourceCopyWith<$Res>(_self.source, (value) {
+      return _then(_self.copyWith(source: value));
     });
   }
 
@@ -139,8 +173,8 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $LabelCopyWith<$Res> get label {
-    return $LabelCopyWith<$Res>(_value.label, (value) {
-      return _then(_value.copyWith(label: value) as $Val);
+    return $LabelCopyWith<$Res>(_self.label, (value) {
+      return _then(_self.copyWith(label: value));
     });
   }
 
@@ -149,108 +183,17 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef {
-    return $InterpretedLabelValueDefinitionCopyWith<$Res>(_value.labelDef,
+    return $InterpretedLabelValueDefinitionCopyWith<$Res>(_self.labelDef,
         (value) {
-      return _then(_value.copyWith(labelDef: value) as $Val);
+      return _then(_self.copyWith(labelDef: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ModerationCauseLabelImplCopyWith<$Res>
-    implements $ModerationCauseLabelCopyWith<$Res> {
-  factory _$$ModerationCauseLabelImplCopyWith(_$ModerationCauseLabelImpl value,
-          $Res Function(_$ModerationCauseLabelImpl) then) =
-      __$$ModerationCauseLabelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {ModerationCauseSource source,
-      Label label,
-      InterpretedLabelValueDefinition labelDef,
-      LabelTarget target,
-      LabelPreference setting,
-      Map<ModerationBehaviorContext, ModerationBehavior> behavior,
-      bool noOverride,
-      @Assert(_assertEvalPriority) int priority,
-      bool downgraded});
 
-  @override
-  $ModerationCauseSourceCopyWith<$Res> get source;
-  @override
-  $LabelCopyWith<$Res> get label;
-  @override
-  $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
-}
-
-/// @nodoc
-class __$$ModerationCauseLabelImplCopyWithImpl<$Res>
-    extends _$ModerationCauseLabelCopyWithImpl<$Res, _$ModerationCauseLabelImpl>
-    implements _$$ModerationCauseLabelImplCopyWith<$Res> {
-  __$$ModerationCauseLabelImplCopyWithImpl(_$ModerationCauseLabelImpl _value,
-      $Res Function(_$ModerationCauseLabelImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ModerationCauseLabel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? source = null,
-    Object? label = null,
-    Object? labelDef = null,
-    Object? target = null,
-    Object? setting = null,
-    Object? behavior = null,
-    Object? noOverride = null,
-    Object? priority = null,
-    Object? downgraded = null,
-  }) {
-    return _then(_$ModerationCauseLabelImpl(
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as ModerationCauseSource,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as Label,
-      labelDef: null == labelDef
-          ? _value.labelDef
-          : labelDef // ignore: cast_nullable_to_non_nullable
-              as InterpretedLabelValueDefinition,
-      target: null == target
-          ? _value.target
-          : target // ignore: cast_nullable_to_non_nullable
-              as LabelTarget,
-      setting: null == setting
-          ? _value.setting
-          : setting // ignore: cast_nullable_to_non_nullable
-              as LabelPreference,
-      behavior: null == behavior
-          ? _value._behavior
-          : behavior // ignore: cast_nullable_to_non_nullable
-              as Map<ModerationBehaviorContext, ModerationBehavior>,
-      noOverride: null == noOverride
-          ? _value.noOverride
-          : noOverride // ignore: cast_nullable_to_non_nullable
-              as bool,
-      priority: null == priority
-          ? _value.priority
-          : priority // ignore: cast_nullable_to_non_nullable
-              as int,
-      downgraded: null == downgraded
-          ? _value.downgraded
-          : downgraded // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
-  const _$ModerationCauseLabelImpl(
+class _ModerationCauseLabel implements ModerationCauseLabel {
+  const _ModerationCauseLabel(
       {required this.source,
       required this.label,
       required this.labelDef,
@@ -292,16 +235,20 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
   @JsonKey()
   final bool downgraded;
 
+  /// Create a copy of ModerationCauseLabel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ModerationCauseLabel(source: $source, label: $label, labelDef: $labelDef, target: $target, setting: $setting, behavior: $behavior, noOverride: $noOverride, priority: $priority, downgraded: $downgraded)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ModerationCauseLabelCopyWith<_ModerationCauseLabel> get copyWith =>
+      __$ModerationCauseLabelCopyWithImpl<_ModerationCauseLabel>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationCauseLabelImpl &&
+            other is _ModerationCauseLabel &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.label, label) || other.label == label) &&
             (identical(other.labelDef, labelDef) ||
@@ -330,54 +277,132 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
       priority,
       downgraded);
 
+  @override
+  String toString() {
+    return 'ModerationCauseLabel(source: $source, label: $label, labelDef: $labelDef, target: $target, setting: $setting, behavior: $behavior, noOverride: $noOverride, priority: $priority, downgraded: $downgraded)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ModerationCauseLabelCopyWith<$Res>
+    implements $ModerationCauseLabelCopyWith<$Res> {
+  factory _$ModerationCauseLabelCopyWith(_ModerationCauseLabel value,
+          $Res Function(_ModerationCauseLabel) _then) =
+      __$ModerationCauseLabelCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {ModerationCauseSource source,
+      Label label,
+      InterpretedLabelValueDefinition labelDef,
+      LabelTarget target,
+      LabelPreference setting,
+      Map<ModerationBehaviorContext, ModerationBehavior> behavior,
+      bool noOverride,
+      @Assert(_assertEvalPriority) int priority,
+      bool downgraded});
+
+  @override
+  $ModerationCauseSourceCopyWith<$Res> get source;
+  @override
+  $LabelCopyWith<$Res> get label;
+  @override
+  $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
+}
+
+/// @nodoc
+class __$ModerationCauseLabelCopyWithImpl<$Res>
+    implements _$ModerationCauseLabelCopyWith<$Res> {
+  __$ModerationCauseLabelCopyWithImpl(this._self, this._then);
+
+  final _ModerationCauseLabel _self;
+  final $Res Function(_ModerationCauseLabel) _then;
+
   /// Create a copy of ModerationCauseLabel
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModerationCauseLabelImplCopyWith<_$ModerationCauseLabelImpl>
-      get copyWith =>
-          __$$ModerationCauseLabelImplCopyWithImpl<_$ModerationCauseLabelImpl>(
-              this, _$identity);
-}
-
-abstract class _ModerationCauseLabel implements ModerationCauseLabel {
-  const factory _ModerationCauseLabel(
-      {required final ModerationCauseSource source,
-      required final Label label,
-      required final InterpretedLabelValueDefinition labelDef,
-      required final LabelTarget target,
-      required final LabelPreference setting,
-      required final Map<ModerationBehaviorContext, ModerationBehavior>
-          behavior,
-      final bool noOverride,
-      @Assert(_assertEvalPriority) final int priority,
-      final bool downgraded}) = _$ModerationCauseLabelImpl;
-
-  @override
-  ModerationCauseSource get source;
-  @override
-  Label get label;
-  @override
-  InterpretedLabelValueDefinition get labelDef;
-  @override
-  LabelTarget get target;
-  @override
-  LabelPreference get setting;
-  @override
-  Map<ModerationBehaviorContext, ModerationBehavior> get behavior;
-  @override
-  bool get noOverride;
-  @override
-  @Assert(_assertEvalPriority)
-  int get priority;
-  @override
-  bool get downgraded;
+  $Res call({
+    Object? source = null,
+    Object? label = null,
+    Object? labelDef = null,
+    Object? target = null,
+    Object? setting = null,
+    Object? behavior = null,
+    Object? noOverride = null,
+    Object? priority = null,
+    Object? downgraded = null,
+  }) {
+    return _then(_ModerationCauseLabel(
+      source: null == source
+          ? _self.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as ModerationCauseSource,
+      label: null == label
+          ? _self.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as Label,
+      labelDef: null == labelDef
+          ? _self.labelDef
+          : labelDef // ignore: cast_nullable_to_non_nullable
+              as InterpretedLabelValueDefinition,
+      target: null == target
+          ? _self.target
+          : target // ignore: cast_nullable_to_non_nullable
+              as LabelTarget,
+      setting: null == setting
+          ? _self.setting
+          : setting // ignore: cast_nullable_to_non_nullable
+              as LabelPreference,
+      behavior: null == behavior
+          ? _self._behavior
+          : behavior // ignore: cast_nullable_to_non_nullable
+              as Map<ModerationBehaviorContext, ModerationBehavior>,
+      noOverride: null == noOverride
+          ? _self.noOverride
+          : noOverride // ignore: cast_nullable_to_non_nullable
+              as bool,
+      priority: null == priority
+          ? _self.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as int,
+      downgraded: null == downgraded
+          ? _self.downgraded
+          : downgraded // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 
   /// Create a copy of ModerationCauseLabel
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModerationCauseLabelImplCopyWith<_$ModerationCauseLabelImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $ModerationCauseSourceCopyWith<$Res> get source {
+    return $ModerationCauseSourceCopyWith<$Res>(_self.source, (value) {
+      return _then(_self.copyWith(source: value));
+    });
+  }
+
+  /// Create a copy of ModerationCauseLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelCopyWith<$Res> get label {
+    return $LabelCopyWith<$Res>(_self.label, (value) {
+      return _then(_self.copyWith(label: value));
+    });
+  }
+
+  /// Create a copy of ModerationCauseLabel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef {
+    return $InterpretedLabelValueDefinitionCopyWith<$Res>(_self.labelDef,
+        (value) {
+      return _then(_self.copyWith(labelDef: value));
+    });
+  }
 }
+
+// dart format on

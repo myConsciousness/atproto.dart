@@ -8,7 +8,7 @@ part 'aspect_ratio.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/defs/#aspectratio
 @freezed
-class AspectRatio with _$AspectRatio {
+abstract class AspectRatio with _$AspectRatio {
   const factory AspectRatio({
     required int width,
     required int height,

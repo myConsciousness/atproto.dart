@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,89 +10,61 @@ part of 'labelers_pref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LabelersPref _$LabelersPrefFromJson(Map<String, dynamic> json) {
-  return _LabelersPref.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LabelersPref {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  List<LabelerPrefItem> get labelers => throw _privateConstructorUsedError;
-
-  /// Serializes this LabelersPref to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  List<LabelerPrefItem> get labelers;
 
   /// Create a copy of LabelersPref
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LabelersPrefCopyWith<LabelersPref> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LabelersPrefCopyWith<$Res> {
-  factory $LabelersPrefCopyWith(
-          LabelersPref value, $Res Function(LabelersPref) then) =
-      _$LabelersPrefCopyWithImpl<$Res, LabelersPref>;
-  @useResult
-  $Res call({@typeKey String type, List<LabelerPrefItem> labelers});
-}
-
-/// @nodoc
-class _$LabelersPrefCopyWithImpl<$Res, $Val extends LabelersPref>
-    implements $LabelersPrefCopyWith<$Res> {
-  _$LabelersPrefCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LabelersPref
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LabelersPrefCopyWith<LabelersPref> get copyWith =>
+      _$LabelersPrefCopyWithImpl<LabelersPref>(
+          this as LabelersPref, _$identity);
+
+  /// Serializes this LabelersPref to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? labelers = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      labelers: null == labelers
-          ? _value.labelers
-          : labelers // ignore: cast_nullable_to_non_nullable
-              as List<LabelerPrefItem>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LabelersPref &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality().equals(other.labelers, labelers));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(labelers));
+
+  @override
+  String toString() {
+    return 'LabelersPref(type: $type, labelers: $labelers)';
   }
 }
 
 /// @nodoc
-abstract class _$$LabelersPrefImplCopyWith<$Res>
-    implements $LabelersPrefCopyWith<$Res> {
-  factory _$$LabelersPrefImplCopyWith(
-          _$LabelersPrefImpl value, $Res Function(_$LabelersPrefImpl) then) =
-      __$$LabelersPrefImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LabelersPrefCopyWith<$Res> {
+  factory $LabelersPrefCopyWith(
+          LabelersPref value, $Res Function(LabelersPref) _then) =
+      _$LabelersPrefCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, List<LabelerPrefItem> labelers});
 }
 
 /// @nodoc
-class __$$LabelersPrefImplCopyWithImpl<$Res>
-    extends _$LabelersPrefCopyWithImpl<$Res, _$LabelersPrefImpl>
-    implements _$$LabelersPrefImplCopyWith<$Res> {
-  __$$LabelersPrefImplCopyWithImpl(
-      _$LabelersPrefImpl _value, $Res Function(_$LabelersPrefImpl) _then)
-      : super(_value, _then);
+class _$LabelersPrefCopyWithImpl<$Res> implements $LabelersPrefCopyWith<$Res> {
+  _$LabelersPrefCopyWithImpl(this._self, this._then);
+
+  final LabelersPref _self;
+  final $Res Function(LabelersPref) _then;
 
   /// Create a copy of LabelersPref
   /// with the given fields replaced by the non-null parameter values.
@@ -101,13 +74,13 @@ class __$$LabelersPrefImplCopyWithImpl<$Res>
     Object? type = null,
     Object? labelers = null,
   }) {
-    return _then(_$LabelersPrefImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       labelers: null == labelers
-          ? _value._labelers
+          ? _self.labelers
           : labelers // ignore: cast_nullable_to_non_nullable
               as List<LabelerPrefItem>,
     ));
@@ -116,14 +89,13 @@ class __$$LabelersPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LabelersPrefImpl implements _LabelersPref {
-  const _$LabelersPrefImpl(
+class _LabelersPref implements LabelersPref {
+  const _LabelersPref(
       {@typeKey this.type = appBskyActorDefsLabelersPref,
       required final List<LabelerPrefItem> labelers})
       : _labelers = labelers;
-
-  factory _$LabelersPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LabelersPrefImplFromJson(json);
+  factory _LabelersPref.fromJson(Map<String, dynamic> json) =>
+      _$LabelersPrefFromJson(json);
 
   @override
   @typeKey
@@ -136,16 +108,26 @@ class _$LabelersPrefImpl implements _LabelersPref {
     return EqualUnmodifiableListView(_labelers);
   }
 
+  /// Create a copy of LabelersPref
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LabelersPref(type: $type, labelers: $labelers)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LabelersPrefCopyWith<_LabelersPref> get copyWith =>
+      __$LabelersPrefCopyWithImpl<_LabelersPref>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LabelersPrefToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LabelersPrefImpl &&
+            other is _LabelersPref &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._labelers, _labelers));
   }
@@ -155,40 +137,50 @@ class _$LabelersPrefImpl implements _LabelersPref {
   int get hashCode => Object.hash(
       runtimeType, type, const DeepCollectionEquality().hash(_labelers));
 
-  /// Create a copy of LabelersPref
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LabelersPrefImplCopyWith<_$LabelersPrefImpl> get copyWith =>
-      __$$LabelersPrefImplCopyWithImpl<_$LabelersPrefImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LabelersPrefImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LabelersPref(type: $type, labelers: $labelers)';
   }
 }
 
-abstract class _LabelersPref implements LabelersPref {
-  const factory _LabelersPref(
-      {@typeKey final String type,
-      required final List<LabelerPrefItem> labelers}) = _$LabelersPrefImpl;
-
-  factory _LabelersPref.fromJson(Map<String, dynamic> json) =
-      _$LabelersPrefImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$LabelersPrefCopyWith<$Res>
+    implements $LabelersPrefCopyWith<$Res> {
+  factory _$LabelersPrefCopyWith(
+          _LabelersPref value, $Res Function(_LabelersPref) _then) =
+      __$LabelersPrefCopyWithImpl;
   @override
-  @typeKey
-  String get type;
-  @override
-  List<LabelerPrefItem> get labelers;
+  @useResult
+  $Res call({@typeKey String type, List<LabelerPrefItem> labelers});
+}
+
+/// @nodoc
+class __$LabelersPrefCopyWithImpl<$Res>
+    implements _$LabelersPrefCopyWith<$Res> {
+  __$LabelersPrefCopyWithImpl(this._self, this._then);
+
+  final _LabelersPref _self;
+  final $Res Function(_LabelersPref) _then;
 
   /// Create a copy of LabelersPref
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LabelersPrefImplCopyWith<_$LabelersPrefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? labelers = null,
+  }) {
+    return _then(_LabelersPref(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      labelers: null == labelers
+          ? _self._labelers
+          : labelers // ignore: cast_nullable_to_non_nullable
+              as List<LabelerPrefItem>,
+    ));
+  }
 }
+
+// dart format on

@@ -8,12 +8,11 @@ part of 'created_invite_codes.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreatedInviteCodesImpl _$$CreatedInviteCodesImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$CreatedInviteCodesImpl',
+_CreatedInviteCodes _$CreatedInviteCodesFromJson(Map json) => $checkedCreate(
+      '_CreatedInviteCodes',
       json,
       ($checkedConvert) {
-        final val = _$CreatedInviteCodesImpl(
+        final val = _CreatedInviteCodes(
           codes: $checkedConvert(
               'codes',
               (v) => (v as List<dynamic>)
@@ -25,8 +24,7 @@ _$CreatedInviteCodesImpl _$$CreatedInviteCodesImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$CreatedInviteCodesImplToJson(
-        _$CreatedInviteCodesImpl instance) =>
+Map<String, dynamic> _$CreatedInviteCodesToJson(_CreatedInviteCodes instance) =>
     <String, dynamic>{
       'codes': instance.codes.map((e) => e.toJson()).toList(),
     };

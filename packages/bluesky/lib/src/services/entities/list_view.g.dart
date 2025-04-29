@@ -8,11 +8,11 @@ part of 'list_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
-      r'_$ListViewImpl',
+_ListView _$ListViewFromJson(Map json) => $checkedCreate(
+      '_ListView',
       json,
       ($checkedConvert) {
-        final val = _$ListViewImpl(
+        final val = _ListView(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphDefsListView),
           purpose: $checkedConvert('purpose', (v) => v as String),
@@ -49,8 +49,7 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type', 'createdBy': 'creator'},
     );
 
-Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ListViewToJson(_ListView instance) => <String, dynamic>{
       r'$type': instance.type,
       'purpose': instance.purpose,
       'uri': const AtUriConverter().toJson(instance.uri),

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,58 @@ part of 'lists.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Lists _$ListsFromJson(Map<String, dynamic> json) {
-  return _Lists.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Lists {
-  List<ListView> get lists => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this Lists to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<ListView> get lists;
+  String? get cursor;
 
   /// Create a copy of Lists
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ListsCopyWith<Lists> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ListsCopyWith<$Res> {
-  factory $ListsCopyWith(Lists value, $Res Function(Lists) then) =
-      _$ListsCopyWithImpl<$Res, Lists>;
-  @useResult
-  $Res call({List<ListView> lists, String? cursor});
-}
-
-/// @nodoc
-class _$ListsCopyWithImpl<$Res, $Val extends Lists>
-    implements $ListsCopyWith<$Res> {
-  _$ListsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Lists
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ListsCopyWith<Lists> get copyWith =>
+      _$ListsCopyWithImpl<Lists>(this as Lists, _$identity);
+
+  /// Serializes this Lists to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? lists = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      lists: null == lists
-          ? _value.lists
-          : lists // ignore: cast_nullable_to_non_nullable
-              as List<ListView>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Lists &&
+            const DeepCollectionEquality().equals(other.lists, lists) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(lists), cursor);
+
+  @override
+  String toString() {
+    return 'Lists(lists: $lists, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$ListsImplCopyWith<$Res> implements $ListsCopyWith<$Res> {
-  factory _$$ListsImplCopyWith(
-          _$ListsImpl value, $Res Function(_$ListsImpl) then) =
-      __$$ListsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ListsCopyWith<$Res> {
+  factory $ListsCopyWith(Lists value, $Res Function(Lists) _then) =
+      _$ListsCopyWithImpl;
   @useResult
   $Res call({List<ListView> lists, String? cursor});
 }
 
 /// @nodoc
-class __$$ListsImplCopyWithImpl<$Res>
-    extends _$ListsCopyWithImpl<$Res, _$ListsImpl>
-    implements _$$ListsImplCopyWith<$Res> {
-  __$$ListsImplCopyWithImpl(
-      _$ListsImpl _value, $Res Function(_$ListsImpl) _then)
-      : super(_value, _then);
+class _$ListsCopyWithImpl<$Res> implements $ListsCopyWith<$Res> {
+  _$ListsCopyWithImpl(this._self, this._then);
+
+  final Lists _self;
+  final $Res Function(Lists) _then;
 
   /// Create a copy of Lists
   /// with the given fields replaced by the non-null parameter values.
@@ -97,13 +71,13 @@ class __$$ListsImplCopyWithImpl<$Res>
     Object? lists = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$ListsImpl(
+    return _then(_self.copyWith(
       lists: null == lists
-          ? _value._lists
+          ? _self.lists
           : lists // ignore: cast_nullable_to_non_nullable
               as List<ListView>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -113,13 +87,11 @@ class __$$ListsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ListsImpl extends _Lists {
-  const _$ListsImpl({required final List<ListView> lists, this.cursor})
+class _Lists extends Lists {
+  const _Lists({required final List<ListView> lists, this.cursor})
       : _lists = lists,
         super._();
-
-  factory _$ListsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListsImplFromJson(json);
+  factory _Lists.fromJson(Map<String, dynamic> json) => _$ListsFromJson(json);
 
   final List<ListView> _lists;
   @override
@@ -132,16 +104,26 @@ class _$ListsImpl extends _Lists {
   @override
   final String? cursor;
 
+  /// Create a copy of Lists
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Lists(lists: $lists, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ListsCopyWith<_Lists> get copyWith =>
+      __$ListsCopyWithImpl<_Lists>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ListsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListsImpl &&
+            other is _Lists &&
             const DeepCollectionEquality().equals(other._lists, _lists) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -151,39 +133,47 @@ class _$ListsImpl extends _Lists {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_lists), cursor);
 
-  /// Create a copy of Lists
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ListsImplCopyWith<_$ListsImpl> get copyWith =>
-      __$$ListsImplCopyWithImpl<_$ListsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ListsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Lists(lists: $lists, cursor: $cursor)';
   }
 }
 
-abstract class _Lists extends Lists {
-  const factory _Lists(
-      {required final List<ListView> lists,
-      final String? cursor}) = _$ListsImpl;
-  const _Lists._() : super._();
-
-  factory _Lists.fromJson(Map<String, dynamic> json) = _$ListsImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ListsCopyWith<$Res> implements $ListsCopyWith<$Res> {
+  factory _$ListsCopyWith(_Lists value, $Res Function(_Lists) _then) =
+      __$ListsCopyWithImpl;
   @override
-  List<ListView> get lists;
-  @override
-  String? get cursor;
+  @useResult
+  $Res call({List<ListView> lists, String? cursor});
+}
+
+/// @nodoc
+class __$ListsCopyWithImpl<$Res> implements _$ListsCopyWith<$Res> {
+  __$ListsCopyWithImpl(this._self, this._then);
+
+  final _Lists _self;
+  final $Res Function(_Lists) _then;
 
   /// Create a copy of Lists
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ListsImplCopyWith<_$ListsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? lists = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_Lists(
+      lists: null == lists
+          ? _self._lists
+          : lists // ignore: cast_nullable_to_non_nullable
+              as List<ListView>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

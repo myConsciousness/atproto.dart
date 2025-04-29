@@ -11,7 +11,7 @@ part 'labeler_service_view.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#preferences
 @freezed
-class LabelerServiceView with _$LabelerServiceView {
+abstract class LabelerServiceView with _$LabelerServiceView {
   const LabelerServiceView._();
 
   const factory LabelerServiceView.labelerView({
@@ -57,9 +57,13 @@ final class _LabelerServiceViewConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LabelerServiceView object) => object.when(
-        labelerView: (data) => data.toJson(),
-        labelerViewDetailed: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(LabelerServiceView object) => switch (object) {
+        ULabelerServiceViewLabelerView(data: final data) => data.toJson(),
+        ULabelerServiceViewLabelerViewDetailed(data: final data) =>
+          data.toJson(),
+        ULabelerServiceViewUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown LabelerServiceView type: ${object.runtimeType}'),
+      };
 }

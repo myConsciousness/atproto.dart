@@ -7,7 +7,7 @@ part 'message_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#messageref
 @freezed
-class MessageRef with _$MessageRef {
+abstract class MessageRef with _$MessageRef {
   @jsonSerializable
   const factory MessageRef({
     required String did,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,43 +10,73 @@ part of 'labeler_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LabelerView _$LabelerViewFromJson(Map<String, dynamic> json) {
-  return _LabelerView.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LabelerView {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-  String get cid => throw _privateConstructorUsedError;
-  Actor get creator => throw _privateConstructorUsedError;
-  int get likeCount => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
-  LabelerViewerState get viewer => throw _privateConstructorUsedError;
-  DateTime get indexedAt => throw _privateConstructorUsedError;
-
-  /// Serializes this LabelerView to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
+  String get cid;
+  Actor get creator;
+  int get likeCount;
+  List<Label>? get labels;
+  LabelerViewerState get viewer;
+  DateTime get indexedAt;
 
   /// Create a copy of LabelerView
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $LabelerViewCopyWith<LabelerView> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$LabelerViewCopyWithImpl<LabelerView>(this as LabelerView, _$identity);
+
+  /// Serializes this LabelerView to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LabelerView &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.creator, creator) || other.creator == creator) &&
+            (identical(other.likeCount, likeCount) ||
+                other.likeCount == likeCount) &&
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.indexedAt, indexedAt) ||
+                other.indexedAt == indexedAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      uri,
+      cid,
+      creator,
+      likeCount,
+      const DeepCollectionEquality().hash(labels),
+      viewer,
+      indexedAt);
+
+  @override
+  String toString() {
+    return 'LabelerView(type: $type, uri: $uri, cid: $cid, creator: $creator, likeCount: $likeCount, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
+  }
 }
 
 /// @nodoc
-abstract class $LabelerViewCopyWith<$Res> {
+abstract mixin class $LabelerViewCopyWith<$Res> {
   factory $LabelerViewCopyWith(
-          LabelerView value, $Res Function(LabelerView) then) =
-      _$LabelerViewCopyWithImpl<$Res, LabelerView>;
+          LabelerView value, $Res Function(LabelerView) _then) =
+      _$LabelerViewCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -62,14 +93,11 @@ abstract class $LabelerViewCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
-    implements $LabelerViewCopyWith<$Res> {
-  _$LabelerViewCopyWithImpl(this._value, this._then);
+class _$LabelerViewCopyWithImpl<$Res> implements $LabelerViewCopyWith<$Res> {
+  _$LabelerViewCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final LabelerView _self;
+  final $Res Function(LabelerView) _then;
 
   /// Create a copy of LabelerView
   /// with the given fields replaced by the non-null parameter values.
@@ -85,40 +113,40 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       cid: null == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
       creator: null == creator
-          ? _value.creator
+          ? _self.creator
           : creator // ignore: cast_nullable_to_non_nullable
               as Actor,
       likeCount: null == likeCount
-          ? _value.likeCount
+          ? _self.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
       viewer: null == viewer
-          ? _value.viewer
+          ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as LabelerViewerState,
       indexedAt: null == indexedAt
-          ? _value.indexedAt
+          ? _self.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of LabelerView
@@ -126,8 +154,8 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
   @override
   @pragma('vm:prefer-inline')
   $ActorCopyWith<$Res> get creator {
-    return $ActorCopyWith<$Res>(_value.creator, (value) {
-      return _then(_value.copyWith(creator: value) as $Val);
+    return $ActorCopyWith<$Res>(_self.creator, (value) {
+      return _then(_self.copyWith(creator: value));
     });
   }
 
@@ -136,100 +164,17 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
   @override
   @pragma('vm:prefer-inline')
   $LabelerViewerStateCopyWith<$Res> get viewer {
-    return $LabelerViewerStateCopyWith<$Res>(_value.viewer, (value) {
-      return _then(_value.copyWith(viewer: value) as $Val);
+    return $LabelerViewerStateCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$LabelerViewImplCopyWith<$Res>
-    implements $LabelerViewCopyWith<$Res> {
-  factory _$$LabelerViewImplCopyWith(
-          _$LabelerViewImpl value, $Res Function(_$LabelerViewImpl) then) =
-      __$$LabelerViewImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @AtUriConverter() AtUri uri,
-      String cid,
-      Actor creator,
-      int likeCount,
-      List<Label>? labels,
-      LabelerViewerState viewer,
-      DateTime indexedAt});
-
-  @override
-  $ActorCopyWith<$Res> get creator;
-  @override
-  $LabelerViewerStateCopyWith<$Res> get viewer;
-}
-
-/// @nodoc
-class __$$LabelerViewImplCopyWithImpl<$Res>
-    extends _$LabelerViewCopyWithImpl<$Res, _$LabelerViewImpl>
-    implements _$$LabelerViewImplCopyWith<$Res> {
-  __$$LabelerViewImplCopyWithImpl(
-      _$LabelerViewImpl _value, $Res Function(_$LabelerViewImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LabelerView
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? uri = null,
-    Object? cid = null,
-    Object? creator = null,
-    Object? likeCount = null,
-    Object? labels = freezed,
-    Object? viewer = null,
-    Object? indexedAt = null,
-  }) {
-    return _then(_$LabelerViewImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      creator: null == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as Actor,
-      likeCount: null == likeCount
-          ? _value.likeCount
-          : likeCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      labels: freezed == labels
-          ? _value._labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
-      viewer: null == viewer
-          ? _value.viewer
-          : viewer // ignore: cast_nullable_to_non_nullable
-              as LabelerViewerState,
-      indexedAt: null == indexedAt
-          ? _value.indexedAt
-          : indexedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$LabelerViewImpl implements _LabelerView {
-  const _$LabelerViewImpl(
+class _LabelerView implements LabelerView {
+  const _LabelerView(
       {@typeKey this.type = appBskyLabelerDefsLabelerView,
       @AtUriConverter() required this.uri,
       required this.cid,
@@ -239,9 +184,8 @@ class _$LabelerViewImpl implements _LabelerView {
       this.viewer = defaultLabelerViewerState,
       required this.indexedAt})
       : _labels = labels;
-
-  factory _$LabelerViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LabelerViewImplFromJson(json);
+  factory _LabelerView.fromJson(Map<String, dynamic> json) =>
+      _$LabelerViewFromJson(json);
 
   @override
   @typeKey
@@ -272,16 +216,26 @@ class _$LabelerViewImpl implements _LabelerView {
   @override
   final DateTime indexedAt;
 
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LabelerView(type: $type, uri: $uri, cid: $cid, creator: $creator, likeCount: $likeCount, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LabelerViewCopyWith<_LabelerView> get copyWith =>
+      __$LabelerViewCopyWithImpl<_LabelerView>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LabelerViewToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LabelerViewImpl &&
+            other is _LabelerView &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -307,59 +261,112 @@ class _$LabelerViewImpl implements _LabelerView {
       viewer,
       indexedAt);
 
-  /// Create a copy of LabelerView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LabelerViewImplCopyWith<_$LabelerViewImpl> get copyWith =>
-      __$$LabelerViewImplCopyWithImpl<_$LabelerViewImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LabelerViewImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LabelerView(type: $type, uri: $uri, cid: $cid, creator: $creator, likeCount: $likeCount, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
   }
 }
 
-abstract class _LabelerView implements LabelerView {
-  const factory _LabelerView(
-      {@typeKey final String type,
-      @AtUriConverter() required final AtUri uri,
-      required final String cid,
-      required final Actor creator,
-      final int likeCount,
-      final List<Label>? labels,
-      final LabelerViewerState viewer,
-      required final DateTime indexedAt}) = _$LabelerViewImpl;
+/// @nodoc
+abstract mixin class _$LabelerViewCopyWith<$Res>
+    implements $LabelerViewCopyWith<$Res> {
+  factory _$LabelerViewCopyWith(
+          _LabelerView value, $Res Function(_LabelerView) _then) =
+      __$LabelerViewCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @AtUriConverter() AtUri uri,
+      String cid,
+      Actor creator,
+      int likeCount,
+      List<Label>? labels,
+      LabelerViewerState viewer,
+      DateTime indexedAt});
 
-  factory _LabelerView.fromJson(Map<String, dynamic> json) =
-      _$LabelerViewImpl.fromJson;
+  @override
+  $ActorCopyWith<$Res> get creator;
+  @override
+  $LabelerViewerStateCopyWith<$Res> get viewer;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  String get cid;
-  @override
-  Actor get creator;
-  @override
-  int get likeCount;
-  @override
-  List<Label>? get labels;
-  @override
-  LabelerViewerState get viewer;
-  @override
-  DateTime get indexedAt;
+/// @nodoc
+class __$LabelerViewCopyWithImpl<$Res> implements _$LabelerViewCopyWith<$Res> {
+  __$LabelerViewCopyWithImpl(this._self, this._then);
+
+  final _LabelerView _self;
+  final $Res Function(_LabelerView) _then;
 
   /// Create a copy of LabelerView
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LabelerViewImplCopyWith<_$LabelerViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? uri = null,
+    Object? cid = null,
+    Object? creator = null,
+    Object? likeCount = null,
+    Object? labels = freezed,
+    Object? viewer = null,
+    Object? indexedAt = null,
+  }) {
+    return _then(_LabelerView(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      creator: null == creator
+          ? _self.creator
+          : creator // ignore: cast_nullable_to_non_nullable
+              as Actor,
+      likeCount: null == likeCount
+          ? _self.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      labels: freezed == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
+      viewer: null == viewer
+          ? _self.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as LabelerViewerState,
+      indexedAt: null == indexedAt
+          ? _self.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorCopyWith<$Res> get creator {
+    return $ActorCopyWith<$Res>(_self.creator, (value) {
+      return _then(_self.copyWith(creator: value));
+    });
+  }
+
+  /// Create a copy of LabelerView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelerViewerStateCopyWith<$Res> get viewer {
+    return $LabelerViewerStateCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
+    });
+  }
 }
+
+// dart format on

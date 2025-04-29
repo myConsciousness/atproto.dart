@@ -8,18 +8,17 @@ part of 'instance.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$InstanceImpl _$$InstanceImplFromJson(Map json) => $checkedCreate(
-      r'_$InstanceImpl',
+_Instance _$InstanceFromJson(Map json) => $checkedCreate(
+      '_Instance',
       json,
       ($checkedConvert) {
-        final val = _$InstanceImpl(
+        final val = _Instance(
           version: $checkedConvert('version', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$InstanceImplToJson(_$InstanceImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$InstanceToJson(_Instance instance) => <String, dynamic>{
       'version': instance.version,
     };

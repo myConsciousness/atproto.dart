@@ -14,7 +14,7 @@ part 'threadgate_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#threadgateview
 @freezed
-class ThreadgateView with _$ThreadgateView {
+abstract class ThreadgateView with _$ThreadgateView {
   @jsonSerializable
   const factory ThreadgateView({
     @typeKey @Default(appBskyFeedDefsThreadgateView) String type,

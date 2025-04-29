@@ -13,7 +13,7 @@ part 'report_subject.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#input
 /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#output
 @freezed
-class ReportSubject with _$ReportSubject {
+abstract class ReportSubject with _$ReportSubject {
   const ReportSubject._();
 
   const factory ReportSubject.repoRef({

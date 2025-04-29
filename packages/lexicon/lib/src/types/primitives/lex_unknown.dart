@@ -7,7 +7,7 @@ part 'lex_unknown.freezed.dart';
 part 'lex_unknown.g.dart';
 
 @freezed
-class LexUnknown with _$LexUnknown {
+abstract class LexUnknown with _$LexUnknown {
   @JsonSerializable(includeIfNull: false)
   const factory LexUnknown({
     @Default('unknown') String type,

@@ -8,7 +8,7 @@ part 'blob_refs.g.dart';
 
 /// Hold a reference links to blobs.
 @freezed
-class BlobRefs with _$BlobRefs {
+abstract class BlobRefs with _$BlobRefs {
   /// Creates an instance of [BlobRefs] using a factory constructor.
   const factory BlobRefs({
     /// Blob links.

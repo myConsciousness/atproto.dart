@@ -9,7 +9,7 @@ part 'strong_ref_param.freezed.dart';
 part 'strong_ref_param.g.dart';
 
 @freezed
-class StrongRefParam with _$StrongRefParam {
+abstract class StrongRefParam with _$StrongRefParam {
   @jsonSerializable
   const factory StrongRefParam({
     required String cid,

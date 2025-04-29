@@ -8,11 +8,11 @@ part of 'posts_by_query.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PostsByQueryImpl _$$PostsByQueryImplFromJson(Map json) => $checkedCreate(
-      r'_$PostsByQueryImpl',
+_PostsByQuery _$PostsByQueryFromJson(Map json) => $checkedCreate(
+      '_PostsByQuery',
       json,
       ($checkedConvert) {
-        final val = _$PostsByQueryImpl(
+        final val = _PostsByQuery(
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
@@ -27,7 +27,7 @@ _$PostsByQueryImpl _$$PostsByQueryImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$PostsByQueryImplToJson(_$PostsByQueryImpl instance) =>
+Map<String, dynamic> _$PostsByQueryToJson(_PostsByQuery instance) =>
     <String, dynamic>{
       'posts': instance.posts.map((e) => e.toJson()).toList(),
       'hitsTotal': instance.hitsTotal,

@@ -7,7 +7,7 @@ part 'service_auth_token.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/GetServiceAuth/#output
 @freezed
-class ServiceAuthToken with _$ServiceAuthToken {
+abstract class ServiceAuthToken with _$ServiceAuthToken {
   @jsonSerializable
   const factory ServiceAuthToken({
     required String token,

@@ -12,7 +12,7 @@ part 'interests_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#interestspref
 @freezed
-class InterestsPreference with _$InterestsPreference {
+abstract class InterestsPreference with _$InterestsPreference {
   @jsonSerializable
   const factory InterestsPreference({
     @typeKey @Default(appBskyActorDefsInterestsPref) String type,

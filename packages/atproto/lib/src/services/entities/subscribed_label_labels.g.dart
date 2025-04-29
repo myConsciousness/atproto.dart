@@ -8,12 +8,12 @@ part of 'subscribed_label_labels.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubscribedLabelLabelsImpl _$$SubscribedLabelLabelsImplFromJson(Map json) =>
+_SubscribedLabelLabels _$SubscribedLabelLabelsFromJson(Map json) =>
     $checkedCreate(
-      r'_$SubscribedLabelLabelsImpl',
+      '_SubscribedLabelLabels',
       json,
       ($checkedConvert) {
-        final val = _$SubscribedLabelLabelsImpl(
+        final val = _SubscribedLabelLabels(
           sequence: $checkedConvert('seq', (v) => (v as num).toInt()),
           labels: $checkedConvert(
               'labels',
@@ -27,8 +27,8 @@ _$SubscribedLabelLabelsImpl _$$SubscribedLabelLabelsImplFromJson(Map json) =>
       fieldKeyMap: const {'sequence': 'seq'},
     );
 
-Map<String, dynamic> _$$SubscribedLabelLabelsImplToJson(
-        _$SubscribedLabelLabelsImpl instance) =>
+Map<String, dynamic> _$SubscribedLabelLabelsToJson(
+        _SubscribedLabelLabels instance) =>
     <String, dynamic>{
       'seq': instance.sequence,
       'labels': instance.labels.map((e) => e.toJson()).toList(),

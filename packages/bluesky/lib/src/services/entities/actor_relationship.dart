@@ -12,7 +12,7 @@ part 'actor_relationship.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#relationship
 @freezed
-class ActorRelationship with _$ActorRelationship {
+abstract class ActorRelationship with _$ActorRelationship {
   const factory ActorRelationship({
     @typeKey @Default(appBskyGraphDefsRelationship) String type,
     required String did,

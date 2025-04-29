@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,58 @@ part of 'skeleton_actor.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SkeletonActor _$SkeletonActorFromJson(Map<String, dynamic> json) {
-  return _SkeletonActor.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SkeletonActor {
-  String get did => throw _privateConstructorUsedError;
-
-  /// Serializes this SkeletonActor to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get did;
 
   /// Create a copy of SkeletonActor
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SkeletonActorCopyWith<SkeletonActor> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SkeletonActorCopyWith<$Res> {
-  factory $SkeletonActorCopyWith(
-          SkeletonActor value, $Res Function(SkeletonActor) then) =
-      _$SkeletonActorCopyWithImpl<$Res, SkeletonActor>;
-  @useResult
-  $Res call({String did});
-}
-
-/// @nodoc
-class _$SkeletonActorCopyWithImpl<$Res, $Val extends SkeletonActor>
-    implements $SkeletonActorCopyWith<$Res> {
-  _$SkeletonActorCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SkeletonActor
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SkeletonActorCopyWith<SkeletonActor> get copyWith =>
+      _$SkeletonActorCopyWithImpl<SkeletonActor>(
+          this as SkeletonActor, _$identity);
+
+  /// Serializes this SkeletonActor to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? did = null,
-  }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SkeletonActor &&
+            (identical(other.did, did) || other.did == did));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, did);
+
+  @override
+  String toString() {
+    return 'SkeletonActor(did: $did)';
   }
 }
 
 /// @nodoc
-abstract class _$$SkeletonActorImplCopyWith<$Res>
-    implements $SkeletonActorCopyWith<$Res> {
-  factory _$$SkeletonActorImplCopyWith(
-          _$SkeletonActorImpl value, $Res Function(_$SkeletonActorImpl) then) =
-      __$$SkeletonActorImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SkeletonActorCopyWith<$Res> {
+  factory $SkeletonActorCopyWith(
+          SkeletonActor value, $Res Function(SkeletonActor) _then) =
+      _$SkeletonActorCopyWithImpl;
   @useResult
   $Res call({String did});
 }
 
 /// @nodoc
-class __$$SkeletonActorImplCopyWithImpl<$Res>
-    extends _$SkeletonActorCopyWithImpl<$Res, _$SkeletonActorImpl>
-    implements _$$SkeletonActorImplCopyWith<$Res> {
-  __$$SkeletonActorImplCopyWithImpl(
-      _$SkeletonActorImpl _value, $Res Function(_$SkeletonActorImpl) _then)
-      : super(_value, _then);
+class _$SkeletonActorCopyWithImpl<$Res>
+    implements $SkeletonActorCopyWith<$Res> {
+  _$SkeletonActorCopyWithImpl(this._self, this._then);
+
+  final SkeletonActor _self;
+  final $Res Function(SkeletonActor) _then;
 
   /// Create a copy of SkeletonActor
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +70,9 @@ class __$$SkeletonActorImplCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
   }) {
-    return _then(_$SkeletonActorImpl(
+    return _then(_self.copyWith(
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -104,25 +81,34 @@ class __$$SkeletonActorImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SkeletonActorImpl implements _SkeletonActor {
-  const _$SkeletonActorImpl({required this.did});
-
-  factory _$SkeletonActorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonActorImplFromJson(json);
+class _SkeletonActor implements SkeletonActor {
+  const _SkeletonActor({required this.did});
+  factory _SkeletonActor.fromJson(Map<String, dynamic> json) =>
+      _$SkeletonActorFromJson(json);
 
   @override
   final String did;
 
+  /// Create a copy of SkeletonActor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SkeletonActor(did: $did)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SkeletonActorCopyWith<_SkeletonActor> get copyWith =>
+      __$SkeletonActorCopyWithImpl<_SkeletonActor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SkeletonActorToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonActorImpl &&
+            other is _SkeletonActor &&
             (identical(other.did, did) || other.did == did));
   }
 
@@ -130,36 +116,45 @@ class _$SkeletonActorImpl implements _SkeletonActor {
   @override
   int get hashCode => Object.hash(runtimeType, did);
 
-  /// Create a copy of SkeletonActor
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SkeletonActorImplCopyWith<_$SkeletonActorImpl> get copyWith =>
-      __$$SkeletonActorImplCopyWithImpl<_$SkeletonActorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SkeletonActorImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SkeletonActor(did: $did)';
   }
 }
 
-abstract class _SkeletonActor implements SkeletonActor {
-  const factory _SkeletonActor({required final String did}) =
-      _$SkeletonActorImpl;
-
-  factory _SkeletonActor.fromJson(Map<String, dynamic> json) =
-      _$SkeletonActorImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SkeletonActorCopyWith<$Res>
+    implements $SkeletonActorCopyWith<$Res> {
+  factory _$SkeletonActorCopyWith(
+          _SkeletonActor value, $Res Function(_SkeletonActor) _then) =
+      __$SkeletonActorCopyWithImpl;
   @override
-  String get did;
+  @useResult
+  $Res call({String did});
+}
+
+/// @nodoc
+class __$SkeletonActorCopyWithImpl<$Res>
+    implements _$SkeletonActorCopyWith<$Res> {
+  __$SkeletonActorCopyWithImpl(this._self, this._then);
+
+  final _SkeletonActor _self;
+  final $Res Function(_SkeletonActor) _then;
 
   /// Create a copy of SkeletonActor
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SkeletonActorImplCopyWith<_$SkeletonActorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+  }) {
+    return _then(_SkeletonActor(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

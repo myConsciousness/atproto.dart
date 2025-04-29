@@ -8,11 +8,11 @@ part of 'did_credentials.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DidCredentialsImpl _$$DidCredentialsImplFromJson(Map json) => $checkedCreate(
-      r'_$DidCredentialsImpl',
+_DidCredentials _$DidCredentialsFromJson(Map json) => $checkedCreate(
+      '_DidCredentials',
       json,
       ($checkedConvert) {
-        final val = _$DidCredentialsImpl(
+        final val = _DidCredentials(
           rotationKeys: $checkedConvert('rotationKeys',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           alsoKnownAs: $checkedConvert('alsoKnownAs',
@@ -32,8 +32,7 @@ _$DidCredentialsImpl _$$DidCredentialsImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$DidCredentialsImplToJson(
-        _$DidCredentialsImpl instance) =>
+Map<String, dynamic> _$DidCredentialsToJson(_DidCredentials instance) =>
     <String, dynamic>{
       'rotationKeys': instance.rotationKeys,
       'alsoKnownAs': instance.alsoKnownAs,

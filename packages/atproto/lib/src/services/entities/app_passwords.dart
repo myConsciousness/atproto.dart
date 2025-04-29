@@ -10,7 +10,7 @@ part 'app_passwords.freezed.dart';
 part 'app_passwords.g.dart';
 
 @freezed
-class AppPasswords with _$AppPasswords {
+abstract class AppPasswords with _$AppPasswords {
   const factory AppPasswords({
     required List<SealedAppPassword> passwords,
   }) = _AppPasswords;

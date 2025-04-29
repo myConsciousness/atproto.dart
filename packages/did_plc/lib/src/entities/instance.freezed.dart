@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,81 +10,55 @@ part of 'instance.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Instance _$InstanceFromJson(Map<String, dynamic> json) {
-  return _Instance.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Instance {
-  String get version => throw _privateConstructorUsedError;
-
-  /// Serializes this Instance to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get version;
 
   /// Create a copy of Instance
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $InstanceCopyWith<Instance> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $InstanceCopyWith<$Res> {
-  factory $InstanceCopyWith(Instance value, $Res Function(Instance) then) =
-      _$InstanceCopyWithImpl<$Res, Instance>;
-  @useResult
-  $Res call({String version});
-}
-
-/// @nodoc
-class _$InstanceCopyWithImpl<$Res, $Val extends Instance>
-    implements $InstanceCopyWith<$Res> {
-  _$InstanceCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Instance
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $InstanceCopyWith<Instance> get copyWith =>
+      _$InstanceCopyWithImpl<Instance>(this as Instance, _$identity);
+
+  /// Serializes this Instance to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? version = null,
-  }) {
-    return _then(_value.copyWith(
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Instance &&
+            (identical(other.version, version) || other.version == version));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, version);
+
+  @override
+  String toString() {
+    return 'Instance(version: $version)';
   }
 }
 
 /// @nodoc
-abstract class _$$InstanceImplCopyWith<$Res>
-    implements $InstanceCopyWith<$Res> {
-  factory _$$InstanceImplCopyWith(
-          _$InstanceImpl value, $Res Function(_$InstanceImpl) then) =
-      __$$InstanceImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $InstanceCopyWith<$Res> {
+  factory $InstanceCopyWith(Instance value, $Res Function(Instance) _then) =
+      _$InstanceCopyWithImpl;
   @useResult
   $Res call({String version});
 }
 
 /// @nodoc
-class __$$InstanceImplCopyWithImpl<$Res>
-    extends _$InstanceCopyWithImpl<$Res, _$InstanceImpl>
-    implements _$$InstanceImplCopyWith<$Res> {
-  __$$InstanceImplCopyWithImpl(
-      _$InstanceImpl _value, $Res Function(_$InstanceImpl) _then)
-      : super(_value, _then);
+class _$InstanceCopyWithImpl<$Res> implements $InstanceCopyWith<$Res> {
+  _$InstanceCopyWithImpl(this._self, this._then);
+
+  final Instance _self;
+  final $Res Function(Instance) _then;
 
   /// Create a copy of Instance
   /// with the given fields replaced by the non-null parameter values.
@@ -92,9 +67,9 @@ class __$$InstanceImplCopyWithImpl<$Res>
   $Res call({
     Object? version = null,
   }) {
-    return _then(_$InstanceImpl(
+    return _then(_self.copyWith(
       version: null == version
-          ? _value.version
+          ? _self.version
           : version // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -104,25 +79,34 @@ class __$$InstanceImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$InstanceImpl implements _Instance {
-  const _$InstanceImpl({required this.version});
-
-  factory _$InstanceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$InstanceImplFromJson(json);
+class _Instance implements Instance {
+  const _Instance({required this.version});
+  factory _Instance.fromJson(Map<String, dynamic> json) =>
+      _$InstanceFromJson(json);
 
   @override
   final String version;
 
+  /// Create a copy of Instance
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Instance(version: $version)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$InstanceCopyWith<_Instance> get copyWith =>
+      __$InstanceCopyWithImpl<_Instance>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$InstanceToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InstanceImpl &&
+            other is _Instance &&
             (identical(other.version, version) || other.version == version));
   }
 
@@ -130,35 +114,43 @@ class _$InstanceImpl implements _Instance {
   @override
   int get hashCode => Object.hash(runtimeType, version);
 
-  /// Create a copy of Instance
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$InstanceImplCopyWith<_$InstanceImpl> get copyWith =>
-      __$$InstanceImplCopyWithImpl<_$InstanceImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$InstanceImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Instance(version: $version)';
   }
 }
 
-abstract class _Instance implements Instance {
-  const factory _Instance({required final String version}) = _$InstanceImpl;
-
-  factory _Instance.fromJson(Map<String, dynamic> json) =
-      _$InstanceImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$InstanceCopyWith<$Res>
+    implements $InstanceCopyWith<$Res> {
+  factory _$InstanceCopyWith(_Instance value, $Res Function(_Instance) _then) =
+      __$InstanceCopyWithImpl;
   @override
-  String get version;
+  @useResult
+  $Res call({String version});
+}
+
+/// @nodoc
+class __$InstanceCopyWithImpl<$Res> implements _$InstanceCopyWith<$Res> {
+  __$InstanceCopyWithImpl(this._self, this._then);
+
+  final _Instance _self;
+  final $Res Function(_Instance) _then;
 
   /// Create a copy of Instance
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InstanceImplCopyWith<_$InstanceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? version = null,
+  }) {
+    return _then(_Instance(
+      version: null == version
+          ? _self.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

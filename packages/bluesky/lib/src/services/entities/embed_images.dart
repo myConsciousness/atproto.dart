@@ -13,7 +13,7 @@ part 'embed_images.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#main
 @freezed
-class EmbedImages with _$EmbedImages {
+abstract class EmbedImages with _$EmbedImages {
   const factory EmbedImages({
     @typeKey @Default(appBskyEmbedImages) String type,
     required List<Image> images,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,91 +10,53 @@ part of 'repo_op.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RepoOp _$RepoOpFromJson(Map<String, dynamic> json) {
-  return _RepoOp.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RepoOp {
-  RepoAction get action => throw _privateConstructorUsedError;
+  RepoAction get action;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-  String? get cid => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
-
-  /// Serializes this RepoOp to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
+  String? get cid;
+  Map<String, dynamic>? get record;
 
   /// Create a copy of RepoOp
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RepoOpCopyWith<RepoOp> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RepoOpCopyWith<$Res> {
-  factory $RepoOpCopyWith(RepoOp value, $Res Function(RepoOp) then) =
-      _$RepoOpCopyWithImpl<$Res, RepoOp>;
-  @useResult
-  $Res call(
-      {RepoAction action,
-      @AtUriConverter() AtUri uri,
-      String? cid,
-      Map<String, dynamic>? record});
-}
-
-/// @nodoc
-class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
-    implements $RepoOpCopyWith<$Res> {
-  _$RepoOpCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RepoOp
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $RepoOpCopyWith<RepoOp> get copyWith =>
+      _$RepoOpCopyWithImpl<RepoOp>(this as RepoOp, _$identity);
+
+  /// Serializes this RepoOp to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? action = null,
-    Object? uri = null,
-    Object? cid = freezed,
-    Object? record = freezed,
-  }) {
-    return _then(_value.copyWith(
-      action: null == action
-          ? _value.action
-          : action // ignore: cast_nullable_to_non_nullable
-              as RepoAction,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      record: freezed == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RepoOp &&
+            (identical(other.action, action) || other.action == action) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            const DeepCollectionEquality().equals(other.record, record));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, action, uri, cid,
+      const DeepCollectionEquality().hash(record));
+
+  @override
+  String toString() {
+    return 'RepoOp(action: $action, uri: $uri, cid: $cid, record: $record)';
   }
 }
 
 /// @nodoc
-abstract class _$$RepoOpImplCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
-  factory _$$RepoOpImplCopyWith(
-          _$RepoOpImpl value, $Res Function(_$RepoOpImpl) then) =
-      __$$RepoOpImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RepoOpCopyWith<$Res> {
+  factory $RepoOpCopyWith(RepoOp value, $Res Function(RepoOp) _then) =
+      _$RepoOpCopyWithImpl;
   @useResult
   $Res call(
       {RepoAction action,
@@ -103,12 +66,11 @@ abstract class _$$RepoOpImplCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RepoOpImplCopyWithImpl<$Res>
-    extends _$RepoOpCopyWithImpl<$Res, _$RepoOpImpl>
-    implements _$$RepoOpImplCopyWith<$Res> {
-  __$$RepoOpImplCopyWithImpl(
-      _$RepoOpImpl _value, $Res Function(_$RepoOpImpl) _then)
-      : super(_value, _then);
+class _$RepoOpCopyWithImpl<$Res> implements $RepoOpCopyWith<$Res> {
+  _$RepoOpCopyWithImpl(this._self, this._then);
+
+  final RepoOp _self;
+  final $Res Function(RepoOp) _then;
 
   /// Create a copy of RepoOp
   /// with the given fields replaced by the non-null parameter values.
@@ -120,21 +82,21 @@ class __$$RepoOpImplCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? record = freezed,
   }) {
-    return _then(_$RepoOpImpl(
+    return _then(_self.copyWith(
       action: null == action
-          ? _value.action
+          ? _self.action
           : action // ignore: cast_nullable_to_non_nullable
               as RepoAction,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       cid: freezed == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
       record: freezed == record
-          ? _value._record
+          ? _self.record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -143,16 +105,14 @@ class __$$RepoOpImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RepoOpImpl implements _RepoOp {
-  const _$RepoOpImpl(
+class _RepoOp implements RepoOp {
+  const _RepoOp(
       {required this.action,
       @AtUriConverter() required this.uri,
       this.cid,
       final Map<String, dynamic>? record})
       : _record = record;
-
-  factory _$RepoOpImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RepoOpImplFromJson(json);
+  factory _RepoOp.fromJson(Map<String, dynamic> json) => _$RepoOpFromJson(json);
 
   @override
   final RepoAction action;
@@ -171,16 +131,26 @@ class _$RepoOpImpl implements _RepoOp {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of RepoOp
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'RepoOp(action: $action, uri: $uri, cid: $cid, record: $record)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RepoOpCopyWith<_RepoOp> get copyWith =>
+      __$RepoOpCopyWithImpl<_RepoOp>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RepoOpToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RepoOpImpl &&
+            other is _RepoOp &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -192,45 +162,61 @@ class _$RepoOpImpl implements _RepoOp {
   int get hashCode => Object.hash(runtimeType, action, uri, cid,
       const DeepCollectionEquality().hash(_record));
 
-  /// Create a copy of RepoOp
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RepoOpImplCopyWith<_$RepoOpImpl> get copyWith =>
-      __$$RepoOpImplCopyWithImpl<_$RepoOpImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RepoOpImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RepoOp(action: $action, uri: $uri, cid: $cid, record: $record)';
   }
 }
 
-abstract class _RepoOp implements RepoOp {
-  const factory _RepoOp(
-      {required final RepoAction action,
-      @AtUriConverter() required final AtUri uri,
-      final String? cid,
-      final Map<String, dynamic>? record}) = _$RepoOpImpl;
+/// @nodoc
+abstract mixin class _$RepoOpCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
+  factory _$RepoOpCopyWith(_RepoOp value, $Res Function(_RepoOp) _then) =
+      __$RepoOpCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {RepoAction action,
+      @AtUriConverter() AtUri uri,
+      String? cid,
+      Map<String, dynamic>? record});
+}
 
-  factory _RepoOp.fromJson(Map<String, dynamic> json) = _$RepoOpImpl.fromJson;
+/// @nodoc
+class __$RepoOpCopyWithImpl<$Res> implements _$RepoOpCopyWith<$Res> {
+  __$RepoOpCopyWithImpl(this._self, this._then);
 
-  @override
-  RepoAction get action;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  String? get cid;
-  @override
-  Map<String, dynamic>? get record;
+  final _RepoOp _self;
+  final $Res Function(_RepoOp) _then;
 
   /// Create a copy of RepoOp
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RepoOpImplCopyWith<_$RepoOpImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? action = null,
+    Object? uri = null,
+    Object? cid = freezed,
+    Object? record = freezed,
+  }) {
+    return _then(_RepoOp(
+      action: null == action
+          ? _self.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as RepoAction,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: freezed == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      record: freezed == record
+          ? _self._record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 }
+
+// dart format on

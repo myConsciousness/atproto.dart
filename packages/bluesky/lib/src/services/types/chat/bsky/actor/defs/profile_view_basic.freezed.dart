@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,41 +10,73 @@ part of 'profile_view_basic.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ProfileViewBasic _$ProfileViewBasicFromJson(Map<String, dynamic> json) {
-  return _ProfileViewBasic.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ProfileViewBasic {
-  String get did => throw _privateConstructorUsedError;
-  String get handle => throw _privateConstructorUsedError;
-  String? get displayName => throw _privateConstructorUsedError;
-  String? get avatar => throw _privateConstructorUsedError;
-  ProfileAssociated? get associated => throw _privateConstructorUsedError;
-  ActorViewer get viewer => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
-  bool get chatDisabled => throw _privateConstructorUsedError;
-
-  /// Serializes this ProfileViewBasic to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get did;
+  String get handle;
+  String? get displayName;
+  String? get avatar;
+  ProfileAssociated? get associated;
+  ActorViewer get viewer;
+  List<Label>? get labels;
+  bool get chatDisabled;
 
   /// Create a copy of ProfileViewBasic
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ProfileViewBasicCopyWith<ProfileViewBasic> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ProfileViewBasicCopyWithImpl<ProfileViewBasic>(
+          this as ProfileViewBasic, _$identity);
+
+  /// Serializes this ProfileViewBasic to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProfileViewBasic &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.associated, associated) ||
+                other.associated == associated) &&
+            (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            (identical(other.chatDisabled, chatDisabled) ||
+                other.chatDisabled == chatDisabled));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      did,
+      handle,
+      displayName,
+      avatar,
+      associated,
+      viewer,
+      const DeepCollectionEquality().hash(labels),
+      chatDisabled);
+
+  @override
+  String toString() {
+    return 'ProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled)';
+  }
 }
 
 /// @nodoc
-abstract class $ProfileViewBasicCopyWith<$Res> {
+abstract mixin class $ProfileViewBasicCopyWith<$Res> {
   factory $ProfileViewBasicCopyWith(
-          ProfileViewBasic value, $Res Function(ProfileViewBasic) then) =
-      _$ProfileViewBasicCopyWithImpl<$Res, ProfileViewBasic>;
+          ProfileViewBasic value, $Res Function(ProfileViewBasic) _then) =
+      _$ProfileViewBasicCopyWithImpl;
   @useResult
   $Res call(
       {String did,
@@ -60,14 +93,12 @@ abstract class $ProfileViewBasicCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
+class _$ProfileViewBasicCopyWithImpl<$Res>
     implements $ProfileViewBasicCopyWith<$Res> {
-  _$ProfileViewBasicCopyWithImpl(this._value, this._then);
+  _$ProfileViewBasicCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ProfileViewBasic _self;
+  final $Res Function(ProfileViewBasic) _then;
 
   /// Create a copy of ProfileViewBasic
   /// with the given fields replaced by the non-null parameter values.
@@ -83,40 +114,40 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
     Object? labels = freezed,
     Object? chatDisabled = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       handle: null == handle
-          ? _value.handle
+          ? _self.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
       displayName: freezed == displayName
-          ? _value.displayName
+          ? _self.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
       avatar: freezed == avatar
-          ? _value.avatar
+          ? _self.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
       associated: freezed == associated
-          ? _value.associated
+          ? _self.associated
           : associated // ignore: cast_nullable_to_non_nullable
               as ProfileAssociated?,
       viewer: null == viewer
-          ? _value.viewer
+          ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
       chatDisabled: null == chatDisabled
-          ? _value.chatDisabled
+          ? _self.chatDisabled
           : chatDisabled // ignore: cast_nullable_to_non_nullable
               as bool,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ProfileViewBasic
@@ -124,12 +155,12 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
   @override
   @pragma('vm:prefer-inline')
   $ProfileAssociatedCopyWith<$Res>? get associated {
-    if (_value.associated == null) {
+    if (_self.associated == null) {
       return null;
     }
 
-    return $ProfileAssociatedCopyWith<$Res>(_value.associated!, (value) {
-      return _then(_value.copyWith(associated: value) as $Val);
+    return $ProfileAssociatedCopyWith<$Res>(_self.associated!, (value) {
+      return _then(_self.copyWith(associated: value));
     });
   }
 
@@ -138,100 +169,17 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
   @override
   @pragma('vm:prefer-inline')
   $ActorViewerCopyWith<$Res> get viewer {
-    return $ActorViewerCopyWith<$Res>(_value.viewer, (value) {
-      return _then(_value.copyWith(viewer: value) as $Val);
+    return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$ProfileViewBasicImplCopyWith<$Res>
-    implements $ProfileViewBasicCopyWith<$Res> {
-  factory _$$ProfileViewBasicImplCopyWith(_$ProfileViewBasicImpl value,
-          $Res Function(_$ProfileViewBasicImpl) then) =
-      __$$ProfileViewBasicImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String did,
-      String handle,
-      String? displayName,
-      String? avatar,
-      ProfileAssociated? associated,
-      ActorViewer viewer,
-      List<Label>? labels,
-      bool chatDisabled});
-
-  @override
-  $ProfileAssociatedCopyWith<$Res>? get associated;
-  @override
-  $ActorViewerCopyWith<$Res> get viewer;
-}
-
-/// @nodoc
-class __$$ProfileViewBasicImplCopyWithImpl<$Res>
-    extends _$ProfileViewBasicCopyWithImpl<$Res, _$ProfileViewBasicImpl>
-    implements _$$ProfileViewBasicImplCopyWith<$Res> {
-  __$$ProfileViewBasicImplCopyWithImpl(_$ProfileViewBasicImpl _value,
-      $Res Function(_$ProfileViewBasicImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ProfileViewBasic
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? did = null,
-    Object? handle = null,
-    Object? displayName = freezed,
-    Object? avatar = freezed,
-    Object? associated = freezed,
-    Object? viewer = null,
-    Object? labels = freezed,
-    Object? chatDisabled = null,
-  }) {
-    return _then(_$ProfileViewBasicImpl(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: freezed == displayName
-          ? _value.displayName
-          : displayName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      avatar: freezed == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as String?,
-      associated: freezed == associated
-          ? _value.associated
-          : associated // ignore: cast_nullable_to_non_nullable
-              as ProfileAssociated?,
-      viewer: null == viewer
-          ? _value.viewer
-          : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorViewer,
-      labels: freezed == labels
-          ? _value._labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
-      chatDisabled: null == chatDisabled
-          ? _value.chatDisabled
-          : chatDisabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$ProfileViewBasicImpl implements _ProfileViewBasic {
-  const _$ProfileViewBasicImpl(
+class _ProfileViewBasic implements ProfileViewBasic {
+  const _ProfileViewBasic(
       {required this.did,
       required this.handle,
       this.displayName,
@@ -241,9 +189,8 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
       final List<Label>? labels,
       this.chatDisabled = false})
       : _labels = labels;
-
-  factory _$ProfileViewBasicImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ProfileViewBasicImplFromJson(json);
+  factory _ProfileViewBasic.fromJson(Map<String, dynamic> json) =>
+      _$ProfileViewBasicFromJson(json);
 
   @override
   final String did;
@@ -272,16 +219,26 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
   @JsonKey()
   final bool chatDisabled;
 
+  /// Create a copy of ProfileViewBasic
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ProfileViewBasicCopyWith<_ProfileViewBasic> get copyWith =>
+      __$ProfileViewBasicCopyWithImpl<_ProfileViewBasic>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ProfileViewBasicToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProfileViewBasicImpl &&
+            other is _ProfileViewBasic &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.displayName, displayName) ||
@@ -308,58 +265,117 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
       const DeepCollectionEquality().hash(_labels),
       chatDisabled);
 
-  /// Create a copy of ProfileViewBasic
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ProfileViewBasicImplCopyWith<_$ProfileViewBasicImpl> get copyWith =>
-      __$$ProfileViewBasicImplCopyWithImpl<_$ProfileViewBasicImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ProfileViewBasicImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled)';
   }
 }
 
-abstract class _ProfileViewBasic implements ProfileViewBasic {
-  const factory _ProfileViewBasic(
-      {required final String did,
-      required final String handle,
-      final String? displayName,
-      final String? avatar,
-      final ProfileAssociated? associated,
-      final ActorViewer viewer,
-      final List<Label>? labels,
-      final bool chatDisabled}) = _$ProfileViewBasicImpl;
+/// @nodoc
+abstract mixin class _$ProfileViewBasicCopyWith<$Res>
+    implements $ProfileViewBasicCopyWith<$Res> {
+  factory _$ProfileViewBasicCopyWith(
+          _ProfileViewBasic value, $Res Function(_ProfileViewBasic) _then) =
+      __$ProfileViewBasicCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String did,
+      String handle,
+      String? displayName,
+      String? avatar,
+      ProfileAssociated? associated,
+      ActorViewer viewer,
+      List<Label>? labels,
+      bool chatDisabled});
 
-  factory _ProfileViewBasic.fromJson(Map<String, dynamic> json) =
-      _$ProfileViewBasicImpl.fromJson;
+  @override
+  $ProfileAssociatedCopyWith<$Res>? get associated;
+  @override
+  $ActorViewerCopyWith<$Res> get viewer;
+}
 
-  @override
-  String get did;
-  @override
-  String get handle;
-  @override
-  String? get displayName;
-  @override
-  String? get avatar;
-  @override
-  ProfileAssociated? get associated;
-  @override
-  ActorViewer get viewer;
-  @override
-  List<Label>? get labels;
-  @override
-  bool get chatDisabled;
+/// @nodoc
+class __$ProfileViewBasicCopyWithImpl<$Res>
+    implements _$ProfileViewBasicCopyWith<$Res> {
+  __$ProfileViewBasicCopyWithImpl(this._self, this._then);
+
+  final _ProfileViewBasic _self;
+  final $Res Function(_ProfileViewBasic) _then;
 
   /// Create a copy of ProfileViewBasic
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ProfileViewBasicImplCopyWith<_$ProfileViewBasicImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+    Object? handle = null,
+    Object? displayName = freezed,
+    Object? avatar = freezed,
+    Object? associated = freezed,
+    Object? viewer = null,
+    Object? labels = freezed,
+    Object? chatDisabled = null,
+  }) {
+    return _then(_ProfileViewBasic(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _self.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: freezed == displayName
+          ? _self.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatar: freezed == avatar
+          ? _self.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      associated: freezed == associated
+          ? _self.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
+      viewer: null == viewer
+          ? _self.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as ActorViewer,
+      labels: freezed == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
+      chatDisabled: null == chatDisabled
+          ? _self.chatDisabled
+          : chatDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  /// Create a copy of ProfileViewBasic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileAssociatedCopyWith<$Res>? get associated {
+    if (_self.associated == null) {
+      return null;
+    }
+
+    return $ProfileAssociatedCopyWith<$Res>(_self.associated!, (value) {
+      return _then(_self.copyWith(associated: value));
+    });
+  }
+
+  /// Create a copy of ProfileViewBasic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorViewerCopyWith<$Res> get viewer {
+    return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
+    });
+  }
 }
+
+// dart format on

@@ -8,11 +8,11 @@ part of 'label.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelImpl _$$LabelImplFromJson(Map json) => $checkedCreate(
-      r'_$LabelImpl',
+_Label _$LabelFromJson(Map json) => $checkedCreate(
+      '_Label',
       json,
       ($checkedConvert) {
-        final val = _$LabelImpl(
+        final val = _Label(
           ver: $checkedConvert('ver', (v) => (v as num?)?.toInt()),
           src: $checkedConvert('src', (v) => v as String),
           uri: $checkedConvert('uri', (v) => v as String),
@@ -37,8 +37,7 @@ _$LabelImpl _$$LabelImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LabelImplToJson(_$LabelImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LabelToJson(_Label instance) => <String, dynamic>{
       if (instance.ver case final value?) 'ver': value,
       'src': instance.src,
       'uri': instance.uri,

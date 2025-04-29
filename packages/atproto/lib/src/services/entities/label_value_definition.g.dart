@@ -8,12 +8,12 @@ part of 'label_value_definition.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelValueDefinitionImpl _$$LabelValueDefinitionImplFromJson(Map json) =>
+_LabelValueDefinition _$LabelValueDefinitionFromJson(Map json) =>
     $checkedCreate(
-      r'_$LabelValueDefinitionImpl',
+      '_LabelValueDefinition',
       json,
       ($checkedConvert) {
-        final val = _$LabelValueDefinitionImpl(
+        final val = _LabelValueDefinition(
           identifier: $checkedConvert('identifier', (v) => v as String),
           severity: $checkedConvert('severity', (v) => v as String),
           blurs: $checkedConvert('blurs', (v) => v as String),
@@ -31,8 +31,8 @@ _$LabelValueDefinitionImpl _$$LabelValueDefinitionImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$LabelValueDefinitionImplToJson(
-        _$LabelValueDefinitionImpl instance) =>
+Map<String, dynamic> _$LabelValueDefinitionToJson(
+        _LabelValueDefinition instance) =>
     <String, dynamic>{
       'identifier': instance.identifier,
       'severity': instance.severity,
