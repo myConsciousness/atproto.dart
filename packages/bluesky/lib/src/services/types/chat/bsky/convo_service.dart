@@ -107,12 +107,16 @@ final class ConvoService {
   Future<core.XRPCResponse<ListConvosOutput>> listConvos({
     int? limit,
     String? cursor,
+    String? readState,
+    String? status,
   }) async =>
       await _ctx.get(
         ns.chatBskyConvoListConvos,
         parameters: {
           'limit': limit,
           'cursor': cursor,
+          'readState': readState,
+          'status': status,
         },
         to: ListConvosOutput.fromJson,
       );
