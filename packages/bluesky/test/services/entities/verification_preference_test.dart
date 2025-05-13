@@ -1,7 +1,10 @@
+// Package imports:
+import 'package:test/test.dart';
+
+// Project imports:
 import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/entities/preference.dart';
 import 'package:bluesky/src/services/entities/verification_preference.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('VerificationPreference', () {
@@ -36,7 +39,8 @@ void main() {
 
       // Test serialization
       final preferenceJson = preference.toJson();
-      expect(preferenceJson[r'$type'], equals(appBskyActorDefsVerificationPrefs));
+      expect(
+          preferenceJson[r'$type'], equals(appBskyActorDefsVerificationPrefs));
       expect(preferenceJson['hideBadges'], isTrue);
 
       // Test deserialization

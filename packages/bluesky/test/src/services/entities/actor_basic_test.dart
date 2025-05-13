@@ -1,8 +1,11 @@
 // Package imports:
+
+// Package imports:
+import 'package:test/test.dart';
+
 // Project imports:
 import 'package:bluesky/src/services/entities/actor.dart';
 import 'package:bluesky/src/services/entities/actor_basic.dart';
-import 'package:test/test.dart';
 
 void main() {
   test('.toActor', () {
