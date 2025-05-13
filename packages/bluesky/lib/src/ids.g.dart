@@ -90,8 +90,22 @@ const appBskyActorDefsSavedFeedsPref = 'app.bsky.actor.defs#savedFeedsPref';
 /// `app.bsky.actor.defs#savedFeedsPrefV2`
 const appBskyActorDefsSavedFeedsPrefV2 = 'app.bsky.actor.defs#savedFeedsPrefV2';
 
+/// `app.bsky.actor.defs#statusView`
+const appBskyActorDefsStatusView = 'app.bsky.actor.defs#statusView';
+
 /// `app.bsky.actor.defs#threadViewPref`
 const appBskyActorDefsThreadViewPref = 'app.bsky.actor.defs#threadViewPref';
+
+/// `app.bsky.actor.defs#verificationPrefs`
+const appBskyActorDefsVerificationPrefs =
+    'app.bsky.actor.defs#verificationPrefs';
+
+/// `app.bsky.actor.defs#verificationState`
+const appBskyActorDefsVerificationState =
+    'app.bsky.actor.defs#verificationState';
+
+/// `app.bsky.actor.defs#verificationView`
+const appBskyActorDefsVerificationView = 'app.bsky.actor.defs#verificationView';
 
 /// `app.bsky.actor.defs#viewerState`
 const appBskyActorDefsViewerState = 'app.bsky.actor.defs#viewerState';
@@ -120,6 +134,12 @@ const appBskyActorSearchActors = 'app.bsky.actor.searchActors';
 /// `app.bsky.actor.searchActorsTypeahead`
 const appBskyActorSearchActorsTypeahead =
     'app.bsky.actor.searchActorsTypeahead';
+
+/// `app.bsky.actor.status`
+const appBskyActorStatus = 'app.bsky.actor.status';
+
+/// `app.bsky.actor.status#live`
+const appBskyActorStatusLive = 'app.bsky.actor.status#live';
 
 /// `app.bsky.embed.defs`
 const appBskyEmbedDefs = 'app.bsky.embed.defs';
@@ -522,6 +542,9 @@ const appBskyGraphUnmuteActorList = 'app.bsky.graph.unmuteActorList';
 /// `app.bsky.graph.unmuteThread`
 const appBskyGraphUnmuteThread = 'app.bsky.graph.unmuteThread';
 
+/// `app.bsky.graph.verification`
+const appBskyGraphVerification = 'app.bsky.graph.verification';
+
 /// `app.bsky.labeler.defs`
 const appBskyLabelerDefs = 'app.bsky.labeler.defs';
 
@@ -545,6 +568,13 @@ const appBskyLabelerGetServices = 'app.bsky.labeler.getServices';
 
 /// `app.bsky.labeler.service`
 const appBskyLabelerService = 'app.bsky.labeler.service';
+
+/// `app.bsky.notification.defs`
+const appBskyNotificationDefs = 'app.bsky.notification.defs';
+
+/// `app.bsky.notification.defs#recordDeleted`
+const appBskyNotificationDefsRecordDeleted =
+    'app.bsky.notification.defs#recordDeleted';
 
 /// `app.bsky.notification.getUnreadCount`
 const appBskyNotificationGetUnreadCount =
@@ -598,6 +628,13 @@ const appBskyUnspeccedDefsSkeletonSearchPost =
 const appBskyUnspeccedDefsSkeletonSearchStarterPack =
     'app.bsky.unspecced.defs#skeletonSearchStarterPack';
 
+/// `app.bsky.unspecced.defs#skeletonTrend`
+const appBskyUnspeccedDefsSkeletonTrend =
+    'app.bsky.unspecced.defs#skeletonTrend';
+
+/// `app.bsky.unspecced.defs#trendView`
+const appBskyUnspeccedDefsTrendView = 'app.bsky.unspecced.defs#trendView';
+
 /// `app.bsky.unspecced.defs#trendingTopic`
 const appBskyUnspeccedDefsTrendingTopic =
     'app.bsky.unspecced.defs#trendingTopic';
@@ -608,6 +645,30 @@ const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     'app.bsky.unspecced.getPopularFeedGenerators';
+
+/// `app.bsky.unspecced.getSuggestedFeeds`
+const appBskyUnspeccedGetSuggestedFeeds =
+    'app.bsky.unspecced.getSuggestedFeeds';
+
+/// `app.bsky.unspecced.getSuggestedFeedsSkeleton`
+const appBskyUnspeccedGetSuggestedFeedsSkeleton =
+    'app.bsky.unspecced.getSuggestedFeedsSkeleton';
+
+/// `app.bsky.unspecced.getSuggestedStarterPacks`
+const appBskyUnspeccedGetSuggestedStarterPacks =
+    'app.bsky.unspecced.getSuggestedStarterPacks';
+
+/// `app.bsky.unspecced.getSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetSuggestedStarterPacksSkeleton =
+    'app.bsky.unspecced.getSuggestedStarterPacksSkeleton';
+
+/// `app.bsky.unspecced.getSuggestedUsers`
+const appBskyUnspeccedGetSuggestedUsers =
+    'app.bsky.unspecced.getSuggestedUsers';
+
+/// `app.bsky.unspecced.getSuggestedUsersSkeleton`
+const appBskyUnspeccedGetSuggestedUsersSkeleton =
+    'app.bsky.unspecced.getSuggestedUsersSkeleton';
 
 /// `app.bsky.unspecced.getSuggestionsSkeleton`
 const appBskyUnspeccedGetSuggestionsSkeleton =
@@ -624,6 +685,13 @@ const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
 /// `app.bsky.unspecced.getTrendingTopics`
 const appBskyUnspeccedGetTrendingTopics =
     'app.bsky.unspecced.getTrendingTopics';
+
+/// `app.bsky.unspecced.getTrends`
+const appBskyUnspeccedGetTrends = 'app.bsky.unspecced.getTrends';
+
+/// `app.bsky.unspecced.getTrendsSkeleton`
+const appBskyUnspeccedGetTrendsSkeleton =
+    'app.bsky.unspecced.getTrendsSkeleton';
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =
