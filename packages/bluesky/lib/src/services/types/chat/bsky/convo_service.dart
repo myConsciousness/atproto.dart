@@ -98,7 +98,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoLeaveConvo,
-        parameters: {
+        body: {
           'convoId': convoId,
         },
         to: LeaveConvoOutput.fromJson,
@@ -191,10 +191,12 @@ final class ConvoService {
     required String convoId,
   }) async =>
       await _ctx.post(
-        ns.chatBskyConvoUpdateRead,
+        ns.chatBskyConvoAcceptConvo,
         body: {
           'convoId': convoId,
         },
-        to: AcceptConvoOutput.fromJson,
+        to: (response) {
+          return AcceptConvoOutput.fromJson(response);
+        },
       );
 }
