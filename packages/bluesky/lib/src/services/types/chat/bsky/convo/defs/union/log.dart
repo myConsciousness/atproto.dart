@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import '../../../../../../../ids.g.dart' as ids;
+import '../log_accept_convo.dart';
 import '../log_begin_convo.dart';
 import '../log_create_message.dart';
 import '../log_delete_message.dart';
@@ -21,8 +22,8 @@ class UConvoLog with _$UConvoLog {
   }) = UConvoLogConvoLogBeginConvo;
 
   const factory UConvoLog.logAcceptConvo({
-    required LogBeginConvo data,
-  }) = UConvoLogConvoLogBeginConvo;
+    required LogAcceptConvo data,
+  }) = UConvoLogConvoLogAcceptConvo;
 
   const factory UConvoLog.logLeaveConvo({
     required LogLeaveConvo data,
