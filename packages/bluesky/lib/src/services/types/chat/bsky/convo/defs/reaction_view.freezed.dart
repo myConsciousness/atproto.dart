@@ -21,7 +21,7 @@ ReactionView _$ReactionViewFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ReactionView {
   String get value => throw _privateConstructorUsedError;
-  MessageViewSender get sender => throw _privateConstructorUsedError;
+  ReactionViewSender get sender => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Serializes this ReactionView to a JSON map.
@@ -40,9 +40,9 @@ abstract class $ReactionViewCopyWith<$Res> {
           ReactionView value, $Res Function(ReactionView) then) =
       _$ReactionViewCopyWithImpl<$Res, ReactionView>;
   @useResult
-  $Res call({String value, MessageViewSender sender, DateTime createdAt});
+  $Res call({String value, ReactionViewSender sender, DateTime createdAt});
 
-  $MessageViewSenderCopyWith<$Res> get sender;
+  $ReactionViewSenderCopyWith<$Res> get sender;
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$ReactionViewCopyWithImpl<$Res, $Val extends ReactionView>
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
-              as MessageViewSender,
+              as ReactionViewSender,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -84,8 +84,8 @@ class _$ReactionViewCopyWithImpl<$Res, $Val extends ReactionView>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MessageViewSenderCopyWith<$Res> get sender {
-    return $MessageViewSenderCopyWith<$Res>(_value.sender, (value) {
+  $ReactionViewSenderCopyWith<$Res> get sender {
+    return $ReactionViewSenderCopyWith<$Res>(_value.sender, (value) {
       return _then(_value.copyWith(sender: value) as $Val);
     });
   }
@@ -99,10 +99,10 @@ abstract class _$$ReactionViewImplCopyWith<$Res>
       __$$ReactionViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String value, MessageViewSender sender, DateTime createdAt});
+  $Res call({String value, ReactionViewSender sender, DateTime createdAt});
 
   @override
-  $MessageViewSenderCopyWith<$Res> get sender;
+  $ReactionViewSenderCopyWith<$Res> get sender;
 }
 
 /// @nodoc
@@ -130,7 +130,7 @@ class __$$ReactionViewImplCopyWithImpl<$Res>
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
-              as MessageViewSender,
+              as ReactionViewSender,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -141,7 +141,7 @@ class __$$ReactionViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable()
 class _$ReactionViewImpl implements _ReactionView {
   const _$ReactionViewImpl(
       {required this.value, required this.sender, required this.createdAt});
@@ -152,7 +152,7 @@ class _$ReactionViewImpl implements _ReactionView {
   @override
   final String value;
   @override
-  final MessageViewSender sender;
+  final ReactionViewSender sender;
   @override
   final DateTime createdAt;
 
@@ -195,7 +195,7 @@ class _$ReactionViewImpl implements _ReactionView {
 abstract class _ReactionView implements ReactionView {
   const factory _ReactionView(
       {required final String value,
-      required final MessageViewSender sender,
+      required final ReactionViewSender sender,
       required final DateTime createdAt}) = _$ReactionViewImpl;
 
   factory _ReactionView.fromJson(Map<String, dynamic> json) =
@@ -204,7 +204,7 @@ abstract class _ReactionView implements ReactionView {
   @override
   String get value;
   @override
-  MessageViewSender get sender;
+  ReactionViewSender get sender;
   @override
   DateTime get createdAt;
 

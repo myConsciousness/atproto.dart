@@ -14,5 +14,6 @@ class LogAcceptConvo with _$LogAcceptConvo {
     required String convoId,
   }) = _LogAcceptConvo;
 
-  factory LogAcceptConvo.fromJson(Map<String, Object?> json) => _$LogAcceptConvoFromJson(json);
+  factory LogAcceptConvo.fromJson(Map<String, Object?> json) =>
+      _$LogAcceptConvoFromJson(json);
 }

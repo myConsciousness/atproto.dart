@@ -16,8 +16,8 @@ _$ReactionViewImpl _$$ReactionViewImplFromJson(Map json) => $checkedCreate(
           value: $checkedConvert('value', (v) => v as String),
           sender: $checkedConvert(
               'sender',
-              (v) => MessageViewSender.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+              (v) => ReactionViewSender.fromJson(
+                  Map<String, dynamic>.from(v as Map))),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );

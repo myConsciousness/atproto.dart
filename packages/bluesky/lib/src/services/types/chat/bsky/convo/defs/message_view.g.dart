@@ -31,7 +31,7 @@ _$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
               'reactions',
               (v) => (v as List<dynamic>?)
                   ?.map((e) => ReactionView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                      Map<String, dynamic>.from(e as Map)))
                   .toList()),
           sender: $checkedConvert(
               'sender',
