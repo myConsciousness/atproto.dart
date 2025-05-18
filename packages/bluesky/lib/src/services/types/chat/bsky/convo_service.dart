@@ -5,6 +5,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import 'convo/acceptConvo/output.dart';
+import 'convo/addReaction/output.dart';
 import 'convo/defs/deleted_message_view.dart';
 import 'convo/defs/message_input.dart';
 import 'convo/defs/message_view.dart';
@@ -141,10 +142,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessage,
-        body: {
-          'convoId': convoId,
-          'message': message.toJson(),
-        },
+        body: {'convoId': convoId, 'message': message.toJson()},
         to: MessageView.fromJson,
       );
 
@@ -195,8 +193,22 @@ final class ConvoService {
         body: {
           'convoId': convoId,
         },
-        to: (response) {
-          return AcceptConvoOutput.fromJson(response);
+        to: AcceptConvoOutput.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/addReaction
+  Future<core.XRPCResponse<AddReactionOutput>> addReaction({
+    required String convoId,
+    required String messageId,
+    required String reaction,
+  }) async =>
+      await _ctx.post(
+        ns.chatBskyConvoAddReaction,
+        body: {
+          'convoId': convoId,
+          'messageId': messageId,
+          'value': reaction,
         },
+        to: AddReactionOutput.fromJson,
       );
 }

@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
@@ -18,6 +17,5 @@ class ReactionView with _$ReactionView {
     required DateTime createdAt,
   }) = _ReactionView;
 
-  factory ReactionView.fromJson(Map<String, dynamic> json) =>
-      _$ReactionViewFromJson(json);
+  factory ReactionView.fromJson(Map<String, dynamic> json) => _$ReactionViewFromJson(json);
 }
