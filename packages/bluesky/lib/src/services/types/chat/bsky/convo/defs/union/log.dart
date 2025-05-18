@@ -20,6 +20,10 @@ class UConvoLog with _$UConvoLog {
     required LogBeginConvo data,
   }) = UConvoLogConvoLogBeginConvo;
 
+  const factory UConvoLog.logAcceptConvo({
+    required LogBeginConvo data,
+  }) = UConvoLogConvoLogBeginConvo;
+
   const factory UConvoLog.logLeaveConvo({
     required LogLeaveConvo data,
   }) = UConvoLogConvoLogLeaveConvo;
@@ -41,8 +45,7 @@ class UConvoLog with _$UConvoLog {
 
 const unionConvoLogConverter = _UConvoLogConverter();
 
-final class _UConvoLogConverter
-    implements JsonConverter<UConvoLog, Map<String, dynamic>> {
+final class _UConvoLogConverter implements JsonConverter<UConvoLog, Map<String, dynamic>> {
   const _UConvoLogConverter();
 
   @override
@@ -53,6 +56,11 @@ final class _UConvoLogConverter
       if (type == ids.chatBskyConvoDefsLogBeginConvo) {
         return UConvoLog.logBeginConvo(
           data: LogBeginConvo.fromJson(json),
+        );
+      }
+      if (type == ids.chatBskyConvoDefsLogAcceptConvo) {
+        return UConvoLog.logAcceptConvo(
+          data: LogAcceptConvo.fromJson(json),
         );
       }
       if (type == ids.chatBskyConvoDefsLogLeaveConvo) {
@@ -80,6 +88,7 @@ final class _UConvoLogConverter
   @override
   Map<String, dynamic> toJson(UConvoLog object) => object.when(
         logBeginConvo: (data) => data.toJson(),
+        logAcceptConvo: (data) => data.toJson(),
         logLeaveConvo: (data) => data.toJson(),
         logCreateMessage: (data) => data.toJson(),
         logDeleteMessage: (data) => data.toJson(),
