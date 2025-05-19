@@ -15,7 +15,7 @@ description: tools.ozone.team.defs
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **lastUpdatedBy** | string | - | ❌ | - |
-| **role** | string | [#roleAdmin](#roleadmin)<br/>[#roleModerator](#rolemoderator)<br/>[#roleTriage](#roletriage) | ✅ | - |
+| **role** | string | [#roleAdmin](#roleadmin)<br/>[#roleModerator](#rolemoderator)<br/>[#roleTriage](#roletriage)<br/>[#roleVerifier](#roleverifier) | ✅ | - |
 
 ## #roleAdmin
 
@@ -28,3 +28,7 @@ description: tools.ozone.team.defs
 ## #roleTriage
 
 **TOKEN**: Triage role. Mostly intended for monitoring and escalating issues.
+
+## #roleVerifier
+
+**TOKEN**: Verifier role. Only allowed to issue verifications.
