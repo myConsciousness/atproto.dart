@@ -9,6 +9,7 @@ export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_ref.dart
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_view.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/message_view_sender.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/reaction_view.dart';
+export 'package:bluesky/src/services/types/chat/bsky/convo/defs/reaction_view_sender.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/log.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/message_embed.dart';
 export 'package:bluesky/src/services/types/chat/bsky/convo/defs/union/message_view.dart';
