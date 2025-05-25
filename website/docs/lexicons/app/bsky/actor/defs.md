@@ -17,6 +17,8 @@ description: app.bsky.actor.defs
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
+| **status** | [#statusView](#statusview) | - | ❌ | - |
 
 ## #profileView
 
@@ -32,6 +34,8 @@ description: app.bsky.actor.defs
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
+| **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
+| **status** | [#statusView](#statusview) | - | ❌ | - |
 
 ## #profileViewDetailed
 
@@ -53,6 +57,8 @@ description: app.bsky.actor.defs
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **pinnedPost** | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
+| **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
+| **status** | [#statusView](#statusview) | - | ❌ | - |
 
 ## #profileAssociated
 
@@ -94,11 +100,32 @@ The subject's followers whom you also follow
 | **count** | integer | - | ✅ | - |
 | **followers** | array of [#profileViewBasic](#profileviewbasic) | - | ✅ | - |
 
+## #verificationState
+
+Represents the verification information about the user this object is attached to.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **verifications** | array of [#verificationView](#verificationview) | - | ✅ | All verifications issued by trusted verifiers on behalf of this user. Verifications by untrusted verifiers are not included. |
+| **verifiedStatus** | string | valid<br/>invalid<br/>none | ✅ | The user's status as a verified account. |
+| **trustedVerifierStatus** | string | valid<br/>invalid<br/>none | ✅ | The user's status as a trusted verifier. |
+
+## #verificationView
+
+An individual verification for an associated subject.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **issuer** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The user who issued this verification. |
+| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | The AT-URI of the verification record. |
+| **isValid** | boolean | - | ✅ | True if the verification passes validation, otherwise false. |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Timestamp when the verification was created. |
+
 ## #preferences
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref)<br/>[#bskyAppStatePref](#bskyappstatepref)<br/>[#labelersPref](#labelerspref)<br/>[#postInteractionSettingsPref](#postinteractionsettingspref) | - | ❌ | - |
+| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref)<br/>[#bskyAppStatePref](#bskyappstatepref)<br/>[#labelersPref](#labelerspref)<br/>[#postInteractionSettingsPref](#postinteractionsettingspref)<br/>[#verificationPrefs](#verificationprefs) | - | ❌ | - |
 
 ## #adultContentPref
 
@@ -238,6 +265,14 @@ A new user experiences (NUX) storage object
 | **data** | string | - | ❌ | Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters. |
 | **expiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | The date and time at which the NUX will expire and should be considered completed. |
 
+## #verificationPrefs
+
+Preferences for how verified accounts appear in the app.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **hideBadges** | boolean | - | ❌ | Hide the blue check badges for verified accounts and trusted verifiers. |
+
 ## #postInteractionSettingsPref
 
 Default post interaction settings for the account. These values should be applied as default values when creating new posts. These refs should mirror the threadgate and postgate records exactly.
@@ -246,3 +281,13 @@ Default post interaction settings for the account. These values should be applie
 | --- | --- | --- | :---: | --- |
 | **threadgateAllowRules** | array of union<br/>[app.bsky.feed.threadgate#mentionRule](../../../../lexicons/app/bsky/feed/threadgate.md#mentionrule)<br/>[app.bsky.feed.threadgate#followerRule](../../../../lexicons/app/bsky/feed/threadgate.md#followerrule)<br/>[app.bsky.feed.threadgate#followingRule](../../../../lexicons/app/bsky/feed/threadgate.md#followingrule)<br/>[app.bsky.feed.threadgate#listRule](../../../../lexicons/app/bsky/feed/threadgate.md#listrule) | - | ❌ | Matches threadgate record. List of rules defining who can reply to this users posts. If value is an empty array, no one can reply. If value is undefined, anyone can reply. |
 | **postgateEmbeddingRules** | array of union<br/>[app.bsky.feed.postgate#disableRule](../../../../lexicons/app/bsky/feed/postgate.md#disablerule) | - | ❌ | Matches postgate record. List of rules defining who can embed this users posts. If value is an empty array or is undefined, no particular rules apply and anyone can embed. |
+
+## #statusView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **status** | string | [app.bsky.actor.status#live](../../../../lexicons/app/bsky/actor/status.md#live) | ✅ | The status for the account. |
+| **record** | unknown | - | ✅ | - |
+| **embed** | union of <br/>[app.bsky.embed.external#view](../../../../lexicons/app/bsky/embed/external.md#view) | - | ❌ | - |
+| **expiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | The date when this status will expire. The application might choose to no longer return the status after expiration. |
+| **isActive** | boolean | - | ❌ | True if the status is not expired, false if it is expired. Only present if expiration was set. |
