@@ -17,5 +17,6 @@ class ReactionView with _$ReactionView {
     required DateTime createdAt,
   }) = _ReactionView;
 
-  factory ReactionView.fromJson(Map<String, dynamic> json) => _$ReactionViewFromJson(json);
+  factory ReactionView.fromJson(Map<String, dynamic> json) =>
+      _$ReactionViewFromJson(json);
 }

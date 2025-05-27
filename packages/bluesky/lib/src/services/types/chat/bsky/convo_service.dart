@@ -16,6 +16,7 @@ import 'convo/getMessages/output.dart';
 import 'convo/leaveConvo/output.dart';
 import 'convo/listConvos/output.dart';
 import 'convo/muteConvo/output.dart';
+import 'convo/removeReaction/output.dart';
 import 'convo/sendMessageBatch/batch_item.dart';
 import 'convo/sendMessageBatch/output.dart';
 import 'convo/unmuteConvo/output.dart';
@@ -210,5 +211,21 @@ final class ConvoService {
           'value': reaction,
         },
         to: AddReactionOutput.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteReaction
+  Future<core.XRPCResponse<RemoveReactionOutput>> removeReaction({
+    required String convoId,
+    required String messageId,
+    required String reaction,
+  }) async =>
+      await _ctx.post(
+        ns.chatBskyConvoRemoveReaction,
+        body: {
+          'convoId': convoId,
+          'messageId': messageId,
+          'value': reaction,
+        },
+        to: RemoveReactionOutput.fromJson,
       );
 }

@@ -2,6 +2,7 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
 import '../defs/message_view.dart';
 
 part 'output.freezed.dart';
@@ -15,5 +16,6 @@ class AddReactionOutput with _$AddReactionOutput {
     required MessageView message,
   }) = _AddReactionOutput;
 
-  factory AddReactionOutput.fromJson(Map<String, Object?> json) => _$AddReactionOutputFromJson(json);
+  factory AddReactionOutput.fromJson(Map<String, Object?> json) =>
+      _$AddReactionOutputFromJson(json);
 }
