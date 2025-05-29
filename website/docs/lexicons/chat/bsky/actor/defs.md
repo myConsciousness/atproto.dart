@@ -16,4 +16,5 @@ description: chat.bsky.actor.defs
 | **associated** | [app.bsky.actor.defs#profileAssociated](../../../../lexicons/app/bsky/actor/defs.md#profileassociated) | - | ❌ | - |
 | **viewer** | [app.bsky.actor.defs#viewerState](../../../../lexicons/app/bsky/actor/defs.md#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
-| **chatDisabled** | boolean | - | ❌ | Set to true when the actor cannot actively participate in converations |
+| **chatDisabled** | boolean | - | ❌ | Set to true when the actor cannot actively participate in conversations |
+| **verification** | [app.bsky.actor.defs#verificationState](../../../../lexicons/app/bsky/actor/defs.md#verificationstate) | - | ❌ | - |
