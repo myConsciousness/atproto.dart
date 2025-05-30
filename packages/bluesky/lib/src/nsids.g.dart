@@ -37,6 +37,12 @@ const appBskyActorSearchActors = NSID(ids.appBskyActorSearchActors);
 const appBskyActorSearchActorsTypeahead =
     NSID(ids.appBskyActorSearchActorsTypeahead);
 
+/// `app.bsky.actor.status`
+const appBskyActorStatus = NSID(ids.appBskyActorStatus);
+
+/// `app.bsky.actor.status#live`
+const appBskyActorStatusLive = NSID(ids.appBskyActorStatusLive);
+
 /// `app.bsky.embed.external`
 const appBskyEmbedExternal = NSID(ids.appBskyEmbedExternal);
 
@@ -294,6 +300,9 @@ const appBskyGraphUnmuteActorList = NSID(ids.appBskyGraphUnmuteActorList);
 /// `app.bsky.graph.unmuteThread`
 const appBskyGraphUnmuteThread = NSID(ids.appBskyGraphUnmuteThread);
 
+/// `app.bsky.graph.verification`
+const appBskyGraphVerification = NSID(ids.appBskyGraphVerification);
+
 /// `app.bsky.labeler.getServices`
 const appBskyLabelerGetServices = NSID(ids.appBskyLabelerGetServices);
 
@@ -341,9 +350,73 @@ const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = NSID(ids.appBskyUnspeccedGetConfig);
 
+/// `app.bsky.unspecced.getConfig#liveNowConfig`
+const appBskyUnspeccedGetConfigLiveNowConfig =
+    NSID(ids.appBskyUnspeccedGetConfigLiveNowConfig);
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     NSID(ids.appBskyUnspeccedGetPopularFeedGenerators);
+
+/// `app.bsky.unspecced.getPostThreadHiddenV2`
+const appBskyUnspeccedGetPostThreadHiddenV2 =
+    NSID(ids.appBskyUnspeccedGetPostThreadHiddenV2);
+
+/// `app.bsky.unspecced.getPostThreadHiddenV2#threadHiddenItem`
+const appBskyUnspeccedGetPostThreadHiddenV2ThreadHiddenItem =
+    NSID(ids.appBskyUnspeccedGetPostThreadHiddenV2ThreadHiddenItem);
+
+/// `app.bsky.unspecced.getPostThreadHiddenV2#threadHiddenItemPost`
+const appBskyUnspeccedGetPostThreadHiddenV2ThreadHiddenItemPost =
+    NSID(ids.appBskyUnspeccedGetPostThreadHiddenV2ThreadHiddenItemPost);
+
+/// `app.bsky.unspecced.getPostThreadV2`
+const appBskyUnspeccedGetPostThreadV2 =
+    NSID(ids.appBskyUnspeccedGetPostThreadV2);
+
+/// `app.bsky.unspecced.getPostThreadV2#threadItem`
+const appBskyUnspeccedGetPostThreadV2ThreadItem =
+    NSID(ids.appBskyUnspeccedGetPostThreadV2ThreadItem);
+
+/// `app.bsky.unspecced.getPostThreadV2#threadItemBlocked`
+const appBskyUnspeccedGetPostThreadV2ThreadItemBlocked =
+    NSID(ids.appBskyUnspeccedGetPostThreadV2ThreadItemBlocked);
+
+/// `app.bsky.unspecced.getPostThreadV2#threadItemNoUnauthenticated`
+const appBskyUnspeccedGetPostThreadV2ThreadItemNoUnauthenticated =
+    NSID(ids.appBskyUnspeccedGetPostThreadV2ThreadItemNoUnauthenticated);
+
+/// `app.bsky.unspecced.getPostThreadV2#threadItemNotFound`
+const appBskyUnspeccedGetPostThreadV2ThreadItemNotFound =
+    NSID(ids.appBskyUnspeccedGetPostThreadV2ThreadItemNotFound);
+
+/// `app.bsky.unspecced.getPostThreadV2#threadItemPost`
+const appBskyUnspeccedGetPostThreadV2ThreadItemPost =
+    NSID(ids.appBskyUnspeccedGetPostThreadV2ThreadItemPost);
+
+/// `app.bsky.unspecced.getSuggestedFeeds`
+const appBskyUnspeccedGetSuggestedFeeds =
+    NSID(ids.appBskyUnspeccedGetSuggestedFeeds);
+
+/// `app.bsky.unspecced.getSuggestedFeedsSkeleton`
+const appBskyUnspeccedGetSuggestedFeedsSkeleton =
+    NSID(ids.appBskyUnspeccedGetSuggestedFeedsSkeleton);
+
+/// `app.bsky.unspecced.getSuggestedStarterPacks`
+const appBskyUnspeccedGetSuggestedStarterPacks =
+    NSID(ids.appBskyUnspeccedGetSuggestedStarterPacks);
+
+/// `app.bsky.unspecced.getSuggestedStarterPacksSkeleton`
+const appBskyUnspeccedGetSuggestedStarterPacksSkeleton =
+    NSID(ids.appBskyUnspeccedGetSuggestedStarterPacksSkeleton);
+
+/// `app.bsky.unspecced.getSuggestedUsers`
+const appBskyUnspeccedGetSuggestedUsers =
+    NSID(ids.appBskyUnspeccedGetSuggestedUsers);
+
+/// `app.bsky.unspecced.getSuggestedUsersSkeleton`
+const appBskyUnspeccedGetSuggestedUsersSkeleton =
+    NSID(ids.appBskyUnspeccedGetSuggestedUsersSkeleton);
 
 /// `app.bsky.unspecced.getSuggestionsSkeleton`
 const appBskyUnspeccedGetSuggestionsSkeleton =
@@ -360,6 +433,13 @@ const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
 /// `app.bsky.unspecced.getTrendingTopics`
 const appBskyUnspeccedGetTrendingTopics =
     NSID(ids.appBskyUnspeccedGetTrendingTopics);
+
+/// `app.bsky.unspecced.getTrends`
+const appBskyUnspeccedGetTrends = NSID(ids.appBskyUnspeccedGetTrends);
+
+/// `app.bsky.unspecced.getTrendsSkeleton`
+const appBskyUnspeccedGetTrendsSkeleton =
+    NSID(ids.appBskyUnspeccedGetTrendsSkeleton);
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =
