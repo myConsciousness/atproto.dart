@@ -19,7 +19,7 @@ Create or update setting option
 | **scope** | string | instance<br/>personal | ✅ | - |
 | **value** | unknown | - | ✅ | - |
 | **description** | string | - | ❌ | - |
-| **managerRole** | string | [tools.ozone.team.defs#roleModerator](../../../../lexicons/tools/ozone/team/defs.md#rolemoderator)<br/>[tools.ozone.team.defs#roleTriage](../../../../lexicons/tools/ozone/team/defs.md#roletriage)<br/>[tools.ozone.team.defs#roleAdmin](../../../../lexicons/tools/ozone/team/defs.md#roleadmin) | ❌ | - |
+| **managerRole** | string | [tools.ozone.team.defs#roleModerator](../../../../lexicons/tools/ozone/team/defs.md#rolemoderator)<br/>[tools.ozone.team.defs#roleTriage](../../../../lexicons/tools/ozone/team/defs.md#roletriage)<br/>[tools.ozone.team.defs#roleVerifier](../../../../lexicons/tools/ozone/team/defs.md#roleverifier)<br/>[tools.ozone.team.defs#roleAdmin](../../../../lexicons/tools/ozone/team/defs.md#roleadmin) | ❌ | - |
 
 ### Output
 
