@@ -52,6 +52,7 @@ Metadata about this post within the context of the thread it is in.
 | **reply** | [#replyRef](#replyref) | - | ❌ | - |
 | **reason** | union of <br/>[#reasonRepost](#reasonrepost)<br/>[#reasonPin](#reasonpin) | - | ❌ | - |
 | **feedContext** | string | - | ❌ | Context provided by feed generator that may be passed back alongside interactions. |
+| **reqId** | string | - | ❌ | Unique identifier per request that may be passed back alongside interactions. |
 
 ## #replyRef
 
@@ -66,6 +67,8 @@ Metadata about this post within the context of the thread it is in.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **by** | [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ✅ | - |
+| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
+| **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
 ## #reasonPin
@@ -158,6 +161,7 @@ Metadata about this post within the context of the thread it is in.
 | **item** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **event** | string | [app.bsky.feed.defs#requestLess](../../../../lexicons/app/bsky/feed/defs.md#requestless)<br/>[app.bsky.feed.defs#requestMore](../../../../lexicons/app/bsky/feed/defs.md#requestmore)<br/>[app.bsky.feed.defs#clickthroughItem](../../../../lexicons/app/bsky/feed/defs.md#clickthroughitem)<br/>[app.bsky.feed.defs#clickthroughAuthor](../../../../lexicons/app/bsky/feed/defs.md#clickthroughauthor)<br/>[app.bsky.feed.defs#clickthroughReposter](../../../../lexicons/app/bsky/feed/defs.md#clickthroughreposter)<br/>[app.bsky.feed.defs#clickthroughEmbed](../../../../lexicons/app/bsky/feed/defs.md#clickthroughembed)<br/>[app.bsky.feed.defs#interactionSeen](../../../../lexicons/app/bsky/feed/defs.md#interactionseen)<br/>[app.bsky.feed.defs#interactionLike](../../../../lexicons/app/bsky/feed/defs.md#interactionlike)<br/>[app.bsky.feed.defs#interactionRepost](../../../../lexicons/app/bsky/feed/defs.md#interactionrepost)<br/>[app.bsky.feed.defs#interactionReply](../../../../lexicons/app/bsky/feed/defs.md#interactionreply)<br/>[app.bsky.feed.defs#interactionQuote](../../../../lexicons/app/bsky/feed/defs.md#interactionquote)<br/>[app.bsky.feed.defs#interactionShare](../../../../lexicons/app/bsky/feed/defs.md#interactionshare) | ❌ | - |
 | **feedContext** | string | - | ❌ | Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton. |
+| **reqId** | string | - | ❌ | Unique identifier per request that may be passed back alongside interactions. |
 
 ## #requestLess
 
