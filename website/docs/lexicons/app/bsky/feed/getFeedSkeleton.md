@@ -25,3 +25,4 @@ Get a skeleton of a feed provided by a feed generator. Auth is optional, dependi
 | --- | --- | --- | :---: | --- |
 | **cursor** | string | - | ❌ | - |
 | **feed** | array of [app.bsky.feed.defs#skeletonFeedPost](../../../../lexicons/app/bsky/feed/defs.md#skeletonfeedpost) | - | ✅ | - |
+| **reqId** | string | - | ❌ | Unique identifier per request that may be passed back alongside interactions. |
