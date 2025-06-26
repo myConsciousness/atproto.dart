@@ -17,6 +17,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | --- | --- | --- | :---: | --- |
 | **subject** | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **via** | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
 
 ### Output
 
