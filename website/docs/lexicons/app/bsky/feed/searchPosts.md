@@ -7,7 +7,7 @@ description: app.bsky.feed.searchPosts
 
 ## #main
 
-Find posts matching search criteria, returning views of those posts.
+Find posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations.
 
 ### Parameters
 
