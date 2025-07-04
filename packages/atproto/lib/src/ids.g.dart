@@ -161,6 +161,10 @@ const comAtprotoLexiconSchema = 'com.atproto.lexicon.schema';
 /// `com.atproto.moderation.createReport`
 const comAtprotoModerationCreateReport = 'com.atproto.moderation.createReport';
 
+/// `com.atproto.moderation.createReport#modTool`
+const comAtprotoModerationCreateReportModTool =
+    'com.atproto.moderation.createReport#modTool';
+
 /// `com.atproto.moderation.defs`
 const comAtprotoModerationDefs = 'com.atproto.moderation.defs';
 
@@ -383,6 +387,12 @@ const comAtprotoServerRevokeAppPassword =
 /// `com.atproto.server.updateEmail`
 const comAtprotoServerUpdateEmail = 'com.atproto.server.updateEmail';
 
+/// `com.atproto.sync.defs`
+const comAtprotoSyncDefs = 'com.atproto.sync.defs';
+
+/// `com.atproto.sync.defs#hostStatus`
+const comAtprotoSyncDefsHostStatus = 'com.atproto.sync.defs#hostStatus';
+
 /// `com.atproto.sync.getBlob`
 const comAtprotoSyncGetBlob = 'com.atproto.sync.getBlob';
 
@@ -394,6 +404,9 @@ const comAtprotoSyncGetCheckout = 'com.atproto.sync.getCheckout';
 
 /// `com.atproto.sync.getHead`
 const comAtprotoSyncGetHead = 'com.atproto.sync.getHead';
+
+/// `com.atproto.sync.getHostStatus`
+const comAtprotoSyncGetHostStatus = 'com.atproto.sync.getHostStatus';
 
 /// `com.atproto.sync.getLatestCommit`
 const comAtprotoSyncGetLatestCommit = 'com.atproto.sync.getLatestCommit';
@@ -409,6 +422,12 @@ const comAtprotoSyncGetRepoStatus = 'com.atproto.sync.getRepoStatus';
 
 /// `com.atproto.sync.listBlobs`
 const comAtprotoSyncListBlobs = 'com.atproto.sync.listBlobs';
+
+/// `com.atproto.sync.listHosts`
+const comAtprotoSyncListHosts = 'com.atproto.sync.listHosts';
+
+/// `com.atproto.sync.listHosts#host`
+const comAtprotoSyncListHostsHost = 'com.atproto.sync.listHosts#host';
 
 /// `com.atproto.sync.listRepos`
 const comAtprotoSyncListRepos = 'com.atproto.sync.listRepos';

@@ -17,6 +17,7 @@ description: tools.ozone.moderation.defs
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **creatorHandle** | string | - | ❌ | - |
 | **subjectHandle** | string | - | ❌ | - |
+| **modTool** | [#modTool](#modtool) | - | ❌ | - |
 
 ## #modEventViewDetail
 
@@ -28,13 +29,14 @@ description: tools.ozone.moderation.defs
 | **subjectBlobs** | array of [#blobView](#blobview) | - | ✅ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **modTool** | [#modTool](#modtool) | - | ❌ | - |
 
 ## #subjectStatusView
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **id** | integer | - | ✅ | - |
-| **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
+| **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref) | - | ✅ | - |
 | **hosting** | union of <br/>[#accountHosting](#accounthosting)<br/>[#recordHosting](#recordhosting) | - | ❌ | - |
 | **subjectBlobCids** | array of string | - | ❌ | - |
 | **subjectRepoHandle** | string | - | ❌ | - |
@@ -436,3 +438,12 @@ Logs lifecycle event on a record subject. Normally captured by automod from the 
 | **takendownRecordCount** | integer | - | ✅ | The total number of records taken down as a result of the user's reports. |
 | **labeledAccountCount** | integer | - | ✅ | The total number of accounts labeled as a result of the user's reports. |
 | **labeledRecordCount** | integer | - | ✅ | The total number of records labeled as a result of the user's reports. |
+
+## #modTool
+
+Moderation tool information for tracing the source of the action
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **name** | string | - | ✅ | Name/identifier of the source (e.g., 'automod', 'ozone/workspace') |
+| **meta** | unknown | - | ❌ | Additional arbitrary metadata about the source |
