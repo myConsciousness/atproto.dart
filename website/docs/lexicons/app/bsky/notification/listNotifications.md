@@ -37,7 +37,7 @@ Enumerate notifications for the requesting account. Requires auth.
 | **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
 | **author** | [app.bsky.actor.defs#profileView](../../../../lexicons/app/bsky/actor/defs.md#profileview) | - | ✅ | - |
-| **reason** | string | like<br/>repost<br/>follow<br/>mention<br/>reply<br/>quote<br/>starterpack-joined | ✅ | Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'. |
+| **reason** | string | like<br/>repost<br/>follow<br/>mention<br/>reply<br/>quote<br/>starterpack-joined<br/>verified<br/>unverified<br/>like-via-repost<br/>repost-via-repost<br/>subscribed-post | ✅ | The reason why this notification was delivered - e.g. your post was liked, or you received a new follower. |
 | **reasonSubject** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **record** | unknown | - | ✅ | - |
 | **isRead** | boolean | - | ✅ | - |
