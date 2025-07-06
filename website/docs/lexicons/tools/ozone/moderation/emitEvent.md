@@ -19,6 +19,7 @@ Take a moderation action on an actor.
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 | **subjectBlobCids** | array of string | - | ❌ | - |
 | **createdBy** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **modTool** | [tools.ozone.moderation.defs#modTool](../../../../lexicons/tools/ozone/moderation/defs.md#modtool) | - | ❌ | - |
 
 ### Output
 

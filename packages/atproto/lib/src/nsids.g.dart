@@ -121,6 +121,10 @@ const comAtprotoLexiconSchema = NSID(ids.comAtprotoLexiconSchema);
 const comAtprotoModerationCreateReport =
     NSID(ids.comAtprotoModerationCreateReport);
 
+/// `com.atproto.moderation.createReport#modTool`
+const comAtprotoModerationCreateReportModTool =
+    NSID(ids.comAtprotoModerationCreateReportModTool);
+
 /// `com.atproto.repo.applyWrites`
 const comAtprotoRepoApplyWrites = NSID(ids.comAtprotoRepoApplyWrites);
 
@@ -307,6 +311,9 @@ const comAtprotoSyncGetCheckout = NSID(ids.comAtprotoSyncGetCheckout);
 /// `com.atproto.sync.getHead`
 const comAtprotoSyncGetHead = NSID(ids.comAtprotoSyncGetHead);
 
+/// `com.atproto.sync.getHostStatus`
+const comAtprotoSyncGetHostStatus = NSID(ids.comAtprotoSyncGetHostStatus);
+
 /// `com.atproto.sync.getLatestCommit`
 const comAtprotoSyncGetLatestCommit = NSID(ids.comAtprotoSyncGetLatestCommit);
 
@@ -321,6 +328,12 @@ const comAtprotoSyncGetRepoStatus = NSID(ids.comAtprotoSyncGetRepoStatus);
 
 /// `com.atproto.sync.listBlobs`
 const comAtprotoSyncListBlobs = NSID(ids.comAtprotoSyncListBlobs);
+
+/// `com.atproto.sync.listHosts`
+const comAtprotoSyncListHosts = NSID(ids.comAtprotoSyncListHosts);
+
+/// `com.atproto.sync.listHosts#host`
+const comAtprotoSyncListHostsHost = NSID(ids.comAtprotoSyncListHostsHost);
 
 /// `com.atproto.sync.listRepos`
 const comAtprotoSyncListRepos = NSID(ids.comAtprotoSyncListRepos);
