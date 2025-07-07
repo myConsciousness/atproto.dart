@@ -10,7 +10,7 @@ part 'subscribed_label_labels.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#labels
 @freezed
-class SubscribedLabelLabels with _$SubscribedLabelLabels {
+abstract class SubscribedLabelLabels with _$SubscribedLabelLabels {
   @jsonSerializable
   const factory SubscribedLabelLabels({
     @JsonKey(name: 'seq') required int sequence,

@@ -10,7 +10,7 @@ part 'labeler_policies.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs/#labelerpolicies
 @freezed
-class LabelerPolicies with _$LabelerPolicies {
+abstract class LabelerPolicies with _$LabelerPolicies {
   @jsonSerializable
   const factory LabelerPolicies({
     required List<String> labelValues,

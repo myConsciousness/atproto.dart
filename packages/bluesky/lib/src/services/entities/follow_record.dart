@@ -15,7 +15,7 @@ part 'follow_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyGraphFollow].
 @freezed
-class FollowRecord with _$FollowRecord {
+abstract class FollowRecord with _$FollowRecord {
   @jsonSerializable
   const factory FollowRecord({
     @typeKey @Default(appBskyGraphFollow) String type,

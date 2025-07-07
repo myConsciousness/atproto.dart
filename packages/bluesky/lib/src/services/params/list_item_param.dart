@@ -8,7 +8,7 @@ part 'list_item_param.freezed.dart';
 part 'list_item_param.g.dart';
 
 @freezed
-class ListItemParam with _$ListItemParam {
+abstract class ListItemParam with _$ListItemParam {
   @jsonSerializable
   const factory ListItemParam({
     required String subject,

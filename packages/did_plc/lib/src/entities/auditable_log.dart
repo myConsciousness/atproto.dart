@@ -11,7 +11,7 @@ part 'auditable_log.freezed.dart';
 part 'auditable_log.g.dart';
 
 @freezed
-class AuditableLog with _$AuditableLog {
+abstract class AuditableLog with _$AuditableLog {
   /// Creates an instance of [AuditableLog].
   @jsonSerializable
   const factory AuditableLog({

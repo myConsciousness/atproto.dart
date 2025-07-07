@@ -10,7 +10,7 @@ import 'moderation_cause_source_user.dart';
 part 'moderation_cause_source.freezed.dart';
 
 @modObject
-class ModerationCauseSource with _$ModerationCauseSource {
+abstract class ModerationCauseSource with _$ModerationCauseSource {
   const factory ModerationCauseSource.user({
     required ModerationCauseSourceUser data,
   }) = UModerationCauseSourceUser;

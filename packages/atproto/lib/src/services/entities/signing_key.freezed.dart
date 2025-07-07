@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,120 +10,28 @@ part of 'signing_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SigningKey _$SigningKeyFromJson(Map<String, dynamic> json) {
-  return _SigningKey.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SigningKey {
-  String get signingKey => throw _privateConstructorUsedError;
-
-  /// Serializes this SigningKey to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get signingKey;
 
   /// Create a copy of SigningKey
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $SigningKeyCopyWith<SigningKey> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$SigningKeyCopyWithImpl<SigningKey>(this as SigningKey, _$identity);
 
-/// @nodoc
-abstract class $SigningKeyCopyWith<$Res> {
-  factory $SigningKeyCopyWith(
-          SigningKey value, $Res Function(SigningKey) then) =
-      _$SigningKeyCopyWithImpl<$Res, SigningKey>;
-  @useResult
-  $Res call({String signingKey});
-}
-
-/// @nodoc
-class _$SigningKeyCopyWithImpl<$Res, $Val extends SigningKey>
-    implements $SigningKeyCopyWith<$Res> {
-  _$SigningKeyCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SigningKey
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? signingKey = null,
-  }) {
-    return _then(_value.copyWith(
-      signingKey: null == signingKey
-          ? _value.signingKey
-          : signingKey // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$SigningKeyImplCopyWith<$Res>
-    implements $SigningKeyCopyWith<$Res> {
-  factory _$$SigningKeyImplCopyWith(
-          _$SigningKeyImpl value, $Res Function(_$SigningKeyImpl) then) =
-      __$$SigningKeyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String signingKey});
-}
-
-/// @nodoc
-class __$$SigningKeyImplCopyWithImpl<$Res>
-    extends _$SigningKeyCopyWithImpl<$Res, _$SigningKeyImpl>
-    implements _$$SigningKeyImplCopyWith<$Res> {
-  __$$SigningKeyImplCopyWithImpl(
-      _$SigningKeyImpl _value, $Res Function(_$SigningKeyImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SigningKey
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? signingKey = null,
-  }) {
-    return _then(_$SigningKeyImpl(
-      signingKey: null == signingKey
-          ? _value.signingKey
-          : signingKey // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SigningKeyImpl implements _SigningKey {
-  const _$SigningKeyImpl({required this.signingKey});
-
-  factory _$SigningKeyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SigningKeyImplFromJson(json);
-
-  @override
-  final String signingKey;
-
-  @override
-  String toString() {
-    return 'SigningKey(signingKey: $signingKey)';
-  }
+  /// Serializes this SigningKey to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SigningKeyImpl &&
+            other is SigningKey &&
             (identical(other.signingKey, signingKey) ||
                 other.signingKey == signingKey));
   }
@@ -131,36 +40,120 @@ class _$SigningKeyImpl implements _SigningKey {
   @override
   int get hashCode => Object.hash(runtimeType, signingKey);
 
-  /// Create a copy of SigningKey
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SigningKeyImplCopyWith<_$SigningKeyImpl> get copyWith =>
-      __$$SigningKeyImplCopyWithImpl<_$SigningKeyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SigningKeyImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SigningKey(signingKey: $signingKey)';
   }
 }
 
-abstract class _SigningKey implements SigningKey {
-  const factory _SigningKey({required final String signingKey}) =
-      _$SigningKeyImpl;
+/// @nodoc
+abstract mixin class $SigningKeyCopyWith<$Res> {
+  factory $SigningKeyCopyWith(
+          SigningKey value, $Res Function(SigningKey) _then) =
+      _$SigningKeyCopyWithImpl;
+  @useResult
+  $Res call({String signingKey});
+}
 
-  factory _SigningKey.fromJson(Map<String, dynamic> json) =
-      _$SigningKeyImpl.fromJson;
+/// @nodoc
+class _$SigningKeyCopyWithImpl<$Res> implements $SigningKeyCopyWith<$Res> {
+  _$SigningKeyCopyWithImpl(this._self, this._then);
+
+  final SigningKey _self;
+  final $Res Function(SigningKey) _then;
+
+  /// Create a copy of SigningKey
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? signingKey = null,
+  }) {
+    return _then(_self.copyWith(
+      signingKey: null == signingKey
+          ? _self.signingKey
+          : signingKey // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _SigningKey implements SigningKey {
+  const _SigningKey({required this.signingKey});
+  factory _SigningKey.fromJson(Map<String, dynamic> json) =>
+      _$SigningKeyFromJson(json);
 
   @override
-  String get signingKey;
+  final String signingKey;
 
   /// Create a copy of SigningKey
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SigningKeyImplCopyWith<_$SigningKeyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$SigningKeyCopyWith<_SigningKey> get copyWith =>
+      __$SigningKeyCopyWithImpl<_SigningKey>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SigningKeyToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SigningKey &&
+            (identical(other.signingKey, signingKey) ||
+                other.signingKey == signingKey));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, signingKey);
+
+  @override
+  String toString() {
+    return 'SigningKey(signingKey: $signingKey)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$SigningKeyCopyWith<$Res>
+    implements $SigningKeyCopyWith<$Res> {
+  factory _$SigningKeyCopyWith(
+          _SigningKey value, $Res Function(_SigningKey) _then) =
+      __$SigningKeyCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String signingKey});
+}
+
+/// @nodoc
+class __$SigningKeyCopyWithImpl<$Res> implements _$SigningKeyCopyWith<$Res> {
+  __$SigningKeyCopyWithImpl(this._self, this._then);
+
+  final _SigningKey _self;
+  final $Res Function(_SigningKey) _then;
+
+  /// Create a copy of SigningKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? signingKey = null,
+  }) {
+    return _then(_SigningKey(
+      signingKey: null == signingKey
+          ? _self.signingKey
+          : signingKey // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

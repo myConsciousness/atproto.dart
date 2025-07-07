@@ -14,7 +14,7 @@ part 'session.g.dart';
 /// A session includes data about the authenticated user, including their DID,
 /// handle, email, and the access and refresh JSON Web Tokens (JWT).
 @freezed
-class Session with _$Session {
+abstract class Session with _$Session {
   @jsonSerializable
   const factory Session({
     /// Decentralized Identifier for the user.

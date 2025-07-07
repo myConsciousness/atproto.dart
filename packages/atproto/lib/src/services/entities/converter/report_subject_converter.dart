@@ -37,9 +37,10 @@ final class _ReportSubjectConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ReportSubject object) => object.when(
-        repoRef: (data) => data.toJson(),
-        strongRef: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(ReportSubject object) => switch (object) {
+        UReportSubjectRepoRef(:final data) => data.toJson(),
+        UReportSubjectStrongRef(:final data) => data.toJson(),
+        UReportSubjectUnknown(:final data) => data,
+        _ => throw ArgumentError('Unknown ReportSubject type: $object'),
+      };
 }

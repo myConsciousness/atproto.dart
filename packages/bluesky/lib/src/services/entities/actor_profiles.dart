@@ -9,7 +9,7 @@ part 'actor_profiles.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getprofiles/#output
 @freezed
-class ActorProfiles with _$ActorProfiles {
+abstract class ActorProfiles with _$ActorProfiles {
   const factory ActorProfiles({
     required List<ActorProfile> profiles,
   }) = _ActorProfiles;

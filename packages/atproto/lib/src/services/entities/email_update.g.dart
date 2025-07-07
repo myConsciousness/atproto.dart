@@ -8,11 +8,11 @@ part of 'email_update.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmailUpdateImpl _$$EmailUpdateImplFromJson(Map json) => $checkedCreate(
-      r'_$EmailUpdateImpl',
+_EmailUpdate _$EmailUpdateFromJson(Map json) => $checkedCreate(
+      '_EmailUpdate',
       json,
       ($checkedConvert) {
-        final val = _$EmailUpdateImpl(
+        final val = _EmailUpdate(
           isTokenRequired: $checkedConvert('tokenRequired', (v) => v as bool),
         );
         return val;
@@ -20,7 +20,7 @@ _$EmailUpdateImpl _$$EmailUpdateImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isTokenRequired': 'tokenRequired'},
     );
 
-Map<String, dynamic> _$$EmailUpdateImplToJson(_$EmailUpdateImpl instance) =>
+Map<String, dynamic> _$EmailUpdateToJson(_EmailUpdate instance) =>
     <String, dynamic>{
       'tokenRequired': instance.isTokenRequired,
     };

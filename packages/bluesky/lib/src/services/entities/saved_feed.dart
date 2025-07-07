@@ -6,7 +6,7 @@ part 'saved_feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#savedfeed
 @freezed
-class SavedFeed with _$SavedFeed {
+abstract class SavedFeed with _$SavedFeed {
   const factory SavedFeed({
     required String id,
     required String type,

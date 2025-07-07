@@ -8,12 +8,11 @@ part of 'labeler_policies.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelerPoliciesImpl _$$LabelerPoliciesImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$LabelerPoliciesImpl',
+_LabelerPolicies _$LabelerPoliciesFromJson(Map json) => $checkedCreate(
+      '_LabelerPolicies',
       json,
       ($checkedConvert) {
-        final val = _$LabelerPoliciesImpl(
+        final val = _LabelerPolicies(
           labelValues: $checkedConvert('labelValues',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           labelValueDefinitions: $checkedConvert(
@@ -27,8 +26,7 @@ _$LabelerPoliciesImpl _$$LabelerPoliciesImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$LabelerPoliciesImplToJson(
-        _$LabelerPoliciesImpl instance) =>
+Map<String, dynamic> _$LabelerPoliciesToJson(_LabelerPolicies instance) =>
     <String, dynamic>{
       'labelValues': instance.labelValues,
       if (instance.labelValueDefinitions?.map((e) => e.toJson()).toList()

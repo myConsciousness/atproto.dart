@@ -8,11 +8,11 @@ part of 'lex_xrpc_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexXrpcBodyImpl _$$LexXrpcBodyImplFromJson(Map json) => $checkedCreate(
-      r'_$LexXrpcBodyImpl',
+_LexXrpcBody _$LexXrpcBodyFromJson(Map json) => $checkedCreate(
+      '_LexXrpcBody',
       json,
       ($checkedConvert) {
-        final val = _$LexXrpcBodyImpl(
+        final val = _LexXrpcBody(
           description: $checkedConvert('description', (v) => v as String?),
           encoding: $checkedConvert('encoding', (v) => v as String),
           schema: $checkedConvert(
@@ -25,7 +25,7 @@ _$LexXrpcBodyImpl _$$LexXrpcBodyImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexXrpcBodyImplToJson(_$LexXrpcBodyImpl instance) =>
+Map<String, dynamic> _$LexXrpcBodyToJson(_LexXrpcBody instance) =>
     <String, dynamic>{
       if (instance.description case final value?) 'description': value,
       'encoding': instance.encoding,

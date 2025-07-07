@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,83 +10,59 @@ part of 'disable_rule.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PostgateDisableRule _$PostgateDisableRuleFromJson(Map<String, dynamic> json) {
-  return _PostgateDisableRule.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PostgateDisableRule {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-
-  /// Serializes this PostgateDisableRule to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
 
   /// Create a copy of PostgateDisableRule
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PostgateDisableRuleCopyWith<PostgateDisableRule> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PostgateDisableRuleCopyWith<$Res> {
-  factory $PostgateDisableRuleCopyWith(
-          PostgateDisableRule value, $Res Function(PostgateDisableRule) then) =
-      _$PostgateDisableRuleCopyWithImpl<$Res, PostgateDisableRule>;
-  @useResult
-  $Res call({@typeKey String type});
-}
-
-/// @nodoc
-class _$PostgateDisableRuleCopyWithImpl<$Res, $Val extends PostgateDisableRule>
-    implements $PostgateDisableRuleCopyWith<$Res> {
-  _$PostgateDisableRuleCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PostgateDisableRule
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $PostgateDisableRuleCopyWith<PostgateDisableRule> get copyWith =>
+      _$PostgateDisableRuleCopyWithImpl<PostgateDisableRule>(
+          this as PostgateDisableRule, _$identity);
+
+  /// Serializes this PostgateDisableRule to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PostgateDisableRule &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type);
+
+  @override
+  String toString() {
+    return 'PostgateDisableRule(type: $type)';
   }
 }
 
 /// @nodoc
-abstract class _$$PostgateDisableRuleImplCopyWith<$Res>
-    implements $PostgateDisableRuleCopyWith<$Res> {
-  factory _$$PostgateDisableRuleImplCopyWith(_$PostgateDisableRuleImpl value,
-          $Res Function(_$PostgateDisableRuleImpl) then) =
-      __$$PostgateDisableRuleImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PostgateDisableRuleCopyWith<$Res> {
+  factory $PostgateDisableRuleCopyWith(
+          PostgateDisableRule value, $Res Function(PostgateDisableRule) _then) =
+      _$PostgateDisableRuleCopyWithImpl;
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class __$$PostgateDisableRuleImplCopyWithImpl<$Res>
-    extends _$PostgateDisableRuleCopyWithImpl<$Res, _$PostgateDisableRuleImpl>
-    implements _$$PostgateDisableRuleImplCopyWith<$Res> {
-  __$$PostgateDisableRuleImplCopyWithImpl(_$PostgateDisableRuleImpl _value,
-      $Res Function(_$PostgateDisableRuleImpl) _then)
-      : super(_value, _then);
+class _$PostgateDisableRuleCopyWithImpl<$Res>
+    implements $PostgateDisableRuleCopyWith<$Res> {
+  _$PostgateDisableRuleCopyWithImpl(this._self, this._then);
+
+  final PostgateDisableRule _self;
+  final $Res Function(PostgateDisableRule) _then;
 
   /// Create a copy of PostgateDisableRule
   /// with the given fields replaced by the non-null parameter values.
@@ -94,9 +71,9 @@ class __$$PostgateDisableRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$PostgateDisableRuleImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -106,27 +83,37 @@ class __$$PostgateDisableRuleImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$PostgateDisableRuleImpl implements _PostgateDisableRule {
-  const _$PostgateDisableRuleImpl(
+class _PostgateDisableRule implements PostgateDisableRule {
+  const _PostgateDisableRule(
       {@typeKey this.type = appBskyFeedPostgateDisableRule});
-
-  factory _$PostgateDisableRuleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostgateDisableRuleImplFromJson(json);
+  factory _PostgateDisableRule.fromJson(Map<String, dynamic> json) =>
+      _$PostgateDisableRuleFromJson(json);
 
   @override
   @typeKey
   final String type;
 
+  /// Create a copy of PostgateDisableRule
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PostgateDisableRule(type: $type)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PostgateDisableRuleCopyWith<_PostgateDisableRule> get copyWith =>
+      __$PostgateDisableRuleCopyWithImpl<_PostgateDisableRule>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PostgateDisableRuleToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostgateDisableRuleImpl &&
+            other is _PostgateDisableRule &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -134,38 +121,45 @@ class _$PostgateDisableRuleImpl implements _PostgateDisableRule {
   @override
   int get hashCode => Object.hash(runtimeType, type);
 
-  /// Create a copy of PostgateDisableRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PostgateDisableRuleImplCopyWith<_$PostgateDisableRuleImpl> get copyWith =>
-      __$$PostgateDisableRuleImplCopyWithImpl<_$PostgateDisableRuleImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostgateDisableRuleImplToJson(
-      this,
-    );
+  String toString() {
+    return 'PostgateDisableRule(type: $type)';
   }
 }
 
-abstract class _PostgateDisableRule implements PostgateDisableRule {
-  const factory _PostgateDisableRule({@typeKey final String type}) =
-      _$PostgateDisableRuleImpl;
-
-  factory _PostgateDisableRule.fromJson(Map<String, dynamic> json) =
-      _$PostgateDisableRuleImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$PostgateDisableRuleCopyWith<$Res>
+    implements $PostgateDisableRuleCopyWith<$Res> {
+  factory _$PostgateDisableRuleCopyWith(_PostgateDisableRule value,
+          $Res Function(_PostgateDisableRule) _then) =
+      __$PostgateDisableRuleCopyWithImpl;
   @override
-  @typeKey
-  String get type;
+  @useResult
+  $Res call({@typeKey String type});
+}
+
+/// @nodoc
+class __$PostgateDisableRuleCopyWithImpl<$Res>
+    implements _$PostgateDisableRuleCopyWith<$Res> {
+  __$PostgateDisableRuleCopyWithImpl(this._self, this._then);
+
+  final _PostgateDisableRule _self;
+  final $Res Function(_PostgateDisableRule) _then;
 
   /// Create a copy of PostgateDisableRule
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PostgateDisableRuleImplCopyWith<_$PostgateDisableRuleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_PostgateDisableRule(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

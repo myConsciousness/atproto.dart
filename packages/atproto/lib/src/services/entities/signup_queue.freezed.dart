@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,147 +10,30 @@ part of 'signup_queue.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SignupQueue _$SignupQueueFromJson(Map<String, dynamic> json) {
-  return _SignupQueue.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SignupQueue {
-  bool get activated => throw _privateConstructorUsedError;
-  int? get placeInQueue => throw _privateConstructorUsedError;
-  int? get estimatedTimeMs => throw _privateConstructorUsedError;
-
-  /// Serializes this SignupQueue to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool get activated;
+  int? get placeInQueue;
+  int? get estimatedTimeMs;
 
   /// Create a copy of SignupQueue
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $SignupQueueCopyWith<SignupQueue> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$SignupQueueCopyWithImpl<SignupQueue>(this as SignupQueue, _$identity);
 
-/// @nodoc
-abstract class $SignupQueueCopyWith<$Res> {
-  factory $SignupQueueCopyWith(
-          SignupQueue value, $Res Function(SignupQueue) then) =
-      _$SignupQueueCopyWithImpl<$Res, SignupQueue>;
-  @useResult
-  $Res call({bool activated, int? placeInQueue, int? estimatedTimeMs});
-}
-
-/// @nodoc
-class _$SignupQueueCopyWithImpl<$Res, $Val extends SignupQueue>
-    implements $SignupQueueCopyWith<$Res> {
-  _$SignupQueueCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SignupQueue
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? activated = null,
-    Object? placeInQueue = freezed,
-    Object? estimatedTimeMs = freezed,
-  }) {
-    return _then(_value.copyWith(
-      activated: null == activated
-          ? _value.activated
-          : activated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      placeInQueue: freezed == placeInQueue
-          ? _value.placeInQueue
-          : placeInQueue // ignore: cast_nullable_to_non_nullable
-              as int?,
-      estimatedTimeMs: freezed == estimatedTimeMs
-          ? _value.estimatedTimeMs
-          : estimatedTimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$SignupQueueImplCopyWith<$Res>
-    implements $SignupQueueCopyWith<$Res> {
-  factory _$$SignupQueueImplCopyWith(
-          _$SignupQueueImpl value, $Res Function(_$SignupQueueImpl) then) =
-      __$$SignupQueueImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool activated, int? placeInQueue, int? estimatedTimeMs});
-}
-
-/// @nodoc
-class __$$SignupQueueImplCopyWithImpl<$Res>
-    extends _$SignupQueueCopyWithImpl<$Res, _$SignupQueueImpl>
-    implements _$$SignupQueueImplCopyWith<$Res> {
-  __$$SignupQueueImplCopyWithImpl(
-      _$SignupQueueImpl _value, $Res Function(_$SignupQueueImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SignupQueue
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? activated = null,
-    Object? placeInQueue = freezed,
-    Object? estimatedTimeMs = freezed,
-  }) {
-    return _then(_$SignupQueueImpl(
-      activated: null == activated
-          ? _value.activated
-          : activated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      placeInQueue: freezed == placeInQueue
-          ? _value.placeInQueue
-          : placeInQueue // ignore: cast_nullable_to_non_nullable
-              as int?,
-      estimatedTimeMs: freezed == estimatedTimeMs
-          ? _value.estimatedTimeMs
-          : estimatedTimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SignupQueueImpl implements _SignupQueue {
-  const _$SignupQueueImpl(
-      {required this.activated, this.placeInQueue, this.estimatedTimeMs});
-
-  factory _$SignupQueueImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SignupQueueImplFromJson(json);
-
-  @override
-  final bool activated;
-  @override
-  final int? placeInQueue;
-  @override
-  final int? estimatedTimeMs;
-
-  @override
-  String toString() {
-    return 'SignupQueue(activated: $activated, placeInQueue: $placeInQueue, estimatedTimeMs: $estimatedTimeMs)';
-  }
+  /// Serializes this SignupQueue to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SignupQueueImpl &&
+            other is SignupQueue &&
             (identical(other.activated, activated) ||
                 other.activated == activated) &&
             (identical(other.placeInQueue, placeInQueue) ||
@@ -163,42 +47,150 @@ class _$SignupQueueImpl implements _SignupQueue {
   int get hashCode =>
       Object.hash(runtimeType, activated, placeInQueue, estimatedTimeMs);
 
-  /// Create a copy of SignupQueue
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SignupQueueImplCopyWith<_$SignupQueueImpl> get copyWith =>
-      __$$SignupQueueImplCopyWithImpl<_$SignupQueueImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SignupQueueImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SignupQueue(activated: $activated, placeInQueue: $placeInQueue, estimatedTimeMs: $estimatedTimeMs)';
   }
 }
 
-abstract class _SignupQueue implements SignupQueue {
-  const factory _SignupQueue(
-      {required final bool activated,
-      final int? placeInQueue,
-      final int? estimatedTimeMs}) = _$SignupQueueImpl;
+/// @nodoc
+abstract mixin class $SignupQueueCopyWith<$Res> {
+  factory $SignupQueueCopyWith(
+          SignupQueue value, $Res Function(SignupQueue) _then) =
+      _$SignupQueueCopyWithImpl;
+  @useResult
+  $Res call({bool activated, int? placeInQueue, int? estimatedTimeMs});
+}
 
-  factory _SignupQueue.fromJson(Map<String, dynamic> json) =
-      _$SignupQueueImpl.fromJson;
+/// @nodoc
+class _$SignupQueueCopyWithImpl<$Res> implements $SignupQueueCopyWith<$Res> {
+  _$SignupQueueCopyWithImpl(this._self, this._then);
+
+  final SignupQueue _self;
+  final $Res Function(SignupQueue) _then;
+
+  /// Create a copy of SignupQueue
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? activated = null,
+    Object? placeInQueue = freezed,
+    Object? estimatedTimeMs = freezed,
+  }) {
+    return _then(_self.copyWith(
+      activated: null == activated
+          ? _self.activated
+          : activated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      placeInQueue: freezed == placeInQueue
+          ? _self.placeInQueue
+          : placeInQueue // ignore: cast_nullable_to_non_nullable
+              as int?,
+      estimatedTimeMs: freezed == estimatedTimeMs
+          ? _self.estimatedTimeMs
+          : estimatedTimeMs // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _SignupQueue implements SignupQueue {
+  const _SignupQueue(
+      {required this.activated, this.placeInQueue, this.estimatedTimeMs});
+  factory _SignupQueue.fromJson(Map<String, dynamic> json) =>
+      _$SignupQueueFromJson(json);
 
   @override
-  bool get activated;
+  final bool activated;
   @override
-  int? get placeInQueue;
+  final int? placeInQueue;
   @override
-  int? get estimatedTimeMs;
+  final int? estimatedTimeMs;
 
   /// Create a copy of SignupQueue
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SignupQueueImplCopyWith<_$SignupQueueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$SignupQueueCopyWith<_SignupQueue> get copyWith =>
+      __$SignupQueueCopyWithImpl<_SignupQueue>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SignupQueueToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SignupQueue &&
+            (identical(other.activated, activated) ||
+                other.activated == activated) &&
+            (identical(other.placeInQueue, placeInQueue) ||
+                other.placeInQueue == placeInQueue) &&
+            (identical(other.estimatedTimeMs, estimatedTimeMs) ||
+                other.estimatedTimeMs == estimatedTimeMs));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, activated, placeInQueue, estimatedTimeMs);
+
+  @override
+  String toString() {
+    return 'SignupQueue(activated: $activated, placeInQueue: $placeInQueue, estimatedTimeMs: $estimatedTimeMs)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$SignupQueueCopyWith<$Res>
+    implements $SignupQueueCopyWith<$Res> {
+  factory _$SignupQueueCopyWith(
+          _SignupQueue value, $Res Function(_SignupQueue) _then) =
+      __$SignupQueueCopyWithImpl;
+  @override
+  @useResult
+  $Res call({bool activated, int? placeInQueue, int? estimatedTimeMs});
+}
+
+/// @nodoc
+class __$SignupQueueCopyWithImpl<$Res> implements _$SignupQueueCopyWith<$Res> {
+  __$SignupQueueCopyWithImpl(this._self, this._then);
+
+  final _SignupQueue _self;
+  final $Res Function(_SignupQueue) _then;
+
+  /// Create a copy of SignupQueue
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? activated = null,
+    Object? placeInQueue = freezed,
+    Object? estimatedTimeMs = freezed,
+  }) {
+    return _then(_SignupQueue(
+      activated: null == activated
+          ? _self.activated
+          : activated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      placeInQueue: freezed == placeInQueue
+          ? _self.placeInQueue
+          : placeInQueue // ignore: cast_nullable_to_non_nullable
+              as int?,
+      estimatedTimeMs: freezed == estimatedTimeMs
+          ? _self.estimatedTimeMs
+          : estimatedTimeMs // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+// dart format on

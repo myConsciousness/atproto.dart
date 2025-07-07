@@ -12,7 +12,7 @@ part 'skeleton_feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/gettimelineskeleton/#output
 @freezed
-class SkeletonFeed with _$SkeletonFeed {
+abstract class SkeletonFeed with _$SkeletonFeed {
   @jsonSerializable
   const factory SkeletonFeed({
     required List<SkeletonFeedView> feed,

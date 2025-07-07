@@ -11,7 +11,7 @@ part 'convo_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#convoview
 @freezed
-class ConvoView with _$ConvoView {
+abstract class ConvoView with _$ConvoView {
   @jsonSerializable
   const factory ConvoView({
     required String id,

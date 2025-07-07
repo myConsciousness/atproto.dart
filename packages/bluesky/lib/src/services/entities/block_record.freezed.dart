@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,160 +10,32 @@ part of 'block_record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-BlockRecord _$BlockRecordFromJson(Map<String, dynamic> json) {
-  return _BlockRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BlockRecord {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @JsonKey(name: 'subject')
-  String get did => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-
-  /// Serializes this BlockRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get did;
+  DateTime get createdAt;
 
   /// Create a copy of BlockRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $BlockRecordCopyWith<BlockRecord> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$BlockRecordCopyWithImpl<BlockRecord>(this as BlockRecord, _$identity);
 
-/// @nodoc
-abstract class $BlockRecordCopyWith<$Res> {
-  factory $BlockRecordCopyWith(
-          BlockRecord value, $Res Function(BlockRecord) then) =
-      _$BlockRecordCopyWithImpl<$Res, BlockRecord>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @JsonKey(name: 'subject') String did,
-      DateTime createdAt});
-}
-
-/// @nodoc
-class _$BlockRecordCopyWithImpl<$Res, $Val extends BlockRecord>
-    implements $BlockRecordCopyWith<$Res> {
-  _$BlockRecordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of BlockRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? did = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$BlockRecordImplCopyWith<$Res>
-    implements $BlockRecordCopyWith<$Res> {
-  factory _$$BlockRecordImplCopyWith(
-          _$BlockRecordImpl value, $Res Function(_$BlockRecordImpl) then) =
-      __$$BlockRecordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @JsonKey(name: 'subject') String did,
-      DateTime createdAt});
-}
-
-/// @nodoc
-class __$$BlockRecordImplCopyWithImpl<$Res>
-    extends _$BlockRecordCopyWithImpl<$Res, _$BlockRecordImpl>
-    implements _$$BlockRecordImplCopyWith<$Res> {
-  __$$BlockRecordImplCopyWithImpl(
-      _$BlockRecordImpl _value, $Res Function(_$BlockRecordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BlockRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? did = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_$BlockRecordImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$BlockRecordImpl implements _BlockRecord {
-  const _$BlockRecordImpl(
-      {@typeKey this.type = appBskyGraphBlock,
-      @JsonKey(name: 'subject') required this.did,
-      required this.createdAt});
-
-  factory _$BlockRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlockRecordImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  @JsonKey(name: 'subject')
-  final String did;
-  @override
-  final DateTime createdAt;
-
-  @override
-  String toString() {
-    return 'BlockRecord(type: $type, did: $did, createdAt: $createdAt)';
-  }
+  /// Serializes this BlockRecord to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BlockRecordImpl &&
+            other is BlockRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.createdAt, createdAt) ||
@@ -173,44 +46,158 @@ class _$BlockRecordImpl implements _BlockRecord {
   @override
   int get hashCode => Object.hash(runtimeType, type, did, createdAt);
 
-  /// Create a copy of BlockRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$BlockRecordImplCopyWith<_$BlockRecordImpl> get copyWith =>
-      __$$BlockRecordImplCopyWithImpl<_$BlockRecordImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BlockRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'BlockRecord(type: $type, did: $did, createdAt: $createdAt)';
   }
 }
 
-abstract class _BlockRecord implements BlockRecord {
-  const factory _BlockRecord(
-      {@typeKey final String type,
-      @JsonKey(name: 'subject') required final String did,
-      required final DateTime createdAt}) = _$BlockRecordImpl;
+/// @nodoc
+abstract mixin class $BlockRecordCopyWith<$Res> {
+  factory $BlockRecordCopyWith(
+          BlockRecord value, $Res Function(BlockRecord) _then) =
+      _$BlockRecordCopyWithImpl;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @JsonKey(name: 'subject') String did,
+      DateTime createdAt});
+}
 
-  factory _BlockRecord.fromJson(Map<String, dynamic> json) =
-      _$BlockRecordImpl.fromJson;
+/// @nodoc
+class _$BlockRecordCopyWithImpl<$Res> implements $BlockRecordCopyWith<$Res> {
+  _$BlockRecordCopyWithImpl(this._self, this._then);
+
+  final BlockRecord _self;
+  final $Res Function(BlockRecord) _then;
+
+  /// Create a copy of BlockRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? did = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _BlockRecord implements BlockRecord {
+  const _BlockRecord(
+      {@typeKey this.type = appBskyGraphBlock,
+      @JsonKey(name: 'subject') required this.did,
+      required this.createdAt});
+  factory _BlockRecord.fromJson(Map<String, dynamic> json) =>
+      _$BlockRecordFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
   @JsonKey(name: 'subject')
-  String get did;
+  final String did;
   @override
-  DateTime get createdAt;
+  final DateTime createdAt;
 
   /// Create a copy of BlockRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlockRecordImplCopyWith<_$BlockRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$BlockRecordCopyWith<_BlockRecord> get copyWith =>
+      __$BlockRecordCopyWithImpl<_BlockRecord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$BlockRecordToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _BlockRecord &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, did, createdAt);
+
+  @override
+  String toString() {
+    return 'BlockRecord(type: $type, did: $did, createdAt: $createdAt)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$BlockRecordCopyWith<$Res>
+    implements $BlockRecordCopyWith<$Res> {
+  factory _$BlockRecordCopyWith(
+          _BlockRecord value, $Res Function(_BlockRecord) _then) =
+      __$BlockRecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @JsonKey(name: 'subject') String did,
+      DateTime createdAt});
+}
+
+/// @nodoc
+class __$BlockRecordCopyWithImpl<$Res> implements _$BlockRecordCopyWith<$Res> {
+  __$BlockRecordCopyWithImpl(this._self, this._then);
+
+  final _BlockRecord _self;
+  final $Res Function(_BlockRecord) _then;
+
+  /// Create a copy of BlockRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? did = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_BlockRecord(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+// dart format on

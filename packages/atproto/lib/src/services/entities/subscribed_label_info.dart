@@ -7,7 +7,7 @@ part 'subscribed_label_info.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#info
 @freezed
-class SubscribedLabelInfo with _$SubscribedLabelInfo {
+abstract class SubscribedLabelInfo with _$SubscribedLabelInfo {
   @jsonSerializable
   const factory SubscribedLabelInfo({
     required String name,

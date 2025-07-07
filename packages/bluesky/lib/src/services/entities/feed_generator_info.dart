@@ -13,7 +13,7 @@ part 'feed_generator_info.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator#output
 @freezed
-class FeedGeneratorInfo with _$FeedGeneratorInfo {
+abstract class FeedGeneratorInfo with _$FeedGeneratorInfo {
   @jsonSerializable
   const factory FeedGeneratorInfo({
     required String did,

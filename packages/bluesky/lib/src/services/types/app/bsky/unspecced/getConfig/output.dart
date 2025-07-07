@@ -9,7 +9,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getconfig/#output
 @freezed
-class GetConfigOutput with _$GetConfigOutput {
+abstract class GetConfigOutput with _$GetConfigOutput {
   @jsonSerializable
   const factory GetConfigOutput({
     @Default(false) bool checkEmailConfirmed,

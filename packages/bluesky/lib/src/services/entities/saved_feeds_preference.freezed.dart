@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,99 +10,65 @@ part of 'saved_feeds_preference.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SavedFeedsPreference _$SavedFeedsPreferenceFromJson(Map<String, dynamic> json) {
-  return _SavedFeedsPreference.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SavedFeedsPreference {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @JsonKey(name: 'pinned')
   @AtUriConverter()
-  List<AtUri> get pinnedUris => throw _privateConstructorUsedError;
+  List<AtUri> get pinnedUris;
   @AtUriConverter()
   @JsonKey(name: 'saved')
-  List<AtUri> get savedUris => throw _privateConstructorUsedError;
-  int? get timelineIndex => throw _privateConstructorUsedError;
-
-  /// Serializes this SavedFeedsPreference to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<AtUri> get savedUris;
+  int? get timelineIndex;
 
   /// Create a copy of SavedFeedsPreference
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SavedFeedsPreferenceCopyWith<SavedFeedsPreference> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SavedFeedsPreferenceCopyWith<$Res> {
-  factory $SavedFeedsPreferenceCopyWith(SavedFeedsPreference value,
-          $Res Function(SavedFeedsPreference) then) =
-      _$SavedFeedsPreferenceCopyWithImpl<$Res, SavedFeedsPreference>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @JsonKey(name: 'pinned') @AtUriConverter() List<AtUri> pinnedUris,
-      @AtUriConverter() @JsonKey(name: 'saved') List<AtUri> savedUris,
-      int? timelineIndex});
-}
-
-/// @nodoc
-class _$SavedFeedsPreferenceCopyWithImpl<$Res,
-        $Val extends SavedFeedsPreference>
-    implements $SavedFeedsPreferenceCopyWith<$Res> {
-  _$SavedFeedsPreferenceCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SavedFeedsPreference
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SavedFeedsPreferenceCopyWith<SavedFeedsPreference> get copyWith =>
+      _$SavedFeedsPreferenceCopyWithImpl<SavedFeedsPreference>(
+          this as SavedFeedsPreference, _$identity);
+
+  /// Serializes this SavedFeedsPreference to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? pinnedUris = null,
-    Object? savedUris = null,
-    Object? timelineIndex = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      pinnedUris: null == pinnedUris
-          ? _value.pinnedUris
-          : pinnedUris // ignore: cast_nullable_to_non_nullable
-              as List<AtUri>,
-      savedUris: null == savedUris
-          ? _value.savedUris
-          : savedUris // ignore: cast_nullable_to_non_nullable
-              as List<AtUri>,
-      timelineIndex: freezed == timelineIndex
-          ? _value.timelineIndex
-          : timelineIndex // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SavedFeedsPreference &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality()
+                .equals(other.pinnedUris, pinnedUris) &&
+            const DeepCollectionEquality().equals(other.savedUris, savedUris) &&
+            (identical(other.timelineIndex, timelineIndex) ||
+                other.timelineIndex == timelineIndex));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      const DeepCollectionEquality().hash(pinnedUris),
+      const DeepCollectionEquality().hash(savedUris),
+      timelineIndex);
+
+  @override
+  String toString() {
+    return 'SavedFeedsPreference(type: $type, pinnedUris: $pinnedUris, savedUris: $savedUris, timelineIndex: $timelineIndex)';
   }
 }
 
 /// @nodoc
-abstract class _$$SavedFeedsPreferenceImplCopyWith<$Res>
-    implements $SavedFeedsPreferenceCopyWith<$Res> {
-  factory _$$SavedFeedsPreferenceImplCopyWith(_$SavedFeedsPreferenceImpl value,
-          $Res Function(_$SavedFeedsPreferenceImpl) then) =
-      __$$SavedFeedsPreferenceImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SavedFeedsPreferenceCopyWith<$Res> {
+  factory $SavedFeedsPreferenceCopyWith(SavedFeedsPreference value,
+          $Res Function(SavedFeedsPreference) _then) =
+      _$SavedFeedsPreferenceCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -111,12 +78,12 @@ abstract class _$$SavedFeedsPreferenceImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SavedFeedsPreferenceImplCopyWithImpl<$Res>
-    extends _$SavedFeedsPreferenceCopyWithImpl<$Res, _$SavedFeedsPreferenceImpl>
-    implements _$$SavedFeedsPreferenceImplCopyWith<$Res> {
-  __$$SavedFeedsPreferenceImplCopyWithImpl(_$SavedFeedsPreferenceImpl _value,
-      $Res Function(_$SavedFeedsPreferenceImpl) _then)
-      : super(_value, _then);
+class _$SavedFeedsPreferenceCopyWithImpl<$Res>
+    implements $SavedFeedsPreferenceCopyWith<$Res> {
+  _$SavedFeedsPreferenceCopyWithImpl(this._self, this._then);
+
+  final SavedFeedsPreference _self;
+  final $Res Function(SavedFeedsPreference) _then;
 
   /// Create a copy of SavedFeedsPreference
   /// with the given fields replaced by the non-null parameter values.
@@ -128,21 +95,21 @@ class __$$SavedFeedsPreferenceImplCopyWithImpl<$Res>
     Object? savedUris = null,
     Object? timelineIndex = freezed,
   }) {
-    return _then(_$SavedFeedsPreferenceImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       pinnedUris: null == pinnedUris
-          ? _value._pinnedUris
+          ? _self.pinnedUris
           : pinnedUris // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
       savedUris: null == savedUris
-          ? _value._savedUris
+          ? _self.savedUris
           : savedUris // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
       timelineIndex: freezed == timelineIndex
-          ? _value.timelineIndex
+          ? _self.timelineIndex
           : timelineIndex // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
@@ -152,8 +119,8 @@ class __$$SavedFeedsPreferenceImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
-  const _$SavedFeedsPreferenceImpl(
+class _SavedFeedsPreference implements SavedFeedsPreference {
+  const _SavedFeedsPreference(
       {@typeKey this.type = appBskyActorDefsSavedFeedsPref,
       @JsonKey(name: 'pinned')
       @AtUriConverter()
@@ -164,9 +131,8 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
       this.timelineIndex})
       : _pinnedUris = pinnedUris,
         _savedUris = savedUris;
-
-  factory _$SavedFeedsPreferenceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SavedFeedsPreferenceImplFromJson(json);
+  factory _SavedFeedsPreference.fromJson(Map<String, dynamic> json) =>
+      _$SavedFeedsPreferenceFromJson(json);
 
   @override
   @typeKey
@@ -194,16 +160,27 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
   @override
   final int? timelineIndex;
 
+  /// Create a copy of SavedFeedsPreference
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SavedFeedsPreference(type: $type, pinnedUris: $pinnedUris, savedUris: $savedUris, timelineIndex: $timelineIndex)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SavedFeedsPreferenceCopyWith<_SavedFeedsPreference> get copyWith =>
+      __$SavedFeedsPreferenceCopyWithImpl<_SavedFeedsPreference>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SavedFeedsPreferenceToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SavedFeedsPreferenceImpl &&
+            other is _SavedFeedsPreference &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality()
                 .equals(other._pinnedUris, _pinnedUris) &&
@@ -222,56 +199,64 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
       const DeepCollectionEquality().hash(_savedUris),
       timelineIndex);
 
-  /// Create a copy of SavedFeedsPreference
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SavedFeedsPreferenceImplCopyWith<_$SavedFeedsPreferenceImpl>
-      get copyWith =>
-          __$$SavedFeedsPreferenceImplCopyWithImpl<_$SavedFeedsPreferenceImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SavedFeedsPreferenceImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SavedFeedsPreference(type: $type, pinnedUris: $pinnedUris, savedUris: $savedUris, timelineIndex: $timelineIndex)';
   }
 }
 
-abstract class _SavedFeedsPreference implements SavedFeedsPreference {
-  const factory _SavedFeedsPreference(
-      {@typeKey final String type,
-      @JsonKey(name: 'pinned')
-      @AtUriConverter()
-      required final List<AtUri> pinnedUris,
-      @AtUriConverter()
-      @JsonKey(name: 'saved')
-      required final List<AtUri> savedUris,
-      final int? timelineIndex}) = _$SavedFeedsPreferenceImpl;
+/// @nodoc
+abstract mixin class _$SavedFeedsPreferenceCopyWith<$Res>
+    implements $SavedFeedsPreferenceCopyWith<$Res> {
+  factory _$SavedFeedsPreferenceCopyWith(_SavedFeedsPreference value,
+          $Res Function(_SavedFeedsPreference) _then) =
+      __$SavedFeedsPreferenceCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @JsonKey(name: 'pinned') @AtUriConverter() List<AtUri> pinnedUris,
+      @AtUriConverter() @JsonKey(name: 'saved') List<AtUri> savedUris,
+      int? timelineIndex});
+}
 
-  factory _SavedFeedsPreference.fromJson(Map<String, dynamic> json) =
-      _$SavedFeedsPreferenceImpl.fromJson;
+/// @nodoc
+class __$SavedFeedsPreferenceCopyWithImpl<$Res>
+    implements _$SavedFeedsPreferenceCopyWith<$Res> {
+  __$SavedFeedsPreferenceCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @JsonKey(name: 'pinned')
-  @AtUriConverter()
-  List<AtUri> get pinnedUris;
-  @override
-  @AtUriConverter()
-  @JsonKey(name: 'saved')
-  List<AtUri> get savedUris;
-  @override
-  int? get timelineIndex;
+  final _SavedFeedsPreference _self;
+  final $Res Function(_SavedFeedsPreference) _then;
 
   /// Create a copy of SavedFeedsPreference
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SavedFeedsPreferenceImplCopyWith<_$SavedFeedsPreferenceImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? pinnedUris = null,
+    Object? savedUris = null,
+    Object? timelineIndex = freezed,
+  }) {
+    return _then(_SavedFeedsPreference(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      pinnedUris: null == pinnedUris
+          ? _self._pinnedUris
+          : pinnedUris // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>,
+      savedUris: null == savedUris
+          ? _self._savedUris
+          : savedUris // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>,
+      timelineIndex: freezed == timelineIndex
+          ? _self.timelineIndex
+          : timelineIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
 }
+
+// dart format on

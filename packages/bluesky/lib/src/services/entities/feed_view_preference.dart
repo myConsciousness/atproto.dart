@@ -12,7 +12,7 @@ part 'feed_view_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#feedviewpref
 @freezed
-class FeedViewPreference with _$FeedViewPreference {
+abstract class FeedViewPreference with _$FeedViewPreference {
   @jsonSerializable
   const factory FeedViewPreference({
     @typeKey @Default(appBskyActorDefsFeedViewPref) String type,

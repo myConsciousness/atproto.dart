@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,74 @@ part of 'reason.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Reason {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ReasonRepost data) repost,
-    required TResult Function(ReasonPin data) pin,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ReasonRepost data)? repost,
-    TResult? Function(ReasonPin data)? pin,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ReasonRepost data)? repost,
-    TResult Function(ReasonPin data)? pin,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReasonRepost value) repost,
-    required TResult Function(UReasonPin value) pin,
-    required TResult Function(UReasonUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReasonRepost value)? repost,
-    TResult? Function(UReasonPin value)? pin,
-    TResult? Function(UReasonUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReasonRepost value)? repost,
-    TResult Function(UReasonPin value)? pin,
-    TResult Function(UReasonUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Reason &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'Reason(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $ReasonCopyWith<$Res> {
-  factory $ReasonCopyWith(Reason value, $Res Function(Reason) then) =
-      _$ReasonCopyWithImpl<$Res, Reason>;
+class $ReasonCopyWith<$Res> {
+  $ReasonCopyWith(Reason _, $Res Function(Reason) __);
 }
 
 /// @nodoc
-class _$ReasonCopyWithImpl<$Res, $Val extends Reason>
-    implements $ReasonCopyWith<$Res> {
-  _$ReasonCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class UReasonRepost implements Reason {
+  UReasonRepost({required this.data});
+
+  @override
+  final ReasonRepost data;
 
   /// Create a copy of Reason
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReasonRepostCopyWith<UReasonRepost> get copyWith =>
+      _$UReasonRepostCopyWithImpl<UReasonRepost>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UReasonRepost &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'Reason.repost(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$UReasonRepostImplCopyWith<$Res> {
-  factory _$$UReasonRepostImplCopyWith(
-          _$UReasonRepostImpl value, $Res Function(_$UReasonRepostImpl) then) =
-      __$$UReasonRepostImplCopyWithImpl<$Res>;
+abstract mixin class $UReasonRepostCopyWith<$Res>
+    implements $ReasonCopyWith<$Res> {
+  factory $UReasonRepostCopyWith(
+          UReasonRepost value, $Res Function(UReasonRepost) _then) =
+      _$UReasonRepostCopyWithImpl;
   @useResult
   $Res call({ReasonRepost data});
 
@@ -95,23 +85,22 @@ abstract class _$$UReasonRepostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReasonRepostImplCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$UReasonRepostImpl>
-    implements _$$UReasonRepostImplCopyWith<$Res> {
-  __$$UReasonRepostImplCopyWithImpl(
-      _$UReasonRepostImpl _value, $Res Function(_$UReasonRepostImpl) _then)
-      : super(_value, _then);
+class _$UReasonRepostCopyWithImpl<$Res>
+    implements $UReasonRepostCopyWith<$Res> {
+  _$UReasonRepostCopyWithImpl(this._self, this._then);
+
+  final UReasonRepost _self;
+  final $Res Function(UReasonRepost) _then;
 
   /// Create a copy of Reason
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReasonRepostImpl(
+    return _then(UReasonRepost(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ReasonRepost,
     ));
@@ -122,132 +111,50 @@ class __$$UReasonRepostImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ReasonRepostCopyWith<$Res> get data {
-    return $ReasonRepostCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ReasonRepostCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UReasonRepostImpl implements UReasonRepost {
-  _$UReasonRepostImpl({required this.data});
+class UReasonPin implements Reason {
+  UReasonPin({required this.data});
 
   @override
-  final ReasonRepost data;
+  final ReasonPin data;
 
-  @override
-  String toString() {
-    return 'Reason.repost(data: $data)';
-  }
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReasonPinCopyWith<UReasonPin> get copyWith =>
+      _$UReasonPinCopyWithImpl<UReasonPin>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReasonRepostImpl &&
+            other is UReasonPin &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Reason
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UReasonRepostImplCopyWith<_$UReasonRepostImpl> get copyWith =>
-      __$$UReasonRepostImplCopyWithImpl<_$UReasonRepostImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ReasonRepost data) repost,
-    required TResult Function(ReasonPin data) pin,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return repost(data);
+  String toString() {
+    return 'Reason.pin(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ReasonRepost data)? repost,
-    TResult? Function(ReasonPin data)? pin,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return repost?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ReasonRepost data)? repost,
-    TResult Function(ReasonPin data)? pin,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repost != null) {
-      return repost(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReasonRepost value) repost,
-    required TResult Function(UReasonPin value) pin,
-    required TResult Function(UReasonUnknown value) unknown,
-  }) {
-    return repost(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReasonRepost value)? repost,
-    TResult? Function(UReasonPin value)? pin,
-    TResult? Function(UReasonUnknown value)? unknown,
-  }) {
-    return repost?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReasonRepost value)? repost,
-    TResult Function(UReasonPin value)? pin,
-    TResult Function(UReasonUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repost != null) {
-      return repost(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UReasonRepost implements Reason {
-  factory UReasonRepost({required final ReasonRepost data}) =
-      _$UReasonRepostImpl;
-
-  @override
-  ReasonRepost get data;
-
-  /// Create a copy of Reason
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReasonRepostImplCopyWith<_$UReasonRepostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReasonPinImplCopyWith<$Res> {
-  factory _$$UReasonPinImplCopyWith(
-          _$UReasonPinImpl value, $Res Function(_$UReasonPinImpl) then) =
-      __$$UReasonPinImplCopyWithImpl<$Res>;
+abstract mixin class $UReasonPinCopyWith<$Res>
+    implements $ReasonCopyWith<$Res> {
+  factory $UReasonPinCopyWith(
+          UReasonPin value, $Res Function(UReasonPin) _then) =
+      _$UReasonPinCopyWithImpl;
   @useResult
   $Res call({ReasonPin data});
 
@@ -255,23 +162,21 @@ abstract class _$$UReasonPinImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReasonPinImplCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$UReasonPinImpl>
-    implements _$$UReasonPinImplCopyWith<$Res> {
-  __$$UReasonPinImplCopyWithImpl(
-      _$UReasonPinImpl _value, $Res Function(_$UReasonPinImpl) _then)
-      : super(_value, _then);
+class _$UReasonPinCopyWithImpl<$Res> implements $UReasonPinCopyWith<$Res> {
+  _$UReasonPinCopyWithImpl(this._self, this._then);
+
+  final UReasonPin _self;
+  final $Res Function(UReasonPin) _then;
 
   /// Create a copy of Reason
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReasonPinImpl(
+    return _then(UReasonPin(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ReasonPin,
     ));
@@ -282,164 +187,16 @@ class __$$UReasonPinImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ReasonPinCopyWith<$Res> get data {
-    return $ReasonPinCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ReasonPinCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UReasonPinImpl implements UReasonPin {
-  _$UReasonPinImpl({required this.data});
-
-  @override
-  final ReasonPin data;
-
-  @override
-  String toString() {
-    return 'Reason.pin(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UReasonPinImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of Reason
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UReasonPinImplCopyWith<_$UReasonPinImpl> get copyWith =>
-      __$$UReasonPinImplCopyWithImpl<_$UReasonPinImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ReasonRepost data) repost,
-    required TResult Function(ReasonPin data) pin,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return pin(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ReasonRepost data)? repost,
-    TResult? Function(ReasonPin data)? pin,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return pin?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ReasonRepost data)? repost,
-    TResult Function(ReasonPin data)? pin,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (pin != null) {
-      return pin(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReasonRepost value) repost,
-    required TResult Function(UReasonPin value) pin,
-    required TResult Function(UReasonUnknown value) unknown,
-  }) {
-    return pin(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReasonRepost value)? repost,
-    TResult? Function(UReasonPin value)? pin,
-    TResult? Function(UReasonUnknown value)? unknown,
-  }) {
-    return pin?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReasonRepost value)? repost,
-    TResult Function(UReasonPin value)? pin,
-    TResult Function(UReasonUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (pin != null) {
-      return pin(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UReasonPin implements Reason {
-  factory UReasonPin({required final ReasonPin data}) = _$UReasonPinImpl;
-
-  @override
-  ReasonPin get data;
-
-  /// Create a copy of Reason
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReasonPinImplCopyWith<_$UReasonPinImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UReasonUnknownImplCopyWith<$Res> {
-  factory _$$UReasonUnknownImplCopyWith(_$UReasonUnknownImpl value,
-          $Res Function(_$UReasonUnknownImpl) then) =
-      __$$UReasonUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$UReasonUnknownImplCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$UReasonUnknownImpl>
-    implements _$$UReasonUnknownImplCopyWith<$Res> {
-  __$$UReasonUnknownImplCopyWithImpl(
-      _$UReasonUnknownImpl _value, $Res Function(_$UReasonUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Reason
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UReasonUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UReasonUnknownImpl implements UReasonUnknown {
-  _$UReasonUnknownImpl({required final Map<String, dynamic> data})
-      : _data = data;
+class UReasonUnknown implements Reason {
+  UReasonUnknown({required final Map<String, dynamic> data}) : _data = data;
 
   final Map<String, dynamic> _data;
   @override
@@ -449,16 +206,18 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
     return EqualUnmodifiableMapView(_data);
   }
 
-  @override
-  String toString() {
-    return 'Reason.unknown(data: $data)';
-  }
+  /// Create a copy of Reason
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReasonUnknownCopyWith<UReasonUnknown> get copyWith =>
+      _$UReasonUnknownCopyWithImpl<UReasonUnknown>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReasonUnknownImpl &&
+            other is UReasonUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -466,94 +225,43 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'Reason.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UReasonUnknownCopyWith<$Res>
+    implements $ReasonCopyWith<$Res> {
+  factory $UReasonUnknownCopyWith(
+          UReasonUnknown value, $Res Function(UReasonUnknown) _then) =
+      _$UReasonUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$UReasonUnknownCopyWithImpl<$Res>
+    implements $UReasonUnknownCopyWith<$Res> {
+  _$UReasonUnknownCopyWithImpl(this._self, this._then);
+
+  final UReasonUnknown _self;
+  final $Res Function(UReasonUnknown) _then;
+
   /// Create a copy of Reason
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$UReasonUnknownImplCopyWith<_$UReasonUnknownImpl> get copyWith =>
-      __$$UReasonUnknownImplCopyWithImpl<_$UReasonUnknownImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ReasonRepost data) repost,
-    required TResult Function(ReasonPin data) pin,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ReasonRepost data)? repost,
-    TResult? Function(ReasonPin data)? pin,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ReasonRepost data)? repost,
-    TResult Function(ReasonPin data)? pin,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReasonRepost value) repost,
-    required TResult Function(UReasonPin value) pin,
-    required TResult Function(UReasonUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReasonRepost value)? repost,
-    TResult? Function(UReasonPin value)? pin,
-    TResult? Function(UReasonUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReasonRepost value)? repost,
-    TResult Function(UReasonPin value)? pin,
-    TResult Function(UReasonUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
+    return _then(UReasonUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class UReasonUnknown implements Reason {
-  factory UReasonUnknown({required final Map<String, dynamic> data}) =
-      _$UReasonUnknownImpl;
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of Reason
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReasonUnknownImplCopyWith<_$UReasonUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

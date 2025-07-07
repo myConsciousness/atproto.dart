@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,90 +10,61 @@ part of 'blob_refs.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-BlobRefs _$BlobRefsFromJson(Map<String, dynamic> json) {
-  return _BlobRefs.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BlobRefs {
   /// Blob links.
-  List<String> get cids => throw _privateConstructorUsedError;
+  List<String> get cids;
 
   /// The pagination cursor.
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this BlobRefs to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get cursor;
 
   /// Create a copy of BlobRefs
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $BlobRefsCopyWith<BlobRefs> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $BlobRefsCopyWith<$Res> {
-  factory $BlobRefsCopyWith(BlobRefs value, $Res Function(BlobRefs) then) =
-      _$BlobRefsCopyWithImpl<$Res, BlobRefs>;
-  @useResult
-  $Res call({List<String> cids, String? cursor});
-}
-
-/// @nodoc
-class _$BlobRefsCopyWithImpl<$Res, $Val extends BlobRefs>
-    implements $BlobRefsCopyWith<$Res> {
-  _$BlobRefsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of BlobRefs
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $BlobRefsCopyWith<BlobRefs> get copyWith =>
+      _$BlobRefsCopyWithImpl<BlobRefs>(this as BlobRefs, _$identity);
+
+  /// Serializes this BlobRefs to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? cids = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      cids: null == cids
-          ? _value.cids
-          : cids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BlobRefs &&
+            const DeepCollectionEquality().equals(other.cids, cids) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(cids), cursor);
+
+  @override
+  String toString() {
+    return 'BlobRefs(cids: $cids, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$BlobRefsImplCopyWith<$Res>
-    implements $BlobRefsCopyWith<$Res> {
-  factory _$$BlobRefsImplCopyWith(
-          _$BlobRefsImpl value, $Res Function(_$BlobRefsImpl) then) =
-      __$$BlobRefsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $BlobRefsCopyWith<$Res> {
+  factory $BlobRefsCopyWith(BlobRefs value, $Res Function(BlobRefs) _then) =
+      _$BlobRefsCopyWithImpl;
   @useResult
   $Res call({List<String> cids, String? cursor});
 }
 
 /// @nodoc
-class __$$BlobRefsImplCopyWithImpl<$Res>
-    extends _$BlobRefsCopyWithImpl<$Res, _$BlobRefsImpl>
-    implements _$$BlobRefsImplCopyWith<$Res> {
-  __$$BlobRefsImplCopyWithImpl(
-      _$BlobRefsImpl _value, $Res Function(_$BlobRefsImpl) _then)
-      : super(_value, _then);
+class _$BlobRefsCopyWithImpl<$Res> implements $BlobRefsCopyWith<$Res> {
+  _$BlobRefsCopyWithImpl(this._self, this._then);
+
+  final BlobRefs _self;
+  final $Res Function(BlobRefs) _then;
 
   /// Create a copy of BlobRefs
   /// with the given fields replaced by the non-null parameter values.
@@ -102,13 +74,13 @@ class __$$BlobRefsImplCopyWithImpl<$Res>
     Object? cids = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$BlobRefsImpl(
+    return _then(_self.copyWith(
       cids: null == cids
-          ? _value._cids
+          ? _self.cids
           : cids // ignore: cast_nullable_to_non_nullable
               as List<String>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -117,12 +89,11 @@ class __$$BlobRefsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BlobRefsImpl implements _BlobRefs {
-  const _$BlobRefsImpl({required final List<String> cids, this.cursor})
+class _BlobRefs implements BlobRefs {
+  const _BlobRefs({required final List<String> cids, this.cursor})
       : _cids = cids;
-
-  factory _$BlobRefsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlobRefsImplFromJson(json);
+  factory _BlobRefs.fromJson(Map<String, dynamic> json) =>
+      _$BlobRefsFromJson(json);
 
   /// Blob links.
   final List<String> _cids;
@@ -139,16 +110,26 @@ class _$BlobRefsImpl implements _BlobRefs {
   @override
   final String? cursor;
 
+  /// Create a copy of BlobRefs
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'BlobRefs(cids: $cids, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$BlobRefsCopyWith<_BlobRefs> get copyWith =>
+      __$BlobRefsCopyWithImpl<_BlobRefs>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$BlobRefsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BlobRefsImpl &&
+            other is _BlobRefs &&
             const DeepCollectionEquality().equals(other._cids, _cids) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -158,42 +139,48 @@ class _$BlobRefsImpl implements _BlobRefs {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_cids), cursor);
 
-  /// Create a copy of BlobRefs
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$BlobRefsImplCopyWith<_$BlobRefsImpl> get copyWith =>
-      __$$BlobRefsImplCopyWithImpl<_$BlobRefsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BlobRefsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'BlobRefs(cids: $cids, cursor: $cursor)';
   }
 }
 
-abstract class _BlobRefs implements BlobRefs {
-  const factory _BlobRefs(
-      {required final List<String> cids,
-      final String? cursor}) = _$BlobRefsImpl;
-
-  factory _BlobRefs.fromJson(Map<String, dynamic> json) =
-      _$BlobRefsImpl.fromJson;
-
-  /// Blob links.
+/// @nodoc
+abstract mixin class _$BlobRefsCopyWith<$Res>
+    implements $BlobRefsCopyWith<$Res> {
+  factory _$BlobRefsCopyWith(_BlobRefs value, $Res Function(_BlobRefs) _then) =
+      __$BlobRefsCopyWithImpl;
   @override
-  List<String> get cids;
+  @useResult
+  $Res call({List<String> cids, String? cursor});
+}
 
-  /// The pagination cursor.
-  @override
-  String? get cursor;
+/// @nodoc
+class __$BlobRefsCopyWithImpl<$Res> implements _$BlobRefsCopyWith<$Res> {
+  __$BlobRefsCopyWithImpl(this._self, this._then);
+
+  final _BlobRefs _self;
+  final $Res Function(_BlobRefs) _then;
 
   /// Create a copy of BlobRefs
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlobRefsImplCopyWith<_$BlobRefsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cids = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_BlobRefs(
+      cids: null == cids
+          ? _self._cids
+          : cids // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

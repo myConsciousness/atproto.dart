@@ -15,7 +15,7 @@ part 'labeler_view_detailed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs/#labelerviewdetailed
 @freezed
-class LabelerViewDetailed with _$LabelerViewDetailed {
+abstract class LabelerViewDetailed with _$LabelerViewDetailed {
   @jsonSerializable
   const factory LabelerViewDetailed({
     @AtUriConverter() required AtUri uri,

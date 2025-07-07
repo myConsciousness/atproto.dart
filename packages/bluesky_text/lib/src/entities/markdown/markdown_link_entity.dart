@@ -13,7 +13,9 @@ part 'markdown_link_entity.freezed.dart';
 part 'markdown_link_entity.g.dart';
 
 @freezed
-class MarkdownLinkEntity with _$MarkdownLinkEntity implements Facetable {
+abstract class MarkdownLinkEntity
+    with _$MarkdownLinkEntity
+    implements Facetable {
   // ignore: unused_element
   const MarkdownLinkEntity._();
 

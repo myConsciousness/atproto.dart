@@ -8,12 +8,11 @@ part of 'feed_interaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedInteractionImpl _$$FeedInteractionImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedInteractionImpl',
+_FeedInteraction _$FeedInteractionFromJson(Map json) => $checkedCreate(
+      '_FeedInteraction',
       json,
       ($checkedConvert) {
-        final val = _$FeedInteractionImpl(
+        final val = _FeedInteraction(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsInteraction),
           item: $checkedConvert(
@@ -28,8 +27,7 @@ _$FeedInteractionImpl _$$FeedInteractionImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FeedInteractionImplToJson(
-        _$FeedInteractionImpl instance) =>
+Map<String, dynamic> _$FeedInteractionToJson(_FeedInteraction instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       if (_$JsonConverterToJson<String, AtUri>(

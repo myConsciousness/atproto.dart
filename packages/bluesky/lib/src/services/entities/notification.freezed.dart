@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,44 +10,77 @@ part of 'notification.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Notification _$NotificationFromJson(Map<String, dynamic> json) {
-  return _Notification.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Notification {
-  String get cid => throw _privateConstructorUsedError;
+  String get cid;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-  Actor get author => throw _privateConstructorUsedError;
-  NotificationReason get reason => throw _privateConstructorUsedError;
+  AtUri get uri;
+  Actor get author;
+  NotificationReason get reason;
   @AtUriConverter()
-  AtUri? get reasonSubject => throw _privateConstructorUsedError;
-  bool get isRead => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
-  DateTime get indexedAt => throw _privateConstructorUsedError;
-
-  /// Serializes this Notification to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri? get reasonSubject;
+  bool get isRead;
+  Map<String, dynamic>? get record;
+  List<Label>? get labels;
+  DateTime get indexedAt;
 
   /// Create a copy of Notification
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $NotificationCopyWith<Notification> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$NotificationCopyWithImpl<Notification>(
+          this as Notification, _$identity);
+
+  /// Serializes this Notification to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Notification &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(other.reasonSubject, reasonSubject) ||
+                other.reasonSubject == reasonSubject) &&
+            (identical(other.isRead, isRead) || other.isRead == isRead) &&
+            const DeepCollectionEquality().equals(other.record, record) &&
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            (identical(other.indexedAt, indexedAt) ||
+                other.indexedAt == indexedAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      cid,
+      uri,
+      author,
+      reason,
+      reasonSubject,
+      isRead,
+      const DeepCollectionEquality().hash(record),
+      const DeepCollectionEquality().hash(labels),
+      indexedAt);
+
+  @override
+  String toString() {
+    return 'Notification(cid: $cid, uri: $uri, author: $author, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, record: $record, labels: $labels, indexedAt: $indexedAt)';
+  }
 }
 
 /// @nodoc
-abstract class $NotificationCopyWith<$Res> {
+abstract mixin class $NotificationCopyWith<$Res> {
   factory $NotificationCopyWith(
-          Notification value, $Res Function(Notification) then) =
-      _$NotificationCopyWithImpl<$Res, Notification>;
+          Notification value, $Res Function(Notification) _then) =
+      _$NotificationCopyWithImpl;
   @useResult
   $Res call(
       {String cid,
@@ -63,14 +97,11 @@ abstract class $NotificationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
-    implements $NotificationCopyWith<$Res> {
-  _$NotificationCopyWithImpl(this._value, this._then);
+class _$NotificationCopyWithImpl<$Res> implements $NotificationCopyWith<$Res> {
+  _$NotificationCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Notification _self;
+  final $Res Function(Notification) _then;
 
   /// Create a copy of Notification
   /// with the given fields replaced by the non-null parameter values.
@@ -87,44 +118,44 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
     Object? labels = freezed,
     Object? indexedAt = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       cid: null == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       author: null == author
-          ? _value.author
+          ? _self.author
           : author // ignore: cast_nullable_to_non_nullable
               as Actor,
       reason: null == reason
-          ? _value.reason
+          ? _self.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as NotificationReason,
       reasonSubject: freezed == reasonSubject
-          ? _value.reasonSubject
+          ? _self.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
               as AtUri?,
       isRead: null == isRead
-          ? _value.isRead
+          ? _self.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
               as bool,
       record: freezed == record
-          ? _value.record
+          ? _self.record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
       indexedAt: null == indexedAt
-          ? _value.indexedAt
+          ? _self.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of Notification
@@ -132,104 +163,17 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
   @override
   @pragma('vm:prefer-inline')
   $ActorCopyWith<$Res> get author {
-    return $ActorCopyWith<$Res>(_value.author, (value) {
-      return _then(_value.copyWith(author: value) as $Val);
+    return $ActorCopyWith<$Res>(_self.author, (value) {
+      return _then(_self.copyWith(author: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$NotificationImplCopyWith<$Res>
-    implements $NotificationCopyWith<$Res> {
-  factory _$$NotificationImplCopyWith(
-          _$NotificationImpl value, $Res Function(_$NotificationImpl) then) =
-      __$$NotificationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String cid,
-      @AtUriConverter() AtUri uri,
-      Actor author,
-      NotificationReason reason,
-      @AtUriConverter() AtUri? reasonSubject,
-      bool isRead,
-      Map<String, dynamic>? record,
-      List<Label>? labels,
-      DateTime indexedAt});
-
-  @override
-  $ActorCopyWith<$Res> get author;
-}
-
-/// @nodoc
-class __$$NotificationImplCopyWithImpl<$Res>
-    extends _$NotificationCopyWithImpl<$Res, _$NotificationImpl>
-    implements _$$NotificationImplCopyWith<$Res> {
-  __$$NotificationImplCopyWithImpl(
-      _$NotificationImpl _value, $Res Function(_$NotificationImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Notification
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cid = null,
-    Object? uri = null,
-    Object? author = null,
-    Object? reason = null,
-    Object? reasonSubject = freezed,
-    Object? isRead = null,
-    Object? record = freezed,
-    Object? labels = freezed,
-    Object? indexedAt = null,
-  }) {
-    return _then(_$NotificationImpl(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      author: null == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as Actor,
-      reason: null == reason
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
-              as NotificationReason,
-      reasonSubject: freezed == reasonSubject
-          ? _value.reasonSubject
-          : reasonSubject // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-      isRead: null == isRead
-          ? _value.isRead
-          : isRead // ignore: cast_nullable_to_non_nullable
-              as bool,
-      record: freezed == record
-          ? _value._record
-          : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      labels: freezed == labels
-          ? _value._labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
-      indexedAt: null == indexedAt
-          ? _value.indexedAt
-          : indexedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$NotificationImpl implements _Notification {
-  const _$NotificationImpl(
+class _Notification implements Notification {
+  const _Notification(
       {required this.cid,
       @AtUriConverter() required this.uri,
       required this.author,
@@ -241,9 +185,8 @@ class _$NotificationImpl implements _Notification {
       required this.indexedAt})
       : _record = record,
         _labels = labels;
-
-  factory _$NotificationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NotificationImplFromJson(json);
+  factory _Notification.fromJson(Map<String, dynamic> json) =>
+      _$NotificationFromJson(json);
 
   @override
   final String cid;
@@ -283,16 +226,26 @@ class _$NotificationImpl implements _Notification {
   @override
   final DateTime indexedAt;
 
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Notification(cid: $cid, uri: $uri, author: $author, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, record: $record, labels: $labels, indexedAt: $indexedAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$NotificationCopyWith<_Notification> get copyWith =>
+      __$NotificationCopyWithImpl<_Notification>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$NotificationToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotificationImpl &&
+            other is _Notification &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.author, author) || other.author == author) &&
@@ -320,62 +273,107 @@ class _$NotificationImpl implements _Notification {
       const DeepCollectionEquality().hash(_labels),
       indexedAt);
 
-  /// Create a copy of Notification
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>
-      __$$NotificationImplCopyWithImpl<_$NotificationImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NotificationImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Notification(cid: $cid, uri: $uri, author: $author, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, record: $record, labels: $labels, indexedAt: $indexedAt)';
   }
 }
 
-abstract class _Notification implements Notification {
-  const factory _Notification(
-      {required final String cid,
-      @AtUriConverter() required final AtUri uri,
-      required final Actor author,
-      required final NotificationReason reason,
-      @AtUriConverter() final AtUri? reasonSubject,
-      final bool isRead,
-      final Map<String, dynamic>? record,
-      final List<Label>? labels,
-      required final DateTime indexedAt}) = _$NotificationImpl;
+/// @nodoc
+abstract mixin class _$NotificationCopyWith<$Res>
+    implements $NotificationCopyWith<$Res> {
+  factory _$NotificationCopyWith(
+          _Notification value, $Res Function(_Notification) _then) =
+      __$NotificationCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String cid,
+      @AtUriConverter() AtUri uri,
+      Actor author,
+      NotificationReason reason,
+      @AtUriConverter() AtUri? reasonSubject,
+      bool isRead,
+      Map<String, dynamic>? record,
+      List<Label>? labels,
+      DateTime indexedAt});
 
-  factory _Notification.fromJson(Map<String, dynamic> json) =
-      _$NotificationImpl.fromJson;
+  @override
+  $ActorCopyWith<$Res> get author;
+}
 
-  @override
-  String get cid;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  Actor get author;
-  @override
-  NotificationReason get reason;
-  @override
-  @AtUriConverter()
-  AtUri? get reasonSubject;
-  @override
-  bool get isRead;
-  @override
-  Map<String, dynamic>? get record;
-  @override
-  List<Label>? get labels;
-  @override
-  DateTime get indexedAt;
+/// @nodoc
+class __$NotificationCopyWithImpl<$Res>
+    implements _$NotificationCopyWith<$Res> {
+  __$NotificationCopyWithImpl(this._self, this._then);
+
+  final _Notification _self;
+  final $Res Function(_Notification) _then;
 
   /// Create a copy of Notification
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cid = null,
+    Object? uri = null,
+    Object? author = null,
+    Object? reason = null,
+    Object? reasonSubject = freezed,
+    Object? isRead = null,
+    Object? record = freezed,
+    Object? labels = freezed,
+    Object? indexedAt = null,
+  }) {
+    return _then(_Notification(
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      author: null == author
+          ? _self.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as Actor,
+      reason: null == reason
+          ? _self.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as NotificationReason,
+      reasonSubject: freezed == reasonSubject
+          ? _self.reasonSubject
+          : reasonSubject // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+      isRead: null == isRead
+          ? _self.isRead
+          : isRead // ignore: cast_nullable_to_non_nullable
+              as bool,
+      record: freezed == record
+          ? _self._record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      labels: freezed == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
+      indexedAt: null == indexedAt
+          ? _self.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of Notification
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorCopyWith<$Res> get author {
+    return $ActorCopyWith<$Res>(_self.author, (value) {
+      return _then(_self.copyWith(author: value));
+    });
+  }
 }
+
+// dart format on

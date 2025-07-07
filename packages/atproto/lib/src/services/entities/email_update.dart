@@ -6,7 +6,7 @@ part 'email_update.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestemailupdate/#output
 @freezed
-class EmailUpdate with _$EmailUpdate {
+abstract class EmailUpdate with _$EmailUpdate {
   const factory EmailUpdate({
     @JsonKey(name: 'tokenRequired') required bool isTokenRequired,
   }) = _EmailUpdate;

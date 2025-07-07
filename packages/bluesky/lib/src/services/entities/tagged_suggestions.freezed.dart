@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,60 @@ part of 'tagged_suggestions.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TaggedSuggestions _$TaggedSuggestionsFromJson(Map<String, dynamic> json) {
-  return _TaggedSuggestions.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TaggedSuggestions {
-  List<TaggedSuggestion> get suggestions => throw _privateConstructorUsedError;
-
-  /// Serializes this TaggedSuggestions to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<TaggedSuggestion> get suggestions;
 
   /// Create a copy of TaggedSuggestions
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $TaggedSuggestionsCopyWith<TaggedSuggestions> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TaggedSuggestionsCopyWith<$Res> {
-  factory $TaggedSuggestionsCopyWith(
-          TaggedSuggestions value, $Res Function(TaggedSuggestions) then) =
-      _$TaggedSuggestionsCopyWithImpl<$Res, TaggedSuggestions>;
-  @useResult
-  $Res call({List<TaggedSuggestion> suggestions});
-}
-
-/// @nodoc
-class _$TaggedSuggestionsCopyWithImpl<$Res, $Val extends TaggedSuggestions>
-    implements $TaggedSuggestionsCopyWith<$Res> {
-  _$TaggedSuggestionsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TaggedSuggestions
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $TaggedSuggestionsCopyWith<TaggedSuggestions> get copyWith =>
+      _$TaggedSuggestionsCopyWithImpl<TaggedSuggestions>(
+          this as TaggedSuggestions, _$identity);
+
+  /// Serializes this TaggedSuggestions to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? suggestions = null,
-  }) {
-    return _then(_value.copyWith(
-      suggestions: null == suggestions
-          ? _value.suggestions
-          : suggestions // ignore: cast_nullable_to_non_nullable
-              as List<TaggedSuggestion>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TaggedSuggestions &&
+            const DeepCollectionEquality()
+                .equals(other.suggestions, suggestions));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(suggestions));
+
+  @override
+  String toString() {
+    return 'TaggedSuggestions(suggestions: $suggestions)';
   }
 }
 
 /// @nodoc
-abstract class _$$TaggedSuggestionsImplCopyWith<$Res>
-    implements $TaggedSuggestionsCopyWith<$Res> {
-  factory _$$TaggedSuggestionsImplCopyWith(_$TaggedSuggestionsImpl value,
-          $Res Function(_$TaggedSuggestionsImpl) then) =
-      __$$TaggedSuggestionsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $TaggedSuggestionsCopyWith<$Res> {
+  factory $TaggedSuggestionsCopyWith(
+          TaggedSuggestions value, $Res Function(TaggedSuggestions) _then) =
+      _$TaggedSuggestionsCopyWithImpl;
   @useResult
   $Res call({List<TaggedSuggestion> suggestions});
 }
 
 /// @nodoc
-class __$$TaggedSuggestionsImplCopyWithImpl<$Res>
-    extends _$TaggedSuggestionsCopyWithImpl<$Res, _$TaggedSuggestionsImpl>
-    implements _$$TaggedSuggestionsImplCopyWith<$Res> {
-  __$$TaggedSuggestionsImplCopyWithImpl(_$TaggedSuggestionsImpl _value,
-      $Res Function(_$TaggedSuggestionsImpl) _then)
-      : super(_value, _then);
+class _$TaggedSuggestionsCopyWithImpl<$Res>
+    implements $TaggedSuggestionsCopyWith<$Res> {
+  _$TaggedSuggestionsCopyWithImpl(this._self, this._then);
+
+  final TaggedSuggestions _self;
+  final $Res Function(TaggedSuggestions) _then;
 
   /// Create a copy of TaggedSuggestions
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +72,9 @@ class __$$TaggedSuggestionsImplCopyWithImpl<$Res>
   $Res call({
     Object? suggestions = null,
   }) {
-    return _then(_$TaggedSuggestionsImpl(
+    return _then(_self.copyWith(
       suggestions: null == suggestions
-          ? _value._suggestions
+          ? _self.suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<TaggedSuggestion>,
     ));
@@ -105,13 +84,11 @@ class __$$TaggedSuggestionsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$TaggedSuggestionsImpl implements _TaggedSuggestions {
-  const _$TaggedSuggestionsImpl(
-      {required final List<TaggedSuggestion> suggestions})
+class _TaggedSuggestions implements TaggedSuggestions {
+  const _TaggedSuggestions({required final List<TaggedSuggestion> suggestions})
       : _suggestions = suggestions;
-
-  factory _$TaggedSuggestionsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TaggedSuggestionsImplFromJson(json);
+  factory _TaggedSuggestions.fromJson(Map<String, dynamic> json) =>
+      _$TaggedSuggestionsFromJson(json);
 
   final List<TaggedSuggestion> _suggestions;
   @override
@@ -121,16 +98,26 @@ class _$TaggedSuggestionsImpl implements _TaggedSuggestions {
     return EqualUnmodifiableListView(_suggestions);
   }
 
+  /// Create a copy of TaggedSuggestions
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'TaggedSuggestions(suggestions: $suggestions)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TaggedSuggestionsCopyWith<_TaggedSuggestions> get copyWith =>
+      __$TaggedSuggestionsCopyWithImpl<_TaggedSuggestions>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TaggedSuggestionsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TaggedSuggestionsImpl &&
+            other is _TaggedSuggestions &&
             const DeepCollectionEquality()
                 .equals(other._suggestions, _suggestions));
   }
@@ -140,38 +127,45 @@ class _$TaggedSuggestionsImpl implements _TaggedSuggestions {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_suggestions));
 
-  /// Create a copy of TaggedSuggestions
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TaggedSuggestionsImplCopyWith<_$TaggedSuggestionsImpl> get copyWith =>
-      __$$TaggedSuggestionsImplCopyWithImpl<_$TaggedSuggestionsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TaggedSuggestionsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TaggedSuggestions(suggestions: $suggestions)';
   }
 }
 
-abstract class _TaggedSuggestions implements TaggedSuggestions {
-  const factory _TaggedSuggestions(
-          {required final List<TaggedSuggestion> suggestions}) =
-      _$TaggedSuggestionsImpl;
-
-  factory _TaggedSuggestions.fromJson(Map<String, dynamic> json) =
-      _$TaggedSuggestionsImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$TaggedSuggestionsCopyWith<$Res>
+    implements $TaggedSuggestionsCopyWith<$Res> {
+  factory _$TaggedSuggestionsCopyWith(
+          _TaggedSuggestions value, $Res Function(_TaggedSuggestions) _then) =
+      __$TaggedSuggestionsCopyWithImpl;
   @override
-  List<TaggedSuggestion> get suggestions;
+  @useResult
+  $Res call({List<TaggedSuggestion> suggestions});
+}
+
+/// @nodoc
+class __$TaggedSuggestionsCopyWithImpl<$Res>
+    implements _$TaggedSuggestionsCopyWith<$Res> {
+  __$TaggedSuggestionsCopyWithImpl(this._self, this._then);
+
+  final _TaggedSuggestions _self;
+  final $Res Function(_TaggedSuggestions) _then;
 
   /// Create a copy of TaggedSuggestions
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TaggedSuggestionsImplCopyWith<_$TaggedSuggestionsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? suggestions = null,
+  }) {
+    return _then(_TaggedSuggestions(
+      suggestions: null == suggestions
+          ? _self._suggestions
+          : suggestions // ignore: cast_nullable_to_non_nullable
+              as List<TaggedSuggestion>,
+    ));
+  }
 }
+
+// dart format on

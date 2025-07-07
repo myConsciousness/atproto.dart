@@ -8,12 +8,11 @@ part of 'deleted_message_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DeletedMessageViewImpl _$$DeletedMessageViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$DeletedMessageViewImpl',
+_DeletedMessageView _$DeletedMessageViewFromJson(Map json) => $checkedCreate(
+      '_DeletedMessageView',
       json,
       ($checkedConvert) {
-        final val = _$DeletedMessageViewImpl(
+        final val = _DeletedMessageView(
           id: $checkedConvert('id', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
           sender: $checkedConvert(
@@ -26,8 +25,7 @@ _$DeletedMessageViewImpl _$$DeletedMessageViewImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$DeletedMessageViewImplToJson(
-        _$DeletedMessageViewImpl instance) =>
+Map<String, dynamic> _$DeletedMessageViewToJson(_DeletedMessageView instance) =>
     <String, dynamic>{
       'id': instance.id,
       'rev': instance.rev,

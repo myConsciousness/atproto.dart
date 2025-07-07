@@ -15,7 +15,7 @@ part 'facet.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
-class Facet with _$Facet {
+abstract class Facet with _$Facet {
   @jsonSerializable
   const factory Facet({
     @typeKey @Default(appBskyRichtextFacet) String type,

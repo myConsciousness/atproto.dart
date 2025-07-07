@@ -34,9 +34,12 @@ final class _SubscribedLabelConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SubscribedLabel object) => object.when(
-        labels: (data) => data.toJson(),
-        info: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(SubscribedLabel object) => switch (object) {
+        USubscribedLabelLabels(data: final data) => data.toJson(),
+        USubscribedLabelInfo(data: final data) => data.toJson(),
+        USubscribedLabelUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown SubscribedLabel type: ${object.runtimeType}'),
+      };
 }

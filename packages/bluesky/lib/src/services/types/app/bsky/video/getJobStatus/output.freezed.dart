@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,136 +10,29 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GetJobStatusOutput _$GetJobStatusOutputFromJson(Map<String, dynamic> json) {
-  return _GetJobStatusOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetJobStatusOutput {
-  JobStatus get jobStatus => throw _privateConstructorUsedError;
-
-  /// Serializes this GetJobStatusOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  JobStatus get jobStatus;
 
   /// Create a copy of GetJobStatusOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $GetJobStatusOutputCopyWith<GetJobStatusOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$GetJobStatusOutputCopyWithImpl<GetJobStatusOutput>(
+          this as GetJobStatusOutput, _$identity);
 
-/// @nodoc
-abstract class $GetJobStatusOutputCopyWith<$Res> {
-  factory $GetJobStatusOutputCopyWith(
-          GetJobStatusOutput value, $Res Function(GetJobStatusOutput) then) =
-      _$GetJobStatusOutputCopyWithImpl<$Res, GetJobStatusOutput>;
-  @useResult
-  $Res call({JobStatus jobStatus});
-
-  $JobStatusCopyWith<$Res> get jobStatus;
-}
-
-/// @nodoc
-class _$GetJobStatusOutputCopyWithImpl<$Res, $Val extends GetJobStatusOutput>
-    implements $GetJobStatusOutputCopyWith<$Res> {
-  _$GetJobStatusOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GetJobStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? jobStatus = null,
-  }) {
-    return _then(_value.copyWith(
-      jobStatus: null == jobStatus
-          ? _value.jobStatus
-          : jobStatus // ignore: cast_nullable_to_non_nullable
-              as JobStatus,
-    ) as $Val);
-  }
-
-  /// Create a copy of GetJobStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $JobStatusCopyWith<$Res> get jobStatus {
-    return $JobStatusCopyWith<$Res>(_value.jobStatus, (value) {
-      return _then(_value.copyWith(jobStatus: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$GetJobStatusOutputImplCopyWith<$Res>
-    implements $GetJobStatusOutputCopyWith<$Res> {
-  factory _$$GetJobStatusOutputImplCopyWith(_$GetJobStatusOutputImpl value,
-          $Res Function(_$GetJobStatusOutputImpl) then) =
-      __$$GetJobStatusOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({JobStatus jobStatus});
-
-  @override
-  $JobStatusCopyWith<$Res> get jobStatus;
-}
-
-/// @nodoc
-class __$$GetJobStatusOutputImplCopyWithImpl<$Res>
-    extends _$GetJobStatusOutputCopyWithImpl<$Res, _$GetJobStatusOutputImpl>
-    implements _$$GetJobStatusOutputImplCopyWith<$Res> {
-  __$$GetJobStatusOutputImplCopyWithImpl(_$GetJobStatusOutputImpl _value,
-      $Res Function(_$GetJobStatusOutputImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of GetJobStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? jobStatus = null,
-  }) {
-    return _then(_$GetJobStatusOutputImpl(
-      jobStatus: null == jobStatus
-          ? _value.jobStatus
-          : jobStatus // ignore: cast_nullable_to_non_nullable
-              as JobStatus,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$GetJobStatusOutputImpl implements _GetJobStatusOutput {
-  const _$GetJobStatusOutputImpl({required this.jobStatus});
-
-  factory _$GetJobStatusOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetJobStatusOutputImplFromJson(json);
-
-  @override
-  final JobStatus jobStatus;
-
-  @override
-  String toString() {
-    return 'GetJobStatusOutput(jobStatus: $jobStatus)';
-  }
+  /// Serializes this GetJobStatusOutput to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetJobStatusOutputImpl &&
+            other is GetJobStatusOutput &&
             (identical(other.jobStatus, jobStatus) ||
                 other.jobStatus == jobStatus));
   }
@@ -147,37 +41,148 @@ class _$GetJobStatusOutputImpl implements _GetJobStatusOutput {
   @override
   int get hashCode => Object.hash(runtimeType, jobStatus);
 
-  /// Create a copy of GetJobStatusOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetJobStatusOutputImplCopyWith<_$GetJobStatusOutputImpl> get copyWith =>
-      __$$GetJobStatusOutputImplCopyWithImpl<_$GetJobStatusOutputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetJobStatusOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GetJobStatusOutput(jobStatus: $jobStatus)';
   }
 }
 
-abstract class _GetJobStatusOutput implements GetJobStatusOutput {
-  const factory _GetJobStatusOutput({required final JobStatus jobStatus}) =
-      _$GetJobStatusOutputImpl;
+/// @nodoc
+abstract mixin class $GetJobStatusOutputCopyWith<$Res> {
+  factory $GetJobStatusOutputCopyWith(
+          GetJobStatusOutput value, $Res Function(GetJobStatusOutput) _then) =
+      _$GetJobStatusOutputCopyWithImpl;
+  @useResult
+  $Res call({JobStatus jobStatus});
 
-  factory _GetJobStatusOutput.fromJson(Map<String, dynamic> json) =
-      _$GetJobStatusOutputImpl.fromJson;
+  $JobStatusCopyWith<$Res> get jobStatus;
+}
+
+/// @nodoc
+class _$GetJobStatusOutputCopyWithImpl<$Res>
+    implements $GetJobStatusOutputCopyWith<$Res> {
+  _$GetJobStatusOutputCopyWithImpl(this._self, this._then);
+
+  final GetJobStatusOutput _self;
+  final $Res Function(GetJobStatusOutput) _then;
+
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? jobStatus = null,
+  }) {
+    return _then(_self.copyWith(
+      jobStatus: null == jobStatus
+          ? _self.jobStatus
+          : jobStatus // ignore: cast_nullable_to_non_nullable
+              as JobStatus,
+    ));
+  }
+
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $JobStatusCopyWith<$Res> get jobStatus {
+    return $JobStatusCopyWith<$Res>(_self.jobStatus, (value) {
+      return _then(_self.copyWith(jobStatus: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _GetJobStatusOutput implements GetJobStatusOutput {
+  const _GetJobStatusOutput({required this.jobStatus});
+  factory _GetJobStatusOutput.fromJson(Map<String, dynamic> json) =>
+      _$GetJobStatusOutputFromJson(json);
 
   @override
-  JobStatus get jobStatus;
+  final JobStatus jobStatus;
 
   /// Create a copy of GetJobStatusOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetJobStatusOutputImplCopyWith<_$GetJobStatusOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$GetJobStatusOutputCopyWith<_GetJobStatusOutput> get copyWith =>
+      __$GetJobStatusOutputCopyWithImpl<_GetJobStatusOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GetJobStatusOutputToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _GetJobStatusOutput &&
+            (identical(other.jobStatus, jobStatus) ||
+                other.jobStatus == jobStatus));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, jobStatus);
+
+  @override
+  String toString() {
+    return 'GetJobStatusOutput(jobStatus: $jobStatus)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$GetJobStatusOutputCopyWith<$Res>
+    implements $GetJobStatusOutputCopyWith<$Res> {
+  factory _$GetJobStatusOutputCopyWith(
+          _GetJobStatusOutput value, $Res Function(_GetJobStatusOutput) _then) =
+      __$GetJobStatusOutputCopyWithImpl;
+  @override
+  @useResult
+  $Res call({JobStatus jobStatus});
+
+  @override
+  $JobStatusCopyWith<$Res> get jobStatus;
+}
+
+/// @nodoc
+class __$GetJobStatusOutputCopyWithImpl<$Res>
+    implements _$GetJobStatusOutputCopyWith<$Res> {
+  __$GetJobStatusOutputCopyWithImpl(this._self, this._then);
+
+  final _GetJobStatusOutput _self;
+  final $Res Function(_GetJobStatusOutput) _then;
+
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? jobStatus = null,
+  }) {
+    return _then(_GetJobStatusOutput(
+      jobStatus: null == jobStatus
+          ? _self.jobStatus
+          : jobStatus // ignore: cast_nullable_to_non_nullable
+              as JobStatus,
+    ));
+  }
+
+  /// Create a copy of GetJobStatusOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $JobStatusCopyWith<$Res> get jobStatus {
+    return $JobStatusCopyWith<$Res>(_self.jobStatus, (value) {
+      return _then(_self.copyWith(jobStatus: value));
+    });
+  }
+}
+
+// dart format on

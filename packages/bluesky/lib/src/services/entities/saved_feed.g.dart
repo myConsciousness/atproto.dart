@@ -8,11 +8,11 @@ part of 'saved_feed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SavedFeedImpl _$$SavedFeedImplFromJson(Map json) => $checkedCreate(
-      r'_$SavedFeedImpl',
+_SavedFeed _$SavedFeedFromJson(Map json) => $checkedCreate(
+      '_SavedFeed',
       json,
       ($checkedConvert) {
-        final val = _$SavedFeedImpl(
+        final val = _SavedFeed(
           id: $checkedConvert('id', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
           value: $checkedConvert('value', (v) => v as String),
@@ -22,7 +22,7 @@ _$SavedFeedImpl _$$SavedFeedImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$SavedFeedImplToJson(_$SavedFeedImpl instance) =>
+Map<String, dynamic> _$SavedFeedToJson(_SavedFeed instance) =>
     <String, dynamic>{
       'id': instance.id,
       'type': instance.type,

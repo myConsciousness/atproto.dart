@@ -12,7 +12,7 @@ part 'relationships.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
 @freezed
-class Relationships with _$Relationships {
+abstract class Relationships with _$Relationships {
   const factory Relationships({
     @relationshipConverter required List<Relationship> relationships,
   }) = _Relationships;

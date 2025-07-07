@@ -7,7 +7,7 @@ part 'reply_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post/#replyref
 @freezed
-class ReplyRef with _$ReplyRef {
+abstract class ReplyRef with _$ReplyRef {
   const factory ReplyRef({
     required StrongRef root,
     required StrongRef parent,

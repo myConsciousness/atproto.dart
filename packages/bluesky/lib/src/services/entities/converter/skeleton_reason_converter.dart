@@ -36,9 +36,12 @@ final class _SkeletonReasonConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonReason object) => object.when(
-        repost: (data) => data.toJson(),
-        pin: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(SkeletonReason object) => switch (object) {
+        USkeletonReasonRepost(data: final data) => data.toJson(),
+        USkeletonReasonPin(data: final data) => data.toJson(),
+        USkeletonReasonUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown SkeletonReason type: ${object.runtimeType}'),
+      };
 }

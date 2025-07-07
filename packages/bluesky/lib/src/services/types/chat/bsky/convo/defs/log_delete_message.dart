@@ -10,7 +10,7 @@ part 'log_delete_message.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#logdeletemessage
 @freezed
-class LogDeleteMessage with _$LogDeleteMessage {
+abstract class LogDeleteMessage with _$LogDeleteMessage {
   @jsonSerializable
   const factory LogDeleteMessage({
     required String rev,

@@ -8,11 +8,11 @@ part of 'generator_feed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GeneratorFeedImpl _$$GeneratorFeedImplFromJson(Map json) => $checkedCreate(
-      r'_$GeneratorFeedImpl',
+_GeneratorFeed _$GeneratorFeedFromJson(Map json) => $checkedCreate(
+      '_GeneratorFeed',
       json,
       ($checkedConvert) {
-        final val = _$GeneratorFeedImpl(
+        final val = _GeneratorFeed(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
         );
@@ -20,7 +20,7 @@ _$GeneratorFeedImpl _$$GeneratorFeedImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$GeneratorFeedImplToJson(_$GeneratorFeedImpl instance) =>
+Map<String, dynamic> _$GeneratorFeedToJson(_GeneratorFeed instance) =>
     <String, dynamic>{
       'uri': const AtUriConverter().toJson(instance.uri),
     };

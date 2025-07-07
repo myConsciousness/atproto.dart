@@ -12,7 +12,7 @@ part 'not_found_actor.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#notfoundactor
 @freezed
-class NotFoundActor with _$NotFoundActor {
+abstract class NotFoundActor with _$NotFoundActor {
   const factory NotFoundActor({
     @typeKey @Default(appBskyGraphDefsNotFoundActor) String type,
     @AtUriConverter() required String actor,

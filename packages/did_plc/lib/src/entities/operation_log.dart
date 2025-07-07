@@ -12,7 +12,7 @@ part 'operation_log.freezed.dart';
 part 'operation_log.g.dart';
 
 @freezed
-class OperationLog with _$OperationLog {
+abstract class OperationLog with _$OperationLog {
   /// Creates an instance of [OperationLog].
   @jsonSerializable
   const factory OperationLog({

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,37 +10,52 @@ part of 'blocked_author.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-BlockedAuthor _$BlockedAuthorFromJson(Map<String, dynamic> json) {
-  return _BlockedAuthor.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BlockedAuthor {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get did => throw _privateConstructorUsedError;
-  ActorViewer get viewer => throw _privateConstructorUsedError;
-
-  /// Serializes this BlockedAuthor to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  String get did;
+  ActorViewer get viewer;
 
   /// Create a copy of BlockedAuthor
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $BlockedAuthorCopyWith<BlockedAuthor> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$BlockedAuthorCopyWithImpl<BlockedAuthor>(
+          this as BlockedAuthor, _$identity);
+
+  /// Serializes this BlockedAuthor to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BlockedAuthor &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.viewer, viewer) || other.viewer == viewer));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, did, viewer);
+
+  @override
+  String toString() {
+    return 'BlockedAuthor(type: $type, did: $did, viewer: $viewer)';
+  }
 }
 
 /// @nodoc
-abstract class $BlockedAuthorCopyWith<$Res> {
+abstract mixin class $BlockedAuthorCopyWith<$Res> {
   factory $BlockedAuthorCopyWith(
-          BlockedAuthor value, $Res Function(BlockedAuthor) then) =
-      _$BlockedAuthorCopyWithImpl<$Res, BlockedAuthor>;
+          BlockedAuthor value, $Res Function(BlockedAuthor) _then) =
+      _$BlockedAuthorCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, String did, ActorViewer viewer});
 
@@ -47,14 +63,12 @@ abstract class $BlockedAuthorCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$BlockedAuthorCopyWithImpl<$Res, $Val extends BlockedAuthor>
+class _$BlockedAuthorCopyWithImpl<$Res>
     implements $BlockedAuthorCopyWith<$Res> {
-  _$BlockedAuthorCopyWithImpl(this._value, this._then);
+  _$BlockedAuthorCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final BlockedAuthor _self;
+  final $Res Function(BlockedAuthor) _then;
 
   /// Create a copy of BlockedAuthor
   /// with the given fields replaced by the non-null parameter values.
@@ -65,20 +79,20 @@ class _$BlockedAuthorCopyWithImpl<$Res, $Val extends BlockedAuthor>
     Object? did = null,
     Object? viewer = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       viewer: null == viewer
-          ? _value.viewer
+          ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of BlockedAuthor
@@ -86,70 +100,21 @@ class _$BlockedAuthorCopyWithImpl<$Res, $Val extends BlockedAuthor>
   @override
   @pragma('vm:prefer-inline')
   $ActorViewerCopyWith<$Res> get viewer {
-    return $ActorViewerCopyWith<$Res>(_value.viewer, (value) {
-      return _then(_value.copyWith(viewer: value) as $Val);
+    return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$BlockedAuthorImplCopyWith<$Res>
-    implements $BlockedAuthorCopyWith<$Res> {
-  factory _$$BlockedAuthorImplCopyWith(
-          _$BlockedAuthorImpl value, $Res Function(_$BlockedAuthorImpl) then) =
-      __$$BlockedAuthorImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, String did, ActorViewer viewer});
-
-  @override
-  $ActorViewerCopyWith<$Res> get viewer;
-}
-
-/// @nodoc
-class __$$BlockedAuthorImplCopyWithImpl<$Res>
-    extends _$BlockedAuthorCopyWithImpl<$Res, _$BlockedAuthorImpl>
-    implements _$$BlockedAuthorImplCopyWith<$Res> {
-  __$$BlockedAuthorImplCopyWithImpl(
-      _$BlockedAuthorImpl _value, $Res Function(_$BlockedAuthorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BlockedAuthor
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? did = null,
-    Object? viewer = null,
-  }) {
-    return _then(_$BlockedAuthorImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      viewer: null == viewer
-          ? _value.viewer
-          : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorViewer,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$BlockedAuthorImpl implements _BlockedAuthor {
-  const _$BlockedAuthorImpl(
+class _BlockedAuthor implements BlockedAuthor {
+  const _BlockedAuthor(
       {@typeKey this.type = appBskyFeedDefsBlockedAuthor,
       required this.did,
       this.viewer = defaultActorViewer});
-
-  factory _$BlockedAuthorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlockedAuthorImplFromJson(json);
+  factory _BlockedAuthor.fromJson(Map<String, dynamic> json) =>
+      _$BlockedAuthorFromJson(json);
 
   @override
   @typeKey
@@ -160,16 +125,26 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
   @JsonKey()
   final ActorViewer viewer;
 
+  /// Create a copy of BlockedAuthor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'BlockedAuthor(type: $type, did: $did, viewer: $viewer)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$BlockedAuthorCopyWith<_BlockedAuthor> get copyWith =>
+      __$BlockedAuthorCopyWithImpl<_BlockedAuthor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$BlockedAuthorToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BlockedAuthorImpl &&
+            other is _BlockedAuthor &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.viewer, viewer) || other.viewer == viewer));
@@ -179,43 +154,68 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
   @override
   int get hashCode => Object.hash(runtimeType, type, did, viewer);
 
-  /// Create a copy of BlockedAuthor
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$BlockedAuthorImplCopyWith<_$BlockedAuthorImpl> get copyWith =>
-      __$$BlockedAuthorImplCopyWithImpl<_$BlockedAuthorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BlockedAuthorImplToJson(
-      this,
-    );
+  String toString() {
+    return 'BlockedAuthor(type: $type, did: $did, viewer: $viewer)';
   }
 }
 
-abstract class _BlockedAuthor implements BlockedAuthor {
-  const factory _BlockedAuthor(
-      {@typeKey final String type,
-      required final String did,
-      final ActorViewer viewer}) = _$BlockedAuthorImpl;
+/// @nodoc
+abstract mixin class _$BlockedAuthorCopyWith<$Res>
+    implements $BlockedAuthorCopyWith<$Res> {
+  factory _$BlockedAuthorCopyWith(
+          _BlockedAuthor value, $Res Function(_BlockedAuthor) _then) =
+      __$BlockedAuthorCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, String did, ActorViewer viewer});
 
-  factory _BlockedAuthor.fromJson(Map<String, dynamic> json) =
-      _$BlockedAuthorImpl.fromJson;
+  @override
+  $ActorViewerCopyWith<$Res> get viewer;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  String get did;
-  @override
-  ActorViewer get viewer;
+/// @nodoc
+class __$BlockedAuthorCopyWithImpl<$Res>
+    implements _$BlockedAuthorCopyWith<$Res> {
+  __$BlockedAuthorCopyWithImpl(this._self, this._then);
+
+  final _BlockedAuthor _self;
+  final $Res Function(_BlockedAuthor) _then;
 
   /// Create a copy of BlockedAuthor
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlockedAuthorImplCopyWith<_$BlockedAuthorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? did = null,
+    Object? viewer = null,
+  }) {
+    return _then(_BlockedAuthor(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      viewer: null == viewer
+          ? _self.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as ActorViewer,
+    ));
+  }
+
+  /// Create a copy of BlockedAuthor
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorViewerCopyWith<$Res> get viewer {
+    return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
+    });
+  }
 }
+
+// dart format on

@@ -12,7 +12,7 @@ part 'feed_item.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/starterpack/#feeditem
 @freezed
-class StarterpackFeedItem with _$StarterpackFeedItem {
+abstract class StarterpackFeedItem with _$StarterpackFeedItem {
   @jsonSerializable
   const factory StarterpackFeedItem({
     @typeKey @Default(appBskyGraphStarterpackFeedItem) String type,

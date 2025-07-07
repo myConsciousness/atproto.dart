@@ -12,7 +12,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getKnownFollowers/#output
 @freezed
-class GetKnownFollowersOutput with _$GetKnownFollowersOutput {
+abstract class GetKnownFollowersOutput with _$GetKnownFollowersOutput {
   @jsonSerializable
   const factory GetKnownFollowersOutput({
     required Actor subject,

@@ -9,7 +9,7 @@ part 'created_invite_codes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#output
 @freezed
-class CreatedInviteCodes with _$CreatedInviteCodes {
+abstract class CreatedInviteCodes with _$CreatedInviteCodes {
   const factory CreatedInviteCodes({
     required List<AccountCodes> codes,
   }) = _CreatedInviteCodes;

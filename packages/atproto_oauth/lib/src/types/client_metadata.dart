@@ -7,7 +7,7 @@ part 'client_metadata.freezed.dart';
 part 'client_metadata.g.dart';
 
 @freezed
-class OAuthClientMetadata with _$OAuthClientMetadata {
+abstract class OAuthClientMetadata with _$OAuthClientMetadata {
   @JsonSerializable(includeIfNull: false, fieldRename: FieldRename.snake)
   const factory OAuthClientMetadata({
     required String clientId,

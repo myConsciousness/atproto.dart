@@ -9,7 +9,7 @@ part 'record_blob.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listmissingblobs/#recordblob
 @freezed
-class RecordBlob with _$RecordBlob {
+abstract class RecordBlob with _$RecordBlob {
   @jsonSerializable
   const factory RecordBlob({
     required String cid,

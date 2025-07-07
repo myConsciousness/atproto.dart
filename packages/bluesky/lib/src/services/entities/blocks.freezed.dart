@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,58 @@ part of 'blocks.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Blocks _$BlocksFromJson(Map<String, dynamic> json) {
-  return _Blocks.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Blocks {
-  List<Actor> get blocks => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this Blocks to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Actor> get blocks;
+  String? get cursor;
 
   /// Create a copy of Blocks
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $BlocksCopyWith<Blocks> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $BlocksCopyWith<$Res> {
-  factory $BlocksCopyWith(Blocks value, $Res Function(Blocks) then) =
-      _$BlocksCopyWithImpl<$Res, Blocks>;
-  @useResult
-  $Res call({List<Actor> blocks, String? cursor});
-}
-
-/// @nodoc
-class _$BlocksCopyWithImpl<$Res, $Val extends Blocks>
-    implements $BlocksCopyWith<$Res> {
-  _$BlocksCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Blocks
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $BlocksCopyWith<Blocks> get copyWith =>
+      _$BlocksCopyWithImpl<Blocks>(this as Blocks, _$identity);
+
+  /// Serializes this Blocks to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? blocks = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      blocks: null == blocks
-          ? _value.blocks
-          : blocks // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Blocks &&
+            const DeepCollectionEquality().equals(other.blocks, blocks) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(blocks), cursor);
+
+  @override
+  String toString() {
+    return 'Blocks(blocks: $blocks, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$BlocksImplCopyWith<$Res> implements $BlocksCopyWith<$Res> {
-  factory _$$BlocksImplCopyWith(
-          _$BlocksImpl value, $Res Function(_$BlocksImpl) then) =
-      __$$BlocksImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $BlocksCopyWith<$Res> {
+  factory $BlocksCopyWith(Blocks value, $Res Function(Blocks) _then) =
+      _$BlocksCopyWithImpl;
   @useResult
   $Res call({List<Actor> blocks, String? cursor});
 }
 
 /// @nodoc
-class __$$BlocksImplCopyWithImpl<$Res>
-    extends _$BlocksCopyWithImpl<$Res, _$BlocksImpl>
-    implements _$$BlocksImplCopyWith<$Res> {
-  __$$BlocksImplCopyWithImpl(
-      _$BlocksImpl _value, $Res Function(_$BlocksImpl) _then)
-      : super(_value, _then);
+class _$BlocksCopyWithImpl<$Res> implements $BlocksCopyWith<$Res> {
+  _$BlocksCopyWithImpl(this._self, this._then);
+
+  final Blocks _self;
+  final $Res Function(Blocks) _then;
 
   /// Create a copy of Blocks
   /// with the given fields replaced by the non-null parameter values.
@@ -97,13 +71,13 @@ class __$$BlocksImplCopyWithImpl<$Res>
     Object? blocks = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$BlocksImpl(
+    return _then(_self.copyWith(
       blocks: null == blocks
-          ? _value._blocks
+          ? _self.blocks
           : blocks // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -113,12 +87,10 @@ class __$$BlocksImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$BlocksImpl implements _Blocks {
-  const _$BlocksImpl({required final List<Actor> blocks, this.cursor})
+class _Blocks implements Blocks {
+  const _Blocks({required final List<Actor> blocks, this.cursor})
       : _blocks = blocks;
-
-  factory _$BlocksImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlocksImplFromJson(json);
+  factory _Blocks.fromJson(Map<String, dynamic> json) => _$BlocksFromJson(json);
 
   final List<Actor> _blocks;
   @override
@@ -131,16 +103,26 @@ class _$BlocksImpl implements _Blocks {
   @override
   final String? cursor;
 
+  /// Create a copy of Blocks
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Blocks(blocks: $blocks, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$BlocksCopyWith<_Blocks> get copyWith =>
+      __$BlocksCopyWithImpl<_Blocks>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$BlocksToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BlocksImpl &&
+            other is _Blocks &&
             const DeepCollectionEquality().equals(other._blocks, _blocks) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -150,37 +132,47 @@ class _$BlocksImpl implements _Blocks {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_blocks), cursor);
 
-  /// Create a copy of Blocks
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$BlocksImplCopyWith<_$BlocksImpl> get copyWith =>
-      __$$BlocksImplCopyWithImpl<_$BlocksImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BlocksImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Blocks(blocks: $blocks, cursor: $cursor)';
   }
 }
 
-abstract class _Blocks implements Blocks {
-  const factory _Blocks(
-      {required final List<Actor> blocks, final String? cursor}) = _$BlocksImpl;
-
-  factory _Blocks.fromJson(Map<String, dynamic> json) = _$BlocksImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$BlocksCopyWith<$Res> implements $BlocksCopyWith<$Res> {
+  factory _$BlocksCopyWith(_Blocks value, $Res Function(_Blocks) _then) =
+      __$BlocksCopyWithImpl;
   @override
-  List<Actor> get blocks;
-  @override
-  String? get cursor;
+  @useResult
+  $Res call({List<Actor> blocks, String? cursor});
+}
+
+/// @nodoc
+class __$BlocksCopyWithImpl<$Res> implements _$BlocksCopyWith<$Res> {
+  __$BlocksCopyWithImpl(this._self, this._then);
+
+  final _Blocks _self;
+  final $Res Function(_Blocks) _then;
 
   /// Create a copy of Blocks
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlocksImplCopyWith<_$BlocksImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? blocks = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_Blocks(
+      blocks: null == blocks
+          ? _self._blocks
+          : blocks // ignore: cast_nullable_to_non_nullable
+              as List<Actor>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

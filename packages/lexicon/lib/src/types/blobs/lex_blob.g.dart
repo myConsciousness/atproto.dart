@@ -8,11 +8,11 @@ part of 'lex_blob.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexBlobImpl _$$LexBlobImplFromJson(Map json) => $checkedCreate(
-      r'_$LexBlobImpl',
+_LexBlob _$LexBlobFromJson(Map json) => $checkedCreate(
+      '_LexBlob',
       json,
       ($checkedConvert) {
-        final val = _$LexBlobImpl(
+        final val = _LexBlob(
           type: $checkedConvert('type', (v) => v as String? ?? 'blob'),
           description: $checkedConvert('description', (v) => v as String?),
           accept: $checkedConvert('accept',
@@ -23,8 +23,7 @@ _$LexBlobImpl _$$LexBlobImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexBlobImplToJson(_$LexBlobImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LexBlobToJson(_LexBlob instance) => <String, dynamic>{
       'type': instance.type,
       if (instance.description case final value?) 'description': value,
       if (instance.accept case final value?) 'accept': value,

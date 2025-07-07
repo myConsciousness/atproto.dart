@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,158 +10,32 @@ part of 'embed_view_record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EmbedViewRecord _$EmbedViewRecordFromJson(Map<String, dynamic> json) {
-  return _EmbedViewRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EmbedViewRecord {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @embedViewRecordViewConverter
-  EmbedViewRecordView get record => throw _privateConstructorUsedError;
-
-  /// Serializes this EmbedViewRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  EmbedViewRecordView get record;
 
   /// Create a copy of EmbedViewRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $EmbedViewRecordCopyWith<EmbedViewRecord> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$EmbedViewRecordCopyWithImpl<EmbedViewRecord>(
+          this as EmbedViewRecord, _$identity);
 
-/// @nodoc
-abstract class $EmbedViewRecordCopyWith<$Res> {
-  factory $EmbedViewRecordCopyWith(
-          EmbedViewRecord value, $Res Function(EmbedViewRecord) then) =
-      _$EmbedViewRecordCopyWithImpl<$Res, EmbedViewRecord>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @embedViewRecordViewConverter EmbedViewRecordView record});
-
-  $EmbedViewRecordViewCopyWith<$Res> get record;
-}
-
-/// @nodoc
-class _$EmbedViewRecordCopyWithImpl<$Res, $Val extends EmbedViewRecord>
-    implements $EmbedViewRecordCopyWith<$Res> {
-  _$EmbedViewRecordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of EmbedViewRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? record = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as EmbedViewRecordView,
-    ) as $Val);
-  }
-
-  /// Create a copy of EmbedViewRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $EmbedViewRecordViewCopyWith<$Res> get record {
-    return $EmbedViewRecordViewCopyWith<$Res>(_value.record, (value) {
-      return _then(_value.copyWith(record: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$EmbedViewRecordImplCopyWith<$Res>
-    implements $EmbedViewRecordCopyWith<$Res> {
-  factory _$$EmbedViewRecordImplCopyWith(_$EmbedViewRecordImpl value,
-          $Res Function(_$EmbedViewRecordImpl) then) =
-      __$$EmbedViewRecordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @embedViewRecordViewConverter EmbedViewRecordView record});
-
-  @override
-  $EmbedViewRecordViewCopyWith<$Res> get record;
-}
-
-/// @nodoc
-class __$$EmbedViewRecordImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordCopyWithImpl<$Res, _$EmbedViewRecordImpl>
-    implements _$$EmbedViewRecordImplCopyWith<$Res> {
-  __$$EmbedViewRecordImplCopyWithImpl(
-      _$EmbedViewRecordImpl _value, $Res Function(_$EmbedViewRecordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of EmbedViewRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? record = null,
-  }) {
-    return _then(_$EmbedViewRecordImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as EmbedViewRecordView,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$EmbedViewRecordImpl implements _EmbedViewRecord {
-  const _$EmbedViewRecordImpl(
-      {@typeKey this.type = appBskyEmbedRecordView,
-      @embedViewRecordViewConverter required this.record});
-
-  factory _$EmbedViewRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedViewRecordImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  @embedViewRecordViewConverter
-  final EmbedViewRecordView record;
-
-  @override
-  String toString() {
-    return 'EmbedViewRecord(type: $type, record: $record)';
-  }
+  /// Serializes this EmbedViewRecord to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedViewRecordImpl &&
+            other is EmbedViewRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record));
   }
@@ -169,43 +44,167 @@ class _$EmbedViewRecordImpl implements _EmbedViewRecord {
   @override
   int get hashCode => Object.hash(runtimeType, type, record);
 
-  /// Create a copy of EmbedViewRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EmbedViewRecordImplCopyWith<_$EmbedViewRecordImpl> get copyWith =>
-      __$$EmbedViewRecordImplCopyWithImpl<_$EmbedViewRecordImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EmbedViewRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'EmbedViewRecord(type: $type, record: $record)';
   }
 }
 
-abstract class _EmbedViewRecord implements EmbedViewRecord {
-  const factory _EmbedViewRecord(
-      {@typeKey final String type,
-      @embedViewRecordViewConverter
-      required final EmbedViewRecordView record}) = _$EmbedViewRecordImpl;
+/// @nodoc
+abstract mixin class $EmbedViewRecordCopyWith<$Res> {
+  factory $EmbedViewRecordCopyWith(
+          EmbedViewRecord value, $Res Function(EmbedViewRecord) _then) =
+      _$EmbedViewRecordCopyWithImpl;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @embedViewRecordViewConverter EmbedViewRecordView record});
 
-  factory _EmbedViewRecord.fromJson(Map<String, dynamic> json) =
-      _$EmbedViewRecordImpl.fromJson;
+  $EmbedViewRecordViewCopyWith<$Res> get record;
+}
+
+/// @nodoc
+class _$EmbedViewRecordCopyWithImpl<$Res>
+    implements $EmbedViewRecordCopyWith<$Res> {
+  _$EmbedViewRecordCopyWithImpl(this._self, this._then);
+
+  final EmbedViewRecord _self;
+  final $Res Function(EmbedViewRecord) _then;
+
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? record = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      record: null == record
+          ? _self.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as EmbedViewRecordView,
+    ));
+  }
+
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedViewRecordViewCopyWith<$Res> get record {
+    return $EmbedViewRecordViewCopyWith<$Res>(_self.record, (value) {
+      return _then(_self.copyWith(record: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _EmbedViewRecord implements EmbedViewRecord {
+  const _EmbedViewRecord(
+      {@typeKey this.type = appBskyEmbedRecordView,
+      @embedViewRecordViewConverter required this.record});
+  factory _EmbedViewRecord.fromJson(Map<String, dynamic> json) =>
+      _$EmbedViewRecordFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
   @embedViewRecordViewConverter
-  EmbedViewRecordView get record;
+  final EmbedViewRecordView record;
 
   /// Create a copy of EmbedViewRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EmbedViewRecordImplCopyWith<_$EmbedViewRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$EmbedViewRecordCopyWith<_EmbedViewRecord> get copyWith =>
+      __$EmbedViewRecordCopyWithImpl<_EmbedViewRecord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EmbedViewRecordToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _EmbedViewRecord &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.record, record) || other.record == record));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, record);
+
+  @override
+  String toString() {
+    return 'EmbedViewRecord(type: $type, record: $record)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$EmbedViewRecordCopyWith<$Res>
+    implements $EmbedViewRecordCopyWith<$Res> {
+  factory _$EmbedViewRecordCopyWith(
+          _EmbedViewRecord value, $Res Function(_EmbedViewRecord) _then) =
+      __$EmbedViewRecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @embedViewRecordViewConverter EmbedViewRecordView record});
+
+  @override
+  $EmbedViewRecordViewCopyWith<$Res> get record;
+}
+
+/// @nodoc
+class __$EmbedViewRecordCopyWithImpl<$Res>
+    implements _$EmbedViewRecordCopyWith<$Res> {
+  __$EmbedViewRecordCopyWithImpl(this._self, this._then);
+
+  final _EmbedViewRecord _self;
+  final $Res Function(_EmbedViewRecord) _then;
+
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? record = null,
+  }) {
+    return _then(_EmbedViewRecord(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      record: null == record
+          ? _self.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as EmbedViewRecordView,
+    ));
+  }
+
+  /// Create a copy of EmbedViewRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedViewRecordViewCopyWith<$Res> get record {
+    return $EmbedViewRecordViewCopyWith<$Res>(_self.record, (value) {
+      return _then(_self.copyWith(record: value));
+    });
+  }
+}
+
+// dart format on

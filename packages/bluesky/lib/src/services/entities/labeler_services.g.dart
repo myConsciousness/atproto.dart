@@ -8,12 +8,11 @@ part of 'labeler_services.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelerServicesImpl _$$LabelerServicesImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$LabelerServicesImpl',
+_LabelerServices _$LabelerServicesFromJson(Map json) => $checkedCreate(
+      '_LabelerServices',
       json,
       ($checkedConvert) {
-        final val = _$LabelerServicesImpl(
+        final val = _LabelerServices(
           views: $checkedConvert(
               'views',
               (v) => (v as List<dynamic>)
@@ -25,8 +24,7 @@ _$LabelerServicesImpl _$$LabelerServicesImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$LabelerServicesImplToJson(
-        _$LabelerServicesImpl instance) =>
+Map<String, dynamic> _$LabelerServicesToJson(_LabelerServices instance) =>
     <String, dynamic>{
       'views': instance.views.map(labelerServiceViewConverter.toJson).toList(),
     };

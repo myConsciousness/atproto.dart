@@ -8,13 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetActorStarterPacksOutputImpl _$$GetActorStarterPacksOutputImplFromJson(
-        Map json) =>
+_GetActorStarterPacksOutput _$GetActorStarterPacksOutputFromJson(Map json) =>
     $checkedCreate(
-      r'_$GetActorStarterPacksOutputImpl',
+      '_GetActorStarterPacksOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetActorStarterPacksOutputImpl(
+        final val = _GetActorStarterPacksOutput(
           cursor: $checkedConvert('cursor', (v) => v as String?),
           starterPacks: $checkedConvert(
               'starterPacks',
@@ -27,8 +26,8 @@ _$GetActorStarterPacksOutputImpl _$$GetActorStarterPacksOutputImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$GetActorStarterPacksOutputImplToJson(
-        _$GetActorStarterPacksOutputImpl instance) =>
+Map<String, dynamic> _$GetActorStarterPacksOutputToJson(
+        _GetActorStarterPacksOutput instance) =>
     <String, dynamic>{
       if (instance.cursor case final value?) 'cursor': value,
       'starterPacks': instance.starterPacks.map((e) => e.toJson()).toList(),

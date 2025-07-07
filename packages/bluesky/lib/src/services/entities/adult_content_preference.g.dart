@@ -8,12 +8,12 @@ part of 'adult_content_preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AdultContentPreferenceImpl _$$AdultContentPreferenceImplFromJson(Map json) =>
+_AdultContentPreference _$AdultContentPreferenceFromJson(Map json) =>
     $checkedCreate(
-      r'_$AdultContentPreferenceImpl',
+      '_AdultContentPreference',
       json,
       ($checkedConvert) {
-        final val = _$AdultContentPreferenceImpl(
+        final val = _AdultContentPreference(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsAdultContentPref),
           isEnabled: $checkedConvert('enabled', (v) => v as bool? ?? false),
@@ -23,8 +23,8 @@ _$AdultContentPreferenceImpl _$$AdultContentPreferenceImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type', 'isEnabled': 'enabled'},
     );
 
-Map<String, dynamic> _$$AdultContentPreferenceImplToJson(
-        _$AdultContentPreferenceImpl instance) =>
+Map<String, dynamic> _$AdultContentPreferenceToJson(
+        _AdultContentPreference instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'enabled': instance.isEnabled,

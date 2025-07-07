@@ -9,7 +9,7 @@ part 'generator_links.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describefeedgenerator/#links
 @freezed
-class GeneratorLinks with _$GeneratorLinks {
+abstract class GeneratorLinks with _$GeneratorLinks {
   @jsonSerializable
   const factory GeneratorLinks({
     String? privacyPolicy,

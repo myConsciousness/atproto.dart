@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,79 +10,55 @@ part of 'count.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Count _$CountFromJson(Map<String, dynamic> json) {
-  return _Count.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Count {
-  int get count => throw _privateConstructorUsedError;
-
-  /// Serializes this Count to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get count;
 
   /// Create a copy of Count
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CountCopyWith<Count> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CountCopyWith<$Res> {
-  factory $CountCopyWith(Count value, $Res Function(Count) then) =
-      _$CountCopyWithImpl<$Res, Count>;
-  @useResult
-  $Res call({int count});
-}
-
-/// @nodoc
-class _$CountCopyWithImpl<$Res, $Val extends Count>
-    implements $CountCopyWith<$Res> {
-  _$CountCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Count
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CountCopyWith<Count> get copyWith =>
+      _$CountCopyWithImpl<Count>(this as Count, _$identity);
+
+  /// Serializes this Count to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? count = null,
-  }) {
-    return _then(_value.copyWith(
-      count: null == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Count &&
+            (identical(other.count, count) || other.count == count));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, count);
+
+  @override
+  String toString() {
+    return 'Count(count: $count)';
   }
 }
 
 /// @nodoc
-abstract class _$$CountImplCopyWith<$Res> implements $CountCopyWith<$Res> {
-  factory _$$CountImplCopyWith(
-          _$CountImpl value, $Res Function(_$CountImpl) then) =
-      __$$CountImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CountCopyWith<$Res> {
+  factory $CountCopyWith(Count value, $Res Function(Count) _then) =
+      _$CountCopyWithImpl;
   @useResult
   $Res call({int count});
 }
 
 /// @nodoc
-class __$$CountImplCopyWithImpl<$Res>
-    extends _$CountCopyWithImpl<$Res, _$CountImpl>
-    implements _$$CountImplCopyWith<$Res> {
-  __$$CountImplCopyWithImpl(
-      _$CountImpl _value, $Res Function(_$CountImpl) _then)
-      : super(_value, _then);
+class _$CountCopyWithImpl<$Res> implements $CountCopyWith<$Res> {
+  _$CountCopyWithImpl(this._self, this._then);
+
+  final Count _self;
+  final $Res Function(Count) _then;
 
   /// Create a copy of Count
   /// with the given fields replaced by the non-null parameter values.
@@ -90,9 +67,9 @@ class __$$CountImplCopyWithImpl<$Res>
   $Res call({
     Object? count = null,
   }) {
-    return _then(_$CountImpl(
+    return _then(_self.copyWith(
       count: null == count
-          ? _value.count
+          ? _self.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -101,26 +78,34 @@ class __$$CountImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CountImpl implements _Count {
-  const _$CountImpl({this.count = 0});
-
-  factory _$CountImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CountImplFromJson(json);
+class _Count implements Count {
+  const _Count({this.count = 0});
+  factory _Count.fromJson(Map<String, dynamic> json) => _$CountFromJson(json);
 
   @override
   @JsonKey()
   final int count;
 
+  /// Create a copy of Count
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Count(count: $count)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CountCopyWith<_Count> get copyWith =>
+      __$CountCopyWithImpl<_Count>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CountToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CountImpl &&
+            other is _Count &&
             (identical(other.count, count) || other.count == count));
   }
 
@@ -128,34 +113,42 @@ class _$CountImpl implements _Count {
   @override
   int get hashCode => Object.hash(runtimeType, count);
 
-  /// Create a copy of Count
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CountImplCopyWith<_$CountImpl> get copyWith =>
-      __$$CountImplCopyWithImpl<_$CountImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CountImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Count(count: $count)';
   }
 }
 
-abstract class _Count implements Count {
-  const factory _Count({final int count}) = _$CountImpl;
-
-  factory _Count.fromJson(Map<String, dynamic> json) = _$CountImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$CountCopyWith<$Res> implements $CountCopyWith<$Res> {
+  factory _$CountCopyWith(_Count value, $Res Function(_Count) _then) =
+      __$CountCopyWithImpl;
   @override
-  int get count;
+  @useResult
+  $Res call({int count});
+}
+
+/// @nodoc
+class __$CountCopyWithImpl<$Res> implements _$CountCopyWith<$Res> {
+  __$CountCopyWithImpl(this._self, this._then);
+
+  final _Count _self;
+  final $Res Function(_Count) _then;
 
   /// Create a copy of Count
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CountImplCopyWith<_$CountImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? count = null,
+  }) {
+    return _then(_Count(
+      count: null == count
+          ? _self.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
+
+// dart format on

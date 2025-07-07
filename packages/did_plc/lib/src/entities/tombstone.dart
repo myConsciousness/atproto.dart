@@ -8,7 +8,7 @@ part 'tombstone.freezed.dart';
 part 'tombstone.g.dart';
 
 @freezed
-class Tombstone with _$Tombstone {
+abstract class Tombstone with _$Tombstone {
   /// Creates an instance of [Tombstone].
   @jsonSerializable
   const factory Tombstone({

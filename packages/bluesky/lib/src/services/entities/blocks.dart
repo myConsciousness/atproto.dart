@@ -12,7 +12,7 @@ part 'blocks.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getblocks/#output
 @freezed
-class Blocks with _$Blocks {
+abstract class Blocks with _$Blocks {
   @jsonSerializable
   const factory Blocks({
     required List<Actor> blocks,

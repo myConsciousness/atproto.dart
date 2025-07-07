@@ -8,12 +8,11 @@ part of 'interests_preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$InterestsPreferenceImpl _$$InterestsPreferenceImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$InterestsPreferenceImpl',
+_InterestsPreference _$InterestsPreferenceFromJson(Map json) => $checkedCreate(
+      '_InterestsPreference',
       json,
       ($checkedConvert) {
-        final val = _$InterestsPreferenceImpl(
+        final val = _InterestsPreference(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsInterestsPref),
           tags: $checkedConvert('tags',
@@ -24,8 +23,8 @@ _$InterestsPreferenceImpl _$$InterestsPreferenceImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$InterestsPreferenceImplToJson(
-        _$InterestsPreferenceImpl instance) =>
+Map<String, dynamic> _$InterestsPreferenceToJson(
+        _InterestsPreference instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'tags': instance.tags,

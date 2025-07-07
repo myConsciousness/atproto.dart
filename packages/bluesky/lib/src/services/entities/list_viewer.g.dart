@@ -8,11 +8,11 @@ part of 'list_viewer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListViewerImpl _$$ListViewerImplFromJson(Map json) => $checkedCreate(
-      r'_$ListViewerImpl',
+_ListViewer _$ListViewerFromJson(Map json) => $checkedCreate(
+      '_ListViewer',
       json,
       ($checkedConvert) {
-        final val = _$ListViewerImpl(
+        final val = _ListViewer(
           isMuted: $checkedConvert('muted', (v) => v as bool? ?? false),
           blocked: $checkedConvert(
               'blocked',
@@ -24,7 +24,7 @@ _$ListViewerImpl _$$ListViewerImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isMuted': 'muted'},
     );
 
-Map<String, dynamic> _$$ListViewerImplToJson(_$ListViewerImpl instance) =>
+Map<String, dynamic> _$ListViewerToJson(_ListViewer instance) =>
     <String, dynamic>{
       'muted': instance.isMuted,
       if (_$JsonConverterToJson<String, AtUri>(

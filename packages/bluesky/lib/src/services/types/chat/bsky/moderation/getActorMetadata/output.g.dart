@@ -8,12 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetActorMetadataOutputImpl _$$GetActorMetadataOutputImplFromJson(Map json) =>
+_GetActorMetadataOutput _$GetActorMetadataOutputFromJson(Map json) =>
     $checkedCreate(
-      r'_$GetActorMetadataOutputImpl',
+      '_GetActorMetadataOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetActorMetadataOutputImpl(
+        final val = _GetActorMetadataOutput(
           day: $checkedConvert('day',
               (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
           month: $checkedConvert('month',
@@ -25,8 +25,8 @@ _$GetActorMetadataOutputImpl _$$GetActorMetadataOutputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$GetActorMetadataOutputImplToJson(
-        _$GetActorMetadataOutputImpl instance) =>
+Map<String, dynamic> _$GetActorMetadataOutputToJson(
+        _GetActorMetadataOutput instance) =>
     <String, dynamic>{
       'day': instance.day.toJson(),
       'month': instance.month.toJson(),

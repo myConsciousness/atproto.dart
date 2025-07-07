@@ -9,7 +9,7 @@ part 'label.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#label
 @freezed
-class Label with _$Label {
+abstract class Label with _$Label {
   @jsonSerializable
   const factory Label({
     /// The AT Protocol version of the label object."

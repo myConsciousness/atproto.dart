@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,165 +10,31 @@ part of 'feed_generator.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FeedGenerator _$FeedGeneratorFromJson(Map<String, dynamic> json) {
-  return _FeedGenerator.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FeedGenerator {
-  FeedGeneratorView get view => throw _privateConstructorUsedError;
-  bool get isOnline => throw _privateConstructorUsedError;
-  bool get isValid => throw _privateConstructorUsedError;
-
-  /// Serializes this FeedGenerator to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  FeedGeneratorView get view;
+  bool get isOnline;
+  bool get isValid;
 
   /// Create a copy of FeedGenerator
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $FeedGeneratorCopyWith<FeedGenerator> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$FeedGeneratorCopyWithImpl<FeedGenerator>(
+          this as FeedGenerator, _$identity);
 
-/// @nodoc
-abstract class $FeedGeneratorCopyWith<$Res> {
-  factory $FeedGeneratorCopyWith(
-          FeedGenerator value, $Res Function(FeedGenerator) then) =
-      _$FeedGeneratorCopyWithImpl<$Res, FeedGenerator>;
-  @useResult
-  $Res call({FeedGeneratorView view, bool isOnline, bool isValid});
-
-  $FeedGeneratorViewCopyWith<$Res> get view;
-}
-
-/// @nodoc
-class _$FeedGeneratorCopyWithImpl<$Res, $Val extends FeedGenerator>
-    implements $FeedGeneratorCopyWith<$Res> {
-  _$FeedGeneratorCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FeedGenerator
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? view = null,
-    Object? isOnline = null,
-    Object? isValid = null,
-  }) {
-    return _then(_value.copyWith(
-      view: null == view
-          ? _value.view
-          : view // ignore: cast_nullable_to_non_nullable
-              as FeedGeneratorView,
-      isOnline: null == isOnline
-          ? _value.isOnline
-          : isOnline // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isValid: null == isValid
-          ? _value.isValid
-          : isValid // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
-
-  /// Create a copy of FeedGenerator
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $FeedGeneratorViewCopyWith<$Res> get view {
-    return $FeedGeneratorViewCopyWith<$Res>(_value.view, (value) {
-      return _then(_value.copyWith(view: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$FeedGeneratorImplCopyWith<$Res>
-    implements $FeedGeneratorCopyWith<$Res> {
-  factory _$$FeedGeneratorImplCopyWith(
-          _$FeedGeneratorImpl value, $Res Function(_$FeedGeneratorImpl) then) =
-      __$$FeedGeneratorImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({FeedGeneratorView view, bool isOnline, bool isValid});
-
-  @override
-  $FeedGeneratorViewCopyWith<$Res> get view;
-}
-
-/// @nodoc
-class __$$FeedGeneratorImplCopyWithImpl<$Res>
-    extends _$FeedGeneratorCopyWithImpl<$Res, _$FeedGeneratorImpl>
-    implements _$$FeedGeneratorImplCopyWith<$Res> {
-  __$$FeedGeneratorImplCopyWithImpl(
-      _$FeedGeneratorImpl _value, $Res Function(_$FeedGeneratorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of FeedGenerator
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? view = null,
-    Object? isOnline = null,
-    Object? isValid = null,
-  }) {
-    return _then(_$FeedGeneratorImpl(
-      view: null == view
-          ? _value.view
-          : view // ignore: cast_nullable_to_non_nullable
-              as FeedGeneratorView,
-      isOnline: null == isOnline
-          ? _value.isOnline
-          : isOnline // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isValid: null == isValid
-          ? _value.isValid
-          : isValid // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$FeedGeneratorImpl implements _FeedGenerator {
-  const _$FeedGeneratorImpl(
-      {required this.view, this.isOnline = false, this.isValid = false});
-
-  factory _$FeedGeneratorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedGeneratorImplFromJson(json);
-
-  @override
-  final FeedGeneratorView view;
-  @override
-  @JsonKey()
-  final bool isOnline;
-  @override
-  @JsonKey()
-  final bool isValid;
-
-  @override
-  String toString() {
-    return 'FeedGenerator(view: $view, isOnline: $isOnline, isValid: $isValid)';
-  }
+  /// Serializes this FeedGenerator to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedGeneratorImpl &&
+            other is FeedGenerator &&
             (identical(other.view, view) || other.view == view) &&
             (identical(other.isOnline, isOnline) ||
                 other.isOnline == isOnline) &&
@@ -178,42 +45,177 @@ class _$FeedGeneratorImpl implements _FeedGenerator {
   @override
   int get hashCode => Object.hash(runtimeType, view, isOnline, isValid);
 
-  /// Create a copy of FeedGenerator
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FeedGeneratorImplCopyWith<_$FeedGeneratorImpl> get copyWith =>
-      __$$FeedGeneratorImplCopyWithImpl<_$FeedGeneratorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FeedGeneratorImplToJson(
-      this,
-    );
+  String toString() {
+    return 'FeedGenerator(view: $view, isOnline: $isOnline, isValid: $isValid)';
   }
 }
 
-abstract class _FeedGenerator implements FeedGenerator {
-  const factory _FeedGenerator(
-      {required final FeedGeneratorView view,
-      final bool isOnline,
-      final bool isValid}) = _$FeedGeneratorImpl;
+/// @nodoc
+abstract mixin class $FeedGeneratorCopyWith<$Res> {
+  factory $FeedGeneratorCopyWith(
+          FeedGenerator value, $Res Function(FeedGenerator) _then) =
+      _$FeedGeneratorCopyWithImpl;
+  @useResult
+  $Res call({FeedGeneratorView view, bool isOnline, bool isValid});
 
-  factory _FeedGenerator.fromJson(Map<String, dynamic> json) =
-      _$FeedGeneratorImpl.fromJson;
+  $FeedGeneratorViewCopyWith<$Res> get view;
+}
+
+/// @nodoc
+class _$FeedGeneratorCopyWithImpl<$Res>
+    implements $FeedGeneratorCopyWith<$Res> {
+  _$FeedGeneratorCopyWithImpl(this._self, this._then);
+
+  final FeedGenerator _self;
+  final $Res Function(FeedGenerator) _then;
+
+  /// Create a copy of FeedGenerator
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? view = null,
+    Object? isOnline = null,
+    Object? isValid = null,
+  }) {
+    return _then(_self.copyWith(
+      view: null == view
+          ? _self.view
+          : view // ignore: cast_nullable_to_non_nullable
+              as FeedGeneratorView,
+      isOnline: null == isOnline
+          ? _self.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isValid: null == isValid
+          ? _self.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  /// Create a copy of FeedGenerator
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FeedGeneratorViewCopyWith<$Res> get view {
+    return $FeedGeneratorViewCopyWith<$Res>(_self.view, (value) {
+      return _then(_self.copyWith(view: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _FeedGenerator implements FeedGenerator {
+  const _FeedGenerator(
+      {required this.view, this.isOnline = false, this.isValid = false});
+  factory _FeedGenerator.fromJson(Map<String, dynamic> json) =>
+      _$FeedGeneratorFromJson(json);
 
   @override
-  FeedGeneratorView get view;
+  final FeedGeneratorView view;
   @override
-  bool get isOnline;
+  @JsonKey()
+  final bool isOnline;
   @override
-  bool get isValid;
+  @JsonKey()
+  final bool isValid;
 
   /// Create a copy of FeedGenerator
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FeedGeneratorImplCopyWith<_$FeedGeneratorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$FeedGeneratorCopyWith<_FeedGenerator> get copyWith =>
+      __$FeedGeneratorCopyWithImpl<_FeedGenerator>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FeedGeneratorToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _FeedGenerator &&
+            (identical(other.view, view) || other.view == view) &&
+            (identical(other.isOnline, isOnline) ||
+                other.isOnline == isOnline) &&
+            (identical(other.isValid, isValid) || other.isValid == isValid));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, view, isOnline, isValid);
+
+  @override
+  String toString() {
+    return 'FeedGenerator(view: $view, isOnline: $isOnline, isValid: $isValid)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$FeedGeneratorCopyWith<$Res>
+    implements $FeedGeneratorCopyWith<$Res> {
+  factory _$FeedGeneratorCopyWith(
+          _FeedGenerator value, $Res Function(_FeedGenerator) _then) =
+      __$FeedGeneratorCopyWithImpl;
+  @override
+  @useResult
+  $Res call({FeedGeneratorView view, bool isOnline, bool isValid});
+
+  @override
+  $FeedGeneratorViewCopyWith<$Res> get view;
+}
+
+/// @nodoc
+class __$FeedGeneratorCopyWithImpl<$Res>
+    implements _$FeedGeneratorCopyWith<$Res> {
+  __$FeedGeneratorCopyWithImpl(this._self, this._then);
+
+  final _FeedGenerator _self;
+  final $Res Function(_FeedGenerator) _then;
+
+  /// Create a copy of FeedGenerator
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? view = null,
+    Object? isOnline = null,
+    Object? isValid = null,
+  }) {
+    return _then(_FeedGenerator(
+      view: null == view
+          ? _self.view
+          : view // ignore: cast_nullable_to_non_nullable
+              as FeedGeneratorView,
+      isOnline: null == isOnline
+          ? _self.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isValid: null == isValid
+          ? _self.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  /// Create a copy of FeedGenerator
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FeedGeneratorViewCopyWith<$Res> get view {
+    return $FeedGeneratorViewCopyWith<$Res>(_self.view, (value) {
+      return _then(_self.copyWith(view: value));
+    });
+  }
+}
+
+// dart format on

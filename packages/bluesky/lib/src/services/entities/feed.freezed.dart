@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,84 +10,58 @@ part of 'feed.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Feed _$FeedFromJson(Map<String, dynamic> json) {
-  return _Feed.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Feed {
-  List<FeedView> get feed => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this Feed to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<FeedView> get feed;
+  String? get cursor;
 
   /// Create a copy of Feed
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FeedCopyWith<Feed> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FeedCopyWith<$Res> {
-  factory $FeedCopyWith(Feed value, $Res Function(Feed) then) =
-      _$FeedCopyWithImpl<$Res, Feed>;
-  @useResult
-  $Res call({List<FeedView> feed, String? cursor});
-}
-
-/// @nodoc
-class _$FeedCopyWithImpl<$Res, $Val extends Feed>
-    implements $FeedCopyWith<$Res> {
-  _$FeedCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Feed
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $FeedCopyWith<Feed> get copyWith =>
+      _$FeedCopyWithImpl<Feed>(this as Feed, _$identity);
+
+  /// Serializes this Feed to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? feed = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      feed: null == feed
-          ? _value.feed
-          : feed // ignore: cast_nullable_to_non_nullable
-              as List<FeedView>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Feed &&
+            const DeepCollectionEquality().equals(other.feed, feed) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(feed), cursor);
+
+  @override
+  String toString() {
+    return 'Feed(feed: $feed, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$FeedImplCopyWith<$Res> implements $FeedCopyWith<$Res> {
-  factory _$$FeedImplCopyWith(
-          _$FeedImpl value, $Res Function(_$FeedImpl) then) =
-      __$$FeedImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $FeedCopyWith<$Res> {
+  factory $FeedCopyWith(Feed value, $Res Function(Feed) _then) =
+      _$FeedCopyWithImpl;
   @useResult
   $Res call({List<FeedView> feed, String? cursor});
 }
 
 /// @nodoc
-class __$$FeedImplCopyWithImpl<$Res>
-    extends _$FeedCopyWithImpl<$Res, _$FeedImpl>
-    implements _$$FeedImplCopyWith<$Res> {
-  __$$FeedImplCopyWithImpl(_$FeedImpl _value, $Res Function(_$FeedImpl) _then)
-      : super(_value, _then);
+class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
+  _$FeedCopyWithImpl(this._self, this._then);
+
+  final Feed _self;
+  final $Res Function(Feed) _then;
 
   /// Create a copy of Feed
   /// with the given fields replaced by the non-null parameter values.
@@ -96,13 +71,13 @@ class __$$FeedImplCopyWithImpl<$Res>
     Object? feed = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$FeedImpl(
+    return _then(_self.copyWith(
       feed: null == feed
-          ? _value._feed
+          ? _self.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as List<FeedView>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -112,12 +87,9 @@ class __$$FeedImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedImpl implements _Feed {
-  const _$FeedImpl({required final List<FeedView> feed, this.cursor})
-      : _feed = feed;
-
-  factory _$FeedImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedImplFromJson(json);
+class _Feed implements Feed {
+  const _Feed({required final List<FeedView> feed, this.cursor}) : _feed = feed;
+  factory _Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 
   final List<FeedView> _feed;
   @override
@@ -130,16 +102,26 @@ class _$FeedImpl implements _Feed {
   @override
   final String? cursor;
 
+  /// Create a copy of Feed
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Feed(feed: $feed, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FeedCopyWith<_Feed> get copyWith =>
+      __$FeedCopyWithImpl<_Feed>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FeedToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedImpl &&
+            other is _Feed &&
             const DeepCollectionEquality().equals(other._feed, _feed) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -149,37 +131,47 @@ class _$FeedImpl implements _Feed {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_feed), cursor);
 
-  /// Create a copy of Feed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FeedImplCopyWith<_$FeedImpl> get copyWith =>
-      __$$FeedImplCopyWithImpl<_$FeedImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FeedImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Feed(feed: $feed, cursor: $cursor)';
   }
 }
 
-abstract class _Feed implements Feed {
-  const factory _Feed(
-      {required final List<FeedView> feed, final String? cursor}) = _$FeedImpl;
-
-  factory _Feed.fromJson(Map<String, dynamic> json) = _$FeedImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
+  factory _$FeedCopyWith(_Feed value, $Res Function(_Feed) _then) =
+      __$FeedCopyWithImpl;
   @override
-  List<FeedView> get feed;
-  @override
-  String? get cursor;
+  @useResult
+  $Res call({List<FeedView> feed, String? cursor});
+}
+
+/// @nodoc
+class __$FeedCopyWithImpl<$Res> implements _$FeedCopyWith<$Res> {
+  __$FeedCopyWithImpl(this._self, this._then);
+
+  final _Feed _self;
+  final $Res Function(_Feed) _then;
 
   /// Create a copy of Feed
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FeedImplCopyWith<_$FeedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? feed = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_Feed(
+      feed: null == feed
+          ? _self._feed
+          : feed // ignore: cast_nullable_to_non_nullable
+              as List<FeedView>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

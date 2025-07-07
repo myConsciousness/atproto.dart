@@ -13,7 +13,7 @@ part 'embed_view_images_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#viewimage
 @freezed
-class EmbedViewImagesView with _$EmbedViewImagesView {
+abstract class EmbedViewImagesView with _$EmbedViewImagesView {
   const factory EmbedViewImagesView({
     @typeKey @Default(appBskyEmbedImagesViewImage) String type,
     @JsonKey(name: 'thumb') required String thumbnail,

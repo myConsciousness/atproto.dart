@@ -13,7 +13,7 @@ part 'embed_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
-class EmbedRecord with _$EmbedRecord {
+abstract class EmbedRecord with _$EmbedRecord {
   const factory EmbedRecord({
     @typeKey @Default(appBskyEmbedRecord) String type,
     @JsonKey(name: 'record') required StrongRef ref,

@@ -7,7 +7,7 @@ part 'lex_xrpc_error.freezed.dart';
 part 'lex_xrpc_error.g.dart';
 
 @freezed
-class LexXrpcError with _$LexXrpcError {
+abstract class LexXrpcError with _$LexXrpcError {
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcError({
     required String name,

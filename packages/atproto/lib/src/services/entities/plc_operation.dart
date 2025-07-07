@@ -9,7 +9,7 @@ part 'plc_operation.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
 @freezed
-class PlcOperation with _$PlcOperation {
+abstract class PlcOperation with _$PlcOperation {
   @jsonSerializable
   const factory PlcOperation({
     required Map<String, dynamic> operation,

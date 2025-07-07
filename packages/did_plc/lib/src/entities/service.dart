@@ -8,7 +8,7 @@ part 'service.freezed.dart';
 part 'service.g.dart';
 
 @freezed
-class Service with _$Service {
+abstract class Service with _$Service {
   /// Creates an instance of [Service].
   @jsonSerializable
   const factory Service({

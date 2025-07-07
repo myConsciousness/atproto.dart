@@ -8,12 +8,11 @@ part of 'labeler_view_detailed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelerViewDetailedImpl _$$LabelerViewDetailedImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$LabelerViewDetailedImpl',
+_LabelerViewDetailed _$LabelerViewDetailedFromJson(Map json) => $checkedCreate(
+      '_LabelerViewDetailed',
       json,
       ($checkedConvert) {
-        final val = _$LabelerViewDetailedImpl(
+        final val = _LabelerViewDetailed(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -44,8 +43,8 @@ _$LabelerViewDetailedImpl _$$LabelerViewDetailedImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$LabelerViewDetailedImplToJson(
-        _$LabelerViewDetailedImpl instance) =>
+Map<String, dynamic> _$LabelerViewDetailedToJson(
+        _LabelerViewDetailed instance) =>
     <String, dynamic>{
       'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,

@@ -12,7 +12,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/searchStarterPacks/#output
 @freezed
-class SearchStarterPacksOutput with _$SearchStarterPacksOutput {
+abstract class SearchStarterPacksOutput with _$SearchStarterPacksOutput {
   @jsonSerializable
   const factory SearchStarterPacksOutput({
     String? cursor,

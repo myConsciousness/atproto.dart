@@ -9,7 +9,7 @@ part 'job_status.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/video/defs/#jobStatus
 @freezed
-class JobStatus with _$JobStatus {
+abstract class JobStatus with _$JobStatus {
   @jsonSerializable
   const factory JobStatus({
     required String jobId,

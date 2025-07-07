@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,93 +10,60 @@ part of 'notifications.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Notifications _$NotificationsFromJson(Map<String, dynamic> json) {
-  return _Notifications.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Notifications {
-  List<Notification> get notifications => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-  bool get priority => throw _privateConstructorUsedError;
-  DateTime? get seenAt => throw _privateConstructorUsedError;
-
-  /// Serializes this Notifications to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Notification> get notifications;
+  String? get cursor;
+  bool get priority;
+  DateTime? get seenAt;
 
   /// Create a copy of Notifications
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $NotificationsCopyWith<Notifications> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $NotificationsCopyWith<$Res> {
-  factory $NotificationsCopyWith(
-          Notifications value, $Res Function(Notifications) then) =
-      _$NotificationsCopyWithImpl<$Res, Notifications>;
-  @useResult
-  $Res call(
-      {List<Notification> notifications,
-      String? cursor,
-      bool priority,
-      DateTime? seenAt});
-}
-
-/// @nodoc
-class _$NotificationsCopyWithImpl<$Res, $Val extends Notifications>
-    implements $NotificationsCopyWith<$Res> {
-  _$NotificationsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Notifications
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $NotificationsCopyWith<Notifications> get copyWith =>
+      _$NotificationsCopyWithImpl<Notifications>(
+          this as Notifications, _$identity);
+
+  /// Serializes this Notifications to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? notifications = null,
-    Object? cursor = freezed,
-    Object? priority = null,
-    Object? seenAt = freezed,
-  }) {
-    return _then(_value.copyWith(
-      notifications: null == notifications
-          ? _value.notifications
-          : notifications // ignore: cast_nullable_to_non_nullable
-              as List<Notification>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      priority: null == priority
-          ? _value.priority
-          : priority // ignore: cast_nullable_to_non_nullable
-              as bool,
-      seenAt: freezed == seenAt
-          ? _value.seenAt
-          : seenAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Notifications &&
+            const DeepCollectionEquality()
+                .equals(other.notifications, notifications) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.priority, priority) ||
+                other.priority == priority) &&
+            (identical(other.seenAt, seenAt) || other.seenAt == seenAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(notifications),
+      cursor,
+      priority,
+      seenAt);
+
+  @override
+  String toString() {
+    return 'Notifications(notifications: $notifications, cursor: $cursor, priority: $priority, seenAt: $seenAt)';
   }
 }
 
 /// @nodoc
-abstract class _$$NotificationsImplCopyWith<$Res>
-    implements $NotificationsCopyWith<$Res> {
-  factory _$$NotificationsImplCopyWith(
-          _$NotificationsImpl value, $Res Function(_$NotificationsImpl) then) =
-      __$$NotificationsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $NotificationsCopyWith<$Res> {
+  factory $NotificationsCopyWith(
+          Notifications value, $Res Function(Notifications) _then) =
+      _$NotificationsCopyWithImpl;
   @useResult
   $Res call(
       {List<Notification> notifications,
@@ -105,12 +73,12 @@ abstract class _$$NotificationsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$NotificationsImplCopyWithImpl<$Res>
-    extends _$NotificationsCopyWithImpl<$Res, _$NotificationsImpl>
-    implements _$$NotificationsImplCopyWith<$Res> {
-  __$$NotificationsImplCopyWithImpl(
-      _$NotificationsImpl _value, $Res Function(_$NotificationsImpl) _then)
-      : super(_value, _then);
+class _$NotificationsCopyWithImpl<$Res>
+    implements $NotificationsCopyWith<$Res> {
+  _$NotificationsCopyWithImpl(this._self, this._then);
+
+  final Notifications _self;
+  final $Res Function(Notifications) _then;
 
   /// Create a copy of Notifications
   /// with the given fields replaced by the non-null parameter values.
@@ -122,21 +90,21 @@ class __$$NotificationsImplCopyWithImpl<$Res>
     Object? priority = null,
     Object? seenAt = freezed,
   }) {
-    return _then(_$NotificationsImpl(
+    return _then(_self.copyWith(
       notifications: null == notifications
-          ? _value._notifications
+          ? _self.notifications
           : notifications // ignore: cast_nullable_to_non_nullable
               as List<Notification>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
       priority: null == priority
-          ? _value.priority
+          ? _self.priority
           : priority // ignore: cast_nullable_to_non_nullable
               as bool,
       seenAt: freezed == seenAt
-          ? _value.seenAt
+          ? _self.seenAt
           : seenAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
@@ -145,17 +113,16 @@ class __$$NotificationsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NotificationsImpl extends _Notifications {
-  const _$NotificationsImpl(
+class _Notifications extends Notifications {
+  const _Notifications(
       {required final List<Notification> notifications,
       this.cursor,
       this.priority = false,
       this.seenAt})
       : _notifications = notifications,
         super._();
-
-  factory _$NotificationsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NotificationsImplFromJson(json);
+  factory _Notifications.fromJson(Map<String, dynamic> json) =>
+      _$NotificationsFromJson(json);
 
   final List<Notification> _notifications;
   @override
@@ -173,16 +140,26 @@ class _$NotificationsImpl extends _Notifications {
   @override
   final DateTime? seenAt;
 
+  /// Create a copy of Notifications
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Notifications(notifications: $notifications, cursor: $cursor, priority: $priority, seenAt: $seenAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$NotificationsCopyWith<_Notifications> get copyWith =>
+      __$NotificationsCopyWithImpl<_Notifications>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$NotificationsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotificationsImpl &&
+            other is _Notifications &&
             const DeepCollectionEquality()
                 .equals(other._notifications, _notifications) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
@@ -200,46 +177,64 @@ class _$NotificationsImpl extends _Notifications {
       priority,
       seenAt);
 
-  /// Create a copy of Notifications
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$NotificationsImplCopyWith<_$NotificationsImpl> get copyWith =>
-      __$$NotificationsImplCopyWithImpl<_$NotificationsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NotificationsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Notifications(notifications: $notifications, cursor: $cursor, priority: $priority, seenAt: $seenAt)';
   }
 }
 
-abstract class _Notifications extends Notifications {
-  const factory _Notifications(
-      {required final List<Notification> notifications,
-      final String? cursor,
-      final bool priority,
-      final DateTime? seenAt}) = _$NotificationsImpl;
-  const _Notifications._() : super._();
+/// @nodoc
+abstract mixin class _$NotificationsCopyWith<$Res>
+    implements $NotificationsCopyWith<$Res> {
+  factory _$NotificationsCopyWith(
+          _Notifications value, $Res Function(_Notifications) _then) =
+      __$NotificationsCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {List<Notification> notifications,
+      String? cursor,
+      bool priority,
+      DateTime? seenAt});
+}
 
-  factory _Notifications.fromJson(Map<String, dynamic> json) =
-      _$NotificationsImpl.fromJson;
+/// @nodoc
+class __$NotificationsCopyWithImpl<$Res>
+    implements _$NotificationsCopyWith<$Res> {
+  __$NotificationsCopyWithImpl(this._self, this._then);
 
-  @override
-  List<Notification> get notifications;
-  @override
-  String? get cursor;
-  @override
-  bool get priority;
-  @override
-  DateTime? get seenAt;
+  final _Notifications _self;
+  final $Res Function(_Notifications) _then;
 
   /// Create a copy of Notifications
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$NotificationsImplCopyWith<_$NotificationsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? notifications = null,
+    Object? cursor = freezed,
+    Object? priority = null,
+    Object? seenAt = freezed,
+  }) {
+    return _then(_Notifications(
+      notifications: null == notifications
+          ? _self._notifications
+          : notifications // ignore: cast_nullable_to_non_nullable
+              as List<Notification>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      priority: null == priority
+          ? _self.priority
+          : priority // ignore: cast_nullable_to_non_nullable
+              as bool,
+      seenAt: freezed == seenAt
+          ? _self.seenAt
+          : seenAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
 }
+
+// dart format on

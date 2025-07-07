@@ -8,11 +8,11 @@ part of 'blob_refs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BlobRefsImpl _$$BlobRefsImplFromJson(Map json) => $checkedCreate(
-      r'_$BlobRefsImpl',
+_BlobRefs _$BlobRefsFromJson(Map json) => $checkedCreate(
+      '_BlobRefs',
       json,
       ($checkedConvert) {
-        final val = _$BlobRefsImpl(
+        final val = _BlobRefs(
           cids: $checkedConvert('cids',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
@@ -21,8 +21,7 @@ _$BlobRefsImpl _$$BlobRefsImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$BlobRefsImplToJson(_$BlobRefsImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$BlobRefsToJson(_BlobRefs instance) => <String, dynamic>{
       'cids': instance.cids,
       'cursor': instance.cursor,
     };

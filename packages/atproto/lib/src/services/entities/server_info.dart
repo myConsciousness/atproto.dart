@@ -11,7 +11,7 @@ part 'server_info.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeserver/#output
 @freezed
-class ServerInfo with _$ServerInfo {
+abstract class ServerInfo with _$ServerInfo {
   @jsonSerializable
   const factory ServerInfo({
     required List<String> availableUserDomains,

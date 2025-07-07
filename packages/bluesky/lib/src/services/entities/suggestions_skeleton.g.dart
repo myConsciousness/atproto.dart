@@ -8,12 +8,11 @@ part of 'suggestions_skeleton.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SuggestionsSkeletonImpl _$$SuggestionsSkeletonImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SuggestionsSkeletonImpl',
+_SuggestionsSkeleton _$SuggestionsSkeletonFromJson(Map json) => $checkedCreate(
+      '_SuggestionsSkeleton',
       json,
       ($checkedConvert) {
-        final val = _$SuggestionsSkeletonImpl(
+        final val = _SuggestionsSkeleton(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
@@ -28,8 +27,8 @@ _$SuggestionsSkeletonImpl _$$SuggestionsSkeletonImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$SuggestionsSkeletonImplToJson(
-        _$SuggestionsSkeletonImpl instance) =>
+Map<String, dynamic> _$SuggestionsSkeletonToJson(
+        _SuggestionsSkeleton instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,

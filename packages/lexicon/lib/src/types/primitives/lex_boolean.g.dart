@@ -8,11 +8,11 @@ part of 'lex_boolean.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexBooleanImpl _$$LexBooleanImplFromJson(Map json) => $checkedCreate(
-      r'_$LexBooleanImpl',
+_LexBoolean _$LexBooleanFromJson(Map json) => $checkedCreate(
+      '_LexBoolean',
       json,
       ($checkedConvert) {
-        final val = _$LexBooleanImpl(
+        final val = _LexBoolean(
           type: $checkedConvert('type', (v) => v as String? ?? 'boolean'),
           description: $checkedConvert('description', (v) => v as String?),
           defaultValue: $checkedConvert('default', (v) => v as bool?),
@@ -23,7 +23,7 @@ _$LexBooleanImpl _$$LexBooleanImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'defaultValue': 'default', 'constValue': 'const'},
     );
 
-Map<String, dynamic> _$$LexBooleanImplToJson(_$LexBooleanImpl instance) =>
+Map<String, dynamic> _$LexBooleanToJson(_LexBoolean instance) =>
     <String, dynamic>{
       'type': instance.type,
       if (instance.description case final value?) 'description': value,

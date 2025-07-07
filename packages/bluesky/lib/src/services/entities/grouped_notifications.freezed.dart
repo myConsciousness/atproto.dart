@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,90 +10,62 @@ part of 'grouped_notifications.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GroupedNotifications _$GroupedNotificationsFromJson(Map<String, dynamic> json) {
-  return _GroupedNotifications.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GroupedNotifications {
-  List<GroupedNotification> get notifications =>
-      throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this GroupedNotifications to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<GroupedNotification> get notifications;
+  String? get cursor;
 
   /// Create a copy of GroupedNotifications
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GroupedNotificationsCopyWith<GroupedNotifications> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GroupedNotificationsCopyWith<$Res> {
-  factory $GroupedNotificationsCopyWith(GroupedNotifications value,
-          $Res Function(GroupedNotifications) then) =
-      _$GroupedNotificationsCopyWithImpl<$Res, GroupedNotifications>;
-  @useResult
-  $Res call({List<GroupedNotification> notifications, String? cursor});
-}
-
-/// @nodoc
-class _$GroupedNotificationsCopyWithImpl<$Res,
-        $Val extends GroupedNotifications>
-    implements $GroupedNotificationsCopyWith<$Res> {
-  _$GroupedNotificationsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GroupedNotifications
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $GroupedNotificationsCopyWith<GroupedNotifications> get copyWith =>
+      _$GroupedNotificationsCopyWithImpl<GroupedNotifications>(
+          this as GroupedNotifications, _$identity);
+
+  /// Serializes this GroupedNotifications to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? notifications = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      notifications: null == notifications
-          ? _value.notifications
-          : notifications // ignore: cast_nullable_to_non_nullable
-              as List<GroupedNotification>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GroupedNotifications &&
+            const DeepCollectionEquality()
+                .equals(other.notifications, notifications) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(notifications), cursor);
+
+  @override
+  String toString() {
+    return 'GroupedNotifications(notifications: $notifications, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$GroupedNotificationsImplCopyWith<$Res>
-    implements $GroupedNotificationsCopyWith<$Res> {
-  factory _$$GroupedNotificationsImplCopyWith(_$GroupedNotificationsImpl value,
-          $Res Function(_$GroupedNotificationsImpl) then) =
-      __$$GroupedNotificationsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GroupedNotificationsCopyWith<$Res> {
+  factory $GroupedNotificationsCopyWith(GroupedNotifications value,
+          $Res Function(GroupedNotifications) _then) =
+      _$GroupedNotificationsCopyWithImpl;
   @useResult
   $Res call({List<GroupedNotification> notifications, String? cursor});
 }
 
 /// @nodoc
-class __$$GroupedNotificationsImplCopyWithImpl<$Res>
-    extends _$GroupedNotificationsCopyWithImpl<$Res, _$GroupedNotificationsImpl>
-    implements _$$GroupedNotificationsImplCopyWith<$Res> {
-  __$$GroupedNotificationsImplCopyWithImpl(_$GroupedNotificationsImpl _value,
-      $Res Function(_$GroupedNotificationsImpl) _then)
-      : super(_value, _then);
+class _$GroupedNotificationsCopyWithImpl<$Res>
+    implements $GroupedNotificationsCopyWith<$Res> {
+  _$GroupedNotificationsCopyWithImpl(this._self, this._then);
+
+  final GroupedNotifications _self;
+  final $Res Function(GroupedNotifications) _then;
 
   /// Create a copy of GroupedNotifications
   /// with the given fields replaced by the non-null parameter values.
@@ -102,13 +75,13 @@ class __$$GroupedNotificationsImplCopyWithImpl<$Res>
     Object? notifications = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$GroupedNotificationsImpl(
+    return _then(_self.copyWith(
       notifications: null == notifications
-          ? _value._notifications
+          ? _self.notifications
           : notifications // ignore: cast_nullable_to_non_nullable
               as List<GroupedNotification>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -117,13 +90,12 @@ class __$$GroupedNotificationsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GroupedNotificationsImpl implements _GroupedNotifications {
-  const _$GroupedNotificationsImpl(
+class _GroupedNotifications implements GroupedNotifications {
+  const _GroupedNotifications(
       {required final List<GroupedNotification> notifications, this.cursor})
       : _notifications = notifications;
-
-  factory _$GroupedNotificationsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GroupedNotificationsImplFromJson(json);
+  factory _GroupedNotifications.fromJson(Map<String, dynamic> json) =>
+      _$GroupedNotificationsFromJson(json);
 
   final List<GroupedNotification> _notifications;
   @override
@@ -136,16 +108,27 @@ class _$GroupedNotificationsImpl implements _GroupedNotifications {
   @override
   final String? cursor;
 
+  /// Create a copy of GroupedNotifications
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GroupedNotifications(notifications: $notifications, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GroupedNotificationsCopyWith<_GroupedNotifications> get copyWith =>
+      __$GroupedNotificationsCopyWithImpl<_GroupedNotifications>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GroupedNotificationsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GroupedNotificationsImpl &&
+            other is _GroupedNotifications &&
             const DeepCollectionEquality()
                 .equals(other._notifications, _notifications) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
@@ -156,41 +139,50 @@ class _$GroupedNotificationsImpl implements _GroupedNotifications {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_notifications), cursor);
 
-  /// Create a copy of GroupedNotifications
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GroupedNotificationsImplCopyWith<_$GroupedNotificationsImpl>
-      get copyWith =>
-          __$$GroupedNotificationsImplCopyWithImpl<_$GroupedNotificationsImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GroupedNotificationsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GroupedNotifications(notifications: $notifications, cursor: $cursor)';
   }
 }
 
-abstract class _GroupedNotifications implements GroupedNotifications {
-  const factory _GroupedNotifications(
-      {required final List<GroupedNotification> notifications,
-      final String? cursor}) = _$GroupedNotificationsImpl;
-
-  factory _GroupedNotifications.fromJson(Map<String, dynamic> json) =
-      _$GroupedNotificationsImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$GroupedNotificationsCopyWith<$Res>
+    implements $GroupedNotificationsCopyWith<$Res> {
+  factory _$GroupedNotificationsCopyWith(_GroupedNotifications value,
+          $Res Function(_GroupedNotifications) _then) =
+      __$GroupedNotificationsCopyWithImpl;
   @override
-  List<GroupedNotification> get notifications;
-  @override
-  String? get cursor;
+  @useResult
+  $Res call({List<GroupedNotification> notifications, String? cursor});
+}
+
+/// @nodoc
+class __$GroupedNotificationsCopyWithImpl<$Res>
+    implements _$GroupedNotificationsCopyWith<$Res> {
+  __$GroupedNotificationsCopyWithImpl(this._self, this._then);
+
+  final _GroupedNotifications _self;
+  final $Res Function(_GroupedNotifications) _then;
 
   /// Create a copy of GroupedNotifications
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GroupedNotificationsImplCopyWith<_$GroupedNotificationsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? notifications = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_GroupedNotifications(
+      notifications: null == notifications
+          ? _self._notifications
+          : notifications // ignore: cast_nullable_to_non_nullable
+              as List<GroupedNotification>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

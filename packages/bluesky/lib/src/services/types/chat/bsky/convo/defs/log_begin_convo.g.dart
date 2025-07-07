@@ -8,11 +8,11 @@ part of 'log_begin_convo.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LogBeginConvoImpl _$$LogBeginConvoImplFromJson(Map json) => $checkedCreate(
-      r'_$LogBeginConvoImpl',
+_LogBeginConvo _$LogBeginConvoFromJson(Map json) => $checkedCreate(
+      '_LogBeginConvo',
       json,
       ($checkedConvert) {
-        final val = _$LogBeginConvoImpl(
+        final val = _LogBeginConvo(
           rev: $checkedConvert('rev', (v) => v as String),
           convoId: $checkedConvert('convoId', (v) => v as String),
         );
@@ -20,7 +20,7 @@ _$LogBeginConvoImpl _$$LogBeginConvoImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LogBeginConvoImplToJson(_$LogBeginConvoImpl instance) =>
+Map<String, dynamic> _$LogBeginConvoToJson(_LogBeginConvo instance) =>
     <String, dynamic>{
       'rev': instance.rev,
       'convoId': instance.convoId,

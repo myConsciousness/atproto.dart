@@ -8,11 +8,11 @@ part of 'update_action.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UpdateActionImpl _$$UpdateActionImplFromJson(Map json) => $checkedCreate(
-      r'_$UpdateActionImpl',
+_UpdateAction _$UpdateActionFromJson(Map json) => $checkedCreate(
+      '_UpdateAction',
       json,
       ($checkedConvert) {
-        final val = _$UpdateActionImpl(
+        final val = _UpdateAction(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesUpdate),
           collection: $checkedConvert(
@@ -26,7 +26,7 @@ _$UpdateActionImpl _$$UpdateActionImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type', 'record': 'value'},
     );
 
-Map<String, dynamic> _$$UpdateActionImplToJson(_$UpdateActionImpl instance) =>
+Map<String, dynamic> _$UpdateActionToJson(_UpdateAction instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'collection': nsidConverter.toJson(instance.collection),

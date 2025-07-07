@@ -13,7 +13,7 @@ part 'list_item_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#listitemview
 @freezed
-class ListItemView with _$ListItemView {
+abstract class ListItemView with _$ListItemView {
   @jsonSerializable
   const factory ListItemView({
     @typeKey @Default(appBskyGraphDefsListItemView) String type,

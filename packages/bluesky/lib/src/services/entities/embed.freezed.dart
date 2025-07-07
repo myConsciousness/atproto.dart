@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,103 +10,74 @@ part of 'embed.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Embed {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedRecord data) record,
-    required TResult Function(EmbedImages data) images,
-    required TResult Function(EmbedExternal data) external,
-    required TResult Function(EmbedRecordWithMedia data) recordWithMedia,
-    required TResult Function(EmbedVideo data) video,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedRecord data)? record,
-    TResult? Function(EmbedImages data)? images,
-    TResult? Function(EmbedExternal data)? external,
-    TResult? Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult? Function(EmbedVideo data)? video,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedRecord data)? record,
-    TResult Function(EmbedImages data)? images,
-    TResult Function(EmbedExternal data)? external,
-    TResult Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult Function(EmbedVideo data)? video,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecord value) record,
-    required TResult Function(UEmbedImages value) images,
-    required TResult Function(UEmbedExternal value) external,
-    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
-    required TResult Function(UEmbedVideo value) video,
-    required TResult Function(UEmbedUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecord value)? record,
-    TResult? Function(UEmbedImages value)? images,
-    TResult? Function(UEmbedExternal value)? external,
-    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult? Function(UEmbedVideo value)? video,
-    TResult? Function(UEmbedUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecord value)? record,
-    TResult Function(UEmbedImages value)? images,
-    TResult Function(UEmbedExternal value)? external,
-    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult Function(UEmbedVideo value)? video,
-    TResult Function(UEmbedUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Embed &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'Embed(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $EmbedCopyWith<$Res> {
-  factory $EmbedCopyWith(Embed value, $Res Function(Embed) then) =
-      _$EmbedCopyWithImpl<$Res, Embed>;
+class $EmbedCopyWith<$Res> {
+  $EmbedCopyWith(Embed _, $Res Function(Embed) __);
 }
 
 /// @nodoc
-class _$EmbedCopyWithImpl<$Res, $Val extends Embed>
-    implements $EmbedCopyWith<$Res> {
-  _$EmbedCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class UEmbedRecord extends Embed {
+  const UEmbedRecord({required this.data}) : super._();
+
+  @override
+  final EmbedRecord data;
 
   /// Create a copy of Embed
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedRecordCopyWith<UEmbedRecord> get copyWith =>
+      _$UEmbedRecordCopyWithImpl<UEmbedRecord>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UEmbedRecord &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'Embed.record(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$UEmbedRecordImplCopyWith<$Res> {
-  factory _$$UEmbedRecordImplCopyWith(
-          _$UEmbedRecordImpl value, $Res Function(_$UEmbedRecordImpl) then) =
-      __$$UEmbedRecordImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedRecordCopyWith<$Res>
+    implements $EmbedCopyWith<$Res> {
+  factory $UEmbedRecordCopyWith(
+          UEmbedRecord value, $Res Function(UEmbedRecord) _then) =
+      _$UEmbedRecordCopyWithImpl;
   @useResult
   $Res call({EmbedRecord data});
 
@@ -113,23 +85,21 @@ abstract class _$$UEmbedRecordImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedRecordImplCopyWithImpl<$Res>
-    extends _$EmbedCopyWithImpl<$Res, _$UEmbedRecordImpl>
-    implements _$$UEmbedRecordImplCopyWith<$Res> {
-  __$$UEmbedRecordImplCopyWithImpl(
-      _$UEmbedRecordImpl _value, $Res Function(_$UEmbedRecordImpl) _then)
-      : super(_value, _then);
+class _$UEmbedRecordCopyWithImpl<$Res> implements $UEmbedRecordCopyWith<$Res> {
+  _$UEmbedRecordCopyWithImpl(this._self, this._then);
+
+  final UEmbedRecord _self;
+  final $Res Function(UEmbedRecord) _then;
 
   /// Create a copy of Embed
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedRecordImpl(
+    return _then(UEmbedRecord(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedRecord,
     ));
@@ -140,151 +110,50 @@ class __$$UEmbedRecordImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $EmbedRecordCopyWith<$Res> get data {
-    return $EmbedRecordCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $EmbedRecordCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedRecordImpl extends UEmbedRecord {
-  const _$UEmbedRecordImpl({required this.data}) : super._();
+class UEmbedImages extends Embed {
+  const UEmbedImages({required this.data}) : super._();
 
   @override
-  final EmbedRecord data;
+  final EmbedImages data;
 
-  @override
-  String toString() {
-    return 'Embed.record(data: $data)';
-  }
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedImagesCopyWith<UEmbedImages> get copyWith =>
+      _$UEmbedImagesCopyWithImpl<UEmbedImages>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedRecordImpl &&
+            other is UEmbedImages &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedRecordImplCopyWith<_$UEmbedRecordImpl> get copyWith =>
-      __$$UEmbedRecordImplCopyWithImpl<_$UEmbedRecordImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedRecord data) record,
-    required TResult Function(EmbedImages data) images,
-    required TResult Function(EmbedExternal data) external,
-    required TResult Function(EmbedRecordWithMedia data) recordWithMedia,
-    required TResult Function(EmbedVideo data) video,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return record(data);
+  String toString() {
+    return 'Embed.images(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedRecord data)? record,
-    TResult? Function(EmbedImages data)? images,
-    TResult? Function(EmbedExternal data)? external,
-    TResult? Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult? Function(EmbedVideo data)? video,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return record?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedRecord data)? record,
-    TResult Function(EmbedImages data)? images,
-    TResult Function(EmbedExternal data)? external,
-    TResult Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult Function(EmbedVideo data)? video,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecord value) record,
-    required TResult Function(UEmbedImages value) images,
-    required TResult Function(UEmbedExternal value) external,
-    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
-    required TResult Function(UEmbedVideo value) video,
-    required TResult Function(UEmbedUnknown value) unknown,
-  }) {
-    return record(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecord value)? record,
-    TResult? Function(UEmbedImages value)? images,
-    TResult? Function(UEmbedExternal value)? external,
-    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult? Function(UEmbedVideo value)? video,
-    TResult? Function(UEmbedUnknown value)? unknown,
-  }) {
-    return record?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecord value)? record,
-    TResult Function(UEmbedImages value)? images,
-    TResult Function(UEmbedExternal value)? external,
-    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult Function(UEmbedVideo value)? video,
-    TResult Function(UEmbedUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedRecord extends Embed {
-  const factory UEmbedRecord({required final EmbedRecord data}) =
-      _$UEmbedRecordImpl;
-  const UEmbedRecord._() : super._();
-
-  @override
-  EmbedRecord get data;
-
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedRecordImplCopyWith<_$UEmbedRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedImagesImplCopyWith<$Res> {
-  factory _$$UEmbedImagesImplCopyWith(
-          _$UEmbedImagesImpl value, $Res Function(_$UEmbedImagesImpl) then) =
-      __$$UEmbedImagesImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedImagesCopyWith<$Res>
+    implements $EmbedCopyWith<$Res> {
+  factory $UEmbedImagesCopyWith(
+          UEmbedImages value, $Res Function(UEmbedImages) _then) =
+      _$UEmbedImagesCopyWithImpl;
   @useResult
   $Res call({EmbedImages data});
 
@@ -292,23 +161,21 @@ abstract class _$$UEmbedImagesImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedImagesImplCopyWithImpl<$Res>
-    extends _$EmbedCopyWithImpl<$Res, _$UEmbedImagesImpl>
-    implements _$$UEmbedImagesImplCopyWith<$Res> {
-  __$$UEmbedImagesImplCopyWithImpl(
-      _$UEmbedImagesImpl _value, $Res Function(_$UEmbedImagesImpl) _then)
-      : super(_value, _then);
+class _$UEmbedImagesCopyWithImpl<$Res> implements $UEmbedImagesCopyWith<$Res> {
+  _$UEmbedImagesCopyWithImpl(this._self, this._then);
+
+  final UEmbedImages _self;
+  final $Res Function(UEmbedImages) _then;
 
   /// Create a copy of Embed
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedImagesImpl(
+    return _then(UEmbedImages(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedImages,
     ));
@@ -319,151 +186,50 @@ class __$$UEmbedImagesImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $EmbedImagesCopyWith<$Res> get data {
-    return $EmbedImagesCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $EmbedImagesCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedImagesImpl extends UEmbedImages {
-  const _$UEmbedImagesImpl({required this.data}) : super._();
+class UEmbedExternal extends Embed {
+  const UEmbedExternal({required this.data}) : super._();
 
   @override
-  final EmbedImages data;
+  final EmbedExternal data;
 
-  @override
-  String toString() {
-    return 'Embed.images(data: $data)';
-  }
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedExternalCopyWith<UEmbedExternal> get copyWith =>
+      _$UEmbedExternalCopyWithImpl<UEmbedExternal>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedImagesImpl &&
+            other is UEmbedExternal &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedImagesImplCopyWith<_$UEmbedImagesImpl> get copyWith =>
-      __$$UEmbedImagesImplCopyWithImpl<_$UEmbedImagesImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedRecord data) record,
-    required TResult Function(EmbedImages data) images,
-    required TResult Function(EmbedExternal data) external,
-    required TResult Function(EmbedRecordWithMedia data) recordWithMedia,
-    required TResult Function(EmbedVideo data) video,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return images(data);
+  String toString() {
+    return 'Embed.external(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedRecord data)? record,
-    TResult? Function(EmbedImages data)? images,
-    TResult? Function(EmbedExternal data)? external,
-    TResult? Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult? Function(EmbedVideo data)? video,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return images?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedRecord data)? record,
-    TResult Function(EmbedImages data)? images,
-    TResult Function(EmbedExternal data)? external,
-    TResult Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult Function(EmbedVideo data)? video,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (images != null) {
-      return images(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecord value) record,
-    required TResult Function(UEmbedImages value) images,
-    required TResult Function(UEmbedExternal value) external,
-    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
-    required TResult Function(UEmbedVideo value) video,
-    required TResult Function(UEmbedUnknown value) unknown,
-  }) {
-    return images(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecord value)? record,
-    TResult? Function(UEmbedImages value)? images,
-    TResult? Function(UEmbedExternal value)? external,
-    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult? Function(UEmbedVideo value)? video,
-    TResult? Function(UEmbedUnknown value)? unknown,
-  }) {
-    return images?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecord value)? record,
-    TResult Function(UEmbedImages value)? images,
-    TResult Function(UEmbedExternal value)? external,
-    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult Function(UEmbedVideo value)? video,
-    TResult Function(UEmbedUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (images != null) {
-      return images(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedImages extends Embed {
-  const factory UEmbedImages({required final EmbedImages data}) =
-      _$UEmbedImagesImpl;
-  const UEmbedImages._() : super._();
-
-  @override
-  EmbedImages get data;
-
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedImagesImplCopyWith<_$UEmbedImagesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedExternalImplCopyWith<$Res> {
-  factory _$$UEmbedExternalImplCopyWith(_$UEmbedExternalImpl value,
-          $Res Function(_$UEmbedExternalImpl) then) =
-      __$$UEmbedExternalImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedExternalCopyWith<$Res>
+    implements $EmbedCopyWith<$Res> {
+  factory $UEmbedExternalCopyWith(
+          UEmbedExternal value, $Res Function(UEmbedExternal) _then) =
+      _$UEmbedExternalCopyWithImpl;
   @useResult
   $Res call({EmbedExternal data});
 
@@ -471,23 +237,22 @@ abstract class _$$UEmbedExternalImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedExternalImplCopyWithImpl<$Res>
-    extends _$EmbedCopyWithImpl<$Res, _$UEmbedExternalImpl>
-    implements _$$UEmbedExternalImplCopyWith<$Res> {
-  __$$UEmbedExternalImplCopyWithImpl(
-      _$UEmbedExternalImpl _value, $Res Function(_$UEmbedExternalImpl) _then)
-      : super(_value, _then);
+class _$UEmbedExternalCopyWithImpl<$Res>
+    implements $UEmbedExternalCopyWith<$Res> {
+  _$UEmbedExternalCopyWithImpl(this._self, this._then);
+
+  final UEmbedExternal _self;
+  final $Res Function(UEmbedExternal) _then;
 
   /// Create a copy of Embed
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedExternalImpl(
+    return _then(UEmbedExternal(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedExternal,
     ));
@@ -498,153 +263,51 @@ class __$$UEmbedExternalImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $EmbedExternalCopyWith<$Res> get data {
-    return $EmbedExternalCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $EmbedExternalCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedExternalImpl extends UEmbedExternal {
-  const _$UEmbedExternalImpl({required this.data}) : super._();
+class UEmbedRecordWithMedia extends Embed {
+  const UEmbedRecordWithMedia({required this.data}) : super._();
 
   @override
-  final EmbedExternal data;
+  final EmbedRecordWithMedia data;
 
-  @override
-  String toString() {
-    return 'Embed.external(data: $data)';
-  }
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedRecordWithMediaCopyWith<UEmbedRecordWithMedia> get copyWith =>
+      _$UEmbedRecordWithMediaCopyWithImpl<UEmbedRecordWithMedia>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedExternalImpl &&
+            other is UEmbedRecordWithMedia &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedExternalImplCopyWith<_$UEmbedExternalImpl> get copyWith =>
-      __$$UEmbedExternalImplCopyWithImpl<_$UEmbedExternalImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedRecord data) record,
-    required TResult Function(EmbedImages data) images,
-    required TResult Function(EmbedExternal data) external,
-    required TResult Function(EmbedRecordWithMedia data) recordWithMedia,
-    required TResult Function(EmbedVideo data) video,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return external(data);
+  String toString() {
+    return 'Embed.recordWithMedia(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedRecord data)? record,
-    TResult? Function(EmbedImages data)? images,
-    TResult? Function(EmbedExternal data)? external,
-    TResult? Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult? Function(EmbedVideo data)? video,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return external?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedRecord data)? record,
-    TResult Function(EmbedImages data)? images,
-    TResult Function(EmbedExternal data)? external,
-    TResult Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult Function(EmbedVideo data)? video,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (external != null) {
-      return external(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecord value) record,
-    required TResult Function(UEmbedImages value) images,
-    required TResult Function(UEmbedExternal value) external,
-    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
-    required TResult Function(UEmbedVideo value) video,
-    required TResult Function(UEmbedUnknown value) unknown,
-  }) {
-    return external(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecord value)? record,
-    TResult? Function(UEmbedImages value)? images,
-    TResult? Function(UEmbedExternal value)? external,
-    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult? Function(UEmbedVideo value)? video,
-    TResult? Function(UEmbedUnknown value)? unknown,
-  }) {
-    return external?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecord value)? record,
-    TResult Function(UEmbedImages value)? images,
-    TResult Function(UEmbedExternal value)? external,
-    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult Function(UEmbedVideo value)? video,
-    TResult Function(UEmbedUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (external != null) {
-      return external(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedExternal extends Embed {
-  const factory UEmbedExternal({required final EmbedExternal data}) =
-      _$UEmbedExternalImpl;
-  const UEmbedExternal._() : super._();
-
-  @override
-  EmbedExternal get data;
-
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedExternalImplCopyWith<_$UEmbedExternalImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedRecordWithMediaImplCopyWith<$Res> {
-  factory _$$UEmbedRecordWithMediaImplCopyWith(
-          _$UEmbedRecordWithMediaImpl value,
-          $Res Function(_$UEmbedRecordWithMediaImpl) then) =
-      __$$UEmbedRecordWithMediaImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedRecordWithMediaCopyWith<$Res>
+    implements $EmbedCopyWith<$Res> {
+  factory $UEmbedRecordWithMediaCopyWith(UEmbedRecordWithMedia value,
+          $Res Function(UEmbedRecordWithMedia) _then) =
+      _$UEmbedRecordWithMediaCopyWithImpl;
   @useResult
   $Res call({EmbedRecordWithMedia data});
 
@@ -652,23 +315,22 @@ abstract class _$$UEmbedRecordWithMediaImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedRecordWithMediaImplCopyWithImpl<$Res>
-    extends _$EmbedCopyWithImpl<$Res, _$UEmbedRecordWithMediaImpl>
-    implements _$$UEmbedRecordWithMediaImplCopyWith<$Res> {
-  __$$UEmbedRecordWithMediaImplCopyWithImpl(_$UEmbedRecordWithMediaImpl _value,
-      $Res Function(_$UEmbedRecordWithMediaImpl) _then)
-      : super(_value, _then);
+class _$UEmbedRecordWithMediaCopyWithImpl<$Res>
+    implements $UEmbedRecordWithMediaCopyWith<$Res> {
+  _$UEmbedRecordWithMediaCopyWithImpl(this._self, this._then);
+
+  final UEmbedRecordWithMedia _self;
+  final $Res Function(UEmbedRecordWithMedia) _then;
 
   /// Create a copy of Embed
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedRecordWithMediaImpl(
+    return _then(UEmbedRecordWithMedia(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedRecordWithMedia,
     ));
@@ -679,152 +341,50 @@ class __$$UEmbedRecordWithMediaImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $EmbedRecordWithMediaCopyWith<$Res> get data {
-    return $EmbedRecordWithMediaCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $EmbedRecordWithMediaCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedRecordWithMediaImpl extends UEmbedRecordWithMedia {
-  const _$UEmbedRecordWithMediaImpl({required this.data}) : super._();
+class UEmbedVideo extends Embed {
+  const UEmbedVideo({required this.data}) : super._();
 
   @override
-  final EmbedRecordWithMedia data;
+  final EmbedVideo data;
 
-  @override
-  String toString() {
-    return 'Embed.recordWithMedia(data: $data)';
-  }
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedVideoCopyWith<UEmbedVideo> get copyWith =>
+      _$UEmbedVideoCopyWithImpl<UEmbedVideo>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedRecordWithMediaImpl &&
+            other is UEmbedVideo &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedRecordWithMediaImplCopyWith<_$UEmbedRecordWithMediaImpl>
-      get copyWith => __$$UEmbedRecordWithMediaImplCopyWithImpl<
-          _$UEmbedRecordWithMediaImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedRecord data) record,
-    required TResult Function(EmbedImages data) images,
-    required TResult Function(EmbedExternal data) external,
-    required TResult Function(EmbedRecordWithMedia data) recordWithMedia,
-    required TResult Function(EmbedVideo data) video,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return recordWithMedia(data);
+  String toString() {
+    return 'Embed.video(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedRecord data)? record,
-    TResult? Function(EmbedImages data)? images,
-    TResult? Function(EmbedExternal data)? external,
-    TResult? Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult? Function(EmbedVideo data)? video,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return recordWithMedia?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedRecord data)? record,
-    TResult Function(EmbedImages data)? images,
-    TResult Function(EmbedExternal data)? external,
-    TResult Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult Function(EmbedVideo data)? video,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (recordWithMedia != null) {
-      return recordWithMedia(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecord value) record,
-    required TResult Function(UEmbedImages value) images,
-    required TResult Function(UEmbedExternal value) external,
-    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
-    required TResult Function(UEmbedVideo value) video,
-    required TResult Function(UEmbedUnknown value) unknown,
-  }) {
-    return recordWithMedia(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecord value)? record,
-    TResult? Function(UEmbedImages value)? images,
-    TResult? Function(UEmbedExternal value)? external,
-    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult? Function(UEmbedVideo value)? video,
-    TResult? Function(UEmbedUnknown value)? unknown,
-  }) {
-    return recordWithMedia?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecord value)? record,
-    TResult Function(UEmbedImages value)? images,
-    TResult Function(UEmbedExternal value)? external,
-    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult Function(UEmbedVideo value)? video,
-    TResult Function(UEmbedUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (recordWithMedia != null) {
-      return recordWithMedia(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedRecordWithMedia extends Embed {
-  const factory UEmbedRecordWithMedia(
-      {required final EmbedRecordWithMedia data}) = _$UEmbedRecordWithMediaImpl;
-  const UEmbedRecordWithMedia._() : super._();
-
-  @override
-  EmbedRecordWithMedia get data;
-
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedRecordWithMediaImplCopyWith<_$UEmbedRecordWithMediaImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UEmbedVideoImplCopyWith<$Res> {
-  factory _$$UEmbedVideoImplCopyWith(
-          _$UEmbedVideoImpl value, $Res Function(_$UEmbedVideoImpl) then) =
-      __$$UEmbedVideoImplCopyWithImpl<$Res>;
+abstract mixin class $UEmbedVideoCopyWith<$Res>
+    implements $EmbedCopyWith<$Res> {
+  factory $UEmbedVideoCopyWith(
+          UEmbedVideo value, $Res Function(UEmbedVideo) _then) =
+      _$UEmbedVideoCopyWithImpl;
   @useResult
   $Res call({EmbedVideo data});
 
@@ -832,23 +392,21 @@ abstract class _$$UEmbedVideoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UEmbedVideoImplCopyWithImpl<$Res>
-    extends _$EmbedCopyWithImpl<$Res, _$UEmbedVideoImpl>
-    implements _$$UEmbedVideoImplCopyWith<$Res> {
-  __$$UEmbedVideoImplCopyWithImpl(
-      _$UEmbedVideoImpl _value, $Res Function(_$UEmbedVideoImpl) _then)
-      : super(_value, _then);
+class _$UEmbedVideoCopyWithImpl<$Res> implements $UEmbedVideoCopyWith<$Res> {
+  _$UEmbedVideoCopyWithImpl(this._self, this._then);
+
+  final UEmbedVideo _self;
+  final $Res Function(UEmbedVideo) _then;
 
   /// Create a copy of Embed
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UEmbedVideoImpl(
+    return _then(UEmbedVideo(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedVideo,
     ));
@@ -859,183 +417,16 @@ class __$$UEmbedVideoImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $EmbedVideoCopyWith<$Res> get data {
-    return $EmbedVideoCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $EmbedVideoCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UEmbedVideoImpl extends UEmbedVideo {
-  const _$UEmbedVideoImpl({required this.data}) : super._();
-
-  @override
-  final EmbedVideo data;
-
-  @override
-  String toString() {
-    return 'Embed.video(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UEmbedVideoImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UEmbedVideoImplCopyWith<_$UEmbedVideoImpl> get copyWith =>
-      __$$UEmbedVideoImplCopyWithImpl<_$UEmbedVideoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedRecord data) record,
-    required TResult Function(EmbedImages data) images,
-    required TResult Function(EmbedExternal data) external,
-    required TResult Function(EmbedRecordWithMedia data) recordWithMedia,
-    required TResult Function(EmbedVideo data) video,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return video(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedRecord data)? record,
-    TResult? Function(EmbedImages data)? images,
-    TResult? Function(EmbedExternal data)? external,
-    TResult? Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult? Function(EmbedVideo data)? video,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return video?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedRecord data)? record,
-    TResult Function(EmbedImages data)? images,
-    TResult Function(EmbedExternal data)? external,
-    TResult Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult Function(EmbedVideo data)? video,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (video != null) {
-      return video(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecord value) record,
-    required TResult Function(UEmbedImages value) images,
-    required TResult Function(UEmbedExternal value) external,
-    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
-    required TResult Function(UEmbedVideo value) video,
-    required TResult Function(UEmbedUnknown value) unknown,
-  }) {
-    return video(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecord value)? record,
-    TResult? Function(UEmbedImages value)? images,
-    TResult? Function(UEmbedExternal value)? external,
-    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult? Function(UEmbedVideo value)? video,
-    TResult? Function(UEmbedUnknown value)? unknown,
-  }) {
-    return video?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecord value)? record,
-    TResult Function(UEmbedImages value)? images,
-    TResult Function(UEmbedExternal value)? external,
-    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult Function(UEmbedVideo value)? video,
-    TResult Function(UEmbedUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (video != null) {
-      return video(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UEmbedVideo extends Embed {
-  const factory UEmbedVideo({required final EmbedVideo data}) =
-      _$UEmbedVideoImpl;
-  const UEmbedVideo._() : super._();
-
-  @override
-  EmbedVideo get data;
-
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedVideoImplCopyWith<_$UEmbedVideoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UEmbedUnknownImplCopyWith<$Res> {
-  factory _$$UEmbedUnknownImplCopyWith(
-          _$UEmbedUnknownImpl value, $Res Function(_$UEmbedUnknownImpl) then) =
-      __$$UEmbedUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$UEmbedUnknownImplCopyWithImpl<$Res>
-    extends _$EmbedCopyWithImpl<$Res, _$UEmbedUnknownImpl>
-    implements _$$UEmbedUnknownImplCopyWith<$Res> {
-  __$$UEmbedUnknownImplCopyWithImpl(
-      _$UEmbedUnknownImpl _value, $Res Function(_$UEmbedUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UEmbedUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UEmbedUnknownImpl extends UEmbedUnknown {
-  const _$UEmbedUnknownImpl({required final Map<String, dynamic> data})
+class UEmbedUnknown extends Embed {
+  const UEmbedUnknown({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -1047,16 +438,18 @@ class _$UEmbedUnknownImpl extends UEmbedUnknown {
     return EqualUnmodifiableMapView(_data);
   }
 
-  @override
-  String toString() {
-    return 'Embed.unknown(data: $data)';
-  }
+  /// Create a copy of Embed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UEmbedUnknownCopyWith<UEmbedUnknown> get copyWith =>
+      _$UEmbedUnknownCopyWithImpl<UEmbedUnknown>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UEmbedUnknownImpl &&
+            other is UEmbedUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -1064,112 +457,43 @@ class _$UEmbedUnknownImpl extends UEmbedUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'Embed.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UEmbedUnknownCopyWith<$Res>
+    implements $EmbedCopyWith<$Res> {
+  factory $UEmbedUnknownCopyWith(
+          UEmbedUnknown value, $Res Function(UEmbedUnknown) _then) =
+      _$UEmbedUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$UEmbedUnknownCopyWithImpl<$Res>
+    implements $UEmbedUnknownCopyWith<$Res> {
+  _$UEmbedUnknownCopyWithImpl(this._self, this._then);
+
+  final UEmbedUnknown _self;
+  final $Res Function(UEmbedUnknown) _then;
+
   /// Create a copy of Embed
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$UEmbedUnknownImplCopyWith<_$UEmbedUnknownImpl> get copyWith =>
-      __$$UEmbedUnknownImplCopyWithImpl<_$UEmbedUnknownImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EmbedRecord data) record,
-    required TResult Function(EmbedImages data) images,
-    required TResult Function(EmbedExternal data) external,
-    required TResult Function(EmbedRecordWithMedia data) recordWithMedia,
-    required TResult Function(EmbedVideo data) video,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EmbedRecord data)? record,
-    TResult? Function(EmbedImages data)? images,
-    TResult? Function(EmbedExternal data)? external,
-    TResult? Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult? Function(EmbedVideo data)? video,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EmbedRecord data)? record,
-    TResult Function(EmbedImages data)? images,
-    TResult Function(EmbedExternal data)? external,
-    TResult Function(EmbedRecordWithMedia data)? recordWithMedia,
-    TResult Function(EmbedVideo data)? video,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UEmbedRecord value) record,
-    required TResult Function(UEmbedImages value) images,
-    required TResult Function(UEmbedExternal value) external,
-    required TResult Function(UEmbedRecordWithMedia value) recordWithMedia,
-    required TResult Function(UEmbedVideo value) video,
-    required TResult Function(UEmbedUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UEmbedRecord value)? record,
-    TResult? Function(UEmbedImages value)? images,
-    TResult? Function(UEmbedExternal value)? external,
-    TResult? Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult? Function(UEmbedVideo value)? video,
-    TResult? Function(UEmbedUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UEmbedRecord value)? record,
-    TResult Function(UEmbedImages value)? images,
-    TResult Function(UEmbedExternal value)? external,
-    TResult Function(UEmbedRecordWithMedia value)? recordWithMedia,
-    TResult Function(UEmbedVideo value)? video,
-    TResult Function(UEmbedUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
+    return _then(UEmbedUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class UEmbedUnknown extends Embed {
-  const factory UEmbedUnknown({required final Map<String, dynamic> data}) =
-      _$UEmbedUnknownImpl;
-  const UEmbedUnknown._() : super._();
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of Embed
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UEmbedUnknownImplCopyWith<_$UEmbedUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

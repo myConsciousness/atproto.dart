@@ -7,7 +7,7 @@ part 'log_leave_convo.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#logleaveconvo
 @freezed
-class LogLeaveConvo with _$LogLeaveConvo {
+abstract class LogLeaveConvo with _$LogLeaveConvo {
   @jsonSerializable
   const factory LogLeaveConvo({
     required String rev,

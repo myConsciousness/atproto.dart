@@ -12,7 +12,7 @@ part 'thread_view_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#threadviewpref
 @freezed
-class ThreadViewPreference with _$ThreadViewPreference {
+abstract class ThreadViewPreference with _$ThreadViewPreference {
   @jsonSerializable
   const factory ThreadViewPreference({
     @typeKey @Default(appBskyActorDefsThreadViewPref) String type,

@@ -8,12 +8,11 @@ part of 'skeleton_reason_pin.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SkeletonReasonPinImpl _$$SkeletonReasonPinImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SkeletonReasonPinImpl',
+_SkeletonReasonPin _$SkeletonReasonPinFromJson(Map json) => $checkedCreate(
+      '_SkeletonReasonPin',
       json,
       ($checkedConvert) {
-        final val = _$SkeletonReasonPinImpl(
+        final val = _SkeletonReasonPin(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyFeedDefsSkeletonReasonPin),
         );
@@ -22,8 +21,7 @@ _$SkeletonReasonPinImpl _$$SkeletonReasonPinImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$SkeletonReasonPinImplToJson(
-        _$SkeletonReasonPinImpl instance) =>
+Map<String, dynamic> _$SkeletonReasonPinToJson(_SkeletonReasonPin instance) =>
     <String, dynamic>{
       r'$type': instance.type,
     };

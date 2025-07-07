@@ -12,7 +12,7 @@ part 'label_value_definition.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs/#labelvaluedefinition
 @freezed
-class LabelValueDefinition with _$LabelValueDefinition {
+abstract class LabelValueDefinition with _$LabelValueDefinition {
   @jsonSerializable
   const factory LabelValueDefinition({
     required String identifier,

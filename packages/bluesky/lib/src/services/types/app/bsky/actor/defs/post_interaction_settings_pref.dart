@@ -15,7 +15,7 @@ part 'post_interaction_settings_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#postinteractionsettingspref
 @freezed
-class PostInteractionSettingsPref with _$PostInteractionSettingsPref {
+abstract class PostInteractionSettingsPref with _$PostInteractionSettingsPref {
   @jsonSerializable
   const factory PostInteractionSettingsPref({
     @typeKey @Default(appBskyActorDefsPostInteractionSettingsPref) String type,

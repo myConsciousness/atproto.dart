@@ -13,7 +13,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/postgate/#input
 @freezed
-class PostgateRecord with _$PostgateRecord {
+abstract class PostgateRecord with _$PostgateRecord {
   @jsonSerializable
   const factory PostgateRecord({
     @typeKey @Default(appBskyFeedPostgate) String type,

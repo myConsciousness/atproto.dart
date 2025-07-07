@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,95 +10,63 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GetActorStarterPacksOutput _$GetActorStarterPacksOutputFromJson(
-    Map<String, dynamic> json) {
-  return _GetActorStarterPacksOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetActorStarterPacksOutput {
-  String? get cursor => throw _privateConstructorUsedError;
-  List<StarterPackViewBasic> get starterPacks =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this GetActorStarterPacksOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get cursor;
+  List<StarterPackViewBasic> get starterPacks;
 
   /// Create a copy of GetActorStarterPacksOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetActorStarterPacksOutputCopyWith<GetActorStarterPacksOutput>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GetActorStarterPacksOutputCopyWith<$Res> {
-  factory $GetActorStarterPacksOutputCopyWith(GetActorStarterPacksOutput value,
-          $Res Function(GetActorStarterPacksOutput) then) =
-      _$GetActorStarterPacksOutputCopyWithImpl<$Res,
-          GetActorStarterPacksOutput>;
-  @useResult
-  $Res call({String? cursor, List<StarterPackViewBasic> starterPacks});
-}
-
-/// @nodoc
-class _$GetActorStarterPacksOutputCopyWithImpl<$Res,
-        $Val extends GetActorStarterPacksOutput>
-    implements $GetActorStarterPacksOutputCopyWith<$Res> {
-  _$GetActorStarterPacksOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GetActorStarterPacksOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $GetActorStarterPacksOutputCopyWith<GetActorStarterPacksOutput>
+      get copyWith =>
+          _$GetActorStarterPacksOutputCopyWithImpl<GetActorStarterPacksOutput>(
+              this as GetActorStarterPacksOutput, _$identity);
+
+  /// Serializes this GetActorStarterPacksOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? cursor = freezed,
-    Object? starterPacks = null,
-  }) {
-    return _then(_value.copyWith(
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      starterPacks: null == starterPacks
-          ? _value.starterPacks
-          : starterPacks // ignore: cast_nullable_to_non_nullable
-              as List<StarterPackViewBasic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetActorStarterPacksOutput &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            const DeepCollectionEquality()
+                .equals(other.starterPacks, starterPacks));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, cursor, const DeepCollectionEquality().hash(starterPacks));
+
+  @override
+  String toString() {
+    return 'GetActorStarterPacksOutput(cursor: $cursor, starterPacks: $starterPacks)';
   }
 }
 
 /// @nodoc
-abstract class _$$GetActorStarterPacksOutputImplCopyWith<$Res>
-    implements $GetActorStarterPacksOutputCopyWith<$Res> {
-  factory _$$GetActorStarterPacksOutputImplCopyWith(
-          _$GetActorStarterPacksOutputImpl value,
-          $Res Function(_$GetActorStarterPacksOutputImpl) then) =
-      __$$GetActorStarterPacksOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GetActorStarterPacksOutputCopyWith<$Res> {
+  factory $GetActorStarterPacksOutputCopyWith(GetActorStarterPacksOutput value,
+          $Res Function(GetActorStarterPacksOutput) _then) =
+      _$GetActorStarterPacksOutputCopyWithImpl;
   @useResult
   $Res call({String? cursor, List<StarterPackViewBasic> starterPacks});
 }
 
 /// @nodoc
-class __$$GetActorStarterPacksOutputImplCopyWithImpl<$Res>
-    extends _$GetActorStarterPacksOutputCopyWithImpl<$Res,
-        _$GetActorStarterPacksOutputImpl>
-    implements _$$GetActorStarterPacksOutputImplCopyWith<$Res> {
-  __$$GetActorStarterPacksOutputImplCopyWithImpl(
-      _$GetActorStarterPacksOutputImpl _value,
-      $Res Function(_$GetActorStarterPacksOutputImpl) _then)
-      : super(_value, _then);
+class _$GetActorStarterPacksOutputCopyWithImpl<$Res>
+    implements $GetActorStarterPacksOutputCopyWith<$Res> {
+  _$GetActorStarterPacksOutputCopyWithImpl(this._self, this._then);
+
+  final GetActorStarterPacksOutput _self;
+  final $Res Function(GetActorStarterPacksOutput) _then;
 
   /// Create a copy of GetActorStarterPacksOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -107,13 +76,13 @@ class __$$GetActorStarterPacksOutputImplCopyWithImpl<$Res>
     Object? cursor = freezed,
     Object? starterPacks = null,
   }) {
-    return _then(_$GetActorStarterPacksOutputImpl(
+    return _then(_self.copyWith(
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
       starterPacks: null == starterPacks
-          ? _value._starterPacks
+          ? _self.starterPacks
           : starterPacks // ignore: cast_nullable_to_non_nullable
               as List<StarterPackViewBasic>,
     ));
@@ -123,14 +92,12 @@ class __$$GetActorStarterPacksOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GetActorStarterPacksOutputImpl implements _GetActorStarterPacksOutput {
-  const _$GetActorStarterPacksOutputImpl(
+class _GetActorStarterPacksOutput implements GetActorStarterPacksOutput {
+  const _GetActorStarterPacksOutput(
       {this.cursor, required final List<StarterPackViewBasic> starterPacks})
       : _starterPacks = starterPacks;
-
-  factory _$GetActorStarterPacksOutputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$GetActorStarterPacksOutputImplFromJson(json);
+  factory _GetActorStarterPacksOutput.fromJson(Map<String, dynamic> json) =>
+      _$GetActorStarterPacksOutputFromJson(json);
 
   @override
   final String? cursor;
@@ -142,16 +109,27 @@ class _$GetActorStarterPacksOutputImpl implements _GetActorStarterPacksOutput {
     return EqualUnmodifiableListView(_starterPacks);
   }
 
+  /// Create a copy of GetActorStarterPacksOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GetActorStarterPacksOutput(cursor: $cursor, starterPacks: $starterPacks)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GetActorStarterPacksOutputCopyWith<_GetActorStarterPacksOutput>
+      get copyWith => __$GetActorStarterPacksOutputCopyWithImpl<
+          _GetActorStarterPacksOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GetActorStarterPacksOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetActorStarterPacksOutputImpl &&
+            other is _GetActorStarterPacksOutput &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             const DeepCollectionEquality()
                 .equals(other._starterPacks, _starterPacks));
@@ -162,42 +140,51 @@ class _$GetActorStarterPacksOutputImpl implements _GetActorStarterPacksOutput {
   int get hashCode => Object.hash(
       runtimeType, cursor, const DeepCollectionEquality().hash(_starterPacks));
 
-  /// Create a copy of GetActorStarterPacksOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetActorStarterPacksOutputImplCopyWith<_$GetActorStarterPacksOutputImpl>
-      get copyWith => __$$GetActorStarterPacksOutputImplCopyWithImpl<
-          _$GetActorStarterPacksOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetActorStarterPacksOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GetActorStarterPacksOutput(cursor: $cursor, starterPacks: $starterPacks)';
   }
 }
 
-abstract class _GetActorStarterPacksOutput
-    implements GetActorStarterPacksOutput {
-  const factory _GetActorStarterPacksOutput(
-          {final String? cursor,
-          required final List<StarterPackViewBasic> starterPacks}) =
-      _$GetActorStarterPacksOutputImpl;
-
-  factory _GetActorStarterPacksOutput.fromJson(Map<String, dynamic> json) =
-      _$GetActorStarterPacksOutputImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$GetActorStarterPacksOutputCopyWith<$Res>
+    implements $GetActorStarterPacksOutputCopyWith<$Res> {
+  factory _$GetActorStarterPacksOutputCopyWith(
+          _GetActorStarterPacksOutput value,
+          $Res Function(_GetActorStarterPacksOutput) _then) =
+      __$GetActorStarterPacksOutputCopyWithImpl;
   @override
-  String? get cursor;
-  @override
-  List<StarterPackViewBasic> get starterPacks;
+  @useResult
+  $Res call({String? cursor, List<StarterPackViewBasic> starterPacks});
+}
+
+/// @nodoc
+class __$GetActorStarterPacksOutputCopyWithImpl<$Res>
+    implements _$GetActorStarterPacksOutputCopyWith<$Res> {
+  __$GetActorStarterPacksOutputCopyWithImpl(this._self, this._then);
+
+  final _GetActorStarterPacksOutput _self;
+  final $Res Function(_GetActorStarterPacksOutput) _then;
 
   /// Create a copy of GetActorStarterPacksOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetActorStarterPacksOutputImplCopyWith<_$GetActorStarterPacksOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cursor = freezed,
+    Object? starterPacks = null,
+  }) {
+    return _then(_GetActorStarterPacksOutput(
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      starterPacks: null == starterPacks
+          ? _self._starterPacks
+          : starterPacks // ignore: cast_nullable_to_non_nullable
+              as List<StarterPackViewBasic>,
+    ));
+  }
 }
+
+// dart format on

@@ -8,11 +8,11 @@ part of 'thread_context.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ThreadContextImpl _$$ThreadContextImplFromJson(Map json) => $checkedCreate(
-      r'_$ThreadContextImpl',
+_ThreadContext _$ThreadContextFromJson(Map json) => $checkedCreate(
+      '_ThreadContext',
       json,
       ($checkedConvert) {
-        final val = _$ThreadContextImpl(
+        final val = _ThreadContext(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsThreadContext),
           rootAuthorLike: $checkedConvert(
@@ -25,7 +25,7 @@ _$ThreadContextImpl _$$ThreadContextImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ThreadContextImplToJson(_$ThreadContextImpl instance) =>
+Map<String, dynamic> _$ThreadContextToJson(_ThreadContext instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       if (_$JsonConverterToJson<String, AtUri>(

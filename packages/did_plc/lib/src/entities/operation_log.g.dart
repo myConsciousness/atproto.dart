@@ -8,11 +8,11 @@ part of 'operation_log.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OperationLogImpl _$$OperationLogImplFromJson(Map json) => $checkedCreate(
-      r'_$OperationLogImpl',
+_OperationLog _$OperationLogFromJson(Map json) => $checkedCreate(
+      '_OperationLog',
       json,
       ($checkedConvert) {
-        final val = _$OperationLogImpl(
+        final val = _OperationLog(
           log: $checkedConvert(
               'log',
               (v) => (v as List<dynamic>)
@@ -24,7 +24,7 @@ _$OperationLogImpl _$$OperationLogImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$OperationLogImplToJson(_$OperationLogImpl instance) =>
+Map<String, dynamic> _$OperationLogToJson(_OperationLog instance) =>
     <String, dynamic>{
       'log': instance.log.map(compatibleOpOrTombstoneConverter.toJson).toList(),
     };

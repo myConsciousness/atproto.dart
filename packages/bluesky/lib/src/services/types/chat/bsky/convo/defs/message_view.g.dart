@@ -8,11 +8,11 @@ part of 'message_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
-      r'_$MessageViewImpl',
+_MessageView _$MessageViewFromJson(Map json) => $checkedCreate(
+      '_MessageView',
       json,
       ($checkedConvert) {
-        final val = _$MessageViewImpl(
+        final val = _MessageView(
           id: $checkedConvert('id', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
           text: $checkedConvert('text', (v) => v as String),
@@ -37,7 +37,7 @@ _$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$MessageViewImplToJson(_$MessageViewImpl instance) =>
+Map<String, dynamic> _$MessageViewToJson(_MessageView instance) =>
     <String, dynamic>{
       'id': instance.id,
       'rev': instance.rev,

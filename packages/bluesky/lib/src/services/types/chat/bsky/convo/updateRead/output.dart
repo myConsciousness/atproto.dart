@@ -10,7 +10,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/updateRead/#output
 @freezed
-class UpdateReadOutput with _$UpdateReadOutput {
+abstract class UpdateReadOutput with _$UpdateReadOutput {
   @jsonSerializable
   const factory UpdateReadOutput({
     required ConvoView convo,

@@ -8,11 +8,11 @@ part of 'lex_integer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexIntegerImpl _$$LexIntegerImplFromJson(Map json) => $checkedCreate(
-      r'_$LexIntegerImpl',
+_LexInteger _$LexIntegerFromJson(Map json) => $checkedCreate(
+      '_LexInteger',
       json,
       ($checkedConvert) {
-        final val = _$LexIntegerImpl(
+        final val = _LexInteger(
           type: $checkedConvert('type', (v) => v as String? ?? 'integer'),
           description: $checkedConvert('description', (v) => v as String?),
           defaultValue: $checkedConvert('default', (v) => (v as num?)?.toInt()),
@@ -34,7 +34,7 @@ _$LexIntegerImpl _$$LexIntegerImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexIntegerImplToJson(_$LexIntegerImpl instance) =>
+Map<String, dynamic> _$LexIntegerToJson(_LexInteger instance) =>
     <String, dynamic>{
       'type': instance.type,
       if (instance.description case final value?) 'description': value,

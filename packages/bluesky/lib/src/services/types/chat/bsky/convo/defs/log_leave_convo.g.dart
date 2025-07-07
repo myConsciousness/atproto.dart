@@ -8,11 +8,11 @@ part of 'log_leave_convo.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LogLeaveConvoImpl _$$LogLeaveConvoImplFromJson(Map json) => $checkedCreate(
-      r'_$LogLeaveConvoImpl',
+_LogLeaveConvo _$LogLeaveConvoFromJson(Map json) => $checkedCreate(
+      '_LogLeaveConvo',
       json,
       ($checkedConvert) {
-        final val = _$LogLeaveConvoImpl(
+        final val = _LogLeaveConvo(
           rev: $checkedConvert('rev', (v) => v as String),
           convoId: $checkedConvert('convoId', (v) => v as String),
         );
@@ -20,7 +20,7 @@ _$LogLeaveConvoImpl _$$LogLeaveConvoImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LogLeaveConvoImplToJson(_$LogLeaveConvoImpl instance) =>
+Map<String, dynamic> _$LogLeaveConvoToJson(_LogLeaveConvo instance) =>
     <String, dynamic>{
       'rev': instance.rev,
       'convoId': instance.convoId,

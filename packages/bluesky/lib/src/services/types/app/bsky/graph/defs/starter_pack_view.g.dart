@@ -8,12 +8,11 @@ part of 'starter_pack_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StarterPackViewImpl _$$StarterPackViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$StarterPackViewImpl',
+_StarterPackView _$StarterPackViewFromJson(Map json) => $checkedCreate(
+      '_StarterPackView',
       json,
       ($checkedConvert) {
-        final val = _$StarterPackViewImpl(
+        final val = _StarterPackView(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphDefsStarterPackView),
           uri: $checkedConvert(
@@ -61,8 +60,7 @@ _$StarterPackViewImpl _$$StarterPackViewImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$StarterPackViewImplToJson(
-        _$StarterPackViewImpl instance) =>
+Map<String, dynamic> _$StarterPackViewToJson(_StarterPackView instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),

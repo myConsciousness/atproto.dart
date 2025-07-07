@@ -13,7 +13,7 @@ part 'profile_associated.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileassociated
 @freezed
-class ProfileAssociated with _$ProfileAssociated {
+abstract class ProfileAssociated with _$ProfileAssociated {
   @jsonSerializable
   const factory ProfileAssociated({
     @typeKey @Default(appBskyActorDefsProfileAssociated) String type,

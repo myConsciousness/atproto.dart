@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,201 +10,32 @@ part of 'reply.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Reply _$ReplyFromJson(Map<String, dynamic> json) {
-  return _Reply.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Reply {
   @replyPostConverter
-  ReplyPost get root => throw _privateConstructorUsedError;
+  ReplyPost get root;
   @replyPostConverter
-  ReplyPost get parent => throw _privateConstructorUsedError;
-  ActorBasic? get grandparentAuthor => throw _privateConstructorUsedError;
-
-  /// Serializes this Reply to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  ReplyPost get parent;
+  ActorBasic? get grandparentAuthor;
 
   /// Create a copy of Reply
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ReplyCopyWith<Reply> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ReplyCopyWith<$Res> {
-  factory $ReplyCopyWith(Reply value, $Res Function(Reply) then) =
-      _$ReplyCopyWithImpl<$Res, Reply>;
-  @useResult
-  $Res call(
-      {@replyPostConverter ReplyPost root,
-      @replyPostConverter ReplyPost parent,
-      ActorBasic? grandparentAuthor});
-
-  $ReplyPostCopyWith<$Res> get root;
-  $ReplyPostCopyWith<$Res> get parent;
-  $ActorBasicCopyWith<$Res>? get grandparentAuthor;
-}
-
-/// @nodoc
-class _$ReplyCopyWithImpl<$Res, $Val extends Reply>
-    implements $ReplyCopyWith<$Res> {
-  _$ReplyCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Reply
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? root = null,
-    Object? parent = null,
-    Object? grandparentAuthor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      root: null == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as ReplyPost,
-      parent: null == parent
-          ? _value.parent
-          : parent // ignore: cast_nullable_to_non_nullable
-              as ReplyPost,
-      grandparentAuthor: freezed == grandparentAuthor
-          ? _value.grandparentAuthor
-          : grandparentAuthor // ignore: cast_nullable_to_non_nullable
-              as ActorBasic?,
-    ) as $Val);
-  }
+  $ReplyCopyWith<Reply> get copyWith =>
+      _$ReplyCopyWithImpl<Reply>(this as Reply, _$identity);
 
-  /// Create a copy of Reply
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ReplyPostCopyWith<$Res> get root {
-    return $ReplyPostCopyWith<$Res>(_value.root, (value) {
-      return _then(_value.copyWith(root: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Reply
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ReplyPostCopyWith<$Res> get parent {
-    return $ReplyPostCopyWith<$Res>(_value.parent, (value) {
-      return _then(_value.copyWith(parent: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Reply
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorBasicCopyWith<$Res>? get grandparentAuthor {
-    if (_value.grandparentAuthor == null) {
-      return null;
-    }
-
-    return $ActorBasicCopyWith<$Res>(_value.grandparentAuthor!, (value) {
-      return _then(_value.copyWith(grandparentAuthor: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$ReplyImplCopyWith<$Res> implements $ReplyCopyWith<$Res> {
-  factory _$$ReplyImplCopyWith(
-          _$ReplyImpl value, $Res Function(_$ReplyImpl) then) =
-      __$$ReplyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@replyPostConverter ReplyPost root,
-      @replyPostConverter ReplyPost parent,
-      ActorBasic? grandparentAuthor});
-
-  @override
-  $ReplyPostCopyWith<$Res> get root;
-  @override
-  $ReplyPostCopyWith<$Res> get parent;
-  @override
-  $ActorBasicCopyWith<$Res>? get grandparentAuthor;
-}
-
-/// @nodoc
-class __$$ReplyImplCopyWithImpl<$Res>
-    extends _$ReplyCopyWithImpl<$Res, _$ReplyImpl>
-    implements _$$ReplyImplCopyWith<$Res> {
-  __$$ReplyImplCopyWithImpl(
-      _$ReplyImpl _value, $Res Function(_$ReplyImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Reply
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? root = null,
-    Object? parent = null,
-    Object? grandparentAuthor = freezed,
-  }) {
-    return _then(_$ReplyImpl(
-      root: null == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as ReplyPost,
-      parent: null == parent
-          ? _value.parent
-          : parent // ignore: cast_nullable_to_non_nullable
-              as ReplyPost,
-      grandparentAuthor: freezed == grandparentAuthor
-          ? _value.grandparentAuthor
-          : grandparentAuthor // ignore: cast_nullable_to_non_nullable
-              as ActorBasic?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ReplyImpl implements _Reply {
-  const _$ReplyImpl(
-      {@replyPostConverter required this.root,
-      @replyPostConverter required this.parent,
-      this.grandparentAuthor});
-
-  factory _$ReplyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ReplyImplFromJson(json);
-
-  @override
-  @replyPostConverter
-  final ReplyPost root;
-  @override
-  @replyPostConverter
-  final ReplyPost parent;
-  @override
-  final ActorBasic? grandparentAuthor;
-
-  @override
-  String toString() {
-    return 'Reply(root: $root, parent: $parent, grandparentAuthor: $grandparentAuthor)';
-  }
+  /// Serializes this Reply to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReplyImpl &&
+            other is Reply &&
             (identical(other.root, root) || other.root == root) &&
             (identical(other.parent, parent) || other.parent == parent) &&
             (identical(other.grandparentAuthor, grandparentAuthor) ||
@@ -214,43 +46,232 @@ class _$ReplyImpl implements _Reply {
   @override
   int get hashCode => Object.hash(runtimeType, root, parent, grandparentAuthor);
 
-  /// Create a copy of Reply
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ReplyImplCopyWith<_$ReplyImpl> get copyWith =>
-      __$$ReplyImplCopyWithImpl<_$ReplyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ReplyImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Reply(root: $root, parent: $parent, grandparentAuthor: $grandparentAuthor)';
   }
 }
 
-abstract class _Reply implements Reply {
-  const factory _Reply(
-      {@replyPostConverter required final ReplyPost root,
-      @replyPostConverter required final ReplyPost parent,
-      final ActorBasic? grandparentAuthor}) = _$ReplyImpl;
+/// @nodoc
+abstract mixin class $ReplyCopyWith<$Res> {
+  factory $ReplyCopyWith(Reply value, $Res Function(Reply) _then) =
+      _$ReplyCopyWithImpl;
+  @useResult
+  $Res call(
+      {@replyPostConverter ReplyPost root,
+      @replyPostConverter ReplyPost parent,
+      ActorBasic? grandparentAuthor});
 
-  factory _Reply.fromJson(Map<String, dynamic> json) = _$ReplyImpl.fromJson;
+  $ReplyPostCopyWith<$Res> get root;
+  $ReplyPostCopyWith<$Res> get parent;
+  $ActorBasicCopyWith<$Res>? get grandparentAuthor;
+}
+
+/// @nodoc
+class _$ReplyCopyWithImpl<$Res> implements $ReplyCopyWith<$Res> {
+  _$ReplyCopyWithImpl(this._self, this._then);
+
+  final Reply _self;
+  final $Res Function(Reply) _then;
+
+  /// Create a copy of Reply
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? root = null,
+    Object? parent = null,
+    Object? grandparentAuthor = freezed,
+  }) {
+    return _then(_self.copyWith(
+      root: null == root
+          ? _self.root
+          : root // ignore: cast_nullable_to_non_nullable
+              as ReplyPost,
+      parent: null == parent
+          ? _self.parent
+          : parent // ignore: cast_nullable_to_non_nullable
+              as ReplyPost,
+      grandparentAuthor: freezed == grandparentAuthor
+          ? _self.grandparentAuthor
+          : grandparentAuthor // ignore: cast_nullable_to_non_nullable
+              as ActorBasic?,
+    ));
+  }
+
+  /// Create a copy of Reply
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ReplyPostCopyWith<$Res> get root {
+    return $ReplyPostCopyWith<$Res>(_self.root, (value) {
+      return _then(_self.copyWith(root: value));
+    });
+  }
+
+  /// Create a copy of Reply
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ReplyPostCopyWith<$Res> get parent {
+    return $ReplyPostCopyWith<$Res>(_self.parent, (value) {
+      return _then(_self.copyWith(parent: value));
+    });
+  }
+
+  /// Create a copy of Reply
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorBasicCopyWith<$Res>? get grandparentAuthor {
+    if (_self.grandparentAuthor == null) {
+      return null;
+    }
+
+    return $ActorBasicCopyWith<$Res>(_self.grandparentAuthor!, (value) {
+      return _then(_self.copyWith(grandparentAuthor: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _Reply implements Reply {
+  const _Reply(
+      {@replyPostConverter required this.root,
+      @replyPostConverter required this.parent,
+      this.grandparentAuthor});
+  factory _Reply.fromJson(Map<String, dynamic> json) => _$ReplyFromJson(json);
 
   @override
   @replyPostConverter
-  ReplyPost get root;
+  final ReplyPost root;
   @override
   @replyPostConverter
-  ReplyPost get parent;
+  final ReplyPost parent;
   @override
-  ActorBasic? get grandparentAuthor;
+  final ActorBasic? grandparentAuthor;
 
   /// Create a copy of Reply
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ReplyImplCopyWith<_$ReplyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ReplyCopyWith<_Reply> get copyWith =>
+      __$ReplyCopyWithImpl<_Reply>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ReplyToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Reply &&
+            (identical(other.root, root) || other.root == root) &&
+            (identical(other.parent, parent) || other.parent == parent) &&
+            (identical(other.grandparentAuthor, grandparentAuthor) ||
+                other.grandparentAuthor == grandparentAuthor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, root, parent, grandparentAuthor);
+
+  @override
+  String toString() {
+    return 'Reply(root: $root, parent: $parent, grandparentAuthor: $grandparentAuthor)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ReplyCopyWith<$Res> implements $ReplyCopyWith<$Res> {
+  factory _$ReplyCopyWith(_Reply value, $Res Function(_Reply) _then) =
+      __$ReplyCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@replyPostConverter ReplyPost root,
+      @replyPostConverter ReplyPost parent,
+      ActorBasic? grandparentAuthor});
+
+  @override
+  $ReplyPostCopyWith<$Res> get root;
+  @override
+  $ReplyPostCopyWith<$Res> get parent;
+  @override
+  $ActorBasicCopyWith<$Res>? get grandparentAuthor;
+}
+
+/// @nodoc
+class __$ReplyCopyWithImpl<$Res> implements _$ReplyCopyWith<$Res> {
+  __$ReplyCopyWithImpl(this._self, this._then);
+
+  final _Reply _self;
+  final $Res Function(_Reply) _then;
+
+  /// Create a copy of Reply
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? root = null,
+    Object? parent = null,
+    Object? grandparentAuthor = freezed,
+  }) {
+    return _then(_Reply(
+      root: null == root
+          ? _self.root
+          : root // ignore: cast_nullable_to_non_nullable
+              as ReplyPost,
+      parent: null == parent
+          ? _self.parent
+          : parent // ignore: cast_nullable_to_non_nullable
+              as ReplyPost,
+      grandparentAuthor: freezed == grandparentAuthor
+          ? _self.grandparentAuthor
+          : grandparentAuthor // ignore: cast_nullable_to_non_nullable
+              as ActorBasic?,
+    ));
+  }
+
+  /// Create a copy of Reply
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ReplyPostCopyWith<$Res> get root {
+    return $ReplyPostCopyWith<$Res>(_self.root, (value) {
+      return _then(_self.copyWith(root: value));
+    });
+  }
+
+  /// Create a copy of Reply
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ReplyPostCopyWith<$Res> get parent {
+    return $ReplyPostCopyWith<$Res>(_self.parent, (value) {
+      return _then(_self.copyWith(parent: value));
+    });
+  }
+
+  /// Create a copy of Reply
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorBasicCopyWith<$Res>? get grandparentAuthor {
+    if (_self.grandparentAuthor == null) {
+      return null;
+    }
+
+    return $ActorBasicCopyWith<$Res>(_self.grandparentAuthor!, (value) {
+      return _then(_self.copyWith(grandparentAuthor: value));
+    });
+  }
+}
+
+// dart format on

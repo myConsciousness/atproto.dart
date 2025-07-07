@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,59 @@ part of 'repo_commit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RepoCommit _$RepoCommitFromJson(Map<String, dynamic> json) {
-  return _RepoCommit.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RepoCommit {
-  String get cid => throw _privateConstructorUsedError;
-  Map<String, dynamic> get commit => throw _privateConstructorUsedError;
-
-  /// Serializes this RepoCommit to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get cid;
+  Map<String, dynamic> get commit;
 
   /// Create a copy of RepoCommit
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RepoCommitCopyWith<RepoCommit> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RepoCommitCopyWith<$Res> {
-  factory $RepoCommitCopyWith(
-          RepoCommit value, $Res Function(RepoCommit) then) =
-      _$RepoCommitCopyWithImpl<$Res, RepoCommit>;
-  @useResult
-  $Res call({String cid, Map<String, dynamic> commit});
-}
-
-/// @nodoc
-class _$RepoCommitCopyWithImpl<$Res, $Val extends RepoCommit>
-    implements $RepoCommitCopyWith<$Res> {
-  _$RepoCommitCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RepoCommit
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $RepoCommitCopyWith<RepoCommit> get copyWith =>
+      _$RepoCommitCopyWithImpl<RepoCommit>(this as RepoCommit, _$identity);
+
+  /// Serializes this RepoCommit to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? cid = null,
-    Object? commit = null,
-  }) {
-    return _then(_value.copyWith(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      commit: null == commit
-          ? _value.commit
-          : commit // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RepoCommit &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            const DeepCollectionEquality().equals(other.commit, commit));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, cid, const DeepCollectionEquality().hash(commit));
+
+  @override
+  String toString() {
+    return 'RepoCommit(cid: $cid, commit: $commit)';
   }
 }
 
 /// @nodoc
-abstract class _$$RepoCommitImplCopyWith<$Res>
-    implements $RepoCommitCopyWith<$Res> {
-  factory _$$RepoCommitImplCopyWith(
-          _$RepoCommitImpl value, $Res Function(_$RepoCommitImpl) then) =
-      __$$RepoCommitImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RepoCommitCopyWith<$Res> {
+  factory $RepoCommitCopyWith(
+          RepoCommit value, $Res Function(RepoCommit) _then) =
+      _$RepoCommitCopyWithImpl;
   @useResult
   $Res call({String cid, Map<String, dynamic> commit});
 }
 
 /// @nodoc
-class __$$RepoCommitImplCopyWithImpl<$Res>
-    extends _$RepoCommitCopyWithImpl<$Res, _$RepoCommitImpl>
-    implements _$$RepoCommitImplCopyWith<$Res> {
-  __$$RepoCommitImplCopyWithImpl(
-      _$RepoCommitImpl _value, $Res Function(_$RepoCommitImpl) _then)
-      : super(_value, _then);
+class _$RepoCommitCopyWithImpl<$Res> implements $RepoCommitCopyWith<$Res> {
+  _$RepoCommitCopyWithImpl(this._self, this._then);
+
+  final RepoCommit _self;
+  final $Res Function(RepoCommit) _then;
 
   /// Create a copy of RepoCommit
   /// with the given fields replaced by the non-null parameter values.
@@ -100,13 +72,13 @@ class __$$RepoCommitImplCopyWithImpl<$Res>
     Object? cid = null,
     Object? commit = null,
   }) {
-    return _then(_$RepoCommitImpl(
+    return _then(_self.copyWith(
       cid: null == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
       commit: null == commit
-          ? _value._commit
+          ? _self.commit
           : commit // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -115,13 +87,12 @@ class __$$RepoCommitImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RepoCommitImpl implements _RepoCommit {
-  const _$RepoCommitImpl(
+class _RepoCommit implements RepoCommit {
+  const _RepoCommit(
       {required this.cid, required final Map<String, dynamic> commit})
       : _commit = commit;
-
-  factory _$RepoCommitImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RepoCommitImplFromJson(json);
+  factory _RepoCommit.fromJson(Map<String, dynamic> json) =>
+      _$RepoCommitFromJson(json);
 
   @override
   final String cid;
@@ -133,16 +104,26 @@ class _$RepoCommitImpl implements _RepoCommit {
     return EqualUnmodifiableMapView(_commit);
   }
 
+  /// Create a copy of RepoCommit
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'RepoCommit(cid: $cid, commit: $commit)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RepoCommitCopyWith<_RepoCommit> get copyWith =>
+      __$RepoCommitCopyWithImpl<_RepoCommit>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RepoCommitToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RepoCommitImpl &&
+            other is _RepoCommit &&
             (identical(other.cid, cid) || other.cid == cid) &&
             const DeepCollectionEquality().equals(other._commit, _commit));
   }
@@ -152,39 +133,49 @@ class _$RepoCommitImpl implements _RepoCommit {
   int get hashCode => Object.hash(
       runtimeType, cid, const DeepCollectionEquality().hash(_commit));
 
-  /// Create a copy of RepoCommit
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RepoCommitImplCopyWith<_$RepoCommitImpl> get copyWith =>
-      __$$RepoCommitImplCopyWithImpl<_$RepoCommitImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RepoCommitImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RepoCommit(cid: $cid, commit: $commit)';
   }
 }
 
-abstract class _RepoCommit implements RepoCommit {
-  const factory _RepoCommit(
-      {required final String cid,
-      required final Map<String, dynamic> commit}) = _$RepoCommitImpl;
-
-  factory _RepoCommit.fromJson(Map<String, dynamic> json) =
-      _$RepoCommitImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$RepoCommitCopyWith<$Res>
+    implements $RepoCommitCopyWith<$Res> {
+  factory _$RepoCommitCopyWith(
+          _RepoCommit value, $Res Function(_RepoCommit) _then) =
+      __$RepoCommitCopyWithImpl;
   @override
-  String get cid;
-  @override
-  Map<String, dynamic> get commit;
+  @useResult
+  $Res call({String cid, Map<String, dynamic> commit});
+}
+
+/// @nodoc
+class __$RepoCommitCopyWithImpl<$Res> implements _$RepoCommitCopyWith<$Res> {
+  __$RepoCommitCopyWithImpl(this._self, this._then);
+
+  final _RepoCommit _self;
+  final $Res Function(_RepoCommit) _then;
 
   /// Create a copy of RepoCommit
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RepoCommitImplCopyWith<_$RepoCommitImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cid = null,
+    Object? commit = null,
+  }) {
+    return _then(_RepoCommit(
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      commit: null == commit
+          ? _self._commit
+          : commit // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

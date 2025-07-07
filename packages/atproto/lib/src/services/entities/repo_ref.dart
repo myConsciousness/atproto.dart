@@ -12,7 +12,7 @@ part 'repo_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#reporef
 @freezed
-class RepoRef with _$RepoRef {
+abstract class RepoRef with _$RepoRef {
   const factory RepoRef({
     @typeKey @Default(comAtprotoAdminDefsRepoRef) String type,
     required String did,

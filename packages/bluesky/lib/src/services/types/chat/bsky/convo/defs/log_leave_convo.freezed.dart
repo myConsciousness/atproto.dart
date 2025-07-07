@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,60 @@ part of 'log_leave_convo.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LogLeaveConvo _$LogLeaveConvoFromJson(Map<String, dynamic> json) {
-  return _LogLeaveConvo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LogLeaveConvo {
-  String get rev => throw _privateConstructorUsedError;
-  String get convoId => throw _privateConstructorUsedError;
-
-  /// Serializes this LogLeaveConvo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get rev;
+  String get convoId;
 
   /// Create a copy of LogLeaveConvo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LogLeaveConvoCopyWith<LogLeaveConvo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LogLeaveConvoCopyWith<$Res> {
-  factory $LogLeaveConvoCopyWith(
-          LogLeaveConvo value, $Res Function(LogLeaveConvo) then) =
-      _$LogLeaveConvoCopyWithImpl<$Res, LogLeaveConvo>;
-  @useResult
-  $Res call({String rev, String convoId});
-}
-
-/// @nodoc
-class _$LogLeaveConvoCopyWithImpl<$Res, $Val extends LogLeaveConvo>
-    implements $LogLeaveConvoCopyWith<$Res> {
-  _$LogLeaveConvoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LogLeaveConvo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LogLeaveConvoCopyWith<LogLeaveConvo> get copyWith =>
+      _$LogLeaveConvoCopyWithImpl<LogLeaveConvo>(
+          this as LogLeaveConvo, _$identity);
+
+  /// Serializes this LogLeaveConvo to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? rev = null,
-    Object? convoId = null,
-  }) {
-    return _then(_value.copyWith(
-      rev: null == rev
-          ? _value.rev
-          : rev // ignore: cast_nullable_to_non_nullable
-              as String,
-      convoId: null == convoId
-          ? _value.convoId
-          : convoId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LogLeaveConvo &&
+            (identical(other.rev, rev) || other.rev == rev) &&
+            (identical(other.convoId, convoId) || other.convoId == convoId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, rev, convoId);
+
+  @override
+  String toString() {
+    return 'LogLeaveConvo(rev: $rev, convoId: $convoId)';
   }
 }
 
 /// @nodoc
-abstract class _$$LogLeaveConvoImplCopyWith<$Res>
-    implements $LogLeaveConvoCopyWith<$Res> {
-  factory _$$LogLeaveConvoImplCopyWith(
-          _$LogLeaveConvoImpl value, $Res Function(_$LogLeaveConvoImpl) then) =
-      __$$LogLeaveConvoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LogLeaveConvoCopyWith<$Res> {
+  factory $LogLeaveConvoCopyWith(
+          LogLeaveConvo value, $Res Function(LogLeaveConvo) _then) =
+      _$LogLeaveConvoCopyWithImpl;
   @useResult
   $Res call({String rev, String convoId});
 }
 
 /// @nodoc
-class __$$LogLeaveConvoImplCopyWithImpl<$Res>
-    extends _$LogLeaveConvoCopyWithImpl<$Res, _$LogLeaveConvoImpl>
-    implements _$$LogLeaveConvoImplCopyWith<$Res> {
-  __$$LogLeaveConvoImplCopyWithImpl(
-      _$LogLeaveConvoImpl _value, $Res Function(_$LogLeaveConvoImpl) _then)
-      : super(_value, _then);
+class _$LogLeaveConvoCopyWithImpl<$Res>
+    implements $LogLeaveConvoCopyWith<$Res> {
+  _$LogLeaveConvoCopyWithImpl(this._self, this._then);
+
+  final LogLeaveConvo _self;
+  final $Res Function(LogLeaveConvo) _then;
 
   /// Create a copy of LogLeaveConvo
   /// with the given fields replaced by the non-null parameter values.
@@ -100,13 +73,13 @@ class __$$LogLeaveConvoImplCopyWithImpl<$Res>
     Object? rev = null,
     Object? convoId = null,
   }) {
-    return _then(_$LogLeaveConvoImpl(
+    return _then(_self.copyWith(
       rev: null == rev
-          ? _value.rev
+          ? _self.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
       convoId: null == convoId
-          ? _value.convoId
+          ? _self.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -116,27 +89,36 @@ class __$$LogLeaveConvoImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$LogLeaveConvoImpl implements _LogLeaveConvo {
-  const _$LogLeaveConvoImpl({required this.rev, required this.convoId});
-
-  factory _$LogLeaveConvoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LogLeaveConvoImplFromJson(json);
+class _LogLeaveConvo implements LogLeaveConvo {
+  const _LogLeaveConvo({required this.rev, required this.convoId});
+  factory _LogLeaveConvo.fromJson(Map<String, dynamic> json) =>
+      _$LogLeaveConvoFromJson(json);
 
   @override
   final String rev;
   @override
   final String convoId;
 
+  /// Create a copy of LogLeaveConvo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LogLeaveConvo(rev: $rev, convoId: $convoId)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LogLeaveConvoCopyWith<_LogLeaveConvo> get copyWith =>
+      __$LogLeaveConvoCopyWithImpl<_LogLeaveConvo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LogLeaveConvoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LogLeaveConvoImpl &&
+            other is _LogLeaveConvo &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.convoId, convoId) || other.convoId == convoId));
   }
@@ -145,39 +127,50 @@ class _$LogLeaveConvoImpl implements _LogLeaveConvo {
   @override
   int get hashCode => Object.hash(runtimeType, rev, convoId);
 
-  /// Create a copy of LogLeaveConvo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LogLeaveConvoImplCopyWith<_$LogLeaveConvoImpl> get copyWith =>
-      __$$LogLeaveConvoImplCopyWithImpl<_$LogLeaveConvoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LogLeaveConvoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LogLeaveConvo(rev: $rev, convoId: $convoId)';
   }
 }
 
-abstract class _LogLeaveConvo implements LogLeaveConvo {
-  const factory _LogLeaveConvo(
-      {required final String rev,
-      required final String convoId}) = _$LogLeaveConvoImpl;
-
-  factory _LogLeaveConvo.fromJson(Map<String, dynamic> json) =
-      _$LogLeaveConvoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$LogLeaveConvoCopyWith<$Res>
+    implements $LogLeaveConvoCopyWith<$Res> {
+  factory _$LogLeaveConvoCopyWith(
+          _LogLeaveConvo value, $Res Function(_LogLeaveConvo) _then) =
+      __$LogLeaveConvoCopyWithImpl;
   @override
-  String get rev;
-  @override
-  String get convoId;
+  @useResult
+  $Res call({String rev, String convoId});
+}
+
+/// @nodoc
+class __$LogLeaveConvoCopyWithImpl<$Res>
+    implements _$LogLeaveConvoCopyWith<$Res> {
+  __$LogLeaveConvoCopyWithImpl(this._self, this._then);
+
+  final _LogLeaveConvo _self;
+  final $Res Function(_LogLeaveConvo) _then;
 
   /// Create a copy of LogLeaveConvo
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LogLeaveConvoImplCopyWith<_$LogLeaveConvoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? rev = null,
+    Object? convoId = null,
+  }) {
+    return _then(_LogLeaveConvo(
+      rev: null == rev
+          ? _self.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
+      convoId: null == convoId
+          ? _self.convoId
+          : convoId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

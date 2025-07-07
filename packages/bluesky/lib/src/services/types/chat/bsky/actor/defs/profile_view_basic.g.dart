@@ -8,12 +8,11 @@ part of 'profile_view_basic.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ProfileViewBasicImpl',
+_ProfileViewBasic _$ProfileViewBasicFromJson(Map json) => $checkedCreate(
+      '_ProfileViewBasic',
       json,
       ($checkedConvert) {
-        final val = _$ProfileViewBasicImpl(
+        final val = _ProfileViewBasic(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String?),
@@ -42,8 +41,7 @@ _$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ProfileViewBasicImplToJson(
-        _$ProfileViewBasicImpl instance) =>
+Map<String, dynamic> _$ProfileViewBasicToJson(_ProfileViewBasic instance) =>
     <String, dynamic>{
       'did': instance.did,
       'handle': instance.handle,

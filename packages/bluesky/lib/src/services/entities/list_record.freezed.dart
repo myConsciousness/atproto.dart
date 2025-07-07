@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,43 +10,74 @@ part of 'list_record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ListRecord _$ListRecordFromJson(Map<String, dynamic> json) {
-  return _ListRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ListRecord {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get purpose => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
-  Blob? get avatar => throw _privateConstructorUsedError;
+  String get type;
+  String get name;
+  String get purpose;
+  String? get description;
+  List<Facet>? get descriptionFacets;
+  Blob? get avatar;
   @labelsConverter
-  Labels? get labels => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-
-  /// Serializes this ListRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Labels? get labels;
+  DateTime get createdAt;
 
   /// Create a copy of ListRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ListRecordCopyWith<ListRecord> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ListRecordCopyWithImpl<ListRecord>(this as ListRecord, _$identity);
+
+  /// Serializes this ListRecord to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ListRecord &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.purpose, purpose) || other.purpose == purpose) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            const DeepCollectionEquality()
+                .equals(other.descriptionFacets, descriptionFacets) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      name,
+      purpose,
+      description,
+      const DeepCollectionEquality().hash(descriptionFacets),
+      avatar,
+      labels,
+      createdAt);
+
+  @override
+  String toString() {
+    return 'ListRecord(type: $type, name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt)';
+  }
 }
 
 /// @nodoc
-abstract class $ListRecordCopyWith<$Res> {
+abstract mixin class $ListRecordCopyWith<$Res> {
   factory $ListRecordCopyWith(
-          ListRecord value, $Res Function(ListRecord) then) =
-      _$ListRecordCopyWithImpl<$Res, ListRecord>;
+          ListRecord value, $Res Function(ListRecord) _then) =
+      _$ListRecordCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -62,14 +94,11 @@ abstract class $ListRecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
-    implements $ListRecordCopyWith<$Res> {
-  _$ListRecordCopyWithImpl(this._value, this._then);
+class _$ListRecordCopyWithImpl<$Res> implements $ListRecordCopyWith<$Res> {
+  _$ListRecordCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ListRecord _self;
+  final $Res Function(ListRecord) _then;
 
   /// Create a copy of ListRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -85,40 +114,40 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
     Object? labels = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       purpose: null == purpose
-          ? _value.purpose
+          ? _self.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
       description: freezed == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       descriptionFacets: freezed == descriptionFacets
-          ? _value.descriptionFacets
+          ? _self.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
               as List<Facet>?,
       avatar: freezed == avatar
-          ? _value.avatar
+          ? _self.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
       createdAt: null == createdAt
-          ? _value.createdAt
+          ? _self.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ListRecord
@@ -126,12 +155,12 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get avatar {
-    if (_value.avatar == null) {
+    if (_self.avatar == null) {
       return null;
     }
 
-    return $BlobCopyWith<$Res>(_value.avatar!, (value) {
-      return _then(_value.copyWith(avatar: value) as $Val);
+    return $BlobCopyWith<$Res>(_self.avatar!, (value) {
+      return _then(_self.copyWith(avatar: value));
     });
   }
 
@@ -140,104 +169,21 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
   @override
   @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
-    if (_value.labels == null) {
+    if (_self.labels == null) {
       return null;
     }
 
-    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
-      return _then(_value.copyWith(labels: value) as $Val);
+    return $LabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$ListRecordImplCopyWith<$Res>
-    implements $ListRecordCopyWith<$Res> {
-  factory _$$ListRecordImplCopyWith(
-          _$ListRecordImpl value, $Res Function(_$ListRecordImpl) then) =
-      __$$ListRecordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String name,
-      String purpose,
-      String? description,
-      List<Facet>? descriptionFacets,
-      Blob? avatar,
-      @labelsConverter Labels? labels,
-      DateTime createdAt});
-
-  @override
-  $BlobCopyWith<$Res>? get avatar;
-  @override
-  $LabelsCopyWith<$Res>? get labels;
-}
-
-/// @nodoc
-class __$$ListRecordImplCopyWithImpl<$Res>
-    extends _$ListRecordCopyWithImpl<$Res, _$ListRecordImpl>
-    implements _$$ListRecordImplCopyWith<$Res> {
-  __$$ListRecordImplCopyWithImpl(
-      _$ListRecordImpl _value, $Res Function(_$ListRecordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ListRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? name = null,
-    Object? purpose = null,
-    Object? description = freezed,
-    Object? descriptionFacets = freezed,
-    Object? avatar = freezed,
-    Object? labels = freezed,
-    Object? createdAt = null,
-  }) {
-    return _then(_$ListRecordImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      purpose: null == purpose
-          ? _value.purpose
-          : purpose // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      descriptionFacets: freezed == descriptionFacets
-          ? _value._descriptionFacets
-          : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
-      avatar: freezed == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as Blob?,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$ListRecordImpl implements _ListRecord {
-  const _$ListRecordImpl(
+class _ListRecord implements ListRecord {
+  const _ListRecord(
       {@typeKey this.type = appBskyGraphList,
       required this.name,
       required this.purpose,
@@ -247,9 +193,8 @@ class _$ListRecordImpl implements _ListRecord {
       @labelsConverter this.labels,
       required this.createdAt})
       : _descriptionFacets = descriptionFacets;
-
-  factory _$ListRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListRecordImplFromJson(json);
+  factory _ListRecord.fromJson(Map<String, dynamic> json) =>
+      _$ListRecordFromJson(json);
 
   @override
   @typeKey
@@ -279,16 +224,26 @@ class _$ListRecordImpl implements _ListRecord {
   @override
   final DateTime createdAt;
 
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ListRecord(type: $type, name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ListRecordCopyWith<_ListRecord> get copyWith =>
+      __$ListRecordCopyWithImpl<_ListRecord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ListRecordToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListRecordImpl &&
+            other is _ListRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
@@ -315,59 +270,120 @@ class _$ListRecordImpl implements _ListRecord {
       labels,
       createdAt);
 
-  /// Create a copy of ListRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ListRecordImplCopyWith<_$ListRecordImpl> get copyWith =>
-      __$$ListRecordImplCopyWithImpl<_$ListRecordImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ListRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ListRecord(type: $type, name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt)';
   }
 }
 
-abstract class _ListRecord implements ListRecord {
-  const factory _ListRecord(
-      {@typeKey final String type,
-      required final String name,
-      required final String purpose,
-      final String? description,
-      final List<Facet>? descriptionFacets,
-      final Blob? avatar,
-      @labelsConverter final Labels? labels,
-      required final DateTime createdAt}) = _$ListRecordImpl;
+/// @nodoc
+abstract mixin class _$ListRecordCopyWith<$Res>
+    implements $ListRecordCopyWith<$Res> {
+  factory _$ListRecordCopyWith(
+          _ListRecord value, $Res Function(_ListRecord) _then) =
+      __$ListRecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String name,
+      String purpose,
+      String? description,
+      List<Facet>? descriptionFacets,
+      Blob? avatar,
+      @labelsConverter Labels? labels,
+      DateTime createdAt});
 
-  factory _ListRecord.fromJson(Map<String, dynamic> json) =
-      _$ListRecordImpl.fromJson;
+  @override
+  $BlobCopyWith<$Res>? get avatar;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  String get name;
-  @override
-  String get purpose;
-  @override
-  String? get description;
-  @override
-  List<Facet>? get descriptionFacets;
-  @override
-  Blob? get avatar;
-  @override
-  @labelsConverter
-  Labels? get labels;
-  @override
-  DateTime get createdAt;
+/// @nodoc
+class __$ListRecordCopyWithImpl<$Res> implements _$ListRecordCopyWith<$Res> {
+  __$ListRecordCopyWithImpl(this._self, this._then);
+
+  final _ListRecord _self;
+  final $Res Function(_ListRecord) _then;
 
   /// Create a copy of ListRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ListRecordImplCopyWith<_$ListRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? name = null,
+    Object? purpose = null,
+    Object? description = freezed,
+    Object? descriptionFacets = freezed,
+    Object? avatar = freezed,
+    Object? labels = freezed,
+    Object? createdAt = null,
+  }) {
+    return _then(_ListRecord(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      purpose: null == purpose
+          ? _self.purpose
+          : purpose // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      descriptionFacets: freezed == descriptionFacets
+          ? _self._descriptionFacets
+          : descriptionFacets // ignore: cast_nullable_to_non_nullable
+              as List<Facet>?,
+      avatar: freezed == avatar
+          ? _self.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as Blob?,
+      labels: freezed == labels
+          ? _self.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BlobCopyWith<$Res>? get avatar {
+    if (_self.avatar == null) {
+      return null;
+    }
+
+    return $BlobCopyWith<$Res>(_self.avatar!, (value) {
+      return _then(_self.copyWith(avatar: value));
+    });
+  }
+
+  /// Create a copy of ListRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_self.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
+    });
+  }
 }
+
+// dart format on

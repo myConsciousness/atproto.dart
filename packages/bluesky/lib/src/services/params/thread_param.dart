@@ -14,7 +14,7 @@ part 'thread_param.freezed.dart';
 part 'thread_param.g.dart';
 
 @freezed
-class ThreadParam with _$ThreadParam {
+abstract class ThreadParam with _$ThreadParam {
   @jsonSerializable
   const factory ThreadParam({
     required String text,

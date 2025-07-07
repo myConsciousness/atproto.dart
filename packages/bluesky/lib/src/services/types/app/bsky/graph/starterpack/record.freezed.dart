@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,116 +10,72 @@ part of 'record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StarterpackRecord _$StarterpackRecordFromJson(Map<String, dynamic> json) {
-  return _StarterpackRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StarterpackRecord {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+  String get type;
+  String get name;
+  String? get description;
+  List<Facet>? get descriptionFacets;
   @AtUriConverter()
-  AtUri get list => throw _privateConstructorUsedError;
-  List<StarterpackFeedItem>? get feeds => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-
-  /// Serializes this StarterpackRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get list;
+  List<StarterpackFeedItem>? get feeds;
+  DateTime get createdAt;
 
   /// Create a copy of StarterpackRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StarterpackRecordCopyWith<StarterpackRecord> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StarterpackRecordCopyWith<$Res> {
-  factory $StarterpackRecordCopyWith(
-          StarterpackRecord value, $Res Function(StarterpackRecord) then) =
-      _$StarterpackRecordCopyWithImpl<$Res, StarterpackRecord>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String name,
-      String? description,
-      List<Facet>? descriptionFacets,
-      @AtUriConverter() AtUri list,
-      List<StarterpackFeedItem>? feeds,
-      DateTime createdAt});
-}
-
-/// @nodoc
-class _$StarterpackRecordCopyWithImpl<$Res, $Val extends StarterpackRecord>
-    implements $StarterpackRecordCopyWith<$Res> {
-  _$StarterpackRecordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StarterpackRecord
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StarterpackRecordCopyWith<StarterpackRecord> get copyWith =>
+      _$StarterpackRecordCopyWithImpl<StarterpackRecord>(
+          this as StarterpackRecord, _$identity);
+
+  /// Serializes this StarterpackRecord to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? name = null,
-    Object? description = freezed,
-    Object? descriptionFacets = freezed,
-    Object? list = null,
-    Object? feeds = freezed,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      descriptionFacets: freezed == descriptionFacets
-          ? _value.descriptionFacets
-          : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
-      list: null == list
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      feeds: freezed == feeds
-          ? _value.feeds
-          : feeds // ignore: cast_nullable_to_non_nullable
-              as List<StarterpackFeedItem>?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StarterpackRecord &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            const DeepCollectionEquality()
+                .equals(other.descriptionFacets, descriptionFacets) &&
+            (identical(other.list, list) || other.list == list) &&
+            const DeepCollectionEquality().equals(other.feeds, feeds) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      name,
+      description,
+      const DeepCollectionEquality().hash(descriptionFacets),
+      list,
+      const DeepCollectionEquality().hash(feeds),
+      createdAt);
+
+  @override
+  String toString() {
+    return 'StarterpackRecord(type: $type, name: $name, description: $description, descriptionFacets: $descriptionFacets, list: $list, feeds: $feeds, createdAt: $createdAt)';
   }
 }
 
 /// @nodoc
-abstract class _$$StarterpackRecordImplCopyWith<$Res>
-    implements $StarterpackRecordCopyWith<$Res> {
-  factory _$$StarterpackRecordImplCopyWith(_$StarterpackRecordImpl value,
-          $Res Function(_$StarterpackRecordImpl) then) =
-      __$$StarterpackRecordImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StarterpackRecordCopyWith<$Res> {
+  factory $StarterpackRecordCopyWith(
+          StarterpackRecord value, $Res Function(StarterpackRecord) _then) =
+      _$StarterpackRecordCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -131,12 +88,12 @@ abstract class _$$StarterpackRecordImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$StarterpackRecordImplCopyWithImpl<$Res>
-    extends _$StarterpackRecordCopyWithImpl<$Res, _$StarterpackRecordImpl>
-    implements _$$StarterpackRecordImplCopyWith<$Res> {
-  __$$StarterpackRecordImplCopyWithImpl(_$StarterpackRecordImpl _value,
-      $Res Function(_$StarterpackRecordImpl) _then)
-      : super(_value, _then);
+class _$StarterpackRecordCopyWithImpl<$Res>
+    implements $StarterpackRecordCopyWith<$Res> {
+  _$StarterpackRecordCopyWithImpl(this._self, this._then);
+
+  final StarterpackRecord _self;
+  final $Res Function(StarterpackRecord) _then;
 
   /// Create a copy of StarterpackRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -151,33 +108,33 @@ class __$$StarterpackRecordImplCopyWithImpl<$Res>
     Object? feeds = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$StarterpackRecordImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       description: freezed == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       descriptionFacets: freezed == descriptionFacets
-          ? _value._descriptionFacets
+          ? _self.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
               as List<Facet>?,
       list: null == list
-          ? _value.list
+          ? _self.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
       feeds: freezed == feeds
-          ? _value._feeds
+          ? _self.feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<StarterpackFeedItem>?,
       createdAt: null == createdAt
-          ? _value.createdAt
+          ? _self.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -187,8 +144,8 @@ class __$$StarterpackRecordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$StarterpackRecordImpl implements _StarterpackRecord {
-  const _$StarterpackRecordImpl(
+class _StarterpackRecord implements StarterpackRecord {
+  const _StarterpackRecord(
       {@typeKey this.type = appBskyGraphStarterpack,
       required this.name,
       this.description,
@@ -198,9 +155,8 @@ class _$StarterpackRecordImpl implements _StarterpackRecord {
       required this.createdAt})
       : _descriptionFacets = descriptionFacets,
         _feeds = feeds;
-
-  factory _$StarterpackRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StarterpackRecordImplFromJson(json);
+  factory _StarterpackRecord.fromJson(Map<String, dynamic> json) =>
+      _$StarterpackRecordFromJson(json);
 
   @override
   @typeKey
@@ -236,16 +192,26 @@ class _$StarterpackRecordImpl implements _StarterpackRecord {
   @override
   final DateTime createdAt;
 
+  /// Create a copy of StarterpackRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StarterpackRecord(type: $type, name: $name, description: $description, descriptionFacets: $descriptionFacets, list: $list, feeds: $feeds, createdAt: $createdAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StarterpackRecordCopyWith<_StarterpackRecord> get copyWith =>
+      __$StarterpackRecordCopyWithImpl<_StarterpackRecord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StarterpackRecordToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StarterpackRecordImpl &&
+            other is _StarterpackRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -270,57 +236,82 @@ class _$StarterpackRecordImpl implements _StarterpackRecord {
       const DeepCollectionEquality().hash(_feeds),
       createdAt);
 
-  /// Create a copy of StarterpackRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StarterpackRecordImplCopyWith<_$StarterpackRecordImpl> get copyWith =>
-      __$$StarterpackRecordImplCopyWithImpl<_$StarterpackRecordImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StarterpackRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StarterpackRecord(type: $type, name: $name, description: $description, descriptionFacets: $descriptionFacets, list: $list, feeds: $feeds, createdAt: $createdAt)';
   }
 }
 
-abstract class _StarterpackRecord implements StarterpackRecord {
-  const factory _StarterpackRecord(
-      {@typeKey final String type,
-      required final String name,
-      final String? description,
-      final List<Facet>? descriptionFacets,
-      @AtUriConverter() required final AtUri list,
-      final List<StarterpackFeedItem>? feeds,
-      required final DateTime createdAt}) = _$StarterpackRecordImpl;
+/// @nodoc
+abstract mixin class _$StarterpackRecordCopyWith<$Res>
+    implements $StarterpackRecordCopyWith<$Res> {
+  factory _$StarterpackRecordCopyWith(
+          _StarterpackRecord value, $Res Function(_StarterpackRecord) _then) =
+      __$StarterpackRecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String name,
+      String? description,
+      List<Facet>? descriptionFacets,
+      @AtUriConverter() AtUri list,
+      List<StarterpackFeedItem>? feeds,
+      DateTime createdAt});
+}
 
-  factory _StarterpackRecord.fromJson(Map<String, dynamic> json) =
-      _$StarterpackRecordImpl.fromJson;
+/// @nodoc
+class __$StarterpackRecordCopyWithImpl<$Res>
+    implements _$StarterpackRecordCopyWith<$Res> {
+  __$StarterpackRecordCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  String get name;
-  @override
-  String? get description;
-  @override
-  List<Facet>? get descriptionFacets;
-  @override
-  @AtUriConverter()
-  AtUri get list;
-  @override
-  List<StarterpackFeedItem>? get feeds;
-  @override
-  DateTime get createdAt;
+  final _StarterpackRecord _self;
+  final $Res Function(_StarterpackRecord) _then;
 
   /// Create a copy of StarterpackRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StarterpackRecordImplCopyWith<_$StarterpackRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? name = null,
+    Object? description = freezed,
+    Object? descriptionFacets = freezed,
+    Object? list = null,
+    Object? feeds = freezed,
+    Object? createdAt = null,
+  }) {
+    return _then(_StarterpackRecord(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      descriptionFacets: freezed == descriptionFacets
+          ? _self._descriptionFacets
+          : descriptionFacets // ignore: cast_nullable_to_non_nullable
+              as List<Facet>?,
+      list: null == list
+          ? _self.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      feeds: freezed == feeds
+          ? _self._feeds
+          : feeds // ignore: cast_nullable_to_non_nullable
+              as List<StarterpackFeedItem>?,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
+
+// dart format on

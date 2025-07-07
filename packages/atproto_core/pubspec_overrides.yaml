@@ -1,3 +1,4 @@
+# melos_managed_dependency_overrides: atproto_test
 dependency_overrides:
   at_identifier:
     path: ../at_identifier
@@ -11,3 +12,5 @@ dependency_overrides:
     path: ../multiformats
   atproto_oauth:
     path: ../atproto_oauth
+  atproto_test:
+    path: ../atproto_test

@@ -12,7 +12,7 @@ part 'blob.g.dart';
 
 /// https://atproto.com/specs/data-model#blob-type
 @freezed
-class Blob with _$Blob {
+abstract class Blob with _$Blob {
   const factory Blob({
     @typeKey @Default('blob') String type,
     required String mimeType,

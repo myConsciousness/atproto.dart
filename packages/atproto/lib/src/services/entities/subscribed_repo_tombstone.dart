@@ -6,7 +6,7 @@ part 'subscribed_repo_tombstone.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#tombstone
 @freezed
-class Tombstone with _$Tombstone {
+abstract class Tombstone with _$Tombstone {
   const factory Tombstone({
     required String did,
     @JsonKey(name: 'seq') required int cursor,

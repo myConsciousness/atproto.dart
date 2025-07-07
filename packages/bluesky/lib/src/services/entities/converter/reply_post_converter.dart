@@ -43,10 +43,13 @@ final class _ReplyPostConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ReplyPost object) => object.when(
-        record: (data) => data.toJson(),
-        notFound: (data) => data.toJson(),
-        blocked: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(ReplyPost object) => switch (object) {
+        UReplyPostRecord(data: final data) => data.toJson(),
+        UReplyPostNotFound(data: final data) => data.toJson(),
+        UReplyPostBlocked(data: final data) => data.toJson(),
+        UReplyPostUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown ReplyPost type: ${object.runtimeType}'),
+      };
 }

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,83 +10,61 @@ part of 'relationships.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Relationships _$RelationshipsFromJson(Map<String, dynamic> json) {
-  return _Relationships.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Relationships {
   @relationshipConverter
-  List<Relationship> get relationships => throw _privateConstructorUsedError;
-
-  /// Serializes this Relationships to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Relationship> get relationships;
 
   /// Create a copy of Relationships
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RelationshipsCopyWith<Relationships> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RelationshipsCopyWith<$Res> {
-  factory $RelationshipsCopyWith(
-          Relationships value, $Res Function(Relationships) then) =
-      _$RelationshipsCopyWithImpl<$Res, Relationships>;
-  @useResult
-  $Res call({@relationshipConverter List<Relationship> relationships});
-}
-
-/// @nodoc
-class _$RelationshipsCopyWithImpl<$Res, $Val extends Relationships>
-    implements $RelationshipsCopyWith<$Res> {
-  _$RelationshipsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Relationships
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $RelationshipsCopyWith<Relationships> get copyWith =>
+      _$RelationshipsCopyWithImpl<Relationships>(
+          this as Relationships, _$identity);
+
+  /// Serializes this Relationships to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? relationships = null,
-  }) {
-    return _then(_value.copyWith(
-      relationships: null == relationships
-          ? _value.relationships
-          : relationships // ignore: cast_nullable_to_non_nullable
-              as List<Relationship>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Relationships &&
+            const DeepCollectionEquality()
+                .equals(other.relationships, relationships));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(relationships));
+
+  @override
+  String toString() {
+    return 'Relationships(relationships: $relationships)';
   }
 }
 
 /// @nodoc
-abstract class _$$RelationshipsImplCopyWith<$Res>
-    implements $RelationshipsCopyWith<$Res> {
-  factory _$$RelationshipsImplCopyWith(
-          _$RelationshipsImpl value, $Res Function(_$RelationshipsImpl) then) =
-      __$$RelationshipsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RelationshipsCopyWith<$Res> {
+  factory $RelationshipsCopyWith(
+          Relationships value, $Res Function(Relationships) _then) =
+      _$RelationshipsCopyWithImpl;
   @useResult
   $Res call({@relationshipConverter List<Relationship> relationships});
 }
 
 /// @nodoc
-class __$$RelationshipsImplCopyWithImpl<$Res>
-    extends _$RelationshipsCopyWithImpl<$Res, _$RelationshipsImpl>
-    implements _$$RelationshipsImplCopyWith<$Res> {
-  __$$RelationshipsImplCopyWithImpl(
-      _$RelationshipsImpl _value, $Res Function(_$RelationshipsImpl) _then)
-      : super(_value, _then);
+class _$RelationshipsCopyWithImpl<$Res>
+    implements $RelationshipsCopyWith<$Res> {
+  _$RelationshipsCopyWithImpl(this._self, this._then);
+
+  final Relationships _self;
+  final $Res Function(Relationships) _then;
 
   /// Create a copy of Relationships
   /// with the given fields replaced by the non-null parameter values.
@@ -94,9 +73,9 @@ class __$$RelationshipsImplCopyWithImpl<$Res>
   $Res call({
     Object? relationships = null,
   }) {
-    return _then(_$RelationshipsImpl(
+    return _then(_self.copyWith(
       relationships: null == relationships
-          ? _value._relationships
+          ? _self.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
               as List<Relationship>,
     ));
@@ -105,13 +84,12 @@ class __$$RelationshipsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RelationshipsImpl implements _Relationships {
-  const _$RelationshipsImpl(
+class _Relationships implements Relationships {
+  const _Relationships(
       {@relationshipConverter required final List<Relationship> relationships})
       : _relationships = relationships;
-
-  factory _$RelationshipsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RelationshipsImplFromJson(json);
+  factory _Relationships.fromJson(Map<String, dynamic> json) =>
+      _$RelationshipsFromJson(json);
 
   final List<Relationship> _relationships;
   @override
@@ -122,16 +100,26 @@ class _$RelationshipsImpl implements _Relationships {
     return EqualUnmodifiableListView(_relationships);
   }
 
+  /// Create a copy of Relationships
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Relationships(relationships: $relationships)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RelationshipsCopyWith<_Relationships> get copyWith =>
+      __$RelationshipsCopyWithImpl<_Relationships>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RelationshipsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RelationshipsImpl &&
+            other is _Relationships &&
             const DeepCollectionEquality()
                 .equals(other._relationships, _relationships));
   }
@@ -141,38 +129,45 @@ class _$RelationshipsImpl implements _Relationships {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_relationships));
 
-  /// Create a copy of Relationships
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RelationshipsImplCopyWith<_$RelationshipsImpl> get copyWith =>
-      __$$RelationshipsImplCopyWithImpl<_$RelationshipsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RelationshipsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Relationships(relationships: $relationships)';
   }
 }
 
-abstract class _Relationships implements Relationships {
-  const factory _Relationships(
-      {@relationshipConverter
-      required final List<Relationship> relationships}) = _$RelationshipsImpl;
-
-  factory _Relationships.fromJson(Map<String, dynamic> json) =
-      _$RelationshipsImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$RelationshipsCopyWith<$Res>
+    implements $RelationshipsCopyWith<$Res> {
+  factory _$RelationshipsCopyWith(
+          _Relationships value, $Res Function(_Relationships) _then) =
+      __$RelationshipsCopyWithImpl;
   @override
-  @relationshipConverter
-  List<Relationship> get relationships;
+  @useResult
+  $Res call({@relationshipConverter List<Relationship> relationships});
+}
+
+/// @nodoc
+class __$RelationshipsCopyWithImpl<$Res>
+    implements _$RelationshipsCopyWith<$Res> {
+  __$RelationshipsCopyWithImpl(this._self, this._then);
+
+  final _Relationships _self;
+  final $Res Function(_Relationships) _then;
 
   /// Create a copy of Relationships
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RelationshipsImplCopyWith<_$RelationshipsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? relationships = null,
+  }) {
+    return _then(_Relationships(
+      relationships: null == relationships
+          ? _self._relationships
+          : relationships // ignore: cast_nullable_to_non_nullable
+              as List<Relationship>,
+    ));
+  }
 }
+
+// dart format on

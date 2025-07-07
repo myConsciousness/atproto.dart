@@ -12,7 +12,7 @@ part 'facet_feature.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
-class FacetFeature with _$FacetFeature {
+abstract class FacetFeature with _$FacetFeature {
   const factory FacetFeature.mention({
     required FacetMention data,
   }) = UFacetFeatureMention;

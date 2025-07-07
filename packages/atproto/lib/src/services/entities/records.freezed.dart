@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,58 @@ part of 'records.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Records _$RecordsFromJson(Map<String, dynamic> json) {
-  return _Records.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Records {
-  List<Record> get records => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this Records to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Record> get records;
+  String? get cursor;
 
   /// Create a copy of Records
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RecordsCopyWith<Records> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RecordsCopyWith<$Res> {
-  factory $RecordsCopyWith(Records value, $Res Function(Records) then) =
-      _$RecordsCopyWithImpl<$Res, Records>;
-  @useResult
-  $Res call({List<Record> records, String? cursor});
-}
-
-/// @nodoc
-class _$RecordsCopyWithImpl<$Res, $Val extends Records>
-    implements $RecordsCopyWith<$Res> {
-  _$RecordsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Records
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $RecordsCopyWith<Records> get copyWith =>
+      _$RecordsCopyWithImpl<Records>(this as Records, _$identity);
+
+  /// Serializes this Records to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? records = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      records: null == records
-          ? _value.records
-          : records // ignore: cast_nullable_to_non_nullable
-              as List<Record>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Records &&
+            const DeepCollectionEquality().equals(other.records, records) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(records), cursor);
+
+  @override
+  String toString() {
+    return 'Records(records: $records, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$RecordsImplCopyWith<$Res> implements $RecordsCopyWith<$Res> {
-  factory _$$RecordsImplCopyWith(
-          _$RecordsImpl value, $Res Function(_$RecordsImpl) then) =
-      __$$RecordsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RecordsCopyWith<$Res> {
+  factory $RecordsCopyWith(Records value, $Res Function(Records) _then) =
+      _$RecordsCopyWithImpl;
   @useResult
   $Res call({List<Record> records, String? cursor});
 }
 
 /// @nodoc
-class __$$RecordsImplCopyWithImpl<$Res>
-    extends _$RecordsCopyWithImpl<$Res, _$RecordsImpl>
-    implements _$$RecordsImplCopyWith<$Res> {
-  __$$RecordsImplCopyWithImpl(
-      _$RecordsImpl _value, $Res Function(_$RecordsImpl) _then)
-      : super(_value, _then);
+class _$RecordsCopyWithImpl<$Res> implements $RecordsCopyWith<$Res> {
+  _$RecordsCopyWithImpl(this._self, this._then);
+
+  final Records _self;
+  final $Res Function(Records) _then;
 
   /// Create a copy of Records
   /// with the given fields replaced by the non-null parameter values.
@@ -97,13 +71,13 @@ class __$$RecordsImplCopyWithImpl<$Res>
     Object? records = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$RecordsImpl(
+    return _then(_self.copyWith(
       records: null == records
-          ? _value._records
+          ? _self.records
           : records // ignore: cast_nullable_to_non_nullable
               as List<Record>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -112,12 +86,11 @@ class __$$RecordsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RecordsImpl implements _Records {
-  const _$RecordsImpl({required final List<Record> records, this.cursor})
+class _Records implements Records {
+  const _Records({required final List<Record> records, this.cursor})
       : _records = records;
-
-  factory _$RecordsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RecordsImplFromJson(json);
+  factory _Records.fromJson(Map<String, dynamic> json) =>
+      _$RecordsFromJson(json);
 
   final List<Record> _records;
   @override
@@ -130,16 +103,26 @@ class _$RecordsImpl implements _Records {
   @override
   final String? cursor;
 
+  /// Create a copy of Records
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Records(records: $records, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RecordsCopyWith<_Records> get copyWith =>
+      __$RecordsCopyWithImpl<_Records>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RecordsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RecordsImpl &&
+            other is _Records &&
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -149,38 +132,47 @@ class _$RecordsImpl implements _Records {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_records), cursor);
 
-  /// Create a copy of Records
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RecordsImplCopyWith<_$RecordsImpl> get copyWith =>
-      __$$RecordsImplCopyWithImpl<_$RecordsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RecordsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Records(records: $records, cursor: $cursor)';
   }
 }
 
-abstract class _Records implements Records {
-  const factory _Records(
-      {required final List<Record> records,
-      final String? cursor}) = _$RecordsImpl;
-
-  factory _Records.fromJson(Map<String, dynamic> json) = _$RecordsImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$RecordsCopyWith<$Res> implements $RecordsCopyWith<$Res> {
+  factory _$RecordsCopyWith(_Records value, $Res Function(_Records) _then) =
+      __$RecordsCopyWithImpl;
   @override
-  List<Record> get records;
-  @override
-  String? get cursor;
+  @useResult
+  $Res call({List<Record> records, String? cursor});
+}
+
+/// @nodoc
+class __$RecordsCopyWithImpl<$Res> implements _$RecordsCopyWith<$Res> {
+  __$RecordsCopyWithImpl(this._self, this._then);
+
+  final _Records _self;
+  final $Res Function(_Records) _then;
 
   /// Create a copy of Records
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RecordsImplCopyWith<_$RecordsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? records = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_Records(
+      records: null == records
+          ? _self._records
+          : records // ignore: cast_nullable_to_non_nullable
+              as List<Record>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

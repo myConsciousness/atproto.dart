@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,133 +10,30 @@ part of 'invite_code_use.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-InviteCodeUse _$InviteCodeUseFromJson(Map<String, dynamic> json) {
-  return _InviteCodeUse.fromJson(json);
-}
 
 /// @nodoc
 mixin _$InviteCodeUse {
-  String get usedBy => throw _privateConstructorUsedError;
-  DateTime get usedAt => throw _privateConstructorUsedError;
-
-  /// Serializes this InviteCodeUse to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get usedBy;
+  DateTime get usedAt;
 
   /// Create a copy of InviteCodeUse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $InviteCodeUseCopyWith<InviteCodeUse> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$InviteCodeUseCopyWithImpl<InviteCodeUse>(
+          this as InviteCodeUse, _$identity);
 
-/// @nodoc
-abstract class $InviteCodeUseCopyWith<$Res> {
-  factory $InviteCodeUseCopyWith(
-          InviteCodeUse value, $Res Function(InviteCodeUse) then) =
-      _$InviteCodeUseCopyWithImpl<$Res, InviteCodeUse>;
-  @useResult
-  $Res call({String usedBy, DateTime usedAt});
-}
-
-/// @nodoc
-class _$InviteCodeUseCopyWithImpl<$Res, $Val extends InviteCodeUse>
-    implements $InviteCodeUseCopyWith<$Res> {
-  _$InviteCodeUseCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of InviteCodeUse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? usedBy = null,
-    Object? usedAt = null,
-  }) {
-    return _then(_value.copyWith(
-      usedBy: null == usedBy
-          ? _value.usedBy
-          : usedBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      usedAt: null == usedAt
-          ? _value.usedAt
-          : usedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$InviteCodeUseImplCopyWith<$Res>
-    implements $InviteCodeUseCopyWith<$Res> {
-  factory _$$InviteCodeUseImplCopyWith(
-          _$InviteCodeUseImpl value, $Res Function(_$InviteCodeUseImpl) then) =
-      __$$InviteCodeUseImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String usedBy, DateTime usedAt});
-}
-
-/// @nodoc
-class __$$InviteCodeUseImplCopyWithImpl<$Res>
-    extends _$InviteCodeUseCopyWithImpl<$Res, _$InviteCodeUseImpl>
-    implements _$$InviteCodeUseImplCopyWith<$Res> {
-  __$$InviteCodeUseImplCopyWithImpl(
-      _$InviteCodeUseImpl _value, $Res Function(_$InviteCodeUseImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of InviteCodeUse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? usedBy = null,
-    Object? usedAt = null,
-  }) {
-    return _then(_$InviteCodeUseImpl(
-      usedBy: null == usedBy
-          ? _value.usedBy
-          : usedBy // ignore: cast_nullable_to_non_nullable
-              as String,
-      usedAt: null == usedAt
-          ? _value.usedAt
-          : usedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$InviteCodeUseImpl implements _InviteCodeUse {
-  const _$InviteCodeUseImpl({required this.usedBy, required this.usedAt});
-
-  factory _$InviteCodeUseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$InviteCodeUseImplFromJson(json);
-
-  @override
-  final String usedBy;
-  @override
-  final DateTime usedAt;
-
-  @override
-  String toString() {
-    return 'InviteCodeUse(usedBy: $usedBy, usedAt: $usedAt)';
-  }
+  /// Serializes this InviteCodeUse to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InviteCodeUseImpl &&
+            other is InviteCodeUse &&
             (identical(other.usedBy, usedBy) || other.usedBy == usedBy) &&
             (identical(other.usedAt, usedAt) || other.usedAt == usedAt));
   }
@@ -144,39 +42,134 @@ class _$InviteCodeUseImpl implements _InviteCodeUse {
   @override
   int get hashCode => Object.hash(runtimeType, usedBy, usedAt);
 
-  /// Create a copy of InviteCodeUse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$InviteCodeUseImplCopyWith<_$InviteCodeUseImpl> get copyWith =>
-      __$$InviteCodeUseImplCopyWithImpl<_$InviteCodeUseImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$InviteCodeUseImplToJson(
-      this,
-    );
+  String toString() {
+    return 'InviteCodeUse(usedBy: $usedBy, usedAt: $usedAt)';
   }
 }
 
-abstract class _InviteCodeUse implements InviteCodeUse {
-  const factory _InviteCodeUse(
-      {required final String usedBy,
-      required final DateTime usedAt}) = _$InviteCodeUseImpl;
+/// @nodoc
+abstract mixin class $InviteCodeUseCopyWith<$Res> {
+  factory $InviteCodeUseCopyWith(
+          InviteCodeUse value, $Res Function(InviteCodeUse) _then) =
+      _$InviteCodeUseCopyWithImpl;
+  @useResult
+  $Res call({String usedBy, DateTime usedAt});
+}
 
-  factory _InviteCodeUse.fromJson(Map<String, dynamic> json) =
-      _$InviteCodeUseImpl.fromJson;
+/// @nodoc
+class _$InviteCodeUseCopyWithImpl<$Res>
+    implements $InviteCodeUseCopyWith<$Res> {
+  _$InviteCodeUseCopyWithImpl(this._self, this._then);
+
+  final InviteCodeUse _self;
+  final $Res Function(InviteCodeUse) _then;
+
+  /// Create a copy of InviteCodeUse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? usedBy = null,
+    Object? usedAt = null,
+  }) {
+    return _then(_self.copyWith(
+      usedBy: null == usedBy
+          ? _self.usedBy
+          : usedBy // ignore: cast_nullable_to_non_nullable
+              as String,
+      usedAt: null == usedAt
+          ? _self.usedAt
+          : usedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _InviteCodeUse implements InviteCodeUse {
+  const _InviteCodeUse({required this.usedBy, required this.usedAt});
+  factory _InviteCodeUse.fromJson(Map<String, dynamic> json) =>
+      _$InviteCodeUseFromJson(json);
 
   @override
-  String get usedBy;
+  final String usedBy;
   @override
-  DateTime get usedAt;
+  final DateTime usedAt;
 
   /// Create a copy of InviteCodeUse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InviteCodeUseImplCopyWith<_$InviteCodeUseImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$InviteCodeUseCopyWith<_InviteCodeUse> get copyWith =>
+      __$InviteCodeUseCopyWithImpl<_InviteCodeUse>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$InviteCodeUseToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _InviteCodeUse &&
+            (identical(other.usedBy, usedBy) || other.usedBy == usedBy) &&
+            (identical(other.usedAt, usedAt) || other.usedAt == usedAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, usedBy, usedAt);
+
+  @override
+  String toString() {
+    return 'InviteCodeUse(usedBy: $usedBy, usedAt: $usedAt)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$InviteCodeUseCopyWith<$Res>
+    implements $InviteCodeUseCopyWith<$Res> {
+  factory _$InviteCodeUseCopyWith(
+          _InviteCodeUse value, $Res Function(_InviteCodeUse) _then) =
+      __$InviteCodeUseCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String usedBy, DateTime usedAt});
+}
+
+/// @nodoc
+class __$InviteCodeUseCopyWithImpl<$Res>
+    implements _$InviteCodeUseCopyWith<$Res> {
+  __$InviteCodeUseCopyWithImpl(this._self, this._then);
+
+  final _InviteCodeUse _self;
+  final $Res Function(_InviteCodeUse) _then;
+
+  /// Create a copy of InviteCodeUse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? usedBy = null,
+    Object? usedAt = null,
+  }) {
+    return _then(_InviteCodeUse(
+      usedBy: null == usedBy
+          ? _self.usedBy
+          : usedBy // ignore: cast_nullable_to_non_nullable
+              as String,
+      usedAt: null == usedAt
+          ? _self.usedAt
+          : usedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+// dart format on

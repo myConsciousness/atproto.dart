@@ -9,7 +9,7 @@ part 'label_value_definition_strings.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs/#labelvaluedefinitionstrings
 @freezed
-class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
+abstract class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
   @jsonSerializable
   const factory LabelValueDefinitionStrings({
     required String lang,

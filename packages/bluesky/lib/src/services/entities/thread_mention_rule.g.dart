@@ -8,12 +8,11 @@ part of 'thread_mention_rule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ThreadMentionRuleImpl _$$ThreadMentionRuleImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ThreadMentionRuleImpl',
+_ThreadMentionRule _$ThreadMentionRuleFromJson(Map json) => $checkedCreate(
+      '_ThreadMentionRule',
       json,
       ($checkedConvert) {
-        final val = _$ThreadMentionRuleImpl(
+        final val = _ThreadMentionRule(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyFeedThreadgateMentionRule),
         );
@@ -22,8 +21,7 @@ _$ThreadMentionRuleImpl _$$ThreadMentionRuleImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ThreadMentionRuleImplToJson(
-        _$ThreadMentionRuleImpl instance) =>
+Map<String, dynamic> _$ThreadMentionRuleToJson(_ThreadMentionRule instance) =>
     <String, dynamic>{
       r'$type': instance.type,
     };

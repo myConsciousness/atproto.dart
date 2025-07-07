@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,14 +10,8 @@ part of 'grouped_notification.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GroupedNotification _$GroupedNotificationFromJson(Map<String, dynamic> json) {
-  return _GroupedNotification.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GroupedNotification {
@@ -25,128 +20,85 @@ mixin _$GroupedNotification {
   /// This list is set in chronological order, with the uri of
   /// the most recent notification at the top.
   @AtUriConverter()
-  List<AtUri> get uris => throw _privateConstructorUsedError;
+  List<AtUri> get uris;
 
   /// The collection of authors causing the notification.
   ///
   /// This list is set in chronological order, with the author of the
   /// most recent notification at the top.
-  List<Actor> get authors => throw _privateConstructorUsedError;
+  List<Actor> get authors;
 
   /// Specifies the reason for the notification.
-  GroupedNotificationReason get reason => throw _privateConstructorUsedError;
+  GroupedNotificationReason get reason;
 
   /// Optionally, represents the subject of the reason for the notification.
   @AtUriConverter()
-  AtUri? get reasonSubject => throw _privateConstructorUsedError;
+  AtUri? get reasonSubject;
 
   /// Indicates whether the notification has been read or not.
-  bool get isRead => throw _privateConstructorUsedError;
+  bool get isRead;
 
   /// May include any labels attached to the notification.
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label> get labels;
 
   /// Might include additional data related to the notification.
-  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get record;
 
   /// Indicates the timestamp at which the notification was indexed.
-  DateTime get indexedAt => throw _privateConstructorUsedError;
-
-  /// Serializes this GroupedNotification to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  DateTime get indexedAt;
 
   /// Create a copy of GroupedNotification
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GroupedNotificationCopyWith<GroupedNotification> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GroupedNotificationCopyWith<$Res> {
-  factory $GroupedNotificationCopyWith(
-          GroupedNotification value, $Res Function(GroupedNotification) then) =
-      _$GroupedNotificationCopyWithImpl<$Res, GroupedNotification>;
-  @useResult
-  $Res call(
-      {@AtUriConverter() List<AtUri> uris,
-      List<Actor> authors,
-      GroupedNotificationReason reason,
-      @AtUriConverter() AtUri? reasonSubject,
-      bool isRead,
-      List<Label> labels,
-      Map<String, dynamic>? record,
-      DateTime indexedAt});
-}
-
-/// @nodoc
-class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
-    implements $GroupedNotificationCopyWith<$Res> {
-  _$GroupedNotificationCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GroupedNotification
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $GroupedNotificationCopyWith<GroupedNotification> get copyWith =>
+      _$GroupedNotificationCopyWithImpl<GroupedNotification>(
+          this as GroupedNotification, _$identity);
+
+  /// Serializes this GroupedNotification to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? uris = null,
-    Object? authors = null,
-    Object? reason = null,
-    Object? reasonSubject = freezed,
-    Object? isRead = null,
-    Object? labels = null,
-    Object? record = freezed,
-    Object? indexedAt = null,
-  }) {
-    return _then(_value.copyWith(
-      uris: null == uris
-          ? _value.uris
-          : uris // ignore: cast_nullable_to_non_nullable
-              as List<AtUri>,
-      authors: null == authors
-          ? _value.authors
-          : authors // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
-      reason: null == reason
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
-              as GroupedNotificationReason,
-      reasonSubject: freezed == reasonSubject
-          ? _value.reasonSubject
-          : reasonSubject // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-      isRead: null == isRead
-          ? _value.isRead
-          : isRead // ignore: cast_nullable_to_non_nullable
-              as bool,
-      labels: null == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
-      record: freezed == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      indexedAt: null == indexedAt
-          ? _value.indexedAt
-          : indexedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GroupedNotification &&
+            const DeepCollectionEquality().equals(other.uris, uris) &&
+            const DeepCollectionEquality().equals(other.authors, authors) &&
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(other.reasonSubject, reasonSubject) ||
+                other.reasonSubject == reasonSubject) &&
+            (identical(other.isRead, isRead) || other.isRead == isRead) &&
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            const DeepCollectionEquality().equals(other.record, record) &&
+            (identical(other.indexedAt, indexedAt) ||
+                other.indexedAt == indexedAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(uris),
+      const DeepCollectionEquality().hash(authors),
+      reason,
+      reasonSubject,
+      isRead,
+      const DeepCollectionEquality().hash(labels),
+      const DeepCollectionEquality().hash(record),
+      indexedAt);
+
+  @override
+  String toString() {
+    return 'GroupedNotification(uris: $uris, authors: $authors, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, record: $record, indexedAt: $indexedAt)';
   }
 }
 
 /// @nodoc
-abstract class _$$GroupedNotificationImplCopyWith<$Res>
-    implements $GroupedNotificationCopyWith<$Res> {
-  factory _$$GroupedNotificationImplCopyWith(_$GroupedNotificationImpl value,
-          $Res Function(_$GroupedNotificationImpl) then) =
-      __$$GroupedNotificationImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GroupedNotificationCopyWith<$Res> {
+  factory $GroupedNotificationCopyWith(
+          GroupedNotification value, $Res Function(GroupedNotification) _then) =
+      _$GroupedNotificationCopyWithImpl;
   @useResult
   $Res call(
       {@AtUriConverter() List<AtUri> uris,
@@ -160,12 +112,12 @@ abstract class _$$GroupedNotificationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GroupedNotificationImplCopyWithImpl<$Res>
-    extends _$GroupedNotificationCopyWithImpl<$Res, _$GroupedNotificationImpl>
-    implements _$$GroupedNotificationImplCopyWith<$Res> {
-  __$$GroupedNotificationImplCopyWithImpl(_$GroupedNotificationImpl _value,
-      $Res Function(_$GroupedNotificationImpl) _then)
-      : super(_value, _then);
+class _$GroupedNotificationCopyWithImpl<$Res>
+    implements $GroupedNotificationCopyWith<$Res> {
+  _$GroupedNotificationCopyWithImpl(this._self, this._then);
+
+  final GroupedNotification _self;
+  final $Res Function(GroupedNotification) _then;
 
   /// Create a copy of GroupedNotification
   /// with the given fields replaced by the non-null parameter values.
@@ -181,37 +133,37 @@ class __$$GroupedNotificationImplCopyWithImpl<$Res>
     Object? record = freezed,
     Object? indexedAt = null,
   }) {
-    return _then(_$GroupedNotificationImpl(
+    return _then(_self.copyWith(
       uris: null == uris
-          ? _value._uris
+          ? _self.uris
           : uris // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
       authors: null == authors
-          ? _value._authors
+          ? _self.authors
           : authors // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
       reason: null == reason
-          ? _value.reason
+          ? _self.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as GroupedNotificationReason,
       reasonSubject: freezed == reasonSubject
-          ? _value.reasonSubject
+          ? _self.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
               as AtUri?,
       isRead: null == isRead
-          ? _value.isRead
+          ? _self.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
               as bool,
       labels: null == labels
-          ? _value._labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
       record: freezed == record
-          ? _value._record
+          ? _self.record
           : record // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       indexedAt: null == indexedAt
-          ? _value.indexedAt
+          ? _self.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -221,8 +173,8 @@ class __$$GroupedNotificationImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GroupedNotificationImpl implements _GroupedNotification {
-  const _$GroupedNotificationImpl(
+class _GroupedNotification implements GroupedNotification {
+  const _GroupedNotification(
       {@AtUriConverter() required final List<AtUri> uris,
       required final List<Actor> authors,
       required this.reason,
@@ -235,9 +187,8 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
         _authors = authors,
         _labels = labels,
         _record = record;
-
-  factory _$GroupedNotificationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GroupedNotificationImplFromJson(json);
+  factory _GroupedNotification.fromJson(Map<String, dynamic> json) =>
+      _$GroupedNotificationFromJson(json);
 
   /// The unique URI for the notification content.
   ///
@@ -315,16 +266,27 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
   @override
   final DateTime indexedAt;
 
+  /// Create a copy of GroupedNotification
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GroupedNotification(uris: $uris, authors: $authors, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, record: $record, indexedAt: $indexedAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GroupedNotificationCopyWith<_GroupedNotification> get copyWith =>
+      __$GroupedNotificationCopyWithImpl<_GroupedNotification>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GroupedNotificationToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GroupedNotificationImpl &&
+            other is _GroupedNotification &&
             const DeepCollectionEquality().equals(other._uris, _uris) &&
             const DeepCollectionEquality().equals(other._authors, _authors) &&
             (identical(other.reason, reason) || other.reason == reason) &&
@@ -350,81 +312,88 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
       const DeepCollectionEquality().hash(_record),
       indexedAt);
 
-  /// Create a copy of GroupedNotification
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GroupedNotificationImplCopyWith<_$GroupedNotificationImpl> get copyWith =>
-      __$$GroupedNotificationImplCopyWithImpl<_$GroupedNotificationImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GroupedNotificationImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GroupedNotification(uris: $uris, authors: $authors, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, labels: $labels, record: $record, indexedAt: $indexedAt)';
   }
 }
 
-abstract class _GroupedNotification implements GroupedNotification {
-  const factory _GroupedNotification(
-      {@AtUriConverter() required final List<AtUri> uris,
-      required final List<Actor> authors,
-      required final GroupedNotificationReason reason,
-      @AtUriConverter() final AtUri? reasonSubject,
-      required final bool isRead,
-      required final List<Label> labels,
-      final Map<String, dynamic>? record,
-      required final DateTime indexedAt}) = _$GroupedNotificationImpl;
-
-  factory _GroupedNotification.fromJson(Map<String, dynamic> json) =
-      _$GroupedNotificationImpl.fromJson;
-
-  /// The unique URI for the notification content.
-  ///
-  /// This list is set in chronological order, with the uri of
-  /// the most recent notification at the top.
+/// @nodoc
+abstract mixin class _$GroupedNotificationCopyWith<$Res>
+    implements $GroupedNotificationCopyWith<$Res> {
+  factory _$GroupedNotificationCopyWith(_GroupedNotification value,
+          $Res Function(_GroupedNotification) _then) =
+      __$GroupedNotificationCopyWithImpl;
   @override
-  @AtUriConverter()
-  List<AtUri> get uris;
+  @useResult
+  $Res call(
+      {@AtUriConverter() List<AtUri> uris,
+      List<Actor> authors,
+      GroupedNotificationReason reason,
+      @AtUriConverter() AtUri? reasonSubject,
+      bool isRead,
+      List<Label> labels,
+      Map<String, dynamic>? record,
+      DateTime indexedAt});
+}
 
-  /// The collection of authors causing the notification.
-  ///
-  /// This list is set in chronological order, with the author of the
-  /// most recent notification at the top.
-  @override
-  List<Actor> get authors;
+/// @nodoc
+class __$GroupedNotificationCopyWithImpl<$Res>
+    implements _$GroupedNotificationCopyWith<$Res> {
+  __$GroupedNotificationCopyWithImpl(this._self, this._then);
 
-  /// Specifies the reason for the notification.
-  @override
-  GroupedNotificationReason get reason;
-
-  /// Optionally, represents the subject of the reason for the notification.
-  @override
-  @AtUriConverter()
-  AtUri? get reasonSubject;
-
-  /// Indicates whether the notification has been read or not.
-  @override
-  bool get isRead;
-
-  /// May include any labels attached to the notification.
-  @override
-  List<Label> get labels;
-
-  /// Might include additional data related to the notification.
-  @override
-  Map<String, dynamic>? get record;
-
-  /// Indicates the timestamp at which the notification was indexed.
-  @override
-  DateTime get indexedAt;
+  final _GroupedNotification _self;
+  final $Res Function(_GroupedNotification) _then;
 
   /// Create a copy of GroupedNotification
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GroupedNotificationImplCopyWith<_$GroupedNotificationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? uris = null,
+    Object? authors = null,
+    Object? reason = null,
+    Object? reasonSubject = freezed,
+    Object? isRead = null,
+    Object? labels = null,
+    Object? record = freezed,
+    Object? indexedAt = null,
+  }) {
+    return _then(_GroupedNotification(
+      uris: null == uris
+          ? _self._uris
+          : uris // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>,
+      authors: null == authors
+          ? _self._authors
+          : authors // ignore: cast_nullable_to_non_nullable
+              as List<Actor>,
+      reason: null == reason
+          ? _self.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as GroupedNotificationReason,
+      reasonSubject: freezed == reasonSubject
+          ? _self.reasonSubject
+          : reasonSubject // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+      isRead: null == isRead
+          ? _self.isRead
+          : isRead // ignore: cast_nullable_to_non_nullable
+              as bool,
+      labels: null == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>,
+      record: freezed == record
+          ? _self._record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      indexedAt: null == indexedAt
+          ? _self.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
+
+// dart format on

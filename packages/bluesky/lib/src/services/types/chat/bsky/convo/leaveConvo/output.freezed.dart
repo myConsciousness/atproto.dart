@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,60 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LeaveConvoOutput _$LeaveConvoOutputFromJson(Map<String, dynamic> json) {
-  return _LeaveConvoOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LeaveConvoOutput {
-  String get convoId => throw _privateConstructorUsedError;
-  String get rev => throw _privateConstructorUsedError;
-
-  /// Serializes this LeaveConvoOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get convoId;
+  String get rev;
 
   /// Create a copy of LeaveConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LeaveConvoOutputCopyWith<LeaveConvoOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LeaveConvoOutputCopyWith<$Res> {
-  factory $LeaveConvoOutputCopyWith(
-          LeaveConvoOutput value, $Res Function(LeaveConvoOutput) then) =
-      _$LeaveConvoOutputCopyWithImpl<$Res, LeaveConvoOutput>;
-  @useResult
-  $Res call({String convoId, String rev});
-}
-
-/// @nodoc
-class _$LeaveConvoOutputCopyWithImpl<$Res, $Val extends LeaveConvoOutput>
-    implements $LeaveConvoOutputCopyWith<$Res> {
-  _$LeaveConvoOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LeaveConvoOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LeaveConvoOutputCopyWith<LeaveConvoOutput> get copyWith =>
+      _$LeaveConvoOutputCopyWithImpl<LeaveConvoOutput>(
+          this as LeaveConvoOutput, _$identity);
+
+  /// Serializes this LeaveConvoOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? convoId = null,
-    Object? rev = null,
-  }) {
-    return _then(_value.copyWith(
-      convoId: null == convoId
-          ? _value.convoId
-          : convoId // ignore: cast_nullable_to_non_nullable
-              as String,
-      rev: null == rev
-          ? _value.rev
-          : rev // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LeaveConvoOutput &&
+            (identical(other.convoId, convoId) || other.convoId == convoId) &&
+            (identical(other.rev, rev) || other.rev == rev));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, convoId, rev);
+
+  @override
+  String toString() {
+    return 'LeaveConvoOutput(convoId: $convoId, rev: $rev)';
   }
 }
 
 /// @nodoc
-abstract class _$$LeaveConvoOutputImplCopyWith<$Res>
-    implements $LeaveConvoOutputCopyWith<$Res> {
-  factory _$$LeaveConvoOutputImplCopyWith(_$LeaveConvoOutputImpl value,
-          $Res Function(_$LeaveConvoOutputImpl) then) =
-      __$$LeaveConvoOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LeaveConvoOutputCopyWith<$Res> {
+  factory $LeaveConvoOutputCopyWith(
+          LeaveConvoOutput value, $Res Function(LeaveConvoOutput) _then) =
+      _$LeaveConvoOutputCopyWithImpl;
   @useResult
   $Res call({String convoId, String rev});
 }
 
 /// @nodoc
-class __$$LeaveConvoOutputImplCopyWithImpl<$Res>
-    extends _$LeaveConvoOutputCopyWithImpl<$Res, _$LeaveConvoOutputImpl>
-    implements _$$LeaveConvoOutputImplCopyWith<$Res> {
-  __$$LeaveConvoOutputImplCopyWithImpl(_$LeaveConvoOutputImpl _value,
-      $Res Function(_$LeaveConvoOutputImpl) _then)
-      : super(_value, _then);
+class _$LeaveConvoOutputCopyWithImpl<$Res>
+    implements $LeaveConvoOutputCopyWith<$Res> {
+  _$LeaveConvoOutputCopyWithImpl(this._self, this._then);
+
+  final LeaveConvoOutput _self;
+  final $Res Function(LeaveConvoOutput) _then;
 
   /// Create a copy of LeaveConvoOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -100,13 +73,13 @@ class __$$LeaveConvoOutputImplCopyWithImpl<$Res>
     Object? convoId = null,
     Object? rev = null,
   }) {
-    return _then(_$LeaveConvoOutputImpl(
+    return _then(_self.copyWith(
       convoId: null == convoId
-          ? _value.convoId
+          ? _self.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
       rev: null == rev
-          ? _value.rev
+          ? _self.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -116,27 +89,36 @@ class __$$LeaveConvoOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$LeaveConvoOutputImpl implements _LeaveConvoOutput {
-  const _$LeaveConvoOutputImpl({required this.convoId, required this.rev});
-
-  factory _$LeaveConvoOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LeaveConvoOutputImplFromJson(json);
+class _LeaveConvoOutput implements LeaveConvoOutput {
+  const _LeaveConvoOutput({required this.convoId, required this.rev});
+  factory _LeaveConvoOutput.fromJson(Map<String, dynamic> json) =>
+      _$LeaveConvoOutputFromJson(json);
 
   @override
   final String convoId;
   @override
   final String rev;
 
+  /// Create a copy of LeaveConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LeaveConvoOutput(convoId: $convoId, rev: $rev)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LeaveConvoOutputCopyWith<_LeaveConvoOutput> get copyWith =>
+      __$LeaveConvoOutputCopyWithImpl<_LeaveConvoOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LeaveConvoOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LeaveConvoOutputImpl &&
+            other is _LeaveConvoOutput &&
             (identical(other.convoId, convoId) || other.convoId == convoId) &&
             (identical(other.rev, rev) || other.rev == rev));
   }
@@ -145,40 +127,50 @@ class _$LeaveConvoOutputImpl implements _LeaveConvoOutput {
   @override
   int get hashCode => Object.hash(runtimeType, convoId, rev);
 
-  /// Create a copy of LeaveConvoOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LeaveConvoOutputImplCopyWith<_$LeaveConvoOutputImpl> get copyWith =>
-      __$$LeaveConvoOutputImplCopyWithImpl<_$LeaveConvoOutputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LeaveConvoOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LeaveConvoOutput(convoId: $convoId, rev: $rev)';
   }
 }
 
-abstract class _LeaveConvoOutput implements LeaveConvoOutput {
-  const factory _LeaveConvoOutput(
-      {required final String convoId,
-      required final String rev}) = _$LeaveConvoOutputImpl;
-
-  factory _LeaveConvoOutput.fromJson(Map<String, dynamic> json) =
-      _$LeaveConvoOutputImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$LeaveConvoOutputCopyWith<$Res>
+    implements $LeaveConvoOutputCopyWith<$Res> {
+  factory _$LeaveConvoOutputCopyWith(
+          _LeaveConvoOutput value, $Res Function(_LeaveConvoOutput) _then) =
+      __$LeaveConvoOutputCopyWithImpl;
   @override
-  String get convoId;
-  @override
-  String get rev;
+  @useResult
+  $Res call({String convoId, String rev});
+}
+
+/// @nodoc
+class __$LeaveConvoOutputCopyWithImpl<$Res>
+    implements _$LeaveConvoOutputCopyWith<$Res> {
+  __$LeaveConvoOutputCopyWithImpl(this._self, this._then);
+
+  final _LeaveConvoOutput _self;
+  final $Res Function(_LeaveConvoOutput) _then;
 
   /// Create a copy of LeaveConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LeaveConvoOutputImplCopyWith<_$LeaveConvoOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? convoId = null,
+    Object? rev = null,
+  }) {
+    return _then(_LeaveConvoOutput(
+      convoId: null == convoId
+          ? _self.convoId
+          : convoId // ignore: cast_nullable_to_non_nullable
+              as String,
+      rev: null == rev
+          ? _self.rev
+          : rev // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

@@ -12,7 +12,7 @@ part 'skeleton_reason_pin.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#skeletonreasonpin
 @freezed
-class SkeletonReasonPin with _$SkeletonReasonPin {
+abstract class SkeletonReasonPin with _$SkeletonReasonPin {
   @jsonSerializable
   const factory SkeletonReasonPin({
     @typeKey @Default(appBskyFeedDefsSkeletonReasonPin) String type,

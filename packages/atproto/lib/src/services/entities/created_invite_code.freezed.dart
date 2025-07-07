@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,58 @@ part of 'created_invite_code.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CreatedInviteCode _$CreatedInviteCodeFromJson(Map<String, dynamic> json) {
-  return _CreatedInviteCode.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CreatedInviteCode {
-  String get code => throw _privateConstructorUsedError;
-
-  /// Serializes this CreatedInviteCode to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get code;
 
   /// Create a copy of CreatedInviteCode
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CreatedInviteCodeCopyWith<CreatedInviteCode> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreatedInviteCodeCopyWith<$Res> {
-  factory $CreatedInviteCodeCopyWith(
-          CreatedInviteCode value, $Res Function(CreatedInviteCode) then) =
-      _$CreatedInviteCodeCopyWithImpl<$Res, CreatedInviteCode>;
-  @useResult
-  $Res call({String code});
-}
-
-/// @nodoc
-class _$CreatedInviteCodeCopyWithImpl<$Res, $Val extends CreatedInviteCode>
-    implements $CreatedInviteCodeCopyWith<$Res> {
-  _$CreatedInviteCodeCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of CreatedInviteCode
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CreatedInviteCodeCopyWith<CreatedInviteCode> get copyWith =>
+      _$CreatedInviteCodeCopyWithImpl<CreatedInviteCode>(
+          this as CreatedInviteCode, _$identity);
+
+  /// Serializes this CreatedInviteCode to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? code = null,
-  }) {
-    return _then(_value.copyWith(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CreatedInviteCode &&
+            (identical(other.code, code) || other.code == code));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, code);
+
+  @override
+  String toString() {
+    return 'CreatedInviteCode(code: $code)';
   }
 }
 
 /// @nodoc
-abstract class _$$CreatedInviteCodeImplCopyWith<$Res>
-    implements $CreatedInviteCodeCopyWith<$Res> {
-  factory _$$CreatedInviteCodeImplCopyWith(_$CreatedInviteCodeImpl value,
-          $Res Function(_$CreatedInviteCodeImpl) then) =
-      __$$CreatedInviteCodeImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CreatedInviteCodeCopyWith<$Res> {
+  factory $CreatedInviteCodeCopyWith(
+          CreatedInviteCode value, $Res Function(CreatedInviteCode) _then) =
+      _$CreatedInviteCodeCopyWithImpl;
   @useResult
   $Res call({String code});
 }
 
 /// @nodoc
-class __$$CreatedInviteCodeImplCopyWithImpl<$Res>
-    extends _$CreatedInviteCodeCopyWithImpl<$Res, _$CreatedInviteCodeImpl>
-    implements _$$CreatedInviteCodeImplCopyWith<$Res> {
-  __$$CreatedInviteCodeImplCopyWithImpl(_$CreatedInviteCodeImpl _value,
-      $Res Function(_$CreatedInviteCodeImpl) _then)
-      : super(_value, _then);
+class _$CreatedInviteCodeCopyWithImpl<$Res>
+    implements $CreatedInviteCodeCopyWith<$Res> {
+  _$CreatedInviteCodeCopyWithImpl(this._self, this._then);
+
+  final CreatedInviteCode _self;
+  final $Res Function(CreatedInviteCode) _then;
 
   /// Create a copy of CreatedInviteCode
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +70,9 @@ class __$$CreatedInviteCodeImplCopyWithImpl<$Res>
   $Res call({
     Object? code = null,
   }) {
-    return _then(_$CreatedInviteCodeImpl(
+    return _then(_self.copyWith(
       code: null == code
-          ? _value.code
+          ? _self.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -104,25 +81,34 @@ class __$$CreatedInviteCodeImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CreatedInviteCodeImpl implements _CreatedInviteCode {
-  const _$CreatedInviteCodeImpl({required this.code});
-
-  factory _$CreatedInviteCodeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreatedInviteCodeImplFromJson(json);
+class _CreatedInviteCode implements CreatedInviteCode {
+  const _CreatedInviteCode({required this.code});
+  factory _CreatedInviteCode.fromJson(Map<String, dynamic> json) =>
+      _$CreatedInviteCodeFromJson(json);
 
   @override
   final String code;
 
+  /// Create a copy of CreatedInviteCode
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CreatedInviteCode(code: $code)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CreatedInviteCodeCopyWith<_CreatedInviteCode> get copyWith =>
+      __$CreatedInviteCodeCopyWithImpl<_CreatedInviteCode>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CreatedInviteCodeToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreatedInviteCodeImpl &&
+            other is _CreatedInviteCode &&
             (identical(other.code, code) || other.code == code));
   }
 
@@ -130,37 +116,45 @@ class _$CreatedInviteCodeImpl implements _CreatedInviteCode {
   @override
   int get hashCode => Object.hash(runtimeType, code);
 
-  /// Create a copy of CreatedInviteCode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CreatedInviteCodeImplCopyWith<_$CreatedInviteCodeImpl> get copyWith =>
-      __$$CreatedInviteCodeImplCopyWithImpl<_$CreatedInviteCodeImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreatedInviteCodeImplToJson(
-      this,
-    );
+  String toString() {
+    return 'CreatedInviteCode(code: $code)';
   }
 }
 
-abstract class _CreatedInviteCode implements CreatedInviteCode {
-  const factory _CreatedInviteCode({required final String code}) =
-      _$CreatedInviteCodeImpl;
-
-  factory _CreatedInviteCode.fromJson(Map<String, dynamic> json) =
-      _$CreatedInviteCodeImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$CreatedInviteCodeCopyWith<$Res>
+    implements $CreatedInviteCodeCopyWith<$Res> {
+  factory _$CreatedInviteCodeCopyWith(
+          _CreatedInviteCode value, $Res Function(_CreatedInviteCode) _then) =
+      __$CreatedInviteCodeCopyWithImpl;
   @override
-  String get code;
+  @useResult
+  $Res call({String code});
+}
+
+/// @nodoc
+class __$CreatedInviteCodeCopyWithImpl<$Res>
+    implements _$CreatedInviteCodeCopyWith<$Res> {
+  __$CreatedInviteCodeCopyWithImpl(this._self, this._then);
+
+  final _CreatedInviteCode _self;
+  final $Res Function(_CreatedInviteCode) _then;
 
   /// Create a copy of CreatedInviteCode
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CreatedInviteCodeImplCopyWith<_$CreatedInviteCodeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? code = null,
+  }) {
+    return _then(_CreatedInviteCode(
+      code: null == code
+          ? _self.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

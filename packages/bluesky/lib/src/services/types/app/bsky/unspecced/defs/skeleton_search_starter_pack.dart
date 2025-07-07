@@ -12,7 +12,7 @@ part 'skeleton_search_starter_pack.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs/#skeletonsearchstarterpack
 @freezed
-class SkeletonSearchStarterPack with _$SkeletonSearchStarterPack {
+abstract class SkeletonSearchStarterPack with _$SkeletonSearchStarterPack {
   @jsonSerializable
   const factory SkeletonSearchStarterPack({
     @typeKey

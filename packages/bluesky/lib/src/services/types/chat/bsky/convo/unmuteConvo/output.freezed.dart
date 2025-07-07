@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,136 +10,29 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UnmuteConvoOutput _$UnmuteConvoOutputFromJson(Map<String, dynamic> json) {
-  return _UnmuteConvoOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UnmuteConvoOutput {
-  ConvoView get convo => throw _privateConstructorUsedError;
-
-  /// Serializes this UnmuteConvoOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  ConvoView get convo;
 
   /// Create a copy of UnmuteConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $UnmuteConvoOutputCopyWith<UnmuteConvoOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$UnmuteConvoOutputCopyWithImpl<UnmuteConvoOutput>(
+          this as UnmuteConvoOutput, _$identity);
 
-/// @nodoc
-abstract class $UnmuteConvoOutputCopyWith<$Res> {
-  factory $UnmuteConvoOutputCopyWith(
-          UnmuteConvoOutput value, $Res Function(UnmuteConvoOutput) then) =
-      _$UnmuteConvoOutputCopyWithImpl<$Res, UnmuteConvoOutput>;
-  @useResult
-  $Res call({ConvoView convo});
-
-  $ConvoViewCopyWith<$Res> get convo;
-}
-
-/// @nodoc
-class _$UnmuteConvoOutputCopyWithImpl<$Res, $Val extends UnmuteConvoOutput>
-    implements $UnmuteConvoOutputCopyWith<$Res> {
-  _$UnmuteConvoOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of UnmuteConvoOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? convo = null,
-  }) {
-    return _then(_value.copyWith(
-      convo: null == convo
-          ? _value.convo
-          : convo // ignore: cast_nullable_to_non_nullable
-              as ConvoView,
-    ) as $Val);
-  }
-
-  /// Create a copy of UnmuteConvoOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ConvoViewCopyWith<$Res> get convo {
-    return $ConvoViewCopyWith<$Res>(_value.convo, (value) {
-      return _then(_value.copyWith(convo: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$UnmuteConvoOutputImplCopyWith<$Res>
-    implements $UnmuteConvoOutputCopyWith<$Res> {
-  factory _$$UnmuteConvoOutputImplCopyWith(_$UnmuteConvoOutputImpl value,
-          $Res Function(_$UnmuteConvoOutputImpl) then) =
-      __$$UnmuteConvoOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ConvoView convo});
-
-  @override
-  $ConvoViewCopyWith<$Res> get convo;
-}
-
-/// @nodoc
-class __$$UnmuteConvoOutputImplCopyWithImpl<$Res>
-    extends _$UnmuteConvoOutputCopyWithImpl<$Res, _$UnmuteConvoOutputImpl>
-    implements _$$UnmuteConvoOutputImplCopyWith<$Res> {
-  __$$UnmuteConvoOutputImplCopyWithImpl(_$UnmuteConvoOutputImpl _value,
-      $Res Function(_$UnmuteConvoOutputImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UnmuteConvoOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? convo = null,
-  }) {
-    return _then(_$UnmuteConvoOutputImpl(
-      convo: null == convo
-          ? _value.convo
-          : convo // ignore: cast_nullable_to_non_nullable
-              as ConvoView,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$UnmuteConvoOutputImpl implements _UnmuteConvoOutput {
-  const _$UnmuteConvoOutputImpl({required this.convo});
-
-  factory _$UnmuteConvoOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UnmuteConvoOutputImplFromJson(json);
-
-  @override
-  final ConvoView convo;
-
-  @override
-  String toString() {
-    return 'UnmuteConvoOutput(convo: $convo)';
-  }
+  /// Serializes this UnmuteConvoOutput to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnmuteConvoOutputImpl &&
+            other is UnmuteConvoOutput &&
             (identical(other.convo, convo) || other.convo == convo));
   }
 
@@ -146,37 +40,147 @@ class _$UnmuteConvoOutputImpl implements _UnmuteConvoOutput {
   @override
   int get hashCode => Object.hash(runtimeType, convo);
 
-  /// Create a copy of UnmuteConvoOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UnmuteConvoOutputImplCopyWith<_$UnmuteConvoOutputImpl> get copyWith =>
-      __$$UnmuteConvoOutputImplCopyWithImpl<_$UnmuteConvoOutputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UnmuteConvoOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'UnmuteConvoOutput(convo: $convo)';
   }
 }
 
-abstract class _UnmuteConvoOutput implements UnmuteConvoOutput {
-  const factory _UnmuteConvoOutput({required final ConvoView convo}) =
-      _$UnmuteConvoOutputImpl;
+/// @nodoc
+abstract mixin class $UnmuteConvoOutputCopyWith<$Res> {
+  factory $UnmuteConvoOutputCopyWith(
+          UnmuteConvoOutput value, $Res Function(UnmuteConvoOutput) _then) =
+      _$UnmuteConvoOutputCopyWithImpl;
+  @useResult
+  $Res call({ConvoView convo});
 
-  factory _UnmuteConvoOutput.fromJson(Map<String, dynamic> json) =
-      _$UnmuteConvoOutputImpl.fromJson;
+  $ConvoViewCopyWith<$Res> get convo;
+}
+
+/// @nodoc
+class _$UnmuteConvoOutputCopyWithImpl<$Res>
+    implements $UnmuteConvoOutputCopyWith<$Res> {
+  _$UnmuteConvoOutputCopyWithImpl(this._self, this._then);
+
+  final UnmuteConvoOutput _self;
+  final $Res Function(UnmuteConvoOutput) _then;
+
+  /// Create a copy of UnmuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? convo = null,
+  }) {
+    return _then(_self.copyWith(
+      convo: null == convo
+          ? _self.convo
+          : convo // ignore: cast_nullable_to_non_nullable
+              as ConvoView,
+    ));
+  }
+
+  /// Create a copy of UnmuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ConvoViewCopyWith<$Res> get convo {
+    return $ConvoViewCopyWith<$Res>(_self.convo, (value) {
+      return _then(_self.copyWith(convo: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _UnmuteConvoOutput implements UnmuteConvoOutput {
+  const _UnmuteConvoOutput({required this.convo});
+  factory _UnmuteConvoOutput.fromJson(Map<String, dynamic> json) =>
+      _$UnmuteConvoOutputFromJson(json);
 
   @override
-  ConvoView get convo;
+  final ConvoView convo;
 
   /// Create a copy of UnmuteConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UnmuteConvoOutputImplCopyWith<_$UnmuteConvoOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$UnmuteConvoOutputCopyWith<_UnmuteConvoOutput> get copyWith =>
+      __$UnmuteConvoOutputCopyWithImpl<_UnmuteConvoOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$UnmuteConvoOutputToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _UnmuteConvoOutput &&
+            (identical(other.convo, convo) || other.convo == convo));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, convo);
+
+  @override
+  String toString() {
+    return 'UnmuteConvoOutput(convo: $convo)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$UnmuteConvoOutputCopyWith<$Res>
+    implements $UnmuteConvoOutputCopyWith<$Res> {
+  factory _$UnmuteConvoOutputCopyWith(
+          _UnmuteConvoOutput value, $Res Function(_UnmuteConvoOutput) _then) =
+      __$UnmuteConvoOutputCopyWithImpl;
+  @override
+  @useResult
+  $Res call({ConvoView convo});
+
+  @override
+  $ConvoViewCopyWith<$Res> get convo;
+}
+
+/// @nodoc
+class __$UnmuteConvoOutputCopyWithImpl<$Res>
+    implements _$UnmuteConvoOutputCopyWith<$Res> {
+  __$UnmuteConvoOutputCopyWithImpl(this._self, this._then);
+
+  final _UnmuteConvoOutput _self;
+  final $Res Function(_UnmuteConvoOutput) _then;
+
+  /// Create a copy of UnmuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? convo = null,
+  }) {
+    return _then(_UnmuteConvoOutput(
+      convo: null == convo
+          ? _self.convo
+          : convo // ignore: cast_nullable_to_non_nullable
+              as ConvoView,
+    ));
+  }
+
+  /// Create a copy of UnmuteConvoOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ConvoViewCopyWith<$Res> get convo {
+    return $ConvoViewCopyWith<$Res>(_self.convo, (value) {
+      return _then(_self.copyWith(convo: value));
+    });
+  }
+}
+
+// dart format on

@@ -12,7 +12,7 @@ part 'trending_topic.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs/#trendingtopic
 @freezed
-class TrendingTopic with _$TrendingTopic {
+abstract class TrendingTopic with _$TrendingTopic {
   @jsonSerializable
   const factory TrendingTopic({
     @typeKey @Default(appBskyUnspeccedDefsTrendingTopic) String type,

@@ -7,7 +7,7 @@ part 'lex_token.freezed.dart';
 part 'lex_token.g.dart';
 
 @freezed
-class LexToken with _$LexToken {
+abstract class LexToken with _$LexToken {
   @JsonSerializable(includeIfNull: false)
   const factory LexToken({
     @Default('token') String type,

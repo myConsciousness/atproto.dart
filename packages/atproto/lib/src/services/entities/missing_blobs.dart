@@ -12,7 +12,7 @@ part 'missing_blobs.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs
 @freezed
-class MissingBlobs with _$MissingBlobs {
+abstract class MissingBlobs with _$MissingBlobs {
   @jsonSerializable
   const factory MissingBlobs({
     required List<RecordBlob> blobs,

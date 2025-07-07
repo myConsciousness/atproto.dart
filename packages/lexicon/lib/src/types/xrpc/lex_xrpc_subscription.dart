@@ -12,7 +12,7 @@ part 'lex_xrpc_subscription.freezed.dart';
 part 'lex_xrpc_subscription.g.dart';
 
 @freezed
-class LexXrpcSubscription with _$LexXrpcSubscription {
+abstract class LexXrpcSubscription with _$LexXrpcSubscription {
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcSubscription({
     @Default('subscription') String type,

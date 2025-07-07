@@ -7,7 +7,7 @@ part 'subscribed_repo_migrate.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#migrate
 @freezed
-class Migrate with _$Migrate {
+abstract class Migrate with _$Migrate {
   @jsonSerializable
   const factory Migrate({
     required String did,

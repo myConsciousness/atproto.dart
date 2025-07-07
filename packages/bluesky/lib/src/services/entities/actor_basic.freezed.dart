@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,40 +10,61 @@ part of 'actor_basic.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ActorBasic _$ActorBasicFromJson(Map<String, dynamic> json) {
-  return _ActorBasic.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ActorBasic {
-  String get did => throw _privateConstructorUsedError;
-  String get handle => throw _privateConstructorUsedError;
-  String? get displayName => throw _privateConstructorUsedError;
-  String? get avatar => throw _privateConstructorUsedError;
-  ProfileAssociated? get associated => throw _privateConstructorUsedError;
-  ActorViewer get viewer => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
-
-  /// Serializes this ActorBasic to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get did;
+  String get handle;
+  String? get displayName;
+  String? get avatar;
+  ProfileAssociated? get associated;
+  ActorViewer get viewer;
+  List<Label>? get labels;
 
   /// Create a copy of ActorBasic
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ActorBasicCopyWith<ActorBasic> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ActorBasicCopyWithImpl<ActorBasic>(this as ActorBasic, _$identity);
+
+  /// Serializes this ActorBasic to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ActorBasic &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.associated, associated) ||
+                other.associated == associated) &&
+            (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            const DeepCollectionEquality().equals(other.labels, labels));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, did, handle, displayName, avatar,
+      associated, viewer, const DeepCollectionEquality().hash(labels));
+
+  @override
+  String toString() {
+    return 'ActorBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels)';
+  }
 }
 
 /// @nodoc
-abstract class $ActorBasicCopyWith<$Res> {
+abstract mixin class $ActorBasicCopyWith<$Res> {
   factory $ActorBasicCopyWith(
-          ActorBasic value, $Res Function(ActorBasic) then) =
-      _$ActorBasicCopyWithImpl<$Res, ActorBasic>;
+          ActorBasic value, $Res Function(ActorBasic) _then) =
+      _$ActorBasicCopyWithImpl;
   @useResult
   $Res call(
       {String did,
@@ -58,14 +80,11 @@ abstract class $ActorBasicCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
-    implements $ActorBasicCopyWith<$Res> {
-  _$ActorBasicCopyWithImpl(this._value, this._then);
+class _$ActorBasicCopyWithImpl<$Res> implements $ActorBasicCopyWith<$Res> {
+  _$ActorBasicCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ActorBasic _self;
+  final $Res Function(ActorBasic) _then;
 
   /// Create a copy of ActorBasic
   /// with the given fields replaced by the non-null parameter values.
@@ -80,36 +99,36 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
     Object? viewer = null,
     Object? labels = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       handle: null == handle
-          ? _value.handle
+          ? _self.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
       displayName: freezed == displayName
-          ? _value.displayName
+          ? _self.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
       avatar: freezed == avatar
-          ? _value.avatar
+          ? _self.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
       associated: freezed == associated
-          ? _value.associated
+          ? _self.associated
           : associated // ignore: cast_nullable_to_non_nullable
               as ProfileAssociated?,
       viewer: null == viewer
-          ? _value.viewer
+          ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ActorBasic
@@ -117,12 +136,12 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
   @override
   @pragma('vm:prefer-inline')
   $ProfileAssociatedCopyWith<$Res>? get associated {
-    if (_value.associated == null) {
+    if (_self.associated == null) {
       return null;
     }
 
-    return $ProfileAssociatedCopyWith<$Res>(_value.associated!, (value) {
-      return _then(_value.copyWith(associated: value) as $Val);
+    return $ProfileAssociatedCopyWith<$Res>(_self.associated!, (value) {
+      return _then(_self.copyWith(associated: value));
     });
   }
 
@@ -131,94 +150,17 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
   @override
   @pragma('vm:prefer-inline')
   $ActorViewerCopyWith<$Res> get viewer {
-    return $ActorViewerCopyWith<$Res>(_value.viewer, (value) {
-      return _then(_value.copyWith(viewer: value) as $Val);
+    return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$ActorBasicImplCopyWith<$Res>
-    implements $ActorBasicCopyWith<$Res> {
-  factory _$$ActorBasicImplCopyWith(
-          _$ActorBasicImpl value, $Res Function(_$ActorBasicImpl) then) =
-      __$$ActorBasicImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String did,
-      String handle,
-      String? displayName,
-      String? avatar,
-      ProfileAssociated? associated,
-      ActorViewer viewer,
-      List<Label>? labels});
-
-  @override
-  $ProfileAssociatedCopyWith<$Res>? get associated;
-  @override
-  $ActorViewerCopyWith<$Res> get viewer;
-}
-
-/// @nodoc
-class __$$ActorBasicImplCopyWithImpl<$Res>
-    extends _$ActorBasicCopyWithImpl<$Res, _$ActorBasicImpl>
-    implements _$$ActorBasicImplCopyWith<$Res> {
-  __$$ActorBasicImplCopyWithImpl(
-      _$ActorBasicImpl _value, $Res Function(_$ActorBasicImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ActorBasic
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? did = null,
-    Object? handle = null,
-    Object? displayName = freezed,
-    Object? avatar = freezed,
-    Object? associated = freezed,
-    Object? viewer = null,
-    Object? labels = freezed,
-  }) {
-    return _then(_$ActorBasicImpl(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: freezed == displayName
-          ? _value.displayName
-          : displayName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      avatar: freezed == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as String?,
-      associated: freezed == associated
-          ? _value.associated
-          : associated // ignore: cast_nullable_to_non_nullable
-              as ProfileAssociated?,
-      viewer: null == viewer
-          ? _value.viewer
-          : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorViewer,
-      labels: freezed == labels
-          ? _value._labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$ActorBasicImpl extends _ActorBasic {
-  const _$ActorBasicImpl(
+class _ActorBasic extends ActorBasic {
+  const _ActorBasic(
       {required this.did,
       required this.handle,
       this.displayName,
@@ -228,9 +170,8 @@ class _$ActorBasicImpl extends _ActorBasic {
       final List<Label>? labels})
       : _labels = labels,
         super._();
-
-  factory _$ActorBasicImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorBasicImplFromJson(json);
+  factory _ActorBasic.fromJson(Map<String, dynamic> json) =>
+      _$ActorBasicFromJson(json);
 
   @override
   final String did;
@@ -255,16 +196,26 @@ class _$ActorBasicImpl extends _ActorBasic {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Create a copy of ActorBasic
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ActorBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ActorBasicCopyWith<_ActorBasic> get copyWith =>
+      __$ActorBasicCopyWithImpl<_ActorBasic>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ActorBasicToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorBasicImpl &&
+            other is _ActorBasic &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.displayName, displayName) ||
@@ -281,55 +232,110 @@ class _$ActorBasicImpl extends _ActorBasic {
   int get hashCode => Object.hash(runtimeType, did, handle, displayName, avatar,
       associated, viewer, const DeepCollectionEquality().hash(_labels));
 
-  /// Create a copy of ActorBasic
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ActorBasicImplCopyWith<_$ActorBasicImpl> get copyWith =>
-      __$$ActorBasicImplCopyWithImpl<_$ActorBasicImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ActorBasicImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ActorBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels)';
   }
 }
 
-abstract class _ActorBasic extends ActorBasic {
-  const factory _ActorBasic(
-      {required final String did,
-      required final String handle,
-      final String? displayName,
-      final String? avatar,
-      final ProfileAssociated? associated,
-      final ActorViewer viewer,
-      final List<Label>? labels}) = _$ActorBasicImpl;
-  const _ActorBasic._() : super._();
+/// @nodoc
+abstract mixin class _$ActorBasicCopyWith<$Res>
+    implements $ActorBasicCopyWith<$Res> {
+  factory _$ActorBasicCopyWith(
+          _ActorBasic value, $Res Function(_ActorBasic) _then) =
+      __$ActorBasicCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String did,
+      String handle,
+      String? displayName,
+      String? avatar,
+      ProfileAssociated? associated,
+      ActorViewer viewer,
+      List<Label>? labels});
 
-  factory _ActorBasic.fromJson(Map<String, dynamic> json) =
-      _$ActorBasicImpl.fromJson;
+  @override
+  $ProfileAssociatedCopyWith<$Res>? get associated;
+  @override
+  $ActorViewerCopyWith<$Res> get viewer;
+}
 
-  @override
-  String get did;
-  @override
-  String get handle;
-  @override
-  String? get displayName;
-  @override
-  String? get avatar;
-  @override
-  ProfileAssociated? get associated;
-  @override
-  ActorViewer get viewer;
-  @override
-  List<Label>? get labels;
+/// @nodoc
+class __$ActorBasicCopyWithImpl<$Res> implements _$ActorBasicCopyWith<$Res> {
+  __$ActorBasicCopyWithImpl(this._self, this._then);
+
+  final _ActorBasic _self;
+  final $Res Function(_ActorBasic) _then;
 
   /// Create a copy of ActorBasic
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ActorBasicImplCopyWith<_$ActorBasicImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+    Object? handle = null,
+    Object? displayName = freezed,
+    Object? avatar = freezed,
+    Object? associated = freezed,
+    Object? viewer = null,
+    Object? labels = freezed,
+  }) {
+    return _then(_ActorBasic(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _self.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: freezed == displayName
+          ? _self.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatar: freezed == avatar
+          ? _self.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      associated: freezed == associated
+          ? _self.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
+      viewer: null == viewer
+          ? _self.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as ActorViewer,
+      labels: freezed == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
+    ));
+  }
+
+  /// Create a copy of ActorBasic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileAssociatedCopyWith<$Res>? get associated {
+    if (_self.associated == null) {
+      return null;
+    }
+
+    return $ProfileAssociatedCopyWith<$Res>(_self.associated!, (value) {
+      return _then(_self.copyWith(associated: value));
+    });
+  }
+
+  /// Create a copy of ActorBasic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorViewerCopyWith<$Res> get viewer {
+    return $ActorViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
+    });
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,98 +10,67 @@ part of 'skeleton_posts_by_query.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SkeletonPostsByQuery _$SkeletonPostsByQueryFromJson(Map<String, dynamic> json) {
-  return _SkeletonPostsByQuery.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SkeletonPostsByQuery {
-  List<SkeletonPost> get posts => throw _privateConstructorUsedError;
+  List<SkeletonPost> get posts;
 
   /// Count of search hits. optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
-  int get hitsTotal => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this SkeletonPostsByQuery to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get hitsTotal;
+  String? get cursor;
 
   /// Create a copy of SkeletonPostsByQuery
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SkeletonPostsByQueryCopyWith<SkeletonPostsByQuery> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SkeletonPostsByQueryCopyWith<$Res> {
-  factory $SkeletonPostsByQueryCopyWith(SkeletonPostsByQuery value,
-          $Res Function(SkeletonPostsByQuery) then) =
-      _$SkeletonPostsByQueryCopyWithImpl<$Res, SkeletonPostsByQuery>;
-  @useResult
-  $Res call({List<SkeletonPost> posts, int hitsTotal, String? cursor});
-}
-
-/// @nodoc
-class _$SkeletonPostsByQueryCopyWithImpl<$Res,
-        $Val extends SkeletonPostsByQuery>
-    implements $SkeletonPostsByQueryCopyWith<$Res> {
-  _$SkeletonPostsByQueryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SkeletonPostsByQuery
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SkeletonPostsByQueryCopyWith<SkeletonPostsByQuery> get copyWith =>
+      _$SkeletonPostsByQueryCopyWithImpl<SkeletonPostsByQuery>(
+          this as SkeletonPostsByQuery, _$identity);
+
+  /// Serializes this SkeletonPostsByQuery to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? posts = null,
-    Object? hitsTotal = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      posts: null == posts
-          ? _value.posts
-          : posts // ignore: cast_nullable_to_non_nullable
-              as List<SkeletonPost>,
-      hitsTotal: null == hitsTotal
-          ? _value.hitsTotal
-          : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SkeletonPostsByQuery &&
+            const DeepCollectionEquality().equals(other.posts, posts) &&
+            (identical(other.hitsTotal, hitsTotal) ||
+                other.hitsTotal == hitsTotal) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(posts), hitsTotal, cursor);
+
+  @override
+  String toString() {
+    return 'SkeletonPostsByQuery(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$SkeletonPostsByQueryImplCopyWith<$Res>
-    implements $SkeletonPostsByQueryCopyWith<$Res> {
-  factory _$$SkeletonPostsByQueryImplCopyWith(_$SkeletonPostsByQueryImpl value,
-          $Res Function(_$SkeletonPostsByQueryImpl) then) =
-      __$$SkeletonPostsByQueryImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SkeletonPostsByQueryCopyWith<$Res> {
+  factory $SkeletonPostsByQueryCopyWith(SkeletonPostsByQuery value,
+          $Res Function(SkeletonPostsByQuery) _then) =
+      _$SkeletonPostsByQueryCopyWithImpl;
   @useResult
   $Res call({List<SkeletonPost> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$SkeletonPostsByQueryImplCopyWithImpl<$Res>
-    extends _$SkeletonPostsByQueryCopyWithImpl<$Res, _$SkeletonPostsByQueryImpl>
-    implements _$$SkeletonPostsByQueryImplCopyWith<$Res> {
-  __$$SkeletonPostsByQueryImplCopyWithImpl(_$SkeletonPostsByQueryImpl _value,
-      $Res Function(_$SkeletonPostsByQueryImpl) _then)
-      : super(_value, _then);
+class _$SkeletonPostsByQueryCopyWithImpl<$Res>
+    implements $SkeletonPostsByQueryCopyWith<$Res> {
+  _$SkeletonPostsByQueryCopyWithImpl(this._self, this._then);
+
+  final SkeletonPostsByQuery _self;
+  final $Res Function(SkeletonPostsByQuery) _then;
 
   /// Create a copy of SkeletonPostsByQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -111,17 +81,17 @@ class __$$SkeletonPostsByQueryImplCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$SkeletonPostsByQueryImpl(
+    return _then(_self.copyWith(
       posts: null == posts
-          ? _value._posts
+          ? _self.posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<SkeletonPost>,
       hitsTotal: null == hitsTotal
-          ? _value.hitsTotal
+          ? _self.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
               as int,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -130,15 +100,14 @@ class __$$SkeletonPostsByQueryImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SkeletonPostsByQueryImpl implements _SkeletonPostsByQuery {
-  const _$SkeletonPostsByQueryImpl(
+class _SkeletonPostsByQuery implements SkeletonPostsByQuery {
+  const _SkeletonPostsByQuery(
       {required final List<SkeletonPost> posts,
       this.hitsTotal = 0,
       this.cursor})
       : _posts = posts;
-
-  factory _$SkeletonPostsByQueryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonPostsByQueryImplFromJson(json);
+  factory _SkeletonPostsByQuery.fromJson(Map<String, dynamic> json) =>
+      _$SkeletonPostsByQueryFromJson(json);
 
   final List<SkeletonPost> _posts;
   @override
@@ -156,16 +125,27 @@ class _$SkeletonPostsByQueryImpl implements _SkeletonPostsByQuery {
   @override
   final String? cursor;
 
+  /// Create a copy of SkeletonPostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SkeletonPostsByQuery(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SkeletonPostsByQueryCopyWith<_SkeletonPostsByQuery> get copyWith =>
+      __$SkeletonPostsByQueryCopyWithImpl<_SkeletonPostsByQuery>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SkeletonPostsByQueryToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonPostsByQueryImpl &&
+            other is _SkeletonPostsByQuery &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -177,47 +157,55 @@ class _$SkeletonPostsByQueryImpl implements _SkeletonPostsByQuery {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_posts), hitsTotal, cursor);
 
-  /// Create a copy of SkeletonPostsByQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SkeletonPostsByQueryImplCopyWith<_$SkeletonPostsByQueryImpl>
-      get copyWith =>
-          __$$SkeletonPostsByQueryImplCopyWithImpl<_$SkeletonPostsByQueryImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SkeletonPostsByQueryImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SkeletonPostsByQuery(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 }
 
-abstract class _SkeletonPostsByQuery implements SkeletonPostsByQuery {
-  const factory _SkeletonPostsByQuery(
-      {required final List<SkeletonPost> posts,
-      final int hitsTotal,
-      final String? cursor}) = _$SkeletonPostsByQueryImpl;
-
-  factory _SkeletonPostsByQuery.fromJson(Map<String, dynamic> json) =
-      _$SkeletonPostsByQueryImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SkeletonPostsByQueryCopyWith<$Res>
+    implements $SkeletonPostsByQueryCopyWith<$Res> {
+  factory _$SkeletonPostsByQueryCopyWith(_SkeletonPostsByQuery value,
+          $Res Function(_SkeletonPostsByQuery) _then) =
+      __$SkeletonPostsByQueryCopyWithImpl;
   @override
-  List<SkeletonPost> get posts;
+  @useResult
+  $Res call({List<SkeletonPost> posts, int hitsTotal, String? cursor});
+}
 
-  /// Count of search hits. optional, may be rounded/truncated,
-  /// and may not be possible to paginate through all hits.
-  @override
-  int get hitsTotal;
-  @override
-  String? get cursor;
+/// @nodoc
+class __$SkeletonPostsByQueryCopyWithImpl<$Res>
+    implements _$SkeletonPostsByQueryCopyWith<$Res> {
+  __$SkeletonPostsByQueryCopyWithImpl(this._self, this._then);
+
+  final _SkeletonPostsByQuery _self;
+  final $Res Function(_SkeletonPostsByQuery) _then;
 
   /// Create a copy of SkeletonPostsByQuery
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SkeletonPostsByQueryImplCopyWith<_$SkeletonPostsByQueryImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? posts = null,
+    Object? hitsTotal = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_SkeletonPostsByQuery(
+      posts: null == posts
+          ? _self._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<SkeletonPost>,
+      hitsTotal: null == hitsTotal
+          ? _self.hitsTotal
+          : hitsTotal // ignore: cast_nullable_to_non_nullable
+              as int,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

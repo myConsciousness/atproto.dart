@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,91 +10,74 @@ part of 'reply_post.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ReplyPost {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Post data) record,
-    required TResult Function(NotFoundPost data) notFound,
-    required TResult Function(BlockedPost data) blocked,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? record,
-    TResult? Function(NotFoundPost data)? notFound,
-    TResult? Function(BlockedPost data)? blocked,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? record,
-    TResult Function(NotFoundPost data)? notFound,
-    TResult Function(BlockedPost data)? blocked,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReplyPostRecord value) record,
-    required TResult Function(UReplyPostNotFound value) notFound,
-    required TResult Function(UReplyPostBlocked value) blocked,
-    required TResult Function(UReplyPostUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyPostRecord value)? record,
-    TResult? Function(UReplyPostNotFound value)? notFound,
-    TResult? Function(UReplyPostBlocked value)? blocked,
-    TResult? Function(UReplyPostUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyPostRecord value)? record,
-    TResult Function(UReplyPostNotFound value)? notFound,
-    TResult Function(UReplyPostBlocked value)? blocked,
-    TResult Function(UReplyPostUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ReplyPost &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'ReplyPost(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $ReplyPostCopyWith<$Res> {
-  factory $ReplyPostCopyWith(ReplyPost value, $Res Function(ReplyPost) then) =
-      _$ReplyPostCopyWithImpl<$Res, ReplyPost>;
+class $ReplyPostCopyWith<$Res> {
+  $ReplyPostCopyWith(ReplyPost _, $Res Function(ReplyPost) __);
 }
 
 /// @nodoc
-class _$ReplyPostCopyWithImpl<$Res, $Val extends ReplyPost>
-    implements $ReplyPostCopyWith<$Res> {
-  _$ReplyPostCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class UReplyPostRecord implements ReplyPost {
+  const UReplyPostRecord({required this.data});
+
+  @override
+  final Post data;
 
   /// Create a copy of ReplyPost
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReplyPostRecordCopyWith<UReplyPostRecord> get copyWith =>
+      _$UReplyPostRecordCopyWithImpl<UReplyPostRecord>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UReplyPostRecord &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'ReplyPost.record(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$UReplyPostRecordImplCopyWith<$Res> {
-  factory _$$UReplyPostRecordImplCopyWith(_$UReplyPostRecordImpl value,
-          $Res Function(_$UReplyPostRecordImpl) then) =
-      __$$UReplyPostRecordImplCopyWithImpl<$Res>;
+abstract mixin class $UReplyPostRecordCopyWith<$Res>
+    implements $ReplyPostCopyWith<$Res> {
+  factory $UReplyPostRecordCopyWith(
+          UReplyPostRecord value, $Res Function(UReplyPostRecord) _then) =
+      _$UReplyPostRecordCopyWithImpl;
   @useResult
   $Res call({Post data});
 
@@ -101,23 +85,22 @@ abstract class _$$UReplyPostRecordImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReplyPostRecordImplCopyWithImpl<$Res>
-    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostRecordImpl>
-    implements _$$UReplyPostRecordImplCopyWith<$Res> {
-  __$$UReplyPostRecordImplCopyWithImpl(_$UReplyPostRecordImpl _value,
-      $Res Function(_$UReplyPostRecordImpl) _then)
-      : super(_value, _then);
+class _$UReplyPostRecordCopyWithImpl<$Res>
+    implements $UReplyPostRecordCopyWith<$Res> {
+  _$UReplyPostRecordCopyWithImpl(this._self, this._then);
+
+  final UReplyPostRecord _self;
+  final $Res Function(UReplyPostRecord) _then;
 
   /// Create a copy of ReplyPost
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyPostRecordImpl(
+    return _then(UReplyPostRecord(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Post,
     ));
@@ -128,139 +111,50 @@ class __$$UReplyPostRecordImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $PostCopyWith<$Res> get data {
-    return $PostCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $PostCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UReplyPostRecordImpl implements UReplyPostRecord {
-  const _$UReplyPostRecordImpl({required this.data});
+class UReplyPostNotFound implements ReplyPost {
+  const UReplyPostNotFound({required this.data});
 
   @override
-  final Post data;
+  final NotFoundPost data;
 
-  @override
-  String toString() {
-    return 'ReplyPost.record(data: $data)';
-  }
+  /// Create a copy of ReplyPost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReplyPostNotFoundCopyWith<UReplyPostNotFound> get copyWith =>
+      _$UReplyPostNotFoundCopyWithImpl<UReplyPostNotFound>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyPostRecordImpl &&
+            other is UReplyPostNotFound &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of ReplyPost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UReplyPostRecordImplCopyWith<_$UReplyPostRecordImpl> get copyWith =>
-      __$$UReplyPostRecordImplCopyWithImpl<_$UReplyPostRecordImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Post data) record,
-    required TResult Function(NotFoundPost data) notFound,
-    required TResult Function(BlockedPost data) blocked,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return record(data);
+  String toString() {
+    return 'ReplyPost.notFound(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? record,
-    TResult? Function(NotFoundPost data)? notFound,
-    TResult? Function(BlockedPost data)? blocked,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return record?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? record,
-    TResult Function(NotFoundPost data)? notFound,
-    TResult Function(BlockedPost data)? blocked,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReplyPostRecord value) record,
-    required TResult Function(UReplyPostNotFound value) notFound,
-    required TResult Function(UReplyPostBlocked value) blocked,
-    required TResult Function(UReplyPostUnknown value) unknown,
-  }) {
-    return record(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyPostRecord value)? record,
-    TResult? Function(UReplyPostNotFound value)? notFound,
-    TResult? Function(UReplyPostBlocked value)? blocked,
-    TResult? Function(UReplyPostUnknown value)? unknown,
-  }) {
-    return record?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyPostRecord value)? record,
-    TResult Function(UReplyPostNotFound value)? notFound,
-    TResult Function(UReplyPostBlocked value)? blocked,
-    TResult Function(UReplyPostUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (record != null) {
-      return record(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UReplyPostRecord implements ReplyPost {
-  const factory UReplyPostRecord({required final Post data}) =
-      _$UReplyPostRecordImpl;
-
-  @override
-  Post get data;
-
-  /// Create a copy of ReplyPost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReplyPostRecordImplCopyWith<_$UReplyPostRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReplyPostNotFoundImplCopyWith<$Res> {
-  factory _$$UReplyPostNotFoundImplCopyWith(_$UReplyPostNotFoundImpl value,
-          $Res Function(_$UReplyPostNotFoundImpl) then) =
-      __$$UReplyPostNotFoundImplCopyWithImpl<$Res>;
+abstract mixin class $UReplyPostNotFoundCopyWith<$Res>
+    implements $ReplyPostCopyWith<$Res> {
+  factory $UReplyPostNotFoundCopyWith(
+          UReplyPostNotFound value, $Res Function(UReplyPostNotFound) _then) =
+      _$UReplyPostNotFoundCopyWithImpl;
   @useResult
   $Res call({NotFoundPost data});
 
@@ -268,23 +162,22 @@ abstract class _$$UReplyPostNotFoundImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReplyPostNotFoundImplCopyWithImpl<$Res>
-    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostNotFoundImpl>
-    implements _$$UReplyPostNotFoundImplCopyWith<$Res> {
-  __$$UReplyPostNotFoundImplCopyWithImpl(_$UReplyPostNotFoundImpl _value,
-      $Res Function(_$UReplyPostNotFoundImpl) _then)
-      : super(_value, _then);
+class _$UReplyPostNotFoundCopyWithImpl<$Res>
+    implements $UReplyPostNotFoundCopyWith<$Res> {
+  _$UReplyPostNotFoundCopyWithImpl(this._self, this._then);
+
+  final UReplyPostNotFound _self;
+  final $Res Function(UReplyPostNotFound) _then;
 
   /// Create a copy of ReplyPost
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyPostNotFoundImpl(
+    return _then(UReplyPostNotFound(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as NotFoundPost,
     ));
@@ -295,139 +188,50 @@ class __$$UReplyPostNotFoundImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $NotFoundPostCopyWith<$Res> get data {
-    return $NotFoundPostCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $NotFoundPostCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UReplyPostNotFoundImpl implements UReplyPostNotFound {
-  const _$UReplyPostNotFoundImpl({required this.data});
+class UReplyPostBlocked implements ReplyPost {
+  const UReplyPostBlocked({required this.data});
 
   @override
-  final NotFoundPost data;
+  final BlockedPost data;
 
-  @override
-  String toString() {
-    return 'ReplyPost.notFound(data: $data)';
-  }
+  /// Create a copy of ReplyPost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReplyPostBlockedCopyWith<UReplyPostBlocked> get copyWith =>
+      _$UReplyPostBlockedCopyWithImpl<UReplyPostBlocked>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyPostNotFoundImpl &&
+            other is UReplyPostBlocked &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of ReplyPost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UReplyPostNotFoundImplCopyWith<_$UReplyPostNotFoundImpl> get copyWith =>
-      __$$UReplyPostNotFoundImplCopyWithImpl<_$UReplyPostNotFoundImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Post data) record,
-    required TResult Function(NotFoundPost data) notFound,
-    required TResult Function(BlockedPost data) blocked,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return notFound(data);
+  String toString() {
+    return 'ReplyPost.blocked(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? record,
-    TResult? Function(NotFoundPost data)? notFound,
-    TResult? Function(BlockedPost data)? blocked,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return notFound?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? record,
-    TResult Function(NotFoundPost data)? notFound,
-    TResult Function(BlockedPost data)? blocked,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (notFound != null) {
-      return notFound(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReplyPostRecord value) record,
-    required TResult Function(UReplyPostNotFound value) notFound,
-    required TResult Function(UReplyPostBlocked value) blocked,
-    required TResult Function(UReplyPostUnknown value) unknown,
-  }) {
-    return notFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyPostRecord value)? record,
-    TResult? Function(UReplyPostNotFound value)? notFound,
-    TResult? Function(UReplyPostBlocked value)? blocked,
-    TResult? Function(UReplyPostUnknown value)? unknown,
-  }) {
-    return notFound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyPostRecord value)? record,
-    TResult Function(UReplyPostNotFound value)? notFound,
-    TResult Function(UReplyPostBlocked value)? blocked,
-    TResult Function(UReplyPostUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (notFound != null) {
-      return notFound(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UReplyPostNotFound implements ReplyPost {
-  const factory UReplyPostNotFound({required final NotFoundPost data}) =
-      _$UReplyPostNotFoundImpl;
-
-  @override
-  NotFoundPost get data;
-
-  /// Create a copy of ReplyPost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReplyPostNotFoundImplCopyWith<_$UReplyPostNotFoundImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReplyPostBlockedImplCopyWith<$Res> {
-  factory _$$UReplyPostBlockedImplCopyWith(_$UReplyPostBlockedImpl value,
-          $Res Function(_$UReplyPostBlockedImpl) then) =
-      __$$UReplyPostBlockedImplCopyWithImpl<$Res>;
+abstract mixin class $UReplyPostBlockedCopyWith<$Res>
+    implements $ReplyPostCopyWith<$Res> {
+  factory $UReplyPostBlockedCopyWith(
+          UReplyPostBlocked value, $Res Function(UReplyPostBlocked) _then) =
+      _$UReplyPostBlockedCopyWithImpl;
   @useResult
   $Res call({BlockedPost data});
 
@@ -435,23 +239,22 @@ abstract class _$$UReplyPostBlockedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReplyPostBlockedImplCopyWithImpl<$Res>
-    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostBlockedImpl>
-    implements _$$UReplyPostBlockedImplCopyWith<$Res> {
-  __$$UReplyPostBlockedImplCopyWithImpl(_$UReplyPostBlockedImpl _value,
-      $Res Function(_$UReplyPostBlockedImpl) _then)
-      : super(_value, _then);
+class _$UReplyPostBlockedCopyWithImpl<$Res>
+    implements $UReplyPostBlockedCopyWith<$Res> {
+  _$UReplyPostBlockedCopyWithImpl(this._self, this._then);
+
+  final UReplyPostBlocked _self;
+  final $Res Function(UReplyPostBlocked) _then;
 
   /// Create a copy of ReplyPost
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyPostBlockedImpl(
+    return _then(UReplyPostBlocked(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as BlockedPost,
     ));
@@ -462,171 +265,16 @@ class __$$UReplyPostBlockedImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $BlockedPostCopyWith<$Res> get data {
-    return $BlockedPostCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $BlockedPostCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UReplyPostBlockedImpl implements UReplyPostBlocked {
-  const _$UReplyPostBlockedImpl({required this.data});
-
-  @override
-  final BlockedPost data;
-
-  @override
-  String toString() {
-    return 'ReplyPost.blocked(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UReplyPostBlockedImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of ReplyPost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UReplyPostBlockedImplCopyWith<_$UReplyPostBlockedImpl> get copyWith =>
-      __$$UReplyPostBlockedImplCopyWithImpl<_$UReplyPostBlockedImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Post data) record,
-    required TResult Function(NotFoundPost data) notFound,
-    required TResult Function(BlockedPost data) blocked,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return blocked(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? record,
-    TResult? Function(NotFoundPost data)? notFound,
-    TResult? Function(BlockedPost data)? blocked,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return blocked?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? record,
-    TResult Function(NotFoundPost data)? notFound,
-    TResult Function(BlockedPost data)? blocked,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (blocked != null) {
-      return blocked(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReplyPostRecord value) record,
-    required TResult Function(UReplyPostNotFound value) notFound,
-    required TResult Function(UReplyPostBlocked value) blocked,
-    required TResult Function(UReplyPostUnknown value) unknown,
-  }) {
-    return blocked(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyPostRecord value)? record,
-    TResult? Function(UReplyPostNotFound value)? notFound,
-    TResult? Function(UReplyPostBlocked value)? blocked,
-    TResult? Function(UReplyPostUnknown value)? unknown,
-  }) {
-    return blocked?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyPostRecord value)? record,
-    TResult Function(UReplyPostNotFound value)? notFound,
-    TResult Function(UReplyPostBlocked value)? blocked,
-    TResult Function(UReplyPostUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (blocked != null) {
-      return blocked(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UReplyPostBlocked implements ReplyPost {
-  const factory UReplyPostBlocked({required final BlockedPost data}) =
-      _$UReplyPostBlockedImpl;
-
-  @override
-  BlockedPost get data;
-
-  /// Create a copy of ReplyPost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReplyPostBlockedImplCopyWith<_$UReplyPostBlockedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UReplyPostUnknownImplCopyWith<$Res> {
-  factory _$$UReplyPostUnknownImplCopyWith(_$UReplyPostUnknownImpl value,
-          $Res Function(_$UReplyPostUnknownImpl) then) =
-      __$$UReplyPostUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$UReplyPostUnknownImplCopyWithImpl<$Res>
-    extends _$ReplyPostCopyWithImpl<$Res, _$UReplyPostUnknownImpl>
-    implements _$$UReplyPostUnknownImplCopyWith<$Res> {
-  __$$UReplyPostUnknownImplCopyWithImpl(_$UReplyPostUnknownImpl _value,
-      $Res Function(_$UReplyPostUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ReplyPost
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UReplyPostUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UReplyPostUnknownImpl implements UReplyPostUnknown {
-  const _$UReplyPostUnknownImpl({required final Map<String, dynamic> data})
+class UReplyPostUnknown implements ReplyPost {
+  const UReplyPostUnknown({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -637,16 +285,18 @@ class _$UReplyPostUnknownImpl implements UReplyPostUnknown {
     return EqualUnmodifiableMapView(_data);
   }
 
-  @override
-  String toString() {
-    return 'ReplyPost.unknown(data: $data)';
-  }
+  /// Create a copy of ReplyPost
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReplyPostUnknownCopyWith<UReplyPostUnknown> get copyWith =>
+      _$UReplyPostUnknownCopyWithImpl<UReplyPostUnknown>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyPostUnknownImpl &&
+            other is UReplyPostUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -654,100 +304,43 @@ class _$UReplyPostUnknownImpl implements UReplyPostUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'ReplyPost.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UReplyPostUnknownCopyWith<$Res>
+    implements $ReplyPostCopyWith<$Res> {
+  factory $UReplyPostUnknownCopyWith(
+          UReplyPostUnknown value, $Res Function(UReplyPostUnknown) _then) =
+      _$UReplyPostUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$UReplyPostUnknownCopyWithImpl<$Res>
+    implements $UReplyPostUnknownCopyWith<$Res> {
+  _$UReplyPostUnknownCopyWithImpl(this._self, this._then);
+
+  final UReplyPostUnknown _self;
+  final $Res Function(UReplyPostUnknown) _then;
+
   /// Create a copy of ReplyPost
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$UReplyPostUnknownImplCopyWith<_$UReplyPostUnknownImpl> get copyWith =>
-      __$$UReplyPostUnknownImplCopyWithImpl<_$UReplyPostUnknownImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Post data) record,
-    required TResult Function(NotFoundPost data) notFound,
-    required TResult Function(BlockedPost data) blocked,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? record,
-    TResult? Function(NotFoundPost data)? notFound,
-    TResult? Function(BlockedPost data)? blocked,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? record,
-    TResult Function(NotFoundPost data)? notFound,
-    TResult Function(BlockedPost data)? blocked,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReplyPostRecord value) record,
-    required TResult Function(UReplyPostNotFound value) notFound,
-    required TResult Function(UReplyPostBlocked value) blocked,
-    required TResult Function(UReplyPostUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyPostRecord value)? record,
-    TResult? Function(UReplyPostNotFound value)? notFound,
-    TResult? Function(UReplyPostBlocked value)? blocked,
-    TResult? Function(UReplyPostUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyPostRecord value)? record,
-    TResult Function(UReplyPostNotFound value)? notFound,
-    TResult Function(UReplyPostBlocked value)? blocked,
-    TResult Function(UReplyPostUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
+    return _then(UReplyPostUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class UReplyPostUnknown implements ReplyPost {
-  const factory UReplyPostUnknown({required final Map<String, dynamic> data}) =
-      _$UReplyPostUnknownImpl;
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of ReplyPost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReplyPostUnknownImplCopyWith<_$UReplyPostUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

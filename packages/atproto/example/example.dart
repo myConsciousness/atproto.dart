@@ -60,16 +60,25 @@ Future<void> main() async {
     //! You can use Stream API easily.
     final subscription = await atproto.sync.subscribeRepos();
     subscription.data.stream.listen((event) {
-      event.when(
-        commit: print,
-        identity: print,
-        account: print,
-        handle: print,
-        migrate: print,
-        tombstone: print,
-        info: print,
-        unknown: print,
-      );
+      // Use switch expression for pattern matching
+      switch (event) {
+        case USubscribedRepoCommit(data: final data):
+          print(data);
+        case USubscribedRepoIdentity(data: final data):
+          print(data);
+        case USubscribedRepoAccount(data: final data):
+          print(data);
+        case USubscribedRepoHandle(data: final data):
+          print(data);
+        case USubscribedRepoMigrate(data: final data):
+          print(data);
+        case USubscribedRepoTombstone(data: final data):
+          print(data);
+        case USubscribedRepoInfo(data: final data):
+          print(data);
+        case USubscribedRepoUnknown(data: final data):
+          print(data);
+      }
     });
   } on UnauthorizedException catch (e) {
     print(e);

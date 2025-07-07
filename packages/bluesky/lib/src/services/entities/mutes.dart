@@ -9,7 +9,7 @@ part 'mutes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getmutes/#output
 @freezed
-class Mutes with _$Mutes {
+abstract class Mutes with _$Mutes {
   const factory Mutes({
     required List<Actor> mutes,
     String? cursor,

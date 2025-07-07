@@ -8,11 +8,11 @@ part of 'reason_pin.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReasonPinImpl _$$ReasonPinImplFromJson(Map json) => $checkedCreate(
-      r'_$ReasonPinImpl',
+_ReasonPin _$ReasonPinFromJson(Map json) => $checkedCreate(
+      '_ReasonPin',
       json,
       ($checkedConvert) {
-        final val = _$ReasonPinImpl(
+        final val = _ReasonPin(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsReasonPin),
         );
@@ -21,7 +21,7 @@ _$ReasonPinImpl _$$ReasonPinImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ReasonPinImplToJson(_$ReasonPinImpl instance) =>
+Map<String, dynamic> _$ReasonPinToJson(_ReasonPin instance) =>
     <String, dynamic>{
       r'$type': instance.type,
     };

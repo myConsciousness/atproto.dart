@@ -10,7 +10,7 @@ part 'hidden_posts_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#hiddenPostsPref
 @freezed
-class HiddenPostsPref with _$HiddenPostsPref {
+abstract class HiddenPostsPref with _$HiddenPostsPref {
   const factory HiddenPostsPref({
     @typeKey @Default(appBskyActorDefsHiddenPostsPref) String type,
     @AtUriConverter() required List<AtUri> items,

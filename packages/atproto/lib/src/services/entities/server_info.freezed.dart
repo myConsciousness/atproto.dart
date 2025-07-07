@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,39 +10,63 @@ part of 'server_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ServerInfo _$ServerInfoFromJson(Map<String, dynamic> json) {
-  return _ServerInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ServerInfo {
-  List<String> get availableUserDomains => throw _privateConstructorUsedError;
-  String get did => throw _privateConstructorUsedError;
+  List<String> get availableUserDomains;
+  String get did;
   @JsonKey(name: 'inviteCodeRequired')
-  bool get isInviteCodeRequired => throw _privateConstructorUsedError;
-  ServerInfoContact? get contact => throw _privateConstructorUsedError;
-  ServerInfoLinks? get links => throw _privateConstructorUsedError;
-
-  /// Serializes this ServerInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool get isInviteCodeRequired;
+  ServerInfoContact? get contact;
+  ServerInfoLinks? get links;
 
   /// Create a copy of ServerInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ServerInfoCopyWith<ServerInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ServerInfoCopyWithImpl<ServerInfo>(this as ServerInfo, _$identity);
+
+  /// Serializes this ServerInfo to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ServerInfo &&
+            const DeepCollectionEquality()
+                .equals(other.availableUserDomains, availableUserDomains) &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.isInviteCodeRequired, isInviteCodeRequired) ||
+                other.isInviteCodeRequired == isInviteCodeRequired) &&
+            (identical(other.contact, contact) || other.contact == contact) &&
+            (identical(other.links, links) || other.links == links));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(availableUserDomains),
+      did,
+      isInviteCodeRequired,
+      contact,
+      links);
+
+  @override
+  String toString() {
+    return 'ServerInfo(availableUserDomains: $availableUserDomains, did: $did, isInviteCodeRequired: $isInviteCodeRequired, contact: $contact, links: $links)';
+  }
 }
 
 /// @nodoc
-abstract class $ServerInfoCopyWith<$Res> {
+abstract mixin class $ServerInfoCopyWith<$Res> {
   factory $ServerInfoCopyWith(
-          ServerInfo value, $Res Function(ServerInfo) then) =
-      _$ServerInfoCopyWithImpl<$Res, ServerInfo>;
+          ServerInfo value, $Res Function(ServerInfo) _then) =
+      _$ServerInfoCopyWithImpl;
   @useResult
   $Res call(
       {List<String> availableUserDomains,
@@ -55,14 +80,11 @@ abstract class $ServerInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
-    implements $ServerInfoCopyWith<$Res> {
-  _$ServerInfoCopyWithImpl(this._value, this._then);
+class _$ServerInfoCopyWithImpl<$Res> implements $ServerInfoCopyWith<$Res> {
+  _$ServerInfoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ServerInfo _self;
+  final $Res Function(ServerInfo) _then;
 
   /// Create a copy of ServerInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -75,28 +97,28 @@ class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
     Object? contact = freezed,
     Object? links = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       availableUserDomains: null == availableUserDomains
-          ? _value.availableUserDomains
+          ? _self.availableUserDomains
           : availableUserDomains // ignore: cast_nullable_to_non_nullable
               as List<String>,
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       isInviteCodeRequired: null == isInviteCodeRequired
-          ? _value.isInviteCodeRequired
+          ? _self.isInviteCodeRequired
           : isInviteCodeRequired // ignore: cast_nullable_to_non_nullable
               as bool,
       contact: freezed == contact
-          ? _value.contact
+          ? _self.contact
           : contact // ignore: cast_nullable_to_non_nullable
               as ServerInfoContact?,
       links: freezed == links
-          ? _value.links
+          ? _self.links
           : links // ignore: cast_nullable_to_non_nullable
               as ServerInfoLinks?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ServerInfo
@@ -104,12 +126,12 @@ class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
   @override
   @pragma('vm:prefer-inline')
   $ServerInfoContactCopyWith<$Res>? get contact {
-    if (_value.contact == null) {
+    if (_self.contact == null) {
       return null;
     }
 
-    return $ServerInfoContactCopyWith<$Res>(_value.contact!, (value) {
-      return _then(_value.copyWith(contact: value) as $Val);
+    return $ServerInfoContactCopyWith<$Res>(_self.contact!, (value) {
+      return _then(_self.copyWith(contact: value));
     });
   }
 
@@ -118,95 +140,29 @@ class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
   @override
   @pragma('vm:prefer-inline')
   $ServerInfoLinksCopyWith<$Res>? get links {
-    if (_value.links == null) {
+    if (_self.links == null) {
       return null;
     }
 
-    return $ServerInfoLinksCopyWith<$Res>(_value.links!, (value) {
-      return _then(_value.copyWith(links: value) as $Val);
+    return $ServerInfoLinksCopyWith<$Res>(_self.links!, (value) {
+      return _then(_self.copyWith(links: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$ServerInfoImplCopyWith<$Res>
-    implements $ServerInfoCopyWith<$Res> {
-  factory _$$ServerInfoImplCopyWith(
-          _$ServerInfoImpl value, $Res Function(_$ServerInfoImpl) then) =
-      __$$ServerInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {List<String> availableUserDomains,
-      String did,
-      @JsonKey(name: 'inviteCodeRequired') bool isInviteCodeRequired,
-      ServerInfoContact? contact,
-      ServerInfoLinks? links});
-
-  @override
-  $ServerInfoContactCopyWith<$Res>? get contact;
-  @override
-  $ServerInfoLinksCopyWith<$Res>? get links;
-}
-
-/// @nodoc
-class __$$ServerInfoImplCopyWithImpl<$Res>
-    extends _$ServerInfoCopyWithImpl<$Res, _$ServerInfoImpl>
-    implements _$$ServerInfoImplCopyWith<$Res> {
-  __$$ServerInfoImplCopyWithImpl(
-      _$ServerInfoImpl _value, $Res Function(_$ServerInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ServerInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? availableUserDomains = null,
-    Object? did = null,
-    Object? isInviteCodeRequired = null,
-    Object? contact = freezed,
-    Object? links = freezed,
-  }) {
-    return _then(_$ServerInfoImpl(
-      availableUserDomains: null == availableUserDomains
-          ? _value._availableUserDomains
-          : availableUserDomains // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      isInviteCodeRequired: null == isInviteCodeRequired
-          ? _value.isInviteCodeRequired
-          : isInviteCodeRequired // ignore: cast_nullable_to_non_nullable
-              as bool,
-      contact: freezed == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
-              as ServerInfoContact?,
-      links: freezed == links
-          ? _value.links
-          : links // ignore: cast_nullable_to_non_nullable
-              as ServerInfoLinks?,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$ServerInfoImpl implements _ServerInfo {
-  const _$ServerInfoImpl(
+class _ServerInfo implements ServerInfo {
+  const _ServerInfo(
       {required final List<String> availableUserDomains,
       required this.did,
       @JsonKey(name: 'inviteCodeRequired') this.isInviteCodeRequired = false,
       this.contact,
       this.links})
       : _availableUserDomains = availableUserDomains;
-
-  factory _$ServerInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServerInfoImplFromJson(json);
+  factory _ServerInfo.fromJson(Map<String, dynamic> json) =>
+      _$ServerInfoFromJson(json);
 
   final List<String> _availableUserDomains;
   @override
@@ -227,16 +183,26 @@ class _$ServerInfoImpl implements _ServerInfo {
   @override
   final ServerInfoLinks? links;
 
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ServerInfo(availableUserDomains: $availableUserDomains, did: $did, isInviteCodeRequired: $isInviteCodeRequired, contact: $contact, links: $links)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ServerInfoCopyWith<_ServerInfo> get copyWith =>
+      __$ServerInfoCopyWithImpl<_ServerInfo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ServerInfoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ServerInfoImpl &&
+            other is _ServerInfo &&
             const DeepCollectionEquality()
                 .equals(other._availableUserDomains, _availableUserDomains) &&
             (identical(other.did, did) || other.did == did) &&
@@ -256,49 +222,102 @@ class _$ServerInfoImpl implements _ServerInfo {
       contact,
       links);
 
-  /// Create a copy of ServerInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ServerInfoImplCopyWith<_$ServerInfoImpl> get copyWith =>
-      __$$ServerInfoImplCopyWithImpl<_$ServerInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServerInfoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ServerInfo(availableUserDomains: $availableUserDomains, did: $did, isInviteCodeRequired: $isInviteCodeRequired, contact: $contact, links: $links)';
   }
 }
 
-abstract class _ServerInfo implements ServerInfo {
-  const factory _ServerInfo(
-      {required final List<String> availableUserDomains,
-      required final String did,
-      @JsonKey(name: 'inviteCodeRequired') final bool isInviteCodeRequired,
-      final ServerInfoContact? contact,
-      final ServerInfoLinks? links}) = _$ServerInfoImpl;
+/// @nodoc
+abstract mixin class _$ServerInfoCopyWith<$Res>
+    implements $ServerInfoCopyWith<$Res> {
+  factory _$ServerInfoCopyWith(
+          _ServerInfo value, $Res Function(_ServerInfo) _then) =
+      __$ServerInfoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {List<String> availableUserDomains,
+      String did,
+      @JsonKey(name: 'inviteCodeRequired') bool isInviteCodeRequired,
+      ServerInfoContact? contact,
+      ServerInfoLinks? links});
 
-  factory _ServerInfo.fromJson(Map<String, dynamic> json) =
-      _$ServerInfoImpl.fromJson;
+  @override
+  $ServerInfoContactCopyWith<$Res>? get contact;
+  @override
+  $ServerInfoLinksCopyWith<$Res>? get links;
+}
 
-  @override
-  List<String> get availableUserDomains;
-  @override
-  String get did;
-  @override
-  @JsonKey(name: 'inviteCodeRequired')
-  bool get isInviteCodeRequired;
-  @override
-  ServerInfoContact? get contact;
-  @override
-  ServerInfoLinks? get links;
+/// @nodoc
+class __$ServerInfoCopyWithImpl<$Res> implements _$ServerInfoCopyWith<$Res> {
+  __$ServerInfoCopyWithImpl(this._self, this._then);
+
+  final _ServerInfo _self;
+  final $Res Function(_ServerInfo) _then;
 
   /// Create a copy of ServerInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ServerInfoImplCopyWith<_$ServerInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? availableUserDomains = null,
+    Object? did = null,
+    Object? isInviteCodeRequired = null,
+    Object? contact = freezed,
+    Object? links = freezed,
+  }) {
+    return _then(_ServerInfo(
+      availableUserDomains: null == availableUserDomains
+          ? _self._availableUserDomains
+          : availableUserDomains // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      isInviteCodeRequired: null == isInviteCodeRequired
+          ? _self.isInviteCodeRequired
+          : isInviteCodeRequired // ignore: cast_nullable_to_non_nullable
+              as bool,
+      contact: freezed == contact
+          ? _self.contact
+          : contact // ignore: cast_nullable_to_non_nullable
+              as ServerInfoContact?,
+      links: freezed == links
+          ? _self.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as ServerInfoLinks?,
+    ));
+  }
+
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ServerInfoContactCopyWith<$Res>? get contact {
+    if (_self.contact == null) {
+      return null;
+    }
+
+    return $ServerInfoContactCopyWith<$Res>(_self.contact!, (value) {
+      return _then(_self.copyWith(contact: value));
+    });
+  }
+
+  /// Create a copy of ServerInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ServerInfoLinksCopyWith<$Res>? get links {
+    if (_self.links == null) {
+      return null;
+    }
+
+    return $ServerInfoLinksCopyWith<$Res>(_self.links!, (value) {
+      return _then(_self.copyWith(links: value));
+    });
+  }
 }
+
+// dart format on

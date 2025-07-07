@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,95 +10,62 @@ part of 'skeleton_search_starter_pack.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SkeletonSearchStarterPack _$SkeletonSearchStarterPackFromJson(
-    Map<String, dynamic> json) {
-  return _SkeletonSearchStarterPack.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SkeletonSearchStarterPack {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-
-  /// Serializes this SkeletonSearchStarterPack to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
 
   /// Create a copy of SkeletonSearchStarterPack
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SkeletonSearchStarterPackCopyWith<SkeletonSearchStarterPack> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SkeletonSearchStarterPackCopyWith<$Res> {
-  factory $SkeletonSearchStarterPackCopyWith(SkeletonSearchStarterPack value,
-          $Res Function(SkeletonSearchStarterPack) then) =
-      _$SkeletonSearchStarterPackCopyWithImpl<$Res, SkeletonSearchStarterPack>;
-  @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri uri});
-}
-
-/// @nodoc
-class _$SkeletonSearchStarterPackCopyWithImpl<$Res,
-        $Val extends SkeletonSearchStarterPack>
-    implements $SkeletonSearchStarterPackCopyWith<$Res> {
-  _$SkeletonSearchStarterPackCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SkeletonSearchStarterPack
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SkeletonSearchStarterPackCopyWith<SkeletonSearchStarterPack> get copyWith =>
+      _$SkeletonSearchStarterPackCopyWithImpl<SkeletonSearchStarterPack>(
+          this as SkeletonSearchStarterPack, _$identity);
+
+  /// Serializes this SkeletonSearchStarterPack to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? uri = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SkeletonSearchStarterPack &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.uri, uri) || other.uri == uri));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, uri);
+
+  @override
+  String toString() {
+    return 'SkeletonSearchStarterPack(type: $type, uri: $uri)';
   }
 }
 
 /// @nodoc
-abstract class _$$SkeletonSearchStarterPackImplCopyWith<$Res>
-    implements $SkeletonSearchStarterPackCopyWith<$Res> {
-  factory _$$SkeletonSearchStarterPackImplCopyWith(
-          _$SkeletonSearchStarterPackImpl value,
-          $Res Function(_$SkeletonSearchStarterPackImpl) then) =
-      __$$SkeletonSearchStarterPackImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SkeletonSearchStarterPackCopyWith<$Res> {
+  factory $SkeletonSearchStarterPackCopyWith(SkeletonSearchStarterPack value,
+          $Res Function(SkeletonSearchStarterPack) _then) =
+      _$SkeletonSearchStarterPackCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
-class __$$SkeletonSearchStarterPackImplCopyWithImpl<$Res>
-    extends _$SkeletonSearchStarterPackCopyWithImpl<$Res,
-        _$SkeletonSearchStarterPackImpl>
-    implements _$$SkeletonSearchStarterPackImplCopyWith<$Res> {
-  __$$SkeletonSearchStarterPackImplCopyWithImpl(
-      _$SkeletonSearchStarterPackImpl _value,
-      $Res Function(_$SkeletonSearchStarterPackImpl) _then)
-      : super(_value, _then);
+class _$SkeletonSearchStarterPackCopyWithImpl<$Res>
+    implements $SkeletonSearchStarterPackCopyWith<$Res> {
+  _$SkeletonSearchStarterPackCopyWithImpl(this._self, this._then);
+
+  final SkeletonSearchStarterPack _self;
+  final $Res Function(SkeletonSearchStarterPack) _then;
 
   /// Create a copy of SkeletonSearchStarterPack
   /// with the given fields replaced by the non-null parameter values.
@@ -107,13 +75,13 @@ class __$$SkeletonSearchStarterPackImplCopyWithImpl<$Res>
     Object? type = null,
     Object? uri = null,
   }) {
-    return _then(_$SkeletonSearchStarterPackImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
     ));
@@ -123,13 +91,12 @@ class __$$SkeletonSearchStarterPackImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SkeletonSearchStarterPackImpl implements _SkeletonSearchStarterPack {
-  const _$SkeletonSearchStarterPackImpl(
+class _SkeletonSearchStarterPack implements SkeletonSearchStarterPack {
+  const _SkeletonSearchStarterPack(
       {@typeKey this.type = appBskyUnspeccedDefsSkeletonSearchStarterPack,
       @AtUriConverter() required this.uri});
-
-  factory _$SkeletonSearchStarterPackImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonSearchStarterPackImplFromJson(json);
+  factory _SkeletonSearchStarterPack.fromJson(Map<String, dynamic> json) =>
+      _$SkeletonSearchStarterPackFromJson(json);
 
   @override
   @typeKey
@@ -138,16 +105,28 @@ class _$SkeletonSearchStarterPackImpl implements _SkeletonSearchStarterPack {
   @AtUriConverter()
   final AtUri uri;
 
+  /// Create a copy of SkeletonSearchStarterPack
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SkeletonSearchStarterPack(type: $type, uri: $uri)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SkeletonSearchStarterPackCopyWith<_SkeletonSearchStarterPack>
+      get copyWith =>
+          __$SkeletonSearchStarterPackCopyWithImpl<_SkeletonSearchStarterPack>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SkeletonSearchStarterPackToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonSearchStarterPackImpl &&
+            other is _SkeletonSearchStarterPack &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri));
   }
@@ -156,43 +135,50 @@ class _$SkeletonSearchStarterPackImpl implements _SkeletonSearchStarterPack {
   @override
   int get hashCode => Object.hash(runtimeType, type, uri);
 
-  /// Create a copy of SkeletonSearchStarterPack
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SkeletonSearchStarterPackImplCopyWith<_$SkeletonSearchStarterPackImpl>
-      get copyWith => __$$SkeletonSearchStarterPackImplCopyWithImpl<
-          _$SkeletonSearchStarterPackImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SkeletonSearchStarterPackImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SkeletonSearchStarterPack(type: $type, uri: $uri)';
   }
 }
 
-abstract class _SkeletonSearchStarterPack implements SkeletonSearchStarterPack {
-  const factory _SkeletonSearchStarterPack(
-          {@typeKey final String type,
-          @AtUriConverter() required final AtUri uri}) =
-      _$SkeletonSearchStarterPackImpl;
-
-  factory _SkeletonSearchStarterPack.fromJson(Map<String, dynamic> json) =
-      _$SkeletonSearchStarterPackImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SkeletonSearchStarterPackCopyWith<$Res>
+    implements $SkeletonSearchStarterPackCopyWith<$Res> {
+  factory _$SkeletonSearchStarterPackCopyWith(_SkeletonSearchStarterPack value,
+          $Res Function(_SkeletonSearchStarterPack) _then) =
+      __$SkeletonSearchStarterPackCopyWithImpl;
   @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
+  @useResult
+  $Res call({@typeKey String type, @AtUriConverter() AtUri uri});
+}
+
+/// @nodoc
+class __$SkeletonSearchStarterPackCopyWithImpl<$Res>
+    implements _$SkeletonSearchStarterPackCopyWith<$Res> {
+  __$SkeletonSearchStarterPackCopyWithImpl(this._self, this._then);
+
+  final _SkeletonSearchStarterPack _self;
+  final $Res Function(_SkeletonSearchStarterPack) _then;
 
   /// Create a copy of SkeletonSearchStarterPack
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SkeletonSearchStarterPackImplCopyWith<_$SkeletonSearchStarterPackImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? uri = null,
+  }) {
+    return _then(_SkeletonSearchStarterPack(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+    ));
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,140 +10,32 @@ part of 'thread_context.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ThreadContext _$ThreadContextFromJson(Map<String, dynamic> json) {
-  return _ThreadContext.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ThreadContext {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri? get rootAuthorLike => throw _privateConstructorUsedError;
-
-  /// Serializes this ThreadContext to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri? get rootAuthorLike;
 
   /// Create a copy of ThreadContext
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ThreadContextCopyWith<ThreadContext> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ThreadContextCopyWithImpl<ThreadContext>(
+          this as ThreadContext, _$identity);
 
-/// @nodoc
-abstract class $ThreadContextCopyWith<$Res> {
-  factory $ThreadContextCopyWith(
-          ThreadContext value, $Res Function(ThreadContext) then) =
-      _$ThreadContextCopyWithImpl<$Res, ThreadContext>;
-  @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri? rootAuthorLike});
-}
-
-/// @nodoc
-class _$ThreadContextCopyWithImpl<$Res, $Val extends ThreadContext>
-    implements $ThreadContextCopyWith<$Res> {
-  _$ThreadContextCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ThreadContext
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? rootAuthorLike = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      rootAuthorLike: freezed == rootAuthorLike
-          ? _value.rootAuthorLike
-          : rootAuthorLike // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ThreadContextImplCopyWith<$Res>
-    implements $ThreadContextCopyWith<$Res> {
-  factory _$$ThreadContextImplCopyWith(
-          _$ThreadContextImpl value, $Res Function(_$ThreadContextImpl) then) =
-      __$$ThreadContextImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri? rootAuthorLike});
-}
-
-/// @nodoc
-class __$$ThreadContextImplCopyWithImpl<$Res>
-    extends _$ThreadContextCopyWithImpl<$Res, _$ThreadContextImpl>
-    implements _$$ThreadContextImplCopyWith<$Res> {
-  __$$ThreadContextImplCopyWithImpl(
-      _$ThreadContextImpl _value, $Res Function(_$ThreadContextImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ThreadContext
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? rootAuthorLike = freezed,
-  }) {
-    return _then(_$ThreadContextImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      rootAuthorLike: freezed == rootAuthorLike
-          ? _value.rootAuthorLike
-          : rootAuthorLike // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$ThreadContextImpl implements _ThreadContext {
-  const _$ThreadContextImpl(
-      {@typeKey this.type = appBskyFeedDefsThreadContext,
-      @AtUriConverter() this.rootAuthorLike});
-
-  factory _$ThreadContextImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ThreadContextImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  @AtUriConverter()
-  final AtUri? rootAuthorLike;
-
-  @override
-  String toString() {
-    return 'ThreadContext(type: $type, rootAuthorLike: $rootAuthorLike)';
-  }
+  /// Serializes this ThreadContext to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ThreadContextImpl &&
+            other is ThreadContext &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.rootAuthorLike, rootAuthorLike) ||
                 other.rootAuthorLike == rootAuthorLike));
@@ -152,41 +45,140 @@ class _$ThreadContextImpl implements _ThreadContext {
   @override
   int get hashCode => Object.hash(runtimeType, type, rootAuthorLike);
 
-  /// Create a copy of ThreadContext
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ThreadContextImplCopyWith<_$ThreadContextImpl> get copyWith =>
-      __$$ThreadContextImplCopyWithImpl<_$ThreadContextImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ThreadContextImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ThreadContext(type: $type, rootAuthorLike: $rootAuthorLike)';
   }
 }
 
-abstract class _ThreadContext implements ThreadContext {
-  const factory _ThreadContext(
-      {@typeKey final String type,
-      @AtUriConverter() final AtUri? rootAuthorLike}) = _$ThreadContextImpl;
+/// @nodoc
+abstract mixin class $ThreadContextCopyWith<$Res> {
+  factory $ThreadContextCopyWith(
+          ThreadContext value, $Res Function(ThreadContext) _then) =
+      _$ThreadContextCopyWithImpl;
+  @useResult
+  $Res call({@typeKey String type, @AtUriConverter() AtUri? rootAuthorLike});
+}
 
-  factory _ThreadContext.fromJson(Map<String, dynamic> json) =
-      _$ThreadContextImpl.fromJson;
+/// @nodoc
+class _$ThreadContextCopyWithImpl<$Res>
+    implements $ThreadContextCopyWith<$Res> {
+  _$ThreadContextCopyWithImpl(this._self, this._then);
+
+  final ThreadContext _self;
+  final $Res Function(ThreadContext) _then;
+
+  /// Create a copy of ThreadContext
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? rootAuthorLike = freezed,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      rootAuthorLike: freezed == rootAuthorLike
+          ? _self.rootAuthorLike
+          : rootAuthorLike // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _ThreadContext implements ThreadContext {
+  const _ThreadContext(
+      {@typeKey this.type = appBskyFeedDefsThreadContext,
+      @AtUriConverter() this.rootAuthorLike});
+  factory _ThreadContext.fromJson(Map<String, dynamic> json) =>
+      _$ThreadContextFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
   @AtUriConverter()
-  AtUri? get rootAuthorLike;
+  final AtUri? rootAuthorLike;
 
   /// Create a copy of ThreadContext
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ThreadContextImplCopyWith<_$ThreadContextImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ThreadContextCopyWith<_ThreadContext> get copyWith =>
+      __$ThreadContextCopyWithImpl<_ThreadContext>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ThreadContextToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ThreadContext &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.rootAuthorLike, rootAuthorLike) ||
+                other.rootAuthorLike == rootAuthorLike));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, rootAuthorLike);
+
+  @override
+  String toString() {
+    return 'ThreadContext(type: $type, rootAuthorLike: $rootAuthorLike)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ThreadContextCopyWith<$Res>
+    implements $ThreadContextCopyWith<$Res> {
+  factory _$ThreadContextCopyWith(
+          _ThreadContext value, $Res Function(_ThreadContext) _then) =
+      __$ThreadContextCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, @AtUriConverter() AtUri? rootAuthorLike});
+}
+
+/// @nodoc
+class __$ThreadContextCopyWithImpl<$Res>
+    implements _$ThreadContextCopyWith<$Res> {
+  __$ThreadContextCopyWithImpl(this._self, this._then);
+
+  final _ThreadContext _self;
+  final $Res Function(_ThreadContext) _then;
+
+  /// Create a copy of ThreadContext
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? rootAuthorLike = freezed,
+  }) {
+    return _then(_ThreadContext(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      rootAuthorLike: freezed == rootAuthorLike
+          ? _self.rootAuthorLike
+          : rootAuthorLike // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+    ));
+  }
+}
+
+// dart format on

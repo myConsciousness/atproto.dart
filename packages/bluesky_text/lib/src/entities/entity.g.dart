@@ -8,11 +8,11 @@ part of 'entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EntityImpl _$$EntityImplFromJson(Map json) => $checkedCreate(
-      r'_$EntityImpl',
+_Entity _$EntityFromJson(Map json) => $checkedCreate(
+      '_Entity',
       json,
       ($checkedConvert) {
-        final val = _$EntityImpl(
+        final val = _Entity(
           type: $checkedConvert(
               'type', (v) => $enumDecode(_$EntityTypeEnumMap, v)),
           value: $checkedConvert('value', (v) => v as String),
@@ -23,8 +23,7 @@ _$EntityImpl _$$EntityImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$EntityImplToJson(_$EntityImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$EntityToJson(_Entity instance) => <String, dynamic>{
       'type': _$EntityTypeEnumMap[instance.type]!,
       'value': instance.value,
       'indices': instance.indices.toJson(),

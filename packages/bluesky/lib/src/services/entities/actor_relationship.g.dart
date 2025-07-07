@@ -8,12 +8,11 @@ part of 'actor_relationship.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorRelationshipImpl _$$ActorRelationshipImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ActorRelationshipImpl',
+_ActorRelationship _$ActorRelationshipFromJson(Map json) => $checkedCreate(
+      '_ActorRelationship',
       json,
       ($checkedConvert) {
-        final val = _$ActorRelationshipImpl(
+        final val = _ActorRelationship(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphDefsRelationship),
           did: $checkedConvert('did', (v) => v as String),
@@ -31,8 +30,7 @@ _$ActorRelationshipImpl _$$ActorRelationshipImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ActorRelationshipImplToJson(
-        _$ActorRelationshipImpl instance) =>
+Map<String, dynamic> _$ActorRelationshipToJson(_ActorRelationship instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'did': instance.did,

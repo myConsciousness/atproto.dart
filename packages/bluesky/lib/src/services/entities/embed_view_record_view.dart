@@ -1,6 +1,7 @@
 /// Copyright 2023 Shinya Kato. All rights reserved.
 /// Redistribution and use in source and binary forms, with or without
 /// modification, are permitted provided the conditions.
+library;
 
 // ignore_for_file: invalid_annotation_target
 
@@ -21,7 +22,7 @@ part 'embed_view_record_view.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
-class EmbedViewRecordView with _$EmbedViewRecordView {
+abstract class EmbedViewRecordView with _$EmbedViewRecordView {
   const factory EmbedViewRecordView.record({
     required EmbedViewRecordViewRecord data,
   }) = UEmbedViewRecordViewRecord;

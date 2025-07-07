@@ -8,12 +8,11 @@ part of 'saved_feeds_pref_v2.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SavedFeedsPrefV2Impl _$$SavedFeedsPrefV2ImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SavedFeedsPrefV2Impl',
+_SavedFeedsPrefV2 _$SavedFeedsPrefV2FromJson(Map json) => $checkedCreate(
+      '_SavedFeedsPrefV2',
       json,
       ($checkedConvert) {
-        final val = _$SavedFeedsPrefV2Impl(
+        final val = _SavedFeedsPrefV2(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsSavedFeedsPrefV2),
           items: $checkedConvert(
@@ -28,8 +27,7 @@ _$SavedFeedsPrefV2Impl _$$SavedFeedsPrefV2ImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$SavedFeedsPrefV2ImplToJson(
-        _$SavedFeedsPrefV2Impl instance) =>
+Map<String, dynamic> _$SavedFeedsPrefV2ToJson(_SavedFeedsPrefV2 instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'items': instance.items.map((e) => e.toJson()).toList(),

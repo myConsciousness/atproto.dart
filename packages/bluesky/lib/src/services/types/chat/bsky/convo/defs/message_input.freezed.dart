@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,37 +10,53 @@ part of 'message_input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MessageInput _$MessageInputFromJson(Map<String, dynamic> json) {
-  return _MessageInput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MessageInput {
-  String get text => throw _privateConstructorUsedError;
-  List<Facet>? get facets => throw _privateConstructorUsedError;
+  String get text;
+  List<Facet>? get facets;
   @unionConvoMessageEmbedConverter
-  UConvoMessageEmbed? get embed => throw _privateConstructorUsedError;
-
-  /// Serializes this MessageInput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  UConvoMessageEmbed? get embed;
 
   /// Create a copy of MessageInput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $MessageInputCopyWith<MessageInput> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$MessageInputCopyWithImpl<MessageInput>(
+          this as MessageInput, _$identity);
+
+  /// Serializes this MessageInput to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MessageInput &&
+            (identical(other.text, text) || other.text == text) &&
+            const DeepCollectionEquality().equals(other.facets, facets) &&
+            (identical(other.embed, embed) || other.embed == embed));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, text, const DeepCollectionEquality().hash(facets), embed);
+
+  @override
+  String toString() {
+    return 'MessageInput(text: $text, facets: $facets, embed: $embed)';
+  }
 }
 
 /// @nodoc
-abstract class $MessageInputCopyWith<$Res> {
+abstract mixin class $MessageInputCopyWith<$Res> {
   factory $MessageInputCopyWith(
-          MessageInput value, $Res Function(MessageInput) then) =
-      _$MessageInputCopyWithImpl<$Res, MessageInput>;
+          MessageInput value, $Res Function(MessageInput) _then) =
+      _$MessageInputCopyWithImpl;
   @useResult
   $Res call(
       {String text,
@@ -50,14 +67,11 @@ abstract class $MessageInputCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MessageInputCopyWithImpl<$Res, $Val extends MessageInput>
-    implements $MessageInputCopyWith<$Res> {
-  _$MessageInputCopyWithImpl(this._value, this._then);
+class _$MessageInputCopyWithImpl<$Res> implements $MessageInputCopyWith<$Res> {
+  _$MessageInputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final MessageInput _self;
+  final $Res Function(MessageInput) _then;
 
   /// Create a copy of MessageInput
   /// with the given fields replaced by the non-null parameter values.
@@ -68,20 +82,20 @@ class _$MessageInputCopyWithImpl<$Res, $Val extends MessageInput>
     Object? facets = freezed,
     Object? embed = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       text: null == text
-          ? _value.text
+          ? _self.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
       facets: freezed == facets
-          ? _value.facets
+          ? _self.facets
           : facets // ignore: cast_nullable_to_non_nullable
               as List<Facet>?,
       embed: freezed == embed
-          ? _value.embed
+          ? _self.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as UConvoMessageEmbed?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of MessageInput
@@ -89,79 +103,27 @@ class _$MessageInputCopyWithImpl<$Res, $Val extends MessageInput>
   @override
   @pragma('vm:prefer-inline')
   $UConvoMessageEmbedCopyWith<$Res>? get embed {
-    if (_value.embed == null) {
+    if (_self.embed == null) {
       return null;
     }
 
-    return $UConvoMessageEmbedCopyWith<$Res>(_value.embed!, (value) {
-      return _then(_value.copyWith(embed: value) as $Val);
+    return $UConvoMessageEmbedCopyWith<$Res>(_self.embed!, (value) {
+      return _then(_self.copyWith(embed: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$MessageInputImplCopyWith<$Res>
-    implements $MessageInputCopyWith<$Res> {
-  factory _$$MessageInputImplCopyWith(
-          _$MessageInputImpl value, $Res Function(_$MessageInputImpl) then) =
-      __$$MessageInputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String text,
-      List<Facet>? facets,
-      @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed});
-
-  @override
-  $UConvoMessageEmbedCopyWith<$Res>? get embed;
-}
-
-/// @nodoc
-class __$$MessageInputImplCopyWithImpl<$Res>
-    extends _$MessageInputCopyWithImpl<$Res, _$MessageInputImpl>
-    implements _$$MessageInputImplCopyWith<$Res> {
-  __$$MessageInputImplCopyWithImpl(
-      _$MessageInputImpl _value, $Res Function(_$MessageInputImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MessageInput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? text = null,
-    Object? facets = freezed,
-    Object? embed = freezed,
-  }) {
-    return _then(_$MessageInputImpl(
-      text: null == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String,
-      facets: freezed == facets
-          ? _value._facets
-          : facets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
-      embed: freezed == embed
-          ? _value.embed
-          : embed // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageEmbed?,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$MessageInputImpl implements _MessageInput {
-  const _$MessageInputImpl(
+class _MessageInput implements MessageInput {
+  const _MessageInput(
       {required this.text,
       final List<Facet>? facets,
       @unionConvoMessageEmbedConverter this.embed})
       : _facets = facets;
-
-  factory _$MessageInputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MessageInputImplFromJson(json);
+  factory _MessageInput.fromJson(Map<String, dynamic> json) =>
+      _$MessageInputFromJson(json);
 
   @override
   final String text;
@@ -179,16 +141,26 @@ class _$MessageInputImpl implements _MessageInput {
   @unionConvoMessageEmbedConverter
   final UConvoMessageEmbed? embed;
 
+  /// Create a copy of MessageInput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MessageInput(text: $text, facets: $facets, embed: $embed)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MessageInputCopyWith<_MessageInput> get copyWith =>
+      __$MessageInputCopyWithImpl<_MessageInput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MessageInputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageInputImpl &&
+            other is _MessageInput &&
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.embed, embed) || other.embed == embed));
@@ -199,44 +171,75 @@ class _$MessageInputImpl implements _MessageInput {
   int get hashCode => Object.hash(
       runtimeType, text, const DeepCollectionEquality().hash(_facets), embed);
 
-  /// Create a copy of MessageInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MessageInputImplCopyWith<_$MessageInputImpl> get copyWith =>
-      __$$MessageInputImplCopyWithImpl<_$MessageInputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MessageInputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MessageInput(text: $text, facets: $facets, embed: $embed)';
   }
 }
 
-abstract class _MessageInput implements MessageInput {
-  const factory _MessageInput(
-          {required final String text,
-          final List<Facet>? facets,
-          @unionConvoMessageEmbedConverter final UConvoMessageEmbed? embed}) =
-      _$MessageInputImpl;
+/// @nodoc
+abstract mixin class _$MessageInputCopyWith<$Res>
+    implements $MessageInputCopyWith<$Res> {
+  factory _$MessageInputCopyWith(
+          _MessageInput value, $Res Function(_MessageInput) _then) =
+      __$MessageInputCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String text,
+      List<Facet>? facets,
+      @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed});
 
-  factory _MessageInput.fromJson(Map<String, dynamic> json) =
-      _$MessageInputImpl.fromJson;
+  @override
+  $UConvoMessageEmbedCopyWith<$Res>? get embed;
+}
 
-  @override
-  String get text;
-  @override
-  List<Facet>? get facets;
-  @override
-  @unionConvoMessageEmbedConverter
-  UConvoMessageEmbed? get embed;
+/// @nodoc
+class __$MessageInputCopyWithImpl<$Res>
+    implements _$MessageInputCopyWith<$Res> {
+  __$MessageInputCopyWithImpl(this._self, this._then);
+
+  final _MessageInput _self;
+  final $Res Function(_MessageInput) _then;
 
   /// Create a copy of MessageInput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MessageInputImplCopyWith<_$MessageInputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? text = null,
+    Object? facets = freezed,
+    Object? embed = freezed,
+  }) {
+    return _then(_MessageInput(
+      text: null == text
+          ? _self.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      facets: freezed == facets
+          ? _self._facets
+          : facets // ignore: cast_nullable_to_non_nullable
+              as List<Facet>?,
+      embed: freezed == embed
+          ? _self.embed
+          : embed // ignore: cast_nullable_to_non_nullable
+              as UConvoMessageEmbed?,
+    ));
+  }
+
+  /// Create a copy of MessageInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UConvoMessageEmbedCopyWith<$Res>? get embed {
+    if (_self.embed == null) {
+      return null;
+    }
+
+    return $UConvoMessageEmbedCopyWith<$Res>(_self.embed!, (value) {
+      return _then(_self.copyWith(embed: value));
+    });
+  }
 }
+
+// dart format on

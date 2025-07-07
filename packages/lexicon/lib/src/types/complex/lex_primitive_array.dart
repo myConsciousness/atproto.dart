@@ -11,7 +11,7 @@ part 'lex_primitive_array.freezed.dart';
 part 'lex_primitive_array.g.dart';
 
 @freezed
-class LexPrimitiveArray with _$LexPrimitiveArray {
+abstract class LexPrimitiveArray with _$LexPrimitiveArray {
   @JsonSerializable(includeIfNull: false)
   const factory LexPrimitiveArray({
     @Default('array') String type,

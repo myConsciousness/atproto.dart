@@ -8,12 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SendMessageBatchOutputImpl _$$SendMessageBatchOutputImplFromJson(Map json) =>
+_SendMessageBatchOutput _$SendMessageBatchOutputFromJson(Map json) =>
     $checkedCreate(
-      r'_$SendMessageBatchOutputImpl',
+      '_SendMessageBatchOutput',
       json,
       ($checkedConvert) {
-        final val = _$SendMessageBatchOutputImpl(
+        final val = _SendMessageBatchOutput(
           items: $checkedConvert(
               'items',
               (v) => (v as List<dynamic>)
@@ -25,8 +25,8 @@ _$SendMessageBatchOutputImpl _$$SendMessageBatchOutputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$SendMessageBatchOutputImplToJson(
-        _$SendMessageBatchOutputImpl instance) =>
+Map<String, dynamic> _$SendMessageBatchOutputToJson(
+        _SendMessageBatchOutput instance) =>
     <String, dynamic>{
       'items': instance.items.map((e) => e.toJson()).toList(),
     };

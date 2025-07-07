@@ -67,15 +67,19 @@ final class _EmbedViewRecordViewConverter
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedViewRecordView object) => object.when(
-        record: (data) => data.toJson(),
-        notFound: (data) => data.toJson(),
-        blocked: (data) => data.toJson(),
-        viewDetached: (data) => data.toJson(),
-        generatorView: (data) => data.toJson(),
-        listView: (data) => data.toJson(),
-        labelerView: (data) => data.toJson(),
-        starterPackViewBasic: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(EmbedViewRecordView object) => switch (object) {
+        UEmbedViewRecordViewRecord(data: final data) => data.toJson(),
+        UEmbedViewRecordViewNotFound(data: final data) => data.toJson(),
+        UEmbedViewRecordViewBlocked(data: final data) => data.toJson(),
+        UEmbedViewRecordViewViewDetached(data: final data) => data.toJson(),
+        UEmbedViewRecordViewGeneratorView(data: final data) => data.toJson(),
+        UEmbedViewRecordViewListView(data: final data) => data.toJson(),
+        UEmbedViewRecordViewLabelerView(data: final data) => data.toJson(),
+        UEmbedViewRecordViewStarterPackViewBasic(data: final data) =>
+          data.toJson(),
+        UEmbedViewRecordViewUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown EmbedViewRecordView type: ${object.runtimeType}'),
+      };
 }

@@ -17,7 +17,7 @@ part 'threadgate_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedThreadgate].
 @freezed
-class ThreadgateRecord with _$ThreadgateRecord {
+abstract class ThreadgateRecord with _$ThreadgateRecord {
   @jsonSerializable
   const factory ThreadgateRecord({
     @typeKey @Default(appBskyFeedThreadgate) String type,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,58 @@ part of 'plc_operation.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PlcOperation _$PlcOperationFromJson(Map<String, dynamic> json) {
-  return _PlcOperation.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PlcOperation {
-  Map<String, dynamic> get operation => throw _privateConstructorUsedError;
-
-  /// Serializes this PlcOperation to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> get operation;
 
   /// Create a copy of PlcOperation
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PlcOperationCopyWith<PlcOperation> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlcOperationCopyWith<$Res> {
-  factory $PlcOperationCopyWith(
-          PlcOperation value, $Res Function(PlcOperation) then) =
-      _$PlcOperationCopyWithImpl<$Res, PlcOperation>;
-  @useResult
-  $Res call({Map<String, dynamic> operation});
-}
-
-/// @nodoc
-class _$PlcOperationCopyWithImpl<$Res, $Val extends PlcOperation>
-    implements $PlcOperationCopyWith<$Res> {
-  _$PlcOperationCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PlcOperation
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $PlcOperationCopyWith<PlcOperation> get copyWith =>
+      _$PlcOperationCopyWithImpl<PlcOperation>(
+          this as PlcOperation, _$identity);
+
+  /// Serializes this PlcOperation to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? operation = null,
-  }) {
-    return _then(_value.copyWith(
-      operation: null == operation
-          ? _value.operation
-          : operation // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlcOperation &&
+            const DeepCollectionEquality().equals(other.operation, operation));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(operation));
+
+  @override
+  String toString() {
+    return 'PlcOperation(operation: $operation)';
   }
 }
 
 /// @nodoc
-abstract class _$$PlcOperationImplCopyWith<$Res>
-    implements $PlcOperationCopyWith<$Res> {
-  factory _$$PlcOperationImplCopyWith(
-          _$PlcOperationImpl value, $Res Function(_$PlcOperationImpl) then) =
-      __$$PlcOperationImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PlcOperationCopyWith<$Res> {
+  factory $PlcOperationCopyWith(
+          PlcOperation value, $Res Function(PlcOperation) _then) =
+      _$PlcOperationCopyWithImpl;
   @useResult
   $Res call({Map<String, dynamic> operation});
 }
 
 /// @nodoc
-class __$$PlcOperationImplCopyWithImpl<$Res>
-    extends _$PlcOperationCopyWithImpl<$Res, _$PlcOperationImpl>
-    implements _$$PlcOperationImplCopyWith<$Res> {
-  __$$PlcOperationImplCopyWithImpl(
-      _$PlcOperationImpl _value, $Res Function(_$PlcOperationImpl) _then)
-      : super(_value, _then);
+class _$PlcOperationCopyWithImpl<$Res> implements $PlcOperationCopyWith<$Res> {
+  _$PlcOperationCopyWithImpl(this._self, this._then);
+
+  final PlcOperation _self;
+  final $Res Function(PlcOperation) _then;
 
   /// Create a copy of PlcOperation
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +70,9 @@ class __$$PlcOperationImplCopyWithImpl<$Res>
   $Res call({
     Object? operation = null,
   }) {
-    return _then(_$PlcOperationImpl(
+    return _then(_self.copyWith(
       operation: null == operation
-          ? _value._operation
+          ? _self.operation
           : operation // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -105,12 +82,11 @@ class __$$PlcOperationImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$PlcOperationImpl implements _PlcOperation {
-  const _$PlcOperationImpl({required final Map<String, dynamic> operation})
+class _PlcOperation implements PlcOperation {
+  const _PlcOperation({required final Map<String, dynamic> operation})
       : _operation = operation;
-
-  factory _$PlcOperationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PlcOperationImplFromJson(json);
+  factory _PlcOperation.fromJson(Map<String, dynamic> json) =>
+      _$PlcOperationFromJson(json);
 
   final Map<String, dynamic> _operation;
   @override
@@ -120,16 +96,26 @@ class _$PlcOperationImpl implements _PlcOperation {
     return EqualUnmodifiableMapView(_operation);
   }
 
+  /// Create a copy of PlcOperation
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlcOperation(operation: $operation)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PlcOperationCopyWith<_PlcOperation> get copyWith =>
+      __$PlcOperationCopyWithImpl<_PlcOperation>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PlcOperationToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlcOperationImpl &&
+            other is _PlcOperation &&
             const DeepCollectionEquality()
                 .equals(other._operation, _operation));
   }
@@ -139,36 +125,45 @@ class _$PlcOperationImpl implements _PlcOperation {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_operation));
 
-  /// Create a copy of PlcOperation
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PlcOperationImplCopyWith<_$PlcOperationImpl> get copyWith =>
-      __$$PlcOperationImplCopyWithImpl<_$PlcOperationImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PlcOperationImplToJson(
-      this,
-    );
+  String toString() {
+    return 'PlcOperation(operation: $operation)';
   }
 }
 
-abstract class _PlcOperation implements PlcOperation {
-  const factory _PlcOperation({required final Map<String, dynamic> operation}) =
-      _$PlcOperationImpl;
-
-  factory _PlcOperation.fromJson(Map<String, dynamic> json) =
-      _$PlcOperationImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$PlcOperationCopyWith<$Res>
+    implements $PlcOperationCopyWith<$Res> {
+  factory _$PlcOperationCopyWith(
+          _PlcOperation value, $Res Function(_PlcOperation) _then) =
+      __$PlcOperationCopyWithImpl;
   @override
-  Map<String, dynamic> get operation;
+  @useResult
+  $Res call({Map<String, dynamic> operation});
+}
+
+/// @nodoc
+class __$PlcOperationCopyWithImpl<$Res>
+    implements _$PlcOperationCopyWith<$Res> {
+  __$PlcOperationCopyWithImpl(this._self, this._then);
+
+  final _PlcOperation _self;
+  final $Res Function(_PlcOperation) _then;
 
   /// Create a copy of PlcOperation
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PlcOperationImplCopyWith<_$PlcOperationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? operation = null,
+  }) {
+    return _then(_PlcOperation(
+      operation: null == operation
+          ? _self._operation
+          : operation // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

@@ -12,7 +12,7 @@ part 'tagged_suggestions.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
 @freezed
-class TaggedSuggestions with _$TaggedSuggestions {
+abstract class TaggedSuggestions with _$TaggedSuggestions {
   @jsonSerializable
   const factory TaggedSuggestions({
     required List<TaggedSuggestion> suggestions,

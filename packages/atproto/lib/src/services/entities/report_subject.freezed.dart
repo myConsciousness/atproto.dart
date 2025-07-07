@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,87 +10,75 @@ part of 'report_subject.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ReportSubject {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoRef data) repoRef,
-    required TResult Function(StrongRef data) strongRef,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoRef data)? repoRef,
-    TResult? Function(StrongRef data)? strongRef,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoRef data)? repoRef,
-    TResult Function(StrongRef data)? strongRef,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReportSubjectRepoRef value) repoRef,
-    required TResult Function(UReportSubjectStrongRef value) strongRef,
-    required TResult Function(UReportSubjectUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReportSubjectRepoRef value)? repoRef,
-    TResult? Function(UReportSubjectStrongRef value)? strongRef,
-    TResult? Function(UReportSubjectUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReportSubjectRepoRef value)? repoRef,
-    TResult Function(UReportSubjectStrongRef value)? strongRef,
-    TResult Function(UReportSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ReportSubject &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'ReportSubject(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $ReportSubjectCopyWith<$Res> {
-  factory $ReportSubjectCopyWith(
-          ReportSubject value, $Res Function(ReportSubject) then) =
-      _$ReportSubjectCopyWithImpl<$Res, ReportSubject>;
+class $ReportSubjectCopyWith<$Res> {
+  $ReportSubjectCopyWith(ReportSubject _, $Res Function(ReportSubject) __);
 }
 
 /// @nodoc
-class _$ReportSubjectCopyWithImpl<$Res, $Val extends ReportSubject>
-    implements $ReportSubjectCopyWith<$Res> {
-  _$ReportSubjectCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class UReportSubjectRepoRef extends ReportSubject {
+  const UReportSubjectRepoRef({required this.data}) : super._();
+
+  @override
+  final RepoRef data;
 
   /// Create a copy of ReportSubject
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReportSubjectRepoRefCopyWith<UReportSubjectRepoRef> get copyWith =>
+      _$UReportSubjectRepoRefCopyWithImpl<UReportSubjectRepoRef>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UReportSubjectRepoRef &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'ReportSubject.repoRef(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$UReportSubjectRepoRefImplCopyWith<$Res> {
-  factory _$$UReportSubjectRepoRefImplCopyWith(
-          _$UReportSubjectRepoRefImpl value,
-          $Res Function(_$UReportSubjectRepoRefImpl) then) =
-      __$$UReportSubjectRepoRefImplCopyWithImpl<$Res>;
+abstract mixin class $UReportSubjectRepoRefCopyWith<$Res>
+    implements $ReportSubjectCopyWith<$Res> {
+  factory $UReportSubjectRepoRefCopyWith(UReportSubjectRepoRef value,
+          $Res Function(UReportSubjectRepoRef) _then) =
+      _$UReportSubjectRepoRefCopyWithImpl;
   @useResult
   $Res call({RepoRef data});
 
@@ -97,23 +86,22 @@ abstract class _$$UReportSubjectRepoRefImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReportSubjectRepoRefImplCopyWithImpl<$Res>
-    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectRepoRefImpl>
-    implements _$$UReportSubjectRepoRefImplCopyWith<$Res> {
-  __$$UReportSubjectRepoRefImplCopyWithImpl(_$UReportSubjectRepoRefImpl _value,
-      $Res Function(_$UReportSubjectRepoRefImpl) _then)
-      : super(_value, _then);
+class _$UReportSubjectRepoRefCopyWithImpl<$Res>
+    implements $UReportSubjectRepoRefCopyWith<$Res> {
+  _$UReportSubjectRepoRefCopyWithImpl(this._self, this._then);
+
+  final UReportSubjectRepoRef _self;
+  final $Res Function(UReportSubjectRepoRef) _then;
 
   /// Create a copy of ReportSubject
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReportSubjectRepoRefImpl(
+    return _then(UReportSubjectRepoRef(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as RepoRef,
     ));
@@ -124,135 +112,51 @@ class __$$UReportSubjectRepoRefImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $RepoRefCopyWith<$Res> get data {
-    return $RepoRefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $RepoRefCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UReportSubjectRepoRefImpl extends UReportSubjectRepoRef {
-  const _$UReportSubjectRepoRefImpl({required this.data}) : super._();
+class UReportSubjectStrongRef extends ReportSubject {
+  const UReportSubjectStrongRef({required this.data}) : super._();
 
   @override
-  final RepoRef data;
+  final StrongRef data;
 
-  @override
-  String toString() {
-    return 'ReportSubject.repoRef(data: $data)';
-  }
+  /// Create a copy of ReportSubject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReportSubjectStrongRefCopyWith<UReportSubjectStrongRef> get copyWith =>
+      _$UReportSubjectStrongRefCopyWithImpl<UReportSubjectStrongRef>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReportSubjectRepoRefImpl &&
+            other is UReportSubjectStrongRef &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of ReportSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UReportSubjectRepoRefImplCopyWith<_$UReportSubjectRepoRefImpl>
-      get copyWith => __$$UReportSubjectRepoRefImplCopyWithImpl<
-          _$UReportSubjectRepoRefImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoRef data) repoRef,
-    required TResult Function(StrongRef data) strongRef,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return repoRef(data);
+  String toString() {
+    return 'ReportSubject.strongRef(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoRef data)? repoRef,
-    TResult? Function(StrongRef data)? strongRef,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return repoRef?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoRef data)? repoRef,
-    TResult Function(StrongRef data)? strongRef,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoRef != null) {
-      return repoRef(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReportSubjectRepoRef value) repoRef,
-    required TResult Function(UReportSubjectStrongRef value) strongRef,
-    required TResult Function(UReportSubjectUnknown value) unknown,
-  }) {
-    return repoRef(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReportSubjectRepoRef value)? repoRef,
-    TResult? Function(UReportSubjectStrongRef value)? strongRef,
-    TResult? Function(UReportSubjectUnknown value)? unknown,
-  }) {
-    return repoRef?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReportSubjectRepoRef value)? repoRef,
-    TResult Function(UReportSubjectStrongRef value)? strongRef,
-    TResult Function(UReportSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (repoRef != null) {
-      return repoRef(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UReportSubjectRepoRef extends ReportSubject {
-  const factory UReportSubjectRepoRef({required final RepoRef data}) =
-      _$UReportSubjectRepoRefImpl;
-  const UReportSubjectRepoRef._() : super._();
-
-  @override
-  RepoRef get data;
-
-  /// Create a copy of ReportSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReportSubjectRepoRefImplCopyWith<_$UReportSubjectRepoRefImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReportSubjectStrongRefImplCopyWith<$Res> {
-  factory _$$UReportSubjectStrongRefImplCopyWith(
-          _$UReportSubjectStrongRefImpl value,
-          $Res Function(_$UReportSubjectStrongRefImpl) then) =
-      __$$UReportSubjectStrongRefImplCopyWithImpl<$Res>;
+abstract mixin class $UReportSubjectStrongRefCopyWith<$Res>
+    implements $ReportSubjectCopyWith<$Res> {
+  factory $UReportSubjectStrongRefCopyWith(UReportSubjectStrongRef value,
+          $Res Function(UReportSubjectStrongRef) _then) =
+      _$UReportSubjectStrongRefCopyWithImpl;
   @useResult
   $Res call({StrongRef data});
 
@@ -260,24 +164,22 @@ abstract class _$$UReportSubjectStrongRefImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReportSubjectStrongRefImplCopyWithImpl<$Res>
-    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectStrongRefImpl>
-    implements _$$UReportSubjectStrongRefImplCopyWith<$Res> {
-  __$$UReportSubjectStrongRefImplCopyWithImpl(
-      _$UReportSubjectStrongRefImpl _value,
-      $Res Function(_$UReportSubjectStrongRefImpl) _then)
-      : super(_value, _then);
+class _$UReportSubjectStrongRefCopyWithImpl<$Res>
+    implements $UReportSubjectStrongRefCopyWith<$Res> {
+  _$UReportSubjectStrongRefCopyWithImpl(this._self, this._then);
+
+  final UReportSubjectStrongRef _self;
+  final $Res Function(UReportSubjectStrongRef) _then;
 
   /// Create a copy of ReportSubject
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReportSubjectStrongRefImpl(
+    return _then(UReportSubjectStrongRef(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as StrongRef,
     ));
@@ -288,167 +190,16 @@ class __$$UReportSubjectStrongRefImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $StrongRefCopyWith<$Res> get data {
-    return $StrongRefCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $StrongRefCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UReportSubjectStrongRefImpl extends UReportSubjectStrongRef {
-  const _$UReportSubjectStrongRefImpl({required this.data}) : super._();
-
-  @override
-  final StrongRef data;
-
-  @override
-  String toString() {
-    return 'ReportSubject.strongRef(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UReportSubjectStrongRefImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of ReportSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UReportSubjectStrongRefImplCopyWith<_$UReportSubjectStrongRefImpl>
-      get copyWith => __$$UReportSubjectStrongRefImplCopyWithImpl<
-          _$UReportSubjectStrongRefImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoRef data) repoRef,
-    required TResult Function(StrongRef data) strongRef,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return strongRef(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoRef data)? repoRef,
-    TResult? Function(StrongRef data)? strongRef,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return strongRef?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoRef data)? repoRef,
-    TResult Function(StrongRef data)? strongRef,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (strongRef != null) {
-      return strongRef(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReportSubjectRepoRef value) repoRef,
-    required TResult Function(UReportSubjectStrongRef value) strongRef,
-    required TResult Function(UReportSubjectUnknown value) unknown,
-  }) {
-    return strongRef(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReportSubjectRepoRef value)? repoRef,
-    TResult? Function(UReportSubjectStrongRef value)? strongRef,
-    TResult? Function(UReportSubjectUnknown value)? unknown,
-  }) {
-    return strongRef?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReportSubjectRepoRef value)? repoRef,
-    TResult Function(UReportSubjectStrongRef value)? strongRef,
-    TResult Function(UReportSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (strongRef != null) {
-      return strongRef(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UReportSubjectStrongRef extends ReportSubject {
-  const factory UReportSubjectStrongRef({required final StrongRef data}) =
-      _$UReportSubjectStrongRefImpl;
-  const UReportSubjectStrongRef._() : super._();
-
-  @override
-  StrongRef get data;
-
-  /// Create a copy of ReportSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReportSubjectStrongRefImplCopyWith<_$UReportSubjectStrongRefImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UReportSubjectUnknownImplCopyWith<$Res> {
-  factory _$$UReportSubjectUnknownImplCopyWith(
-          _$UReportSubjectUnknownImpl value,
-          $Res Function(_$UReportSubjectUnknownImpl) then) =
-      __$$UReportSubjectUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$UReportSubjectUnknownImplCopyWithImpl<$Res>
-    extends _$ReportSubjectCopyWithImpl<$Res, _$UReportSubjectUnknownImpl>
-    implements _$$UReportSubjectUnknownImplCopyWith<$Res> {
-  __$$UReportSubjectUnknownImplCopyWithImpl(_$UReportSubjectUnknownImpl _value,
-      $Res Function(_$UReportSubjectUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ReportSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UReportSubjectUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UReportSubjectUnknownImpl extends UReportSubjectUnknown {
-  const _$UReportSubjectUnknownImpl({required final Map<String, dynamic> data})
+class UReportSubjectUnknown extends ReportSubject {
+  const UReportSubjectUnknown({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -460,16 +211,19 @@ class _$UReportSubjectUnknownImpl extends UReportSubjectUnknown {
     return EqualUnmodifiableMapView(_data);
   }
 
-  @override
-  String toString() {
-    return 'ReportSubject.unknown(data: $data)';
-  }
+  /// Create a copy of ReportSubject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UReportSubjectUnknownCopyWith<UReportSubjectUnknown> get copyWith =>
+      _$UReportSubjectUnknownCopyWithImpl<UReportSubjectUnknown>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReportSubjectUnknownImpl &&
+            other is UReportSubjectUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -477,95 +231,43 @@ class _$UReportSubjectUnknownImpl extends UReportSubjectUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'ReportSubject.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UReportSubjectUnknownCopyWith<$Res>
+    implements $ReportSubjectCopyWith<$Res> {
+  factory $UReportSubjectUnknownCopyWith(UReportSubjectUnknown value,
+          $Res Function(UReportSubjectUnknown) _then) =
+      _$UReportSubjectUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$UReportSubjectUnknownCopyWithImpl<$Res>
+    implements $UReportSubjectUnknownCopyWith<$Res> {
+  _$UReportSubjectUnknownCopyWithImpl(this._self, this._then);
+
+  final UReportSubjectUnknown _self;
+  final $Res Function(UReportSubjectUnknown) _then;
+
   /// Create a copy of ReportSubject
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$UReportSubjectUnknownImplCopyWith<_$UReportSubjectUnknownImpl>
-      get copyWith => __$$UReportSubjectUnknownImplCopyWithImpl<
-          _$UReportSubjectUnknownImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(RepoRef data) repoRef,
-    required TResult Function(StrongRef data) strongRef,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RepoRef data)? repoRef,
-    TResult? Function(StrongRef data)? strongRef,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RepoRef data)? repoRef,
-    TResult Function(StrongRef data)? strongRef,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UReportSubjectRepoRef value) repoRef,
-    required TResult Function(UReportSubjectStrongRef value) strongRef,
-    required TResult Function(UReportSubjectUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReportSubjectRepoRef value)? repoRef,
-    TResult? Function(UReportSubjectStrongRef value)? strongRef,
-    TResult? Function(UReportSubjectUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReportSubjectRepoRef value)? repoRef,
-    TResult Function(UReportSubjectStrongRef value)? strongRef,
-    TResult Function(UReportSubjectUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
+    return _then(UReportSubjectUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class UReportSubjectUnknown extends ReportSubject {
-  const factory UReportSubjectUnknown(
-      {required final Map<String, dynamic> data}) = _$UReportSubjectUnknownImpl;
-  const UReportSubjectUnknown._() : super._();
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of ReportSubject
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UReportSubjectUnknownImplCopyWith<_$UReportSubjectUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

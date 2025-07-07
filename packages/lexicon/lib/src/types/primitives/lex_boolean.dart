@@ -7,7 +7,7 @@ part 'lex_boolean.freezed.dart';
 part 'lex_boolean.g.dart';
 
 @freezed
-class LexBoolean with _$LexBoolean {
+abstract class LexBoolean with _$LexBoolean {
   @JsonSerializable(includeIfNull: false)
   const factory LexBoolean({
     @Default('boolean') String type,

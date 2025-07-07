@@ -11,7 +11,7 @@ import '../references/lex_ref_variant.dart';
 part 'lex_xrpc_schema.freezed.dart';
 
 @freezed
-class LexXrpcSchema with _$LexXrpcSchema {
+abstract class LexXrpcSchema with _$LexXrpcSchema {
   // ignore: unused_element
   const LexXrpcSchema._();
 

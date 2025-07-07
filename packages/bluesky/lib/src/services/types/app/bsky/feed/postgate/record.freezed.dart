@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,104 +10,68 @@ part of 'record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PostgateRecord _$PostgateRecordFromJson(Map<String, dynamic> json) {
-  return _PostgateRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PostgateRecord {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri get post => throw _privateConstructorUsedError;
+  AtUri get post;
   @AtUriConverter()
-  List<AtUri>? get detachedEmbeddingUris => throw _privateConstructorUsedError;
+  List<AtUri>? get detachedEmbeddingUris;
   @UPostRuleConverter()
-  List<UPostRule>? get embeddingRules => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-
-  /// Serializes this PostgateRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<UPostRule>? get embeddingRules;
+  DateTime get createdAt;
 
   /// Create a copy of PostgateRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PostgateRecordCopyWith<PostgateRecord> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PostgateRecordCopyWith<$Res> {
-  factory $PostgateRecordCopyWith(
-          PostgateRecord value, $Res Function(PostgateRecord) then) =
-      _$PostgateRecordCopyWithImpl<$Res, PostgateRecord>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @AtUriConverter() AtUri post,
-      @AtUriConverter() List<AtUri>? detachedEmbeddingUris,
-      @UPostRuleConverter() List<UPostRule>? embeddingRules,
-      DateTime createdAt});
-}
-
-/// @nodoc
-class _$PostgateRecordCopyWithImpl<$Res, $Val extends PostgateRecord>
-    implements $PostgateRecordCopyWith<$Res> {
-  _$PostgateRecordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PostgateRecord
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $PostgateRecordCopyWith<PostgateRecord> get copyWith =>
+      _$PostgateRecordCopyWithImpl<PostgateRecord>(
+          this as PostgateRecord, _$identity);
+
+  /// Serializes this PostgateRecord to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? post = null,
-    Object? detachedEmbeddingUris = freezed,
-    Object? embeddingRules = freezed,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      post: null == post
-          ? _value.post
-          : post // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      detachedEmbeddingUris: freezed == detachedEmbeddingUris
-          ? _value.detachedEmbeddingUris
-          : detachedEmbeddingUris // ignore: cast_nullable_to_non_nullable
-              as List<AtUri>?,
-      embeddingRules: freezed == embeddingRules
-          ? _value.embeddingRules
-          : embeddingRules // ignore: cast_nullable_to_non_nullable
-              as List<UPostRule>?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PostgateRecord &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.post, post) || other.post == post) &&
+            const DeepCollectionEquality()
+                .equals(other.detachedEmbeddingUris, detachedEmbeddingUris) &&
+            const DeepCollectionEquality()
+                .equals(other.embeddingRules, embeddingRules) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      post,
+      const DeepCollectionEquality().hash(detachedEmbeddingUris),
+      const DeepCollectionEquality().hash(embeddingRules),
+      createdAt);
+
+  @override
+  String toString() {
+    return 'PostgateRecord(type: $type, post: $post, detachedEmbeddingUris: $detachedEmbeddingUris, embeddingRules: $embeddingRules, createdAt: $createdAt)';
   }
 }
 
 /// @nodoc
-abstract class _$$PostgateRecordImplCopyWith<$Res>
-    implements $PostgateRecordCopyWith<$Res> {
-  factory _$$PostgateRecordImplCopyWith(_$PostgateRecordImpl value,
-          $Res Function(_$PostgateRecordImpl) then) =
-      __$$PostgateRecordImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PostgateRecordCopyWith<$Res> {
+  factory $PostgateRecordCopyWith(
+          PostgateRecord value, $Res Function(PostgateRecord) _then) =
+      _$PostgateRecordCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -117,12 +82,12 @@ abstract class _$$PostgateRecordImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PostgateRecordImplCopyWithImpl<$Res>
-    extends _$PostgateRecordCopyWithImpl<$Res, _$PostgateRecordImpl>
-    implements _$$PostgateRecordImplCopyWith<$Res> {
-  __$$PostgateRecordImplCopyWithImpl(
-      _$PostgateRecordImpl _value, $Res Function(_$PostgateRecordImpl) _then)
-      : super(_value, _then);
+class _$PostgateRecordCopyWithImpl<$Res>
+    implements $PostgateRecordCopyWith<$Res> {
+  _$PostgateRecordCopyWithImpl(this._self, this._then);
+
+  final PostgateRecord _self;
+  final $Res Function(PostgateRecord) _then;
 
   /// Create a copy of PostgateRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -135,25 +100,25 @@ class __$$PostgateRecordImplCopyWithImpl<$Res>
     Object? embeddingRules = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$PostgateRecordImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       post: null == post
-          ? _value.post
+          ? _self.post
           : post // ignore: cast_nullable_to_non_nullable
               as AtUri,
       detachedEmbeddingUris: freezed == detachedEmbeddingUris
-          ? _value._detachedEmbeddingUris
+          ? _self.detachedEmbeddingUris
           : detachedEmbeddingUris // ignore: cast_nullable_to_non_nullable
               as List<AtUri>?,
       embeddingRules: freezed == embeddingRules
-          ? _value._embeddingRules
+          ? _self.embeddingRules
           : embeddingRules // ignore: cast_nullable_to_non_nullable
               as List<UPostRule>?,
       createdAt: null == createdAt
-          ? _value.createdAt
+          ? _self.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -163,8 +128,8 @@ class __$$PostgateRecordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$PostgateRecordImpl implements _PostgateRecord {
-  const _$PostgateRecordImpl(
+class _PostgateRecord implements PostgateRecord {
+  const _PostgateRecord(
       {@typeKey this.type = appBskyFeedPostgate,
       @AtUriConverter() required this.post,
       @AtUriConverter() final List<AtUri>? detachedEmbeddingUris,
@@ -172,9 +137,8 @@ class _$PostgateRecordImpl implements _PostgateRecord {
       required this.createdAt})
       : _detachedEmbeddingUris = detachedEmbeddingUris,
         _embeddingRules = embeddingRules;
-
-  factory _$PostgateRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostgateRecordImplFromJson(json);
+  factory _PostgateRecord.fromJson(Map<String, dynamic> json) =>
+      _$PostgateRecordFromJson(json);
 
   @override
   @typeKey
@@ -208,16 +172,26 @@ class _$PostgateRecordImpl implements _PostgateRecord {
   @override
   final DateTime createdAt;
 
+  /// Create a copy of PostgateRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PostgateRecord(type: $type, post: $post, detachedEmbeddingUris: $detachedEmbeddingUris, embeddingRules: $embeddingRules, createdAt: $createdAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PostgateRecordCopyWith<_PostgateRecord> get copyWith =>
+      __$PostgateRecordCopyWithImpl<_PostgateRecord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PostgateRecordToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostgateRecordImpl &&
+            other is _PostgateRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.post, post) || other.post == post) &&
             const DeepCollectionEquality()
@@ -238,53 +212,70 @@ class _$PostgateRecordImpl implements _PostgateRecord {
       const DeepCollectionEquality().hash(_embeddingRules),
       createdAt);
 
-  /// Create a copy of PostgateRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PostgateRecordImplCopyWith<_$PostgateRecordImpl> get copyWith =>
-      __$$PostgateRecordImplCopyWithImpl<_$PostgateRecordImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostgateRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'PostgateRecord(type: $type, post: $post, detachedEmbeddingUris: $detachedEmbeddingUris, embeddingRules: $embeddingRules, createdAt: $createdAt)';
   }
 }
 
-abstract class _PostgateRecord implements PostgateRecord {
-  const factory _PostgateRecord(
-      {@typeKey final String type,
-      @AtUriConverter() required final AtUri post,
-      @AtUriConverter() final List<AtUri>? detachedEmbeddingUris,
-      @UPostRuleConverter() final List<UPostRule>? embeddingRules,
-      required final DateTime createdAt}) = _$PostgateRecordImpl;
+/// @nodoc
+abstract mixin class _$PostgateRecordCopyWith<$Res>
+    implements $PostgateRecordCopyWith<$Res> {
+  factory _$PostgateRecordCopyWith(
+          _PostgateRecord value, $Res Function(_PostgateRecord) _then) =
+      __$PostgateRecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @AtUriConverter() AtUri post,
+      @AtUriConverter() List<AtUri>? detachedEmbeddingUris,
+      @UPostRuleConverter() List<UPostRule>? embeddingRules,
+      DateTime createdAt});
+}
 
-  factory _PostgateRecord.fromJson(Map<String, dynamic> json) =
-      _$PostgateRecordImpl.fromJson;
+/// @nodoc
+class __$PostgateRecordCopyWithImpl<$Res>
+    implements _$PostgateRecordCopyWith<$Res> {
+  __$PostgateRecordCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  AtUri get post;
-  @override
-  @AtUriConverter()
-  List<AtUri>? get detachedEmbeddingUris;
-  @override
-  @UPostRuleConverter()
-  List<UPostRule>? get embeddingRules;
-  @override
-  DateTime get createdAt;
+  final _PostgateRecord _self;
+  final $Res Function(_PostgateRecord) _then;
 
   /// Create a copy of PostgateRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PostgateRecordImplCopyWith<_$PostgateRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? post = null,
+    Object? detachedEmbeddingUris = freezed,
+    Object? embeddingRules = freezed,
+    Object? createdAt = null,
+  }) {
+    return _then(_PostgateRecord(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      post: null == post
+          ? _self.post
+          : post // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      detachedEmbeddingUris: freezed == detachedEmbeddingUris
+          ? _self._detachedEmbeddingUris
+          : detachedEmbeddingUris // ignore: cast_nullable_to_non_nullable
+              as List<AtUri>?,
+      embeddingRules: freezed == embeddingRules
+          ? _self._embeddingRules
+          : embeddingRules // ignore: cast_nullable_to_non_nullable
+              as List<UPostRule>?,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
+
+// dart format on

@@ -12,7 +12,7 @@ part 'labeler_services.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs/#labelerpolicies
 @freezed
-class LabelerServices with _$LabelerServices {
+abstract class LabelerServices with _$LabelerServices {
   @jsonSerializable
   const factory LabelerServices({
     @labelerServiceViewConverter required List<LabelerServiceView> views,

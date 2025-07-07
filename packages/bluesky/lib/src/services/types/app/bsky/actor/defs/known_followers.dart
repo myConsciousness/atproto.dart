@@ -13,7 +13,7 @@ part 'known_followers.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#knownfollowers
 @freezed
-class KnownFollowers with _$KnownFollowers {
+abstract class KnownFollowers with _$KnownFollowers {
   @jsonSerializable
   const factory KnownFollowers({
     @typeKey @Default(appBskyActorDefsKnownFollowers) String type,

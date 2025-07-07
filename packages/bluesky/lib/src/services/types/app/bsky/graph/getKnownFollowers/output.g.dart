@@ -8,13 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetKnownFollowersOutputImpl _$$GetKnownFollowersOutputImplFromJson(
-        Map json) =>
+_GetKnownFollowersOutput _$GetKnownFollowersOutputFromJson(Map json) =>
     $checkedCreate(
-      r'_$GetKnownFollowersOutputImpl',
+      '_GetKnownFollowersOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetKnownFollowersOutputImpl(
+        final val = _GetKnownFollowersOutput(
           subject: $checkedConvert('subject',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           followers: $checkedConvert(
@@ -29,8 +28,8 @@ _$GetKnownFollowersOutputImpl _$$GetKnownFollowersOutputImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$GetKnownFollowersOutputImplToJson(
-        _$GetKnownFollowersOutputImpl instance) =>
+Map<String, dynamic> _$GetKnownFollowersOutputToJson(
+        _GetKnownFollowersOutput instance) =>
     <String, dynamic>{
       'subject': instance.subject.toJson(),
       'followers': instance.followers.map((e) => e.toJson()).toList(),

@@ -6,7 +6,7 @@ part 'subscribed_repo_handle.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#handle
 @freezed
-class Handle with _$Handle {
+abstract class Handle with _$Handle {
   const factory Handle({
     required String did,
     required String handle,

@@ -8,11 +8,11 @@ part of 'record_blob.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RecordBlobImpl _$$RecordBlobImplFromJson(Map json) => $checkedCreate(
-      r'_$RecordBlobImpl',
+_RecordBlob _$RecordBlobFromJson(Map json) => $checkedCreate(
+      '_RecordBlob',
       json,
       ($checkedConvert) {
-        final val = _$RecordBlobImpl(
+        final val = _RecordBlob(
           cid: $checkedConvert('cid', (v) => v as String),
           recordUri: $checkedConvert(
               'recordUri', (v) => const AtUriConverter().fromJson(v as String)),
@@ -21,7 +21,7 @@ _$RecordBlobImpl _$$RecordBlobImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$RecordBlobImplToJson(_$RecordBlobImpl instance) =>
+Map<String, dynamic> _$RecordBlobToJson(_RecordBlob instance) =>
     <String, dynamic>{
       'cid': instance.cid,
       'recordUri': const AtUriConverter().toJson(instance.recordUri),

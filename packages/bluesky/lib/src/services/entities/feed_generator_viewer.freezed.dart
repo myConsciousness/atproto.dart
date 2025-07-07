@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,83 +10,59 @@ part of 'feed_generator_viewer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FeedGeneratorViewer _$FeedGeneratorViewerFromJson(Map<String, dynamic> json) {
-  return _FeedGeneratorViewer.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FeedGeneratorViewer {
   @AtUriConverter()
-  AtUri? get like => throw _privateConstructorUsedError;
-
-  /// Serializes this FeedGeneratorViewer to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri? get like;
 
   /// Create a copy of FeedGeneratorViewer
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FeedGeneratorViewerCopyWith<FeedGeneratorViewer> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FeedGeneratorViewerCopyWith<$Res> {
-  factory $FeedGeneratorViewerCopyWith(
-          FeedGeneratorViewer value, $Res Function(FeedGeneratorViewer) then) =
-      _$FeedGeneratorViewerCopyWithImpl<$Res, FeedGeneratorViewer>;
-  @useResult
-  $Res call({@AtUriConverter() AtUri? like});
-}
-
-/// @nodoc
-class _$FeedGeneratorViewerCopyWithImpl<$Res, $Val extends FeedGeneratorViewer>
-    implements $FeedGeneratorViewerCopyWith<$Res> {
-  _$FeedGeneratorViewerCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FeedGeneratorViewer
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $FeedGeneratorViewerCopyWith<FeedGeneratorViewer> get copyWith =>
+      _$FeedGeneratorViewerCopyWithImpl<FeedGeneratorViewer>(
+          this as FeedGeneratorViewer, _$identity);
+
+  /// Serializes this FeedGeneratorViewer to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? like = freezed,
-  }) {
-    return _then(_value.copyWith(
-      like: freezed == like
-          ? _value.like
-          : like // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FeedGeneratorViewer &&
+            (identical(other.like, like) || other.like == like));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, like);
+
+  @override
+  String toString() {
+    return 'FeedGeneratorViewer(like: $like)';
   }
 }
 
 /// @nodoc
-abstract class _$$FeedGeneratorViewerImplCopyWith<$Res>
-    implements $FeedGeneratorViewerCopyWith<$Res> {
-  factory _$$FeedGeneratorViewerImplCopyWith(_$FeedGeneratorViewerImpl value,
-          $Res Function(_$FeedGeneratorViewerImpl) then) =
-      __$$FeedGeneratorViewerImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $FeedGeneratorViewerCopyWith<$Res> {
+  factory $FeedGeneratorViewerCopyWith(
+          FeedGeneratorViewer value, $Res Function(FeedGeneratorViewer) _then) =
+      _$FeedGeneratorViewerCopyWithImpl;
   @useResult
   $Res call({@AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
-class __$$FeedGeneratorViewerImplCopyWithImpl<$Res>
-    extends _$FeedGeneratorViewerCopyWithImpl<$Res, _$FeedGeneratorViewerImpl>
-    implements _$$FeedGeneratorViewerImplCopyWith<$Res> {
-  __$$FeedGeneratorViewerImplCopyWithImpl(_$FeedGeneratorViewerImpl _value,
-      $Res Function(_$FeedGeneratorViewerImpl) _then)
-      : super(_value, _then);
+class _$FeedGeneratorViewerCopyWithImpl<$Res>
+    implements $FeedGeneratorViewerCopyWith<$Res> {
+  _$FeedGeneratorViewerCopyWithImpl(this._self, this._then);
+
+  final FeedGeneratorViewer _self;
+  final $Res Function(FeedGeneratorViewer) _then;
 
   /// Create a copy of FeedGeneratorViewer
   /// with the given fields replaced by the non-null parameter values.
@@ -94,9 +71,9 @@ class __$$FeedGeneratorViewerImplCopyWithImpl<$Res>
   $Res call({
     Object? like = freezed,
   }) {
-    return _then(_$FeedGeneratorViewerImpl(
+    return _then(_self.copyWith(
       like: freezed == like
-          ? _value.like
+          ? _self.like
           : like // ignore: cast_nullable_to_non_nullable
               as AtUri?,
     ));
@@ -106,26 +83,36 @@ class __$$FeedGeneratorViewerImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedGeneratorViewerImpl implements _FeedGeneratorViewer {
-  const _$FeedGeneratorViewerImpl({@AtUriConverter() this.like});
-
-  factory _$FeedGeneratorViewerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedGeneratorViewerImplFromJson(json);
+class _FeedGeneratorViewer implements FeedGeneratorViewer {
+  const _FeedGeneratorViewer({@AtUriConverter() this.like});
+  factory _FeedGeneratorViewer.fromJson(Map<String, dynamic> json) =>
+      _$FeedGeneratorViewerFromJson(json);
 
   @override
   @AtUriConverter()
   final AtUri? like;
 
+  /// Create a copy of FeedGeneratorViewer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'FeedGeneratorViewer(like: $like)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FeedGeneratorViewerCopyWith<_FeedGeneratorViewer> get copyWith =>
+      __$FeedGeneratorViewerCopyWithImpl<_FeedGeneratorViewer>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FeedGeneratorViewerToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedGeneratorViewerImpl &&
+            other is _FeedGeneratorViewer &&
             (identical(other.like, like) || other.like == like));
   }
 
@@ -133,38 +120,45 @@ class _$FeedGeneratorViewerImpl implements _FeedGeneratorViewer {
   @override
   int get hashCode => Object.hash(runtimeType, like);
 
-  /// Create a copy of FeedGeneratorViewer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FeedGeneratorViewerImplCopyWith<_$FeedGeneratorViewerImpl> get copyWith =>
-      __$$FeedGeneratorViewerImplCopyWithImpl<_$FeedGeneratorViewerImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FeedGeneratorViewerImplToJson(
-      this,
-    );
+  String toString() {
+    return 'FeedGeneratorViewer(like: $like)';
   }
 }
 
-abstract class _FeedGeneratorViewer implements FeedGeneratorViewer {
-  const factory _FeedGeneratorViewer({@AtUriConverter() final AtUri? like}) =
-      _$FeedGeneratorViewerImpl;
-
-  factory _FeedGeneratorViewer.fromJson(Map<String, dynamic> json) =
-      _$FeedGeneratorViewerImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$FeedGeneratorViewerCopyWith<$Res>
+    implements $FeedGeneratorViewerCopyWith<$Res> {
+  factory _$FeedGeneratorViewerCopyWith(_FeedGeneratorViewer value,
+          $Res Function(_FeedGeneratorViewer) _then) =
+      __$FeedGeneratorViewerCopyWithImpl;
   @override
-  @AtUriConverter()
-  AtUri? get like;
+  @useResult
+  $Res call({@AtUriConverter() AtUri? like});
+}
+
+/// @nodoc
+class __$FeedGeneratorViewerCopyWithImpl<$Res>
+    implements _$FeedGeneratorViewerCopyWith<$Res> {
+  __$FeedGeneratorViewerCopyWithImpl(this._self, this._then);
+
+  final _FeedGeneratorViewer _self;
+  final $Res Function(_FeedGeneratorViewer) _then;
 
   /// Create a copy of FeedGeneratorViewer
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FeedGeneratorViewerImplCopyWith<_$FeedGeneratorViewerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? like = freezed,
+  }) {
+    return _then(_FeedGeneratorViewer(
+      like: freezed == like
+          ? _self.like
+          : like // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+    ));
+  }
 }
+
+// dart format on

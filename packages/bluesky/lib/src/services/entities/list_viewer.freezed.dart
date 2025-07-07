@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,92 +10,61 @@ part of 'list_viewer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ListViewer _$ListViewerFromJson(Map<String, dynamic> json) {
-  return _ListViewer.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ListViewer {
   @JsonKey(name: 'muted')
-  bool get isMuted => throw _privateConstructorUsedError;
+  bool get isMuted;
   @AtUriConverter()
-  AtUri? get blocked => throw _privateConstructorUsedError;
-
-  /// Serializes this ListViewer to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri? get blocked;
 
   /// Create a copy of ListViewer
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ListViewerCopyWith<ListViewer> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ListViewerCopyWith<$Res> {
-  factory $ListViewerCopyWith(
-          ListViewer value, $Res Function(ListViewer) then) =
-      _$ListViewerCopyWithImpl<$Res, ListViewer>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'muted') bool isMuted, @AtUriConverter() AtUri? blocked});
-}
-
-/// @nodoc
-class _$ListViewerCopyWithImpl<$Res, $Val extends ListViewer>
-    implements $ListViewerCopyWith<$Res> {
-  _$ListViewerCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ListViewer
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ListViewerCopyWith<ListViewer> get copyWith =>
+      _$ListViewerCopyWithImpl<ListViewer>(this as ListViewer, _$identity);
+
+  /// Serializes this ListViewer to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? isMuted = null,
-    Object? blocked = freezed,
-  }) {
-    return _then(_value.copyWith(
-      isMuted: null == isMuted
-          ? _value.isMuted
-          : isMuted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      blocked: freezed == blocked
-          ? _value.blocked
-          : blocked // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ListViewer &&
+            (identical(other.isMuted, isMuted) || other.isMuted == isMuted) &&
+            (identical(other.blocked, blocked) || other.blocked == blocked));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, isMuted, blocked);
+
+  @override
+  String toString() {
+    return 'ListViewer(isMuted: $isMuted, blocked: $blocked)';
   }
 }
 
 /// @nodoc
-abstract class _$$ListViewerImplCopyWith<$Res>
-    implements $ListViewerCopyWith<$Res> {
-  factory _$$ListViewerImplCopyWith(
-          _$ListViewerImpl value, $Res Function(_$ListViewerImpl) then) =
-      __$$ListViewerImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ListViewerCopyWith<$Res> {
+  factory $ListViewerCopyWith(
+          ListViewer value, $Res Function(ListViewer) _then) =
+      _$ListViewerCopyWithImpl;
   @useResult
   $Res call(
       {@JsonKey(name: 'muted') bool isMuted, @AtUriConverter() AtUri? blocked});
 }
 
 /// @nodoc
-class __$$ListViewerImplCopyWithImpl<$Res>
-    extends _$ListViewerCopyWithImpl<$Res, _$ListViewerImpl>
-    implements _$$ListViewerImplCopyWith<$Res> {
-  __$$ListViewerImplCopyWithImpl(
-      _$ListViewerImpl _value, $Res Function(_$ListViewerImpl) _then)
-      : super(_value, _then);
+class _$ListViewerCopyWithImpl<$Res> implements $ListViewerCopyWith<$Res> {
+  _$ListViewerCopyWithImpl(this._self, this._then);
+
+  final ListViewer _self;
+  final $Res Function(ListViewer) _then;
 
   /// Create a copy of ListViewer
   /// with the given fields replaced by the non-null parameter values.
@@ -104,13 +74,13 @@ class __$$ListViewerImplCopyWithImpl<$Res>
     Object? isMuted = null,
     Object? blocked = freezed,
   }) {
-    return _then(_$ListViewerImpl(
+    return _then(_self.copyWith(
       isMuted: null == isMuted
-          ? _value.isMuted
+          ? _self.isMuted
           : isMuted // ignore: cast_nullable_to_non_nullable
               as bool,
       blocked: freezed == blocked
-          ? _value.blocked
+          ? _self.blocked
           : blocked // ignore: cast_nullable_to_non_nullable
               as AtUri?,
     ));
@@ -120,14 +90,13 @@ class __$$ListViewerImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ListViewerImpl extends _ListViewer {
-  const _$ListViewerImpl(
+class _ListViewer extends ListViewer {
+  const _ListViewer(
       {@JsonKey(name: 'muted') this.isMuted = false,
       @AtUriConverter() this.blocked})
       : super._();
-
-  factory _$ListViewerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListViewerImplFromJson(json);
+  factory _ListViewer.fromJson(Map<String, dynamic> json) =>
+      _$ListViewerFromJson(json);
 
   @override
   @JsonKey(name: 'muted')
@@ -136,16 +105,26 @@ class _$ListViewerImpl extends _ListViewer {
   @AtUriConverter()
   final AtUri? blocked;
 
+  /// Create a copy of ListViewer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ListViewer(isMuted: $isMuted, blocked: $blocked)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ListViewerCopyWith<_ListViewer> get copyWith =>
+      __$ListViewerCopyWithImpl<_ListViewer>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ListViewerToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListViewerImpl &&
+            other is _ListViewer &&
             (identical(other.isMuted, isMuted) || other.isMuted == isMuted) &&
             (identical(other.blocked, blocked) || other.blocked == blocked));
   }
@@ -154,42 +133,50 @@ class _$ListViewerImpl extends _ListViewer {
   @override
   int get hashCode => Object.hash(runtimeType, isMuted, blocked);
 
-  /// Create a copy of ListViewer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ListViewerImplCopyWith<_$ListViewerImpl> get copyWith =>
-      __$$ListViewerImplCopyWithImpl<_$ListViewerImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ListViewerImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ListViewer(isMuted: $isMuted, blocked: $blocked)';
   }
 }
 
-abstract class _ListViewer extends ListViewer {
-  const factory _ListViewer(
-      {@JsonKey(name: 'muted') final bool isMuted,
-      @AtUriConverter() final AtUri? blocked}) = _$ListViewerImpl;
-  const _ListViewer._() : super._();
-
-  factory _ListViewer.fromJson(Map<String, dynamic> json) =
-      _$ListViewerImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ListViewerCopyWith<$Res>
+    implements $ListViewerCopyWith<$Res> {
+  factory _$ListViewerCopyWith(
+          _ListViewer value, $Res Function(_ListViewer) _then) =
+      __$ListViewerCopyWithImpl;
   @override
-  @JsonKey(name: 'muted')
-  bool get isMuted;
-  @override
-  @AtUriConverter()
-  AtUri? get blocked;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'muted') bool isMuted, @AtUriConverter() AtUri? blocked});
+}
+
+/// @nodoc
+class __$ListViewerCopyWithImpl<$Res> implements _$ListViewerCopyWith<$Res> {
+  __$ListViewerCopyWithImpl(this._self, this._then);
+
+  final _ListViewer _self;
+  final $Res Function(_ListViewer) _then;
 
   /// Create a copy of ListViewer
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ListViewerImplCopyWith<_$ListViewerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isMuted = null,
+    Object? blocked = freezed,
+  }) {
+    return _then(_ListViewer(
+      isMuted: null == isMuted
+          ? _self.isMuted
+          : isMuted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      blocked: freezed == blocked
+          ? _self.blocked
+          : blocked // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+    ));
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,184 +10,33 @@ part of 'nux.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Nux _$NuxFromJson(Map<String, dynamic> json) {
-  return _Nux.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Nux {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
-  bool get completed => throw _privateConstructorUsedError;
-  String? get data => throw _privateConstructorUsedError;
-  DateTime? get expiresAt => throw _privateConstructorUsedError;
-
-  /// Serializes this Nux to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  String get id;
+  bool get completed;
+  String? get data;
+  DateTime? get expiresAt;
 
   /// Create a copy of Nux
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $NuxCopyWith<Nux> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $NuxCopyWith<$Res> {
-  factory $NuxCopyWith(Nux value, $Res Function(Nux) then) =
-      _$NuxCopyWithImpl<$Res, Nux>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String id,
-      bool completed,
-      String? data,
-      DateTime? expiresAt});
-}
-
-/// @nodoc
-class _$NuxCopyWithImpl<$Res, $Val extends Nux> implements $NuxCopyWith<$Res> {
-  _$NuxCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Nux
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? id = null,
-    Object? completed = null,
-    Object? data = freezed,
-    Object? expiresAt = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      completed: null == completed
-          ? _value.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
-      expiresAt: freezed == expiresAt
-          ? _value.expiresAt
-          : expiresAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
-  }
-}
+  $NuxCopyWith<Nux> get copyWith =>
+      _$NuxCopyWithImpl<Nux>(this as Nux, _$identity);
 
-/// @nodoc
-abstract class _$$NuxImplCopyWith<$Res> implements $NuxCopyWith<$Res> {
-  factory _$$NuxImplCopyWith(_$NuxImpl value, $Res Function(_$NuxImpl) then) =
-      __$$NuxImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String id,
-      bool completed,
-      String? data,
-      DateTime? expiresAt});
-}
-
-/// @nodoc
-class __$$NuxImplCopyWithImpl<$Res> extends _$NuxCopyWithImpl<$Res, _$NuxImpl>
-    implements _$$NuxImplCopyWith<$Res> {
-  __$$NuxImplCopyWithImpl(_$NuxImpl _value, $Res Function(_$NuxImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Nux
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? id = null,
-    Object? completed = null,
-    Object? data = freezed,
-    Object? expiresAt = freezed,
-  }) {
-    return _then(_$NuxImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      completed: null == completed
-          ? _value.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
-      expiresAt: freezed == expiresAt
-          ? _value.expiresAt
-          : expiresAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$NuxImpl implements _Nux {
-  const _$NuxImpl(
-      {@typeKey this.type = appBskyActorDefsNux,
-      required this.id,
-      this.completed = false,
-      this.data,
-      this.expiresAt});
-
-  factory _$NuxImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NuxImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final String id;
-  @override
-  @JsonKey()
-  final bool completed;
-  @override
-  final String? data;
-  @override
-  final DateTime? expiresAt;
-
-  @override
-  String toString() {
-    return 'Nux(type: $type, id: $id, completed: $completed, data: $data, expiresAt: $expiresAt)';
-  }
+  /// Serializes this Nux to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NuxImpl &&
+            other is Nux &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.completed, completed) ||
@@ -201,48 +51,187 @@ class _$NuxImpl implements _Nux {
   int get hashCode =>
       Object.hash(runtimeType, type, id, completed, data, expiresAt);
 
-  /// Create a copy of Nux
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$NuxImplCopyWith<_$NuxImpl> get copyWith =>
-      __$$NuxImplCopyWithImpl<_$NuxImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NuxImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Nux(type: $type, id: $id, completed: $completed, data: $data, expiresAt: $expiresAt)';
   }
 }
 
-abstract class _Nux implements Nux {
-  const factory _Nux(
-      {@typeKey final String type,
-      required final String id,
-      final bool completed,
-      final String? data,
-      final DateTime? expiresAt}) = _$NuxImpl;
+/// @nodoc
+abstract mixin class $NuxCopyWith<$Res> {
+  factory $NuxCopyWith(Nux value, $Res Function(Nux) _then) = _$NuxCopyWithImpl;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String id,
+      bool completed,
+      String? data,
+      DateTime? expiresAt});
+}
 
-  factory _Nux.fromJson(Map<String, dynamic> json) = _$NuxImpl.fromJson;
+/// @nodoc
+class _$NuxCopyWithImpl<$Res> implements $NuxCopyWith<$Res> {
+  _$NuxCopyWithImpl(this._self, this._then);
+
+  final Nux _self;
+  final $Res Function(Nux) _then;
+
+  /// Create a copy of Nux
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? id = null,
+    Object? completed = null,
+    Object? data = freezed,
+    Object? expiresAt = freezed,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      completed: null == completed
+          ? _self.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      data: freezed == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String?,
+      expiresAt: freezed == expiresAt
+          ? _self.expiresAt
+          : expiresAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _Nux implements Nux {
+  const _Nux(
+      {@typeKey this.type = appBskyActorDefsNux,
+      required this.id,
+      this.completed = false,
+      this.data,
+      this.expiresAt});
+  factory _Nux.fromJson(Map<String, dynamic> json) => _$NuxFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
-  String get id;
+  final String id;
   @override
-  bool get completed;
+  @JsonKey()
+  final bool completed;
   @override
-  String? get data;
+  final String? data;
   @override
-  DateTime? get expiresAt;
+  final DateTime? expiresAt;
 
   /// Create a copy of Nux
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$NuxImplCopyWith<_$NuxImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$NuxCopyWith<_Nux> get copyWith =>
+      __$NuxCopyWithImpl<_Nux>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$NuxToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Nux &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.completed, completed) ||
+                other.completed == completed) &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.expiresAt, expiresAt) ||
+                other.expiresAt == expiresAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, type, id, completed, data, expiresAt);
+
+  @override
+  String toString() {
+    return 'Nux(type: $type, id: $id, completed: $completed, data: $data, expiresAt: $expiresAt)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$NuxCopyWith<$Res> implements $NuxCopyWith<$Res> {
+  factory _$NuxCopyWith(_Nux value, $Res Function(_Nux) _then) =
+      __$NuxCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String id,
+      bool completed,
+      String? data,
+      DateTime? expiresAt});
+}
+
+/// @nodoc
+class __$NuxCopyWithImpl<$Res> implements _$NuxCopyWith<$Res> {
+  __$NuxCopyWithImpl(this._self, this._then);
+
+  final _Nux _self;
+  final $Res Function(_Nux) _then;
+
+  /// Create a copy of Nux
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? id = null,
+    Object? completed = null,
+    Object? data = freezed,
+    Object? expiresAt = freezed,
+  }) {
+    return _then(_Nux(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      completed: null == completed
+          ? _self.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      data: freezed == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String?,
+      expiresAt: freezed == expiresAt
+          ? _self.expiresAt
+          : expiresAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+// dart format on

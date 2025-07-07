@@ -12,7 +12,7 @@ part 'list_items.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlist/#output
 @freezed
-class ListItems with _$ListItems {
+abstract class ListItems with _$ListItems {
   const factory ListItems({
     required ListView list,
     required List<ListItem> items,

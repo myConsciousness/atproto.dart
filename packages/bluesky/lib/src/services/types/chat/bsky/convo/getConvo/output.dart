@@ -10,7 +10,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvo/#main
 @freezed
-class GetConvoOutput with _$GetConvoOutput {
+abstract class GetConvoOutput with _$GetConvoOutput {
   @jsonSerializable
   const factory GetConvoOutput({
     required ConvoView convo,

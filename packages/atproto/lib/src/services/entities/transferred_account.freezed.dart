@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,165 +10,32 @@ part of 'transferred_account.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TransferredAccount _$TransferredAccountFromJson(Map<String, dynamic> json) {
-  return _TransferredAccount.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TransferredAccount {
-  String get did => throw _privateConstructorUsedError;
-  String get handle => throw _privateConstructorUsedError;
-  String get accessJwt => throw _privateConstructorUsedError;
-  String get refreshJwt => throw _privateConstructorUsedError;
-
-  /// Serializes this TransferredAccount to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get did;
+  String get handle;
+  String get accessJwt;
+  String get refreshJwt;
 
   /// Create a copy of TransferredAccount
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TransferredAccountCopyWith<TransferredAccount> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$TransferredAccountCopyWithImpl<TransferredAccount>(
+          this as TransferredAccount, _$identity);
 
-/// @nodoc
-abstract class $TransferredAccountCopyWith<$Res> {
-  factory $TransferredAccountCopyWith(
-          TransferredAccount value, $Res Function(TransferredAccount) then) =
-      _$TransferredAccountCopyWithImpl<$Res, TransferredAccount>;
-  @useResult
-  $Res call({String did, String handle, String accessJwt, String refreshJwt});
-}
-
-/// @nodoc
-class _$TransferredAccountCopyWithImpl<$Res, $Val extends TransferredAccount>
-    implements $TransferredAccountCopyWith<$Res> {
-  _$TransferredAccountCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TransferredAccount
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? did = null,
-    Object? handle = null,
-    Object? accessJwt = null,
-    Object? refreshJwt = null,
-  }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      accessJwt: null == accessJwt
-          ? _value.accessJwt
-          : accessJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-      refreshJwt: null == refreshJwt
-          ? _value.refreshJwt
-          : refreshJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$TransferredAccountImplCopyWith<$Res>
-    implements $TransferredAccountCopyWith<$Res> {
-  factory _$$TransferredAccountImplCopyWith(_$TransferredAccountImpl value,
-          $Res Function(_$TransferredAccountImpl) then) =
-      __$$TransferredAccountImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String did, String handle, String accessJwt, String refreshJwt});
-}
-
-/// @nodoc
-class __$$TransferredAccountImplCopyWithImpl<$Res>
-    extends _$TransferredAccountCopyWithImpl<$Res, _$TransferredAccountImpl>
-    implements _$$TransferredAccountImplCopyWith<$Res> {
-  __$$TransferredAccountImplCopyWithImpl(_$TransferredAccountImpl _value,
-      $Res Function(_$TransferredAccountImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransferredAccount
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? did = null,
-    Object? handle = null,
-    Object? accessJwt = null,
-    Object? refreshJwt = null,
-  }) {
-    return _then(_$TransferredAccountImpl(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      accessJwt: null == accessJwt
-          ? _value.accessJwt
-          : accessJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-      refreshJwt: null == refreshJwt
-          ? _value.refreshJwt
-          : refreshJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$TransferredAccountImpl extends _TransferredAccount {
-  const _$TransferredAccountImpl(
-      {required this.did,
-      required this.handle,
-      required this.accessJwt,
-      required this.refreshJwt})
-      : super._();
-
-  factory _$TransferredAccountImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransferredAccountImplFromJson(json);
-
-  @override
-  final String did;
-  @override
-  final String handle;
-  @override
-  final String accessJwt;
-  @override
-  final String refreshJwt;
-
-  @override
-  String toString() {
-    return 'TransferredAccount(did: $did, handle: $handle, accessJwt: $accessJwt, refreshJwt: $refreshJwt)';
-  }
+  /// Serializes this TransferredAccount to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransferredAccountImpl &&
+            other is TransferredAccount &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.accessJwt, accessJwt) ||
@@ -181,47 +49,169 @@ class _$TransferredAccountImpl extends _TransferredAccount {
   int get hashCode =>
       Object.hash(runtimeType, did, handle, accessJwt, refreshJwt);
 
-  /// Create a copy of TransferredAccount
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TransferredAccountImplCopyWith<_$TransferredAccountImpl> get copyWith =>
-      __$$TransferredAccountImplCopyWithImpl<_$TransferredAccountImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransferredAccountImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TransferredAccount(did: $did, handle: $handle, accessJwt: $accessJwt, refreshJwt: $refreshJwt)';
   }
 }
 
-abstract class _TransferredAccount extends TransferredAccount {
-  const factory _TransferredAccount(
-      {required final String did,
-      required final String handle,
-      required final String accessJwt,
-      required final String refreshJwt}) = _$TransferredAccountImpl;
-  const _TransferredAccount._() : super._();
+/// @nodoc
+abstract mixin class $TransferredAccountCopyWith<$Res> {
+  factory $TransferredAccountCopyWith(
+          TransferredAccount value, $Res Function(TransferredAccount) _then) =
+      _$TransferredAccountCopyWithImpl;
+  @useResult
+  $Res call({String did, String handle, String accessJwt, String refreshJwt});
+}
 
-  factory _TransferredAccount.fromJson(Map<String, dynamic> json) =
-      _$TransferredAccountImpl.fromJson;
+/// @nodoc
+class _$TransferredAccountCopyWithImpl<$Res>
+    implements $TransferredAccountCopyWith<$Res> {
+  _$TransferredAccountCopyWithImpl(this._self, this._then);
+
+  final TransferredAccount _self;
+  final $Res Function(TransferredAccount) _then;
+
+  /// Create a copy of TransferredAccount
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? did = null,
+    Object? handle = null,
+    Object? accessJwt = null,
+    Object? refreshJwt = null,
+  }) {
+    return _then(_self.copyWith(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _self.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      accessJwt: null == accessJwt
+          ? _self.accessJwt
+          : accessJwt // ignore: cast_nullable_to_non_nullable
+              as String,
+      refreshJwt: null == refreshJwt
+          ? _self.refreshJwt
+          : refreshJwt // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _TransferredAccount extends TransferredAccount {
+  const _TransferredAccount(
+      {required this.did,
+      required this.handle,
+      required this.accessJwt,
+      required this.refreshJwt})
+      : super._();
+  factory _TransferredAccount.fromJson(Map<String, dynamic> json) =>
+      _$TransferredAccountFromJson(json);
 
   @override
-  String get did;
+  final String did;
   @override
-  String get handle;
+  final String handle;
   @override
-  String get accessJwt;
+  final String accessJwt;
   @override
-  String get refreshJwt;
+  final String refreshJwt;
 
   /// Create a copy of TransferredAccount
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransferredAccountImplCopyWith<_$TransferredAccountImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$TransferredAccountCopyWith<_TransferredAccount> get copyWith =>
+      __$TransferredAccountCopyWithImpl<_TransferredAccount>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TransferredAccountToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TransferredAccount &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.accessJwt, accessJwt) ||
+                other.accessJwt == accessJwt) &&
+            (identical(other.refreshJwt, refreshJwt) ||
+                other.refreshJwt == refreshJwt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, did, handle, accessJwt, refreshJwt);
+
+  @override
+  String toString() {
+    return 'TransferredAccount(did: $did, handle: $handle, accessJwt: $accessJwt, refreshJwt: $refreshJwt)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$TransferredAccountCopyWith<$Res>
+    implements $TransferredAccountCopyWith<$Res> {
+  factory _$TransferredAccountCopyWith(
+          _TransferredAccount value, $Res Function(_TransferredAccount) _then) =
+      __$TransferredAccountCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String did, String handle, String accessJwt, String refreshJwt});
+}
+
+/// @nodoc
+class __$TransferredAccountCopyWithImpl<$Res>
+    implements _$TransferredAccountCopyWith<$Res> {
+  __$TransferredAccountCopyWithImpl(this._self, this._then);
+
+  final _TransferredAccount _self;
+  final $Res Function(_TransferredAccount) _then;
+
+  /// Create a copy of TransferredAccount
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+    Object? handle = null,
+    Object? accessJwt = null,
+    Object? refreshJwt = null,
+  }) {
+    return _then(_TransferredAccount(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _self.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      accessJwt: null == accessJwt
+          ? _self.accessJwt
+          : accessJwt // ignore: cast_nullable_to_non_nullable
+              as String,
+      refreshJwt: null == refreshJwt
+          ? _self.refreshJwt
+          : refreshJwt // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

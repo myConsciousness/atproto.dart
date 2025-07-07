@@ -16,7 +16,7 @@ part 'post_thread_view_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
-class PostThreadViewRecord with _$PostThreadViewRecord {
+abstract class PostThreadViewRecord with _$PostThreadViewRecord {
   const factory PostThreadViewRecord({
     @typeKey @Default(appBskyFeedDefsThreadViewPost) String type,
     required Post post,

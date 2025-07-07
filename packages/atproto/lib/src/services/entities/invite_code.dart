@@ -11,7 +11,7 @@ part 'invite_code.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/defs/#invitecode
 @freezed
-class InviteCode with _$InviteCode {
+abstract class InviteCode with _$InviteCode {
   const factory InviteCode({
     required String code,
     @JsonKey(name: 'available') @Default(0) int availableCount,

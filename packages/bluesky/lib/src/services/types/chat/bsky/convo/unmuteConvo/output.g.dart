@@ -8,12 +8,11 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnmuteConvoOutputImpl _$$UnmuteConvoOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$UnmuteConvoOutputImpl',
+_UnmuteConvoOutput _$UnmuteConvoOutputFromJson(Map json) => $checkedCreate(
+      '_UnmuteConvoOutput',
       json,
       ($checkedConvert) {
-        final val = _$UnmuteConvoOutputImpl(
+        final val = _UnmuteConvoOutput(
           convo: $checkedConvert('convo',
               (v) => ConvoView.fromJson(Map<String, Object?>.from(v as Map))),
         );
@@ -21,8 +20,7 @@ _$UnmuteConvoOutputImpl _$$UnmuteConvoOutputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$UnmuteConvoOutputImplToJson(
-        _$UnmuteConvoOutputImpl instance) =>
+Map<String, dynamic> _$UnmuteConvoOutputToJson(_UnmuteConvoOutput instance) =>
     <String, dynamic>{
       'convo': instance.convo.toJson(),
     };

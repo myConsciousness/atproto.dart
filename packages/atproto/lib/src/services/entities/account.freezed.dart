@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,100 +10,58 @@ part of 'account.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CreateAccountOutput _$CreateAccountOutputFromJson(Map<String, dynamic> json) {
-  return _CreateAccountOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CreateAccountOutput {
-  String get accessJwt => throw _privateConstructorUsedError;
-  String get refreshJwt => throw _privateConstructorUsedError;
-  String get handle => throw _privateConstructorUsedError;
-  String get did => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
-
-  /// Serializes this CreateAccountOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get accessJwt;
+  String get refreshJwt;
+  String get handle;
+  String get did;
+  Map<String, dynamic>? get didDoc;
 
   /// Create a copy of CreateAccountOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CreateAccountOutputCopyWith<CreateAccountOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreateAccountOutputCopyWith<$Res> {
-  factory $CreateAccountOutputCopyWith(
-          CreateAccountOutput value, $Res Function(CreateAccountOutput) then) =
-      _$CreateAccountOutputCopyWithImpl<$Res, CreateAccountOutput>;
-  @useResult
-  $Res call(
-      {String accessJwt,
-      String refreshJwt,
-      String handle,
-      String did,
-      Map<String, dynamic>? didDoc});
-}
-
-/// @nodoc
-class _$CreateAccountOutputCopyWithImpl<$Res, $Val extends CreateAccountOutput>
-    implements $CreateAccountOutputCopyWith<$Res> {
-  _$CreateAccountOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of CreateAccountOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CreateAccountOutputCopyWith<CreateAccountOutput> get copyWith =>
+      _$CreateAccountOutputCopyWithImpl<CreateAccountOutput>(
+          this as CreateAccountOutput, _$identity);
+
+  /// Serializes this CreateAccountOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? accessJwt = null,
-    Object? refreshJwt = null,
-    Object? handle = null,
-    Object? did = null,
-    Object? didDoc = freezed,
-  }) {
-    return _then(_value.copyWith(
-      accessJwt: null == accessJwt
-          ? _value.accessJwt
-          : accessJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-      refreshJwt: null == refreshJwt
-          ? _value.refreshJwt
-          : refreshJwt // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      didDoc: freezed == didDoc
-          ? _value.didDoc
-          : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CreateAccountOutput &&
+            (identical(other.accessJwt, accessJwt) ||
+                other.accessJwt == accessJwt) &&
+            (identical(other.refreshJwt, refreshJwt) ||
+                other.refreshJwt == refreshJwt) &&
+            (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.did, did) || other.did == did) &&
+            const DeepCollectionEquality().equals(other.didDoc, didDoc));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, accessJwt, refreshJwt, handle,
+      did, const DeepCollectionEquality().hash(didDoc));
+
+  @override
+  String toString() {
+    return 'CreateAccountOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc)';
   }
 }
 
 /// @nodoc
-abstract class _$$CreateAccountOutputImplCopyWith<$Res>
-    implements $CreateAccountOutputCopyWith<$Res> {
-  factory _$$CreateAccountOutputImplCopyWith(_$CreateAccountOutputImpl value,
-          $Res Function(_$CreateAccountOutputImpl) then) =
-      __$$CreateAccountOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CreateAccountOutputCopyWith<$Res> {
+  factory $CreateAccountOutputCopyWith(
+          CreateAccountOutput value, $Res Function(CreateAccountOutput) _then) =
+      _$CreateAccountOutputCopyWithImpl;
   @useResult
   $Res call(
       {String accessJwt,
@@ -113,12 +72,12 @@ abstract class _$$CreateAccountOutputImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CreateAccountOutputImplCopyWithImpl<$Res>
-    extends _$CreateAccountOutputCopyWithImpl<$Res, _$CreateAccountOutputImpl>
-    implements _$$CreateAccountOutputImplCopyWith<$Res> {
-  __$$CreateAccountOutputImplCopyWithImpl(_$CreateAccountOutputImpl _value,
-      $Res Function(_$CreateAccountOutputImpl) _then)
-      : super(_value, _then);
+class _$CreateAccountOutputCopyWithImpl<$Res>
+    implements $CreateAccountOutputCopyWith<$Res> {
+  _$CreateAccountOutputCopyWithImpl(this._self, this._then);
+
+  final CreateAccountOutput _self;
+  final $Res Function(CreateAccountOutput) _then;
 
   /// Create a copy of CreateAccountOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -131,25 +90,25 @@ class __$$CreateAccountOutputImplCopyWithImpl<$Res>
     Object? did = null,
     Object? didDoc = freezed,
   }) {
-    return _then(_$CreateAccountOutputImpl(
+    return _then(_self.copyWith(
       accessJwt: null == accessJwt
-          ? _value.accessJwt
+          ? _self.accessJwt
           : accessJwt // ignore: cast_nullable_to_non_nullable
               as String,
       refreshJwt: null == refreshJwt
-          ? _value.refreshJwt
+          ? _self.refreshJwt
           : refreshJwt // ignore: cast_nullable_to_non_nullable
               as String,
       handle: null == handle
-          ? _value.handle
+          ? _self.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       didDoc: freezed == didDoc
-          ? _value._didDoc
+          ? _self.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -158,17 +117,16 @@ class __$$CreateAccountOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CreateAccountOutputImpl implements _CreateAccountOutput {
-  const _$CreateAccountOutputImpl(
+class _CreateAccountOutput implements CreateAccountOutput {
+  const _CreateAccountOutput(
       {required this.accessJwt,
       required this.refreshJwt,
       required this.handle,
       required this.did,
       final Map<String, dynamic>? didDoc})
       : _didDoc = didDoc;
-
-  factory _$CreateAccountOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateAccountOutputImplFromJson(json);
+  factory _CreateAccountOutput.fromJson(Map<String, dynamic> json) =>
+      _$CreateAccountOutputFromJson(json);
 
   @override
   final String accessJwt;
@@ -188,16 +146,27 @@ class _$CreateAccountOutputImpl implements _CreateAccountOutput {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of CreateAccountOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CreateAccountOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CreateAccountOutputCopyWith<_CreateAccountOutput> get copyWith =>
+      __$CreateAccountOutputCopyWithImpl<_CreateAccountOutput>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CreateAccountOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateAccountOutputImpl &&
+            other is _CreateAccountOutput &&
             (identical(other.accessJwt, accessJwt) ||
                 other.accessJwt == accessJwt) &&
             (identical(other.refreshJwt, refreshJwt) ||
@@ -212,49 +181,70 @@ class _$CreateAccountOutputImpl implements _CreateAccountOutput {
   int get hashCode => Object.hash(runtimeType, accessJwt, refreshJwt, handle,
       did, const DeepCollectionEquality().hash(_didDoc));
 
-  /// Create a copy of CreateAccountOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CreateAccountOutputImplCopyWith<_$CreateAccountOutputImpl> get copyWith =>
-      __$$CreateAccountOutputImplCopyWithImpl<_$CreateAccountOutputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreateAccountOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'CreateAccountOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc)';
   }
 }
 
-abstract class _CreateAccountOutput implements CreateAccountOutput {
-  const factory _CreateAccountOutput(
-      {required final String accessJwt,
-      required final String refreshJwt,
-      required final String handle,
-      required final String did,
-      final Map<String, dynamic>? didDoc}) = _$CreateAccountOutputImpl;
+/// @nodoc
+abstract mixin class _$CreateAccountOutputCopyWith<$Res>
+    implements $CreateAccountOutputCopyWith<$Res> {
+  factory _$CreateAccountOutputCopyWith(_CreateAccountOutput value,
+          $Res Function(_CreateAccountOutput) _then) =
+      __$CreateAccountOutputCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String accessJwt,
+      String refreshJwt,
+      String handle,
+      String did,
+      Map<String, dynamic>? didDoc});
+}
 
-  factory _CreateAccountOutput.fromJson(Map<String, dynamic> json) =
-      _$CreateAccountOutputImpl.fromJson;
+/// @nodoc
+class __$CreateAccountOutputCopyWithImpl<$Res>
+    implements _$CreateAccountOutputCopyWith<$Res> {
+  __$CreateAccountOutputCopyWithImpl(this._self, this._then);
 
-  @override
-  String get accessJwt;
-  @override
-  String get refreshJwt;
-  @override
-  String get handle;
-  @override
-  String get did;
-  @override
-  Map<String, dynamic>? get didDoc;
+  final _CreateAccountOutput _self;
+  final $Res Function(_CreateAccountOutput) _then;
 
   /// Create a copy of CreateAccountOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CreateAccountOutputImplCopyWith<_$CreateAccountOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? accessJwt = null,
+    Object? refreshJwt = null,
+    Object? handle = null,
+    Object? did = null,
+    Object? didDoc = freezed,
+  }) {
+    return _then(_CreateAccountOutput(
+      accessJwt: null == accessJwt
+          ? _self.accessJwt
+          : accessJwt // ignore: cast_nullable_to_non_nullable
+              as String,
+      refreshJwt: null == refreshJwt
+          ? _self.refreshJwt
+          : refreshJwt // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _self.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      didDoc: freezed == didDoc
+          ? _self._didDoc
+          : didDoc // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 }
+
+// dart format on

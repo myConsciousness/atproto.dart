@@ -11,7 +11,7 @@ import 'moderation_prefs_labeler.dart';
 part 'moderation_prefs.freezed.dart';
 
 @modObject
-class ModerationPrefs with _$ModerationPrefs {
+abstract class ModerationPrefs with _$ModerationPrefs {
   const factory ModerationPrefs({
     @Default(false) bool adultContentEnabled,
     required Map<String, LabelPreference> labels,

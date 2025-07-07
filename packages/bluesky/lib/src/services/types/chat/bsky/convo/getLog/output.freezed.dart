@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,89 +10,61 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GetLogOutput _$GetLogOutputFromJson(Map<String, dynamic> json) {
-  return _GetLogOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetLogOutput {
   @unionConvoLogConverter
-  List<UConvoLog> get logs => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this GetLogOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<UConvoLog> get logs;
+  String? get cursor;
 
   /// Create a copy of GetLogOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetLogOutputCopyWith<GetLogOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GetLogOutputCopyWith<$Res> {
-  factory $GetLogOutputCopyWith(
-          GetLogOutput value, $Res Function(GetLogOutput) then) =
-      _$GetLogOutputCopyWithImpl<$Res, GetLogOutput>;
-  @useResult
-  $Res call({@unionConvoLogConverter List<UConvoLog> logs, String? cursor});
-}
-
-/// @nodoc
-class _$GetLogOutputCopyWithImpl<$Res, $Val extends GetLogOutput>
-    implements $GetLogOutputCopyWith<$Res> {
-  _$GetLogOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GetLogOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $GetLogOutputCopyWith<GetLogOutput> get copyWith =>
+      _$GetLogOutputCopyWithImpl<GetLogOutput>(
+          this as GetLogOutput, _$identity);
+
+  /// Serializes this GetLogOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? logs = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      logs: null == logs
-          ? _value.logs
-          : logs // ignore: cast_nullable_to_non_nullable
-              as List<UConvoLog>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetLogOutput &&
+            const DeepCollectionEquality().equals(other.logs, logs) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(logs), cursor);
+
+  @override
+  String toString() {
+    return 'GetLogOutput(logs: $logs, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$GetLogOutputImplCopyWith<$Res>
-    implements $GetLogOutputCopyWith<$Res> {
-  factory _$$GetLogOutputImplCopyWith(
-          _$GetLogOutputImpl value, $Res Function(_$GetLogOutputImpl) then) =
-      __$$GetLogOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GetLogOutputCopyWith<$Res> {
+  factory $GetLogOutputCopyWith(
+          GetLogOutput value, $Res Function(GetLogOutput) _then) =
+      _$GetLogOutputCopyWithImpl;
   @useResult
   $Res call({@unionConvoLogConverter List<UConvoLog> logs, String? cursor});
 }
 
 /// @nodoc
-class __$$GetLogOutputImplCopyWithImpl<$Res>
-    extends _$GetLogOutputCopyWithImpl<$Res, _$GetLogOutputImpl>
-    implements _$$GetLogOutputImplCopyWith<$Res> {
-  __$$GetLogOutputImplCopyWithImpl(
-      _$GetLogOutputImpl _value, $Res Function(_$GetLogOutputImpl) _then)
-      : super(_value, _then);
+class _$GetLogOutputCopyWithImpl<$Res> implements $GetLogOutputCopyWith<$Res> {
+  _$GetLogOutputCopyWithImpl(this._self, this._then);
+
+  final GetLogOutput _self;
+  final $Res Function(GetLogOutput) _then;
 
   /// Create a copy of GetLogOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -101,13 +74,13 @@ class __$$GetLogOutputImplCopyWithImpl<$Res>
     Object? logs = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$GetLogOutputImpl(
+    return _then(_self.copyWith(
       logs: null == logs
-          ? _value._logs
+          ? _self.logs
           : logs // ignore: cast_nullable_to_non_nullable
               as List<UConvoLog>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -117,14 +90,13 @@ class __$$GetLogOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GetLogOutputImpl implements _GetLogOutput {
-  const _$GetLogOutputImpl(
+class _GetLogOutput implements GetLogOutput {
+  const _GetLogOutput(
       {@unionConvoLogConverter required final List<UConvoLog> logs,
       this.cursor})
       : _logs = logs;
-
-  factory _$GetLogOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetLogOutputImplFromJson(json);
+  factory _GetLogOutput.fromJson(Map<String, dynamic> json) =>
+      _$GetLogOutputFromJson(json);
 
   final List<UConvoLog> _logs;
   @override
@@ -138,16 +110,26 @@ class _$GetLogOutputImpl implements _GetLogOutput {
   @override
   final String? cursor;
 
+  /// Create a copy of GetLogOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GetLogOutput(logs: $logs, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GetLogOutputCopyWith<_GetLogOutput> get copyWith =>
+      __$GetLogOutputCopyWithImpl<_GetLogOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GetLogOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetLogOutputImpl &&
+            other is _GetLogOutput &&
             const DeepCollectionEquality().equals(other._logs, _logs) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -157,40 +139,50 @@ class _$GetLogOutputImpl implements _GetLogOutput {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_logs), cursor);
 
-  /// Create a copy of GetLogOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetLogOutputImplCopyWith<_$GetLogOutputImpl> get copyWith =>
-      __$$GetLogOutputImplCopyWithImpl<_$GetLogOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetLogOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GetLogOutput(logs: $logs, cursor: $cursor)';
   }
 }
 
-abstract class _GetLogOutput implements GetLogOutput {
-  const factory _GetLogOutput(
-      {@unionConvoLogConverter required final List<UConvoLog> logs,
-      final String? cursor}) = _$GetLogOutputImpl;
-
-  factory _GetLogOutput.fromJson(Map<String, dynamic> json) =
-      _$GetLogOutputImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$GetLogOutputCopyWith<$Res>
+    implements $GetLogOutputCopyWith<$Res> {
+  factory _$GetLogOutputCopyWith(
+          _GetLogOutput value, $Res Function(_GetLogOutput) _then) =
+      __$GetLogOutputCopyWithImpl;
   @override
-  @unionConvoLogConverter
-  List<UConvoLog> get logs;
-  @override
-  String? get cursor;
+  @useResult
+  $Res call({@unionConvoLogConverter List<UConvoLog> logs, String? cursor});
+}
+
+/// @nodoc
+class __$GetLogOutputCopyWithImpl<$Res>
+    implements _$GetLogOutputCopyWith<$Res> {
+  __$GetLogOutputCopyWithImpl(this._self, this._then);
+
+  final _GetLogOutput _self;
+  final $Res Function(_GetLogOutput) _then;
 
   /// Create a copy of GetLogOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetLogOutputImplCopyWith<_$GetLogOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? logs = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_GetLogOutput(
+      logs: null == logs
+          ? _self._logs
+          : logs // ignore: cast_nullable_to_non_nullable
+              as List<UConvoLog>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

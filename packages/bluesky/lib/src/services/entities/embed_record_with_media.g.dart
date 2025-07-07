@@ -8,12 +8,12 @@ part of 'embed_record_with_media.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedRecordWithMediaImpl _$$EmbedRecordWithMediaImplFromJson(Map json) =>
+_EmbedRecordWithMedia _$EmbedRecordWithMediaFromJson(Map json) =>
     $checkedCreate(
-      r'_$EmbedRecordWithMediaImpl',
+      '_EmbedRecordWithMedia',
       json,
       ($checkedConvert) {
-        final val = _$EmbedRecordWithMediaImpl(
+        final val = _EmbedRecordWithMedia(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordWithMedia),
           record: $checkedConvert('record',
@@ -26,8 +26,8 @@ _$EmbedRecordWithMediaImpl _$$EmbedRecordWithMediaImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$EmbedRecordWithMediaImplToJson(
-        _$EmbedRecordWithMediaImpl instance) =>
+Map<String, dynamic> _$EmbedRecordWithMediaToJson(
+        _EmbedRecordWithMedia instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'record': instance.record.toJson(),

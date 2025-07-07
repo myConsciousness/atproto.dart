@@ -8,12 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetUploadLimitsOutputImpl _$$GetUploadLimitsOutputImplFromJson(Map json) =>
+_GetUploadLimitsOutput _$GetUploadLimitsOutputFromJson(Map json) =>
     $checkedCreate(
-      r'_$GetUploadLimitsOutputImpl',
+      '_GetUploadLimitsOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetUploadLimitsOutputImpl(
+        final val = _GetUploadLimitsOutput(
           canUpload: $checkedConvert('canUpload', (v) => v as bool),
           remainingDailyVideos: $checkedConvert(
               'remainingDailyVideos', (v) => (v as num?)?.toInt()),
@@ -26,8 +26,8 @@ _$GetUploadLimitsOutputImpl _$$GetUploadLimitsOutputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$GetUploadLimitsOutputImplToJson(
-        _$GetUploadLimitsOutputImpl instance) =>
+Map<String, dynamic> _$GetUploadLimitsOutputToJson(
+        _GetUploadLimitsOutput instance) =>
     <String, dynamic>{
       'canUpload': instance.canUpload,
       if (instance.remainingDailyVideos case final value?)

@@ -12,7 +12,7 @@ part 'embed_view_external_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#viewexternal
 @freezed
-class EmbedViewExternalView with _$EmbedViewExternalView {
+abstract class EmbedViewExternalView with _$EmbedViewExternalView {
   @jsonSerializable
   const factory EmbedViewExternalView({
     @typeKey @Default(appBskyEmbedExternalViewExternal) String type,

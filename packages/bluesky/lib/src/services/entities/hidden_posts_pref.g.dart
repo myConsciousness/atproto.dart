@@ -8,12 +8,11 @@ part of 'hidden_posts_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$HiddenPostsPrefImpl _$$HiddenPostsPrefImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$HiddenPostsPrefImpl',
+_HiddenPostsPref _$HiddenPostsPrefFromJson(Map json) => $checkedCreate(
+      '_HiddenPostsPref',
       json,
       ($checkedConvert) {
-        final val = _$HiddenPostsPrefImpl(
+        final val = _HiddenPostsPref(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsHiddenPostsPref),
           items: $checkedConvert(
@@ -27,8 +26,7 @@ _$HiddenPostsPrefImpl _$$HiddenPostsPrefImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$HiddenPostsPrefImplToJson(
-        _$HiddenPostsPrefImpl instance) =>
+Map<String, dynamic> _$HiddenPostsPrefToJson(_HiddenPostsPref instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'items': instance.items.map(const AtUriConverter().toJson).toList(),

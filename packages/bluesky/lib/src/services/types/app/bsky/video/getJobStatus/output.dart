@@ -12,7 +12,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/video/getJobStatus/#output
 @freezed
-class GetJobStatusOutput with _$GetJobStatusOutput {
+abstract class GetJobStatusOutput with _$GetJobStatusOutput {
   @jsonSerializable
   const factory GetJobStatusOutput({
     required JobStatus jobStatus,

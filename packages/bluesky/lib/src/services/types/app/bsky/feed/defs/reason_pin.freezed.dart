@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,56 @@ part of 'reason_pin.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ReasonPin _$ReasonPinFromJson(Map<String, dynamic> json) {
-  return _ReasonPin.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ReasonPin {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-
-  /// Serializes this ReasonPin to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
 
   /// Create a copy of ReasonPin
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ReasonPinCopyWith<ReasonPin> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ReasonPinCopyWith<$Res> {
-  factory $ReasonPinCopyWith(ReasonPin value, $Res Function(ReasonPin) then) =
-      _$ReasonPinCopyWithImpl<$Res, ReasonPin>;
-  @useResult
-  $Res call({@typeKey String type});
-}
-
-/// @nodoc
-class _$ReasonPinCopyWithImpl<$Res, $Val extends ReasonPin>
-    implements $ReasonPinCopyWith<$Res> {
-  _$ReasonPinCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ReasonPin
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ReasonPinCopyWith<ReasonPin> get copyWith =>
+      _$ReasonPinCopyWithImpl<ReasonPin>(this as ReasonPin, _$identity);
+
+  /// Serializes this ReasonPin to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ReasonPin &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type);
+
+  @override
+  String toString() {
+    return 'ReasonPin(type: $type)';
   }
 }
 
 /// @nodoc
-abstract class _$$ReasonPinImplCopyWith<$Res>
-    implements $ReasonPinCopyWith<$Res> {
-  factory _$$ReasonPinImplCopyWith(
-          _$ReasonPinImpl value, $Res Function(_$ReasonPinImpl) then) =
-      __$$ReasonPinImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ReasonPinCopyWith<$Res> {
+  factory $ReasonPinCopyWith(ReasonPin value, $Res Function(ReasonPin) _then) =
+      _$ReasonPinCopyWithImpl;
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class __$$ReasonPinImplCopyWithImpl<$Res>
-    extends _$ReasonPinCopyWithImpl<$Res, _$ReasonPinImpl>
-    implements _$$ReasonPinImplCopyWith<$Res> {
-  __$$ReasonPinImplCopyWithImpl(
-      _$ReasonPinImpl _value, $Res Function(_$ReasonPinImpl) _then)
-      : super(_value, _then);
+class _$ReasonPinCopyWithImpl<$Res> implements $ReasonPinCopyWith<$Res> {
+  _$ReasonPinCopyWithImpl(this._self, this._then);
+
+  final ReasonPin _self;
+  final $Res Function(ReasonPin) _then;
 
   /// Create a copy of ReasonPin
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +68,9 @@ class __$$ReasonPinImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$ReasonPinImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -105,26 +80,35 @@ class __$$ReasonPinImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ReasonPinImpl implements _ReasonPin {
-  const _$ReasonPinImpl({@typeKey this.type = appBskyFeedDefsReasonPin});
-
-  factory _$ReasonPinImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ReasonPinImplFromJson(json);
+class _ReasonPin implements ReasonPin {
+  const _ReasonPin({@typeKey this.type = appBskyFeedDefsReasonPin});
+  factory _ReasonPin.fromJson(Map<String, dynamic> json) =>
+      _$ReasonPinFromJson(json);
 
   @override
   @typeKey
   final String type;
 
+  /// Create a copy of ReasonPin
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ReasonPin(type: $type)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ReasonPinCopyWith<_ReasonPin> get copyWith =>
+      __$ReasonPinCopyWithImpl<_ReasonPin>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ReasonPinToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReasonPinImpl &&
+            other is _ReasonPin &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -132,36 +116,44 @@ class _$ReasonPinImpl implements _ReasonPin {
   @override
   int get hashCode => Object.hash(runtimeType, type);
 
-  /// Create a copy of ReasonPin
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ReasonPinImplCopyWith<_$ReasonPinImpl> get copyWith =>
-      __$$ReasonPinImplCopyWithImpl<_$ReasonPinImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ReasonPinImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ReasonPin(type: $type)';
   }
 }
 
-abstract class _ReasonPin implements ReasonPin {
-  const factory _ReasonPin({@typeKey final String type}) = _$ReasonPinImpl;
-
-  factory _ReasonPin.fromJson(Map<String, dynamic> json) =
-      _$ReasonPinImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ReasonPinCopyWith<$Res>
+    implements $ReasonPinCopyWith<$Res> {
+  factory _$ReasonPinCopyWith(
+          _ReasonPin value, $Res Function(_ReasonPin) _then) =
+      __$ReasonPinCopyWithImpl;
   @override
-  @typeKey
-  String get type;
+  @useResult
+  $Res call({@typeKey String type});
+}
+
+/// @nodoc
+class __$ReasonPinCopyWithImpl<$Res> implements _$ReasonPinCopyWith<$Res> {
+  __$ReasonPinCopyWithImpl(this._self, this._then);
+
+  final _ReasonPin _self;
+  final $Res Function(_ReasonPin) _then;
 
   /// Create a copy of ReasonPin
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ReasonPinImplCopyWith<_$ReasonPinImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_ReasonPin(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

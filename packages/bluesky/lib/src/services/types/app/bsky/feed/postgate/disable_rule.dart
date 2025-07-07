@@ -12,7 +12,7 @@ part 'disable_rule.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/postgate/#disablerule
 @freezed
-class PostgateDisableRule with _$PostgateDisableRule {
+abstract class PostgateDisableRule with _$PostgateDisableRule {
   @jsonSerializable
   const factory PostgateDisableRule({
     @typeKey @Default(appBskyFeedPostgateDisableRule) String type,

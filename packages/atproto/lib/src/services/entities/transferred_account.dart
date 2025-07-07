@@ -6,7 +6,7 @@ part 'transferred_account.freezed.dart';
 part 'transferred_account.g.dart';
 
 @freezed
-class TransferredAccount with _$TransferredAccount {
+abstract class TransferredAccount with _$TransferredAccount {
   // ignore: unused_element
   const TransferredAccount._();
 

@@ -12,7 +12,7 @@ part 'likes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getlikes/#output
 @freezed
-class Likes with _$Likes {
+abstract class Likes with _$Likes {
   const factory Likes({
     required List<Like> likes,
     @AtUriConverter() required AtUri uri,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,133 +10,29 @@ part of 'byte_indices.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ByteIndices _$ByteIndicesFromJson(Map<String, dynamic> json) {
-  return _ByteIndices.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ByteIndices {
-  int get start => throw _privateConstructorUsedError;
-  int get end => throw _privateConstructorUsedError;
-
-  /// Serializes this ByteIndices to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get start;
+  int get end;
 
   /// Create a copy of ByteIndices
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ByteIndicesCopyWith<ByteIndices> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ByteIndicesCopyWithImpl<ByteIndices>(this as ByteIndices, _$identity);
 
-/// @nodoc
-abstract class $ByteIndicesCopyWith<$Res> {
-  factory $ByteIndicesCopyWith(
-          ByteIndices value, $Res Function(ByteIndices) then) =
-      _$ByteIndicesCopyWithImpl<$Res, ByteIndices>;
-  @useResult
-  $Res call({int start, int end});
-}
-
-/// @nodoc
-class _$ByteIndicesCopyWithImpl<$Res, $Val extends ByteIndices>
-    implements $ByteIndicesCopyWith<$Res> {
-  _$ByteIndicesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ByteIndices
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? start = null,
-    Object? end = null,
-  }) {
-    return _then(_value.copyWith(
-      start: null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
-              as int,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ByteIndicesImplCopyWith<$Res>
-    implements $ByteIndicesCopyWith<$Res> {
-  factory _$$ByteIndicesImplCopyWith(
-          _$ByteIndicesImpl value, $Res Function(_$ByteIndicesImpl) then) =
-      __$$ByteIndicesImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int start, int end});
-}
-
-/// @nodoc
-class __$$ByteIndicesImplCopyWithImpl<$Res>
-    extends _$ByteIndicesCopyWithImpl<$Res, _$ByteIndicesImpl>
-    implements _$$ByteIndicesImplCopyWith<$Res> {
-  __$$ByteIndicesImplCopyWithImpl(
-      _$ByteIndicesImpl _value, $Res Function(_$ByteIndicesImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ByteIndices
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? start = null,
-    Object? end = null,
-  }) {
-    return _then(_$ByteIndicesImpl(
-      start: null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
-              as int,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ByteIndicesImpl implements _ByteIndices {
-  const _$ByteIndicesImpl({required this.start, required this.end});
-
-  factory _$ByteIndicesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ByteIndicesImplFromJson(json);
-
-  @override
-  final int start;
-  @override
-  final int end;
-
-  @override
-  String toString() {
-    return 'ByteIndices(start: $start, end: $end)';
-  }
+  /// Serializes this ByteIndices to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ByteIndicesImpl &&
+            other is ByteIndices &&
             (identical(other.start, start) || other.start == start) &&
             (identical(other.end, end) || other.end == end));
   }
@@ -144,38 +41,132 @@ class _$ByteIndicesImpl implements _ByteIndices {
   @override
   int get hashCode => Object.hash(runtimeType, start, end);
 
-  /// Create a copy of ByteIndices
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ByteIndicesImplCopyWith<_$ByteIndicesImpl> get copyWith =>
-      __$$ByteIndicesImplCopyWithImpl<_$ByteIndicesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ByteIndicesImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ByteIndices(start: $start, end: $end)';
   }
 }
 
-abstract class _ByteIndices implements ByteIndices {
-  const factory _ByteIndices(
-      {required final int start, required final int end}) = _$ByteIndicesImpl;
+/// @nodoc
+abstract mixin class $ByteIndicesCopyWith<$Res> {
+  factory $ByteIndicesCopyWith(
+          ByteIndices value, $Res Function(ByteIndices) _then) =
+      _$ByteIndicesCopyWithImpl;
+  @useResult
+  $Res call({int start, int end});
+}
 
-  factory _ByteIndices.fromJson(Map<String, dynamic> json) =
-      _$ByteIndicesImpl.fromJson;
+/// @nodoc
+class _$ByteIndicesCopyWithImpl<$Res> implements $ByteIndicesCopyWith<$Res> {
+  _$ByteIndicesCopyWithImpl(this._self, this._then);
+
+  final ByteIndices _self;
+  final $Res Function(ByteIndices) _then;
+
+  /// Create a copy of ByteIndices
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? start = null,
+    Object? end = null,
+  }) {
+    return _then(_self.copyWith(
+      start: null == start
+          ? _self.start
+          : start // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _self.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _ByteIndices implements ByteIndices {
+  const _ByteIndices({required this.start, required this.end});
+  factory _ByteIndices.fromJson(Map<String, dynamic> json) =>
+      _$ByteIndicesFromJson(json);
 
   @override
-  int get start;
+  final int start;
   @override
-  int get end;
+  final int end;
 
   /// Create a copy of ByteIndices
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ByteIndicesImplCopyWith<_$ByteIndicesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ByteIndicesCopyWith<_ByteIndices> get copyWith =>
+      __$ByteIndicesCopyWithImpl<_ByteIndices>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ByteIndicesToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ByteIndices &&
+            (identical(other.start, start) || other.start == start) &&
+            (identical(other.end, end) || other.end == end));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, start, end);
+
+  @override
+  String toString() {
+    return 'ByteIndices(start: $start, end: $end)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ByteIndicesCopyWith<$Res>
+    implements $ByteIndicesCopyWith<$Res> {
+  factory _$ByteIndicesCopyWith(
+          _ByteIndices value, $Res Function(_ByteIndices) _then) =
+      __$ByteIndicesCopyWithImpl;
+  @override
+  @useResult
+  $Res call({int start, int end});
+}
+
+/// @nodoc
+class __$ByteIndicesCopyWithImpl<$Res> implements _$ByteIndicesCopyWith<$Res> {
+  __$ByteIndicesCopyWithImpl(this._self, this._then);
+
+  final _ByteIndices _self;
+  final $Res Function(_ByteIndices) _then;
+
+  /// Create a copy of ByteIndices
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? start = null,
+    Object? end = null,
+  }) {
+    return _then(_ByteIndices(
+      start: null == start
+          ? _self.start
+          : start // ignore: cast_nullable_to_non_nullable
+              as int,
+      end: null == end
+          ? _self.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+// dart format on

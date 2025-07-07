@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,86 +10,74 @@ part of 'batch_action.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$BatchAction {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(CreateAction data) create,
-    required TResult Function(UpdateAction data) update,
-    required TResult Function(DeleteAction data) delete,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreateAction data)? create,
-    TResult? Function(UpdateAction data)? update,
-    TResult? Function(DeleteAction data)? delete,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreateAction data)? create,
-    TResult Function(UpdateAction data)? update,
-    TResult Function(DeleteAction data)? delete,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UBatchActionCreate value) create,
-    required TResult Function(UBatchActionUpdate value) update,
-    required TResult Function(UBatchActionDelete value) delete,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UBatchActionCreate value)? create,
-    TResult? Function(UBatchActionUpdate value)? update,
-    TResult? Function(UBatchActionDelete value)? delete,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UBatchActionCreate value)? create,
-    TResult Function(UBatchActionUpdate value)? update,
-    TResult Function(UBatchActionDelete value)? delete,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BatchAction &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'BatchAction(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $BatchActionCopyWith<$Res> {
-  factory $BatchActionCopyWith(
-          BatchAction value, $Res Function(BatchAction) then) =
-      _$BatchActionCopyWithImpl<$Res, BatchAction>;
+class $BatchActionCopyWith<$Res> {
+  $BatchActionCopyWith(BatchAction _, $Res Function(BatchAction) __);
 }
 
 /// @nodoc
-class _$BatchActionCopyWithImpl<$Res, $Val extends BatchAction>
-    implements $BatchActionCopyWith<$Res> {
-  _$BatchActionCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class UBatchActionCreate implements BatchAction {
+  const UBatchActionCreate({required this.data});
+
+  @override
+  final CreateAction data;
 
   /// Create a copy of BatchAction
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UBatchActionCreateCopyWith<UBatchActionCreate> get copyWith =>
+      _$UBatchActionCreateCopyWithImpl<UBatchActionCreate>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UBatchActionCreate &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'BatchAction.create(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$UBatchActionCreateImplCopyWith<$Res> {
-  factory _$$UBatchActionCreateImplCopyWith(_$UBatchActionCreateImpl value,
-          $Res Function(_$UBatchActionCreateImpl) then) =
-      __$$UBatchActionCreateImplCopyWithImpl<$Res>;
+abstract mixin class $UBatchActionCreateCopyWith<$Res>
+    implements $BatchActionCopyWith<$Res> {
+  factory $UBatchActionCreateCopyWith(
+          UBatchActionCreate value, $Res Function(UBatchActionCreate) _then) =
+      _$UBatchActionCreateCopyWithImpl;
   @useResult
   $Res call({CreateAction data});
 
@@ -96,23 +85,22 @@ abstract class _$$UBatchActionCreateImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UBatchActionCreateImplCopyWithImpl<$Res>
-    extends _$BatchActionCopyWithImpl<$Res, _$UBatchActionCreateImpl>
-    implements _$$UBatchActionCreateImplCopyWith<$Res> {
-  __$$UBatchActionCreateImplCopyWithImpl(_$UBatchActionCreateImpl _value,
-      $Res Function(_$UBatchActionCreateImpl) _then)
-      : super(_value, _then);
+class _$UBatchActionCreateCopyWithImpl<$Res>
+    implements $UBatchActionCreateCopyWith<$Res> {
+  _$UBatchActionCreateCopyWithImpl(this._self, this._then);
+
+  final UBatchActionCreate _self;
+  final $Res Function(UBatchActionCreate) _then;
 
   /// Create a copy of BatchAction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UBatchActionCreateImpl(
+    return _then(UBatchActionCreate(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as CreateAction,
     ));
@@ -123,133 +111,50 @@ class __$$UBatchActionCreateImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $CreateActionCopyWith<$Res> get data {
-    return $CreateActionCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $CreateActionCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UBatchActionCreateImpl implements UBatchActionCreate {
-  const _$UBatchActionCreateImpl({required this.data});
+class UBatchActionUpdate implements BatchAction {
+  const UBatchActionUpdate({required this.data});
 
   @override
-  final CreateAction data;
+  final UpdateAction data;
 
-  @override
-  String toString() {
-    return 'BatchAction.create(data: $data)';
-  }
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UBatchActionUpdateCopyWith<UBatchActionUpdate> get copyWith =>
+      _$UBatchActionUpdateCopyWithImpl<UBatchActionUpdate>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UBatchActionCreateImpl &&
+            other is UBatchActionUpdate &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of BatchAction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UBatchActionCreateImplCopyWith<_$UBatchActionCreateImpl> get copyWith =>
-      __$$UBatchActionCreateImplCopyWithImpl<_$UBatchActionCreateImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(CreateAction data) create,
-    required TResult Function(UpdateAction data) update,
-    required TResult Function(DeleteAction data) delete,
-  }) {
-    return create(data);
+  String toString() {
+    return 'BatchAction.update(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreateAction data)? create,
-    TResult? Function(UpdateAction data)? update,
-    TResult? Function(DeleteAction data)? delete,
-  }) {
-    return create?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreateAction data)? create,
-    TResult Function(UpdateAction data)? update,
-    TResult Function(DeleteAction data)? delete,
-    required TResult orElse(),
-  }) {
-    if (create != null) {
-      return create(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UBatchActionCreate value) create,
-    required TResult Function(UBatchActionUpdate value) update,
-    required TResult Function(UBatchActionDelete value) delete,
-  }) {
-    return create(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UBatchActionCreate value)? create,
-    TResult? Function(UBatchActionUpdate value)? update,
-    TResult? Function(UBatchActionDelete value)? delete,
-  }) {
-    return create?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UBatchActionCreate value)? create,
-    TResult Function(UBatchActionUpdate value)? update,
-    TResult Function(UBatchActionDelete value)? delete,
-    required TResult orElse(),
-  }) {
-    if (create != null) {
-      return create(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UBatchActionCreate implements BatchAction {
-  const factory UBatchActionCreate({required final CreateAction data}) =
-      _$UBatchActionCreateImpl;
-
-  @override
-  CreateAction get data;
-
-  /// Create a copy of BatchAction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UBatchActionCreateImplCopyWith<_$UBatchActionCreateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UBatchActionUpdateImplCopyWith<$Res> {
-  factory _$$UBatchActionUpdateImplCopyWith(_$UBatchActionUpdateImpl value,
-          $Res Function(_$UBatchActionUpdateImpl) then) =
-      __$$UBatchActionUpdateImplCopyWithImpl<$Res>;
+abstract mixin class $UBatchActionUpdateCopyWith<$Res>
+    implements $BatchActionCopyWith<$Res> {
+  factory $UBatchActionUpdateCopyWith(
+          UBatchActionUpdate value, $Res Function(UBatchActionUpdate) _then) =
+      _$UBatchActionUpdateCopyWithImpl;
   @useResult
   $Res call({UpdateAction data});
 
@@ -257,23 +162,22 @@ abstract class _$$UBatchActionUpdateImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UBatchActionUpdateImplCopyWithImpl<$Res>
-    extends _$BatchActionCopyWithImpl<$Res, _$UBatchActionUpdateImpl>
-    implements _$$UBatchActionUpdateImplCopyWith<$Res> {
-  __$$UBatchActionUpdateImplCopyWithImpl(_$UBatchActionUpdateImpl _value,
-      $Res Function(_$UBatchActionUpdateImpl) _then)
-      : super(_value, _then);
+class _$UBatchActionUpdateCopyWithImpl<$Res>
+    implements $UBatchActionUpdateCopyWith<$Res> {
+  _$UBatchActionUpdateCopyWithImpl(this._self, this._then);
+
+  final UBatchActionUpdate _self;
+  final $Res Function(UBatchActionUpdate) _then;
 
   /// Create a copy of BatchAction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UBatchActionUpdateImpl(
+    return _then(UBatchActionUpdate(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as UpdateAction,
     ));
@@ -284,133 +188,50 @@ class __$$UBatchActionUpdateImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $UpdateActionCopyWith<$Res> get data {
-    return $UpdateActionCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $UpdateActionCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UBatchActionUpdateImpl implements UBatchActionUpdate {
-  const _$UBatchActionUpdateImpl({required this.data});
+class UBatchActionDelete implements BatchAction {
+  const UBatchActionDelete({required this.data});
 
   @override
-  final UpdateAction data;
+  final DeleteAction data;
 
-  @override
-  String toString() {
-    return 'BatchAction.update(data: $data)';
-  }
+  /// Create a copy of BatchAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UBatchActionDeleteCopyWith<UBatchActionDelete> get copyWith =>
+      _$UBatchActionDeleteCopyWithImpl<UBatchActionDelete>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UBatchActionUpdateImpl &&
+            other is UBatchActionDelete &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of BatchAction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UBatchActionUpdateImplCopyWith<_$UBatchActionUpdateImpl> get copyWith =>
-      __$$UBatchActionUpdateImplCopyWithImpl<_$UBatchActionUpdateImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(CreateAction data) create,
-    required TResult Function(UpdateAction data) update,
-    required TResult Function(DeleteAction data) delete,
-  }) {
-    return update(data);
+  String toString() {
+    return 'BatchAction.delete(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreateAction data)? create,
-    TResult? Function(UpdateAction data)? update,
-    TResult? Function(DeleteAction data)? delete,
-  }) {
-    return update?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreateAction data)? create,
-    TResult Function(UpdateAction data)? update,
-    TResult Function(DeleteAction data)? delete,
-    required TResult orElse(),
-  }) {
-    if (update != null) {
-      return update(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UBatchActionCreate value) create,
-    required TResult Function(UBatchActionUpdate value) update,
-    required TResult Function(UBatchActionDelete value) delete,
-  }) {
-    return update(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UBatchActionCreate value)? create,
-    TResult? Function(UBatchActionUpdate value)? update,
-    TResult? Function(UBatchActionDelete value)? delete,
-  }) {
-    return update?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UBatchActionCreate value)? create,
-    TResult Function(UBatchActionUpdate value)? update,
-    TResult Function(UBatchActionDelete value)? delete,
-    required TResult orElse(),
-  }) {
-    if (update != null) {
-      return update(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UBatchActionUpdate implements BatchAction {
-  const factory UBatchActionUpdate({required final UpdateAction data}) =
-      _$UBatchActionUpdateImpl;
-
-  @override
-  UpdateAction get data;
-
-  /// Create a copy of BatchAction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UBatchActionUpdateImplCopyWith<_$UBatchActionUpdateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UBatchActionDeleteImplCopyWith<$Res> {
-  factory _$$UBatchActionDeleteImplCopyWith(_$UBatchActionDeleteImpl value,
-          $Res Function(_$UBatchActionDeleteImpl) then) =
-      __$$UBatchActionDeleteImplCopyWithImpl<$Res>;
+abstract mixin class $UBatchActionDeleteCopyWith<$Res>
+    implements $BatchActionCopyWith<$Res> {
+  factory $UBatchActionDeleteCopyWith(
+          UBatchActionDelete value, $Res Function(UBatchActionDelete) _then) =
+      _$UBatchActionDeleteCopyWithImpl;
   @useResult
   $Res call({DeleteAction data});
 
@@ -418,23 +239,22 @@ abstract class _$$UBatchActionDeleteImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UBatchActionDeleteImplCopyWithImpl<$Res>
-    extends _$BatchActionCopyWithImpl<$Res, _$UBatchActionDeleteImpl>
-    implements _$$UBatchActionDeleteImplCopyWith<$Res> {
-  __$$UBatchActionDeleteImplCopyWithImpl(_$UBatchActionDeleteImpl _value,
-      $Res Function(_$UBatchActionDeleteImpl) _then)
-      : super(_value, _then);
+class _$UBatchActionDeleteCopyWithImpl<$Res>
+    implements $UBatchActionDeleteCopyWith<$Res> {
+  _$UBatchActionDeleteCopyWithImpl(this._self, this._then);
+
+  final UBatchActionDelete _self;
+  final $Res Function(UBatchActionDelete) _then;
 
   /// Create a copy of BatchAction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UBatchActionDeleteImpl(
+    return _then(UBatchActionDelete(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as DeleteAction,
     ));
@@ -445,124 +265,10 @@ class __$$UBatchActionDeleteImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $DeleteActionCopyWith<$Res> get data {
-    return $DeleteActionCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $DeleteActionCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
-/// @nodoc
-
-class _$UBatchActionDeleteImpl implements UBatchActionDelete {
-  const _$UBatchActionDeleteImpl({required this.data});
-
-  @override
-  final DeleteAction data;
-
-  @override
-  String toString() {
-    return 'BatchAction.delete(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UBatchActionDeleteImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of BatchAction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UBatchActionDeleteImplCopyWith<_$UBatchActionDeleteImpl> get copyWith =>
-      __$$UBatchActionDeleteImplCopyWithImpl<_$UBatchActionDeleteImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(CreateAction data) create,
-    required TResult Function(UpdateAction data) update,
-    required TResult Function(DeleteAction data) delete,
-  }) {
-    return delete(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CreateAction data)? create,
-    TResult? Function(UpdateAction data)? update,
-    TResult? Function(DeleteAction data)? delete,
-  }) {
-    return delete?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CreateAction data)? create,
-    TResult Function(UpdateAction data)? update,
-    TResult Function(DeleteAction data)? delete,
-    required TResult orElse(),
-  }) {
-    if (delete != null) {
-      return delete(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UBatchActionCreate value) create,
-    required TResult Function(UBatchActionUpdate value) update,
-    required TResult Function(UBatchActionDelete value) delete,
-  }) {
-    return delete(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UBatchActionCreate value)? create,
-    TResult? Function(UBatchActionUpdate value)? update,
-    TResult? Function(UBatchActionDelete value)? delete,
-  }) {
-    return delete?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UBatchActionCreate value)? create,
-    TResult Function(UBatchActionUpdate value)? update,
-    TResult Function(UBatchActionDelete value)? delete,
-    required TResult orElse(),
-  }) {
-    if (delete != null) {
-      return delete(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UBatchActionDelete implements BatchAction {
-  const factory UBatchActionDelete({required final DeleteAction data}) =
-      _$UBatchActionDeleteImpl;
-
-  @override
-  DeleteAction get data;
-
-  /// Create a copy of BatchAction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UBatchActionDeleteImplCopyWith<_$UBatchActionDeleteImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

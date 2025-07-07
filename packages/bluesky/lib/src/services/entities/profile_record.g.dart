@@ -8,11 +8,11 @@ part of 'profile_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
-      r'_$ProfileRecordImpl',
+_ProfileRecord _$ProfileRecordFromJson(Map json) => $checkedCreate(
+      '_ProfileRecord',
       json,
       ($checkedConvert) {
-        final val = _$ProfileRecordImpl(
+        final val = _ProfileRecord(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorProfile),
           displayName: $checkedConvert('displayName', (v) => v as String?),
@@ -47,7 +47,7 @@ _$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ProfileRecordImplToJson(_$ProfileRecordImpl instance) =>
+Map<String, dynamic> _$ProfileRecordToJson(_ProfileRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       if (instance.displayName case final value?) 'displayName': value,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,79 +10,52 @@ part of 'moderation_cause_source_user.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$ModerationCauseSourceUser {}
+mixin _$ModerationCauseSourceUser {
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationCauseSourceUser);
+  }
 
-/// @nodoc
-abstract class $ModerationCauseSourceUserCopyWith<$Res> {
-  factory $ModerationCauseSourceUserCopyWith(ModerationCauseSourceUser value,
-          $Res Function(ModerationCauseSourceUser) then) =
-      _$ModerationCauseSourceUserCopyWithImpl<$Res, ModerationCauseSourceUser>;
-}
-
-/// @nodoc
-class _$ModerationCauseSourceUserCopyWithImpl<$Res,
-        $Val extends ModerationCauseSourceUser>
-    implements $ModerationCauseSourceUserCopyWith<$Res> {
-  _$ModerationCauseSourceUserCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ModerationCauseSourceUser
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$ModerationCauseSourceUserImplCopyWith<$Res> {
-  factory _$$ModerationCauseSourceUserImplCopyWith(
-          _$ModerationCauseSourceUserImpl value,
-          $Res Function(_$ModerationCauseSourceUserImpl) then) =
-      __$$ModerationCauseSourceUserImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ModerationCauseSourceUserImplCopyWithImpl<$Res>
-    extends _$ModerationCauseSourceUserCopyWithImpl<$Res,
-        _$ModerationCauseSourceUserImpl>
-    implements _$$ModerationCauseSourceUserImplCopyWith<$Res> {
-  __$$ModerationCauseSourceUserImplCopyWithImpl(
-      _$ModerationCauseSourceUserImpl _value,
-      $Res Function(_$ModerationCauseSourceUserImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ModerationCauseSourceUser
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ModerationCauseSourceUserImpl implements _ModerationCauseSourceUser {
-  const _$ModerationCauseSourceUserImpl();
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'ModerationCauseSourceUser()';
   }
+}
+
+/// @nodoc
+class $ModerationCauseSourceUserCopyWith<$Res> {
+  $ModerationCauseSourceUserCopyWith(
+      ModerationCauseSourceUser _, $Res Function(ModerationCauseSourceUser) __);
+}
+
+/// @nodoc
+
+class _ModerationCauseSourceUser implements ModerationCauseSourceUser {
+  const _ModerationCauseSourceUser();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationCauseSourceUserImpl);
+            other is _ModerationCauseSourceUser);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'ModerationCauseSourceUser()';
+  }
 }
 
-abstract class _ModerationCauseSourceUser implements ModerationCauseSourceUser {
-  const factory _ModerationCauseSourceUser() = _$ModerationCauseSourceUserImpl;
-}
+// dart format on

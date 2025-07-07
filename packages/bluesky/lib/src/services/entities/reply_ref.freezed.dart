@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,160 +10,29 @@ part of 'reply_ref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ReplyRef _$ReplyRefFromJson(Map<String, dynamic> json) {
-  return _ReplyRef.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ReplyRef {
-  StrongRef get root => throw _privateConstructorUsedError;
-  StrongRef get parent => throw _privateConstructorUsedError;
-
-  /// Serializes this ReplyRef to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  StrongRef get root;
+  StrongRef get parent;
 
   /// Create a copy of ReplyRef
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ReplyRefCopyWith<ReplyRef> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ReplyRefCopyWithImpl<ReplyRef>(this as ReplyRef, _$identity);
 
-/// @nodoc
-abstract class $ReplyRefCopyWith<$Res> {
-  factory $ReplyRefCopyWith(ReplyRef value, $Res Function(ReplyRef) then) =
-      _$ReplyRefCopyWithImpl<$Res, ReplyRef>;
-  @useResult
-  $Res call({StrongRef root, StrongRef parent});
-
-  $StrongRefCopyWith<$Res> get root;
-  $StrongRefCopyWith<$Res> get parent;
-}
-
-/// @nodoc
-class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
-    implements $ReplyRefCopyWith<$Res> {
-  _$ReplyRefCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ReplyRef
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? root = null,
-    Object? parent = null,
-  }) {
-    return _then(_value.copyWith(
-      root: null == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
-      parent: null == parent
-          ? _value.parent
-          : parent // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
-    ) as $Val);
-  }
-
-  /// Create a copy of ReplyRef
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StrongRefCopyWith<$Res> get root {
-    return $StrongRefCopyWith<$Res>(_value.root, (value) {
-      return _then(_value.copyWith(root: value) as $Val);
-    });
-  }
-
-  /// Create a copy of ReplyRef
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StrongRefCopyWith<$Res> get parent {
-    return $StrongRefCopyWith<$Res>(_value.parent, (value) {
-      return _then(_value.copyWith(parent: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$ReplyRefImplCopyWith<$Res>
-    implements $ReplyRefCopyWith<$Res> {
-  factory _$$ReplyRefImplCopyWith(
-          _$ReplyRefImpl value, $Res Function(_$ReplyRefImpl) then) =
-      __$$ReplyRefImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({StrongRef root, StrongRef parent});
-
-  @override
-  $StrongRefCopyWith<$Res> get root;
-  @override
-  $StrongRefCopyWith<$Res> get parent;
-}
-
-/// @nodoc
-class __$$ReplyRefImplCopyWithImpl<$Res>
-    extends _$ReplyRefCopyWithImpl<$Res, _$ReplyRefImpl>
-    implements _$$ReplyRefImplCopyWith<$Res> {
-  __$$ReplyRefImplCopyWithImpl(
-      _$ReplyRefImpl _value, $Res Function(_$ReplyRefImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ReplyRef
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? root = null,
-    Object? parent = null,
-  }) {
-    return _then(_$ReplyRefImpl(
-      root: null == root
-          ? _value.root
-          : root // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
-      parent: null == parent
-          ? _value.parent
-          : parent // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ReplyRefImpl implements _ReplyRef {
-  const _$ReplyRefImpl({required this.root, required this.parent});
-
-  factory _$ReplyRefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ReplyRefImplFromJson(json);
-
-  @override
-  final StrongRef root;
-  @override
-  final StrongRef parent;
-
-  @override
-  String toString() {
-    return 'ReplyRef(root: $root, parent: $parent)';
-  }
+  /// Serializes this ReplyRef to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReplyRefImpl &&
+            other is ReplyRef &&
             (identical(other.root, root) || other.root == root) &&
             (identical(other.parent, parent) || other.parent == parent));
   }
@@ -171,39 +41,178 @@ class _$ReplyRefImpl implements _ReplyRef {
   @override
   int get hashCode => Object.hash(runtimeType, root, parent);
 
-  /// Create a copy of ReplyRef
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>
-      __$$ReplyRefImplCopyWithImpl<_$ReplyRefImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ReplyRefImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ReplyRef(root: $root, parent: $parent)';
   }
 }
 
-abstract class _ReplyRef implements ReplyRef {
-  const factory _ReplyRef(
-      {required final StrongRef root,
-      required final StrongRef parent}) = _$ReplyRefImpl;
+/// @nodoc
+abstract mixin class $ReplyRefCopyWith<$Res> {
+  factory $ReplyRefCopyWith(ReplyRef value, $Res Function(ReplyRef) _then) =
+      _$ReplyRefCopyWithImpl;
+  @useResult
+  $Res call({StrongRef root, StrongRef parent});
 
-  factory _ReplyRef.fromJson(Map<String, dynamic> json) =
-      _$ReplyRefImpl.fromJson;
+  $StrongRefCopyWith<$Res> get root;
+  $StrongRefCopyWith<$Res> get parent;
+}
+
+/// @nodoc
+class _$ReplyRefCopyWithImpl<$Res> implements $ReplyRefCopyWith<$Res> {
+  _$ReplyRefCopyWithImpl(this._self, this._then);
+
+  final ReplyRef _self;
+  final $Res Function(ReplyRef) _then;
+
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? root = null,
+    Object? parent = null,
+  }) {
+    return _then(_self.copyWith(
+      root: null == root
+          ? _self.root
+          : root // ignore: cast_nullable_to_non_nullable
+              as StrongRef,
+      parent: null == parent
+          ? _self.parent
+          : parent // ignore: cast_nullable_to_non_nullable
+              as StrongRef,
+    ));
+  }
+
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res> get root {
+    return $StrongRefCopyWith<$Res>(_self.root, (value) {
+      return _then(_self.copyWith(root: value));
+    });
+  }
+
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res> get parent {
+    return $StrongRefCopyWith<$Res>(_self.parent, (value) {
+      return _then(_self.copyWith(parent: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _ReplyRef implements ReplyRef {
+  const _ReplyRef({required this.root, required this.parent});
+  factory _ReplyRef.fromJson(Map<String, dynamic> json) =>
+      _$ReplyRefFromJson(json);
 
   @override
-  StrongRef get root;
+  final StrongRef root;
   @override
-  StrongRef get parent;
+  final StrongRef parent;
 
   /// Create a copy of ReplyRef
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ReplyRefCopyWith<_ReplyRef> get copyWith =>
+      __$ReplyRefCopyWithImpl<_ReplyRef>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ReplyRefToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ReplyRef &&
+            (identical(other.root, root) || other.root == root) &&
+            (identical(other.parent, parent) || other.parent == parent));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, root, parent);
+
+  @override
+  String toString() {
+    return 'ReplyRef(root: $root, parent: $parent)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ReplyRefCopyWith<$Res>
+    implements $ReplyRefCopyWith<$Res> {
+  factory _$ReplyRefCopyWith(_ReplyRef value, $Res Function(_ReplyRef) _then) =
+      __$ReplyRefCopyWithImpl;
+  @override
+  @useResult
+  $Res call({StrongRef root, StrongRef parent});
+
+  @override
+  $StrongRefCopyWith<$Res> get root;
+  @override
+  $StrongRefCopyWith<$Res> get parent;
+}
+
+/// @nodoc
+class __$ReplyRefCopyWithImpl<$Res> implements _$ReplyRefCopyWith<$Res> {
+  __$ReplyRefCopyWithImpl(this._self, this._then);
+
+  final _ReplyRef _self;
+  final $Res Function(_ReplyRef) _then;
+
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? root = null,
+    Object? parent = null,
+  }) {
+    return _then(_ReplyRef(
+      root: null == root
+          ? _self.root
+          : root // ignore: cast_nullable_to_non_nullable
+              as StrongRef,
+      parent: null == parent
+          ? _self.parent
+          : parent // ignore: cast_nullable_to_non_nullable
+              as StrongRef,
+    ));
+  }
+
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res> get root {
+    return $StrongRefCopyWith<$Res>(_self.root, (value) {
+      return _then(_self.copyWith(root: value));
+    });
+  }
+
+  /// Create a copy of ReplyRef
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res> get parent {
+    return $StrongRefCopyWith<$Res>(_self.parent, (value) {
+      return _then(_self.copyWith(parent: value));
+    });
+  }
+}
+
+// dart format on

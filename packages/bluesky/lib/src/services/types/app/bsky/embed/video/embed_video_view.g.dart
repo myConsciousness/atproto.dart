@@ -8,11 +8,11 @@ part of 'embed_video_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedVideoViewImpl _$$EmbedVideoViewImplFromJson(Map json) => $checkedCreate(
-      r'_$EmbedVideoViewImpl',
+_EmbedVideoView _$EmbedVideoViewFromJson(Map json) => $checkedCreate(
+      '_EmbedVideoView',
       json,
       ($checkedConvert) {
-        final val = _$EmbedVideoViewImpl(
+        final val = _EmbedVideoView(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedVideoView),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -30,8 +30,7 @@ _$EmbedVideoViewImpl _$$EmbedVideoViewImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$EmbedVideoViewImplToJson(
-        _$EmbedVideoViewImpl instance) =>
+Map<String, dynamic> _$EmbedVideoViewToJson(_EmbedVideoView instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'cid': instance.cid,

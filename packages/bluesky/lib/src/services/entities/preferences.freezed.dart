@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,83 +10,59 @@ part of 'preferences.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Preferences _$PreferencesFromJson(Map<String, dynamic> json) {
-  return _Preferences.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Preferences {
   @preferenceConverter
-  List<Preference> get preferences => throw _privateConstructorUsedError;
-
-  /// Serializes this Preferences to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Preference> get preferences;
 
   /// Create a copy of Preferences
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PreferencesCopyWith<Preferences> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PreferencesCopyWith<$Res> {
-  factory $PreferencesCopyWith(
-          Preferences value, $Res Function(Preferences) then) =
-      _$PreferencesCopyWithImpl<$Res, Preferences>;
-  @useResult
-  $Res call({@preferenceConverter List<Preference> preferences});
-}
-
-/// @nodoc
-class _$PreferencesCopyWithImpl<$Res, $Val extends Preferences>
-    implements $PreferencesCopyWith<$Res> {
-  _$PreferencesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Preferences
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $PreferencesCopyWith<Preferences> get copyWith =>
+      _$PreferencesCopyWithImpl<Preferences>(this as Preferences, _$identity);
+
+  /// Serializes this Preferences to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? preferences = null,
-  }) {
-    return _then(_value.copyWith(
-      preferences: null == preferences
-          ? _value.preferences
-          : preferences // ignore: cast_nullable_to_non_nullable
-              as List<Preference>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Preferences &&
+            const DeepCollectionEquality()
+                .equals(other.preferences, preferences));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(preferences));
+
+  @override
+  String toString() {
+    return 'Preferences(preferences: $preferences)';
   }
 }
 
 /// @nodoc
-abstract class _$$PreferencesImplCopyWith<$Res>
-    implements $PreferencesCopyWith<$Res> {
-  factory _$$PreferencesImplCopyWith(
-          _$PreferencesImpl value, $Res Function(_$PreferencesImpl) then) =
-      __$$PreferencesImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PreferencesCopyWith<$Res> {
+  factory $PreferencesCopyWith(
+          Preferences value, $Res Function(Preferences) _then) =
+      _$PreferencesCopyWithImpl;
   @useResult
   $Res call({@preferenceConverter List<Preference> preferences});
 }
 
 /// @nodoc
-class __$$PreferencesImplCopyWithImpl<$Res>
-    extends _$PreferencesCopyWithImpl<$Res, _$PreferencesImpl>
-    implements _$$PreferencesImplCopyWith<$Res> {
-  __$$PreferencesImplCopyWithImpl(
-      _$PreferencesImpl _value, $Res Function(_$PreferencesImpl) _then)
-      : super(_value, _then);
+class _$PreferencesCopyWithImpl<$Res> implements $PreferencesCopyWith<$Res> {
+  _$PreferencesCopyWithImpl(this._self, this._then);
+
+  final Preferences _self;
+  final $Res Function(Preferences) _then;
 
   /// Create a copy of Preferences
   /// with the given fields replaced by the non-null parameter values.
@@ -94,9 +71,9 @@ class __$$PreferencesImplCopyWithImpl<$Res>
   $Res call({
     Object? preferences = null,
   }) {
-    return _then(_$PreferencesImpl(
+    return _then(_self.copyWith(
       preferences: null == preferences
-          ? _value._preferences
+          ? _self.preferences
           : preferences // ignore: cast_nullable_to_non_nullable
               as List<Preference>,
     ));
@@ -105,13 +82,12 @@ class __$$PreferencesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PreferencesImpl implements _Preferences {
-  const _$PreferencesImpl(
+class _Preferences implements Preferences {
+  const _Preferences(
       {@preferenceConverter required final List<Preference> preferences})
       : _preferences = preferences;
-
-  factory _$PreferencesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PreferencesImplFromJson(json);
+  factory _Preferences.fromJson(Map<String, dynamic> json) =>
+      _$PreferencesFromJson(json);
 
   final List<Preference> _preferences;
   @override
@@ -122,16 +98,26 @@ class _$PreferencesImpl implements _Preferences {
     return EqualUnmodifiableListView(_preferences);
   }
 
+  /// Create a copy of Preferences
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Preferences(preferences: $preferences)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PreferencesCopyWith<_Preferences> get copyWith =>
+      __$PreferencesCopyWithImpl<_Preferences>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PreferencesToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PreferencesImpl &&
+            other is _Preferences &&
             const DeepCollectionEquality()
                 .equals(other._preferences, _preferences));
   }
@@ -141,38 +127,44 @@ class _$PreferencesImpl implements _Preferences {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_preferences));
 
-  /// Create a copy of Preferences
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
-      __$$PreferencesImplCopyWithImpl<_$PreferencesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PreferencesImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Preferences(preferences: $preferences)';
   }
 }
 
-abstract class _Preferences implements Preferences {
-  const factory _Preferences(
-          {@preferenceConverter required final List<Preference> preferences}) =
-      _$PreferencesImpl;
-
-  factory _Preferences.fromJson(Map<String, dynamic> json) =
-      _$PreferencesImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$PreferencesCopyWith<$Res>
+    implements $PreferencesCopyWith<$Res> {
+  factory _$PreferencesCopyWith(
+          _Preferences value, $Res Function(_Preferences) _then) =
+      __$PreferencesCopyWithImpl;
   @override
-  @preferenceConverter
-  List<Preference> get preferences;
+  @useResult
+  $Res call({@preferenceConverter List<Preference> preferences});
+}
+
+/// @nodoc
+class __$PreferencesCopyWithImpl<$Res> implements _$PreferencesCopyWith<$Res> {
+  __$PreferencesCopyWithImpl(this._self, this._then);
+
+  final _Preferences _self;
+  final $Res Function(_Preferences) _then;
 
   /// Create a copy of Preferences
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? preferences = null,
+  }) {
+    return _then(_Preferences(
+      preferences: null == preferences
+          ? _self._preferences
+          : preferences // ignore: cast_nullable_to_non_nullable
+              as List<Preference>,
+    ));
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,133 +10,30 @@ part of 'sealed_app_password.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SealedAppPassword _$SealedAppPasswordFromJson(Map<String, dynamic> json) {
-  return _SealedAppPassword.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SealedAppPassword {
-  String get name => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-
-  /// Serializes this SealedAppPassword to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get name;
+  DateTime get createdAt;
 
   /// Create a copy of SealedAppPassword
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $SealedAppPasswordCopyWith<SealedAppPassword> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$SealedAppPasswordCopyWithImpl<SealedAppPassword>(
+          this as SealedAppPassword, _$identity);
 
-/// @nodoc
-abstract class $SealedAppPasswordCopyWith<$Res> {
-  factory $SealedAppPasswordCopyWith(
-          SealedAppPassword value, $Res Function(SealedAppPassword) then) =
-      _$SealedAppPasswordCopyWithImpl<$Res, SealedAppPassword>;
-  @useResult
-  $Res call({String name, DateTime createdAt});
-}
-
-/// @nodoc
-class _$SealedAppPasswordCopyWithImpl<$Res, $Val extends SealedAppPassword>
-    implements $SealedAppPasswordCopyWith<$Res> {
-  _$SealedAppPasswordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SealedAppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$SealedAppPasswordImplCopyWith<$Res>
-    implements $SealedAppPasswordCopyWith<$Res> {
-  factory _$$SealedAppPasswordImplCopyWith(_$SealedAppPasswordImpl value,
-          $Res Function(_$SealedAppPasswordImpl) then) =
-      __$$SealedAppPasswordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name, DateTime createdAt});
-}
-
-/// @nodoc
-class __$$SealedAppPasswordImplCopyWithImpl<$Res>
-    extends _$SealedAppPasswordCopyWithImpl<$Res, _$SealedAppPasswordImpl>
-    implements _$$SealedAppPasswordImplCopyWith<$Res> {
-  __$$SealedAppPasswordImplCopyWithImpl(_$SealedAppPasswordImpl _value,
-      $Res Function(_$SealedAppPasswordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SealedAppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_$SealedAppPasswordImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SealedAppPasswordImpl implements _SealedAppPassword {
-  const _$SealedAppPasswordImpl({required this.name, required this.createdAt});
-
-  factory _$SealedAppPasswordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SealedAppPasswordImplFromJson(json);
-
-  @override
-  final String name;
-  @override
-  final DateTime createdAt;
-
-  @override
-  String toString() {
-    return 'SealedAppPassword(name: $name, createdAt: $createdAt)';
-  }
+  /// Serializes this SealedAppPassword to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SealedAppPasswordImpl &&
+            other is SealedAppPassword &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -145,40 +43,135 @@ class _$SealedAppPasswordImpl implements _SealedAppPassword {
   @override
   int get hashCode => Object.hash(runtimeType, name, createdAt);
 
-  /// Create a copy of SealedAppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SealedAppPasswordImplCopyWith<_$SealedAppPasswordImpl> get copyWith =>
-      __$$SealedAppPasswordImplCopyWithImpl<_$SealedAppPasswordImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SealedAppPasswordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SealedAppPassword(name: $name, createdAt: $createdAt)';
   }
 }
 
-abstract class _SealedAppPassword implements SealedAppPassword {
-  const factory _SealedAppPassword(
-      {required final String name,
-      required final DateTime createdAt}) = _$SealedAppPasswordImpl;
+/// @nodoc
+abstract mixin class $SealedAppPasswordCopyWith<$Res> {
+  factory $SealedAppPasswordCopyWith(
+          SealedAppPassword value, $Res Function(SealedAppPassword) _then) =
+      _$SealedAppPasswordCopyWithImpl;
+  @useResult
+  $Res call({String name, DateTime createdAt});
+}
 
-  factory _SealedAppPassword.fromJson(Map<String, dynamic> json) =
-      _$SealedAppPasswordImpl.fromJson;
+/// @nodoc
+class _$SealedAppPasswordCopyWithImpl<$Res>
+    implements $SealedAppPasswordCopyWith<$Res> {
+  _$SealedAppPasswordCopyWithImpl(this._self, this._then);
+
+  final SealedAppPassword _self;
+  final $Res Function(SealedAppPassword) _then;
+
+  /// Create a copy of SealedAppPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_self.copyWith(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _SealedAppPassword implements SealedAppPassword {
+  const _SealedAppPassword({required this.name, required this.createdAt});
+  factory _SealedAppPassword.fromJson(Map<String, dynamic> json) =>
+      _$SealedAppPasswordFromJson(json);
 
   @override
-  String get name;
+  final String name;
   @override
-  DateTime get createdAt;
+  final DateTime createdAt;
 
   /// Create a copy of SealedAppPassword
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SealedAppPasswordImplCopyWith<_$SealedAppPasswordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$SealedAppPasswordCopyWith<_SealedAppPassword> get copyWith =>
+      __$SealedAppPasswordCopyWithImpl<_SealedAppPassword>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SealedAppPasswordToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SealedAppPassword &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, createdAt);
+
+  @override
+  String toString() {
+    return 'SealedAppPassword(name: $name, createdAt: $createdAt)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$SealedAppPasswordCopyWith<$Res>
+    implements $SealedAppPasswordCopyWith<$Res> {
+  factory _$SealedAppPasswordCopyWith(
+          _SealedAppPassword value, $Res Function(_SealedAppPassword) _then) =
+      __$SealedAppPasswordCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String name, DateTime createdAt});
+}
+
+/// @nodoc
+class __$SealedAppPasswordCopyWithImpl<$Res>
+    implements _$SealedAppPasswordCopyWith<$Res> {
+  __$SealedAppPasswordCopyWithImpl(this._self, this._then);
+
+  final _SealedAppPassword _self;
+  final $Res Function(_SealedAppPassword) _then;
+
+  /// Create a copy of SealedAppPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_SealedAppPassword(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+// dart format on

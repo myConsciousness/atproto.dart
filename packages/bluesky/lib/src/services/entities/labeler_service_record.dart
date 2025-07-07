@@ -13,7 +13,7 @@ part 'labeler_service_record.freezed.dart';
 part 'labeler_service_record.g.dart';
 
 @freezed
-class LabelerServiceRecord with _$LabelerServiceRecord {
+abstract class LabelerServiceRecord with _$LabelerServiceRecord {
   @jsonSerializable
   const factory LabelerServiceRecord({
     @typeKey @Default(appBskyLabelerService) String type,

@@ -9,7 +9,7 @@ part 'repo_blocks.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getblocks/#output
 @freezed
-class RepoBlocks with _$RepoBlocks {
+abstract class RepoBlocks with _$RepoBlocks {
   const factory RepoBlocks({
     required List<RepoBlock> blocks,
   }) = _RepoBlocks;

@@ -12,7 +12,7 @@ part 'repo_commits.g.dart';
 
 /// Represents a collection of [RepoCommit] objects.
 @freezed
-class RepoCommits with _$RepoCommits {
+abstract class RepoCommits with _$RepoCommits {
   /// Creates a new instance of [RepoCommits].
   ///
   /// The [commits] parameter is required and should be a list of

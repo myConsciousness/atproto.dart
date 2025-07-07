@@ -12,7 +12,7 @@ part 'embed_video_caption.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/video/#caption
 @freezed
-class EmbedVideoCaption with _$EmbedVideoCaption {
+abstract class EmbedVideoCaption with _$EmbedVideoCaption {
   @jsonSerializable
   const factory EmbedVideoCaption({
     @typeKey @Default(appBskyEmbedVideoCaption) String type,

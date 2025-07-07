@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,57 @@ part of 'moderation_prefs_labeler.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ModerationPrefsLabeler {
-  String get did => throw _privateConstructorUsedError;
-  Map<String, LabelPreference> get labels => throw _privateConstructorUsedError;
+  String get did;
+  Map<String, LabelPreference> get labels;
 
   /// Create a copy of ModerationPrefsLabeler
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ModerationPrefsLabelerCopyWith<ModerationPrefsLabeler> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ModerationPrefsLabelerCopyWith<$Res> {
-  factory $ModerationPrefsLabelerCopyWith(ModerationPrefsLabeler value,
-          $Res Function(ModerationPrefsLabeler) then) =
-      _$ModerationPrefsLabelerCopyWithImpl<$Res, ModerationPrefsLabeler>;
-  @useResult
-  $Res call({String did, Map<String, LabelPreference> labels});
-}
-
-/// @nodoc
-class _$ModerationPrefsLabelerCopyWithImpl<$Res,
-        $Val extends ModerationPrefsLabeler>
-    implements $ModerationPrefsLabelerCopyWith<$Res> {
-  _$ModerationPrefsLabelerCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ModerationPrefsLabeler
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ModerationPrefsLabelerCopyWith<ModerationPrefsLabeler> get copyWith =>
+      _$ModerationPrefsLabelerCopyWithImpl<ModerationPrefsLabeler>(
+          this as ModerationPrefsLabeler, _$identity);
+
   @override
-  $Res call({
-    Object? did = null,
-    Object? labels = null,
-  }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      labels: null == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as Map<String, LabelPreference>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationPrefsLabeler &&
+            (identical(other.did, did) || other.did == did) &&
+            const DeepCollectionEquality().equals(other.labels, labels));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, did, const DeepCollectionEquality().hash(labels));
+
+  @override
+  String toString() {
+    return 'ModerationPrefsLabeler(did: $did, labels: $labels)';
   }
 }
 
 /// @nodoc
-abstract class _$$ModerationPrefsLabelerImplCopyWith<$Res>
-    implements $ModerationPrefsLabelerCopyWith<$Res> {
-  factory _$$ModerationPrefsLabelerImplCopyWith(
-          _$ModerationPrefsLabelerImpl value,
-          $Res Function(_$ModerationPrefsLabelerImpl) then) =
-      __$$ModerationPrefsLabelerImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ModerationPrefsLabelerCopyWith<$Res> {
+  factory $ModerationPrefsLabelerCopyWith(ModerationPrefsLabeler value,
+          $Res Function(ModerationPrefsLabeler) _then) =
+      _$ModerationPrefsLabelerCopyWithImpl;
   @useResult
   $Res call({String did, Map<String, LabelPreference> labels});
 }
 
 /// @nodoc
-class __$$ModerationPrefsLabelerImplCopyWithImpl<$Res>
-    extends _$ModerationPrefsLabelerCopyWithImpl<$Res,
-        _$ModerationPrefsLabelerImpl>
-    implements _$$ModerationPrefsLabelerImplCopyWith<$Res> {
-  __$$ModerationPrefsLabelerImplCopyWithImpl(
-      _$ModerationPrefsLabelerImpl _value,
-      $Res Function(_$ModerationPrefsLabelerImpl) _then)
-      : super(_value, _then);
+class _$ModerationPrefsLabelerCopyWithImpl<$Res>
+    implements $ModerationPrefsLabelerCopyWith<$Res> {
+  _$ModerationPrefsLabelerCopyWithImpl(this._self, this._then);
+
+  final ModerationPrefsLabeler _self;
+  final $Res Function(ModerationPrefsLabeler) _then;
 
   /// Create a copy of ModerationPrefsLabeler
   /// with the given fields replaced by the non-null parameter values.
@@ -97,13 +70,13 @@ class __$$ModerationPrefsLabelerImplCopyWithImpl<$Res>
     Object? did = null,
     Object? labels = null,
   }) {
-    return _then(_$ModerationPrefsLabelerImpl(
+    return _then(_self.copyWith(
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       labels: null == labels
-          ? _value._labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Map<String, LabelPreference>,
     ));
@@ -112,8 +85,8 @@ class __$$ModerationPrefsLabelerImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ModerationPrefsLabelerImpl implements _ModerationPrefsLabeler {
-  const _$ModerationPrefsLabelerImpl(
+class _ModerationPrefsLabeler implements ModerationPrefsLabeler {
+  const _ModerationPrefsLabeler(
       {required this.did, required final Map<String, LabelPreference> labels})
       : _labels = labels;
 
@@ -127,16 +100,20 @@ class _$ModerationPrefsLabelerImpl implements _ModerationPrefsLabeler {
     return EqualUnmodifiableMapView(_labels);
   }
 
+  /// Create a copy of ModerationPrefsLabeler
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ModerationPrefsLabeler(did: $did, labels: $labels)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ModerationPrefsLabelerCopyWith<_ModerationPrefsLabeler> get copyWith =>
+      __$ModerationPrefsLabelerCopyWithImpl<_ModerationPrefsLabeler>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationPrefsLabelerImpl &&
+            other is _ModerationPrefsLabeler &&
             (identical(other.did, did) || other.did == did) &&
             const DeepCollectionEquality().equals(other._labels, _labels));
   }
@@ -145,31 +122,50 @@ class _$ModerationPrefsLabelerImpl implements _ModerationPrefsLabeler {
   int get hashCode => Object.hash(
       runtimeType, did, const DeepCollectionEquality().hash(_labels));
 
+  @override
+  String toString() {
+    return 'ModerationPrefsLabeler(did: $did, labels: $labels)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ModerationPrefsLabelerCopyWith<$Res>
+    implements $ModerationPrefsLabelerCopyWith<$Res> {
+  factory _$ModerationPrefsLabelerCopyWith(_ModerationPrefsLabeler value,
+          $Res Function(_ModerationPrefsLabeler) _then) =
+      __$ModerationPrefsLabelerCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String did, Map<String, LabelPreference> labels});
+}
+
+/// @nodoc
+class __$ModerationPrefsLabelerCopyWithImpl<$Res>
+    implements _$ModerationPrefsLabelerCopyWith<$Res> {
+  __$ModerationPrefsLabelerCopyWithImpl(this._self, this._then);
+
+  final _ModerationPrefsLabeler _self;
+  final $Res Function(_ModerationPrefsLabeler) _then;
+
   /// Create a copy of ModerationPrefsLabeler
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModerationPrefsLabelerImplCopyWith<_$ModerationPrefsLabelerImpl>
-      get copyWith => __$$ModerationPrefsLabelerImplCopyWithImpl<
-          _$ModerationPrefsLabelerImpl>(this, _$identity);
+  $Res call({
+    Object? did = null,
+    Object? labels = null,
+  }) {
+    return _then(_ModerationPrefsLabeler(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      labels: null == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Map<String, LabelPreference>,
+    ));
+  }
 }
 
-abstract class _ModerationPrefsLabeler implements ModerationPrefsLabeler {
-  const factory _ModerationPrefsLabeler(
-          {required final String did,
-          required final Map<String, LabelPreference> labels}) =
-      _$ModerationPrefsLabelerImpl;
-
-  @override
-  String get did;
-  @override
-  Map<String, LabelPreference> get labels;
-
-  /// Create a copy of ModerationPrefsLabeler
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModerationPrefsLabelerImplCopyWith<_$ModerationPrefsLabelerImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

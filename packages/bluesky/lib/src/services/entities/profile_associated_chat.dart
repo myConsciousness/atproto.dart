@@ -12,7 +12,7 @@ part 'profile_associated_chat.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileassociatedchat
 @freezed
-class ActorProfileAssociatedChat with _$ActorProfileAssociatedChat {
+abstract class ActorProfileAssociatedChat with _$ActorProfileAssociatedChat {
   @jsonSerializable
   const factory ActorProfileAssociatedChat({
     @typeKey @Default(appBskyActorDefsProfileAssociatedChat) String type,

@@ -10,7 +10,7 @@ part 'strong_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/strongRef#main
 @freezed
-class StrongRef with _$StrongRef {
+abstract class StrongRef with _$StrongRef {
   const factory StrongRef({
     @typeKey @Default(comAtprotoRepoStrongRef) String type,
     required String cid,

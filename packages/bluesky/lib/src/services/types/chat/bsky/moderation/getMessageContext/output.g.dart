@@ -8,13 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetMessageContextOutputImpl _$$GetMessageContextOutputImplFromJson(
-        Map json) =>
+_GetMessageContextOutput _$GetMessageContextOutputFromJson(Map json) =>
     $checkedCreate(
-      r'_$GetMessageContextOutputImpl',
+      '_GetMessageContextOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetMessageContextOutputImpl(
+        final val = _GetMessageContextOutput(
           messages: $checkedConvert(
               'messages',
               (v) => (v as List<dynamic>)
@@ -26,8 +25,8 @@ _$GetMessageContextOutputImpl _$$GetMessageContextOutputImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$GetMessageContextOutputImplToJson(
-        _$GetMessageContextOutputImpl instance) =>
+Map<String, dynamic> _$GetMessageContextOutputToJson(
+        _GetMessageContextOutput instance) =>
     <String, dynamic>{
       'messages':
           instance.messages.map(unionConvoMessageViewConverter.toJson).toList(),

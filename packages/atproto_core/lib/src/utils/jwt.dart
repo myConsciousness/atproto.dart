@@ -8,7 +8,7 @@ part 'jwt.freezed.dart';
 part 'jwt.g.dart';
 
 @freezed
-class Jwt with _$Jwt {
+abstract class Jwt with _$Jwt {
   @JsonSerializable(includeIfNull: false, fieldRename: FieldRename.snake)
   const factory Jwt({
     required String aud,

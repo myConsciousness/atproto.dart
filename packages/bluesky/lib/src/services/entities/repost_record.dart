@@ -16,7 +16,7 @@ part 'repost_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedRepost].
 @freezed
-class RepostRecord with _$RepostRecord {
+abstract class RepostRecord with _$RepostRecord {
   @jsonSerializable
   const factory RepostRecord({
     @typeKey @Default(appBskyFeedRepost) String type,

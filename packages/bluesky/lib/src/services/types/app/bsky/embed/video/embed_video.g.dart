@@ -8,11 +8,11 @@ part of 'embed_video.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedVideoImpl _$$EmbedVideoImplFromJson(Map json) => $checkedCreate(
-      r'_$EmbedVideoImpl',
+_EmbedVideo _$EmbedVideoFromJson(Map json) => $checkedCreate(
+      '_EmbedVideo',
       json,
       ($checkedConvert) {
-        final val = _$EmbedVideoImpl(
+        final val = _EmbedVideo(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedVideo),
           video: $checkedConvert('video',
@@ -37,7 +37,7 @@ _$EmbedVideoImpl _$$EmbedVideoImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$EmbedVideoImplToJson(_$EmbedVideoImpl instance) =>
+Map<String, dynamic> _$EmbedVideoToJson(_EmbedVideo instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'video': const BlobConverter().toJson(instance.video),

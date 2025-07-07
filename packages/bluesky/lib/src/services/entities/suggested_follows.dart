@@ -11,7 +11,7 @@ part 'suggested_follows.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getsuggestedfollowsbyactor/#output
 @freezed
-class SuggestedFollows with _$SuggestedFollows {
+abstract class SuggestedFollows with _$SuggestedFollows {
   const factory SuggestedFollows({
     required List<Actor> suggestions,
     @Default(false) bool isFallback,

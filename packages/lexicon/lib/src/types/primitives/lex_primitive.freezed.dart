@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,92 +10,75 @@ part of 'lex_primitive.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LexPrimitive {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexUnknown data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexUnknown data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexPrimitiveBoolean value) boolean,
-    required TResult Function(ULexPrimitiveInteger value) integer,
-    required TResult Function(ULexPrimitiveString value) string,
-    required TResult Function(ULexPrimitiveUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexPrimitiveBoolean value)? boolean,
-    TResult? Function(ULexPrimitiveInteger value)? integer,
-    TResult? Function(ULexPrimitiveString value)? string,
-    TResult? Function(ULexPrimitiveUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexPrimitiveBoolean value)? boolean,
-    TResult Function(ULexPrimitiveInteger value)? integer,
-    TResult Function(ULexPrimitiveString value)? string,
-    TResult Function(ULexPrimitiveUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LexPrimitive &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'LexPrimitive(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $LexPrimitiveCopyWith<$Res> {
-  factory $LexPrimitiveCopyWith(
-          LexPrimitive value, $Res Function(LexPrimitive) then) =
-      _$LexPrimitiveCopyWithImpl<$Res, LexPrimitive>;
+class $LexPrimitiveCopyWith<$Res> {
+  $LexPrimitiveCopyWith(LexPrimitive _, $Res Function(LexPrimitive) __);
 }
 
 /// @nodoc
-class _$LexPrimitiveCopyWithImpl<$Res, $Val extends LexPrimitive>
-    implements $LexPrimitiveCopyWith<$Res> {
-  _$LexPrimitiveCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class ULexPrimitiveBoolean extends LexPrimitive {
+  const ULexPrimitiveBoolean({required this.data}) : super._();
+
+  @override
+  final LexBoolean data;
 
   /// Create a copy of LexPrimitive
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ULexPrimitiveBooleanCopyWith<ULexPrimitiveBoolean> get copyWith =>
+      _$ULexPrimitiveBooleanCopyWithImpl<ULexPrimitiveBoolean>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ULexPrimitiveBoolean &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'LexPrimitive.boolean(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$ULexPrimitiveBooleanImplCopyWith<$Res> {
-  factory _$$ULexPrimitiveBooleanImplCopyWith(_$ULexPrimitiveBooleanImpl value,
-          $Res Function(_$ULexPrimitiveBooleanImpl) then) =
-      __$$ULexPrimitiveBooleanImplCopyWithImpl<$Res>;
+abstract mixin class $ULexPrimitiveBooleanCopyWith<$Res>
+    implements $LexPrimitiveCopyWith<$Res> {
+  factory $ULexPrimitiveBooleanCopyWith(ULexPrimitiveBoolean value,
+          $Res Function(ULexPrimitiveBoolean) _then) =
+      _$ULexPrimitiveBooleanCopyWithImpl;
   @useResult
   $Res call({LexBoolean data});
 
@@ -102,23 +86,22 @@ abstract class _$$ULexPrimitiveBooleanImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexPrimitiveBooleanImplCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveBooleanImpl>
-    implements _$$ULexPrimitiveBooleanImplCopyWith<$Res> {
-  __$$ULexPrimitiveBooleanImplCopyWithImpl(_$ULexPrimitiveBooleanImpl _value,
-      $Res Function(_$ULexPrimitiveBooleanImpl) _then)
-      : super(_value, _then);
+class _$ULexPrimitiveBooleanCopyWithImpl<$Res>
+    implements $ULexPrimitiveBooleanCopyWith<$Res> {
+  _$ULexPrimitiveBooleanCopyWithImpl(this._self, this._then);
+
+  final ULexPrimitiveBoolean _self;
+  final $Res Function(ULexPrimitiveBoolean) _then;
 
   /// Create a copy of LexPrimitive
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexPrimitiveBooleanImpl(
+    return _then(ULexPrimitiveBoolean(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as LexBoolean,
     ));
@@ -129,141 +112,51 @@ class __$$ULexPrimitiveBooleanImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $LexBooleanCopyWith<$Res> get data {
-    return $LexBooleanCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $LexBooleanCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$ULexPrimitiveBooleanImpl extends ULexPrimitiveBoolean {
-  const _$ULexPrimitiveBooleanImpl({required this.data}) : super._();
+class ULexPrimitiveInteger extends LexPrimitive {
+  const ULexPrimitiveInteger({required this.data}) : super._();
 
   @override
-  final LexBoolean data;
+  final LexInteger data;
 
-  @override
-  String toString() {
-    return 'LexPrimitive.boolean(data: $data)';
-  }
+  /// Create a copy of LexPrimitive
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ULexPrimitiveIntegerCopyWith<ULexPrimitiveInteger> get copyWith =>
+      _$ULexPrimitiveIntegerCopyWithImpl<ULexPrimitiveInteger>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexPrimitiveBooleanImpl &&
+            other is ULexPrimitiveInteger &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexPrimitive
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ULexPrimitiveBooleanImplCopyWith<_$ULexPrimitiveBooleanImpl>
-      get copyWith =>
-          __$$ULexPrimitiveBooleanImplCopyWithImpl<_$ULexPrimitiveBooleanImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return boolean(data);
+  String toString() {
+    return 'LexPrimitive.integer(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return boolean?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (boolean != null) {
-      return boolean(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexPrimitiveBoolean value) boolean,
-    required TResult Function(ULexPrimitiveInteger value) integer,
-    required TResult Function(ULexPrimitiveString value) string,
-    required TResult Function(ULexPrimitiveUnknown value) unknown,
-  }) {
-    return boolean(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexPrimitiveBoolean value)? boolean,
-    TResult? Function(ULexPrimitiveInteger value)? integer,
-    TResult? Function(ULexPrimitiveString value)? string,
-    TResult? Function(ULexPrimitiveUnknown value)? unknown,
-  }) {
-    return boolean?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexPrimitiveBoolean value)? boolean,
-    TResult Function(ULexPrimitiveInteger value)? integer,
-    TResult Function(ULexPrimitiveString value)? string,
-    TResult Function(ULexPrimitiveUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (boolean != null) {
-      return boolean(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ULexPrimitiveBoolean extends LexPrimitive {
-  const factory ULexPrimitiveBoolean({required final LexBoolean data}) =
-      _$ULexPrimitiveBooleanImpl;
-  const ULexPrimitiveBoolean._() : super._();
-
-  @override
-  LexBoolean get data;
-
-  /// Create a copy of LexPrimitive
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexPrimitiveBooleanImplCopyWith<_$ULexPrimitiveBooleanImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULexPrimitiveIntegerImplCopyWith<$Res> {
-  factory _$$ULexPrimitiveIntegerImplCopyWith(_$ULexPrimitiveIntegerImpl value,
-          $Res Function(_$ULexPrimitiveIntegerImpl) then) =
-      __$$ULexPrimitiveIntegerImplCopyWithImpl<$Res>;
+abstract mixin class $ULexPrimitiveIntegerCopyWith<$Res>
+    implements $LexPrimitiveCopyWith<$Res> {
+  factory $ULexPrimitiveIntegerCopyWith(ULexPrimitiveInteger value,
+          $Res Function(ULexPrimitiveInteger) _then) =
+      _$ULexPrimitiveIntegerCopyWithImpl;
   @useResult
   $Res call({LexInteger data});
 
@@ -271,23 +164,22 @@ abstract class _$$ULexPrimitiveIntegerImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexPrimitiveIntegerImplCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveIntegerImpl>
-    implements _$$ULexPrimitiveIntegerImplCopyWith<$Res> {
-  __$$ULexPrimitiveIntegerImplCopyWithImpl(_$ULexPrimitiveIntegerImpl _value,
-      $Res Function(_$ULexPrimitiveIntegerImpl) _then)
-      : super(_value, _then);
+class _$ULexPrimitiveIntegerCopyWithImpl<$Res>
+    implements $ULexPrimitiveIntegerCopyWith<$Res> {
+  _$ULexPrimitiveIntegerCopyWithImpl(this._self, this._then);
+
+  final ULexPrimitiveInteger _self;
+  final $Res Function(ULexPrimitiveInteger) _then;
 
   /// Create a copy of LexPrimitive
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexPrimitiveIntegerImpl(
+    return _then(ULexPrimitiveInteger(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as LexInteger,
     ));
@@ -298,141 +190,50 @@ class __$$ULexPrimitiveIntegerImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $LexIntegerCopyWith<$Res> get data {
-    return $LexIntegerCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $LexIntegerCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$ULexPrimitiveIntegerImpl extends ULexPrimitiveInteger {
-  const _$ULexPrimitiveIntegerImpl({required this.data}) : super._();
+class ULexPrimitiveString extends LexPrimitive {
+  const ULexPrimitiveString({required this.data}) : super._();
 
   @override
-  final LexInteger data;
+  final LexString data;
 
-  @override
-  String toString() {
-    return 'LexPrimitive.integer(data: $data)';
-  }
+  /// Create a copy of LexPrimitive
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ULexPrimitiveStringCopyWith<ULexPrimitiveString> get copyWith =>
+      _$ULexPrimitiveStringCopyWithImpl<ULexPrimitiveString>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexPrimitiveIntegerImpl &&
+            other is ULexPrimitiveString &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexPrimitive
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ULexPrimitiveIntegerImplCopyWith<_$ULexPrimitiveIntegerImpl>
-      get copyWith =>
-          __$$ULexPrimitiveIntegerImplCopyWithImpl<_$ULexPrimitiveIntegerImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return integer(data);
+  String toString() {
+    return 'LexPrimitive.string(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return integer?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (integer != null) {
-      return integer(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexPrimitiveBoolean value) boolean,
-    required TResult Function(ULexPrimitiveInteger value) integer,
-    required TResult Function(ULexPrimitiveString value) string,
-    required TResult Function(ULexPrimitiveUnknown value) unknown,
-  }) {
-    return integer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexPrimitiveBoolean value)? boolean,
-    TResult? Function(ULexPrimitiveInteger value)? integer,
-    TResult? Function(ULexPrimitiveString value)? string,
-    TResult? Function(ULexPrimitiveUnknown value)? unknown,
-  }) {
-    return integer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexPrimitiveBoolean value)? boolean,
-    TResult Function(ULexPrimitiveInteger value)? integer,
-    TResult Function(ULexPrimitiveString value)? string,
-    TResult Function(ULexPrimitiveUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (integer != null) {
-      return integer(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ULexPrimitiveInteger extends LexPrimitive {
-  const factory ULexPrimitiveInteger({required final LexInteger data}) =
-      _$ULexPrimitiveIntegerImpl;
-  const ULexPrimitiveInteger._() : super._();
-
-  @override
-  LexInteger get data;
-
-  /// Create a copy of LexPrimitive
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexPrimitiveIntegerImplCopyWith<_$ULexPrimitiveIntegerImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULexPrimitiveStringImplCopyWith<$Res> {
-  factory _$$ULexPrimitiveStringImplCopyWith(_$ULexPrimitiveStringImpl value,
-          $Res Function(_$ULexPrimitiveStringImpl) then) =
-      __$$ULexPrimitiveStringImplCopyWithImpl<$Res>;
+abstract mixin class $ULexPrimitiveStringCopyWith<$Res>
+    implements $LexPrimitiveCopyWith<$Res> {
+  factory $ULexPrimitiveStringCopyWith(
+          ULexPrimitiveString value, $Res Function(ULexPrimitiveString) _then) =
+      _$ULexPrimitiveStringCopyWithImpl;
   @useResult
   $Res call({LexString data});
 
@@ -440,23 +241,22 @@ abstract class _$$ULexPrimitiveStringImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexPrimitiveStringImplCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveStringImpl>
-    implements _$$ULexPrimitiveStringImplCopyWith<$Res> {
-  __$$ULexPrimitiveStringImplCopyWithImpl(_$ULexPrimitiveStringImpl _value,
-      $Res Function(_$ULexPrimitiveStringImpl) _then)
-      : super(_value, _then);
+class _$ULexPrimitiveStringCopyWithImpl<$Res>
+    implements $ULexPrimitiveStringCopyWith<$Res> {
+  _$ULexPrimitiveStringCopyWithImpl(this._self, this._then);
+
+  final ULexPrimitiveString _self;
+  final $Res Function(ULexPrimitiveString) _then;
 
   /// Create a copy of LexPrimitive
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexPrimitiveStringImpl(
+    return _then(ULexPrimitiveString(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as LexString,
     ));
@@ -467,140 +267,51 @@ class __$$ULexPrimitiveStringImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $LexStringCopyWith<$Res> get data {
-    return $LexStringCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $LexStringCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$ULexPrimitiveStringImpl extends ULexPrimitiveString {
-  const _$ULexPrimitiveStringImpl({required this.data}) : super._();
+class ULexPrimitiveUnknown extends LexPrimitive {
+  const ULexPrimitiveUnknown({required this.data}) : super._();
 
   @override
-  final LexString data;
+  final LexUnknown data;
 
-  @override
-  String toString() {
-    return 'LexPrimitive.string(data: $data)';
-  }
+  /// Create a copy of LexPrimitive
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ULexPrimitiveUnknownCopyWith<ULexPrimitiveUnknown> get copyWith =>
+      _$ULexPrimitiveUnknownCopyWithImpl<ULexPrimitiveUnknown>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexPrimitiveStringImpl &&
+            other is ULexPrimitiveUnknown &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of LexPrimitive
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ULexPrimitiveStringImplCopyWith<_$ULexPrimitiveStringImpl> get copyWith =>
-      __$$ULexPrimitiveStringImplCopyWithImpl<_$ULexPrimitiveStringImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return string(data);
+  String toString() {
+    return 'LexPrimitive.unknown(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return string?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (string != null) {
-      return string(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexPrimitiveBoolean value) boolean,
-    required TResult Function(ULexPrimitiveInteger value) integer,
-    required TResult Function(ULexPrimitiveString value) string,
-    required TResult Function(ULexPrimitiveUnknown value) unknown,
-  }) {
-    return string(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexPrimitiveBoolean value)? boolean,
-    TResult? Function(ULexPrimitiveInteger value)? integer,
-    TResult? Function(ULexPrimitiveString value)? string,
-    TResult? Function(ULexPrimitiveUnknown value)? unknown,
-  }) {
-    return string?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexPrimitiveBoolean value)? boolean,
-    TResult Function(ULexPrimitiveInteger value)? integer,
-    TResult Function(ULexPrimitiveString value)? string,
-    TResult Function(ULexPrimitiveUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (string != null) {
-      return string(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ULexPrimitiveString extends LexPrimitive {
-  const factory ULexPrimitiveString({required final LexString data}) =
-      _$ULexPrimitiveStringImpl;
-  const ULexPrimitiveString._() : super._();
-
-  @override
-  LexString get data;
-
-  /// Create a copy of LexPrimitive
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexPrimitiveStringImplCopyWith<_$ULexPrimitiveStringImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULexPrimitiveUnknownImplCopyWith<$Res> {
-  factory _$$ULexPrimitiveUnknownImplCopyWith(_$ULexPrimitiveUnknownImpl value,
-          $Res Function(_$ULexPrimitiveUnknownImpl) then) =
-      __$$ULexPrimitiveUnknownImplCopyWithImpl<$Res>;
+abstract mixin class $ULexPrimitiveUnknownCopyWith<$Res>
+    implements $LexPrimitiveCopyWith<$Res> {
+  factory $ULexPrimitiveUnknownCopyWith(ULexPrimitiveUnknown value,
+          $Res Function(ULexPrimitiveUnknown) _then) =
+      _$ULexPrimitiveUnknownCopyWithImpl;
   @useResult
   $Res call({LexUnknown data});
 
@@ -608,23 +319,22 @@ abstract class _$$ULexPrimitiveUnknownImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexPrimitiveUnknownImplCopyWithImpl<$Res>
-    extends _$LexPrimitiveCopyWithImpl<$Res, _$ULexPrimitiveUnknownImpl>
-    implements _$$ULexPrimitiveUnknownImplCopyWith<$Res> {
-  __$$ULexPrimitiveUnknownImplCopyWithImpl(_$ULexPrimitiveUnknownImpl _value,
-      $Res Function(_$ULexPrimitiveUnknownImpl) _then)
-      : super(_value, _then);
+class _$ULexPrimitiveUnknownCopyWithImpl<$Res>
+    implements $ULexPrimitiveUnknownCopyWith<$Res> {
+  _$ULexPrimitiveUnknownCopyWithImpl(this._self, this._then);
+
+  final ULexPrimitiveUnknown _self;
+  final $Res Function(ULexPrimitiveUnknown) _then;
 
   /// Create a copy of LexPrimitive
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexPrimitiveUnknownImpl(
+    return _then(ULexPrimitiveUnknown(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as LexUnknown,
     ));
@@ -635,132 +345,10 @@ class __$$ULexPrimitiveUnknownImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $LexUnknownCopyWith<$Res> get data {
-    return $LexUnknownCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $LexUnknownCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
-/// @nodoc
-
-class _$ULexPrimitiveUnknownImpl extends ULexPrimitiveUnknown {
-  const _$ULexPrimitiveUnknownImpl({required this.data}) : super._();
-
-  @override
-  final LexUnknown data;
-
-  @override
-  String toString() {
-    return 'LexPrimitive.unknown(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ULexPrimitiveUnknownImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of LexPrimitive
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ULexPrimitiveUnknownImplCopyWith<_$ULexPrimitiveUnknownImpl>
-      get copyWith =>
-          __$$ULexPrimitiveUnknownImplCopyWithImpl<_$ULexPrimitiveUnknownImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LexBoolean data) boolean,
-    required TResult Function(LexInteger data) integer,
-    required TResult Function(LexString data) string,
-    required TResult Function(LexUnknown data) unknown,
-  }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LexBoolean data)? boolean,
-    TResult? Function(LexInteger data)? integer,
-    TResult? Function(LexString data)? string,
-    TResult? Function(LexUnknown data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LexBoolean data)? boolean,
-    TResult Function(LexInteger data)? integer,
-    TResult Function(LexString data)? string,
-    TResult Function(LexUnknown data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ULexPrimitiveBoolean value) boolean,
-    required TResult Function(ULexPrimitiveInteger value) integer,
-    required TResult Function(ULexPrimitiveString value) string,
-    required TResult Function(ULexPrimitiveUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULexPrimitiveBoolean value)? boolean,
-    TResult? Function(ULexPrimitiveInteger value)? integer,
-    TResult? Function(ULexPrimitiveString value)? string,
-    TResult? Function(ULexPrimitiveUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULexPrimitiveBoolean value)? boolean,
-    TResult Function(ULexPrimitiveInteger value)? integer,
-    TResult Function(ULexPrimitiveString value)? string,
-    TResult Function(ULexPrimitiveUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ULexPrimitiveUnknown extends LexPrimitive {
-  const factory ULexPrimitiveUnknown({required final LexUnknown data}) =
-      _$ULexPrimitiveUnknownImpl;
-  const ULexPrimitiveUnknown._() : super._();
-
-  @override
-  LexUnknown get data;
-
-  /// Create a copy of LexPrimitive
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ULexPrimitiveUnknownImplCopyWith<_$ULexPrimitiveUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

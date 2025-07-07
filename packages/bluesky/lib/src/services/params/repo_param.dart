@@ -8,7 +8,7 @@ part 'repo_param.freezed.dart';
 part 'repo_param.g.dart';
 
 @freezed
-class RepoParam with _$RepoParam {
+abstract class RepoParam with _$RepoParam {
   @jsonSerializable
   const factory RepoParam({
     required String did,

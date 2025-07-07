@@ -8,12 +8,12 @@ part of 'skeleton_reason_repost.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SkeletonReasonRepostImpl _$$SkeletonReasonRepostImplFromJson(Map json) =>
+_SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map json) =>
     $checkedCreate(
-      r'_$SkeletonReasonRepostImpl',
+      '_SkeletonReasonRepost',
       json,
       ($checkedConvert) {
-        final val = _$SkeletonReasonRepostImpl(
+        final val = _SkeletonReasonRepost(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyFeedDefsSkeletonReasonRepost),
           repost: $checkedConvert(
@@ -24,8 +24,8 @@ _$SkeletonReasonRepostImpl _$$SkeletonReasonRepostImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$SkeletonReasonRepostImplToJson(
-        _$SkeletonReasonRepostImpl instance) =>
+Map<String, dynamic> _$SkeletonReasonRepostToJson(
+        _SkeletonReasonRepost instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'repost': const AtUriConverter().toJson(instance.repost),

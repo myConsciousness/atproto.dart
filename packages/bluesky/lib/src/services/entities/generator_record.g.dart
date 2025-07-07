@@ -8,12 +8,11 @@ part of 'generator_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GeneratorRecordImpl',
+_GeneratorRecord _$GeneratorRecordFromJson(Map json) => $checkedCreate(
+      '_GeneratorRecord',
       json,
       ($checkedConvert) {
-        final val = _$GeneratorRecordImpl(
+        final val = _GeneratorRecord(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedGenerator),
           did: $checkedConvert('did', (v) => v as String),
@@ -45,8 +44,7 @@ _$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$GeneratorRecordImplToJson(
-        _$GeneratorRecordImpl instance) =>
+Map<String, dynamic> _$GeneratorRecordToJson(_GeneratorRecord instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'did': instance.did,

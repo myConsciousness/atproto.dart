@@ -14,7 +14,7 @@ part 'embed_view_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
-class EmbedViewRecord with _$EmbedViewRecord {
+abstract class EmbedViewRecord with _$EmbedViewRecord {
   const factory EmbedViewRecord({
     @typeKey @Default(appBskyEmbedRecordView) String type,
     @embedViewRecordViewConverter required EmbedViewRecordView record,

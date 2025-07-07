@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,94 +10,57 @@ part of 'embed_view_record_view_not_found.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EmbedViewRecordViewNotFound _$EmbedViewRecordViewNotFoundFromJson(
-    Map<String, dynamic> json) {
-  return _EmbedViewRecordViewNotFound.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EmbedViewRecordViewNotFound {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
+  AtUri get uri;
   @JsonKey(name: 'notFound')
-  bool get isNotFound => throw _privateConstructorUsedError;
-
-  /// Serializes this EmbedViewRecordViewNotFound to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool get isNotFound;
 
   /// Create a copy of EmbedViewRecordViewNotFound
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $EmbedViewRecordViewNotFoundCopyWith<EmbedViewRecordViewNotFound>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $EmbedViewRecordViewNotFoundCopyWith<$Res> {
-  factory $EmbedViewRecordViewNotFoundCopyWith(
-          EmbedViewRecordViewNotFound value,
-          $Res Function(EmbedViewRecordViewNotFound) then) =
-      _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res,
-          EmbedViewRecordViewNotFound>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @AtUriConverter() AtUri uri,
-      @JsonKey(name: 'notFound') bool isNotFound});
-}
-
-/// @nodoc
-class _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res,
-        $Val extends EmbedViewRecordViewNotFound>
-    implements $EmbedViewRecordViewNotFoundCopyWith<$Res> {
-  _$EmbedViewRecordViewNotFoundCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of EmbedViewRecordViewNotFound
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $EmbedViewRecordViewNotFoundCopyWith<EmbedViewRecordViewNotFound>
+      get copyWith => _$EmbedViewRecordViewNotFoundCopyWithImpl<
+              EmbedViewRecordViewNotFound>(
+          this as EmbedViewRecordViewNotFound, _$identity);
+
+  /// Serializes this EmbedViewRecordViewNotFound to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? uri = null,
-    Object? isNotFound = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      isNotFound: null == isNotFound
-          ? _value.isNotFound
-          : isNotFound // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EmbedViewRecordViewNotFound &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.isNotFound, isNotFound) ||
+                other.isNotFound == isNotFound));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, uri, isNotFound);
+
+  @override
+  String toString() {
+    return 'EmbedViewRecordViewNotFound(type: $type, uri: $uri, isNotFound: $isNotFound)';
   }
 }
 
 /// @nodoc
-abstract class _$$EmbedViewRecordViewNotFoundImplCopyWith<$Res>
-    implements $EmbedViewRecordViewNotFoundCopyWith<$Res> {
-  factory _$$EmbedViewRecordViewNotFoundImplCopyWith(
-          _$EmbedViewRecordViewNotFoundImpl value,
-          $Res Function(_$EmbedViewRecordViewNotFoundImpl) then) =
-      __$$EmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $EmbedViewRecordViewNotFoundCopyWith<$Res> {
+  factory $EmbedViewRecordViewNotFoundCopyWith(
+          EmbedViewRecordViewNotFound value,
+          $Res Function(EmbedViewRecordViewNotFound) _then) =
+      _$EmbedViewRecordViewNotFoundCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -105,14 +69,12 @@ abstract class _$$EmbedViewRecordViewNotFoundImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$EmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>
-    extends _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res,
-        _$EmbedViewRecordViewNotFoundImpl>
-    implements _$$EmbedViewRecordViewNotFoundImplCopyWith<$Res> {
-  __$$EmbedViewRecordViewNotFoundImplCopyWithImpl(
-      _$EmbedViewRecordViewNotFoundImpl _value,
-      $Res Function(_$EmbedViewRecordViewNotFoundImpl) _then)
-      : super(_value, _then);
+class _$EmbedViewRecordViewNotFoundCopyWithImpl<$Res>
+    implements $EmbedViewRecordViewNotFoundCopyWith<$Res> {
+  _$EmbedViewRecordViewNotFoundCopyWithImpl(this._self, this._then);
+
+  final EmbedViewRecordViewNotFound _self;
+  final $Res Function(EmbedViewRecordViewNotFound) _then;
 
   /// Create a copy of EmbedViewRecordViewNotFound
   /// with the given fields replaced by the non-null parameter values.
@@ -123,17 +85,17 @@ class __$$EmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? isNotFound = null,
   }) {
-    return _then(_$EmbedViewRecordViewNotFoundImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       isNotFound: null == isNotFound
-          ? _value.isNotFound
+          ? _self.isNotFound
           : isNotFound // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -142,16 +104,13 @@ class __$$EmbedViewRecordViewNotFoundImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EmbedViewRecordViewNotFoundImpl
-    implements _EmbedViewRecordViewNotFound {
-  const _$EmbedViewRecordViewNotFoundImpl(
+class _EmbedViewRecordViewNotFound implements EmbedViewRecordViewNotFound {
+  const _EmbedViewRecordViewNotFound(
       {@typeKey this.type = appBskyEmbedRecordViewNotFound,
       @AtUriConverter() required this.uri,
       @JsonKey(name: 'notFound') this.isNotFound = true});
-
-  factory _$EmbedViewRecordViewNotFoundImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$EmbedViewRecordViewNotFoundImplFromJson(json);
+  factory _EmbedViewRecordViewNotFound.fromJson(Map<String, dynamic> json) =>
+      _$EmbedViewRecordViewNotFoundFromJson(json);
 
   @override
   @typeKey
@@ -163,16 +122,27 @@ class _$EmbedViewRecordViewNotFoundImpl
   @JsonKey(name: 'notFound')
   final bool isNotFound;
 
+  /// Create a copy of EmbedViewRecordViewNotFound
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'EmbedViewRecordViewNotFound(type: $type, uri: $uri, isNotFound: $isNotFound)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$EmbedViewRecordViewNotFoundCopyWith<_EmbedViewRecordViewNotFound>
+      get copyWith => __$EmbedViewRecordViewNotFoundCopyWithImpl<
+          _EmbedViewRecordViewNotFound>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EmbedViewRecordViewNotFoundToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedViewRecordViewNotFoundImpl &&
+            other is _EmbedViewRecordViewNotFound &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.isNotFound, isNotFound) ||
@@ -183,48 +153,59 @@ class _$EmbedViewRecordViewNotFoundImpl
   @override
   int get hashCode => Object.hash(runtimeType, type, uri, isNotFound);
 
-  /// Create a copy of EmbedViewRecordViewNotFound
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EmbedViewRecordViewNotFoundImplCopyWith<_$EmbedViewRecordViewNotFoundImpl>
-      get copyWith => __$$EmbedViewRecordViewNotFoundImplCopyWithImpl<
-          _$EmbedViewRecordViewNotFoundImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EmbedViewRecordViewNotFoundImplToJson(
-      this,
-    );
+  String toString() {
+    return 'EmbedViewRecordViewNotFound(type: $type, uri: $uri, isNotFound: $isNotFound)';
   }
 }
 
-abstract class _EmbedViewRecordViewNotFound
-    implements EmbedViewRecordViewNotFound {
-  const factory _EmbedViewRecordViewNotFound(
-          {@typeKey final String type,
-          @AtUriConverter() required final AtUri uri,
-          @JsonKey(name: 'notFound') final bool isNotFound}) =
-      _$EmbedViewRecordViewNotFoundImpl;
+/// @nodoc
+abstract mixin class _$EmbedViewRecordViewNotFoundCopyWith<$Res>
+    implements $EmbedViewRecordViewNotFoundCopyWith<$Res> {
+  factory _$EmbedViewRecordViewNotFoundCopyWith(
+          _EmbedViewRecordViewNotFound value,
+          $Res Function(_EmbedViewRecordViewNotFound) _then) =
+      __$EmbedViewRecordViewNotFoundCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @AtUriConverter() AtUri uri,
+      @JsonKey(name: 'notFound') bool isNotFound});
+}
 
-  factory _EmbedViewRecordViewNotFound.fromJson(Map<String, dynamic> json) =
-      _$EmbedViewRecordViewNotFoundImpl.fromJson;
+/// @nodoc
+class __$EmbedViewRecordViewNotFoundCopyWithImpl<$Res>
+    implements _$EmbedViewRecordViewNotFoundCopyWith<$Res> {
+  __$EmbedViewRecordViewNotFoundCopyWithImpl(this._self, this._then);
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  @JsonKey(name: 'notFound')
-  bool get isNotFound;
+  final _EmbedViewRecordViewNotFound _self;
+  final $Res Function(_EmbedViewRecordViewNotFound) _then;
 
   /// Create a copy of EmbedViewRecordViewNotFound
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EmbedViewRecordViewNotFoundImplCopyWith<_$EmbedViewRecordViewNotFoundImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? uri = null,
+    Object? isNotFound = null,
+  }) {
+    return _then(_EmbedViewRecordViewNotFound(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      isNotFound: null == isNotFound
+          ? _self.isNotFound
+          : isNotFound // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
+
+// dart format on

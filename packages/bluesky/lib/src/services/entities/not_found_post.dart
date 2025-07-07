@@ -12,7 +12,7 @@ part 'not_found_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#notfoundpost
 @freezed
-class NotFoundPost with _$NotFoundPost {
+abstract class NotFoundPost with _$NotFoundPost {
   const factory NotFoundPost({
     @typeKey @Default(appBskyFeedDefsNotFoundPost) String type,
     @AtUriConverter() required AtUri uri,

@@ -11,10 +11,19 @@ ModerationDecision decideUserList(
   final ModerationSubjectUserList subject,
   final ModerationOpts opts,
 ) {
-  final (creator, labels, uri) = subject.when(
-    listViewBasic: (data) => (null, data.labels, data.uri),
-    listView: (data) => (data.createdBy, data.labels, null),
-  );
+  final (creator, labels, uri) = switch (subject) {
+    UModerationSubjectUserListListViewBasic(data: final data) => (
+        null,
+        data.labels,
+        data.uri
+      ),
+    UModerationSubjectUserListListView(data: final data) => (
+        data.createdBy,
+        data.labels,
+        null
+      ),
+    _ => throw UnimplementedError(),
+  };
 
   if (creator != null) {
     final decision = ModerationDecision.init(

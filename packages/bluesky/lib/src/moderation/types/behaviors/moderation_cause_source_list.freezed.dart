@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,27 +10,43 @@ part of 'moderation_cause_source_list.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ModerationCauseSourceList {
-  ListViewBasic get list => throw _privateConstructorUsedError;
+  ListViewBasic get list;
 
   /// Create a copy of ModerationCauseSourceList
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ModerationCauseSourceListCopyWith<ModerationCauseSourceList> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ModerationCauseSourceListCopyWithImpl<ModerationCauseSourceList>(
+          this as ModerationCauseSourceList, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationCauseSourceList &&
+            (identical(other.list, list) || other.list == list));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, list);
+
+  @override
+  String toString() {
+    return 'ModerationCauseSourceList(list: $list)';
+  }
 }
 
 /// @nodoc
-abstract class $ModerationCauseSourceListCopyWith<$Res> {
+abstract mixin class $ModerationCauseSourceListCopyWith<$Res> {
   factory $ModerationCauseSourceListCopyWith(ModerationCauseSourceList value,
-          $Res Function(ModerationCauseSourceList) then) =
-      _$ModerationCauseSourceListCopyWithImpl<$Res, ModerationCauseSourceList>;
+          $Res Function(ModerationCauseSourceList) _then) =
+      _$ModerationCauseSourceListCopyWithImpl;
   @useResult
   $Res call({ListViewBasic list});
 
@@ -37,15 +54,12 @@ abstract class $ModerationCauseSourceListCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ModerationCauseSourceListCopyWithImpl<$Res,
-        $Val extends ModerationCauseSourceList>
+class _$ModerationCauseSourceListCopyWithImpl<$Res>
     implements $ModerationCauseSourceListCopyWith<$Res> {
-  _$ModerationCauseSourceListCopyWithImpl(this._value, this._then);
+  _$ModerationCauseSourceListCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModerationCauseSourceList _self;
+  final $Res Function(ModerationCauseSourceList) _then;
 
   /// Create a copy of ModerationCauseSourceList
   /// with the given fields replaced by the non-null parameter values.
@@ -54,12 +68,12 @@ class _$ModerationCauseSourceListCopyWithImpl<$Res,
   $Res call({
     Object? list = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       list: null == list
-          ? _value.list
+          ? _self.list
           : list // ignore: cast_nullable_to_non_nullable
               as ListViewBasic,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ModerationCauseSourceList
@@ -67,19 +81,53 @@ class _$ModerationCauseSourceListCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $ListViewBasicCopyWith<$Res> get list {
-    return $ListViewBasicCopyWith<$Res>(_value.list, (value) {
-      return _then(_value.copyWith(list: value) as $Val);
+    return $ListViewBasicCopyWith<$Res>(_self.list, (value) {
+      return _then(_self.copyWith(list: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ModerationCauseSourceListImplCopyWith<$Res>
+
+class _ModerationCauseSourceList implements ModerationCauseSourceList {
+  const _ModerationCauseSourceList({required this.list});
+
+  @override
+  final ListViewBasic list;
+
+  /// Create a copy of ModerationCauseSourceList
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ModerationCauseSourceListCopyWith<_ModerationCauseSourceList>
+      get copyWith =>
+          __$ModerationCauseSourceListCopyWithImpl<_ModerationCauseSourceList>(
+              this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ModerationCauseSourceList &&
+            (identical(other.list, list) || other.list == list));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, list);
+
+  @override
+  String toString() {
+    return 'ModerationCauseSourceList(list: $list)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ModerationCauseSourceListCopyWith<$Res>
     implements $ModerationCauseSourceListCopyWith<$Res> {
-  factory _$$ModerationCauseSourceListImplCopyWith(
-          _$ModerationCauseSourceListImpl value,
-          $Res Function(_$ModerationCauseSourceListImpl) then) =
-      __$$ModerationCauseSourceListImplCopyWithImpl<$Res>;
+  factory _$ModerationCauseSourceListCopyWith(_ModerationCauseSourceList value,
+          $Res Function(_ModerationCauseSourceList) _then) =
+      __$ModerationCauseSourceListCopyWithImpl;
   @override
   @useResult
   $Res call({ListViewBasic list});
@@ -89,76 +137,37 @@ abstract class _$$ModerationCauseSourceListImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ModerationCauseSourceListImplCopyWithImpl<$Res>
-    extends _$ModerationCauseSourceListCopyWithImpl<$Res,
-        _$ModerationCauseSourceListImpl>
-    implements _$$ModerationCauseSourceListImplCopyWith<$Res> {
-  __$$ModerationCauseSourceListImplCopyWithImpl(
-      _$ModerationCauseSourceListImpl _value,
-      $Res Function(_$ModerationCauseSourceListImpl) _then)
-      : super(_value, _then);
+class __$ModerationCauseSourceListCopyWithImpl<$Res>
+    implements _$ModerationCauseSourceListCopyWith<$Res> {
+  __$ModerationCauseSourceListCopyWithImpl(this._self, this._then);
+
+  final _ModerationCauseSourceList _self;
+  final $Res Function(_ModerationCauseSourceList) _then;
 
   /// Create a copy of ModerationCauseSourceList
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? list = null,
   }) {
-    return _then(_$ModerationCauseSourceListImpl(
+    return _then(_ModerationCauseSourceList(
       list: null == list
-          ? _value.list
+          ? _self.list
           : list // ignore: cast_nullable_to_non_nullable
               as ListViewBasic,
     ));
   }
-}
-
-/// @nodoc
-
-class _$ModerationCauseSourceListImpl implements _ModerationCauseSourceList {
-  const _$ModerationCauseSourceListImpl({required this.list});
-
-  @override
-  final ListViewBasic list;
-
-  @override
-  String toString() {
-    return 'ModerationCauseSourceList(list: $list)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ModerationCauseSourceListImpl &&
-            (identical(other.list, list) || other.list == list));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, list);
 
   /// Create a copy of ModerationCauseSourceList
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModerationCauseSourceListImplCopyWith<_$ModerationCauseSourceListImpl>
-      get copyWith => __$$ModerationCauseSourceListImplCopyWithImpl<
-          _$ModerationCauseSourceListImpl>(this, _$identity);
+  $ListViewBasicCopyWith<$Res> get list {
+    return $ListViewBasicCopyWith<$Res>(_self.list, (value) {
+      return _then(_self.copyWith(list: value));
+    });
+  }
 }
 
-abstract class _ModerationCauseSourceList implements ModerationCauseSourceList {
-  const factory _ModerationCauseSourceList(
-      {required final ListViewBasic list}) = _$ModerationCauseSourceListImpl;
-
-  @override
-  ListViewBasic get list;
-
-  /// Create a copy of ModerationCauseSourceList
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModerationCauseSourceListImplCopyWith<_$ModerationCauseSourceListImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

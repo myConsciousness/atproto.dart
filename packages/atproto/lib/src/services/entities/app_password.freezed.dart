@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,166 +10,31 @@ part of 'app_password.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AppPassword _$AppPasswordFromJson(Map<String, dynamic> json) {
-  return _AppPassword.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AppPassword {
-  String get name => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  bool get privileged => throw _privateConstructorUsedError;
-
-  /// Serializes this AppPassword to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get name;
+  String get password;
+  DateTime get createdAt;
+  bool get privileged;
 
   /// Create a copy of AppPassword
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $AppPasswordCopyWith<AppPassword> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$AppPasswordCopyWithImpl<AppPassword>(this as AppPassword, _$identity);
 
-/// @nodoc
-abstract class $AppPasswordCopyWith<$Res> {
-  factory $AppPasswordCopyWith(
-          AppPassword value, $Res Function(AppPassword) then) =
-      _$AppPasswordCopyWithImpl<$Res, AppPassword>;
-  @useResult
-  $Res call(
-      {String name, String password, DateTime createdAt, bool privileged});
-}
-
-/// @nodoc
-class _$AppPasswordCopyWithImpl<$Res, $Val extends AppPassword>
-    implements $AppPasswordCopyWith<$Res> {
-  _$AppPasswordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of AppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? password = null,
-    Object? createdAt = null,
-    Object? privileged = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      privileged: null == privileged
-          ? _value.privileged
-          : privileged // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$AppPasswordImplCopyWith<$Res>
-    implements $AppPasswordCopyWith<$Res> {
-  factory _$$AppPasswordImplCopyWith(
-          _$AppPasswordImpl value, $Res Function(_$AppPasswordImpl) then) =
-      __$$AppPasswordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name, String password, DateTime createdAt, bool privileged});
-}
-
-/// @nodoc
-class __$$AppPasswordImplCopyWithImpl<$Res>
-    extends _$AppPasswordCopyWithImpl<$Res, _$AppPasswordImpl>
-    implements _$$AppPasswordImplCopyWith<$Res> {
-  __$$AppPasswordImplCopyWithImpl(
-      _$AppPasswordImpl _value, $Res Function(_$AppPasswordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? password = null,
-    Object? createdAt = null,
-    Object? privileged = null,
-  }) {
-    return _then(_$AppPasswordImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      privileged: null == privileged
-          ? _value.privileged
-          : privileged // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$AppPasswordImpl implements _AppPassword {
-  const _$AppPasswordImpl(
-      {required this.name,
-      required this.password,
-      required this.createdAt,
-      this.privileged = false});
-
-  factory _$AppPasswordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppPasswordImplFromJson(json);
-
-  @override
-  final String name;
-  @override
-  final String password;
-  @override
-  final DateTime createdAt;
-  @override
-  @JsonKey()
-  final bool privileged;
-
-  @override
-  String toString() {
-    return 'AppPassword(name: $name, password: $password, createdAt: $createdAt, privileged: $privileged)';
-  }
+  /// Serializes this AppPassword to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AppPasswordImpl &&
+            other is AppPassword &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.password, password) ||
                 other.password == password) &&
@@ -183,45 +49,169 @@ class _$AppPasswordImpl implements _AppPassword {
   int get hashCode =>
       Object.hash(runtimeType, name, password, createdAt, privileged);
 
-  /// Create a copy of AppPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$AppPasswordImplCopyWith<_$AppPasswordImpl> get copyWith =>
-      __$$AppPasswordImplCopyWithImpl<_$AppPasswordImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AppPasswordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'AppPassword(name: $name, password: $password, createdAt: $createdAt, privileged: $privileged)';
   }
 }
 
-abstract class _AppPassword implements AppPassword {
-  const factory _AppPassword(
-      {required final String name,
-      required final String password,
-      required final DateTime createdAt,
-      final bool privileged}) = _$AppPasswordImpl;
+/// @nodoc
+abstract mixin class $AppPasswordCopyWith<$Res> {
+  factory $AppPasswordCopyWith(
+          AppPassword value, $Res Function(AppPassword) _then) =
+      _$AppPasswordCopyWithImpl;
+  @useResult
+  $Res call(
+      {String name, String password, DateTime createdAt, bool privileged});
+}
 
-  factory _AppPassword.fromJson(Map<String, dynamic> json) =
-      _$AppPasswordImpl.fromJson;
+/// @nodoc
+class _$AppPasswordCopyWithImpl<$Res> implements $AppPasswordCopyWith<$Res> {
+  _$AppPasswordCopyWithImpl(this._self, this._then);
+
+  final AppPassword _self;
+  final $Res Function(AppPassword) _then;
+
+  /// Create a copy of AppPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? password = null,
+    Object? createdAt = null,
+    Object? privileged = null,
+  }) {
+    return _then(_self.copyWith(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      privileged: null == privileged
+          ? _self.privileged
+          : privileged // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _AppPassword implements AppPassword {
+  const _AppPassword(
+      {required this.name,
+      required this.password,
+      required this.createdAt,
+      this.privileged = false});
+  factory _AppPassword.fromJson(Map<String, dynamic> json) =>
+      _$AppPasswordFromJson(json);
 
   @override
-  String get name;
+  final String name;
   @override
-  String get password;
+  final String password;
   @override
-  DateTime get createdAt;
+  final DateTime createdAt;
   @override
-  bool get privileged;
+  @JsonKey()
+  final bool privileged;
 
   /// Create a copy of AppPassword
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppPasswordImplCopyWith<_$AppPasswordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$AppPasswordCopyWith<_AppPassword> get copyWith =>
+      __$AppPasswordCopyWithImpl<_AppPassword>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$AppPasswordToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AppPassword &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.privileged, privileged) ||
+                other.privileged == privileged));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, name, password, createdAt, privileged);
+
+  @override
+  String toString() {
+    return 'AppPassword(name: $name, password: $password, createdAt: $createdAt, privileged: $privileged)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$AppPasswordCopyWith<$Res>
+    implements $AppPasswordCopyWith<$Res> {
+  factory _$AppPasswordCopyWith(
+          _AppPassword value, $Res Function(_AppPassword) _then) =
+      __$AppPasswordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String name, String password, DateTime createdAt, bool privileged});
+}
+
+/// @nodoc
+class __$AppPasswordCopyWithImpl<$Res> implements _$AppPasswordCopyWith<$Res> {
+  __$AppPasswordCopyWithImpl(this._self, this._then);
+
+  final _AppPassword _self;
+  final $Res Function(_AppPassword) _then;
+
+  /// Create a copy of AppPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? password = null,
+    Object? createdAt = null,
+    Object? privileged = null,
+  }) {
+    return _then(_AppPassword(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      privileged: null == privileged
+          ? _self.privileged
+          : privileged // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+// dart format on

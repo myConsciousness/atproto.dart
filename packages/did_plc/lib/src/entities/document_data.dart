@@ -8,7 +8,7 @@ part 'document_data.freezed.dart';
 part 'document_data.g.dart';
 
 @freezed
-class DocumentData with _$DocumentData {
+abstract class DocumentData with _$DocumentData {
   /// Creates an instance of [DocumentData].
   @jsonSerializable
   const factory DocumentData({

@@ -50,10 +50,13 @@ final class _LexArrayItemConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexArrayItem object) => object.when(
-        primitive: (data) => data.toJson(),
-        ipld: (data) => data.toJson(),
-        blob: (data) => data.toJson(),
-        refVariant: (data) => data.toJson(),
-      );
+  Map<String, dynamic> toJson(LexArrayItem object) => switch (object) {
+        ULexArrayItemPrimitive(data: final data) => data.toJson(),
+        ULexArrayItemIpld(data: final data) => data.toJson(),
+        ULexArrayItemBlob(data: final data) => data.toJson(),
+        ULexArrayRefVariant(data: final data) => data.toJson(),
+        _ => throw UnimplementedError(
+            'Unknown LexArrayItem type: ${object.runtimeType}',
+          ),
+      };
 }

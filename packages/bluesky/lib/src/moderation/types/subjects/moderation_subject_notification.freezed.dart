@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,62 +10,45 @@ part of 'moderation_subject_notification.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ModerationSubjectNotification {
-  Notification get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Notification data) notification,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Notification data)? notification,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Notification data)? notification,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectNotification value)
-        notification,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectNotification value)? notification,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectNotification value)? notification,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Notification get data;
 
   /// Create a copy of ModerationSubjectNotification
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ModerationSubjectNotificationCopyWith<ModerationSubjectNotification>
-      get copyWith => throw _privateConstructorUsedError;
+      get copyWith => _$ModerationSubjectNotificationCopyWithImpl<
+              ModerationSubjectNotification>(
+          this as ModerationSubjectNotification, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationSubjectNotification &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'ModerationSubjectNotification(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $ModerationSubjectNotificationCopyWith<$Res> {
+abstract mixin class $ModerationSubjectNotificationCopyWith<$Res> {
   factory $ModerationSubjectNotificationCopyWith(
           ModerationSubjectNotification value,
-          $Res Function(ModerationSubjectNotification) then) =
-      _$ModerationSubjectNotificationCopyWithImpl<$Res,
-          ModerationSubjectNotification>;
+          $Res Function(ModerationSubjectNotification) _then) =
+      _$ModerationSubjectNotificationCopyWithImpl;
   @useResult
   $Res call({Notification data});
 
@@ -72,15 +56,12 @@ abstract class $ModerationSubjectNotificationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ModerationSubjectNotificationCopyWithImpl<$Res,
-        $Val extends ModerationSubjectNotification>
+class _$ModerationSubjectNotificationCopyWithImpl<$Res>
     implements $ModerationSubjectNotificationCopyWith<$Res> {
-  _$ModerationSubjectNotificationCopyWithImpl(this._value, this._then);
+  _$ModerationSubjectNotificationCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ModerationSubjectNotification _self;
+  final $Res Function(ModerationSubjectNotification) _then;
 
   /// Create a copy of ModerationSubjectNotification
   /// with the given fields replaced by the non-null parameter values.
@@ -89,12 +70,12 @@ class _$ModerationSubjectNotificationCopyWithImpl<$Res,
   $Res call({
     Object? data = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Notification,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ModerationSubjectNotification
@@ -102,19 +83,53 @@ class _$ModerationSubjectNotificationCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $NotificationCopyWith<$Res> get data {
-    return $NotificationCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
+    return $NotificationCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectNotificationImplCopyWith<$Res>
+
+class UModerationSubjectNotification implements ModerationSubjectNotification {
+  const UModerationSubjectNotification({required this.data});
+
+  @override
+  final Notification data;
+
+  /// Create a copy of ModerationSubjectNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UModerationSubjectNotificationCopyWith<UModerationSubjectNotification>
+      get copyWith => _$UModerationSubjectNotificationCopyWithImpl<
+          UModerationSubjectNotification>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UModerationSubjectNotification &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'ModerationSubjectNotification.notification(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UModerationSubjectNotificationCopyWith<$Res>
     implements $ModerationSubjectNotificationCopyWith<$Res> {
-  factory _$$UModerationSubjectNotificationImplCopyWith(
-          _$UModerationSubjectNotificationImpl value,
-          $Res Function(_$UModerationSubjectNotificationImpl) then) =
-      __$$UModerationSubjectNotificationImplCopyWithImpl<$Res>;
+  factory $UModerationSubjectNotificationCopyWith(
+          UModerationSubjectNotification value,
+          $Res Function(UModerationSubjectNotification) _then) =
+      _$UModerationSubjectNotificationCopyWithImpl;
   @override
   @useResult
   $Res call({Notification data});
@@ -124,138 +139,37 @@ abstract class _$$UModerationSubjectNotificationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UModerationSubjectNotificationImplCopyWithImpl<$Res>
-    extends _$ModerationSubjectNotificationCopyWithImpl<$Res,
-        _$UModerationSubjectNotificationImpl>
-    implements _$$UModerationSubjectNotificationImplCopyWith<$Res> {
-  __$$UModerationSubjectNotificationImplCopyWithImpl(
-      _$UModerationSubjectNotificationImpl _value,
-      $Res Function(_$UModerationSubjectNotificationImpl) _then)
-      : super(_value, _then);
+class _$UModerationSubjectNotificationCopyWithImpl<$Res>
+    implements $UModerationSubjectNotificationCopyWith<$Res> {
+  _$UModerationSubjectNotificationCopyWithImpl(this._self, this._then);
+
+  final UModerationSubjectNotification _self;
+  final $Res Function(UModerationSubjectNotification) _then;
 
   /// Create a copy of ModerationSubjectNotification
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UModerationSubjectNotificationImpl(
+    return _then(UModerationSubjectNotification(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Notification,
     ));
   }
-}
-
-/// @nodoc
-
-class _$UModerationSubjectNotificationImpl
-    implements UModerationSubjectNotification {
-  const _$UModerationSubjectNotificationImpl({required this.data});
-
-  @override
-  final Notification data;
-
-  @override
-  String toString() {
-    return 'ModerationSubjectNotification.notification(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UModerationSubjectNotificationImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
 
   /// Create a copy of ModerationSubjectNotification
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UModerationSubjectNotificationImplCopyWith<
-          _$UModerationSubjectNotificationImpl>
-      get copyWith => __$$UModerationSubjectNotificationImplCopyWithImpl<
-          _$UModerationSubjectNotificationImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Notification data) notification,
-  }) {
-    return notification(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Notification data)? notification,
-  }) {
-    return notification?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Notification data)? notification,
-    required TResult orElse(),
-  }) {
-    if (notification != null) {
-      return notification(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectNotification value)
-        notification,
-  }) {
-    return notification(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectNotification value)? notification,
-  }) {
-    return notification?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectNotification value)? notification,
-    required TResult orElse(),
-  }) {
-    if (notification != null) {
-      return notification(this);
-    }
-    return orElse();
+  $NotificationCopyWith<$Res> get data {
+    return $NotificationCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
   }
 }
 
-abstract class UModerationSubjectNotification
-    implements ModerationSubjectNotification {
-  const factory UModerationSubjectNotification(
-          {required final Notification data}) =
-      _$UModerationSubjectNotificationImpl;
-
-  @override
-  Notification get data;
-
-  /// Create a copy of ModerationSubjectNotification
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UModerationSubjectNotificationImplCopyWith<
-          _$UModerationSubjectNotificationImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

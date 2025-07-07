@@ -11,7 +11,7 @@ import 'lex_ref_union.dart';
 part 'lex_ref_variant.freezed.dart';
 
 @freezed
-class LexRefVariant with _$LexRefVariant {
+abstract class LexRefVariant with _$LexRefVariant {
   // ignore: unused_element
   const LexRefVariant._();
 

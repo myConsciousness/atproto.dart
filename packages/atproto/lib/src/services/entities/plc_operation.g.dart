@@ -8,11 +8,11 @@ part of 'plc_operation.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PlcOperationImpl _$$PlcOperationImplFromJson(Map json) => $checkedCreate(
-      r'_$PlcOperationImpl',
+_PlcOperation _$PlcOperationFromJson(Map json) => $checkedCreate(
+      '_PlcOperation',
       json,
       ($checkedConvert) {
-        final val = _$PlcOperationImpl(
+        final val = _PlcOperation(
           operation: $checkedConvert(
               'operation', (v) => Map<String, dynamic>.from(v as Map)),
         );
@@ -20,7 +20,7 @@ _$PlcOperationImpl _$$PlcOperationImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$PlcOperationImplToJson(_$PlcOperationImpl instance) =>
+Map<String, dynamic> _$PlcOperationToJson(_PlcOperation instance) =>
     <String, dynamic>{
       'operation': instance.operation,
     };

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,58 @@ part of 'server_info_contact.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ServerInfoContact _$ServerInfoContactFromJson(Map<String, dynamic> json) {
-  return _ServerInfoContact.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ServerInfoContact {
-  String? get email => throw _privateConstructorUsedError;
-
-  /// Serializes this ServerInfoContact to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get email;
 
   /// Create a copy of ServerInfoContact
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ServerInfoContactCopyWith<ServerInfoContact> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ServerInfoContactCopyWith<$Res> {
-  factory $ServerInfoContactCopyWith(
-          ServerInfoContact value, $Res Function(ServerInfoContact) then) =
-      _$ServerInfoContactCopyWithImpl<$Res, ServerInfoContact>;
-  @useResult
-  $Res call({String? email});
-}
-
-/// @nodoc
-class _$ServerInfoContactCopyWithImpl<$Res, $Val extends ServerInfoContact>
-    implements $ServerInfoContactCopyWith<$Res> {
-  _$ServerInfoContactCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ServerInfoContact
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ServerInfoContactCopyWith<ServerInfoContact> get copyWith =>
+      _$ServerInfoContactCopyWithImpl<ServerInfoContact>(
+          this as ServerInfoContact, _$identity);
+
+  /// Serializes this ServerInfoContact to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? email = freezed,
-  }) {
-    return _then(_value.copyWith(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ServerInfoContact &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, email);
+
+  @override
+  String toString() {
+    return 'ServerInfoContact(email: $email)';
   }
 }
 
 /// @nodoc
-abstract class _$$ServerInfoContactImplCopyWith<$Res>
-    implements $ServerInfoContactCopyWith<$Res> {
-  factory _$$ServerInfoContactImplCopyWith(_$ServerInfoContactImpl value,
-          $Res Function(_$ServerInfoContactImpl) then) =
-      __$$ServerInfoContactImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ServerInfoContactCopyWith<$Res> {
+  factory $ServerInfoContactCopyWith(
+          ServerInfoContact value, $Res Function(ServerInfoContact) _then) =
+      _$ServerInfoContactCopyWithImpl;
   @useResult
   $Res call({String? email});
 }
 
 /// @nodoc
-class __$$ServerInfoContactImplCopyWithImpl<$Res>
-    extends _$ServerInfoContactCopyWithImpl<$Res, _$ServerInfoContactImpl>
-    implements _$$ServerInfoContactImplCopyWith<$Res> {
-  __$$ServerInfoContactImplCopyWithImpl(_$ServerInfoContactImpl _value,
-      $Res Function(_$ServerInfoContactImpl) _then)
-      : super(_value, _then);
+class _$ServerInfoContactCopyWithImpl<$Res>
+    implements $ServerInfoContactCopyWith<$Res> {
+  _$ServerInfoContactCopyWithImpl(this._self, this._then);
+
+  final ServerInfoContact _self;
+  final $Res Function(ServerInfoContact) _then;
 
   /// Create a copy of ServerInfoContact
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +70,9 @@ class __$$ServerInfoContactImplCopyWithImpl<$Res>
   $Res call({
     Object? email = freezed,
   }) {
-    return _then(_$ServerInfoContactImpl(
+    return _then(_self.copyWith(
       email: freezed == email
-          ? _value.email
+          ? _self.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -105,25 +82,34 @@ class __$$ServerInfoContactImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ServerInfoContactImpl implements _ServerInfoContact {
-  const _$ServerInfoContactImpl({this.email});
-
-  factory _$ServerInfoContactImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServerInfoContactImplFromJson(json);
+class _ServerInfoContact implements ServerInfoContact {
+  const _ServerInfoContact({this.email});
+  factory _ServerInfoContact.fromJson(Map<String, dynamic> json) =>
+      _$ServerInfoContactFromJson(json);
 
   @override
   final String? email;
 
+  /// Create a copy of ServerInfoContact
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ServerInfoContact(email: $email)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ServerInfoContactCopyWith<_ServerInfoContact> get copyWith =>
+      __$ServerInfoContactCopyWithImpl<_ServerInfoContact>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ServerInfoContactToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ServerInfoContactImpl &&
+            other is _ServerInfoContact &&
             (identical(other.email, email) || other.email == email));
   }
 
@@ -131,37 +117,45 @@ class _$ServerInfoContactImpl implements _ServerInfoContact {
   @override
   int get hashCode => Object.hash(runtimeType, email);
 
-  /// Create a copy of ServerInfoContact
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ServerInfoContactImplCopyWith<_$ServerInfoContactImpl> get copyWith =>
-      __$$ServerInfoContactImplCopyWithImpl<_$ServerInfoContactImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServerInfoContactImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ServerInfoContact(email: $email)';
   }
 }
 
-abstract class _ServerInfoContact implements ServerInfoContact {
-  const factory _ServerInfoContact({final String? email}) =
-      _$ServerInfoContactImpl;
-
-  factory _ServerInfoContact.fromJson(Map<String, dynamic> json) =
-      _$ServerInfoContactImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ServerInfoContactCopyWith<$Res>
+    implements $ServerInfoContactCopyWith<$Res> {
+  factory _$ServerInfoContactCopyWith(
+          _ServerInfoContact value, $Res Function(_ServerInfoContact) _then) =
+      __$ServerInfoContactCopyWithImpl;
   @override
-  String? get email;
+  @useResult
+  $Res call({String? email});
+}
+
+/// @nodoc
+class __$ServerInfoContactCopyWithImpl<$Res>
+    implements _$ServerInfoContactCopyWith<$Res> {
+  __$ServerInfoContactCopyWithImpl(this._self, this._then);
+
+  final _ServerInfoContact _self;
+  final $Res Function(_ServerInfoContact) _then;
 
   /// Create a copy of ServerInfoContact
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ServerInfoContactImplCopyWith<_$ServerInfoContactImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? email = freezed,
+  }) {
+    return _then(_ServerInfoContact(
+      email: freezed == email
+          ? _self.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

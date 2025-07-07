@@ -12,7 +12,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getActorStarterPacks/#output
 @freezed
-class GetActorStarterPacksOutput with _$GetActorStarterPacksOutput {
+abstract class GetActorStarterPacksOutput with _$GetActorStarterPacksOutput {
   @jsonSerializable
   const factory GetActorStarterPacksOutput({
     String? cursor,

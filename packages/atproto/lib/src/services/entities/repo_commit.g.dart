@@ -8,11 +8,11 @@ part of 'repo_commit.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RepoCommitImpl _$$RepoCommitImplFromJson(Map json) => $checkedCreate(
-      r'_$RepoCommitImpl',
+_RepoCommit _$RepoCommitFromJson(Map json) => $checkedCreate(
+      '_RepoCommit',
       json,
       ($checkedConvert) {
-        final val = _$RepoCommitImpl(
+        final val = _RepoCommit(
           cid: $checkedConvert('cid', (v) => v as String),
           commit: $checkedConvert(
               'commit', (v) => Map<String, dynamic>.from(v as Map)),
@@ -21,7 +21,7 @@ _$RepoCommitImpl _$$RepoCommitImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$RepoCommitImplToJson(_$RepoCommitImpl instance) =>
+Map<String, dynamic> _$RepoCommitToJson(_RepoCommit instance) =>
     <String, dynamic>{
       'cid': instance.cid,
       'commit': instance.commit,

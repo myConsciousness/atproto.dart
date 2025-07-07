@@ -7,7 +7,7 @@ part 'subscribed_repo_identity.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#identity
 @freezed
-class Identity with _$Identity {
+abstract class Identity with _$Identity {
   @jsonSerializable
   const factory Identity({
     required String did,

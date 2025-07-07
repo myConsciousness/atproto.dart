@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,136 +10,29 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UpdateReadOutput _$UpdateReadOutputFromJson(Map<String, dynamic> json) {
-  return _UpdateReadOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UpdateReadOutput {
-  ConvoView get convo => throw _privateConstructorUsedError;
-
-  /// Serializes this UpdateReadOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  ConvoView get convo;
 
   /// Create a copy of UpdateReadOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $UpdateReadOutputCopyWith<UpdateReadOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$UpdateReadOutputCopyWithImpl<UpdateReadOutput>(
+          this as UpdateReadOutput, _$identity);
 
-/// @nodoc
-abstract class $UpdateReadOutputCopyWith<$Res> {
-  factory $UpdateReadOutputCopyWith(
-          UpdateReadOutput value, $Res Function(UpdateReadOutput) then) =
-      _$UpdateReadOutputCopyWithImpl<$Res, UpdateReadOutput>;
-  @useResult
-  $Res call({ConvoView convo});
-
-  $ConvoViewCopyWith<$Res> get convo;
-}
-
-/// @nodoc
-class _$UpdateReadOutputCopyWithImpl<$Res, $Val extends UpdateReadOutput>
-    implements $UpdateReadOutputCopyWith<$Res> {
-  _$UpdateReadOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of UpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? convo = null,
-  }) {
-    return _then(_value.copyWith(
-      convo: null == convo
-          ? _value.convo
-          : convo // ignore: cast_nullable_to_non_nullable
-              as ConvoView,
-    ) as $Val);
-  }
-
-  /// Create a copy of UpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ConvoViewCopyWith<$Res> get convo {
-    return $ConvoViewCopyWith<$Res>(_value.convo, (value) {
-      return _then(_value.copyWith(convo: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$UpdateReadOutputImplCopyWith<$Res>
-    implements $UpdateReadOutputCopyWith<$Res> {
-  factory _$$UpdateReadOutputImplCopyWith(_$UpdateReadOutputImpl value,
-          $Res Function(_$UpdateReadOutputImpl) then) =
-      __$$UpdateReadOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ConvoView convo});
-
-  @override
-  $ConvoViewCopyWith<$Res> get convo;
-}
-
-/// @nodoc
-class __$$UpdateReadOutputImplCopyWithImpl<$Res>
-    extends _$UpdateReadOutputCopyWithImpl<$Res, _$UpdateReadOutputImpl>
-    implements _$$UpdateReadOutputImplCopyWith<$Res> {
-  __$$UpdateReadOutputImplCopyWithImpl(_$UpdateReadOutputImpl _value,
-      $Res Function(_$UpdateReadOutputImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of UpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? convo = null,
-  }) {
-    return _then(_$UpdateReadOutputImpl(
-      convo: null == convo
-          ? _value.convo
-          : convo // ignore: cast_nullable_to_non_nullable
-              as ConvoView,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$UpdateReadOutputImpl implements _UpdateReadOutput {
-  const _$UpdateReadOutputImpl({required this.convo});
-
-  factory _$UpdateReadOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UpdateReadOutputImplFromJson(json);
-
-  @override
-  final ConvoView convo;
-
-  @override
-  String toString() {
-    return 'UpdateReadOutput(convo: $convo)';
-  }
+  /// Serializes this UpdateReadOutput to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdateReadOutputImpl &&
+            other is UpdateReadOutput &&
             (identical(other.convo, convo) || other.convo == convo));
   }
 
@@ -146,37 +40,147 @@ class _$UpdateReadOutputImpl implements _UpdateReadOutput {
   @override
   int get hashCode => Object.hash(runtimeType, convo);
 
-  /// Create a copy of UpdateReadOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateReadOutputImplCopyWith<_$UpdateReadOutputImpl> get copyWith =>
-      __$$UpdateReadOutputImplCopyWithImpl<_$UpdateReadOutputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UpdateReadOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'UpdateReadOutput(convo: $convo)';
   }
 }
 
-abstract class _UpdateReadOutput implements UpdateReadOutput {
-  const factory _UpdateReadOutput({required final ConvoView convo}) =
-      _$UpdateReadOutputImpl;
+/// @nodoc
+abstract mixin class $UpdateReadOutputCopyWith<$Res> {
+  factory $UpdateReadOutputCopyWith(
+          UpdateReadOutput value, $Res Function(UpdateReadOutput) _then) =
+      _$UpdateReadOutputCopyWithImpl;
+  @useResult
+  $Res call({ConvoView convo});
 
-  factory _UpdateReadOutput.fromJson(Map<String, dynamic> json) =
-      _$UpdateReadOutputImpl.fromJson;
+  $ConvoViewCopyWith<$Res> get convo;
+}
+
+/// @nodoc
+class _$UpdateReadOutputCopyWithImpl<$Res>
+    implements $UpdateReadOutputCopyWith<$Res> {
+  _$UpdateReadOutputCopyWithImpl(this._self, this._then);
+
+  final UpdateReadOutput _self;
+  final $Res Function(UpdateReadOutput) _then;
+
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? convo = null,
+  }) {
+    return _then(_self.copyWith(
+      convo: null == convo
+          ? _self.convo
+          : convo // ignore: cast_nullable_to_non_nullable
+              as ConvoView,
+    ));
+  }
+
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ConvoViewCopyWith<$Res> get convo {
+    return $ConvoViewCopyWith<$Res>(_self.convo, (value) {
+      return _then(_self.copyWith(convo: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _UpdateReadOutput implements UpdateReadOutput {
+  const _UpdateReadOutput({required this.convo});
+  factory _UpdateReadOutput.fromJson(Map<String, dynamic> json) =>
+      _$UpdateReadOutputFromJson(json);
 
   @override
-  ConvoView get convo;
+  final ConvoView convo;
 
   /// Create a copy of UpdateReadOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UpdateReadOutputImplCopyWith<_$UpdateReadOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$UpdateReadOutputCopyWith<_UpdateReadOutput> get copyWith =>
+      __$UpdateReadOutputCopyWithImpl<_UpdateReadOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$UpdateReadOutputToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _UpdateReadOutput &&
+            (identical(other.convo, convo) || other.convo == convo));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, convo);
+
+  @override
+  String toString() {
+    return 'UpdateReadOutput(convo: $convo)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$UpdateReadOutputCopyWith<$Res>
+    implements $UpdateReadOutputCopyWith<$Res> {
+  factory _$UpdateReadOutputCopyWith(
+          _UpdateReadOutput value, $Res Function(_UpdateReadOutput) _then) =
+      __$UpdateReadOutputCopyWithImpl;
+  @override
+  @useResult
+  $Res call({ConvoView convo});
+
+  @override
+  $ConvoViewCopyWith<$Res> get convo;
+}
+
+/// @nodoc
+class __$UpdateReadOutputCopyWithImpl<$Res>
+    implements _$UpdateReadOutputCopyWith<$Res> {
+  __$UpdateReadOutputCopyWithImpl(this._self, this._then);
+
+  final _UpdateReadOutput _self;
+  final $Res Function(_UpdateReadOutput) _then;
+
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? convo = null,
+  }) {
+    return _then(_UpdateReadOutput(
+      convo: null == convo
+          ? _self.convo
+          : convo // ignore: cast_nullable_to_non_nullable
+              as ConvoView,
+    ));
+  }
+
+  /// Create a copy of UpdateReadOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ConvoViewCopyWith<$Res> get convo {
+    return $ConvoViewCopyWith<$Res>(_self.convo, (value) {
+      return _then(_self.copyWith(convo: value));
+    });
+  }
+}
+
+// dart format on

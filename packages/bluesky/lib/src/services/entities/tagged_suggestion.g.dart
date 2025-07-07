@@ -8,12 +8,11 @@ part of 'tagged_suggestion.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TaggedSuggestionImpl _$$TaggedSuggestionImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$TaggedSuggestionImpl',
+_TaggedSuggestion _$TaggedSuggestionFromJson(Map json) => $checkedCreate(
+      '_TaggedSuggestion',
       json,
       ($checkedConvert) {
-        final val = _$TaggedSuggestionImpl(
+        final val = _TaggedSuggestion(
           tag: $checkedConvert('tag', (v) => v as String),
           subjectType: $checkedConvert(
               'subjectType', (v) => $enumDecode(_$SubjectTypeEnumMap, v)),
@@ -23,8 +22,7 @@ _$TaggedSuggestionImpl _$$TaggedSuggestionImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$TaggedSuggestionImplToJson(
-        _$TaggedSuggestionImpl instance) =>
+Map<String, dynamic> _$TaggedSuggestionToJson(_TaggedSuggestion instance) =>
     <String, dynamic>{
       'tag': instance.tag,
       'subjectType': _$SubjectTypeEnumMap[instance.subjectType]!,

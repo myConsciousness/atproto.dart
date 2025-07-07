@@ -52,12 +52,15 @@ final class _EmbedConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Embed object) => object.when(
-        record: (data) => data.toJson(),
-        images: (data) => data.toJson(),
-        external: (data) => data.toJson(),
-        recordWithMedia: (data) => data.toJson(),
-        video: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(Embed object) => switch (object) {
+        UEmbedRecord(data: final data) => data.toJson(),
+        UEmbedImages(data: final data) => data.toJson(),
+        UEmbedExternal(data: final data) => data.toJson(),
+        UEmbedRecordWithMedia(data: final data) => data.toJson(),
+        UEmbedVideo(data: final data) => data.toJson(),
+        UEmbedUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ =>
+          throw UnimplementedError('Unknown Embed type: ${object.runtimeType}'),
+      };
 }

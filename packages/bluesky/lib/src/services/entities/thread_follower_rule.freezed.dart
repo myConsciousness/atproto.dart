@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,83 +10,59 @@ part of 'thread_follower_rule.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ThreadFollowerRule _$ThreadFollowerRuleFromJson(Map<String, dynamic> json) {
-  return _ThreadFollowerRule.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ThreadFollowerRule {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-
-  /// Serializes this ThreadFollowerRule to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
 
   /// Create a copy of ThreadFollowerRule
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ThreadFollowerRuleCopyWith<ThreadFollowerRule> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ThreadFollowerRuleCopyWith<$Res> {
-  factory $ThreadFollowerRuleCopyWith(
-          ThreadFollowerRule value, $Res Function(ThreadFollowerRule) then) =
-      _$ThreadFollowerRuleCopyWithImpl<$Res, ThreadFollowerRule>;
-  @useResult
-  $Res call({@typeKey String type});
-}
-
-/// @nodoc
-class _$ThreadFollowerRuleCopyWithImpl<$Res, $Val extends ThreadFollowerRule>
-    implements $ThreadFollowerRuleCopyWith<$Res> {
-  _$ThreadFollowerRuleCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ThreadFollowerRule
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ThreadFollowerRuleCopyWith<ThreadFollowerRule> get copyWith =>
+      _$ThreadFollowerRuleCopyWithImpl<ThreadFollowerRule>(
+          this as ThreadFollowerRule, _$identity);
+
+  /// Serializes this ThreadFollowerRule to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ThreadFollowerRule &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type);
+
+  @override
+  String toString() {
+    return 'ThreadFollowerRule(type: $type)';
   }
 }
 
 /// @nodoc
-abstract class _$$ThreadFollowerRuleImplCopyWith<$Res>
-    implements $ThreadFollowerRuleCopyWith<$Res> {
-  factory _$$ThreadFollowerRuleImplCopyWith(_$ThreadFollowerRuleImpl value,
-          $Res Function(_$ThreadFollowerRuleImpl) then) =
-      __$$ThreadFollowerRuleImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ThreadFollowerRuleCopyWith<$Res> {
+  factory $ThreadFollowerRuleCopyWith(
+          ThreadFollowerRule value, $Res Function(ThreadFollowerRule) _then) =
+      _$ThreadFollowerRuleCopyWithImpl;
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class __$$ThreadFollowerRuleImplCopyWithImpl<$Res>
-    extends _$ThreadFollowerRuleCopyWithImpl<$Res, _$ThreadFollowerRuleImpl>
-    implements _$$ThreadFollowerRuleImplCopyWith<$Res> {
-  __$$ThreadFollowerRuleImplCopyWithImpl(_$ThreadFollowerRuleImpl _value,
-      $Res Function(_$ThreadFollowerRuleImpl) _then)
-      : super(_value, _then);
+class _$ThreadFollowerRuleCopyWithImpl<$Res>
+    implements $ThreadFollowerRuleCopyWith<$Res> {
+  _$ThreadFollowerRuleCopyWithImpl(this._self, this._then);
+
+  final ThreadFollowerRule _self;
+  final $Res Function(ThreadFollowerRule) _then;
 
   /// Create a copy of ThreadFollowerRule
   /// with the given fields replaced by the non-null parameter values.
@@ -94,9 +71,9 @@ class __$$ThreadFollowerRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$ThreadFollowerRuleImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -106,27 +83,36 @@ class __$$ThreadFollowerRuleImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ThreadFollowerRuleImpl implements _ThreadFollowerRule {
-  const _$ThreadFollowerRuleImpl(
+class _ThreadFollowerRule implements ThreadFollowerRule {
+  const _ThreadFollowerRule(
       {@typeKey this.type = appBskyFeedThreadgateFollowerRule});
-
-  factory _$ThreadFollowerRuleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ThreadFollowerRuleImplFromJson(json);
+  factory _ThreadFollowerRule.fromJson(Map<String, dynamic> json) =>
+      _$ThreadFollowerRuleFromJson(json);
 
   @override
   @typeKey
   final String type;
 
+  /// Create a copy of ThreadFollowerRule
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ThreadFollowerRule(type: $type)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ThreadFollowerRuleCopyWith<_ThreadFollowerRule> get copyWith =>
+      __$ThreadFollowerRuleCopyWithImpl<_ThreadFollowerRule>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ThreadFollowerRuleToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ThreadFollowerRuleImpl &&
+            other is _ThreadFollowerRule &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -134,38 +120,45 @@ class _$ThreadFollowerRuleImpl implements _ThreadFollowerRule {
   @override
   int get hashCode => Object.hash(runtimeType, type);
 
-  /// Create a copy of ThreadFollowerRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ThreadFollowerRuleImplCopyWith<_$ThreadFollowerRuleImpl> get copyWith =>
-      __$$ThreadFollowerRuleImplCopyWithImpl<_$ThreadFollowerRuleImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ThreadFollowerRuleImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ThreadFollowerRule(type: $type)';
   }
 }
 
-abstract class _ThreadFollowerRule implements ThreadFollowerRule {
-  const factory _ThreadFollowerRule({@typeKey final String type}) =
-      _$ThreadFollowerRuleImpl;
-
-  factory _ThreadFollowerRule.fromJson(Map<String, dynamic> json) =
-      _$ThreadFollowerRuleImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ThreadFollowerRuleCopyWith<$Res>
+    implements $ThreadFollowerRuleCopyWith<$Res> {
+  factory _$ThreadFollowerRuleCopyWith(
+          _ThreadFollowerRule value, $Res Function(_ThreadFollowerRule) _then) =
+      __$ThreadFollowerRuleCopyWithImpl;
   @override
-  @typeKey
-  String get type;
+  @useResult
+  $Res call({@typeKey String type});
+}
+
+/// @nodoc
+class __$ThreadFollowerRuleCopyWithImpl<$Res>
+    implements _$ThreadFollowerRuleCopyWith<$Res> {
+  __$ThreadFollowerRuleCopyWithImpl(this._self, this._then);
+
+  final _ThreadFollowerRule _self;
+  final $Res Function(_ThreadFollowerRule) _then;
 
   /// Create a copy of ThreadFollowerRule
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ThreadFollowerRuleImplCopyWith<_$ThreadFollowerRuleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_ThreadFollowerRule(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

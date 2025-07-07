@@ -8,7 +8,7 @@ part 'blob_data.freezed.dart';
 part 'blob_data.g.dart';
 
 @freezed
-class BlobData with _$BlobData {
+abstract class BlobData with _$BlobData {
   const factory BlobData({
     required Blob blob,
   }) = _BlobData;

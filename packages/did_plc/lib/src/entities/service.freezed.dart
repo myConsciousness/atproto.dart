@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,145 +10,30 @@ part of 'service.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Service _$ServiceFromJson(Map<String, dynamic> json) {
-  return _Service.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Service {
-  String get id => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  String get serviceEndpoint => throw _privateConstructorUsedError;
-
-  /// Serializes this Service to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get id;
+  String get type;
+  String get serviceEndpoint;
 
   /// Create a copy of Service
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ServiceCopyWith<Service> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ServiceCopyWith<$Res> {
-  factory $ServiceCopyWith(Service value, $Res Function(Service) then) =
-      _$ServiceCopyWithImpl<$Res, Service>;
-  @useResult
-  $Res call({String id, String type, String serviceEndpoint});
-}
-
-/// @nodoc
-class _$ServiceCopyWithImpl<$Res, $Val extends Service>
-    implements $ServiceCopyWith<$Res> {
-  _$ServiceCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Service
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? type = null,
-    Object? serviceEndpoint = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      serviceEndpoint: null == serviceEndpoint
-          ? _value.serviceEndpoint
-          : serviceEndpoint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
+  $ServiceCopyWith<Service> get copyWith =>
+      _$ServiceCopyWithImpl<Service>(this as Service, _$identity);
 
-/// @nodoc
-abstract class _$$ServiceImplCopyWith<$Res> implements $ServiceCopyWith<$Res> {
-  factory _$$ServiceImplCopyWith(
-          _$ServiceImpl value, $Res Function(_$ServiceImpl) then) =
-      __$$ServiceImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id, String type, String serviceEndpoint});
-}
-
-/// @nodoc
-class __$$ServiceImplCopyWithImpl<$Res>
-    extends _$ServiceCopyWithImpl<$Res, _$ServiceImpl>
-    implements _$$ServiceImplCopyWith<$Res> {
-  __$$ServiceImplCopyWithImpl(
-      _$ServiceImpl _value, $Res Function(_$ServiceImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Service
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? type = null,
-    Object? serviceEndpoint = null,
-  }) {
-    return _then(_$ServiceImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      serviceEndpoint: null == serviceEndpoint
-          ? _value.serviceEndpoint
-          : serviceEndpoint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonSerializable
-class _$ServiceImpl implements _Service {
-  const _$ServiceImpl(
-      {required this.id, required this.type, required this.serviceEndpoint});
-
-  factory _$ServiceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServiceImplFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String type;
-  @override
-  final String serviceEndpoint;
-
-  @override
-  String toString() {
-    return 'Service(id: $id, type: $type, serviceEndpoint: $serviceEndpoint)';
-  }
+  /// Serializes this Service to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ServiceImpl &&
+            other is Service &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.serviceEndpoint, serviceEndpoint) ||
@@ -158,41 +44,145 @@ class _$ServiceImpl implements _Service {
   @override
   int get hashCode => Object.hash(runtimeType, id, type, serviceEndpoint);
 
-  /// Create a copy of Service
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ServiceImplCopyWith<_$ServiceImpl> get copyWith =>
-      __$$ServiceImplCopyWithImpl<_$ServiceImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServiceImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Service(id: $id, type: $type, serviceEndpoint: $serviceEndpoint)';
   }
 }
 
-abstract class _Service implements Service {
-  const factory _Service(
-      {required final String id,
-      required final String type,
-      required final String serviceEndpoint}) = _$ServiceImpl;
+/// @nodoc
+abstract mixin class $ServiceCopyWith<$Res> {
+  factory $ServiceCopyWith(Service value, $Res Function(Service) _then) =
+      _$ServiceCopyWithImpl;
+  @useResult
+  $Res call({String id, String type, String serviceEndpoint});
+}
 
-  factory _Service.fromJson(Map<String, dynamic> json) = _$ServiceImpl.fromJson;
+/// @nodoc
+class _$ServiceCopyWithImpl<$Res> implements $ServiceCopyWith<$Res> {
+  _$ServiceCopyWithImpl(this._self, this._then);
+
+  final Service _self;
+  final $Res Function(Service) _then;
+
+  /// Create a copy of Service
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? serviceEndpoint = null,
+  }) {
+    return _then(_self.copyWith(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      serviceEndpoint: null == serviceEndpoint
+          ? _self.serviceEndpoint
+          : serviceEndpoint // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _Service implements Service {
+  const _Service(
+      {required this.id, required this.type, required this.serviceEndpoint});
+  factory _Service.fromJson(Map<String, dynamic> json) =>
+      _$ServiceFromJson(json);
 
   @override
-  String get id;
+  final String id;
   @override
-  String get type;
+  final String type;
   @override
-  String get serviceEndpoint;
+  final String serviceEndpoint;
 
   /// Create a copy of Service
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ServiceImplCopyWith<_$ServiceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ServiceCopyWith<_Service> get copyWith =>
+      __$ServiceCopyWithImpl<_Service>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ServiceToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Service &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.serviceEndpoint, serviceEndpoint) ||
+                other.serviceEndpoint == serviceEndpoint));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, type, serviceEndpoint);
+
+  @override
+  String toString() {
+    return 'Service(id: $id, type: $type, serviceEndpoint: $serviceEndpoint)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ServiceCopyWith<$Res> implements $ServiceCopyWith<$Res> {
+  factory _$ServiceCopyWith(_Service value, $Res Function(_Service) _then) =
+      __$ServiceCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String id, String type, String serviceEndpoint});
+}
+
+/// @nodoc
+class __$ServiceCopyWithImpl<$Res> implements _$ServiceCopyWith<$Res> {
+  __$ServiceCopyWithImpl(this._self, this._then);
+
+  final _Service _self;
+  final $Res Function(_Service) _then;
+
+  /// Create a copy of Service
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? serviceEndpoint = null,
+  }) {
+    return _then(_Service(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      serviceEndpoint: null == serviceEndpoint
+          ? _self.serviceEndpoint
+          : serviceEndpoint // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

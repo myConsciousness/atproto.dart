@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,97 +10,66 @@ part of 'posts_by_query.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PostsByQuery _$PostsByQueryFromJson(Map<String, dynamic> json) {
-  return _PostsByQuery.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PostsByQuery {
-  List<Post> get posts => throw _privateConstructorUsedError;
+  List<Post> get posts;
 
   /// Count of search hits. Optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
-  int get hitsTotal => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this PostsByQuery to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get hitsTotal;
+  String? get cursor;
 
   /// Create a copy of PostsByQuery
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PostsByQueryCopyWith<PostsByQuery> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PostsByQueryCopyWith<$Res> {
-  factory $PostsByQueryCopyWith(
-          PostsByQuery value, $Res Function(PostsByQuery) then) =
-      _$PostsByQueryCopyWithImpl<$Res, PostsByQuery>;
-  @useResult
-  $Res call({List<Post> posts, int hitsTotal, String? cursor});
-}
-
-/// @nodoc
-class _$PostsByQueryCopyWithImpl<$Res, $Val extends PostsByQuery>
-    implements $PostsByQueryCopyWith<$Res> {
-  _$PostsByQueryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PostsByQuery
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $PostsByQueryCopyWith<PostsByQuery> get copyWith =>
+      _$PostsByQueryCopyWithImpl<PostsByQuery>(
+          this as PostsByQuery, _$identity);
+
+  /// Serializes this PostsByQuery to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? posts = null,
-    Object? hitsTotal = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      posts: null == posts
-          ? _value.posts
-          : posts // ignore: cast_nullable_to_non_nullable
-              as List<Post>,
-      hitsTotal: null == hitsTotal
-          ? _value.hitsTotal
-          : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PostsByQuery &&
+            const DeepCollectionEquality().equals(other.posts, posts) &&
+            (identical(other.hitsTotal, hitsTotal) ||
+                other.hitsTotal == hitsTotal) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(posts), hitsTotal, cursor);
+
+  @override
+  String toString() {
+    return 'PostsByQuery(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$PostsByQueryImplCopyWith<$Res>
-    implements $PostsByQueryCopyWith<$Res> {
-  factory _$$PostsByQueryImplCopyWith(
-          _$PostsByQueryImpl value, $Res Function(_$PostsByQueryImpl) then) =
-      __$$PostsByQueryImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PostsByQueryCopyWith<$Res> {
+  factory $PostsByQueryCopyWith(
+          PostsByQuery value, $Res Function(PostsByQuery) _then) =
+      _$PostsByQueryCopyWithImpl;
   @useResult
   $Res call({List<Post> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$PostsByQueryImplCopyWithImpl<$Res>
-    extends _$PostsByQueryCopyWithImpl<$Res, _$PostsByQueryImpl>
-    implements _$$PostsByQueryImplCopyWith<$Res> {
-  __$$PostsByQueryImplCopyWithImpl(
-      _$PostsByQueryImpl _value, $Res Function(_$PostsByQueryImpl) _then)
-      : super(_value, _then);
+class _$PostsByQueryCopyWithImpl<$Res> implements $PostsByQueryCopyWith<$Res> {
+  _$PostsByQueryCopyWithImpl(this._self, this._then);
+
+  final PostsByQuery _self;
+  final $Res Function(PostsByQuery) _then;
 
   /// Create a copy of PostsByQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -110,17 +80,17 @@ class __$$PostsByQueryImplCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$PostsByQueryImpl(
+    return _then(_self.copyWith(
       posts: null == posts
-          ? _value._posts
+          ? _self.posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<Post>,
       hitsTotal: null == hitsTotal
-          ? _value.hitsTotal
+          ? _self.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
               as int,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -129,13 +99,12 @@ class __$$PostsByQueryImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PostsByQueryImpl implements _PostsByQuery {
-  const _$PostsByQueryImpl(
+class _PostsByQuery implements PostsByQuery {
+  const _PostsByQuery(
       {required final List<Post> posts, this.hitsTotal = 0, this.cursor})
       : _posts = posts;
-
-  factory _$PostsByQueryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostsByQueryImplFromJson(json);
+  factory _PostsByQuery.fromJson(Map<String, dynamic> json) =>
+      _$PostsByQueryFromJson(json);
 
   final List<Post> _posts;
   @override
@@ -153,16 +122,26 @@ class _$PostsByQueryImpl implements _PostsByQuery {
   @override
   final String? cursor;
 
+  /// Create a copy of PostsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PostsByQuery(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PostsByQueryCopyWith<_PostsByQuery> get copyWith =>
+      __$PostsByQueryCopyWithImpl<_PostsByQuery>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PostsByQueryToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostsByQueryImpl &&
+            other is _PostsByQuery &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -174,45 +153,55 @@ class _$PostsByQueryImpl implements _PostsByQuery {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_posts), hitsTotal, cursor);
 
-  /// Create a copy of PostsByQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PostsByQueryImplCopyWith<_$PostsByQueryImpl> get copyWith =>
-      __$$PostsByQueryImplCopyWithImpl<_$PostsByQueryImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostsByQueryImplToJson(
-      this,
-    );
+  String toString() {
+    return 'PostsByQuery(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 }
 
-abstract class _PostsByQuery implements PostsByQuery {
-  const factory _PostsByQuery(
-      {required final List<Post> posts,
-      final int hitsTotal,
-      final String? cursor}) = _$PostsByQueryImpl;
-
-  factory _PostsByQuery.fromJson(Map<String, dynamic> json) =
-      _$PostsByQueryImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$PostsByQueryCopyWith<$Res>
+    implements $PostsByQueryCopyWith<$Res> {
+  factory _$PostsByQueryCopyWith(
+          _PostsByQuery value, $Res Function(_PostsByQuery) _then) =
+      __$PostsByQueryCopyWithImpl;
   @override
-  List<Post> get posts;
+  @useResult
+  $Res call({List<Post> posts, int hitsTotal, String? cursor});
+}
 
-  /// Count of search hits. Optional, may be rounded/truncated,
-  /// and may not be possible to paginate through all hits.
-  @override
-  int get hitsTotal;
-  @override
-  String? get cursor;
+/// @nodoc
+class __$PostsByQueryCopyWithImpl<$Res>
+    implements _$PostsByQueryCopyWith<$Res> {
+  __$PostsByQueryCopyWithImpl(this._self, this._then);
+
+  final _PostsByQuery _self;
+  final $Res Function(_PostsByQuery) _then;
 
   /// Create a copy of PostsByQuery
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PostsByQueryImplCopyWith<_$PostsByQueryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? posts = null,
+    Object? hitsTotal = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_PostsByQuery(
+      posts: null == posts
+          ? _self._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+      hitsTotal: null == hitsTotal
+          ? _self.hitsTotal
+          : hitsTotal // ignore: cast_nullable_to_non_nullable
+              as int,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

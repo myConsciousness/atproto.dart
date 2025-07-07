@@ -8,11 +8,11 @@ part of 'signup_queue.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SignupQueueImpl _$$SignupQueueImplFromJson(Map json) => $checkedCreate(
-      r'_$SignupQueueImpl',
+_SignupQueue _$SignupQueueFromJson(Map json) => $checkedCreate(
+      '_SignupQueue',
       json,
       ($checkedConvert) {
-        final val = _$SignupQueueImpl(
+        final val = _SignupQueue(
           activated: $checkedConvert('activated', (v) => v as bool),
           placeInQueue:
               $checkedConvert('placeInQueue', (v) => (v as num?)?.toInt()),
@@ -23,7 +23,7 @@ _$SignupQueueImpl _$$SignupQueueImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$SignupQueueImplToJson(_$SignupQueueImpl instance) =>
+Map<String, dynamic> _$SignupQueueToJson(_SignupQueue instance) =>
     <String, dynamic>{
       'activated': instance.activated,
       'placeInQueue': instance.placeInQueue,

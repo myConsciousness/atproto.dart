@@ -11,7 +11,7 @@ part 'update_action.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#update
 @freezed
-class UpdateAction with _$UpdateAction {
+abstract class UpdateAction with _$UpdateAction {
   @jsonSerializable
   const factory UpdateAction({
     @typeKey @Default(comAtprotoRepoApplyWritesUpdate) String type,

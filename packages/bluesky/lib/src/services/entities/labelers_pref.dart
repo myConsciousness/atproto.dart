@@ -11,7 +11,7 @@ part 'labelers_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#labelerspref
 @freezed
-class LabelersPref with _$LabelersPref {
+abstract class LabelersPref with _$LabelersPref {
   const factory LabelersPref({
     @typeKey @Default(appBskyActorDefsLabelersPref) String type,
     required List<LabelerPrefItem> labelers,

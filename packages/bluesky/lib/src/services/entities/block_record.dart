@@ -15,7 +15,7 @@ part 'block_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyGraphBlock].
 @freezed
-class BlockRecord with _$BlockRecord {
+abstract class BlockRecord with _$BlockRecord {
   @jsonSerializable
   const factory BlockRecord({
     @typeKey @Default(appBskyGraphBlock) String type,

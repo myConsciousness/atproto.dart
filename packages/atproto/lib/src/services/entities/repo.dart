@@ -8,7 +8,7 @@ part 'repo.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listrepos/#repo
 @freezed
-class Repo with _$Repo {
+abstract class Repo with _$Repo {
   const factory Repo({
     required String did,
     @JsonKey(name: 'head') required String headCid,

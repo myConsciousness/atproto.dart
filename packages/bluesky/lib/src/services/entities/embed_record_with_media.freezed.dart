@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,38 +10,53 @@ part of 'embed_record_with_media.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EmbedRecordWithMedia _$EmbedRecordWithMediaFromJson(Map<String, dynamic> json) {
-  return _EmbedRecordWithMedia.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EmbedRecordWithMedia {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  EmbedRecord get record => throw _privateConstructorUsedError;
+  String get type;
+  EmbedRecord get record;
   @embedMediaConverter
-  EmbedMedia get media => throw _privateConstructorUsedError;
-
-  /// Serializes this EmbedRecordWithMedia to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  EmbedMedia get media;
 
   /// Create a copy of EmbedRecordWithMedia
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $EmbedRecordWithMediaCopyWith<EmbedRecordWithMedia> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$EmbedRecordWithMediaCopyWithImpl<EmbedRecordWithMedia>(
+          this as EmbedRecordWithMedia, _$identity);
+
+  /// Serializes this EmbedRecordWithMedia to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EmbedRecordWithMedia &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.record, record) || other.record == record) &&
+            (identical(other.media, media) || other.media == media));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, record, media);
+
+  @override
+  String toString() {
+    return 'EmbedRecordWithMedia(type: $type, record: $record, media: $media)';
+  }
 }
 
 /// @nodoc
-abstract class $EmbedRecordWithMediaCopyWith<$Res> {
+abstract mixin class $EmbedRecordWithMediaCopyWith<$Res> {
   factory $EmbedRecordWithMediaCopyWith(EmbedRecordWithMedia value,
-          $Res Function(EmbedRecordWithMedia) then) =
-      _$EmbedRecordWithMediaCopyWithImpl<$Res, EmbedRecordWithMedia>;
+          $Res Function(EmbedRecordWithMedia) _then) =
+      _$EmbedRecordWithMediaCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -52,15 +68,12 @@ abstract class $EmbedRecordWithMediaCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmbedRecordWithMediaCopyWithImpl<$Res,
-        $Val extends EmbedRecordWithMedia>
+class _$EmbedRecordWithMediaCopyWithImpl<$Res>
     implements $EmbedRecordWithMediaCopyWith<$Res> {
-  _$EmbedRecordWithMediaCopyWithImpl(this._value, this._then);
+  _$EmbedRecordWithMediaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final EmbedRecordWithMedia _self;
+  final $Res Function(EmbedRecordWithMedia) _then;
 
   /// Create a copy of EmbedRecordWithMedia
   /// with the given fields replaced by the non-null parameter values.
@@ -71,20 +84,20 @@ class _$EmbedRecordWithMediaCopyWithImpl<$Res,
     Object? record = null,
     Object? media = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       record: null == record
-          ? _value.record
+          ? _self.record
           : record // ignore: cast_nullable_to_non_nullable
               as EmbedRecord,
       media: null == media
-          ? _value.media
+          ? _self.media
           : media // ignore: cast_nullable_to_non_nullable
               as EmbedMedia,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of EmbedRecordWithMedia
@@ -92,8 +105,8 @@ class _$EmbedRecordWithMediaCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $EmbedRecordCopyWith<$Res> get record {
-    return $EmbedRecordCopyWith<$Res>(_value.record, (value) {
-      return _then(_value.copyWith(record: value) as $Val);
+    return $EmbedRecordCopyWith<$Res>(_self.record, (value) {
+      return _then(_self.copyWith(record: value));
     });
   }
 
@@ -102,75 +115,21 @@ class _$EmbedRecordWithMediaCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $EmbedMediaCopyWith<$Res> get media {
-    return $EmbedMediaCopyWith<$Res>(_value.media, (value) {
-      return _then(_value.copyWith(media: value) as $Val);
+    return $EmbedMediaCopyWith<$Res>(_self.media, (value) {
+      return _then(_self.copyWith(media: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$EmbedRecordWithMediaImplCopyWith<$Res>
-    implements $EmbedRecordWithMediaCopyWith<$Res> {
-  factory _$$EmbedRecordWithMediaImplCopyWith(_$EmbedRecordWithMediaImpl value,
-          $Res Function(_$EmbedRecordWithMediaImpl) then) =
-      __$$EmbedRecordWithMediaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      EmbedRecord record,
-      @embedMediaConverter EmbedMedia media});
-
-  @override
-  $EmbedRecordCopyWith<$Res> get record;
-  @override
-  $EmbedMediaCopyWith<$Res> get media;
-}
-
-/// @nodoc
-class __$$EmbedRecordWithMediaImplCopyWithImpl<$Res>
-    extends _$EmbedRecordWithMediaCopyWithImpl<$Res, _$EmbedRecordWithMediaImpl>
-    implements _$$EmbedRecordWithMediaImplCopyWith<$Res> {
-  __$$EmbedRecordWithMediaImplCopyWithImpl(_$EmbedRecordWithMediaImpl _value,
-      $Res Function(_$EmbedRecordWithMediaImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of EmbedRecordWithMedia
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? record = null,
-    Object? media = null,
-  }) {
-    return _then(_$EmbedRecordWithMediaImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as EmbedRecord,
-      media: null == media
-          ? _value.media
-          : media // ignore: cast_nullable_to_non_nullable
-              as EmbedMedia,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$EmbedRecordWithMediaImpl implements _EmbedRecordWithMedia {
-  const _$EmbedRecordWithMediaImpl(
+class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
+  const _EmbedRecordWithMedia(
       {@typeKey this.type = appBskyEmbedRecordWithMedia,
       required this.record,
       @embedMediaConverter required this.media});
-
-  factory _$EmbedRecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedRecordWithMediaImplFromJson(json);
+  factory _EmbedRecordWithMedia.fromJson(Map<String, dynamic> json) =>
+      _$EmbedRecordWithMediaFromJson(json);
 
   @override
   @typeKey
@@ -181,16 +140,27 @@ class _$EmbedRecordWithMediaImpl implements _EmbedRecordWithMedia {
   @embedMediaConverter
   final EmbedMedia media;
 
+  /// Create a copy of EmbedRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'EmbedRecordWithMedia(type: $type, record: $record, media: $media)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$EmbedRecordWithMediaCopyWith<_EmbedRecordWithMedia> get copyWith =>
+      __$EmbedRecordWithMediaCopyWithImpl<_EmbedRecordWithMedia>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EmbedRecordWithMediaToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedRecordWithMediaImpl &&
+            other is _EmbedRecordWithMedia &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.media, media) || other.media == media));
@@ -200,47 +170,83 @@ class _$EmbedRecordWithMediaImpl implements _EmbedRecordWithMedia {
   @override
   int get hashCode => Object.hash(runtimeType, type, record, media);
 
-  /// Create a copy of EmbedRecordWithMedia
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EmbedRecordWithMediaImplCopyWith<_$EmbedRecordWithMediaImpl>
-      get copyWith =>
-          __$$EmbedRecordWithMediaImplCopyWithImpl<_$EmbedRecordWithMediaImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EmbedRecordWithMediaImplToJson(
-      this,
-    );
+  String toString() {
+    return 'EmbedRecordWithMedia(type: $type, record: $record, media: $media)';
   }
 }
 
-abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
-  const factory _EmbedRecordWithMedia(
-          {@typeKey final String type,
-          required final EmbedRecord record,
-          @embedMediaConverter required final EmbedMedia media}) =
-      _$EmbedRecordWithMediaImpl;
+/// @nodoc
+abstract mixin class _$EmbedRecordWithMediaCopyWith<$Res>
+    implements $EmbedRecordWithMediaCopyWith<$Res> {
+  factory _$EmbedRecordWithMediaCopyWith(_EmbedRecordWithMedia value,
+          $Res Function(_EmbedRecordWithMedia) _then) =
+      __$EmbedRecordWithMediaCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      EmbedRecord record,
+      @embedMediaConverter EmbedMedia media});
 
-  factory _EmbedRecordWithMedia.fromJson(Map<String, dynamic> json) =
-      _$EmbedRecordWithMediaImpl.fromJson;
+  @override
+  $EmbedRecordCopyWith<$Res> get record;
+  @override
+  $EmbedMediaCopyWith<$Res> get media;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  EmbedRecord get record;
-  @override
-  @embedMediaConverter
-  EmbedMedia get media;
+/// @nodoc
+class __$EmbedRecordWithMediaCopyWithImpl<$Res>
+    implements _$EmbedRecordWithMediaCopyWith<$Res> {
+  __$EmbedRecordWithMediaCopyWithImpl(this._self, this._then);
+
+  final _EmbedRecordWithMedia _self;
+  final $Res Function(_EmbedRecordWithMedia) _then;
 
   /// Create a copy of EmbedRecordWithMedia
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EmbedRecordWithMediaImplCopyWith<_$EmbedRecordWithMediaImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? record = null,
+    Object? media = null,
+  }) {
+    return _then(_EmbedRecordWithMedia(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      record: null == record
+          ? _self.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as EmbedRecord,
+      media: null == media
+          ? _self.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as EmbedMedia,
+    ));
+  }
+
+  /// Create a copy of EmbedRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedRecordCopyWith<$Res> get record {
+    return $EmbedRecordCopyWith<$Res>(_self.record, (value) {
+      return _then(_self.copyWith(record: value));
+    });
+  }
+
+  /// Create a copy of EmbedRecordWithMedia
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedMediaCopyWith<$Res> get media {
+    return $EmbedMediaCopyWith<$Res>(_self.media, (value) {
+      return _then(_self.copyWith(media: value));
+    });
+  }
 }
+
+// dart format on

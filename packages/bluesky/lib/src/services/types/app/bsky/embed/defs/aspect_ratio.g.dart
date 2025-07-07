@@ -8,11 +8,11 @@ part of 'aspect_ratio.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AspectRatioImpl _$$AspectRatioImplFromJson(Map json) => $checkedCreate(
-      r'_$AspectRatioImpl',
+_AspectRatio _$AspectRatioFromJson(Map json) => $checkedCreate(
+      '_AspectRatio',
       json,
       ($checkedConvert) {
-        final val = _$AspectRatioImpl(
+        final val = _AspectRatio(
           width: $checkedConvert('width', (v) => (v as num).toInt()),
           height: $checkedConvert('height', (v) => (v as num).toInt()),
         );
@@ -20,7 +20,7 @@ _$AspectRatioImpl _$$AspectRatioImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$AspectRatioImplToJson(_$AspectRatioImpl instance) =>
+Map<String, dynamic> _$AspectRatioToJson(_AspectRatio instance) =>
     <String, dynamic>{
       'width': instance.width,
       'height': instance.height,

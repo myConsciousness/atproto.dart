@@ -10,7 +10,7 @@ part 'log_create_message.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#logcreatemessage
 @freezed
-class LogCreateMessage with _$LogCreateMessage {
+abstract class LogCreateMessage with _$LogCreateMessage {
   @jsonSerializable
   const factory LogCreateMessage({
     required String rev,

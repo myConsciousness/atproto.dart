@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,41 +10,72 @@ part of 'list_param.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ListParam _$ListParamFromJson(Map<String, dynamic> json) {
-  return _ListParam.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ListParam {
-  String get purpose => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
-  Blob? get avatar => throw _privateConstructorUsedError;
+  String get purpose;
+  String get name;
+  String? get description;
+  List<Facet>? get descriptionFacets;
+  Blob? get avatar;
   @labelsConverter
-  Labels? get labels => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
-
-  /// Serializes this ListParam to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Labels? get labels;
+  DateTime? get createdAt;
+  Map<String, dynamic> get unspecced;
 
   /// Create a copy of ListParam
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ListParamCopyWith<ListParam> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ListParamCopyWithImpl<ListParam>(this as ListParam, _$identity);
+
+  /// Serializes this ListParam to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ListParam &&
+            (identical(other.purpose, purpose) || other.purpose == purpose) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            const DeepCollectionEquality()
+                .equals(other.descriptionFacets, descriptionFacets) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other.unspecced, unspecced));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      purpose,
+      name,
+      description,
+      const DeepCollectionEquality().hash(descriptionFacets),
+      avatar,
+      labels,
+      createdAt,
+      const DeepCollectionEquality().hash(unspecced));
+
+  @override
+  String toString() {
+    return 'ListParam(purpose: $purpose, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
+  }
 }
 
 /// @nodoc
-abstract class $ListParamCopyWith<$Res> {
-  factory $ListParamCopyWith(ListParam value, $Res Function(ListParam) then) =
-      _$ListParamCopyWithImpl<$Res, ListParam>;
+abstract mixin class $ListParamCopyWith<$Res> {
+  factory $ListParamCopyWith(ListParam value, $Res Function(ListParam) _then) =
+      _$ListParamCopyWithImpl;
   @useResult
   $Res call(
       {String purpose,
@@ -60,14 +92,11 @@ abstract class $ListParamCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
-    implements $ListParamCopyWith<$Res> {
-  _$ListParamCopyWithImpl(this._value, this._then);
+class _$ListParamCopyWithImpl<$Res> implements $ListParamCopyWith<$Res> {
+  _$ListParamCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ListParam _self;
+  final $Res Function(ListParam) _then;
 
   /// Create a copy of ListParam
   /// with the given fields replaced by the non-null parameter values.
@@ -83,40 +112,40 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       purpose: null == purpose
-          ? _value.purpose
+          ? _self.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       description: freezed == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       descriptionFacets: freezed == descriptionFacets
-          ? _value.descriptionFacets
+          ? _self.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
               as List<Facet>?,
       avatar: freezed == avatar
-          ? _value.avatar
+          ? _self.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
       createdAt: freezed == createdAt
-          ? _value.createdAt
+          ? _self.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       unspecced: null == unspecced
-          ? _value.unspecced
+          ? _self.unspecced
           : unspecced // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ListParam
@@ -124,12 +153,12 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get avatar {
-    if (_value.avatar == null) {
+    if (_self.avatar == null) {
       return null;
     }
 
-    return $BlobCopyWith<$Res>(_value.avatar!, (value) {
-      return _then(_value.copyWith(avatar: value) as $Val);
+    return $BlobCopyWith<$Res>(_self.avatar!, (value) {
+      return _then(_self.copyWith(avatar: value));
     });
   }
 
@@ -138,104 +167,21 @@ class _$ListParamCopyWithImpl<$Res, $Val extends ListParam>
   @override
   @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
-    if (_value.labels == null) {
+    if (_self.labels == null) {
       return null;
     }
 
-    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
-      return _then(_value.copyWith(labels: value) as $Val);
+    return $LabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$ListParamImplCopyWith<$Res>
-    implements $ListParamCopyWith<$Res> {
-  factory _$$ListParamImplCopyWith(
-          _$ListParamImpl value, $Res Function(_$ListParamImpl) then) =
-      __$$ListParamImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String purpose,
-      String name,
-      String? description,
-      List<Facet>? descriptionFacets,
-      Blob? avatar,
-      @labelsConverter Labels? labels,
-      DateTime? createdAt,
-      Map<String, dynamic> unspecced});
-
-  @override
-  $BlobCopyWith<$Res>? get avatar;
-  @override
-  $LabelsCopyWith<$Res>? get labels;
-}
-
-/// @nodoc
-class __$$ListParamImplCopyWithImpl<$Res>
-    extends _$ListParamCopyWithImpl<$Res, _$ListParamImpl>
-    implements _$$ListParamImplCopyWith<$Res> {
-  __$$ListParamImplCopyWithImpl(
-      _$ListParamImpl _value, $Res Function(_$ListParamImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ListParam
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? purpose = null,
-    Object? name = null,
-    Object? description = freezed,
-    Object? descriptionFacets = freezed,
-    Object? avatar = freezed,
-    Object? labels = freezed,
-    Object? createdAt = freezed,
-    Object? unspecced = null,
-  }) {
-    return _then(_$ListParamImpl(
-      purpose: null == purpose
-          ? _value.purpose
-          : purpose // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      descriptionFacets: freezed == descriptionFacets
-          ? _value._descriptionFacets
-          : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
-      avatar: freezed == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as Blob?,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      unspecced: null == unspecced
-          ? _value._unspecced
-          : unspecced // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$ListParamImpl implements _ListParam {
-  const _$ListParamImpl(
+class _ListParam implements ListParam {
+  const _ListParam(
       {required this.purpose,
       required this.name,
       this.description,
@@ -246,9 +192,8 @@ class _$ListParamImpl implements _ListParam {
       final Map<String, dynamic> unspecced = emptyJson})
       : _descriptionFacets = descriptionFacets,
         _unspecced = unspecced;
-
-  factory _$ListParamImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListParamImplFromJson(json);
+  factory _ListParam.fromJson(Map<String, dynamic> json) =>
+      _$ListParamFromJson(json);
 
   @override
   final String purpose;
@@ -283,16 +228,26 @@ class _$ListParamImpl implements _ListParam {
     return EqualUnmodifiableMapView(_unspecced);
   }
 
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ListParam(purpose: $purpose, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ListParamCopyWith<_ListParam> get copyWith =>
+      __$ListParamCopyWithImpl<_ListParam>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ListParamToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListParamImpl &&
+            other is _ListParam &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -320,58 +275,120 @@ class _$ListParamImpl implements _ListParam {
       createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
-  /// Create a copy of ListParam
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ListParamImplCopyWith<_$ListParamImpl> get copyWith =>
-      __$$ListParamImplCopyWithImpl<_$ListParamImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ListParamImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ListParam(purpose: $purpose, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unspecced: $unspecced)';
   }
 }
 
-abstract class _ListParam implements ListParam {
-  const factory _ListParam(
-      {required final String purpose,
-      required final String name,
-      final String? description,
-      final List<Facet>? descriptionFacets,
-      final Blob? avatar,
-      @labelsConverter final Labels? labels,
-      final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$ListParamImpl;
+/// @nodoc
+abstract mixin class _$ListParamCopyWith<$Res>
+    implements $ListParamCopyWith<$Res> {
+  factory _$ListParamCopyWith(
+          _ListParam value, $Res Function(_ListParam) _then) =
+      __$ListParamCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String purpose,
+      String name,
+      String? description,
+      List<Facet>? descriptionFacets,
+      Blob? avatar,
+      @labelsConverter Labels? labels,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
 
-  factory _ListParam.fromJson(Map<String, dynamic> json) =
-      _$ListParamImpl.fromJson;
+  @override
+  $BlobCopyWith<$Res>? get avatar;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
+}
 
-  @override
-  String get purpose;
-  @override
-  String get name;
-  @override
-  String? get description;
-  @override
-  List<Facet>? get descriptionFacets;
-  @override
-  Blob? get avatar;
-  @override
-  @labelsConverter
-  Labels? get labels;
-  @override
-  DateTime? get createdAt;
-  @override
-  Map<String, dynamic> get unspecced;
+/// @nodoc
+class __$ListParamCopyWithImpl<$Res> implements _$ListParamCopyWith<$Res> {
+  __$ListParamCopyWithImpl(this._self, this._then);
+
+  final _ListParam _self;
+  final $Res Function(_ListParam) _then;
 
   /// Create a copy of ListParam
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ListParamImplCopyWith<_$ListParamImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? purpose = null,
+    Object? name = null,
+    Object? description = freezed,
+    Object? descriptionFacets = freezed,
+    Object? avatar = freezed,
+    Object? labels = freezed,
+    Object? createdAt = freezed,
+    Object? unspecced = null,
+  }) {
+    return _then(_ListParam(
+      purpose: null == purpose
+          ? _self.purpose
+          : purpose // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      descriptionFacets: freezed == descriptionFacets
+          ? _self._descriptionFacets
+          : descriptionFacets // ignore: cast_nullable_to_non_nullable
+              as List<Facet>?,
+      avatar: freezed == avatar
+          ? _self.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as Blob?,
+      labels: freezed == labels
+          ? _self.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
+      createdAt: freezed == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      unspecced: null == unspecced
+          ? _self._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BlobCopyWith<$Res>? get avatar {
+    if (_self.avatar == null) {
+      return null;
+    }
+
+    return $BlobCopyWith<$Res>(_self.avatar!, (value) {
+      return _then(_self.copyWith(avatar: value));
+    });
+  }
+
+  /// Create a copy of ListParam
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_self.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
+    });
+  }
 }
+
+// dart format on

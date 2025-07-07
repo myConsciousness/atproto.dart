@@ -12,7 +12,7 @@ part 'thread_context.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#threadcontext
 @freezed
-class ThreadContext with _$ThreadContext {
+abstract class ThreadContext with _$ThreadContext {
   @jsonSerializable
   const factory ThreadContext({
     @typeKey @Default(appBskyFeedDefsThreadContext) String type,

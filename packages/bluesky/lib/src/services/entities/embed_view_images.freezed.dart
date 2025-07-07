@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,89 +10,62 @@ part of 'embed_view_images.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EmbedViewImages _$EmbedViewImagesFromJson(Map<String, dynamic> json) {
-  return _EmbedViewImages.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EmbedViewImages {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  List<EmbedViewImagesView> get images => throw _privateConstructorUsedError;
-
-  /// Serializes this EmbedViewImages to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  List<EmbedViewImagesView> get images;
 
   /// Create a copy of EmbedViewImages
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $EmbedViewImagesCopyWith<EmbedViewImages> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $EmbedViewImagesCopyWith<$Res> {
-  factory $EmbedViewImagesCopyWith(
-          EmbedViewImages value, $Res Function(EmbedViewImages) then) =
-      _$EmbedViewImagesCopyWithImpl<$Res, EmbedViewImages>;
-  @useResult
-  $Res call({@typeKey String type, List<EmbedViewImagesView> images});
-}
-
-/// @nodoc
-class _$EmbedViewImagesCopyWithImpl<$Res, $Val extends EmbedViewImages>
-    implements $EmbedViewImagesCopyWith<$Res> {
-  _$EmbedViewImagesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of EmbedViewImages
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $EmbedViewImagesCopyWith<EmbedViewImages> get copyWith =>
+      _$EmbedViewImagesCopyWithImpl<EmbedViewImages>(
+          this as EmbedViewImages, _$identity);
+
+  /// Serializes this EmbedViewImages to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? images = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      images: null == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<EmbedViewImagesView>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EmbedViewImages &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality().equals(other.images, images));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(images));
+
+  @override
+  String toString() {
+    return 'EmbedViewImages(type: $type, images: $images)';
   }
 }
 
 /// @nodoc
-abstract class _$$EmbedViewImagesImplCopyWith<$Res>
-    implements $EmbedViewImagesCopyWith<$Res> {
-  factory _$$EmbedViewImagesImplCopyWith(_$EmbedViewImagesImpl value,
-          $Res Function(_$EmbedViewImagesImpl) then) =
-      __$$EmbedViewImagesImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $EmbedViewImagesCopyWith<$Res> {
+  factory $EmbedViewImagesCopyWith(
+          EmbedViewImages value, $Res Function(EmbedViewImages) _then) =
+      _$EmbedViewImagesCopyWithImpl;
   @useResult
   $Res call({@typeKey String type, List<EmbedViewImagesView> images});
 }
 
 /// @nodoc
-class __$$EmbedViewImagesImplCopyWithImpl<$Res>
-    extends _$EmbedViewImagesCopyWithImpl<$Res, _$EmbedViewImagesImpl>
-    implements _$$EmbedViewImagesImplCopyWith<$Res> {
-  __$$EmbedViewImagesImplCopyWithImpl(
-      _$EmbedViewImagesImpl _value, $Res Function(_$EmbedViewImagesImpl) _then)
-      : super(_value, _then);
+class _$EmbedViewImagesCopyWithImpl<$Res>
+    implements $EmbedViewImagesCopyWith<$Res> {
+  _$EmbedViewImagesCopyWithImpl(this._self, this._then);
+
+  final EmbedViewImages _self;
+  final $Res Function(EmbedViewImages) _then;
 
   /// Create a copy of EmbedViewImages
   /// with the given fields replaced by the non-null parameter values.
@@ -101,13 +75,13 @@ class __$$EmbedViewImagesImplCopyWithImpl<$Res>
     Object? type = null,
     Object? images = null,
   }) {
-    return _then(_$EmbedViewImagesImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       images: null == images
-          ? _value._images
+          ? _self.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<EmbedViewImagesView>,
     ));
@@ -116,14 +90,13 @@ class __$$EmbedViewImagesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EmbedViewImagesImpl implements _EmbedViewImages {
-  const _$EmbedViewImagesImpl(
+class _EmbedViewImages implements EmbedViewImages {
+  const _EmbedViewImages(
       {@typeKey this.type = appBskyEmbedImagesView,
       required final List<EmbedViewImagesView> images})
       : _images = images;
-
-  factory _$EmbedViewImagesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedViewImagesImplFromJson(json);
+  factory _EmbedViewImages.fromJson(Map<String, dynamic> json) =>
+      _$EmbedViewImagesFromJson(json);
 
   @override
   @typeKey
@@ -136,16 +109,26 @@ class _$EmbedViewImagesImpl implements _EmbedViewImages {
     return EqualUnmodifiableListView(_images);
   }
 
+  /// Create a copy of EmbedViewImages
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'EmbedViewImages(type: $type, images: $images)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$EmbedViewImagesCopyWith<_EmbedViewImages> get copyWith =>
+      __$EmbedViewImagesCopyWithImpl<_EmbedViewImages>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EmbedViewImagesToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedViewImagesImpl &&
+            other is _EmbedViewImages &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
@@ -155,41 +138,50 @@ class _$EmbedViewImagesImpl implements _EmbedViewImages {
   int get hashCode => Object.hash(
       runtimeType, type, const DeepCollectionEquality().hash(_images));
 
-  /// Create a copy of EmbedViewImages
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EmbedViewImagesImplCopyWith<_$EmbedViewImagesImpl> get copyWith =>
-      __$$EmbedViewImagesImplCopyWithImpl<_$EmbedViewImagesImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EmbedViewImagesImplToJson(
-      this,
-    );
+  String toString() {
+    return 'EmbedViewImages(type: $type, images: $images)';
   }
 }
 
-abstract class _EmbedViewImages implements EmbedViewImages {
-  const factory _EmbedViewImages(
-      {@typeKey final String type,
-      required final List<EmbedViewImagesView> images}) = _$EmbedViewImagesImpl;
-
-  factory _EmbedViewImages.fromJson(Map<String, dynamic> json) =
-      _$EmbedViewImagesImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$EmbedViewImagesCopyWith<$Res>
+    implements $EmbedViewImagesCopyWith<$Res> {
+  factory _$EmbedViewImagesCopyWith(
+          _EmbedViewImages value, $Res Function(_EmbedViewImages) _then) =
+      __$EmbedViewImagesCopyWithImpl;
   @override
-  @typeKey
-  String get type;
-  @override
-  List<EmbedViewImagesView> get images;
+  @useResult
+  $Res call({@typeKey String type, List<EmbedViewImagesView> images});
+}
+
+/// @nodoc
+class __$EmbedViewImagesCopyWithImpl<$Res>
+    implements _$EmbedViewImagesCopyWith<$Res> {
+  __$EmbedViewImagesCopyWithImpl(this._self, this._then);
+
+  final _EmbedViewImages _self;
+  final $Res Function(_EmbedViewImages) _then;
 
   /// Create a copy of EmbedViewImages
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EmbedViewImagesImplCopyWith<_$EmbedViewImagesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? images = null,
+  }) {
+    return _then(_EmbedViewImages(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      images: null == images
+          ? _self._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<EmbedViewImagesView>,
+    ));
+  }
 }
+
+// dart format on

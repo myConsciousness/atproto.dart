@@ -8,12 +8,11 @@ part of 'get_repo_status_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetRepoStatusOutputImpl _$$GetRepoStatusOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GetRepoStatusOutputImpl',
+_GetRepoStatusOutput _$GetRepoStatusOutputFromJson(Map json) => $checkedCreate(
+      '_GetRepoStatusOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetRepoStatusOutputImpl(
+        final val = _GetRepoStatusOutput(
           did: $checkedConvert('did', (v) => v as String),
           active: $checkedConvert('active', (v) => v as bool),
           status: $checkedConvert('status', (v) => v as String?),
@@ -23,8 +22,8 @@ _$GetRepoStatusOutputImpl _$$GetRepoStatusOutputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$GetRepoStatusOutputImplToJson(
-        _$GetRepoStatusOutputImpl instance) =>
+Map<String, dynamic> _$GetRepoStatusOutputToJson(
+        _GetRepoStatusOutput instance) =>
     <String, dynamic>{
       'did': instance.did,
       'active': instance.active,

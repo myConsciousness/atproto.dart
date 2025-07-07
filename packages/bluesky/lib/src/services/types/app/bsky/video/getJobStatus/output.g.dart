@@ -8,12 +8,11 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetJobStatusOutputImpl _$$GetJobStatusOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GetJobStatusOutputImpl',
+_GetJobStatusOutput _$GetJobStatusOutputFromJson(Map json) => $checkedCreate(
+      '_GetJobStatusOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetJobStatusOutputImpl(
+        final val = _GetJobStatusOutput(
           jobStatus: $checkedConvert('jobStatus',
               (v) => JobStatus.fromJson(Map<String, Object?>.from(v as Map))),
         );
@@ -21,8 +20,7 @@ _$GetJobStatusOutputImpl _$$GetJobStatusOutputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$GetJobStatusOutputImplToJson(
-        _$GetJobStatusOutputImpl instance) =>
+Map<String, dynamic> _$GetJobStatusOutputToJson(_GetJobStatusOutput instance) =>
     <String, dynamic>{
       'jobStatus': instance.jobStatus.toJson(),
     };

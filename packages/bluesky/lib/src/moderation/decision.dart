@@ -63,29 +63,34 @@ final class ModerationDecision {
   ModerationDecision downgrade() {
     final causes = <ModerationCause>[];
     for (final cause in this.causes) {
-      causes.add(cause.when(
-        blocking: (data) => ModerationCause.blocking(
-          data: data.copyWith(downgraded: true),
-        ),
-        blockedBy: (data) => ModerationCause.blockedBy(
-          data: data.copyWith(downgraded: true),
-        ),
-        blockOther: (data) => ModerationCause.blockOther(
-          data: data.copyWith(downgraded: true),
-        ),
-        label: (data) => ModerationCause.label(
-          data: data.copyWith(downgraded: true),
-        ),
-        muted: (data) => ModerationCause.muted(
-          data: data.copyWith(downgraded: true),
-        ),
-        muteWord: (data) => ModerationCause.muteWord(
-          data: data.copyWith(downgraded: true),
-        ),
-        hidden: (data) => ModerationCause.hidden(
-          data: data.copyWith(downgraded: true),
-        ),
-      ));
+      final downgradedCause = switch (cause) {
+        UModerationCauseBlocking(data: final data) => ModerationCause.blocking(
+            data: data.copyWith(downgraded: true),
+          ),
+        UModerationCauseBlockedBy(data: final data) =>
+          ModerationCause.blockedBy(
+            data: data.copyWith(downgraded: true),
+          ),
+        UModerationCauseBlockOther(data: final data) =>
+          ModerationCause.blockOther(
+            data: data.copyWith(downgraded: true),
+          ),
+        UModerationCauseLabel(data: final data) => ModerationCause.label(
+            data: data.copyWith(downgraded: true),
+          ),
+        UModerationCauseMuted(data: final data) => ModerationCause.muted(
+            data: data.copyWith(downgraded: true),
+          ),
+        UModerationCauseMuteWord(data: final data) => ModerationCause.muteWord(
+            data: data.copyWith(downgraded: true),
+          ),
+        UModerationCauseHidden(data: final data) => ModerationCause.hidden(
+            data: data.copyWith(downgraded: true),
+          ),
+        _ => throw UnimplementedError(
+            'Unknown ModerationCause type: ${cause.runtimeType}'),
+      };
+      causes.add(downgradedCause);
     }
 
     return ModerationDecision._(did: did, me: me, causes: causes);
@@ -356,7 +361,8 @@ final class ModerationDecision {
           }
         }
       } else if (cause is UModerationCauseLabel) {
-        final labelCause = cause.whenOrNull(label: (data) => data)!;
+        // Directly access data since type is confirmed
+        final labelCause = cause.data;
 
         if (context.isProfileList && labelCause.target == LabelTarget.account) {
           if (labelCause.setting == LabelPreference.hide && !me) {

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,92 +10,54 @@ part of 'subscribed_repo_handle.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Handle _$HandleFromJson(Map<String, dynamic> json) {
-  return _Handle.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Handle {
-  String get did => throw _privateConstructorUsedError;
-  String get handle => throw _privateConstructorUsedError;
+  String get did;
+  String get handle;
   @JsonKey(name: 'seq')
-  int get cursor => throw _privateConstructorUsedError;
+  int get cursor;
   @JsonKey(name: 'time')
-  DateTime get createdAt => throw _privateConstructorUsedError;
-
-  /// Serializes this Handle to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  DateTime get createdAt;
 
   /// Create a copy of Handle
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $HandleCopyWith<Handle> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $HandleCopyWith<$Res> {
-  factory $HandleCopyWith(Handle value, $Res Function(Handle) then) =
-      _$HandleCopyWithImpl<$Res, Handle>;
-  @useResult
-  $Res call(
-      {String did,
-      String handle,
-      @JsonKey(name: 'seq') int cursor,
-      @JsonKey(name: 'time') DateTime createdAt});
-}
-
-/// @nodoc
-class _$HandleCopyWithImpl<$Res, $Val extends Handle>
-    implements $HandleCopyWith<$Res> {
-  _$HandleCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Handle
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $HandleCopyWith<Handle> get copyWith =>
+      _$HandleCopyWithImpl<Handle>(this as Handle, _$identity);
+
+  /// Serializes this Handle to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? did = null,
-    Object? handle = null,
-    Object? cursor = null,
-    Object? createdAt = null,
-  }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      cursor: null == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Handle &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, did, handle, cursor, createdAt);
+
+  @override
+  String toString() {
+    return 'Handle(did: $did, handle: $handle, cursor: $cursor, createdAt: $createdAt)';
   }
 }
 
 /// @nodoc
-abstract class _$$HandleImplCopyWith<$Res> implements $HandleCopyWith<$Res> {
-  factory _$$HandleImplCopyWith(
-          _$HandleImpl value, $Res Function(_$HandleImpl) then) =
-      __$$HandleImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $HandleCopyWith<$Res> {
+  factory $HandleCopyWith(Handle value, $Res Function(Handle) _then) =
+      _$HandleCopyWithImpl;
   @useResult
   $Res call(
       {String did,
@@ -104,12 +67,11 @@ abstract class _$$HandleImplCopyWith<$Res> implements $HandleCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$HandleImplCopyWithImpl<$Res>
-    extends _$HandleCopyWithImpl<$Res, _$HandleImpl>
-    implements _$$HandleImplCopyWith<$Res> {
-  __$$HandleImplCopyWithImpl(
-      _$HandleImpl _value, $Res Function(_$HandleImpl) _then)
-      : super(_value, _then);
+class _$HandleCopyWithImpl<$Res> implements $HandleCopyWith<$Res> {
+  _$HandleCopyWithImpl(this._self, this._then);
+
+  final Handle _self;
+  final $Res Function(Handle) _then;
 
   /// Create a copy of Handle
   /// with the given fields replaced by the non-null parameter values.
@@ -121,21 +83,21 @@ class __$$HandleImplCopyWithImpl<$Res>
     Object? cursor = null,
     Object? createdAt = null,
   }) {
-    return _then(_$HandleImpl(
+    return _then(_self.copyWith(
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
       handle: null == handle
-          ? _value.handle
+          ? _self.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
       cursor: null == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as int,
       createdAt: null == createdAt
-          ? _value.createdAt
+          ? _self.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -144,15 +106,13 @@ class __$$HandleImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$HandleImpl implements _Handle {
-  const _$HandleImpl(
+class _Handle implements Handle {
+  const _Handle(
       {required this.did,
       required this.handle,
       @JsonKey(name: 'seq') required this.cursor,
       @JsonKey(name: 'time') required this.createdAt});
-
-  factory _$HandleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HandleImplFromJson(json);
+  factory _Handle.fromJson(Map<String, dynamic> json) => _$HandleFromJson(json);
 
   @override
   final String did;
@@ -165,16 +125,26 @@ class _$HandleImpl implements _Handle {
   @JsonKey(name: 'time')
   final DateTime createdAt;
 
+  /// Create a copy of Handle
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Handle(did: $did, handle: $handle, cursor: $cursor, createdAt: $createdAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$HandleCopyWith<_Handle> get copyWith =>
+      __$HandleCopyWithImpl<_Handle>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$HandleToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HandleImpl &&
+            other is _Handle &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
@@ -186,46 +156,61 @@ class _$HandleImpl implements _Handle {
   @override
   int get hashCode => Object.hash(runtimeType, did, handle, cursor, createdAt);
 
-  /// Create a copy of Handle
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$HandleImplCopyWith<_$HandleImpl> get copyWith =>
-      __$$HandleImplCopyWithImpl<_$HandleImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HandleImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Handle(did: $did, handle: $handle, cursor: $cursor, createdAt: $createdAt)';
   }
 }
 
-abstract class _Handle implements Handle {
-  const factory _Handle(
-      {required final String did,
-      required final String handle,
-      @JsonKey(name: 'seq') required final int cursor,
-      @JsonKey(name: 'time') required final DateTime createdAt}) = _$HandleImpl;
+/// @nodoc
+abstract mixin class _$HandleCopyWith<$Res> implements $HandleCopyWith<$Res> {
+  factory _$HandleCopyWith(_Handle value, $Res Function(_Handle) _then) =
+      __$HandleCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String did,
+      String handle,
+      @JsonKey(name: 'seq') int cursor,
+      @JsonKey(name: 'time') DateTime createdAt});
+}
 
-  factory _Handle.fromJson(Map<String, dynamic> json) = _$HandleImpl.fromJson;
+/// @nodoc
+class __$HandleCopyWithImpl<$Res> implements _$HandleCopyWith<$Res> {
+  __$HandleCopyWithImpl(this._self, this._then);
 
-  @override
-  String get did;
-  @override
-  String get handle;
-  @override
-  @JsonKey(name: 'seq')
-  int get cursor;
-  @override
-  @JsonKey(name: 'time')
-  DateTime get createdAt;
+  final _Handle _self;
+  final $Res Function(_Handle) _then;
 
   /// Create a copy of Handle
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$HandleImplCopyWith<_$HandleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+    Object? handle = null,
+    Object? cursor = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_Handle(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _self.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      cursor: null == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
+
+// dart format on

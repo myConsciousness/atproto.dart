@@ -12,7 +12,7 @@ part 'lex_xrpc_query.freezed.dart';
 part 'lex_xrpc_query.g.dart';
 
 @freezed
-class LexXrpcQuery with _$LexXrpcQuery {
+abstract class LexXrpcQuery with _$LexXrpcQuery {
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcQuery({
     @Default('query') String type,

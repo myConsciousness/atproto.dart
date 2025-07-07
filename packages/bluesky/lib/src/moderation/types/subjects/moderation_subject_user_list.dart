@@ -9,7 +9,7 @@ import '../mod_object.dart';
 part 'moderation_subject_user_list.freezed.dart';
 
 @modObject
-class ModerationSubjectUserList with _$ModerationSubjectUserList {
+abstract class ModerationSubjectUserList with _$ModerationSubjectUserList {
   const factory ModerationSubjectUserList.listViewBasic({
     required ListViewBasic data,
   }) = UModerationSubjectUserListListViewBasic;

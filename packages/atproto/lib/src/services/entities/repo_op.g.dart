@@ -8,11 +8,11 @@ part of 'repo_op.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RepoOpImpl _$$RepoOpImplFromJson(Map json) => $checkedCreate(
-      r'_$RepoOpImpl',
+_RepoOp _$RepoOpFromJson(Map json) => $checkedCreate(
+      '_RepoOp',
       json,
       ($checkedConvert) {
-        final val = _$RepoOpImpl(
+        final val = _RepoOp(
           action: $checkedConvert(
               'action', (v) => $enumDecode(_$RepoActionEnumMap, v)),
           uri: $checkedConvert(
@@ -28,8 +28,7 @@ _$RepoOpImpl _$$RepoOpImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$RepoOpImplToJson(_$RepoOpImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$RepoOpToJson(_RepoOp instance) => <String, dynamic>{
       'action': _$RepoActionEnumMap[instance.action]!,
       'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,

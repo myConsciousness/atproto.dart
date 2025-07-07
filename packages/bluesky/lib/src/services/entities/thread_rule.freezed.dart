@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,98 +10,74 @@ part of 'thread_rule.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ThreadRule {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadMentionRule data) mention,
-    required TResult Function(ThreadFollowingRule data) following,
-    required TResult Function(ThreadFollowerRule data) followers,
-    required TResult Function(ThreadListRule data) list,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadMentionRule data)? mention,
-    TResult? Function(ThreadFollowingRule data)? following,
-    TResult? Function(ThreadFollowerRule data)? followers,
-    TResult? Function(ThreadListRule data)? list,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadMentionRule data)? mention,
-    TResult Function(ThreadFollowingRule data)? following,
-    TResult Function(ThreadFollowerRule data)? followers,
-    TResult Function(ThreadListRule data)? list,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadRuleMention value) mention,
-    required TResult Function(UThreadRuleFollowing value) following,
-    required TResult Function(UThreadRuleFollower value) followers,
-    required TResult Function(UThreadRuleList value) list,
-    required TResult Function(UThreadRuleUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadRuleMention value)? mention,
-    TResult? Function(UThreadRuleFollowing value)? following,
-    TResult? Function(UThreadRuleFollower value)? followers,
-    TResult? Function(UThreadRuleList value)? list,
-    TResult? Function(UThreadRuleUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadRuleMention value)? mention,
-    TResult Function(UThreadRuleFollowing value)? following,
-    TResult Function(UThreadRuleFollower value)? followers,
-    TResult Function(UThreadRuleList value)? list,
-    TResult Function(UThreadRuleUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ThreadRule &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'ThreadRule(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $ThreadRuleCopyWith<$Res> {
-  factory $ThreadRuleCopyWith(
-          ThreadRule value, $Res Function(ThreadRule) then) =
-      _$ThreadRuleCopyWithImpl<$Res, ThreadRule>;
+class $ThreadRuleCopyWith<$Res> {
+  $ThreadRuleCopyWith(ThreadRule _, $Res Function(ThreadRule) __);
 }
 
 /// @nodoc
-class _$ThreadRuleCopyWithImpl<$Res, $Val extends ThreadRule>
-    implements $ThreadRuleCopyWith<$Res> {
-  _$ThreadRuleCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class UThreadRuleMention extends ThreadRule {
+  const UThreadRuleMention({required this.data}) : super._();
+
+  @override
+  final ThreadMentionRule data;
 
   /// Create a copy of ThreadRule
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UThreadRuleMentionCopyWith<UThreadRuleMention> get copyWith =>
+      _$UThreadRuleMentionCopyWithImpl<UThreadRuleMention>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UThreadRuleMention &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'ThreadRule.mention(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$UThreadRuleMentionImplCopyWith<$Res> {
-  factory _$$UThreadRuleMentionImplCopyWith(_$UThreadRuleMentionImpl value,
-          $Res Function(_$UThreadRuleMentionImpl) then) =
-      __$$UThreadRuleMentionImplCopyWithImpl<$Res>;
+abstract mixin class $UThreadRuleMentionCopyWith<$Res>
+    implements $ThreadRuleCopyWith<$Res> {
+  factory $UThreadRuleMentionCopyWith(
+          UThreadRuleMention value, $Res Function(UThreadRuleMention) _then) =
+      _$UThreadRuleMentionCopyWithImpl;
   @useResult
   $Res call({ThreadMentionRule data});
 
@@ -108,23 +85,22 @@ abstract class _$$UThreadRuleMentionImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadRuleMentionImplCopyWithImpl<$Res>
-    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleMentionImpl>
-    implements _$$UThreadRuleMentionImplCopyWith<$Res> {
-  __$$UThreadRuleMentionImplCopyWithImpl(_$UThreadRuleMentionImpl _value,
-      $Res Function(_$UThreadRuleMentionImpl) _then)
-      : super(_value, _then);
+class _$UThreadRuleMentionCopyWithImpl<$Res>
+    implements $UThreadRuleMentionCopyWith<$Res> {
+  _$UThreadRuleMentionCopyWithImpl(this._self, this._then);
+
+  final UThreadRuleMention _self;
+  final $Res Function(UThreadRuleMention) _then;
 
   /// Create a copy of ThreadRule
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadRuleMentionImpl(
+    return _then(UThreadRuleMention(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ThreadMentionRule,
     ));
@@ -135,146 +111,51 @@ class __$$UThreadRuleMentionImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ThreadMentionRuleCopyWith<$Res> get data {
-    return $ThreadMentionRuleCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ThreadMentionRuleCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UThreadRuleMentionImpl extends UThreadRuleMention {
-  const _$UThreadRuleMentionImpl({required this.data}) : super._();
+class UThreadRuleFollowing extends ThreadRule {
+  const UThreadRuleFollowing({required this.data}) : super._();
 
   @override
-  final ThreadMentionRule data;
+  final ThreadFollowingRule data;
 
-  @override
-  String toString() {
-    return 'ThreadRule.mention(data: $data)';
-  }
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UThreadRuleFollowingCopyWith<UThreadRuleFollowing> get copyWith =>
+      _$UThreadRuleFollowingCopyWithImpl<UThreadRuleFollowing>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadRuleMentionImpl &&
+            other is UThreadRuleFollowing &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UThreadRuleMentionImplCopyWith<_$UThreadRuleMentionImpl> get copyWith =>
-      __$$UThreadRuleMentionImplCopyWithImpl<_$UThreadRuleMentionImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadMentionRule data) mention,
-    required TResult Function(ThreadFollowingRule data) following,
-    required TResult Function(ThreadFollowerRule data) followers,
-    required TResult Function(ThreadListRule data) list,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return mention(data);
+  String toString() {
+    return 'ThreadRule.following(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadMentionRule data)? mention,
-    TResult? Function(ThreadFollowingRule data)? following,
-    TResult? Function(ThreadFollowerRule data)? followers,
-    TResult? Function(ThreadListRule data)? list,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return mention?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadMentionRule data)? mention,
-    TResult Function(ThreadFollowingRule data)? following,
-    TResult Function(ThreadFollowerRule data)? followers,
-    TResult Function(ThreadListRule data)? list,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (mention != null) {
-      return mention(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadRuleMention value) mention,
-    required TResult Function(UThreadRuleFollowing value) following,
-    required TResult Function(UThreadRuleFollower value) followers,
-    required TResult Function(UThreadRuleList value) list,
-    required TResult Function(UThreadRuleUnknown value) unknown,
-  }) {
-    return mention(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadRuleMention value)? mention,
-    TResult? Function(UThreadRuleFollowing value)? following,
-    TResult? Function(UThreadRuleFollower value)? followers,
-    TResult? Function(UThreadRuleList value)? list,
-    TResult? Function(UThreadRuleUnknown value)? unknown,
-  }) {
-    return mention?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadRuleMention value)? mention,
-    TResult Function(UThreadRuleFollowing value)? following,
-    TResult Function(UThreadRuleFollower value)? followers,
-    TResult Function(UThreadRuleList value)? list,
-    TResult Function(UThreadRuleUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (mention != null) {
-      return mention(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UThreadRuleMention extends ThreadRule {
-  const factory UThreadRuleMention({required final ThreadMentionRule data}) =
-      _$UThreadRuleMentionImpl;
-  const UThreadRuleMention._() : super._();
-
-  @override
-  ThreadMentionRule get data;
-
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UThreadRuleMentionImplCopyWith<_$UThreadRuleMentionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UThreadRuleFollowingImplCopyWith<$Res> {
-  factory _$$UThreadRuleFollowingImplCopyWith(_$UThreadRuleFollowingImpl value,
-          $Res Function(_$UThreadRuleFollowingImpl) then) =
-      __$$UThreadRuleFollowingImplCopyWithImpl<$Res>;
+abstract mixin class $UThreadRuleFollowingCopyWith<$Res>
+    implements $ThreadRuleCopyWith<$Res> {
+  factory $UThreadRuleFollowingCopyWith(UThreadRuleFollowing value,
+          $Res Function(UThreadRuleFollowing) _then) =
+      _$UThreadRuleFollowingCopyWithImpl;
   @useResult
   $Res call({ThreadFollowingRule data});
 
@@ -282,23 +163,22 @@ abstract class _$$UThreadRuleFollowingImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadRuleFollowingImplCopyWithImpl<$Res>
-    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleFollowingImpl>
-    implements _$$UThreadRuleFollowingImplCopyWith<$Res> {
-  __$$UThreadRuleFollowingImplCopyWithImpl(_$UThreadRuleFollowingImpl _value,
-      $Res Function(_$UThreadRuleFollowingImpl) _then)
-      : super(_value, _then);
+class _$UThreadRuleFollowingCopyWithImpl<$Res>
+    implements $UThreadRuleFollowingCopyWith<$Res> {
+  _$UThreadRuleFollowingCopyWithImpl(this._self, this._then);
+
+  final UThreadRuleFollowing _self;
+  final $Res Function(UThreadRuleFollowing) _then;
 
   /// Create a copy of ThreadRule
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadRuleFollowingImpl(
+    return _then(UThreadRuleFollowing(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ThreadFollowingRule,
     ));
@@ -309,147 +189,50 @@ class __$$UThreadRuleFollowingImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ThreadFollowingRuleCopyWith<$Res> get data {
-    return $ThreadFollowingRuleCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ThreadFollowingRuleCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UThreadRuleFollowingImpl extends UThreadRuleFollowing {
-  const _$UThreadRuleFollowingImpl({required this.data}) : super._();
+class UThreadRuleFollower extends ThreadRule {
+  const UThreadRuleFollower({required this.data}) : super._();
 
   @override
-  final ThreadFollowingRule data;
+  final ThreadFollowerRule data;
 
-  @override
-  String toString() {
-    return 'ThreadRule.following(data: $data)';
-  }
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UThreadRuleFollowerCopyWith<UThreadRuleFollower> get copyWith =>
+      _$UThreadRuleFollowerCopyWithImpl<UThreadRuleFollower>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadRuleFollowingImpl &&
+            other is UThreadRuleFollower &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UThreadRuleFollowingImplCopyWith<_$UThreadRuleFollowingImpl>
-      get copyWith =>
-          __$$UThreadRuleFollowingImplCopyWithImpl<_$UThreadRuleFollowingImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadMentionRule data) mention,
-    required TResult Function(ThreadFollowingRule data) following,
-    required TResult Function(ThreadFollowerRule data) followers,
-    required TResult Function(ThreadListRule data) list,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return following(data);
+  String toString() {
+    return 'ThreadRule.followers(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadMentionRule data)? mention,
-    TResult? Function(ThreadFollowingRule data)? following,
-    TResult? Function(ThreadFollowerRule data)? followers,
-    TResult? Function(ThreadListRule data)? list,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return following?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadMentionRule data)? mention,
-    TResult Function(ThreadFollowingRule data)? following,
-    TResult Function(ThreadFollowerRule data)? followers,
-    TResult Function(ThreadListRule data)? list,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (following != null) {
-      return following(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadRuleMention value) mention,
-    required TResult Function(UThreadRuleFollowing value) following,
-    required TResult Function(UThreadRuleFollower value) followers,
-    required TResult Function(UThreadRuleList value) list,
-    required TResult Function(UThreadRuleUnknown value) unknown,
-  }) {
-    return following(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadRuleMention value)? mention,
-    TResult? Function(UThreadRuleFollowing value)? following,
-    TResult? Function(UThreadRuleFollower value)? followers,
-    TResult? Function(UThreadRuleList value)? list,
-    TResult? Function(UThreadRuleUnknown value)? unknown,
-  }) {
-    return following?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadRuleMention value)? mention,
-    TResult Function(UThreadRuleFollowing value)? following,
-    TResult Function(UThreadRuleFollower value)? followers,
-    TResult Function(UThreadRuleList value)? list,
-    TResult Function(UThreadRuleUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (following != null) {
-      return following(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UThreadRuleFollowing extends ThreadRule {
-  const factory UThreadRuleFollowing(
-      {required final ThreadFollowingRule data}) = _$UThreadRuleFollowingImpl;
-  const UThreadRuleFollowing._() : super._();
-
-  @override
-  ThreadFollowingRule get data;
-
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UThreadRuleFollowingImplCopyWith<_$UThreadRuleFollowingImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UThreadRuleFollowerImplCopyWith<$Res> {
-  factory _$$UThreadRuleFollowerImplCopyWith(_$UThreadRuleFollowerImpl value,
-          $Res Function(_$UThreadRuleFollowerImpl) then) =
-      __$$UThreadRuleFollowerImplCopyWithImpl<$Res>;
+abstract mixin class $UThreadRuleFollowerCopyWith<$Res>
+    implements $ThreadRuleCopyWith<$Res> {
+  factory $UThreadRuleFollowerCopyWith(
+          UThreadRuleFollower value, $Res Function(UThreadRuleFollower) _then) =
+      _$UThreadRuleFollowerCopyWithImpl;
   @useResult
   $Res call({ThreadFollowerRule data});
 
@@ -457,23 +240,22 @@ abstract class _$$UThreadRuleFollowerImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadRuleFollowerImplCopyWithImpl<$Res>
-    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleFollowerImpl>
-    implements _$$UThreadRuleFollowerImplCopyWith<$Res> {
-  __$$UThreadRuleFollowerImplCopyWithImpl(_$UThreadRuleFollowerImpl _value,
-      $Res Function(_$UThreadRuleFollowerImpl) _then)
-      : super(_value, _then);
+class _$UThreadRuleFollowerCopyWithImpl<$Res>
+    implements $UThreadRuleFollowerCopyWith<$Res> {
+  _$UThreadRuleFollowerCopyWithImpl(this._self, this._then);
+
+  final UThreadRuleFollower _self;
+  final $Res Function(UThreadRuleFollower) _then;
 
   /// Create a copy of ThreadRule
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadRuleFollowerImpl(
+    return _then(UThreadRuleFollower(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ThreadFollowerRule,
     ));
@@ -484,146 +266,50 @@ class __$$UThreadRuleFollowerImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ThreadFollowerRuleCopyWith<$Res> get data {
-    return $ThreadFollowerRuleCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ThreadFollowerRuleCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UThreadRuleFollowerImpl extends UThreadRuleFollower {
-  const _$UThreadRuleFollowerImpl({required this.data}) : super._();
+class UThreadRuleList extends ThreadRule {
+  const UThreadRuleList({required this.data}) : super._();
 
   @override
-  final ThreadFollowerRule data;
+  final ThreadListRule data;
 
-  @override
-  String toString() {
-    return 'ThreadRule.followers(data: $data)';
-  }
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UThreadRuleListCopyWith<UThreadRuleList> get copyWith =>
+      _$UThreadRuleListCopyWithImpl<UThreadRuleList>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadRuleFollowerImpl &&
+            other is UThreadRuleList &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UThreadRuleFollowerImplCopyWith<_$UThreadRuleFollowerImpl> get copyWith =>
-      __$$UThreadRuleFollowerImplCopyWithImpl<_$UThreadRuleFollowerImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadMentionRule data) mention,
-    required TResult Function(ThreadFollowingRule data) following,
-    required TResult Function(ThreadFollowerRule data) followers,
-    required TResult Function(ThreadListRule data) list,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return followers(data);
+  String toString() {
+    return 'ThreadRule.list(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadMentionRule data)? mention,
-    TResult? Function(ThreadFollowingRule data)? following,
-    TResult? Function(ThreadFollowerRule data)? followers,
-    TResult? Function(ThreadListRule data)? list,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return followers?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadMentionRule data)? mention,
-    TResult Function(ThreadFollowingRule data)? following,
-    TResult Function(ThreadFollowerRule data)? followers,
-    TResult Function(ThreadListRule data)? list,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (followers != null) {
-      return followers(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadRuleMention value) mention,
-    required TResult Function(UThreadRuleFollowing value) following,
-    required TResult Function(UThreadRuleFollower value) followers,
-    required TResult Function(UThreadRuleList value) list,
-    required TResult Function(UThreadRuleUnknown value) unknown,
-  }) {
-    return followers(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadRuleMention value)? mention,
-    TResult? Function(UThreadRuleFollowing value)? following,
-    TResult? Function(UThreadRuleFollower value)? followers,
-    TResult? Function(UThreadRuleList value)? list,
-    TResult? Function(UThreadRuleUnknown value)? unknown,
-  }) {
-    return followers?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadRuleMention value)? mention,
-    TResult Function(UThreadRuleFollowing value)? following,
-    TResult Function(UThreadRuleFollower value)? followers,
-    TResult Function(UThreadRuleList value)? list,
-    TResult Function(UThreadRuleUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (followers != null) {
-      return followers(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UThreadRuleFollower extends ThreadRule {
-  const factory UThreadRuleFollower({required final ThreadFollowerRule data}) =
-      _$UThreadRuleFollowerImpl;
-  const UThreadRuleFollower._() : super._();
-
-  @override
-  ThreadFollowerRule get data;
-
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UThreadRuleFollowerImplCopyWith<_$UThreadRuleFollowerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UThreadRuleListImplCopyWith<$Res> {
-  factory _$$UThreadRuleListImplCopyWith(_$UThreadRuleListImpl value,
-          $Res Function(_$UThreadRuleListImpl) then) =
-      __$$UThreadRuleListImplCopyWithImpl<$Res>;
+abstract mixin class $UThreadRuleListCopyWith<$Res>
+    implements $ThreadRuleCopyWith<$Res> {
+  factory $UThreadRuleListCopyWith(
+          UThreadRuleList value, $Res Function(UThreadRuleList) _then) =
+      _$UThreadRuleListCopyWithImpl;
   @useResult
   $Res call({ThreadListRule data});
 
@@ -631,23 +317,22 @@ abstract class _$$UThreadRuleListImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadRuleListImplCopyWithImpl<$Res>
-    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleListImpl>
-    implements _$$UThreadRuleListImplCopyWith<$Res> {
-  __$$UThreadRuleListImplCopyWithImpl(
-      _$UThreadRuleListImpl _value, $Res Function(_$UThreadRuleListImpl) _then)
-      : super(_value, _then);
+class _$UThreadRuleListCopyWithImpl<$Res>
+    implements $UThreadRuleListCopyWith<$Res> {
+  _$UThreadRuleListCopyWithImpl(this._self, this._then);
+
+  final UThreadRuleList _self;
+  final $Res Function(UThreadRuleList) _then;
 
   /// Create a copy of ThreadRule
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadRuleListImpl(
+    return _then(UThreadRuleList(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ThreadListRule,
     ));
@@ -658,178 +343,16 @@ class __$$UThreadRuleListImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ThreadListRuleCopyWith<$Res> get data {
-    return $ThreadListRuleCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ThreadListRuleCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UThreadRuleListImpl extends UThreadRuleList {
-  const _$UThreadRuleListImpl({required this.data}) : super._();
-
-  @override
-  final ThreadListRule data;
-
-  @override
-  String toString() {
-    return 'ThreadRule.list(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UThreadRuleListImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UThreadRuleListImplCopyWith<_$UThreadRuleListImpl> get copyWith =>
-      __$$UThreadRuleListImplCopyWithImpl<_$UThreadRuleListImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadMentionRule data) mention,
-    required TResult Function(ThreadFollowingRule data) following,
-    required TResult Function(ThreadFollowerRule data) followers,
-    required TResult Function(ThreadListRule data) list,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return list(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadMentionRule data)? mention,
-    TResult? Function(ThreadFollowingRule data)? following,
-    TResult? Function(ThreadFollowerRule data)? followers,
-    TResult? Function(ThreadListRule data)? list,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return list?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadMentionRule data)? mention,
-    TResult Function(ThreadFollowingRule data)? following,
-    TResult Function(ThreadFollowerRule data)? followers,
-    TResult Function(ThreadListRule data)? list,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (list != null) {
-      return list(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadRuleMention value) mention,
-    required TResult Function(UThreadRuleFollowing value) following,
-    required TResult Function(UThreadRuleFollower value) followers,
-    required TResult Function(UThreadRuleList value) list,
-    required TResult Function(UThreadRuleUnknown value) unknown,
-  }) {
-    return list(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadRuleMention value)? mention,
-    TResult? Function(UThreadRuleFollowing value)? following,
-    TResult? Function(UThreadRuleFollower value)? followers,
-    TResult? Function(UThreadRuleList value)? list,
-    TResult? Function(UThreadRuleUnknown value)? unknown,
-  }) {
-    return list?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadRuleMention value)? mention,
-    TResult Function(UThreadRuleFollowing value)? following,
-    TResult Function(UThreadRuleFollower value)? followers,
-    TResult Function(UThreadRuleList value)? list,
-    TResult Function(UThreadRuleUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (list != null) {
-      return list(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UThreadRuleList extends ThreadRule {
-  const factory UThreadRuleList({required final ThreadListRule data}) =
-      _$UThreadRuleListImpl;
-  const UThreadRuleList._() : super._();
-
-  @override
-  ThreadListRule get data;
-
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UThreadRuleListImplCopyWith<_$UThreadRuleListImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UThreadRuleUnknownImplCopyWith<$Res> {
-  factory _$$UThreadRuleUnknownImplCopyWith(_$UThreadRuleUnknownImpl value,
-          $Res Function(_$UThreadRuleUnknownImpl) then) =
-      __$$UThreadRuleUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$UThreadRuleUnknownImplCopyWithImpl<$Res>
-    extends _$ThreadRuleCopyWithImpl<$Res, _$UThreadRuleUnknownImpl>
-    implements _$$UThreadRuleUnknownImplCopyWith<$Res> {
-  __$$UThreadRuleUnknownImplCopyWithImpl(_$UThreadRuleUnknownImpl _value,
-      $Res Function(_$UThreadRuleUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UThreadRuleUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
-  const _$UThreadRuleUnknownImpl({required final Map<String, dynamic> data})
+class UThreadRuleUnknown extends ThreadRule {
+  const UThreadRuleUnknown({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -841,16 +364,18 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
     return EqualUnmodifiableMapView(_data);
   }
 
-  @override
-  String toString() {
-    return 'ThreadRule.unknown(data: $data)';
-  }
+  /// Create a copy of ThreadRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UThreadRuleUnknownCopyWith<UThreadRuleUnknown> get copyWith =>
+      _$UThreadRuleUnknownCopyWithImpl<UThreadRuleUnknown>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadRuleUnknownImpl &&
+            other is UThreadRuleUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -858,107 +383,43 @@ class _$UThreadRuleUnknownImpl extends UThreadRuleUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'ThreadRule.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UThreadRuleUnknownCopyWith<$Res>
+    implements $ThreadRuleCopyWith<$Res> {
+  factory $UThreadRuleUnknownCopyWith(
+          UThreadRuleUnknown value, $Res Function(UThreadRuleUnknown) _then) =
+      _$UThreadRuleUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$UThreadRuleUnknownCopyWithImpl<$Res>
+    implements $UThreadRuleUnknownCopyWith<$Res> {
+  _$UThreadRuleUnknownCopyWithImpl(this._self, this._then);
+
+  final UThreadRuleUnknown _self;
+  final $Res Function(UThreadRuleUnknown) _then;
+
   /// Create a copy of ThreadRule
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$UThreadRuleUnknownImplCopyWith<_$UThreadRuleUnknownImpl> get copyWith =>
-      __$$UThreadRuleUnknownImplCopyWithImpl<_$UThreadRuleUnknownImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThreadMentionRule data) mention,
-    required TResult Function(ThreadFollowingRule data) following,
-    required TResult Function(ThreadFollowerRule data) followers,
-    required TResult Function(ThreadListRule data) list,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThreadMentionRule data)? mention,
-    TResult? Function(ThreadFollowingRule data)? following,
-    TResult? Function(ThreadFollowerRule data)? followers,
-    TResult? Function(ThreadListRule data)? list,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThreadMentionRule data)? mention,
-    TResult Function(ThreadFollowingRule data)? following,
-    TResult Function(ThreadFollowerRule data)? followers,
-    TResult Function(ThreadListRule data)? list,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UThreadRuleMention value) mention,
-    required TResult Function(UThreadRuleFollowing value) following,
-    required TResult Function(UThreadRuleFollower value) followers,
-    required TResult Function(UThreadRuleList value) list,
-    required TResult Function(UThreadRuleUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadRuleMention value)? mention,
-    TResult? Function(UThreadRuleFollowing value)? following,
-    TResult? Function(UThreadRuleFollower value)? followers,
-    TResult? Function(UThreadRuleList value)? list,
-    TResult? Function(UThreadRuleUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadRuleMention value)? mention,
-    TResult Function(UThreadRuleFollowing value)? following,
-    TResult Function(UThreadRuleFollower value)? followers,
-    TResult Function(UThreadRuleList value)? list,
-    TResult Function(UThreadRuleUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
+    return _then(UThreadRuleUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class UThreadRuleUnknown extends ThreadRule {
-  const factory UThreadRuleUnknown({required final Map<String, dynamic> data}) =
-      _$UThreadRuleUnknownImpl;
-  const UThreadRuleUnknown._() : super._();
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of ThreadRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UThreadRuleUnknownImplCopyWith<_$UThreadRuleUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

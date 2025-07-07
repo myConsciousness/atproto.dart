@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,94 +10,62 @@ part of 'record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Record _$RecordFromJson(Map<String, dynamic> json) {
-  return _Record.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Record {
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-  String? get cid => throw _privateConstructorUsedError;
-  Map<String, dynamic> get value => throw _privateConstructorUsedError;
-
-  /// Serializes this Record to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
+  String? get cid;
+  Map<String, dynamic> get value;
 
   /// Create a copy of Record
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RecordCopyWith<Record> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RecordCopyWith<$Res> {
-  factory $RecordCopyWith(Record value, $Res Function(Record) then) =
-      _$RecordCopyWithImpl<$Res, Record>;
-  @useResult
-  $Res call(
-      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
-}
-
-/// @nodoc
-class _$RecordCopyWithImpl<$Res, $Val extends Record>
-    implements $RecordCopyWith<$Res> {
-  _$RecordCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Record
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $RecordCopyWith<Record> get copyWith =>
+      _$RecordCopyWithImpl<Record>(this as Record, _$identity);
+
+  /// Serializes this Record to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? uri = null,
-    Object? cid = freezed,
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Record &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, uri, cid, const DeepCollectionEquality().hash(value));
+
+  @override
+  String toString() {
+    return 'Record(uri: $uri, cid: $cid, value: $value)';
   }
 }
 
 /// @nodoc
-abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
-  factory _$$RecordImplCopyWith(
-          _$RecordImpl value, $Res Function(_$RecordImpl) then) =
-      __$$RecordImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RecordCopyWith<$Res> {
+  factory $RecordCopyWith(Record value, $Res Function(Record) _then) =
+      _$RecordCopyWithImpl;
   @useResult
   $Res call(
       {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
 }
 
 /// @nodoc
-class __$$RecordImplCopyWithImpl<$Res>
-    extends _$RecordCopyWithImpl<$Res, _$RecordImpl>
-    implements _$$RecordImplCopyWith<$Res> {
-  __$$RecordImplCopyWithImpl(
-      _$RecordImpl _value, $Res Function(_$RecordImpl) _then)
-      : super(_value, _then);
+class _$RecordCopyWithImpl<$Res> implements $RecordCopyWith<$Res> {
+  _$RecordCopyWithImpl(this._self, this._then);
+
+  final Record _self;
+  final $Res Function(Record) _then;
 
   /// Create a copy of Record
   /// with the given fields replaced by the non-null parameter values.
@@ -107,17 +76,17 @@ class __$$RecordImplCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? value = null,
   }) {
-    return _then(_$RecordImpl(
+    return _then(_self.copyWith(
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       cid: freezed == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
       value: null == value
-          ? _value._value
+          ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -127,16 +96,14 @@ class __$$RecordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$RecordImpl extends _Record {
-  const _$RecordImpl(
+class _Record extends Record {
+  const _Record(
       {@AtUriConverter() required this.uri,
       this.cid,
       required final Map<String, dynamic> value})
       : _value = value,
         super._();
-
-  factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RecordImplFromJson(json);
+  factory _Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 
   @override
   @AtUriConverter()
@@ -151,16 +118,26 @@ class _$RecordImpl extends _Record {
     return EqualUnmodifiableMapView(_value);
   }
 
+  /// Create a copy of Record
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Record(uri: $uri, cid: $cid, value: $value)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RecordCopyWith<_Record> get copyWith =>
+      __$RecordCopyWithImpl<_Record>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RecordToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RecordImpl &&
+            other is _Record &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             const DeepCollectionEquality().equals(other._value, _value));
@@ -171,43 +148,53 @@ class _$RecordImpl extends _Record {
   int get hashCode => Object.hash(
       runtimeType, uri, cid, const DeepCollectionEquality().hash(_value));
 
-  /// Create a copy of Record
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
-      __$$RecordImplCopyWithImpl<_$RecordImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Record(uri: $uri, cid: $cid, value: $value)';
   }
 }
 
-abstract class _Record extends Record {
-  const factory _Record(
-      {@AtUriConverter() required final AtUri uri,
-      final String? cid,
-      required final Map<String, dynamic> value}) = _$RecordImpl;
-  const _Record._() : super._();
+/// @nodoc
+abstract mixin class _$RecordCopyWith<$Res> implements $RecordCopyWith<$Res> {
+  factory _$RecordCopyWith(_Record value, $Res Function(_Record) _then) =
+      __$RecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
+}
 
-  factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
+/// @nodoc
+class __$RecordCopyWithImpl<$Res> implements _$RecordCopyWith<$Res> {
+  __$RecordCopyWithImpl(this._self, this._then);
 
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  String? get cid;
-  @override
-  Map<String, dynamic> get value;
+  final _Record _self;
+  final $Res Function(_Record) _then;
 
   /// Create a copy of Record
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? uri = null,
+    Object? cid = freezed,
+    Object? value = null,
+  }) {
+    return _then(_Record(
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: freezed == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      value: null == value
+          ? _self._value
+          : value // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

@@ -12,7 +12,7 @@ part 'facet_tag.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#tag
 @freezed
-class FacetTag with _$FacetTag {
+abstract class FacetTag with _$FacetTag {
   const factory FacetTag({
     @typeKey @Default(appBskyRichtextFacetTag) String type,
     required String tag,

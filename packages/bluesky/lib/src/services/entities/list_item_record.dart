@@ -15,7 +15,7 @@ part 'list_item_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyGraphListitem].
 @freezed
-class ListItemRecord with _$ListItemRecord {
+abstract class ListItemRecord with _$ListItemRecord {
   @jsonSerializable
   const factory ListItemRecord({
     @typeKey @Default(appBskyGraphListitem) String type,

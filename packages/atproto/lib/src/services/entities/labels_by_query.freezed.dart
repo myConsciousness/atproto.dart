@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,61 @@ part of 'labels_by_query.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LabelsByQuery _$LabelsByQueryFromJson(Map<String, dynamic> json) {
-  return _LabelsByQuery.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LabelsByQuery {
-  List<Label> get labels => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this LabelsByQuery to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Label> get labels;
+  String? get cursor;
 
   /// Create a copy of LabelsByQuery
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LabelsByQueryCopyWith<LabelsByQuery> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LabelsByQueryCopyWith<$Res> {
-  factory $LabelsByQueryCopyWith(
-          LabelsByQuery value, $Res Function(LabelsByQuery) then) =
-      _$LabelsByQueryCopyWithImpl<$Res, LabelsByQuery>;
-  @useResult
-  $Res call({List<Label> labels, String? cursor});
-}
-
-/// @nodoc
-class _$LabelsByQueryCopyWithImpl<$Res, $Val extends LabelsByQuery>
-    implements $LabelsByQueryCopyWith<$Res> {
-  _$LabelsByQueryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LabelsByQuery
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LabelsByQueryCopyWith<LabelsByQuery> get copyWith =>
+      _$LabelsByQueryCopyWithImpl<LabelsByQuery>(
+          this as LabelsByQuery, _$identity);
+
+  /// Serializes this LabelsByQuery to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? labels = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      labels: null == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LabelsByQuery &&
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(labels), cursor);
+
+  @override
+  String toString() {
+    return 'LabelsByQuery(labels: $labels, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$LabelsByQueryImplCopyWith<$Res>
-    implements $LabelsByQueryCopyWith<$Res> {
-  factory _$$LabelsByQueryImplCopyWith(
-          _$LabelsByQueryImpl value, $Res Function(_$LabelsByQueryImpl) then) =
-      __$$LabelsByQueryImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LabelsByQueryCopyWith<$Res> {
+  factory $LabelsByQueryCopyWith(
+          LabelsByQuery value, $Res Function(LabelsByQuery) _then) =
+      _$LabelsByQueryCopyWithImpl;
   @useResult
   $Res call({List<Label> labels, String? cursor});
 }
 
 /// @nodoc
-class __$$LabelsByQueryImplCopyWithImpl<$Res>
-    extends _$LabelsByQueryCopyWithImpl<$Res, _$LabelsByQueryImpl>
-    implements _$$LabelsByQueryImplCopyWith<$Res> {
-  __$$LabelsByQueryImplCopyWithImpl(
-      _$LabelsByQueryImpl _value, $Res Function(_$LabelsByQueryImpl) _then)
-      : super(_value, _then);
+class _$LabelsByQueryCopyWithImpl<$Res>
+    implements $LabelsByQueryCopyWith<$Res> {
+  _$LabelsByQueryCopyWithImpl(this._self, this._then);
+
+  final LabelsByQuery _self;
+  final $Res Function(LabelsByQuery) _then;
 
   /// Create a copy of LabelsByQuery
   /// with the given fields replaced by the non-null parameter values.
@@ -100,13 +74,13 @@ class __$$LabelsByQueryImplCopyWithImpl<$Res>
     Object? labels = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$LabelsByQueryImpl(
+    return _then(_self.copyWith(
       labels: null == labels
-          ? _value._labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -116,12 +90,11 @@ class __$$LabelsByQueryImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$LabelsByQueryImpl implements _LabelsByQuery {
-  const _$LabelsByQueryImpl({required final List<Label> labels, this.cursor})
+class _LabelsByQuery implements LabelsByQuery {
+  const _LabelsByQuery({required final List<Label> labels, this.cursor})
       : _labels = labels;
-
-  factory _$LabelsByQueryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LabelsByQueryImplFromJson(json);
+  factory _LabelsByQuery.fromJson(Map<String, dynamic> json) =>
+      _$LabelsByQueryFromJson(json);
 
   final List<Label> _labels;
   @override
@@ -134,16 +107,26 @@ class _$LabelsByQueryImpl implements _LabelsByQuery {
   @override
   final String? cursor;
 
+  /// Create a copy of LabelsByQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LabelsByQuery(labels: $labels, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LabelsByQueryCopyWith<_LabelsByQuery> get copyWith =>
+      __$LabelsByQueryCopyWithImpl<_LabelsByQuery>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LabelsByQueryToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LabelsByQueryImpl &&
+            other is _LabelsByQuery &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -153,39 +136,50 @@ class _$LabelsByQueryImpl implements _LabelsByQuery {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_labels), cursor);
 
-  /// Create a copy of LabelsByQuery
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LabelsByQueryImplCopyWith<_$LabelsByQueryImpl> get copyWith =>
-      __$$LabelsByQueryImplCopyWithImpl<_$LabelsByQueryImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LabelsByQueryImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LabelsByQuery(labels: $labels, cursor: $cursor)';
   }
 }
 
-abstract class _LabelsByQuery implements LabelsByQuery {
-  const factory _LabelsByQuery(
-      {required final List<Label> labels,
-      final String? cursor}) = _$LabelsByQueryImpl;
-
-  factory _LabelsByQuery.fromJson(Map<String, dynamic> json) =
-      _$LabelsByQueryImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$LabelsByQueryCopyWith<$Res>
+    implements $LabelsByQueryCopyWith<$Res> {
+  factory _$LabelsByQueryCopyWith(
+          _LabelsByQuery value, $Res Function(_LabelsByQuery) _then) =
+      __$LabelsByQueryCopyWithImpl;
   @override
-  List<Label> get labels;
-  @override
-  String? get cursor;
+  @useResult
+  $Res call({List<Label> labels, String? cursor});
+}
+
+/// @nodoc
+class __$LabelsByQueryCopyWithImpl<$Res>
+    implements _$LabelsByQueryCopyWith<$Res> {
+  __$LabelsByQueryCopyWithImpl(this._self, this._then);
+
+  final _LabelsByQuery _self;
+  final $Res Function(_LabelsByQuery) _then;
 
   /// Create a copy of LabelsByQuery
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LabelsByQueryImplCopyWith<_$LabelsByQueryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? labels = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_LabelsByQuery(
+      labels: null == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

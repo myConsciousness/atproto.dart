@@ -10,7 +10,7 @@ part 'self_label.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabel
 @freezed
-class SelfLabel with _$SelfLabel {
+abstract class SelfLabel with _$SelfLabel {
   const factory SelfLabel({
     @typeKey @Default(comAtprotoLabelDefsSelfLabel) String type,
 

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,79 +10,56 @@ part of 'posts.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Posts _$PostsFromJson(Map<String, dynamic> json) {
-  return _Posts.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Posts {
-  List<Post> get posts => throw _privateConstructorUsedError;
-
-  /// Serializes this Posts to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Post> get posts;
 
   /// Create a copy of Posts
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PostsCopyWith<Posts> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PostsCopyWith<$Res> {
-  factory $PostsCopyWith(Posts value, $Res Function(Posts) then) =
-      _$PostsCopyWithImpl<$Res, Posts>;
-  @useResult
-  $Res call({List<Post> posts});
-}
-
-/// @nodoc
-class _$PostsCopyWithImpl<$Res, $Val extends Posts>
-    implements $PostsCopyWith<$Res> {
-  _$PostsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Posts
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $PostsCopyWith<Posts> get copyWith =>
+      _$PostsCopyWithImpl<Posts>(this as Posts, _$identity);
+
+  /// Serializes this Posts to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? posts = null,
-  }) {
-    return _then(_value.copyWith(
-      posts: null == posts
-          ? _value.posts
-          : posts // ignore: cast_nullable_to_non_nullable
-              as List<Post>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Posts &&
+            const DeepCollectionEquality().equals(other.posts, posts));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(posts));
+
+  @override
+  String toString() {
+    return 'Posts(posts: $posts)';
   }
 }
 
 /// @nodoc
-abstract class _$$PostsImplCopyWith<$Res> implements $PostsCopyWith<$Res> {
-  factory _$$PostsImplCopyWith(
-          _$PostsImpl value, $Res Function(_$PostsImpl) then) =
-      __$$PostsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PostsCopyWith<$Res> {
+  factory $PostsCopyWith(Posts value, $Res Function(Posts) _then) =
+      _$PostsCopyWithImpl;
   @useResult
   $Res call({List<Post> posts});
 }
 
 /// @nodoc
-class __$$PostsImplCopyWithImpl<$Res>
-    extends _$PostsCopyWithImpl<$Res, _$PostsImpl>
-    implements _$$PostsImplCopyWith<$Res> {
-  __$$PostsImplCopyWithImpl(
-      _$PostsImpl _value, $Res Function(_$PostsImpl) _then)
-      : super(_value, _then);
+class _$PostsCopyWithImpl<$Res> implements $PostsCopyWith<$Res> {
+  _$PostsCopyWithImpl(this._self, this._then);
+
+  final Posts _self;
+  final $Res Function(Posts) _then;
 
   /// Create a copy of Posts
   /// with the given fields replaced by the non-null parameter values.
@@ -90,9 +68,9 @@ class __$$PostsImplCopyWithImpl<$Res>
   $Res call({
     Object? posts = null,
   }) {
-    return _then(_$PostsImpl(
+    return _then(_self.copyWith(
       posts: null == posts
-          ? _value._posts
+          ? _self.posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<Post>,
     ));
@@ -101,11 +79,9 @@ class __$$PostsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PostsImpl implements _Posts {
-  const _$PostsImpl({required final List<Post> posts}) : _posts = posts;
-
-  factory _$PostsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostsImplFromJson(json);
+class _Posts implements Posts {
+  const _Posts({required final List<Post> posts}) : _posts = posts;
+  factory _Posts.fromJson(Map<String, dynamic> json) => _$PostsFromJson(json);
 
   final List<Post> _posts;
   @override
@@ -115,16 +91,26 @@ class _$PostsImpl implements _Posts {
     return EqualUnmodifiableListView(_posts);
   }
 
+  /// Create a copy of Posts
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Posts(posts: $posts)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PostsCopyWith<_Posts> get copyWith =>
+      __$PostsCopyWithImpl<_Posts>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PostsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostsImpl &&
+            other is _Posts &&
             const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
@@ -133,34 +119,42 @@ class _$PostsImpl implements _Posts {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_posts));
 
-  /// Create a copy of Posts
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PostsImplCopyWith<_$PostsImpl> get copyWith =>
-      __$$PostsImplCopyWithImpl<_$PostsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Posts(posts: $posts)';
   }
 }
 
-abstract class _Posts implements Posts {
-  const factory _Posts({required final List<Post> posts}) = _$PostsImpl;
-
-  factory _Posts.fromJson(Map<String, dynamic> json) = _$PostsImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$PostsCopyWith<$Res> implements $PostsCopyWith<$Res> {
+  factory _$PostsCopyWith(_Posts value, $Res Function(_Posts) _then) =
+      __$PostsCopyWithImpl;
   @override
-  List<Post> get posts;
+  @useResult
+  $Res call({List<Post> posts});
+}
+
+/// @nodoc
+class __$PostsCopyWithImpl<$Res> implements _$PostsCopyWith<$Res> {
+  __$PostsCopyWithImpl(this._self, this._then);
+
+  final _Posts _self;
+  final $Res Function(_Posts) _then;
 
   /// Create a copy of Posts
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PostsImplCopyWith<_$PostsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? posts = null,
+  }) {
+    return _then(_Posts(
+      posts: null == posts
+          ? _self._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+    ));
+  }
 }
+
+// dart format on

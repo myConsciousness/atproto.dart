@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,125 +10,64 @@ part of 'jwt.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Jwt _$JwtFromJson(Map<String, dynamic> json) {
-  return _Jwt.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Jwt {
-  String get aud => throw _privateConstructorUsedError;
-  String get sub => throw _privateConstructorUsedError;
-  String? get jti => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get cnf => throw _privateConstructorUsedError;
-  String? get clientId => throw _privateConstructorUsedError;
-  String get scope => throw _privateConstructorUsedError;
-  String? get iss => throw _privateConstructorUsedError;
+  String get aud;
+  String get sub;
+  String? get jti;
+  Map<String, dynamic>? get cnf;
+  String? get clientId;
+  String get scope;
+  String? get iss;
   @dateTimeConverter
-  DateTime get exp => throw _privateConstructorUsedError;
+  DateTime get exp;
   @dateTimeConverter
-  DateTime get iat => throw _privateConstructorUsedError;
-
-  /// Serializes this Jwt to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  DateTime get iat;
 
   /// Create a copy of Jwt
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $JwtCopyWith<Jwt> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $JwtCopyWith<$Res> {
-  factory $JwtCopyWith(Jwt value, $Res Function(Jwt) then) =
-      _$JwtCopyWithImpl<$Res, Jwt>;
-  @useResult
-  $Res call(
-      {String aud,
-      String sub,
-      String? jti,
-      Map<String, dynamic>? cnf,
-      String? clientId,
-      String scope,
-      String? iss,
-      @dateTimeConverter DateTime exp,
-      @dateTimeConverter DateTime iat});
-}
-
-/// @nodoc
-class _$JwtCopyWithImpl<$Res, $Val extends Jwt> implements $JwtCopyWith<$Res> {
-  _$JwtCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Jwt
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $JwtCopyWith<Jwt> get copyWith =>
+      _$JwtCopyWithImpl<Jwt>(this as Jwt, _$identity);
+
+  /// Serializes this Jwt to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? aud = null,
-    Object? sub = null,
-    Object? jti = freezed,
-    Object? cnf = freezed,
-    Object? clientId = freezed,
-    Object? scope = null,
-    Object? iss = freezed,
-    Object? exp = null,
-    Object? iat = null,
-  }) {
-    return _then(_value.copyWith(
-      aud: null == aud
-          ? _value.aud
-          : aud // ignore: cast_nullable_to_non_nullable
-              as String,
-      sub: null == sub
-          ? _value.sub
-          : sub // ignore: cast_nullable_to_non_nullable
-              as String,
-      jti: freezed == jti
-          ? _value.jti
-          : jti // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cnf: freezed == cnf
-          ? _value.cnf
-          : cnf // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      clientId: freezed == clientId
-          ? _value.clientId
-          : clientId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as String,
-      iss: freezed == iss
-          ? _value.iss
-          : iss // ignore: cast_nullable_to_non_nullable
-              as String?,
-      exp: null == exp
-          ? _value.exp
-          : exp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      iat: null == iat
-          ? _value.iat
-          : iat // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Jwt &&
+            (identical(other.aud, aud) || other.aud == aud) &&
+            (identical(other.sub, sub) || other.sub == sub) &&
+            (identical(other.jti, jti) || other.jti == jti) &&
+            const DeepCollectionEquality().equals(other.cnf, cnf) &&
+            (identical(other.clientId, clientId) ||
+                other.clientId == clientId) &&
+            (identical(other.scope, scope) || other.scope == scope) &&
+            (identical(other.iss, iss) || other.iss == iss) &&
+            (identical(other.exp, exp) || other.exp == exp) &&
+            (identical(other.iat, iat) || other.iat == iat));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, aud, sub, jti,
+      const DeepCollectionEquality().hash(cnf), clientId, scope, iss, exp, iat);
+
+  @override
+  String toString() {
+    return 'Jwt(aud: $aud, sub: $sub, jti: $jti, cnf: $cnf, clientId: $clientId, scope: $scope, iss: $iss, exp: $exp, iat: $iat)';
   }
 }
 
 /// @nodoc
-abstract class _$$JwtImplCopyWith<$Res> implements $JwtCopyWith<$Res> {
-  factory _$$JwtImplCopyWith(_$JwtImpl value, $Res Function(_$JwtImpl) then) =
-      __$$JwtImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $JwtCopyWith<$Res> {
+  factory $JwtCopyWith(Jwt value, $Res Function(Jwt) _then) = _$JwtCopyWithImpl;
   @useResult
   $Res call(
       {String aud,
@@ -142,10 +82,11 @@ abstract class _$$JwtImplCopyWith<$Res> implements $JwtCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$JwtImplCopyWithImpl<$Res> extends _$JwtCopyWithImpl<$Res, _$JwtImpl>
-    implements _$$JwtImplCopyWith<$Res> {
-  __$$JwtImplCopyWithImpl(_$JwtImpl _value, $Res Function(_$JwtImpl) _then)
-      : super(_value, _then);
+class _$JwtCopyWithImpl<$Res> implements $JwtCopyWith<$Res> {
+  _$JwtCopyWithImpl(this._self, this._then);
+
+  final Jwt _self;
+  final $Res Function(Jwt) _then;
 
   /// Create a copy of Jwt
   /// with the given fields replaced by the non-null parameter values.
@@ -162,41 +103,41 @@ class __$$JwtImplCopyWithImpl<$Res> extends _$JwtCopyWithImpl<$Res, _$JwtImpl>
     Object? exp = null,
     Object? iat = null,
   }) {
-    return _then(_$JwtImpl(
+    return _then(_self.copyWith(
       aud: null == aud
-          ? _value.aud
+          ? _self.aud
           : aud // ignore: cast_nullable_to_non_nullable
               as String,
       sub: null == sub
-          ? _value.sub
+          ? _self.sub
           : sub // ignore: cast_nullable_to_non_nullable
               as String,
       jti: freezed == jti
-          ? _value.jti
+          ? _self.jti
           : jti // ignore: cast_nullable_to_non_nullable
               as String?,
       cnf: freezed == cnf
-          ? _value._cnf
+          ? _self.cnf
           : cnf // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       clientId: freezed == clientId
-          ? _value.clientId
+          ? _self.clientId
           : clientId // ignore: cast_nullable_to_non_nullable
               as String?,
       scope: null == scope
-          ? _value.scope
+          ? _self.scope
           : scope // ignore: cast_nullable_to_non_nullable
               as String,
       iss: freezed == iss
-          ? _value.iss
+          ? _self.iss
           : iss // ignore: cast_nullable_to_non_nullable
               as String?,
       exp: null == exp
-          ? _value.exp
+          ? _self.exp
           : exp // ignore: cast_nullable_to_non_nullable
               as DateTime,
       iat: null == iat
-          ? _value.iat
+          ? _self.iat
           : iat // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -206,8 +147,8 @@ class __$$JwtImplCopyWithImpl<$Res> extends _$JwtCopyWithImpl<$Res, _$JwtImpl>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false, fieldRename: FieldRename.snake)
-class _$JwtImpl implements _Jwt {
-  const _$JwtImpl(
+class _Jwt implements Jwt {
+  const _Jwt(
       {required this.aud,
       required this.sub,
       this.jti,
@@ -218,9 +159,7 @@ class _$JwtImpl implements _Jwt {
       @dateTimeConverter required this.exp,
       @dateTimeConverter required this.iat})
       : _cnf = cnf;
-
-  factory _$JwtImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JwtImplFromJson(json);
+  factory _Jwt.fromJson(Map<String, dynamic> json) => _$JwtFromJson(json);
 
   @override
   final String aud;
@@ -251,16 +190,26 @@ class _$JwtImpl implements _Jwt {
   @dateTimeConverter
   final DateTime iat;
 
+  /// Create a copy of Jwt
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Jwt(aud: $aud, sub: $sub, jti: $jti, cnf: $cnf, clientId: $clientId, scope: $scope, iss: $iss, exp: $exp, iat: $iat)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$JwtCopyWith<_Jwt> get copyWith =>
+      __$JwtCopyWithImpl<_Jwt>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$JwtToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$JwtImpl &&
+            other is _Jwt &&
             (identical(other.aud, aud) || other.aud == aud) &&
             (identical(other.sub, sub) || other.sub == sub) &&
             (identical(other.jti, jti) || other.jti == jti) &&
@@ -287,61 +236,91 @@ class _$JwtImpl implements _Jwt {
       exp,
       iat);
 
-  /// Create a copy of Jwt
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$JwtImplCopyWith<_$JwtImpl> get copyWith =>
-      __$$JwtImplCopyWithImpl<_$JwtImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JwtImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Jwt(aud: $aud, sub: $sub, jti: $jti, cnf: $cnf, clientId: $clientId, scope: $scope, iss: $iss, exp: $exp, iat: $iat)';
   }
 }
 
-abstract class _Jwt implements Jwt {
-  const factory _Jwt(
-      {required final String aud,
-      required final String sub,
-      final String? jti,
-      final Map<String, dynamic>? cnf,
-      final String? clientId,
-      required final String scope,
-      final String? iss,
-      @dateTimeConverter required final DateTime exp,
-      @dateTimeConverter required final DateTime iat}) = _$JwtImpl;
+/// @nodoc
+abstract mixin class _$JwtCopyWith<$Res> implements $JwtCopyWith<$Res> {
+  factory _$JwtCopyWith(_Jwt value, $Res Function(_Jwt) _then) =
+      __$JwtCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String aud,
+      String sub,
+      String? jti,
+      Map<String, dynamic>? cnf,
+      String? clientId,
+      String scope,
+      String? iss,
+      @dateTimeConverter DateTime exp,
+      @dateTimeConverter DateTime iat});
+}
 
-  factory _Jwt.fromJson(Map<String, dynamic> json) = _$JwtImpl.fromJson;
+/// @nodoc
+class __$JwtCopyWithImpl<$Res> implements _$JwtCopyWith<$Res> {
+  __$JwtCopyWithImpl(this._self, this._then);
 
-  @override
-  String get aud;
-  @override
-  String get sub;
-  @override
-  String? get jti;
-  @override
-  Map<String, dynamic>? get cnf;
-  @override
-  String? get clientId;
-  @override
-  String get scope;
-  @override
-  String? get iss;
-  @override
-  @dateTimeConverter
-  DateTime get exp;
-  @override
-  @dateTimeConverter
-  DateTime get iat;
+  final _Jwt _self;
+  final $Res Function(_Jwt) _then;
 
   /// Create a copy of Jwt
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$JwtImplCopyWith<_$JwtImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? aud = null,
+    Object? sub = null,
+    Object? jti = freezed,
+    Object? cnf = freezed,
+    Object? clientId = freezed,
+    Object? scope = null,
+    Object? iss = freezed,
+    Object? exp = null,
+    Object? iat = null,
+  }) {
+    return _then(_Jwt(
+      aud: null == aud
+          ? _self.aud
+          : aud // ignore: cast_nullable_to_non_nullable
+              as String,
+      sub: null == sub
+          ? _self.sub
+          : sub // ignore: cast_nullable_to_non_nullable
+              as String,
+      jti: freezed == jti
+          ? _self.jti
+          : jti // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cnf: freezed == cnf
+          ? _self._cnf
+          : cnf // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      clientId: freezed == clientId
+          ? _self.clientId
+          : clientId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scope: null == scope
+          ? _self.scope
+          : scope // ignore: cast_nullable_to_non_nullable
+              as String,
+      iss: freezed == iss
+          ? _self.iss
+          : iss // ignore: cast_nullable_to_non_nullable
+              as String?,
+      exp: null == exp
+          ? _self.exp
+          : exp // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      iat: null == iat
+          ? _self.iat
+          : iat // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
+
+// dart format on

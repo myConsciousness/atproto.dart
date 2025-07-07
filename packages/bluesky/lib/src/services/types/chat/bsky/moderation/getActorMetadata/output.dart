@@ -10,7 +10,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata/#output
 @freezed
-class GetActorMetadataOutput with _$GetActorMetadataOutput {
+abstract class GetActorMetadataOutput with _$GetActorMetadataOutput {
   @jsonSerializable
   const factory GetActorMetadataOutput({
     required Metadata day,

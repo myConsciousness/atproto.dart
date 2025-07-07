@@ -10,7 +10,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch/#output
 @freezed
-class SendMessageBatchOutput with _$SendMessageBatchOutput {
+abstract class SendMessageBatchOutput with _$SendMessageBatchOutput {
   @jsonSerializable
   const factory SendMessageBatchOutput({
     required List<MessageView> items,

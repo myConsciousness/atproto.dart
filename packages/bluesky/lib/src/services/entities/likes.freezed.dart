@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,91 +10,53 @@ part of 'likes.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Likes _$LikesFromJson(Map<String, dynamic> json) {
-  return _Likes.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Likes {
-  List<Like> get likes => throw _privateConstructorUsedError;
+  List<Like> get likes;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-  String? get cid => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this Likes to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get uri;
+  String? get cid;
+  String? get cursor;
 
   /// Create a copy of Likes
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LikesCopyWith<Likes> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LikesCopyWith<$Res> {
-  factory $LikesCopyWith(Likes value, $Res Function(Likes) then) =
-      _$LikesCopyWithImpl<$Res, Likes>;
-  @useResult
-  $Res call(
-      {List<Like> likes,
-      @AtUriConverter() AtUri uri,
-      String? cid,
-      String? cursor});
-}
-
-/// @nodoc
-class _$LikesCopyWithImpl<$Res, $Val extends Likes>
-    implements $LikesCopyWith<$Res> {
-  _$LikesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Likes
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LikesCopyWith<Likes> get copyWith =>
+      _$LikesCopyWithImpl<Likes>(this as Likes, _$identity);
+
+  /// Serializes this Likes to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? likes = null,
-    Object? uri = null,
-    Object? cid = freezed,
-    Object? cursor = freezed,
-  }) {
-    return _then(_value.copyWith(
-      likes: null == likes
-          ? _value.likes
-          : likes // ignore: cast_nullable_to_non_nullable
-              as List<Like>,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      cid: freezed == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Likes &&
+            const DeepCollectionEquality().equals(other.likes, likes) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(likes), uri, cid, cursor);
+
+  @override
+  String toString() {
+    return 'Likes(likes: $likes, uri: $uri, cid: $cid, cursor: $cursor)';
   }
 }
 
 /// @nodoc
-abstract class _$$LikesImplCopyWith<$Res> implements $LikesCopyWith<$Res> {
-  factory _$$LikesImplCopyWith(
-          _$LikesImpl value, $Res Function(_$LikesImpl) then) =
-      __$$LikesImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LikesCopyWith<$Res> {
+  factory $LikesCopyWith(Likes value, $Res Function(Likes) _then) =
+      _$LikesCopyWithImpl;
   @useResult
   $Res call(
       {List<Like> likes,
@@ -103,12 +66,11 @@ abstract class _$$LikesImplCopyWith<$Res> implements $LikesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LikesImplCopyWithImpl<$Res>
-    extends _$LikesCopyWithImpl<$Res, _$LikesImpl>
-    implements _$$LikesImplCopyWith<$Res> {
-  __$$LikesImplCopyWithImpl(
-      _$LikesImpl _value, $Res Function(_$LikesImpl) _then)
-      : super(_value, _then);
+class _$LikesCopyWithImpl<$Res> implements $LikesCopyWith<$Res> {
+  _$LikesCopyWithImpl(this._self, this._then);
+
+  final Likes _self;
+  final $Res Function(Likes) _then;
 
   /// Create a copy of Likes
   /// with the given fields replaced by the non-null parameter values.
@@ -120,21 +82,21 @@ class __$$LikesImplCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? cursor = freezed,
   }) {
-    return _then(_$LikesImpl(
+    return _then(_self.copyWith(
       likes: null == likes
-          ? _value._likes
+          ? _self.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as List<Like>,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       cid: freezed == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -143,16 +105,14 @@ class __$$LikesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LikesImpl implements _Likes {
-  const _$LikesImpl(
+class _Likes implements Likes {
+  const _Likes(
       {required final List<Like> likes,
       @AtUriConverter() required this.uri,
       this.cid,
       this.cursor})
       : _likes = likes;
-
-  factory _$LikesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LikesImplFromJson(json);
+  factory _Likes.fromJson(Map<String, dynamic> json) => _$LikesFromJson(json);
 
   final List<Like> _likes;
   @override
@@ -170,16 +130,26 @@ class _$LikesImpl implements _Likes {
   @override
   final String? cursor;
 
+  /// Create a copy of Likes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Likes(likes: $likes, uri: $uri, cid: $cid, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LikesCopyWith<_Likes> get copyWith =>
+      __$LikesCopyWithImpl<_Likes>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LikesToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LikesImpl &&
+            other is _Likes &&
             const DeepCollectionEquality().equals(other._likes, _likes) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -191,45 +161,61 @@ class _$LikesImpl implements _Likes {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_likes), uri, cid, cursor);
 
-  /// Create a copy of Likes
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LikesImplCopyWith<_$LikesImpl> get copyWith =>
-      __$$LikesImplCopyWithImpl<_$LikesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LikesImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Likes(likes: $likes, uri: $uri, cid: $cid, cursor: $cursor)';
   }
 }
 
-abstract class _Likes implements Likes {
-  const factory _Likes(
-      {required final List<Like> likes,
-      @AtUriConverter() required final AtUri uri,
-      final String? cid,
-      final String? cursor}) = _$LikesImpl;
+/// @nodoc
+abstract mixin class _$LikesCopyWith<$Res> implements $LikesCopyWith<$Res> {
+  factory _$LikesCopyWith(_Likes value, $Res Function(_Likes) _then) =
+      __$LikesCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {List<Like> likes,
+      @AtUriConverter() AtUri uri,
+      String? cid,
+      String? cursor});
+}
 
-  factory _Likes.fromJson(Map<String, dynamic> json) = _$LikesImpl.fromJson;
+/// @nodoc
+class __$LikesCopyWithImpl<$Res> implements _$LikesCopyWith<$Res> {
+  __$LikesCopyWithImpl(this._self, this._then);
 
-  @override
-  List<Like> get likes;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  String? get cid;
-  @override
-  String? get cursor;
+  final _Likes _self;
+  final $Res Function(_Likes) _then;
 
   /// Create a copy of Likes
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LikesImplCopyWith<_$LikesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? likes = null,
+    Object? uri = null,
+    Object? cid = freezed,
+    Object? cursor = freezed,
+  }) {
+    return _then(_Likes(
+      likes: null == likes
+          ? _self._likes
+          : likes // ignore: cast_nullable_to_non_nullable
+              as List<Like>,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: freezed == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

@@ -6,7 +6,7 @@ part 'invite_code_use.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/defs/#invitecodeuse
 @freezed
-class InviteCodeUse with _$InviteCodeUse {
+abstract class InviteCodeUse with _$InviteCodeUse {
   const factory InviteCodeUse({
     required String usedBy,
     required DateTime usedAt,

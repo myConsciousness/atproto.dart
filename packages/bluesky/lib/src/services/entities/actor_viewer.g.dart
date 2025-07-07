@@ -8,11 +8,11 @@ part of 'actor_viewer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorViewerImpl _$$ActorViewerImplFromJson(Map json) => $checkedCreate(
-      r'_$ActorViewerImpl',
+_ActorViewer _$ActorViewerFromJson(Map json) => $checkedCreate(
+      '_ActorViewer',
       json,
       ($checkedConvert) {
-        final val = _$ActorViewerImpl(
+        final val = _ActorViewer(
           isMuted: $checkedConvert('muted', (v) => v as bool? ?? false),
           isBlockedBy: $checkedConvert('blockedBy', (v) => v as bool? ?? false),
           mutedByList: $checkedConvert(
@@ -51,7 +51,7 @@ _$ActorViewerImpl _$$ActorViewerImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'isMuted': 'muted', 'isBlockedBy': 'blockedBy'},
     );
 
-Map<String, dynamic> _$$ActorViewerImplToJson(_$ActorViewerImpl instance) =>
+Map<String, dynamic> _$ActorViewerToJson(_ActorViewer instance) =>
     <String, dynamic>{
       'muted': instance.isMuted,
       'blockedBy': instance.isBlockedBy,

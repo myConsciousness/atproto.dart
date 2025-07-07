@@ -11,7 +11,7 @@ part 'reply.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
-class Reply with _$Reply {
+abstract class Reply with _$Reply {
   const factory Reply({
     @replyPostConverter required ReplyPost root,
     @replyPostConverter required ReplyPost parent,

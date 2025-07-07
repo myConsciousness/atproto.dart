@@ -9,7 +9,7 @@ part 'repo_op.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscriberepos/#repoop
 @freezed
-class RepoOp with _$RepoOp {
+abstract class RepoOp with _$RepoOp {
   const factory RepoOp({
     required RepoAction action,
     @AtUriConverter() required AtUri uri,

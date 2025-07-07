@@ -12,7 +12,8 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchStarterPacksSkeleton/#output
 @freezed
-class SearchStarterPacksSkeletonOutput with _$SearchStarterPacksSkeletonOutput {
+abstract class SearchStarterPacksSkeletonOutput
+    with _$SearchStarterPacksSkeletonOutput {
   @jsonSerializable
   const factory SearchStarterPacksSkeletonOutput({
     String? cursor,

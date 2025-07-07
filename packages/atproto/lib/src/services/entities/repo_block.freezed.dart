@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,132 +10,29 @@ part of 'repo_block.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RepoBlock _$RepoBlockFromJson(Map<String, dynamic> json) {
-  return _RepoBlock.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RepoBlock {
-  String get cid => throw _privateConstructorUsedError;
-  String get commitCid => throw _privateConstructorUsedError;
-
-  /// Serializes this RepoBlock to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get cid;
+  String get commitCid;
 
   /// Create a copy of RepoBlock
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $RepoBlockCopyWith<RepoBlock> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$RepoBlockCopyWithImpl<RepoBlock>(this as RepoBlock, _$identity);
 
-/// @nodoc
-abstract class $RepoBlockCopyWith<$Res> {
-  factory $RepoBlockCopyWith(RepoBlock value, $Res Function(RepoBlock) then) =
-      _$RepoBlockCopyWithImpl<$Res, RepoBlock>;
-  @useResult
-  $Res call({String cid, String commitCid});
-}
-
-/// @nodoc
-class _$RepoBlockCopyWithImpl<$Res, $Val extends RepoBlock>
-    implements $RepoBlockCopyWith<$Res> {
-  _$RepoBlockCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RepoBlock
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cid = null,
-    Object? commitCid = null,
-  }) {
-    return _then(_value.copyWith(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      commitCid: null == commitCid
-          ? _value.commitCid
-          : commitCid // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$RepoBlockImplCopyWith<$Res>
-    implements $RepoBlockCopyWith<$Res> {
-  factory _$$RepoBlockImplCopyWith(
-          _$RepoBlockImpl value, $Res Function(_$RepoBlockImpl) then) =
-      __$$RepoBlockImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String cid, String commitCid});
-}
-
-/// @nodoc
-class __$$RepoBlockImplCopyWithImpl<$Res>
-    extends _$RepoBlockCopyWithImpl<$Res, _$RepoBlockImpl>
-    implements _$$RepoBlockImplCopyWith<$Res> {
-  __$$RepoBlockImplCopyWithImpl(
-      _$RepoBlockImpl _value, $Res Function(_$RepoBlockImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RepoBlock
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cid = null,
-    Object? commitCid = null,
-  }) {
-    return _then(_$RepoBlockImpl(
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      commitCid: null == commitCid
-          ? _value.commitCid
-          : commitCid // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$RepoBlockImpl implements _RepoBlock {
-  const _$RepoBlockImpl({required this.cid, required this.commitCid});
-
-  factory _$RepoBlockImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RepoBlockImplFromJson(json);
-
-  @override
-  final String cid;
-  @override
-  final String commitCid;
-
-  @override
-  String toString() {
-    return 'RepoBlock(cid: $cid, commitCid: $commitCid)';
-  }
+  /// Serializes this RepoBlock to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RepoBlockImpl &&
+            other is RepoBlock &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.commitCid, commitCid) ||
                 other.commitCid == commitCid));
@@ -144,39 +42,132 @@ class _$RepoBlockImpl implements _RepoBlock {
   @override
   int get hashCode => Object.hash(runtimeType, cid, commitCid);
 
-  /// Create a copy of RepoBlock
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RepoBlockImplCopyWith<_$RepoBlockImpl> get copyWith =>
-      __$$RepoBlockImplCopyWithImpl<_$RepoBlockImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RepoBlockImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RepoBlock(cid: $cid, commitCid: $commitCid)';
   }
 }
 
-abstract class _RepoBlock implements RepoBlock {
-  const factory _RepoBlock(
-      {required final String cid,
-      required final String commitCid}) = _$RepoBlockImpl;
+/// @nodoc
+abstract mixin class $RepoBlockCopyWith<$Res> {
+  factory $RepoBlockCopyWith(RepoBlock value, $Res Function(RepoBlock) _then) =
+      _$RepoBlockCopyWithImpl;
+  @useResult
+  $Res call({String cid, String commitCid});
+}
 
-  factory _RepoBlock.fromJson(Map<String, dynamic> json) =
-      _$RepoBlockImpl.fromJson;
+/// @nodoc
+class _$RepoBlockCopyWithImpl<$Res> implements $RepoBlockCopyWith<$Res> {
+  _$RepoBlockCopyWithImpl(this._self, this._then);
+
+  final RepoBlock _self;
+  final $Res Function(RepoBlock) _then;
+
+  /// Create a copy of RepoBlock
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cid = null,
+    Object? commitCid = null,
+  }) {
+    return _then(_self.copyWith(
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      commitCid: null == commitCid
+          ? _self.commitCid
+          : commitCid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _RepoBlock implements RepoBlock {
+  const _RepoBlock({required this.cid, required this.commitCid});
+  factory _RepoBlock.fromJson(Map<String, dynamic> json) =>
+      _$RepoBlockFromJson(json);
 
   @override
-  String get cid;
+  final String cid;
   @override
-  String get commitCid;
+  final String commitCid;
 
   /// Create a copy of RepoBlock
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RepoBlockImplCopyWith<_$RepoBlockImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$RepoBlockCopyWith<_RepoBlock> get copyWith =>
+      __$RepoBlockCopyWithImpl<_RepoBlock>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RepoBlockToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RepoBlock &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.commitCid, commitCid) ||
+                other.commitCid == commitCid));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, cid, commitCid);
+
+  @override
+  String toString() {
+    return 'RepoBlock(cid: $cid, commitCid: $commitCid)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$RepoBlockCopyWith<$Res>
+    implements $RepoBlockCopyWith<$Res> {
+  factory _$RepoBlockCopyWith(
+          _RepoBlock value, $Res Function(_RepoBlock) _then) =
+      __$RepoBlockCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String cid, String commitCid});
+}
+
+/// @nodoc
+class __$RepoBlockCopyWithImpl<$Res> implements _$RepoBlockCopyWith<$Res> {
+  __$RepoBlockCopyWithImpl(this._self, this._then);
+
+  final _RepoBlock _self;
+  final $Res Function(_RepoBlock) _then;
+
+  /// Create a copy of RepoBlock
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cid = null,
+    Object? commitCid = null,
+  }) {
+    return _then(_RepoBlock(
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      commitCid: null == commitCid
+          ? _self.commitCid
+          : commitCid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

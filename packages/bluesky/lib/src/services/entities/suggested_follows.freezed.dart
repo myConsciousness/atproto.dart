@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,94 +10,65 @@ part of 'suggested_follows.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SuggestedFollows _$SuggestedFollowsFromJson(Map<String, dynamic> json) {
-  return _SuggestedFollows.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SuggestedFollows {
-  List<Actor> get suggestions => throw _privateConstructorUsedError;
-  bool get isFallback => throw _privateConstructorUsedError;
-  int? get recId => throw _privateConstructorUsedError;
-
-  /// Serializes this SuggestedFollows to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Actor> get suggestions;
+  bool get isFallback;
+  int? get recId;
 
   /// Create a copy of SuggestedFollows
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SuggestedFollowsCopyWith<SuggestedFollows> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SuggestedFollowsCopyWith<$Res> {
-  factory $SuggestedFollowsCopyWith(
-          SuggestedFollows value, $Res Function(SuggestedFollows) then) =
-      _$SuggestedFollowsCopyWithImpl<$Res, SuggestedFollows>;
-  @useResult
-  $Res call({List<Actor> suggestions, bool isFallback, int? recId});
-}
-
-/// @nodoc
-class _$SuggestedFollowsCopyWithImpl<$Res, $Val extends SuggestedFollows>
-    implements $SuggestedFollowsCopyWith<$Res> {
-  _$SuggestedFollowsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SuggestedFollows
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SuggestedFollowsCopyWith<SuggestedFollows> get copyWith =>
+      _$SuggestedFollowsCopyWithImpl<SuggestedFollows>(
+          this as SuggestedFollows, _$identity);
+
+  /// Serializes this SuggestedFollows to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? suggestions = null,
-    Object? isFallback = null,
-    Object? recId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      suggestions: null == suggestions
-          ? _value.suggestions
-          : suggestions // ignore: cast_nullable_to_non_nullable
-              as List<Actor>,
-      isFallback: null == isFallback
-          ? _value.isFallback
-          : isFallback // ignore: cast_nullable_to_non_nullable
-              as bool,
-      recId: freezed == recId
-          ? _value.recId
-          : recId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SuggestedFollows &&
+            const DeepCollectionEquality()
+                .equals(other.suggestions, suggestions) &&
+            (identical(other.isFallback, isFallback) ||
+                other.isFallback == isFallback) &&
+            (identical(other.recId, recId) || other.recId == recId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(suggestions), isFallback, recId);
+
+  @override
+  String toString() {
+    return 'SuggestedFollows(suggestions: $suggestions, isFallback: $isFallback, recId: $recId)';
   }
 }
 
 /// @nodoc
-abstract class _$$SuggestedFollowsImplCopyWith<$Res>
-    implements $SuggestedFollowsCopyWith<$Res> {
-  factory _$$SuggestedFollowsImplCopyWith(_$SuggestedFollowsImpl value,
-          $Res Function(_$SuggestedFollowsImpl) then) =
-      __$$SuggestedFollowsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SuggestedFollowsCopyWith<$Res> {
+  factory $SuggestedFollowsCopyWith(
+          SuggestedFollows value, $Res Function(SuggestedFollows) _then) =
+      _$SuggestedFollowsCopyWithImpl;
   @useResult
   $Res call({List<Actor> suggestions, bool isFallback, int? recId});
 }
 
 /// @nodoc
-class __$$SuggestedFollowsImplCopyWithImpl<$Res>
-    extends _$SuggestedFollowsCopyWithImpl<$Res, _$SuggestedFollowsImpl>
-    implements _$$SuggestedFollowsImplCopyWith<$Res> {
-  __$$SuggestedFollowsImplCopyWithImpl(_$SuggestedFollowsImpl _value,
-      $Res Function(_$SuggestedFollowsImpl) _then)
-      : super(_value, _then);
+class _$SuggestedFollowsCopyWithImpl<$Res>
+    implements $SuggestedFollowsCopyWith<$Res> {
+  _$SuggestedFollowsCopyWithImpl(this._self, this._then);
+
+  final SuggestedFollows _self;
+  final $Res Function(SuggestedFollows) _then;
 
   /// Create a copy of SuggestedFollows
   /// with the given fields replaced by the non-null parameter values.
@@ -107,17 +79,17 @@ class __$$SuggestedFollowsImplCopyWithImpl<$Res>
     Object? isFallback = null,
     Object? recId = freezed,
   }) {
-    return _then(_$SuggestedFollowsImpl(
+    return _then(_self.copyWith(
       suggestions: null == suggestions
-          ? _value._suggestions
+          ? _self.suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<Actor>,
       isFallback: null == isFallback
-          ? _value.isFallback
+          ? _self.isFallback
           : isFallback // ignore: cast_nullable_to_non_nullable
               as bool,
       recId: freezed == recId
-          ? _value.recId
+          ? _self.recId
           : recId // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
@@ -126,15 +98,14 @@ class __$$SuggestedFollowsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SuggestedFollowsImpl implements _SuggestedFollows {
-  const _$SuggestedFollowsImpl(
+class _SuggestedFollows implements SuggestedFollows {
+  const _SuggestedFollows(
       {required final List<Actor> suggestions,
       this.isFallback = false,
       this.recId})
       : _suggestions = suggestions;
-
-  factory _$SuggestedFollowsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SuggestedFollowsImplFromJson(json);
+  factory _SuggestedFollows.fromJson(Map<String, dynamic> json) =>
+      _$SuggestedFollowsFromJson(json);
 
   final List<Actor> _suggestions;
   @override
@@ -150,16 +121,26 @@ class _$SuggestedFollowsImpl implements _SuggestedFollows {
   @override
   final int? recId;
 
+  /// Create a copy of SuggestedFollows
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SuggestedFollows(suggestions: $suggestions, isFallback: $isFallback, recId: $recId)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SuggestedFollowsCopyWith<_SuggestedFollows> get copyWith =>
+      __$SuggestedFollowsCopyWithImpl<_SuggestedFollows>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SuggestedFollowsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuggestedFollowsImpl &&
+            other is _SuggestedFollows &&
             const DeepCollectionEquality()
                 .equals(other._suggestions, _suggestions) &&
             (identical(other.isFallback, isFallback) ||
@@ -172,43 +153,55 @@ class _$SuggestedFollowsImpl implements _SuggestedFollows {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_suggestions), isFallback, recId);
 
-  /// Create a copy of SuggestedFollows
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SuggestedFollowsImplCopyWith<_$SuggestedFollowsImpl> get copyWith =>
-      __$$SuggestedFollowsImplCopyWithImpl<_$SuggestedFollowsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SuggestedFollowsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SuggestedFollows(suggestions: $suggestions, isFallback: $isFallback, recId: $recId)';
   }
 }
 
-abstract class _SuggestedFollows implements SuggestedFollows {
-  const factory _SuggestedFollows(
-      {required final List<Actor> suggestions,
-      final bool isFallback,
-      final int? recId}) = _$SuggestedFollowsImpl;
+/// @nodoc
+abstract mixin class _$SuggestedFollowsCopyWith<$Res>
+    implements $SuggestedFollowsCopyWith<$Res> {
+  factory _$SuggestedFollowsCopyWith(
+          _SuggestedFollows value, $Res Function(_SuggestedFollows) _then) =
+      __$SuggestedFollowsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({List<Actor> suggestions, bool isFallback, int? recId});
+}
 
-  factory _SuggestedFollows.fromJson(Map<String, dynamic> json) =
-      _$SuggestedFollowsImpl.fromJson;
+/// @nodoc
+class __$SuggestedFollowsCopyWithImpl<$Res>
+    implements _$SuggestedFollowsCopyWith<$Res> {
+  __$SuggestedFollowsCopyWithImpl(this._self, this._then);
 
-  @override
-  List<Actor> get suggestions;
-  @override
-  bool get isFallback;
-  @override
-  int? get recId;
+  final _SuggestedFollows _self;
+  final $Res Function(_SuggestedFollows) _then;
 
   /// Create a copy of SuggestedFollows
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuggestedFollowsImplCopyWith<_$SuggestedFollowsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? suggestions = null,
+    Object? isFallback = null,
+    Object? recId = freezed,
+  }) {
+    return _then(_SuggestedFollows(
+      suggestions: null == suggestions
+          ? _self._suggestions
+          : suggestions // ignore: cast_nullable_to_non_nullable
+              as List<Actor>,
+      isFallback: null == isFallback
+          ? _self.isFallback
+          : isFallback // ignore: cast_nullable_to_non_nullable
+              as bool,
+      recId: freezed == recId
+          ? _self.recId
+          : recId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
 }
+
+// dart format on

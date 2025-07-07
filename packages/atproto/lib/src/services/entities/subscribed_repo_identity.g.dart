@@ -8,11 +8,11 @@ part of 'subscribed_repo_identity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$IdentityImpl _$$IdentityImplFromJson(Map json) => $checkedCreate(
-      r'_$IdentityImpl',
+_Identity _$IdentityFromJson(Map json) => $checkedCreate(
+      '_Identity',
       json,
       ($checkedConvert) {
-        final val = _$IdentityImpl(
+        final val = _Identity(
           did: $checkedConvert('did', (v) => v as String),
           seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
@@ -21,8 +21,7 @@ _$IdentityImpl _$$IdentityImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$IdentityImplToJson(_$IdentityImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$IdentityToJson(_Identity instance) => <String, dynamic>{
       'did': instance.did,
       'seq': instance.seq,
       'time': instance.time.toIso8601String(),

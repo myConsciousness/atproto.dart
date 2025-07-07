@@ -9,7 +9,7 @@ part 'current_session.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession#output
 @freezed
-class CurrentSession with _$CurrentSession {
+abstract class CurrentSession with _$CurrentSession {
   @jsonSerializable
   const factory CurrentSession({
     required String did,

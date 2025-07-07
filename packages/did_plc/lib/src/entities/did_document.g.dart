@@ -8,11 +8,11 @@ part of 'did_document.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DidDocumentImpl _$$DidDocumentImplFromJson(Map json) => $checkedCreate(
-      r'_$DidDocumentImpl',
+_DidDocument _$DidDocumentFromJson(Map json) => $checkedCreate(
+      '_DidDocument',
       json,
       ($checkedConvert) {
-        final val = _$DidDocumentImpl(
+        final val = _DidDocument(
           context: $checkedConvert('@context',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           id: $checkedConvert('id', (v) => v as String),
@@ -36,7 +36,7 @@ _$DidDocumentImpl _$$DidDocumentImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'context': '@context'},
     );
 
-Map<String, dynamic> _$$DidDocumentImplToJson(_$DidDocumentImpl instance) =>
+Map<String, dynamic> _$DidDocumentToJson(_DidDocument instance) =>
     <String, dynamic>{
       '@context': instance.context,
       'id': instance.id,

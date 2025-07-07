@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,59 @@ part of 'actors_typeahead.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ActorsTypeahead _$ActorsTypeaheadFromJson(Map<String, dynamic> json) {
-  return _ActorsTypeahead.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ActorsTypeahead {
-  List<ActorBasic> get actors => throw _privateConstructorUsedError;
-
-  /// Serializes this ActorsTypeahead to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<ActorBasic> get actors;
 
   /// Create a copy of ActorsTypeahead
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ActorsTypeaheadCopyWith<ActorsTypeahead> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ActorsTypeaheadCopyWith<$Res> {
-  factory $ActorsTypeaheadCopyWith(
-          ActorsTypeahead value, $Res Function(ActorsTypeahead) then) =
-      _$ActorsTypeaheadCopyWithImpl<$Res, ActorsTypeahead>;
-  @useResult
-  $Res call({List<ActorBasic> actors});
-}
-
-/// @nodoc
-class _$ActorsTypeaheadCopyWithImpl<$Res, $Val extends ActorsTypeahead>
-    implements $ActorsTypeaheadCopyWith<$Res> {
-  _$ActorsTypeaheadCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ActorsTypeahead
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ActorsTypeaheadCopyWith<ActorsTypeahead> get copyWith =>
+      _$ActorsTypeaheadCopyWithImpl<ActorsTypeahead>(
+          this as ActorsTypeahead, _$identity);
+
+  /// Serializes this ActorsTypeahead to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? actors = null,
-  }) {
-    return _then(_value.copyWith(
-      actors: null == actors
-          ? _value.actors
-          : actors // ignore: cast_nullable_to_non_nullable
-              as List<ActorBasic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ActorsTypeahead &&
+            const DeepCollectionEquality().equals(other.actors, actors));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(actors));
+
+  @override
+  String toString() {
+    return 'ActorsTypeahead(actors: $actors)';
   }
 }
 
 /// @nodoc
-abstract class _$$ActorsTypeaheadImplCopyWith<$Res>
-    implements $ActorsTypeaheadCopyWith<$Res> {
-  factory _$$ActorsTypeaheadImplCopyWith(_$ActorsTypeaheadImpl value,
-          $Res Function(_$ActorsTypeaheadImpl) then) =
-      __$$ActorsTypeaheadImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ActorsTypeaheadCopyWith<$Res> {
+  factory $ActorsTypeaheadCopyWith(
+          ActorsTypeahead value, $Res Function(ActorsTypeahead) _then) =
+      _$ActorsTypeaheadCopyWithImpl;
   @useResult
   $Res call({List<ActorBasic> actors});
 }
 
 /// @nodoc
-class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
-    extends _$ActorsTypeaheadCopyWithImpl<$Res, _$ActorsTypeaheadImpl>
-    implements _$$ActorsTypeaheadImplCopyWith<$Res> {
-  __$$ActorsTypeaheadImplCopyWithImpl(
-      _$ActorsTypeaheadImpl _value, $Res Function(_$ActorsTypeaheadImpl) _then)
-      : super(_value, _then);
+class _$ActorsTypeaheadCopyWithImpl<$Res>
+    implements $ActorsTypeaheadCopyWith<$Res> {
+  _$ActorsTypeaheadCopyWithImpl(this._self, this._then);
+
+  final ActorsTypeahead _self;
+  final $Res Function(ActorsTypeahead) _then;
 
   /// Create a copy of ActorsTypeahead
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +71,9 @@ class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
   $Res call({
     Object? actors = null,
   }) {
-    return _then(_$ActorsTypeaheadImpl(
+    return _then(_self.copyWith(
       actors: null == actors
-          ? _value._actors
+          ? _self.actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<ActorBasic>,
     ));
@@ -104,12 +82,11 @@ class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
-  const _$ActorsTypeaheadImpl({required final List<ActorBasic> actors})
+class _ActorsTypeahead implements ActorsTypeahead {
+  const _ActorsTypeahead({required final List<ActorBasic> actors})
       : _actors = actors;
-
-  factory _$ActorsTypeaheadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorsTypeaheadImplFromJson(json);
+  factory _ActorsTypeahead.fromJson(Map<String, dynamic> json) =>
+      _$ActorsTypeaheadFromJson(json);
 
   final List<ActorBasic> _actors;
   @override
@@ -119,16 +96,26 @@ class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
     return EqualUnmodifiableListView(_actors);
   }
 
+  /// Create a copy of ActorsTypeahead
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ActorsTypeahead(actors: $actors)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ActorsTypeaheadCopyWith<_ActorsTypeahead> get copyWith =>
+      __$ActorsTypeaheadCopyWithImpl<_ActorsTypeahead>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ActorsTypeaheadToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorsTypeaheadImpl &&
+            other is _ActorsTypeahead &&
             const DeepCollectionEquality().equals(other._actors, _actors));
   }
 
@@ -137,37 +124,45 @@ class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_actors));
 
-  /// Create a copy of ActorsTypeahead
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
-      __$$ActorsTypeaheadImplCopyWithImpl<_$ActorsTypeaheadImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ActorsTypeaheadImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ActorsTypeahead(actors: $actors)';
   }
 }
 
-abstract class _ActorsTypeahead implements ActorsTypeahead {
-  const factory _ActorsTypeahead({required final List<ActorBasic> actors}) =
-      _$ActorsTypeaheadImpl;
-
-  factory _ActorsTypeahead.fromJson(Map<String, dynamic> json) =
-      _$ActorsTypeaheadImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ActorsTypeaheadCopyWith<$Res>
+    implements $ActorsTypeaheadCopyWith<$Res> {
+  factory _$ActorsTypeaheadCopyWith(
+          _ActorsTypeahead value, $Res Function(_ActorsTypeahead) _then) =
+      __$ActorsTypeaheadCopyWithImpl;
   @override
-  List<ActorBasic> get actors;
+  @useResult
+  $Res call({List<ActorBasic> actors});
+}
+
+/// @nodoc
+class __$ActorsTypeaheadCopyWithImpl<$Res>
+    implements _$ActorsTypeaheadCopyWith<$Res> {
+  __$ActorsTypeaheadCopyWithImpl(this._self, this._then);
+
+  final _ActorsTypeahead _self;
+  final $Res Function(_ActorsTypeahead) _then;
 
   /// Create a copy of ActorsTypeahead
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? actors = null,
+  }) {
+    return _then(_ActorsTypeahead(
+      actors: null == actors
+          ? _self._actors
+          : actors // ignore: cast_nullable_to_non_nullable
+              as List<ActorBasic>,
+    ));
+  }
 }
+
+// dart format on

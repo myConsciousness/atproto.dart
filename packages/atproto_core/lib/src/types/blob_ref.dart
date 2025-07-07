@@ -8,7 +8,7 @@ part 'blob_ref.g.dart';
 
 /// https://atproto.com/specs/data-model#blob-type
 @freezed
-class BlobRef with _$BlobRef {
+abstract class BlobRef with _$BlobRef {
   const factory BlobRef({
     @JsonKey(name: '\$link') required String link,
   }) = _BlobRef;

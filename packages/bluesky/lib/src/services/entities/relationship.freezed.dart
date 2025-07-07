@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,87 +10,75 @@ part of 'relationship.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Relationship {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ActorRelationship data) relationship,
-    required TResult Function(NotFoundActor data) notFoundActor,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorRelationship data)? relationship,
-    TResult? Function(NotFoundActor data)? notFoundActor,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorRelationship data)? relationship,
-    TResult Function(NotFoundActor data)? notFoundActor,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URelationshipRelationship value) relationship,
-    required TResult Function(URelationshipNotFoundActor value) notFoundActor,
-    required TResult Function(URelationshipUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URelationshipRelationship value)? relationship,
-    TResult? Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult? Function(URelationshipUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URelationshipRelationship value)? relationship,
-    TResult Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult Function(URelationshipUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Relationship &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'Relationship(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $RelationshipCopyWith<$Res> {
-  factory $RelationshipCopyWith(
-          Relationship value, $Res Function(Relationship) then) =
-      _$RelationshipCopyWithImpl<$Res, Relationship>;
+class $RelationshipCopyWith<$Res> {
+  $RelationshipCopyWith(Relationship _, $Res Function(Relationship) __);
 }
 
 /// @nodoc
-class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
-    implements $RelationshipCopyWith<$Res> {
-  _$RelationshipCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class URelationshipRelationship extends Relationship {
+  const URelationshipRelationship({required this.data}) : super._();
+
+  @override
+  final ActorRelationship data;
 
   /// Create a copy of Relationship
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $URelationshipRelationshipCopyWith<URelationshipRelationship> get copyWith =>
+      _$URelationshipRelationshipCopyWithImpl<URelationshipRelationship>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is URelationshipRelationship &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'Relationship.relationship(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$URelationshipRelationshipImplCopyWith<$Res> {
-  factory _$$URelationshipRelationshipImplCopyWith(
-          _$URelationshipRelationshipImpl value,
-          $Res Function(_$URelationshipRelationshipImpl) then) =
-      __$$URelationshipRelationshipImplCopyWithImpl<$Res>;
+abstract mixin class $URelationshipRelationshipCopyWith<$Res>
+    implements $RelationshipCopyWith<$Res> {
+  factory $URelationshipRelationshipCopyWith(URelationshipRelationship value,
+          $Res Function(URelationshipRelationship) _then) =
+      _$URelationshipRelationshipCopyWithImpl;
   @useResult
   $Res call({ActorRelationship data});
 
@@ -97,24 +86,22 @@ abstract class _$$URelationshipRelationshipImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URelationshipRelationshipImplCopyWithImpl<$Res>
-    extends _$RelationshipCopyWithImpl<$Res, _$URelationshipRelationshipImpl>
-    implements _$$URelationshipRelationshipImplCopyWith<$Res> {
-  __$$URelationshipRelationshipImplCopyWithImpl(
-      _$URelationshipRelationshipImpl _value,
-      $Res Function(_$URelationshipRelationshipImpl) _then)
-      : super(_value, _then);
+class _$URelationshipRelationshipCopyWithImpl<$Res>
+    implements $URelationshipRelationshipCopyWith<$Res> {
+  _$URelationshipRelationshipCopyWithImpl(this._self, this._then);
+
+  final URelationshipRelationship _self;
+  final $Res Function(URelationshipRelationship) _then;
 
   /// Create a copy of Relationship
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URelationshipRelationshipImpl(
+    return _then(URelationshipRelationship(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as ActorRelationship,
     ));
@@ -125,136 +112,52 @@ class __$$URelationshipRelationshipImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $ActorRelationshipCopyWith<$Res> get data {
-    return $ActorRelationshipCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $ActorRelationshipCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$URelationshipRelationshipImpl extends URelationshipRelationship {
-  const _$URelationshipRelationshipImpl({required this.data}) : super._();
+class URelationshipNotFoundActor extends Relationship {
+  const URelationshipNotFoundActor({required this.data}) : super._();
 
   @override
-  final ActorRelationship data;
+  final NotFoundActor data;
 
-  @override
-  String toString() {
-    return 'Relationship.relationship(data: $data)';
-  }
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $URelationshipNotFoundActorCopyWith<URelationshipNotFoundActor>
+      get copyWith =>
+          _$URelationshipNotFoundActorCopyWithImpl<URelationshipNotFoundActor>(
+              this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URelationshipRelationshipImpl &&
+            other is URelationshipNotFoundActor &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of Relationship
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$URelationshipRelationshipImplCopyWith<_$URelationshipRelationshipImpl>
-      get copyWith => __$$URelationshipRelationshipImplCopyWithImpl<
-          _$URelationshipRelationshipImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ActorRelationship data) relationship,
-    required TResult Function(NotFoundActor data) notFoundActor,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return relationship(data);
+  String toString() {
+    return 'Relationship.notFoundActor(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorRelationship data)? relationship,
-    TResult? Function(NotFoundActor data)? notFoundActor,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return relationship?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorRelationship data)? relationship,
-    TResult Function(NotFoundActor data)? notFoundActor,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (relationship != null) {
-      return relationship(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URelationshipRelationship value) relationship,
-    required TResult Function(URelationshipNotFoundActor value) notFoundActor,
-    required TResult Function(URelationshipUnknown value) unknown,
-  }) {
-    return relationship(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URelationshipRelationship value)? relationship,
-    TResult? Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult? Function(URelationshipUnknown value)? unknown,
-  }) {
-    return relationship?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URelationshipRelationship value)? relationship,
-    TResult Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult Function(URelationshipUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (relationship != null) {
-      return relationship(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class URelationshipRelationship extends Relationship {
-  const factory URelationshipRelationship(
-          {required final ActorRelationship data}) =
-      _$URelationshipRelationshipImpl;
-  const URelationshipRelationship._() : super._();
-
-  @override
-  ActorRelationship get data;
-
-  /// Create a copy of Relationship
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URelationshipRelationshipImplCopyWith<_$URelationshipRelationshipImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URelationshipNotFoundActorImplCopyWith<$Res> {
-  factory _$$URelationshipNotFoundActorImplCopyWith(
-          _$URelationshipNotFoundActorImpl value,
-          $Res Function(_$URelationshipNotFoundActorImpl) then) =
-      __$$URelationshipNotFoundActorImplCopyWithImpl<$Res>;
+abstract mixin class $URelationshipNotFoundActorCopyWith<$Res>
+    implements $RelationshipCopyWith<$Res> {
+  factory $URelationshipNotFoundActorCopyWith(URelationshipNotFoundActor value,
+          $Res Function(URelationshipNotFoundActor) _then) =
+      _$URelationshipNotFoundActorCopyWithImpl;
   @useResult
   $Res call({NotFoundActor data});
 
@@ -262,24 +165,22 @@ abstract class _$$URelationshipNotFoundActorImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$URelationshipNotFoundActorImplCopyWithImpl<$Res>
-    extends _$RelationshipCopyWithImpl<$Res, _$URelationshipNotFoundActorImpl>
-    implements _$$URelationshipNotFoundActorImplCopyWith<$Res> {
-  __$$URelationshipNotFoundActorImplCopyWithImpl(
-      _$URelationshipNotFoundActorImpl _value,
-      $Res Function(_$URelationshipNotFoundActorImpl) _then)
-      : super(_value, _then);
+class _$URelationshipNotFoundActorCopyWithImpl<$Res>
+    implements $URelationshipNotFoundActorCopyWith<$Res> {
+  _$URelationshipNotFoundActorCopyWithImpl(this._self, this._then);
+
+  final URelationshipNotFoundActor _self;
+  final $Res Function(URelationshipNotFoundActor) _then;
 
   /// Create a copy of Relationship
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URelationshipNotFoundActorImpl(
+    return _then(URelationshipNotFoundActor(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as NotFoundActor,
     ));
@@ -290,166 +191,16 @@ class __$$URelationshipNotFoundActorImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $NotFoundActorCopyWith<$Res> get data {
-    return $NotFoundActorCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $NotFoundActorCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$URelationshipNotFoundActorImpl extends URelationshipNotFoundActor {
-  const _$URelationshipNotFoundActorImpl({required this.data}) : super._();
-
-  @override
-  final NotFoundActor data;
-
-  @override
-  String toString() {
-    return 'Relationship.notFoundActor(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$URelationshipNotFoundActorImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of Relationship
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$URelationshipNotFoundActorImplCopyWith<_$URelationshipNotFoundActorImpl>
-      get copyWith => __$$URelationshipNotFoundActorImplCopyWithImpl<
-          _$URelationshipNotFoundActorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ActorRelationship data) relationship,
-    required TResult Function(NotFoundActor data) notFoundActor,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return notFoundActor(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorRelationship data)? relationship,
-    TResult? Function(NotFoundActor data)? notFoundActor,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return notFoundActor?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorRelationship data)? relationship,
-    TResult Function(NotFoundActor data)? notFoundActor,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (notFoundActor != null) {
-      return notFoundActor(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URelationshipRelationship value) relationship,
-    required TResult Function(URelationshipNotFoundActor value) notFoundActor,
-    required TResult Function(URelationshipUnknown value) unknown,
-  }) {
-    return notFoundActor(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URelationshipRelationship value)? relationship,
-    TResult? Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult? Function(URelationshipUnknown value)? unknown,
-  }) {
-    return notFoundActor?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URelationshipRelationship value)? relationship,
-    TResult Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult Function(URelationshipUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (notFoundActor != null) {
-      return notFoundActor(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class URelationshipNotFoundActor extends Relationship {
-  const factory URelationshipNotFoundActor(
-      {required final NotFoundActor data}) = _$URelationshipNotFoundActorImpl;
-  const URelationshipNotFoundActor._() : super._();
-
-  @override
-  NotFoundActor get data;
-
-  /// Create a copy of Relationship
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URelationshipNotFoundActorImplCopyWith<_$URelationshipNotFoundActorImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$URelationshipUnknownImplCopyWith<$Res> {
-  factory _$$URelationshipUnknownImplCopyWith(_$URelationshipUnknownImpl value,
-          $Res Function(_$URelationshipUnknownImpl) then) =
-      __$$URelationshipUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$URelationshipUnknownImplCopyWithImpl<$Res>
-    extends _$RelationshipCopyWithImpl<$Res, _$URelationshipUnknownImpl>
-    implements _$$URelationshipUnknownImplCopyWith<$Res> {
-  __$$URelationshipUnknownImplCopyWithImpl(_$URelationshipUnknownImpl _value,
-      $Res Function(_$URelationshipUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Relationship
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$URelationshipUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$URelationshipUnknownImpl extends URelationshipUnknown {
-  const _$URelationshipUnknownImpl({required final Map<String, dynamic> data})
+class URelationshipUnknown extends Relationship {
+  const URelationshipUnknown({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -461,16 +212,19 @@ class _$URelationshipUnknownImpl extends URelationshipUnknown {
     return EqualUnmodifiableMapView(_data);
   }
 
-  @override
-  String toString() {
-    return 'Relationship.unknown(data: $data)';
-  }
+  /// Create a copy of Relationship
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $URelationshipUnknownCopyWith<URelationshipUnknown> get copyWith =>
+      _$URelationshipUnknownCopyWithImpl<URelationshipUnknown>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URelationshipUnknownImpl &&
+            other is URelationshipUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -478,96 +232,43 @@ class _$URelationshipUnknownImpl extends URelationshipUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'Relationship.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $URelationshipUnknownCopyWith<$Res>
+    implements $RelationshipCopyWith<$Res> {
+  factory $URelationshipUnknownCopyWith(URelationshipUnknown value,
+          $Res Function(URelationshipUnknown) _then) =
+      _$URelationshipUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$URelationshipUnknownCopyWithImpl<$Res>
+    implements $URelationshipUnknownCopyWith<$Res> {
+  _$URelationshipUnknownCopyWithImpl(this._self, this._then);
+
+  final URelationshipUnknown _self;
+  final $Res Function(URelationshipUnknown) _then;
+
   /// Create a copy of Relationship
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$URelationshipUnknownImplCopyWith<_$URelationshipUnknownImpl>
-      get copyWith =>
-          __$$URelationshipUnknownImplCopyWithImpl<_$URelationshipUnknownImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ActorRelationship data) relationship,
-    required TResult Function(NotFoundActor data) notFoundActor,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ActorRelationship data)? relationship,
-    TResult? Function(NotFoundActor data)? notFoundActor,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ActorRelationship data)? relationship,
-    TResult Function(NotFoundActor data)? notFoundActor,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(URelationshipRelationship value) relationship,
-    required TResult Function(URelationshipNotFoundActor value) notFoundActor,
-    required TResult Function(URelationshipUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URelationshipRelationship value)? relationship,
-    TResult? Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult? Function(URelationshipUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(URelationshipRelationship value)? relationship,
-    TResult Function(URelationshipNotFoundActor value)? notFoundActor,
-    TResult Function(URelationshipUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
+    return _then(URelationshipUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class URelationshipUnknown extends Relationship {
-  const factory URelationshipUnknown(
-      {required final Map<String, dynamic> data}) = _$URelationshipUnknownImpl;
-  const URelationshipUnknown._() : super._();
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of Relationship
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$URelationshipUnknownImplCopyWith<_$URelationshipUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

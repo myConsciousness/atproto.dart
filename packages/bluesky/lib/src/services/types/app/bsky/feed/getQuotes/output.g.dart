@@ -8,12 +8,11 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetQuotesOutputImpl _$$GetQuotesOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GetQuotesOutputImpl',
+_GetQuotesOutput _$GetQuotesOutputFromJson(Map json) => $checkedCreate(
+      '_GetQuotesOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetQuotesOutputImpl(
+        final val = _GetQuotesOutput(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String?),
@@ -29,8 +28,7 @@ _$GetQuotesOutputImpl _$$GetQuotesOutputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$GetQuotesOutputImplToJson(
-        _$GetQuotesOutputImpl instance) =>
+Map<String, dynamic> _$GetQuotesOutputToJson(_GetQuotesOutput instance) =>
     <String, dynamic>{
       'uri': const AtUriConverter().toJson(instance.uri),
       if (instance.cid case final value?) 'cid': value,

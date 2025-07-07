@@ -15,7 +15,7 @@ part 'starter_pack_view_basic.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#starterpackviewbasic
 @freezed
-class StarterPackViewBasic with _$StarterPackViewBasic {
+abstract class StarterPackViewBasic with _$StarterPackViewBasic {
   @jsonSerializable
   const factory StarterPackViewBasic({
     @typeKey @Default(appBskyGraphDefsStarterPackViewBasic) String type,

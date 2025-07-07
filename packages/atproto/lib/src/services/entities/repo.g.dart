@@ -8,11 +8,11 @@ part of 'repo.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RepoImpl _$$RepoImplFromJson(Map json) => $checkedCreate(
-      r'_$RepoImpl',
+_Repo _$RepoFromJson(Map json) => $checkedCreate(
+      '_Repo',
       json,
       ($checkedConvert) {
-        final val = _$RepoImpl(
+        final val = _Repo(
           did: $checkedConvert('did', (v) => v as String),
           headCid: $checkedConvert('head', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
@@ -24,8 +24,7 @@ _$RepoImpl _$$RepoImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'headCid': 'head'},
     );
 
-Map<String, dynamic> _$$RepoImplToJson(_$RepoImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$RepoToJson(_Repo instance) => <String, dynamic>{
       'did': instance.did,
       'head': instance.headCid,
       'rev': instance.rev,

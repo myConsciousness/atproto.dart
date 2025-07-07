@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,35 +10,50 @@ part of 'list_items.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ListItems _$ListItemsFromJson(Map<String, dynamic> json) {
-  return _ListItems.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ListItems {
-  ListView get list => throw _privateConstructorUsedError;
-  List<ListItem> get items => throw _privateConstructorUsedError;
-  String? get cursor => throw _privateConstructorUsedError;
-
-  /// Serializes this ListItems to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  ListView get list;
+  List<ListItem> get items;
+  String? get cursor;
 
   /// Create a copy of ListItems
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ListItemsCopyWith<ListItems> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ListItemsCopyWithImpl<ListItems>(this as ListItems, _$identity);
+
+  /// Serializes this ListItems to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ListItems &&
+            (identical(other.list, list) || other.list == list) &&
+            const DeepCollectionEquality().equals(other.items, items) &&
+            (identical(other.cursor, cursor) || other.cursor == cursor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, list, const DeepCollectionEquality().hash(items), cursor);
+
+  @override
+  String toString() {
+    return 'ListItems(list: $list, items: $items, cursor: $cursor)';
+  }
 }
 
 /// @nodoc
-abstract class $ListItemsCopyWith<$Res> {
-  factory $ListItemsCopyWith(ListItems value, $Res Function(ListItems) then) =
-      _$ListItemsCopyWithImpl<$Res, ListItems>;
+abstract mixin class $ListItemsCopyWith<$Res> {
+  factory $ListItemsCopyWith(ListItems value, $Res Function(ListItems) _then) =
+      _$ListItemsCopyWithImpl;
   @useResult
   $Res call({ListView list, List<ListItem> items, String? cursor});
 
@@ -45,14 +61,11 @@ abstract class $ListItemsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ListItemsCopyWithImpl<$Res, $Val extends ListItems>
-    implements $ListItemsCopyWith<$Res> {
-  _$ListItemsCopyWithImpl(this._value, this._then);
+class _$ListItemsCopyWithImpl<$Res> implements $ListItemsCopyWith<$Res> {
+  _$ListItemsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ListItems _self;
+  final $Res Function(ListItems) _then;
 
   /// Create a copy of ListItems
   /// with the given fields replaced by the non-null parameter values.
@@ -63,20 +76,20 @@ class _$ListItemsCopyWithImpl<$Res, $Val extends ListItems>
     Object? items = null,
     Object? cursor = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       list: null == list
-          ? _value.list
+          ? _self.list
           : list // ignore: cast_nullable_to_non_nullable
               as ListView,
       items: null == items
-          ? _value.items
+          ? _self.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ListItem>,
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ListItems
@@ -84,69 +97,20 @@ class _$ListItemsCopyWithImpl<$Res, $Val extends ListItems>
   @override
   @pragma('vm:prefer-inline')
   $ListViewCopyWith<$Res> get list {
-    return $ListViewCopyWith<$Res>(_value.list, (value) {
-      return _then(_value.copyWith(list: value) as $Val);
+    return $ListViewCopyWith<$Res>(_self.list, (value) {
+      return _then(_self.copyWith(list: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ListItemsImplCopyWith<$Res>
-    implements $ListItemsCopyWith<$Res> {
-  factory _$$ListItemsImplCopyWith(
-          _$ListItemsImpl value, $Res Function(_$ListItemsImpl) then) =
-      __$$ListItemsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ListView list, List<ListItem> items, String? cursor});
-
-  @override
-  $ListViewCopyWith<$Res> get list;
-}
-
-/// @nodoc
-class __$$ListItemsImplCopyWithImpl<$Res>
-    extends _$ListItemsCopyWithImpl<$Res, _$ListItemsImpl>
-    implements _$$ListItemsImplCopyWith<$Res> {
-  __$$ListItemsImplCopyWithImpl(
-      _$ListItemsImpl _value, $Res Function(_$ListItemsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ListItems
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? list = null,
-    Object? items = null,
-    Object? cursor = freezed,
-  }) {
-    return _then(_$ListItemsImpl(
-      list: null == list
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as ListView,
-      items: null == items
-          ? _value._items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<ListItem>,
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$ListItemsImpl implements _ListItems {
-  const _$ListItemsImpl(
+class _ListItems implements ListItems {
+  const _ListItems(
       {required this.list, required final List<ListItem> items, this.cursor})
       : _items = items;
-
-  factory _$ListItemsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListItemsImplFromJson(json);
+  factory _ListItems.fromJson(Map<String, dynamic> json) =>
+      _$ListItemsFromJson(json);
 
   @override
   final ListView list;
@@ -161,16 +125,26 @@ class _$ListItemsImpl implements _ListItems {
   @override
   final String? cursor;
 
+  /// Create a copy of ListItems
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ListItems(list: $list, items: $items, cursor: $cursor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ListItemsCopyWith<_ListItems> get copyWith =>
+      __$ListItemsCopyWithImpl<_ListItems>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ListItemsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListItemsImpl &&
+            other is _ListItems &&
             (identical(other.list, list) || other.list == list) &&
             const DeepCollectionEquality().equals(other._items, _items) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
@@ -181,42 +155,67 @@ class _$ListItemsImpl implements _ListItems {
   int get hashCode => Object.hash(
       runtimeType, list, const DeepCollectionEquality().hash(_items), cursor);
 
-  /// Create a copy of ListItems
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ListItemsImplCopyWith<_$ListItemsImpl> get copyWith =>
-      __$$ListItemsImplCopyWithImpl<_$ListItemsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ListItemsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ListItems(list: $list, items: $items, cursor: $cursor)';
   }
 }
 
-abstract class _ListItems implements ListItems {
-  const factory _ListItems(
-      {required final ListView list,
-      required final List<ListItem> items,
-      final String? cursor}) = _$ListItemsImpl;
+/// @nodoc
+abstract mixin class _$ListItemsCopyWith<$Res>
+    implements $ListItemsCopyWith<$Res> {
+  factory _$ListItemsCopyWith(
+          _ListItems value, $Res Function(_ListItems) _then) =
+      __$ListItemsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({ListView list, List<ListItem> items, String? cursor});
 
-  factory _ListItems.fromJson(Map<String, dynamic> json) =
-      _$ListItemsImpl.fromJson;
+  @override
+  $ListViewCopyWith<$Res> get list;
+}
 
-  @override
-  ListView get list;
-  @override
-  List<ListItem> get items;
-  @override
-  String? get cursor;
+/// @nodoc
+class __$ListItemsCopyWithImpl<$Res> implements _$ListItemsCopyWith<$Res> {
+  __$ListItemsCopyWithImpl(this._self, this._then);
+
+  final _ListItems _self;
+  final $Res Function(_ListItems) _then;
 
   /// Create a copy of ListItems
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ListItemsImplCopyWith<_$ListItemsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? list = null,
+    Object? items = null,
+    Object? cursor = freezed,
+  }) {
+    return _then(_ListItems(
+      list: null == list
+          ? _self.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as ListView,
+      items: null == items
+          ? _self._items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<ListItem>,
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of ListItems
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ListViewCopyWith<$Res> get list {
+    return $ListViewCopyWith<$Res>(_self.list, (value) {
+      return _then(_self.copyWith(list: value));
+    });
+  }
 }
+
+// dart format on

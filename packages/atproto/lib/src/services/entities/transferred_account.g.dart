@@ -8,12 +8,11 @@ part of 'transferred_account.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TransferredAccountImpl _$$TransferredAccountImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$TransferredAccountImpl',
+_TransferredAccount _$TransferredAccountFromJson(Map json) => $checkedCreate(
+      '_TransferredAccount',
       json,
       ($checkedConvert) {
-        final val = _$TransferredAccountImpl(
+        final val = _TransferredAccount(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           accessJwt: $checkedConvert('accessJwt', (v) => v as String),
@@ -23,8 +22,7 @@ _$TransferredAccountImpl _$$TransferredAccountImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$TransferredAccountImplToJson(
-        _$TransferredAccountImpl instance) =>
+Map<String, dynamic> _$TransferredAccountToJson(_TransferredAccount instance) =>
     <String, dynamic>{
       'did': instance.did,
       'handle': instance.handle,

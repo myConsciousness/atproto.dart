@@ -12,7 +12,7 @@ part 'message_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#messageview
 @freezed
-class MessageView with _$MessageView {
+abstract class MessageView with _$MessageView {
   @jsonSerializable
   const factory MessageView({
     required String id,

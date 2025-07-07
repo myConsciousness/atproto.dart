@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,94 +10,56 @@ part of 'list_item_param.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ListItemParam _$ListItemParamFromJson(Map<String, dynamic> json) {
-  return _ListItemParam.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ListItemParam {
-  String get subject => throw _privateConstructorUsedError;
+  String get subject;
   @AtUriConverter()
-  AtUri get list => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
-
-  /// Serializes this ListItemParam to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get list;
+  DateTime? get createdAt;
+  Map<String, dynamic> get unspecced;
 
   /// Create a copy of ListItemParam
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ListItemParamCopyWith<ListItemParam> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ListItemParamCopyWith<$Res> {
-  factory $ListItemParamCopyWith(
-          ListItemParam value, $Res Function(ListItemParam) then) =
-      _$ListItemParamCopyWithImpl<$Res, ListItemParam>;
-  @useResult
-  $Res call(
-      {String subject,
-      @AtUriConverter() AtUri list,
-      DateTime? createdAt,
-      Map<String, dynamic> unspecced});
-}
-
-/// @nodoc
-class _$ListItemParamCopyWithImpl<$Res, $Val extends ListItemParam>
-    implements $ListItemParamCopyWith<$Res> {
-  _$ListItemParamCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ListItemParam
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ListItemParamCopyWith<ListItemParam> get copyWith =>
+      _$ListItemParamCopyWithImpl<ListItemParam>(
+          this as ListItemParam, _$identity);
+
+  /// Serializes this ListItemParam to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? subject = null,
-    Object? list = null,
-    Object? createdAt = freezed,
-    Object? unspecced = null,
-  }) {
-    return _then(_value.copyWith(
-      subject: null == subject
-          ? _value.subject
-          : subject // ignore: cast_nullable_to_non_nullable
-              as String,
-      list: null == list
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      unspecced: null == unspecced
-          ? _value.unspecced
-          : unspecced // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ListItemParam &&
+            (identical(other.subject, subject) || other.subject == subject) &&
+            (identical(other.list, list) || other.list == list) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other.unspecced, unspecced));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, subject, list, createdAt,
+      const DeepCollectionEquality().hash(unspecced));
+
+  @override
+  String toString() {
+    return 'ListItemParam(subject: $subject, list: $list, createdAt: $createdAt, unspecced: $unspecced)';
   }
 }
 
 /// @nodoc
-abstract class _$$ListItemParamImplCopyWith<$Res>
-    implements $ListItemParamCopyWith<$Res> {
-  factory _$$ListItemParamImplCopyWith(
-          _$ListItemParamImpl value, $Res Function(_$ListItemParamImpl) then) =
-      __$$ListItemParamImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ListItemParamCopyWith<$Res> {
+  factory $ListItemParamCopyWith(
+          ListItemParam value, $Res Function(ListItemParam) _then) =
+      _$ListItemParamCopyWithImpl;
   @useResult
   $Res call(
       {String subject,
@@ -106,12 +69,12 @@ abstract class _$$ListItemParamImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ListItemParamImplCopyWithImpl<$Res>
-    extends _$ListItemParamCopyWithImpl<$Res, _$ListItemParamImpl>
-    implements _$$ListItemParamImplCopyWith<$Res> {
-  __$$ListItemParamImplCopyWithImpl(
-      _$ListItemParamImpl _value, $Res Function(_$ListItemParamImpl) _then)
-      : super(_value, _then);
+class _$ListItemParamCopyWithImpl<$Res>
+    implements $ListItemParamCopyWith<$Res> {
+  _$ListItemParamCopyWithImpl(this._self, this._then);
+
+  final ListItemParam _self;
+  final $Res Function(ListItemParam) _then;
 
   /// Create a copy of ListItemParam
   /// with the given fields replaced by the non-null parameter values.
@@ -123,21 +86,21 @@ class __$$ListItemParamImplCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? unspecced = null,
   }) {
-    return _then(_$ListItemParamImpl(
+    return _then(_self.copyWith(
       subject: null == subject
-          ? _value.subject
+          ? _self.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String,
       list: null == list
-          ? _value.list
+          ? _self.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
       createdAt: freezed == createdAt
-          ? _value.createdAt
+          ? _self.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       unspecced: null == unspecced
-          ? _value._unspecced
+          ? _self.unspecced
           : unspecced // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -147,16 +110,15 @@ class __$$ListItemParamImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ListItemParamImpl implements _ListItemParam {
-  const _$ListItemParamImpl(
+class _ListItemParam implements ListItemParam {
+  const _ListItemParam(
       {required this.subject,
       @AtUriConverter() required this.list,
       this.createdAt,
       final Map<String, dynamic> unspecced = emptyJson})
       : _unspecced = unspecced;
-
-  factory _$ListItemParamImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListItemParamImplFromJson(json);
+  factory _ListItemParam.fromJson(Map<String, dynamic> json) =>
+      _$ListItemParamFromJson(json);
 
   @override
   final String subject;
@@ -174,16 +136,26 @@ class _$ListItemParamImpl implements _ListItemParam {
     return EqualUnmodifiableMapView(_unspecced);
   }
 
+  /// Create a copy of ListItemParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ListItemParam(subject: $subject, list: $list, createdAt: $createdAt, unspecced: $unspecced)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ListItemParamCopyWith<_ListItemParam> get copyWith =>
+      __$ListItemParamCopyWithImpl<_ListItemParam>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ListItemParamToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListItemParamImpl &&
+            other is _ListItemParam &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.list, list) || other.list == list) &&
             (identical(other.createdAt, createdAt) ||
@@ -197,46 +169,64 @@ class _$ListItemParamImpl implements _ListItemParam {
   int get hashCode => Object.hash(runtimeType, subject, list, createdAt,
       const DeepCollectionEquality().hash(_unspecced));
 
-  /// Create a copy of ListItemParam
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ListItemParamImplCopyWith<_$ListItemParamImpl> get copyWith =>
-      __$$ListItemParamImplCopyWithImpl<_$ListItemParamImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ListItemParamImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ListItemParam(subject: $subject, list: $list, createdAt: $createdAt, unspecced: $unspecced)';
   }
 }
 
-abstract class _ListItemParam implements ListItemParam {
-  const factory _ListItemParam(
-      {required final String subject,
-      @AtUriConverter() required final AtUri list,
-      final DateTime? createdAt,
-      final Map<String, dynamic> unspecced}) = _$ListItemParamImpl;
+/// @nodoc
+abstract mixin class _$ListItemParamCopyWith<$Res>
+    implements $ListItemParamCopyWith<$Res> {
+  factory _$ListItemParamCopyWith(
+          _ListItemParam value, $Res Function(_ListItemParam) _then) =
+      __$ListItemParamCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String subject,
+      @AtUriConverter() AtUri list,
+      DateTime? createdAt,
+      Map<String, dynamic> unspecced});
+}
 
-  factory _ListItemParam.fromJson(Map<String, dynamic> json) =
-      _$ListItemParamImpl.fromJson;
+/// @nodoc
+class __$ListItemParamCopyWithImpl<$Res>
+    implements _$ListItemParamCopyWith<$Res> {
+  __$ListItemParamCopyWithImpl(this._self, this._then);
 
-  @override
-  String get subject;
-  @override
-  @AtUriConverter()
-  AtUri get list;
-  @override
-  DateTime? get createdAt;
-  @override
-  Map<String, dynamic> get unspecced;
+  final _ListItemParam _self;
+  final $Res Function(_ListItemParam) _then;
 
   /// Create a copy of ListItemParam
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ListItemParamImplCopyWith<_$ListItemParamImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? subject = null,
+    Object? list = null,
+    Object? createdAt = freezed,
+    Object? unspecced = null,
+  }) {
+    return _then(_ListItemParam(
+      subject: null == subject
+          ? _self.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
+      list: null == list
+          ? _self.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      createdAt: freezed == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      unspecced: null == unspecced
+          ? _self._unspecced
+          : unspecced // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

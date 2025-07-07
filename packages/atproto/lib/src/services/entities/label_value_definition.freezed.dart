@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,109 +10,62 @@ part of 'label_value_definition.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LabelValueDefinition _$LabelValueDefinitionFromJson(Map<String, dynamic> json) {
-  return _LabelValueDefinition.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LabelValueDefinition {
-  String get identifier => throw _privateConstructorUsedError;
-  String get severity => throw _privateConstructorUsedError;
-  String get blurs => throw _privateConstructorUsedError;
-  String get defaultSetting => throw _privateConstructorUsedError;
-  bool get adultOnly => throw _privateConstructorUsedError;
-  List<LabelValueDefinitionStrings> get locales =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this LabelValueDefinition to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get identifier;
+  String get severity;
+  String get blurs;
+  String get defaultSetting;
+  bool get adultOnly;
+  List<LabelValueDefinitionStrings> get locales;
 
   /// Create a copy of LabelValueDefinition
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LabelValueDefinitionCopyWith<LabelValueDefinition> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LabelValueDefinitionCopyWith<$Res> {
-  factory $LabelValueDefinitionCopyWith(LabelValueDefinition value,
-          $Res Function(LabelValueDefinition) then) =
-      _$LabelValueDefinitionCopyWithImpl<$Res, LabelValueDefinition>;
-  @useResult
-  $Res call(
-      {String identifier,
-      String severity,
-      String blurs,
-      String defaultSetting,
-      bool adultOnly,
-      List<LabelValueDefinitionStrings> locales});
-}
-
-/// @nodoc
-class _$LabelValueDefinitionCopyWithImpl<$Res,
-        $Val extends LabelValueDefinition>
-    implements $LabelValueDefinitionCopyWith<$Res> {
-  _$LabelValueDefinitionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LabelValueDefinition
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LabelValueDefinitionCopyWith<LabelValueDefinition> get copyWith =>
+      _$LabelValueDefinitionCopyWithImpl<LabelValueDefinition>(
+          this as LabelValueDefinition, _$identity);
+
+  /// Serializes this LabelValueDefinition to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? identifier = null,
-    Object? severity = null,
-    Object? blurs = null,
-    Object? defaultSetting = null,
-    Object? adultOnly = null,
-    Object? locales = null,
-  }) {
-    return _then(_value.copyWith(
-      identifier: null == identifier
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as String,
-      severity: null == severity
-          ? _value.severity
-          : severity // ignore: cast_nullable_to_non_nullable
-              as String,
-      blurs: null == blurs
-          ? _value.blurs
-          : blurs // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultSetting: null == defaultSetting
-          ? _value.defaultSetting
-          : defaultSetting // ignore: cast_nullable_to_non_nullable
-              as String,
-      adultOnly: null == adultOnly
-          ? _value.adultOnly
-          : adultOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
-      locales: null == locales
-          ? _value.locales
-          : locales // ignore: cast_nullable_to_non_nullable
-              as List<LabelValueDefinitionStrings>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LabelValueDefinition &&
+            (identical(other.identifier, identifier) ||
+                other.identifier == identifier) &&
+            (identical(other.severity, severity) ||
+                other.severity == severity) &&
+            (identical(other.blurs, blurs) || other.blurs == blurs) &&
+            (identical(other.defaultSetting, defaultSetting) ||
+                other.defaultSetting == defaultSetting) &&
+            (identical(other.adultOnly, adultOnly) ||
+                other.adultOnly == adultOnly) &&
+            const DeepCollectionEquality().equals(other.locales, locales));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, identifier, severity, blurs,
+      defaultSetting, adultOnly, const DeepCollectionEquality().hash(locales));
+
+  @override
+  String toString() {
+    return 'LabelValueDefinition(identifier: $identifier, severity: $severity, blurs: $blurs, defaultSetting: $defaultSetting, adultOnly: $adultOnly, locales: $locales)';
   }
 }
 
 /// @nodoc
-abstract class _$$LabelValueDefinitionImplCopyWith<$Res>
-    implements $LabelValueDefinitionCopyWith<$Res> {
-  factory _$$LabelValueDefinitionImplCopyWith(_$LabelValueDefinitionImpl value,
-          $Res Function(_$LabelValueDefinitionImpl) then) =
-      __$$LabelValueDefinitionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LabelValueDefinitionCopyWith<$Res> {
+  factory $LabelValueDefinitionCopyWith(LabelValueDefinition value,
+          $Res Function(LabelValueDefinition) _then) =
+      _$LabelValueDefinitionCopyWithImpl;
   @useResult
   $Res call(
       {String identifier,
@@ -123,12 +77,12 @@ abstract class _$$LabelValueDefinitionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
-    extends _$LabelValueDefinitionCopyWithImpl<$Res, _$LabelValueDefinitionImpl>
-    implements _$$LabelValueDefinitionImplCopyWith<$Res> {
-  __$$LabelValueDefinitionImplCopyWithImpl(_$LabelValueDefinitionImpl _value,
-      $Res Function(_$LabelValueDefinitionImpl) _then)
-      : super(_value, _then);
+class _$LabelValueDefinitionCopyWithImpl<$Res>
+    implements $LabelValueDefinitionCopyWith<$Res> {
+  _$LabelValueDefinitionCopyWithImpl(this._self, this._then);
+
+  final LabelValueDefinition _self;
+  final $Res Function(LabelValueDefinition) _then;
 
   /// Create a copy of LabelValueDefinition
   /// with the given fields replaced by the non-null parameter values.
@@ -142,29 +96,29 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
     Object? adultOnly = null,
     Object? locales = null,
   }) {
-    return _then(_$LabelValueDefinitionImpl(
+    return _then(_self.copyWith(
       identifier: null == identifier
-          ? _value.identifier
+          ? _self.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
               as String,
       severity: null == severity
-          ? _value.severity
+          ? _self.severity
           : severity // ignore: cast_nullable_to_non_nullable
               as String,
       blurs: null == blurs
-          ? _value.blurs
+          ? _self.blurs
           : blurs // ignore: cast_nullable_to_non_nullable
               as String,
       defaultSetting: null == defaultSetting
-          ? _value.defaultSetting
+          ? _self.defaultSetting
           : defaultSetting // ignore: cast_nullable_to_non_nullable
               as String,
       adultOnly: null == adultOnly
-          ? _value.adultOnly
+          ? _self.adultOnly
           : adultOnly // ignore: cast_nullable_to_non_nullable
               as bool,
       locales: null == locales
-          ? _value._locales
+          ? _self.locales
           : locales // ignore: cast_nullable_to_non_nullable
               as List<LabelValueDefinitionStrings>,
     ));
@@ -174,8 +128,8 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
-  const _$LabelValueDefinitionImpl(
+class _LabelValueDefinition implements LabelValueDefinition {
+  const _LabelValueDefinition(
       {required this.identifier,
       required this.severity,
       required this.blurs,
@@ -183,9 +137,8 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
       this.adultOnly = false,
       required final List<LabelValueDefinitionStrings> locales})
       : _locales = locales;
-
-  factory _$LabelValueDefinitionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LabelValueDefinitionImplFromJson(json);
+  factory _LabelValueDefinition.fromJson(Map<String, dynamic> json) =>
+      _$LabelValueDefinitionFromJson(json);
 
   @override
   final String identifier;
@@ -207,16 +160,27 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
     return EqualUnmodifiableListView(_locales);
   }
 
+  /// Create a copy of LabelValueDefinition
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LabelValueDefinition(identifier: $identifier, severity: $severity, blurs: $blurs, defaultSetting: $defaultSetting, adultOnly: $adultOnly, locales: $locales)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LabelValueDefinitionCopyWith<_LabelValueDefinition> get copyWith =>
+      __$LabelValueDefinitionCopyWithImpl<_LabelValueDefinition>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LabelValueDefinitionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LabelValueDefinitionImpl &&
+            other is _LabelValueDefinition &&
             (identical(other.identifier, identifier) ||
                 other.identifier == identifier) &&
             (identical(other.severity, severity) ||
@@ -234,54 +198,76 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
   int get hashCode => Object.hash(runtimeType, identifier, severity, blurs,
       defaultSetting, adultOnly, const DeepCollectionEquality().hash(_locales));
 
-  /// Create a copy of LabelValueDefinition
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LabelValueDefinitionImplCopyWith<_$LabelValueDefinitionImpl>
-      get copyWith =>
-          __$$LabelValueDefinitionImplCopyWithImpl<_$LabelValueDefinitionImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LabelValueDefinitionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LabelValueDefinition(identifier: $identifier, severity: $severity, blurs: $blurs, defaultSetting: $defaultSetting, adultOnly: $adultOnly, locales: $locales)';
   }
 }
 
-abstract class _LabelValueDefinition implements LabelValueDefinition {
-  const factory _LabelValueDefinition(
-          {required final String identifier,
-          required final String severity,
-          required final String blurs,
-          final String defaultSetting,
-          final bool adultOnly,
-          required final List<LabelValueDefinitionStrings> locales}) =
-      _$LabelValueDefinitionImpl;
+/// @nodoc
+abstract mixin class _$LabelValueDefinitionCopyWith<$Res>
+    implements $LabelValueDefinitionCopyWith<$Res> {
+  factory _$LabelValueDefinitionCopyWith(_LabelValueDefinition value,
+          $Res Function(_LabelValueDefinition) _then) =
+      __$LabelValueDefinitionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String identifier,
+      String severity,
+      String blurs,
+      String defaultSetting,
+      bool adultOnly,
+      List<LabelValueDefinitionStrings> locales});
+}
 
-  factory _LabelValueDefinition.fromJson(Map<String, dynamic> json) =
-      _$LabelValueDefinitionImpl.fromJson;
+/// @nodoc
+class __$LabelValueDefinitionCopyWithImpl<$Res>
+    implements _$LabelValueDefinitionCopyWith<$Res> {
+  __$LabelValueDefinitionCopyWithImpl(this._self, this._then);
 
-  @override
-  String get identifier;
-  @override
-  String get severity;
-  @override
-  String get blurs;
-  @override
-  String get defaultSetting;
-  @override
-  bool get adultOnly;
-  @override
-  List<LabelValueDefinitionStrings> get locales;
+  final _LabelValueDefinition _self;
+  final $Res Function(_LabelValueDefinition) _then;
 
   /// Create a copy of LabelValueDefinition
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LabelValueDefinitionImplCopyWith<_$LabelValueDefinitionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? identifier = null,
+    Object? severity = null,
+    Object? blurs = null,
+    Object? defaultSetting = null,
+    Object? adultOnly = null,
+    Object? locales = null,
+  }) {
+    return _then(_LabelValueDefinition(
+      identifier: null == identifier
+          ? _self.identifier
+          : identifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      severity: null == severity
+          ? _self.severity
+          : severity // ignore: cast_nullable_to_non_nullable
+              as String,
+      blurs: null == blurs
+          ? _self.blurs
+          : blurs // ignore: cast_nullable_to_non_nullable
+              as String,
+      defaultSetting: null == defaultSetting
+          ? _self.defaultSetting
+          : defaultSetting // ignore: cast_nullable_to_non_nullable
+              as String,
+      adultOnly: null == adultOnly
+          ? _self.adultOnly
+          : adultOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      locales: null == locales
+          ? _self._locales
+          : locales // ignore: cast_nullable_to_non_nullable
+              as List<LabelValueDefinitionStrings>,
+    ));
+  }
 }
+
+// dart format on

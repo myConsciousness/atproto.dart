@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,136 +10,31 @@ part of 'facet_mention.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FacetMention _$FacetMentionFromJson(Map<String, dynamic> json) {
-  return _FacetMention.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FacetMention {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get did => throw _privateConstructorUsedError;
-
-  /// Serializes this FacetMention to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  String get did;
 
   /// Create a copy of FacetMention
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $FacetMentionCopyWith<FacetMention> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$FacetMentionCopyWithImpl<FacetMention>(
+          this as FacetMention, _$identity);
 
-/// @nodoc
-abstract class $FacetMentionCopyWith<$Res> {
-  factory $FacetMentionCopyWith(
-          FacetMention value, $Res Function(FacetMention) then) =
-      _$FacetMentionCopyWithImpl<$Res, FacetMention>;
-  @useResult
-  $Res call({@typeKey String type, String did});
-}
-
-/// @nodoc
-class _$FacetMentionCopyWithImpl<$Res, $Val extends FacetMention>
-    implements $FacetMentionCopyWith<$Res> {
-  _$FacetMentionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FacetMention
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? did = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$FacetMentionImplCopyWith<$Res>
-    implements $FacetMentionCopyWith<$Res> {
-  factory _$$FacetMentionImplCopyWith(
-          _$FacetMentionImpl value, $Res Function(_$FacetMentionImpl) then) =
-      __$$FacetMentionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, String did});
-}
-
-/// @nodoc
-class __$$FacetMentionImplCopyWithImpl<$Res>
-    extends _$FacetMentionCopyWithImpl<$Res, _$FacetMentionImpl>
-    implements _$$FacetMentionImplCopyWith<$Res> {
-  __$$FacetMentionImplCopyWithImpl(
-      _$FacetMentionImpl _value, $Res Function(_$FacetMentionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of FacetMention
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? did = null,
-  }) {
-    return _then(_$FacetMentionImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$FacetMentionImpl implements _FacetMention {
-  const _$FacetMentionImpl(
-      {@typeKey this.type = appBskyRichtextFacetMention, required this.did});
-
-  factory _$FacetMentionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FacetMentionImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final String did;
-
-  @override
-  String toString() {
-    return 'FacetMention(type: $type, did: $did)';
-  }
+  /// Serializes this FacetMention to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FacetMentionImpl &&
+            other is FacetMention &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did));
   }
@@ -147,40 +43,136 @@ class _$FacetMentionImpl implements _FacetMention {
   @override
   int get hashCode => Object.hash(runtimeType, type, did);
 
-  /// Create a copy of FacetMention
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FacetMentionImplCopyWith<_$FacetMentionImpl> get copyWith =>
-      __$$FacetMentionImplCopyWithImpl<_$FacetMentionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FacetMentionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'FacetMention(type: $type, did: $did)';
   }
 }
 
-abstract class _FacetMention implements FacetMention {
-  const factory _FacetMention(
-      {@typeKey final String type,
-      required final String did}) = _$FacetMentionImpl;
+/// @nodoc
+abstract mixin class $FacetMentionCopyWith<$Res> {
+  factory $FacetMentionCopyWith(
+          FacetMention value, $Res Function(FacetMention) _then) =
+      _$FacetMentionCopyWithImpl;
+  @useResult
+  $Res call({@typeKey String type, String did});
+}
 
-  factory _FacetMention.fromJson(Map<String, dynamic> json) =
-      _$FacetMentionImpl.fromJson;
+/// @nodoc
+class _$FacetMentionCopyWithImpl<$Res> implements $FacetMentionCopyWith<$Res> {
+  _$FacetMentionCopyWithImpl(this._self, this._then);
+
+  final FacetMention _self;
+  final $Res Function(FacetMention) _then;
+
+  /// Create a copy of FacetMention
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? did = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _FacetMention extends FacetMention {
+  const _FacetMention(
+      {@typeKey this.type = appBskyRichtextFacetMention, required this.did})
+      : super._();
+  factory _FacetMention.fromJson(Map<String, dynamic> json) =>
+      _$FacetMentionFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
-  String get did;
+  final String did;
 
   /// Create a copy of FacetMention
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FacetMentionImplCopyWith<_$FacetMentionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$FacetMentionCopyWith<_FacetMention> get copyWith =>
+      __$FacetMentionCopyWithImpl<_FacetMention>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FacetMentionToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _FacetMention &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.did, did) || other.did == did));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, did);
+
+  @override
+  String toString() {
+    return 'FacetMention(type: $type, did: $did)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$FacetMentionCopyWith<$Res>
+    implements $FacetMentionCopyWith<$Res> {
+  factory _$FacetMentionCopyWith(
+          _FacetMention value, $Res Function(_FacetMention) _then) =
+      __$FacetMentionCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, String did});
+}
+
+/// @nodoc
+class __$FacetMentionCopyWithImpl<$Res>
+    implements _$FacetMentionCopyWith<$Res> {
+  __$FacetMentionCopyWithImpl(this._self, this._then);
+
+  final _FacetMention _self;
+  final $Res Function(_FacetMention) _then;
+
+  /// Create a copy of FacetMention
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? did = null,
+  }) {
+    return _then(_FacetMention(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

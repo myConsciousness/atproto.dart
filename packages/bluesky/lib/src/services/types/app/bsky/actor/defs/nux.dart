@@ -12,7 +12,7 @@ part 'nux.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#nux
 @freezed
-class Nux with _$Nux {
+abstract class Nux with _$Nux {
   @jsonSerializable
   const factory Nux({
     @typeKey @Default(appBskyActorDefsNux) String type,

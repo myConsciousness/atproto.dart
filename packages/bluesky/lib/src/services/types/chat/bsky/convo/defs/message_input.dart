@@ -11,7 +11,7 @@ part 'message_input.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#messageinput
 @freezed
-class MessageInput with _$MessageInput {
+abstract class MessageInput with _$MessageInput {
   @jsonSerializable
   const factory MessageInput({
     required String text,

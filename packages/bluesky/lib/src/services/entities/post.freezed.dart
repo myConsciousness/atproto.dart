@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,49 +10,96 @@ part of 'post.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Post _$PostFromJson(Map<String, dynamic> json) {
-  return _Post.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Post {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @postRecordConverter
-  PostRecord get record => throw _privateConstructorUsedError;
-  ActorBasic get author => throw _privateConstructorUsedError;
+  PostRecord get record;
+  ActorBasic get author;
   @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
-  String get cid => throw _privateConstructorUsedError;
+  AtUri get uri;
+  String get cid;
   @embedViewConverter
-  EmbedView? get embed => throw _privateConstructorUsedError;
-  int get replyCount => throw _privateConstructorUsedError;
-  int get repostCount => throw _privateConstructorUsedError;
-  int get likeCount => throw _privateConstructorUsedError;
-  int get quoteCount => throw _privateConstructorUsedError;
-  PostViewer get viewer => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
-  ThreadgateView? get threadgate => throw _privateConstructorUsedError;
-  DateTime get indexedAt => throw _privateConstructorUsedError;
-
-  /// Serializes this Post to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  EmbedView? get embed;
+  int get replyCount;
+  int get repostCount;
+  int get likeCount;
+  int get quoteCount;
+  PostViewer get viewer;
+  List<Label>? get labels;
+  ThreadgateView? get threadgate;
+  DateTime get indexedAt;
 
   /// Create a copy of Post
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $PostCopyWith<Post> get copyWith =>
+      _$PostCopyWithImpl<Post>(this as Post, _$identity);
+
+  /// Serializes this Post to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Post &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.record, record) || other.record == record) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.embed, embed) || other.embed == embed) &&
+            (identical(other.replyCount, replyCount) ||
+                other.replyCount == replyCount) &&
+            (identical(other.repostCount, repostCount) ||
+                other.repostCount == repostCount) &&
+            (identical(other.likeCount, likeCount) ||
+                other.likeCount == likeCount) &&
+            (identical(other.quoteCount, quoteCount) ||
+                other.quoteCount == quoteCount) &&
+            (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            const DeepCollectionEquality().equals(other.labels, labels) &&
+            (identical(other.threadgate, threadgate) ||
+                other.threadgate == threadgate) &&
+            (identical(other.indexedAt, indexedAt) ||
+                other.indexedAt == indexedAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      record,
+      author,
+      uri,
+      cid,
+      embed,
+      replyCount,
+      repostCount,
+      likeCount,
+      quoteCount,
+      viewer,
+      const DeepCollectionEquality().hash(labels),
+      threadgate,
+      indexedAt);
+
+  @override
+  String toString() {
+    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, viewer: $viewer, labels: $labels, threadgate: $threadgate, indexedAt: $indexedAt)';
+  }
 }
 
 /// @nodoc
-abstract class $PostCopyWith<$Res> {
-  factory $PostCopyWith(Post value, $Res Function(Post) then) =
-      _$PostCopyWithImpl<$Res, Post>;
+abstract mixin class $PostCopyWith<$Res> {
+  factory $PostCopyWith(Post value, $Res Function(Post) _then) =
+      _$PostCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -77,14 +125,11 @@ abstract class $PostCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PostCopyWithImpl<$Res, $Val extends Post>
-    implements $PostCopyWith<$Res> {
-  _$PostCopyWithImpl(this._value, this._then);
+class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
+  _$PostCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Post _self;
+  final $Res Function(Post) _then;
 
   /// Create a copy of Post
   /// with the given fields replaced by the non-null parameter values.
@@ -106,64 +151,64 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? threadgate = freezed,
     Object? indexedAt = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       record: null == record
-          ? _value.record
+          ? _self.record
           : record // ignore: cast_nullable_to_non_nullable
               as PostRecord,
       author: null == author
-          ? _value.author
+          ? _self.author
           : author // ignore: cast_nullable_to_non_nullable
               as ActorBasic,
       uri: null == uri
-          ? _value.uri
+          ? _self.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
       cid: null == cid
-          ? _value.cid
+          ? _self.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
       embed: freezed == embed
-          ? _value.embed
+          ? _self.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as EmbedView?,
       replyCount: null == replyCount
-          ? _value.replyCount
+          ? _self.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
               as int,
       repostCount: null == repostCount
-          ? _value.repostCount
+          ? _self.repostCount
           : repostCount // ignore: cast_nullable_to_non_nullable
               as int,
       likeCount: null == likeCount
-          ? _value.likeCount
+          ? _self.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
       quoteCount: null == quoteCount
-          ? _value.quoteCount
+          ? _self.quoteCount
           : quoteCount // ignore: cast_nullable_to_non_nullable
               as int,
       viewer: null == viewer
-          ? _value.viewer
+          ? _self.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as PostViewer,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
       threadgate: freezed == threadgate
-          ? _value.threadgate
+          ? _self.threadgate
           : threadgate // ignore: cast_nullable_to_non_nullable
               as ThreadgateView?,
       indexedAt: null == indexedAt
-          ? _value.indexedAt
+          ? _self.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of Post
@@ -171,8 +216,8 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   @override
   @pragma('vm:prefer-inline')
   $PostRecordCopyWith<$Res> get record {
-    return $PostRecordCopyWith<$Res>(_value.record, (value) {
-      return _then(_value.copyWith(record: value) as $Val);
+    return $PostRecordCopyWith<$Res>(_self.record, (value) {
+      return _then(_self.copyWith(record: value));
     });
   }
 
@@ -181,8 +226,8 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   @override
   @pragma('vm:prefer-inline')
   $ActorBasicCopyWith<$Res> get author {
-    return $ActorBasicCopyWith<$Res>(_value.author, (value) {
-      return _then(_value.copyWith(author: value) as $Val);
+    return $ActorBasicCopyWith<$Res>(_self.author, (value) {
+      return _then(_self.copyWith(author: value));
     });
   }
 
@@ -191,12 +236,12 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   @override
   @pragma('vm:prefer-inline')
   $EmbedViewCopyWith<$Res>? get embed {
-    if (_value.embed == null) {
+    if (_self.embed == null) {
       return null;
     }
 
-    return $EmbedViewCopyWith<$Res>(_value.embed!, (value) {
-      return _then(_value.copyWith(embed: value) as $Val);
+    return $EmbedViewCopyWith<$Res>(_self.embed!, (value) {
+      return _then(_self.copyWith(embed: value));
     });
   }
 
@@ -205,8 +250,8 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   @override
   @pragma('vm:prefer-inline')
   $PostViewerCopyWith<$Res> get viewer {
-    return $PostViewerCopyWith<$Res>(_value.viewer, (value) {
-      return _then(_value.copyWith(viewer: value) as $Val);
+    return $PostViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
     });
   }
 
@@ -215,144 +260,21 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   @override
   @pragma('vm:prefer-inline')
   $ThreadgateViewCopyWith<$Res>? get threadgate {
-    if (_value.threadgate == null) {
+    if (_self.threadgate == null) {
       return null;
     }
 
-    return $ThreadgateViewCopyWith<$Res>(_value.threadgate!, (value) {
-      return _then(_value.copyWith(threadgate: value) as $Val);
+    return $ThreadgateViewCopyWith<$Res>(_self.threadgate!, (value) {
+      return _then(_self.copyWith(threadgate: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
-  factory _$$PostImplCopyWith(
-          _$PostImpl value, $Res Function(_$PostImpl) then) =
-      __$$PostImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      @postRecordConverter PostRecord record,
-      ActorBasic author,
-      @AtUriConverter() AtUri uri,
-      String cid,
-      @embedViewConverter EmbedView? embed,
-      int replyCount,
-      int repostCount,
-      int likeCount,
-      int quoteCount,
-      PostViewer viewer,
-      List<Label>? labels,
-      ThreadgateView? threadgate,
-      DateTime indexedAt});
-
-  @override
-  $PostRecordCopyWith<$Res> get record;
-  @override
-  $ActorBasicCopyWith<$Res> get author;
-  @override
-  $EmbedViewCopyWith<$Res>? get embed;
-  @override
-  $PostViewerCopyWith<$Res> get viewer;
-  @override
-  $ThreadgateViewCopyWith<$Res>? get threadgate;
-}
-
-/// @nodoc
-class __$$PostImplCopyWithImpl<$Res>
-    extends _$PostCopyWithImpl<$Res, _$PostImpl>
-    implements _$$PostImplCopyWith<$Res> {
-  __$$PostImplCopyWithImpl(_$PostImpl _value, $Res Function(_$PostImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Post
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? record = null,
-    Object? author = null,
-    Object? uri = null,
-    Object? cid = null,
-    Object? embed = freezed,
-    Object? replyCount = null,
-    Object? repostCount = null,
-    Object? likeCount = null,
-    Object? quoteCount = null,
-    Object? viewer = null,
-    Object? labels = freezed,
-    Object? threadgate = freezed,
-    Object? indexedAt = null,
-  }) {
-    return _then(_$PostImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as PostRecord,
-      author: null == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as ActorBasic,
-      uri: null == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-      cid: null == cid
-          ? _value.cid
-          : cid // ignore: cast_nullable_to_non_nullable
-              as String,
-      embed: freezed == embed
-          ? _value.embed
-          : embed // ignore: cast_nullable_to_non_nullable
-              as EmbedView?,
-      replyCount: null == replyCount
-          ? _value.replyCount
-          : replyCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      repostCount: null == repostCount
-          ? _value.repostCount
-          : repostCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      likeCount: null == likeCount
-          ? _value.likeCount
-          : likeCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      quoteCount: null == quoteCount
-          ? _value.quoteCount
-          : quoteCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      viewer: null == viewer
-          ? _value.viewer
-          : viewer // ignore: cast_nullable_to_non_nullable
-              as PostViewer,
-      labels: freezed == labels
-          ? _value._labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
-      threadgate: freezed == threadgate
-          ? _value.threadgate
-          : threadgate // ignore: cast_nullable_to_non_nullable
-              as ThreadgateView?,
-      indexedAt: null == indexedAt
-          ? _value.indexedAt
-          : indexedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$PostImpl extends _Post {
-  const _$PostImpl(
+class _Post extends Post {
+  const _Post(
       {@typeKey this.type = appBskyFeedDefsPostView,
       @postRecordConverter required this.record,
       required this.author,
@@ -369,9 +291,7 @@ class _$PostImpl extends _Post {
       required this.indexedAt})
       : _labels = labels,
         super._();
-
-  factory _$PostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostImplFromJson(json);
+  factory _Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 
   @override
   @typeKey
@@ -419,16 +339,26 @@ class _$PostImpl extends _Post {
   @override
   final DateTime indexedAt;
 
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, viewer: $viewer, labels: $labels, threadgate: $threadgate, indexedAt: $indexedAt)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PostCopyWith<_Post> get copyWith =>
+      __$PostCopyWithImpl<_Post>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PostToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostImpl &&
+            other is _Post &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.author, author) || other.author == author) &&
@@ -470,79 +400,190 @@ class _$PostImpl extends _Post {
       threadgate,
       indexedAt);
 
-  /// Create a copy of Post
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
-      __$$PostImplCopyWithImpl<_$PostImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Post(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, viewer: $viewer, labels: $labels, threadgate: $threadgate, indexedAt: $indexedAt)';
   }
 }
 
-abstract class _Post extends Post {
-  const factory _Post(
-      {@typeKey final String type,
-      @postRecordConverter required final PostRecord record,
-      required final ActorBasic author,
-      @AtUriConverter() required final AtUri uri,
-      required final String cid,
-      @embedViewConverter final EmbedView? embed,
-      final int replyCount,
-      final int repostCount,
-      final int likeCount,
-      final int quoteCount,
-      final PostViewer viewer,
-      final List<Label>? labels,
-      final ThreadgateView? threadgate,
-      required final DateTime indexedAt}) = _$PostImpl;
-  const _Post._() : super._();
+/// @nodoc
+abstract mixin class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
+  factory _$PostCopyWith(_Post value, $Res Function(_Post) _then) =
+      __$PostCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @postRecordConverter PostRecord record,
+      ActorBasic author,
+      @AtUriConverter() AtUri uri,
+      String cid,
+      @embedViewConverter EmbedView? embed,
+      int replyCount,
+      int repostCount,
+      int likeCount,
+      int quoteCount,
+      PostViewer viewer,
+      List<Label>? labels,
+      ThreadgateView? threadgate,
+      DateTime indexedAt});
 
-  factory _Post.fromJson(Map<String, dynamic> json) = _$PostImpl.fromJson;
+  @override
+  $PostRecordCopyWith<$Res> get record;
+  @override
+  $ActorBasicCopyWith<$Res> get author;
+  @override
+  $EmbedViewCopyWith<$Res>? get embed;
+  @override
+  $PostViewerCopyWith<$Res> get viewer;
+  @override
+  $ThreadgateViewCopyWith<$Res>? get threadgate;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  @postRecordConverter
-  PostRecord get record;
-  @override
-  ActorBasic get author;
-  @override
-  @AtUriConverter()
-  AtUri get uri;
-  @override
-  String get cid;
-  @override
-  @embedViewConverter
-  EmbedView? get embed;
-  @override
-  int get replyCount;
-  @override
-  int get repostCount;
-  @override
-  int get likeCount;
-  @override
-  int get quoteCount;
-  @override
-  PostViewer get viewer;
-  @override
-  List<Label>? get labels;
-  @override
-  ThreadgateView? get threadgate;
-  @override
-  DateTime get indexedAt;
+/// @nodoc
+class __$PostCopyWithImpl<$Res> implements _$PostCopyWith<$Res> {
+  __$PostCopyWithImpl(this._self, this._then);
+
+  final _Post _self;
+  final $Res Function(_Post) _then;
 
   /// Create a copy of Post
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? record = null,
+    Object? author = null,
+    Object? uri = null,
+    Object? cid = null,
+    Object? embed = freezed,
+    Object? replyCount = null,
+    Object? repostCount = null,
+    Object? likeCount = null,
+    Object? quoteCount = null,
+    Object? viewer = null,
+    Object? labels = freezed,
+    Object? threadgate = freezed,
+    Object? indexedAt = null,
+  }) {
+    return _then(_Post(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      record: null == record
+          ? _self.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as PostRecord,
+      author: null == author
+          ? _self.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as ActorBasic,
+      uri: null == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: null == cid
+          ? _self.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      embed: freezed == embed
+          ? _self.embed
+          : embed // ignore: cast_nullable_to_non_nullable
+              as EmbedView?,
+      replyCount: null == replyCount
+          ? _self.replyCount
+          : replyCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      repostCount: null == repostCount
+          ? _self.repostCount
+          : repostCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      likeCount: null == likeCount
+          ? _self.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      quoteCount: null == quoteCount
+          ? _self.quoteCount
+          : quoteCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      viewer: null == viewer
+          ? _self.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as PostViewer,
+      labels: freezed == labels
+          ? _self._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
+      threadgate: freezed == threadgate
+          ? _self.threadgate
+          : threadgate // ignore: cast_nullable_to_non_nullable
+              as ThreadgateView?,
+      indexedAt: null == indexedAt
+          ? _self.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PostRecordCopyWith<$Res> get record {
+    return $PostRecordCopyWith<$Res>(_self.record, (value) {
+      return _then(_self.copyWith(record: value));
+    });
+  }
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorBasicCopyWith<$Res> get author {
+    return $ActorBasicCopyWith<$Res>(_self.author, (value) {
+      return _then(_self.copyWith(author: value));
+    });
+  }
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedViewCopyWith<$Res>? get embed {
+    if (_self.embed == null) {
+      return null;
+    }
+
+    return $EmbedViewCopyWith<$Res>(_self.embed!, (value) {
+      return _then(_self.copyWith(embed: value));
+    });
+  }
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PostViewerCopyWith<$Res> get viewer {
+    return $PostViewerCopyWith<$Res>(_self.viewer, (value) {
+      return _then(_self.copyWith(viewer: value));
+    });
+  }
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ThreadgateViewCopyWith<$Res>? get threadgate {
+    if (_self.threadgate == null) {
+      return null;
+    }
+
+    return $ThreadgateViewCopyWith<$Res>(_self.threadgate!, (value) {
+      return _then(_self.copyWith(threadgate: value));
+    });
+  }
 }
+
+// dart format on

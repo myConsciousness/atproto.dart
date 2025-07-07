@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,103 +10,60 @@ part of 'suite_user.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ModerationTestSuiteUser _$ModerationTestSuiteUserFromJson(
-    Map<String, dynamic> json) {
-  return _ModerationTestSuiteUser.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ModerationTestSuiteUser {
-  bool get blocking => throw _privateConstructorUsedError;
-  bool get blockingByList => throw _privateConstructorUsedError;
-  bool get blockedBy => throw _privateConstructorUsedError;
-  bool get muted => throw _privateConstructorUsedError;
-  bool get mutedByList => throw _privateConstructorUsedError;
-
-  /// Serializes this ModerationTestSuiteUser to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool get blocking;
+  bool get blockingByList;
+  bool get blockedBy;
+  bool get muted;
+  bool get mutedByList;
 
   /// Create a copy of ModerationTestSuiteUser
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ModerationTestSuiteUserCopyWith<ModerationTestSuiteUser> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ModerationTestSuiteUserCopyWith<$Res> {
-  factory $ModerationTestSuiteUserCopyWith(ModerationTestSuiteUser value,
-          $Res Function(ModerationTestSuiteUser) then) =
-      _$ModerationTestSuiteUserCopyWithImpl<$Res, ModerationTestSuiteUser>;
-  @useResult
-  $Res call(
-      {bool blocking,
-      bool blockingByList,
-      bool blockedBy,
-      bool muted,
-      bool mutedByList});
-}
-
-/// @nodoc
-class _$ModerationTestSuiteUserCopyWithImpl<$Res,
-        $Val extends ModerationTestSuiteUser>
-    implements $ModerationTestSuiteUserCopyWith<$Res> {
-  _$ModerationTestSuiteUserCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ModerationTestSuiteUser
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ModerationTestSuiteUserCopyWith<ModerationTestSuiteUser> get copyWith =>
+      _$ModerationTestSuiteUserCopyWithImpl<ModerationTestSuiteUser>(
+          this as ModerationTestSuiteUser, _$identity);
+
+  /// Serializes this ModerationTestSuiteUser to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? blocking = null,
-    Object? blockingByList = null,
-    Object? blockedBy = null,
-    Object? muted = null,
-    Object? mutedByList = null,
-  }) {
-    return _then(_value.copyWith(
-      blocking: null == blocking
-          ? _value.blocking
-          : blocking // ignore: cast_nullable_to_non_nullable
-              as bool,
-      blockingByList: null == blockingByList
-          ? _value.blockingByList
-          : blockingByList // ignore: cast_nullable_to_non_nullable
-              as bool,
-      blockedBy: null == blockedBy
-          ? _value.blockedBy
-          : blockedBy // ignore: cast_nullable_to_non_nullable
-              as bool,
-      muted: null == muted
-          ? _value.muted
-          : muted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      mutedByList: null == mutedByList
-          ? _value.mutedByList
-          : mutedByList // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ModerationTestSuiteUser &&
+            (identical(other.blocking, blocking) ||
+                other.blocking == blocking) &&
+            (identical(other.blockingByList, blockingByList) ||
+                other.blockingByList == blockingByList) &&
+            (identical(other.blockedBy, blockedBy) ||
+                other.blockedBy == blockedBy) &&
+            (identical(other.muted, muted) || other.muted == muted) &&
+            (identical(other.mutedByList, mutedByList) ||
+                other.mutedByList == mutedByList));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, blocking, blockingByList, blockedBy, muted, mutedByList);
+
+  @override
+  String toString() {
+    return 'ModerationTestSuiteUser(blocking: $blocking, blockingByList: $blockingByList, blockedBy: $blockedBy, muted: $muted, mutedByList: $mutedByList)';
   }
 }
 
 /// @nodoc
-abstract class _$$ModerationTestSuiteUserImplCopyWith<$Res>
-    implements $ModerationTestSuiteUserCopyWith<$Res> {
-  factory _$$ModerationTestSuiteUserImplCopyWith(
-          _$ModerationTestSuiteUserImpl value,
-          $Res Function(_$ModerationTestSuiteUserImpl) then) =
-      __$$ModerationTestSuiteUserImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ModerationTestSuiteUserCopyWith<$Res> {
+  factory $ModerationTestSuiteUserCopyWith(ModerationTestSuiteUser value,
+          $Res Function(ModerationTestSuiteUser) _then) =
+      _$ModerationTestSuiteUserCopyWithImpl;
   @useResult
   $Res call(
       {bool blocking,
@@ -116,14 +74,12 @@ abstract class _$$ModerationTestSuiteUserImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ModerationTestSuiteUserImplCopyWithImpl<$Res>
-    extends _$ModerationTestSuiteUserCopyWithImpl<$Res,
-        _$ModerationTestSuiteUserImpl>
-    implements _$$ModerationTestSuiteUserImplCopyWith<$Res> {
-  __$$ModerationTestSuiteUserImplCopyWithImpl(
-      _$ModerationTestSuiteUserImpl _value,
-      $Res Function(_$ModerationTestSuiteUserImpl) _then)
-      : super(_value, _then);
+class _$ModerationTestSuiteUserCopyWithImpl<$Res>
+    implements $ModerationTestSuiteUserCopyWith<$Res> {
+  _$ModerationTestSuiteUserCopyWithImpl(this._self, this._then);
+
+  final ModerationTestSuiteUser _self;
+  final $Res Function(ModerationTestSuiteUser) _then;
 
   /// Create a copy of ModerationTestSuiteUser
   /// with the given fields replaced by the non-null parameter values.
@@ -136,25 +92,25 @@ class __$$ModerationTestSuiteUserImplCopyWithImpl<$Res>
     Object? muted = null,
     Object? mutedByList = null,
   }) {
-    return _then(_$ModerationTestSuiteUserImpl(
+    return _then(_self.copyWith(
       blocking: null == blocking
-          ? _value.blocking
+          ? _self.blocking
           : blocking // ignore: cast_nullable_to_non_nullable
               as bool,
       blockingByList: null == blockingByList
-          ? _value.blockingByList
+          ? _self.blockingByList
           : blockingByList // ignore: cast_nullable_to_non_nullable
               as bool,
       blockedBy: null == blockedBy
-          ? _value.blockedBy
+          ? _self.blockedBy
           : blockedBy // ignore: cast_nullable_to_non_nullable
               as bool,
       muted: null == muted
-          ? _value.muted
+          ? _self.muted
           : muted // ignore: cast_nullable_to_non_nullable
               as bool,
       mutedByList: null == mutedByList
-          ? _value.mutedByList
+          ? _self.mutedByList
           : mutedByList // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -163,16 +119,15 @@ class __$$ModerationTestSuiteUserImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ModerationTestSuiteUserImpl implements _ModerationTestSuiteUser {
-  const _$ModerationTestSuiteUserImpl(
+class _ModerationTestSuiteUser implements ModerationTestSuiteUser {
+  const _ModerationTestSuiteUser(
       {this.blocking = false,
       this.blockingByList = false,
       this.blockedBy = false,
       this.muted = false,
       this.mutedByList = false});
-
-  factory _$ModerationTestSuiteUserImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ModerationTestSuiteUserImplFromJson(json);
+  factory _ModerationTestSuiteUser.fromJson(Map<String, dynamic> json) =>
+      _$ModerationTestSuiteUserFromJson(json);
 
   @override
   @JsonKey()
@@ -190,16 +145,27 @@ class _$ModerationTestSuiteUserImpl implements _ModerationTestSuiteUser {
   @JsonKey()
   final bool mutedByList;
 
+  /// Create a copy of ModerationTestSuiteUser
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ModerationTestSuiteUser(blocking: $blocking, blockingByList: $blockingByList, blockedBy: $blockedBy, muted: $muted, mutedByList: $mutedByList)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ModerationTestSuiteUserCopyWith<_ModerationTestSuiteUser> get copyWith =>
+      __$ModerationTestSuiteUserCopyWithImpl<_ModerationTestSuiteUser>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ModerationTestSuiteUserToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationTestSuiteUserImpl &&
+            other is _ModerationTestSuiteUser &&
             (identical(other.blocking, blocking) ||
                 other.blocking == blocking) &&
             (identical(other.blockingByList, blockingByList) ||
@@ -216,49 +182,70 @@ class _$ModerationTestSuiteUserImpl implements _ModerationTestSuiteUser {
   int get hashCode => Object.hash(
       runtimeType, blocking, blockingByList, blockedBy, muted, mutedByList);
 
-  /// Create a copy of ModerationTestSuiteUser
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ModerationTestSuiteUserImplCopyWith<_$ModerationTestSuiteUserImpl>
-      get copyWith => __$$ModerationTestSuiteUserImplCopyWithImpl<
-          _$ModerationTestSuiteUserImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ModerationTestSuiteUserImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ModerationTestSuiteUser(blocking: $blocking, blockingByList: $blockingByList, blockedBy: $blockedBy, muted: $muted, mutedByList: $mutedByList)';
   }
 }
 
-abstract class _ModerationTestSuiteUser implements ModerationTestSuiteUser {
-  const factory _ModerationTestSuiteUser(
-      {final bool blocking,
-      final bool blockingByList,
-      final bool blockedBy,
-      final bool muted,
-      final bool mutedByList}) = _$ModerationTestSuiteUserImpl;
+/// @nodoc
+abstract mixin class _$ModerationTestSuiteUserCopyWith<$Res>
+    implements $ModerationTestSuiteUserCopyWith<$Res> {
+  factory _$ModerationTestSuiteUserCopyWith(_ModerationTestSuiteUser value,
+          $Res Function(_ModerationTestSuiteUser) _then) =
+      __$ModerationTestSuiteUserCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {bool blocking,
+      bool blockingByList,
+      bool blockedBy,
+      bool muted,
+      bool mutedByList});
+}
 
-  factory _ModerationTestSuiteUser.fromJson(Map<String, dynamic> json) =
-      _$ModerationTestSuiteUserImpl.fromJson;
+/// @nodoc
+class __$ModerationTestSuiteUserCopyWithImpl<$Res>
+    implements _$ModerationTestSuiteUserCopyWith<$Res> {
+  __$ModerationTestSuiteUserCopyWithImpl(this._self, this._then);
 
-  @override
-  bool get blocking;
-  @override
-  bool get blockingByList;
-  @override
-  bool get blockedBy;
-  @override
-  bool get muted;
-  @override
-  bool get mutedByList;
+  final _ModerationTestSuiteUser _self;
+  final $Res Function(_ModerationTestSuiteUser) _then;
 
   /// Create a copy of ModerationTestSuiteUser
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ModerationTestSuiteUserImplCopyWith<_$ModerationTestSuiteUserImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? blocking = null,
+    Object? blockingByList = null,
+    Object? blockedBy = null,
+    Object? muted = null,
+    Object? mutedByList = null,
+  }) {
+    return _then(_ModerationTestSuiteUser(
+      blocking: null == blocking
+          ? _self.blocking
+          : blocking // ignore: cast_nullable_to_non_nullable
+              as bool,
+      blockingByList: null == blockingByList
+          ? _self.blockingByList
+          : blockingByList // ignore: cast_nullable_to_non_nullable
+              as bool,
+      blockedBy: null == blockedBy
+          ? _self.blockedBy
+          : blockedBy // ignore: cast_nullable_to_non_nullable
+              as bool,
+      muted: null == muted
+          ? _self.muted
+          : muted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mutedByList: null == mutedByList
+          ? _self.mutedByList
+          : mutedByList // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
+
+// dart format on

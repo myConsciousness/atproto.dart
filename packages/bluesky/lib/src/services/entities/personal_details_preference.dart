@@ -12,7 +12,7 @@ part 'personal_details_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#personaldetailspref
 @freezed
-class PersonalDetailsPreference with _$PersonalDetailsPreference {
+abstract class PersonalDetailsPreference with _$PersonalDetailsPreference {
   @jsonSerializable
   const factory PersonalDetailsPreference({
     @typeKey @Default(appBskyActorDefsPersonalDetailsPref) String type,

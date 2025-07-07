@@ -8,12 +8,11 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetConfigOutputImpl _$$GetConfigOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GetConfigOutputImpl',
+_GetConfigOutput _$GetConfigOutputFromJson(Map json) => $checkedCreate(
+      '_GetConfigOutput',
       json,
       ($checkedConvert) {
-        final val = _$GetConfigOutputImpl(
+        final val = _GetConfigOutput(
           checkEmailConfirmed: $checkedConvert(
               'checkEmailConfirmed', (v) => v as bool? ?? false),
         );
@@ -21,8 +20,7 @@ _$GetConfigOutputImpl _$$GetConfigOutputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$GetConfigOutputImplToJson(
-        _$GetConfigOutputImpl instance) =>
+Map<String, dynamic> _$GetConfigOutputToJson(_GetConfigOutput instance) =>
     <String, dynamic>{
       'checkEmailConfirmed': instance.checkEmailConfirmed,
     };

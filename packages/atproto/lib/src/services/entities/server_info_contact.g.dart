@@ -8,20 +8,18 @@ part of 'server_info_contact.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServerInfoContactImpl _$$ServerInfoContactImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ServerInfoContactImpl',
+_ServerInfoContact _$ServerInfoContactFromJson(Map json) => $checkedCreate(
+      '_ServerInfoContact',
       json,
       ($checkedConvert) {
-        final val = _$ServerInfoContactImpl(
+        final val = _ServerInfoContact(
           email: $checkedConvert('email', (v) => v as String?),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$ServerInfoContactImplToJson(
-        _$ServerInfoContactImpl instance) =>
+Map<String, dynamic> _$ServerInfoContactToJson(_ServerInfoContact instance) =>
     <String, dynamic>{
       if (instance.email case final value?) 'email': value,
     };

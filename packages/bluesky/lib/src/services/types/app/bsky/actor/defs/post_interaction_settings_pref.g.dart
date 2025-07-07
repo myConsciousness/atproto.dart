@@ -8,13 +8,12 @@ part of 'post_interaction_settings_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PostInteractionSettingsPrefImpl _$$PostInteractionSettingsPrefImplFromJson(
-        Map json) =>
+_PostInteractionSettingsPref _$PostInteractionSettingsPrefFromJson(Map json) =>
     $checkedCreate(
-      r'_$PostInteractionSettingsPrefImpl',
+      '_PostInteractionSettingsPref',
       json,
       ($checkedConvert) {
-        final val = _$PostInteractionSettingsPrefImpl(
+        final val = _PostInteractionSettingsPref(
           type: $checkedConvert(
               r'$type',
               (v) =>
@@ -37,8 +36,8 @@ _$PostInteractionSettingsPrefImpl _$$PostInteractionSettingsPrefImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$PostInteractionSettingsPrefImplToJson(
-        _$PostInteractionSettingsPrefImpl instance) =>
+Map<String, dynamic> _$PostInteractionSettingsPrefToJson(
+        _PostInteractionSettingsPref instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       if (instance.threadgateAllowRules

@@ -12,7 +12,7 @@ part 'saved_feeds_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#savedfeedspref
 @freezed
-class SavedFeedsPreference with _$SavedFeedsPreference {
+abstract class SavedFeedsPreference with _$SavedFeedsPreference {
   @jsonSerializable
   const factory SavedFeedsPreference({
     @typeKey @Default(appBskyActorDefsSavedFeedsPref) String type,

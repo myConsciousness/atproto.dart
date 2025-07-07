@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,58 @@ part of 'message_view_sender.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MessageViewSender _$MessageViewSenderFromJson(Map<String, dynamic> json) {
-  return _MessageViewSender.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MessageViewSender {
-  String get did => throw _privateConstructorUsedError;
-
-  /// Serializes this MessageViewSender to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get did;
 
   /// Create a copy of MessageViewSender
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MessageViewSenderCopyWith<MessageViewSender> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MessageViewSenderCopyWith<$Res> {
-  factory $MessageViewSenderCopyWith(
-          MessageViewSender value, $Res Function(MessageViewSender) then) =
-      _$MessageViewSenderCopyWithImpl<$Res, MessageViewSender>;
-  @useResult
-  $Res call({String did});
-}
-
-/// @nodoc
-class _$MessageViewSenderCopyWithImpl<$Res, $Val extends MessageViewSender>
-    implements $MessageViewSenderCopyWith<$Res> {
-  _$MessageViewSenderCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MessageViewSender
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $MessageViewSenderCopyWith<MessageViewSender> get copyWith =>
+      _$MessageViewSenderCopyWithImpl<MessageViewSender>(
+          this as MessageViewSender, _$identity);
+
+  /// Serializes this MessageViewSender to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? did = null,
-  }) {
-    return _then(_value.copyWith(
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MessageViewSender &&
+            (identical(other.did, did) || other.did == did));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, did);
+
+  @override
+  String toString() {
+    return 'MessageViewSender(did: $did)';
   }
 }
 
 /// @nodoc
-abstract class _$$MessageViewSenderImplCopyWith<$Res>
-    implements $MessageViewSenderCopyWith<$Res> {
-  factory _$$MessageViewSenderImplCopyWith(_$MessageViewSenderImpl value,
-          $Res Function(_$MessageViewSenderImpl) then) =
-      __$$MessageViewSenderImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MessageViewSenderCopyWith<$Res> {
+  factory $MessageViewSenderCopyWith(
+          MessageViewSender value, $Res Function(MessageViewSender) _then) =
+      _$MessageViewSenderCopyWithImpl;
   @useResult
   $Res call({String did});
 }
 
 /// @nodoc
-class __$$MessageViewSenderImplCopyWithImpl<$Res>
-    extends _$MessageViewSenderCopyWithImpl<$Res, _$MessageViewSenderImpl>
-    implements _$$MessageViewSenderImplCopyWith<$Res> {
-  __$$MessageViewSenderImplCopyWithImpl(_$MessageViewSenderImpl _value,
-      $Res Function(_$MessageViewSenderImpl) _then)
-      : super(_value, _then);
+class _$MessageViewSenderCopyWithImpl<$Res>
+    implements $MessageViewSenderCopyWith<$Res> {
+  _$MessageViewSenderCopyWithImpl(this._self, this._then);
+
+  final MessageViewSender _self;
+  final $Res Function(MessageViewSender) _then;
 
   /// Create a copy of MessageViewSender
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +70,9 @@ class __$$MessageViewSenderImplCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
   }) {
-    return _then(_$MessageViewSenderImpl(
+    return _then(_self.copyWith(
       did: null == did
-          ? _value.did
+          ? _self.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -105,25 +82,34 @@ class __$$MessageViewSenderImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$MessageViewSenderImpl implements _MessageViewSender {
-  const _$MessageViewSenderImpl({required this.did});
-
-  factory _$MessageViewSenderImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MessageViewSenderImplFromJson(json);
+class _MessageViewSender implements MessageViewSender {
+  const _MessageViewSender({required this.did});
+  factory _MessageViewSender.fromJson(Map<String, dynamic> json) =>
+      _$MessageViewSenderFromJson(json);
 
   @override
   final String did;
 
+  /// Create a copy of MessageViewSender
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MessageViewSender(did: $did)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MessageViewSenderCopyWith<_MessageViewSender> get copyWith =>
+      __$MessageViewSenderCopyWithImpl<_MessageViewSender>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MessageViewSenderToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageViewSenderImpl &&
+            other is _MessageViewSender &&
             (identical(other.did, did) || other.did == did));
   }
 
@@ -131,37 +117,45 @@ class _$MessageViewSenderImpl implements _MessageViewSender {
   @override
   int get hashCode => Object.hash(runtimeType, did);
 
-  /// Create a copy of MessageViewSender
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MessageViewSenderImplCopyWith<_$MessageViewSenderImpl> get copyWith =>
-      __$$MessageViewSenderImplCopyWithImpl<_$MessageViewSenderImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MessageViewSenderImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MessageViewSender(did: $did)';
   }
 }
 
-abstract class _MessageViewSender implements MessageViewSender {
-  const factory _MessageViewSender({required final String did}) =
-      _$MessageViewSenderImpl;
-
-  factory _MessageViewSender.fromJson(Map<String, dynamic> json) =
-      _$MessageViewSenderImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$MessageViewSenderCopyWith<$Res>
+    implements $MessageViewSenderCopyWith<$Res> {
+  factory _$MessageViewSenderCopyWith(
+          _MessageViewSender value, $Res Function(_MessageViewSender) _then) =
+      __$MessageViewSenderCopyWithImpl;
   @override
-  String get did;
+  @useResult
+  $Res call({String did});
+}
+
+/// @nodoc
+class __$MessageViewSenderCopyWithImpl<$Res>
+    implements _$MessageViewSenderCopyWith<$Res> {
+  __$MessageViewSenderCopyWithImpl(this._self, this._then);
+
+  final _MessageViewSender _self;
+  final $Res Function(_MessageViewSender) _then;
 
   /// Create a copy of MessageViewSender
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MessageViewSenderImplCopyWith<_$MessageViewSenderImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? did = null,
+  }) {
+    return _then(_MessageViewSender(
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

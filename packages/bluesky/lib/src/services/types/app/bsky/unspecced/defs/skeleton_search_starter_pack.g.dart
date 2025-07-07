@@ -8,13 +8,12 @@ part of 'skeleton_search_starter_pack.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SkeletonSearchStarterPackImpl _$$SkeletonSearchStarterPackImplFromJson(
-        Map json) =>
+_SkeletonSearchStarterPack _$SkeletonSearchStarterPackFromJson(Map json) =>
     $checkedCreate(
-      r'_$SkeletonSearchStarterPackImpl',
+      '_SkeletonSearchStarterPack',
       json,
       ($checkedConvert) {
-        final val = _$SkeletonSearchStarterPackImpl(
+        final val = _SkeletonSearchStarterPack(
           type: $checkedConvert(
               r'$type',
               (v) =>
@@ -28,8 +27,8 @@ _$SkeletonSearchStarterPackImpl _$$SkeletonSearchStarterPackImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$SkeletonSearchStarterPackImplToJson(
-        _$SkeletonSearchStarterPackImpl instance) =>
+Map<String, dynamic> _$SkeletonSearchStarterPackToJson(
+        _SkeletonSearchStarterPack instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),

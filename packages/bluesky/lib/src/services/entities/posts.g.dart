@@ -8,11 +8,11 @@ part of 'posts.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PostsImpl _$$PostsImplFromJson(Map json) => $checkedCreate(
-      r'_$PostsImpl',
+_Posts _$PostsFromJson(Map json) => $checkedCreate(
+      '_Posts',
       json,
       ($checkedConvert) {
-        final val = _$PostsImpl(
+        final val = _Posts(
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
@@ -24,7 +24,6 @@ _$PostsImpl _$$PostsImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$PostsImplToJson(_$PostsImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PostsToJson(_Posts instance) => <String, dynamic>{
       'posts': instance.posts.map((e) => e.toJson()).toList(),
     };

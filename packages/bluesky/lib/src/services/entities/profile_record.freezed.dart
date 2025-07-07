@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,43 +10,68 @@ part of 'profile_record.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ProfileRecord _$ProfileRecordFromJson(Map<String, dynamic> json) {
-  return _ProfileRecord.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ProfileRecord {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String? get displayName => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  Blob? get avatar => throw _privateConstructorUsedError;
-  Blob? get banner => throw _privateConstructorUsedError;
+  String get type;
+  String? get displayName;
+  String? get description;
+  Blob? get avatar;
+  Blob? get banner;
   @labelsConverter
-  Labels? get labels => throw _privateConstructorUsedError;
-  StrongRef? get joinedViaStarterPack => throw _privateConstructorUsedError;
-  StrongRef? get pinnedPost => throw _privateConstructorUsedError;
-
-  /// Serializes this ProfileRecord to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Labels? get labels;
+  StrongRef? get joinedViaStarterPack;
+  StrongRef? get pinnedPost;
 
   /// Create a copy of ProfileRecord
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ProfileRecordCopyWith<ProfileRecord> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$ProfileRecordCopyWithImpl<ProfileRecord>(
+          this as ProfileRecord, _$identity);
+
+  /// Serializes this ProfileRecord to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProfileRecord &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.banner, banner) || other.banner == banner) &&
+            (identical(other.labels, labels) || other.labels == labels) &&
+            (identical(other.joinedViaStarterPack, joinedViaStarterPack) ||
+                other.joinedViaStarterPack == joinedViaStarterPack) &&
+            (identical(other.pinnedPost, pinnedPost) ||
+                other.pinnedPost == pinnedPost));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, displayName, description,
+      avatar, banner, labels, joinedViaStarterPack, pinnedPost);
+
+  @override
+  String toString() {
+    return 'ProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, joinedViaStarterPack: $joinedViaStarterPack, pinnedPost: $pinnedPost)';
+  }
 }
 
 /// @nodoc
-abstract class $ProfileRecordCopyWith<$Res> {
+abstract mixin class $ProfileRecordCopyWith<$Res> {
   factory $ProfileRecordCopyWith(
-          ProfileRecord value, $Res Function(ProfileRecord) then) =
-      _$ProfileRecordCopyWithImpl<$Res, ProfileRecord>;
+          ProfileRecord value, $Res Function(ProfileRecord) _then) =
+      _$ProfileRecordCopyWithImpl;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -65,14 +91,12 @@ abstract class $ProfileRecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
+class _$ProfileRecordCopyWithImpl<$Res>
     implements $ProfileRecordCopyWith<$Res> {
-  _$ProfileRecordCopyWithImpl(this._value, this._then);
+  _$ProfileRecordCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ProfileRecord _self;
+  final $Res Function(ProfileRecord) _then;
 
   /// Create a copy of ProfileRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -88,40 +112,40 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
     Object? joinedViaStarterPack = freezed,
     Object? pinnedPost = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       displayName: freezed == displayName
-          ? _value.displayName
+          ? _self.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
       avatar: freezed == avatar
-          ? _value.avatar
+          ? _self.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
       banner: freezed == banner
-          ? _value.banner
+          ? _self.banner
           : banner // ignore: cast_nullable_to_non_nullable
               as Blob?,
       labels: freezed == labels
-          ? _value.labels
+          ? _self.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as Labels?,
       joinedViaStarterPack: freezed == joinedViaStarterPack
-          ? _value.joinedViaStarterPack
+          ? _self.joinedViaStarterPack
           : joinedViaStarterPack // ignore: cast_nullable_to_non_nullable
               as StrongRef?,
       pinnedPost: freezed == pinnedPost
-          ? _value.pinnedPost
+          ? _self.pinnedPost
           : pinnedPost // ignore: cast_nullable_to_non_nullable
               as StrongRef?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of ProfileRecord
@@ -129,12 +153,12 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get avatar {
-    if (_value.avatar == null) {
+    if (_self.avatar == null) {
       return null;
     }
 
-    return $BlobCopyWith<$Res>(_value.avatar!, (value) {
-      return _then(_value.copyWith(avatar: value) as $Val);
+    return $BlobCopyWith<$Res>(_self.avatar!, (value) {
+      return _then(_self.copyWith(avatar: value));
     });
   }
 
@@ -143,12 +167,12 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
   @override
   @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get banner {
-    if (_value.banner == null) {
+    if (_self.banner == null) {
       return null;
     }
 
-    return $BlobCopyWith<$Res>(_value.banner!, (value) {
-      return _then(_value.copyWith(banner: value) as $Val);
+    return $BlobCopyWith<$Res>(_self.banner!, (value) {
+      return _then(_self.copyWith(banner: value));
     });
   }
 
@@ -157,12 +181,12 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
   @override
   @pragma('vm:prefer-inline')
   $LabelsCopyWith<$Res>? get labels {
-    if (_value.labels == null) {
+    if (_self.labels == null) {
       return null;
     }
 
-    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
-      return _then(_value.copyWith(labels: value) as $Val);
+    return $LabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
     });
   }
 
@@ -171,12 +195,12 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
   @override
   @pragma('vm:prefer-inline')
   $StrongRefCopyWith<$Res>? get joinedViaStarterPack {
-    if (_value.joinedViaStarterPack == null) {
+    if (_self.joinedViaStarterPack == null) {
       return null;
     }
 
-    return $StrongRefCopyWith<$Res>(_value.joinedViaStarterPack!, (value) {
-      return _then(_value.copyWith(joinedViaStarterPack: value) as $Val);
+    return $StrongRefCopyWith<$Res>(_self.joinedViaStarterPack!, (value) {
+      return _then(_self.copyWith(joinedViaStarterPack: value));
     });
   }
 
@@ -185,110 +209,21 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
   @override
   @pragma('vm:prefer-inline')
   $StrongRefCopyWith<$Res>? get pinnedPost {
-    if (_value.pinnedPost == null) {
+    if (_self.pinnedPost == null) {
       return null;
     }
 
-    return $StrongRefCopyWith<$Res>(_value.pinnedPost!, (value) {
-      return _then(_value.copyWith(pinnedPost: value) as $Val);
+    return $StrongRefCopyWith<$Res>(_self.pinnedPost!, (value) {
+      return _then(_self.copyWith(pinnedPost: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$ProfileRecordImplCopyWith<$Res>
-    implements $ProfileRecordCopyWith<$Res> {
-  factory _$$ProfileRecordImplCopyWith(
-          _$ProfileRecordImpl value, $Res Function(_$ProfileRecordImpl) then) =
-      __$$ProfileRecordImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String? displayName,
-      String? description,
-      Blob? avatar,
-      Blob? banner,
-      @labelsConverter Labels? labels,
-      StrongRef? joinedViaStarterPack,
-      StrongRef? pinnedPost});
-
-  @override
-  $BlobCopyWith<$Res>? get avatar;
-  @override
-  $BlobCopyWith<$Res>? get banner;
-  @override
-  $LabelsCopyWith<$Res>? get labels;
-  @override
-  $StrongRefCopyWith<$Res>? get joinedViaStarterPack;
-  @override
-  $StrongRefCopyWith<$Res>? get pinnedPost;
-}
-
-/// @nodoc
-class __$$ProfileRecordImplCopyWithImpl<$Res>
-    extends _$ProfileRecordCopyWithImpl<$Res, _$ProfileRecordImpl>
-    implements _$$ProfileRecordImplCopyWith<$Res> {
-  __$$ProfileRecordImplCopyWithImpl(
-      _$ProfileRecordImpl _value, $Res Function(_$ProfileRecordImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ProfileRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? displayName = freezed,
-    Object? description = freezed,
-    Object? avatar = freezed,
-    Object? banner = freezed,
-    Object? labels = freezed,
-    Object? joinedViaStarterPack = freezed,
-    Object? pinnedPost = freezed,
-  }) {
-    return _then(_$ProfileRecordImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: freezed == displayName
-          ? _value.displayName
-          : displayName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      avatar: freezed == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as Blob?,
-      banner: freezed == banner
-          ? _value.banner
-          : banner // ignore: cast_nullable_to_non_nullable
-              as Blob?,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
-      joinedViaStarterPack: freezed == joinedViaStarterPack
-          ? _value.joinedViaStarterPack
-          : joinedViaStarterPack // ignore: cast_nullable_to_non_nullable
-              as StrongRef?,
-      pinnedPost: freezed == pinnedPost
-          ? _value.pinnedPost
-          : pinnedPost // ignore: cast_nullable_to_non_nullable
-              as StrongRef?,
-    ));
   }
 }
 
 /// @nodoc
 
 @jsonSerializable
-class _$ProfileRecordImpl implements _ProfileRecord {
-  const _$ProfileRecordImpl(
+class _ProfileRecord implements ProfileRecord {
+  const _ProfileRecord(
       {@typeKey this.type = appBskyActorProfile,
       this.displayName,
       this.description,
@@ -297,9 +232,8 @@ class _$ProfileRecordImpl implements _ProfileRecord {
       @labelsConverter this.labels,
       this.joinedViaStarterPack,
       this.pinnedPost});
-
-  factory _$ProfileRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ProfileRecordImplFromJson(json);
+  factory _ProfileRecord.fromJson(Map<String, dynamic> json) =>
+      _$ProfileRecordFromJson(json);
 
   @override
   @typeKey
@@ -320,16 +254,26 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   @override
   final StrongRef? pinnedPost;
 
+  /// Create a copy of ProfileRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, joinedViaStarterPack: $joinedViaStarterPack, pinnedPost: $pinnedPost)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ProfileRecordCopyWith<_ProfileRecord> get copyWith =>
+      __$ProfileRecordCopyWithImpl<_ProfileRecord>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ProfileRecordToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProfileRecordImpl &&
+            other is _ProfileRecord &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
@@ -349,59 +293,169 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   int get hashCode => Object.hash(runtimeType, type, displayName, description,
       avatar, banner, labels, joinedViaStarterPack, pinnedPost);
 
-  /// Create a copy of ProfileRecord
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ProfileRecordImplCopyWith<_$ProfileRecordImpl> get copyWith =>
-      __$$ProfileRecordImplCopyWithImpl<_$ProfileRecordImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ProfileRecordImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, joinedViaStarterPack: $joinedViaStarterPack, pinnedPost: $pinnedPost)';
   }
 }
 
-abstract class _ProfileRecord implements ProfileRecord {
-  const factory _ProfileRecord(
-      {@typeKey final String type,
-      final String? displayName,
-      final String? description,
-      final Blob? avatar,
-      final Blob? banner,
-      @labelsConverter final Labels? labels,
-      final StrongRef? joinedViaStarterPack,
-      final StrongRef? pinnedPost}) = _$ProfileRecordImpl;
+/// @nodoc
+abstract mixin class _$ProfileRecordCopyWith<$Res>
+    implements $ProfileRecordCopyWith<$Res> {
+  factory _$ProfileRecordCopyWith(
+          _ProfileRecord value, $Res Function(_ProfileRecord) _then) =
+      __$ProfileRecordCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String? displayName,
+      String? description,
+      Blob? avatar,
+      Blob? banner,
+      @labelsConverter Labels? labels,
+      StrongRef? joinedViaStarterPack,
+      StrongRef? pinnedPost});
 
-  factory _ProfileRecord.fromJson(Map<String, dynamic> json) =
-      _$ProfileRecordImpl.fromJson;
+  @override
+  $BlobCopyWith<$Res>? get avatar;
+  @override
+  $BlobCopyWith<$Res>? get banner;
+  @override
+  $LabelsCopyWith<$Res>? get labels;
+  @override
+  $StrongRefCopyWith<$Res>? get joinedViaStarterPack;
+  @override
+  $StrongRefCopyWith<$Res>? get pinnedPost;
+}
 
-  @override
-  @typeKey
-  String get type;
-  @override
-  String? get displayName;
-  @override
-  String? get description;
-  @override
-  Blob? get avatar;
-  @override
-  Blob? get banner;
-  @override
-  @labelsConverter
-  Labels? get labels;
-  @override
-  StrongRef? get joinedViaStarterPack;
-  @override
-  StrongRef? get pinnedPost;
+/// @nodoc
+class __$ProfileRecordCopyWithImpl<$Res>
+    implements _$ProfileRecordCopyWith<$Res> {
+  __$ProfileRecordCopyWithImpl(this._self, this._then);
+
+  final _ProfileRecord _self;
+  final $Res Function(_ProfileRecord) _then;
 
   /// Create a copy of ProfileRecord
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ProfileRecordImplCopyWith<_$ProfileRecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? displayName = freezed,
+    Object? description = freezed,
+    Object? avatar = freezed,
+    Object? banner = freezed,
+    Object? labels = freezed,
+    Object? joinedViaStarterPack = freezed,
+    Object? pinnedPost = freezed,
+  }) {
+    return _then(_ProfileRecord(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: freezed == displayName
+          ? _self.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      avatar: freezed == avatar
+          ? _self.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as Blob?,
+      banner: freezed == banner
+          ? _self.banner
+          : banner // ignore: cast_nullable_to_non_nullable
+              as Blob?,
+      labels: freezed == labels
+          ? _self.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as Labels?,
+      joinedViaStarterPack: freezed == joinedViaStarterPack
+          ? _self.joinedViaStarterPack
+          : joinedViaStarterPack // ignore: cast_nullable_to_non_nullable
+              as StrongRef?,
+      pinnedPost: freezed == pinnedPost
+          ? _self.pinnedPost
+          : pinnedPost // ignore: cast_nullable_to_non_nullable
+              as StrongRef?,
+    ));
+  }
+
+  /// Create a copy of ProfileRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BlobCopyWith<$Res>? get avatar {
+    if (_self.avatar == null) {
+      return null;
+    }
+
+    return $BlobCopyWith<$Res>(_self.avatar!, (value) {
+      return _then(_self.copyWith(avatar: value));
+    });
+  }
+
+  /// Create a copy of ProfileRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BlobCopyWith<$Res>? get banner {
+    if (_self.banner == null) {
+      return null;
+    }
+
+    return $BlobCopyWith<$Res>(_self.banner!, (value) {
+      return _then(_self.copyWith(banner: value));
+    });
+  }
+
+  /// Create a copy of ProfileRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LabelsCopyWith<$Res>? get labels {
+    if (_self.labels == null) {
+      return null;
+    }
+
+    return $LabelsCopyWith<$Res>(_self.labels!, (value) {
+      return _then(_self.copyWith(labels: value));
+    });
+  }
+
+  /// Create a copy of ProfileRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res>? get joinedViaStarterPack {
+    if (_self.joinedViaStarterPack == null) {
+      return null;
+    }
+
+    return $StrongRefCopyWith<$Res>(_self.joinedViaStarterPack!, (value) {
+      return _then(_self.copyWith(joinedViaStarterPack: value));
+    });
+  }
+
+  /// Create a copy of ProfileRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StrongRefCopyWith<$Res>? get pinnedPost {
+    if (_self.pinnedPost == null) {
+      return null;
+    }
+
+    return $StrongRefCopyWith<$Res>(_self.pinnedPost!, (value) {
+      return _then(_self.copyWith(pinnedPost: value));
+    });
+  }
 }
+
+// dart format on

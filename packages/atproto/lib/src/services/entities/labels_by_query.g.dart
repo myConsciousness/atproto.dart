@@ -8,11 +8,11 @@ part of 'labels_by_query.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelsByQueryImpl _$$LabelsByQueryImplFromJson(Map json) => $checkedCreate(
-      r'_$LabelsByQueryImpl',
+_LabelsByQuery _$LabelsByQueryFromJson(Map json) => $checkedCreate(
+      '_LabelsByQuery',
       json,
       ($checkedConvert) {
-        final val = _$LabelsByQueryImpl(
+        final val = _LabelsByQuery(
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,7 @@ _$LabelsByQueryImpl _$$LabelsByQueryImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LabelsByQueryImplToJson(_$LabelsByQueryImpl instance) =>
+Map<String, dynamic> _$LabelsByQueryToJson(_LabelsByQuery instance) =>
     <String, dynamic>{
       'labels': instance.labels.map((e) => e.toJson()).toList(),
       if (instance.cursor case final value?) 'cursor': value,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,92 +10,75 @@ part of 'facet_feature.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$FacetFeature {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FacetMention data) mention,
-    required TResult Function(FacetLink data) link,
-    required TResult Function(FacetTag data) tag,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FacetMention data)? mention,
-    TResult? Function(FacetLink data)? link,
-    TResult? Function(FacetTag data)? tag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FacetMention data)? mention,
-    TResult Function(FacetLink data)? link,
-    TResult Function(FacetTag data)? tag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UFacetFeatureMention value) mention,
-    required TResult Function(UFacetFeatureLink value) link,
-    required TResult Function(UFacetFeatureTag value) tag,
-    required TResult Function(UFacetFeatureUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UFacetFeatureMention value)? mention,
-    TResult? Function(UFacetFeatureLink value)? link,
-    TResult? Function(UFacetFeatureTag value)? tag,
-    TResult? Function(UFacetFeatureUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UFacetFeatureMention value)? mention,
-    TResult Function(UFacetFeatureLink value)? link,
-    TResult Function(UFacetFeatureTag value)? tag,
-    TResult Function(UFacetFeatureUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FacetFeature &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'FacetFeature(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $FacetFeatureCopyWith<$Res> {
-  factory $FacetFeatureCopyWith(
-          FacetFeature value, $Res Function(FacetFeature) then) =
-      _$FacetFeatureCopyWithImpl<$Res, FacetFeature>;
+class $FacetFeatureCopyWith<$Res> {
+  $FacetFeatureCopyWith(FacetFeature _, $Res Function(FacetFeature) __);
 }
 
 /// @nodoc
-class _$FacetFeatureCopyWithImpl<$Res, $Val extends FacetFeature>
-    implements $FacetFeatureCopyWith<$Res> {
-  _$FacetFeatureCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+class UFacetFeatureMention implements FacetFeature {
+  const UFacetFeatureMention({required this.data});
+
+  @override
+  final FacetMention data;
 
   /// Create a copy of FacetFeature
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UFacetFeatureMentionCopyWith<UFacetFeatureMention> get copyWith =>
+      _$UFacetFeatureMentionCopyWithImpl<UFacetFeatureMention>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UFacetFeatureMention &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'FacetFeature.mention(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$UFacetFeatureMentionImplCopyWith<$Res> {
-  factory _$$UFacetFeatureMentionImplCopyWith(_$UFacetFeatureMentionImpl value,
-          $Res Function(_$UFacetFeatureMentionImpl) then) =
-      __$$UFacetFeatureMentionImplCopyWithImpl<$Res>;
+abstract mixin class $UFacetFeatureMentionCopyWith<$Res>
+    implements $FacetFeatureCopyWith<$Res> {
+  factory $UFacetFeatureMentionCopyWith(UFacetFeatureMention value,
+          $Res Function(UFacetFeatureMention) _then) =
+      _$UFacetFeatureMentionCopyWithImpl;
   @useResult
   $Res call({FacetMention data});
 
@@ -102,23 +86,22 @@ abstract class _$$UFacetFeatureMentionImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UFacetFeatureMentionImplCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureMentionImpl>
-    implements _$$UFacetFeatureMentionImplCopyWith<$Res> {
-  __$$UFacetFeatureMentionImplCopyWithImpl(_$UFacetFeatureMentionImpl _value,
-      $Res Function(_$UFacetFeatureMentionImpl) _then)
-      : super(_value, _then);
+class _$UFacetFeatureMentionCopyWithImpl<$Res>
+    implements $UFacetFeatureMentionCopyWith<$Res> {
+  _$UFacetFeatureMentionCopyWithImpl(this._self, this._then);
+
+  final UFacetFeatureMention _self;
+  final $Res Function(UFacetFeatureMention) _then;
 
   /// Create a copy of FacetFeature
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UFacetFeatureMentionImpl(
+    return _then(UFacetFeatureMention(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as FacetMention,
     ));
@@ -129,140 +112,50 @@ class __$$UFacetFeatureMentionImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $FacetMentionCopyWith<$Res> get data {
-    return $FacetMentionCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $FacetMentionCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UFacetFeatureMentionImpl implements UFacetFeatureMention {
-  const _$UFacetFeatureMentionImpl({required this.data});
+class UFacetFeatureLink implements FacetFeature {
+  const UFacetFeatureLink({required this.data});
 
   @override
-  final FacetMention data;
+  final FacetLink data;
 
-  @override
-  String toString() {
-    return 'FacetFeature.mention(data: $data)';
-  }
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UFacetFeatureLinkCopyWith<UFacetFeatureLink> get copyWith =>
+      _$UFacetFeatureLinkCopyWithImpl<UFacetFeatureLink>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UFacetFeatureMentionImpl &&
+            other is UFacetFeatureLink &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of FacetFeature
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UFacetFeatureMentionImplCopyWith<_$UFacetFeatureMentionImpl>
-      get copyWith =>
-          __$$UFacetFeatureMentionImplCopyWithImpl<_$UFacetFeatureMentionImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FacetMention data) mention,
-    required TResult Function(FacetLink data) link,
-    required TResult Function(FacetTag data) tag,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return mention(data);
+  String toString() {
+    return 'FacetFeature.link(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FacetMention data)? mention,
-    TResult? Function(FacetLink data)? link,
-    TResult? Function(FacetTag data)? tag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return mention?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FacetMention data)? mention,
-    TResult Function(FacetLink data)? link,
-    TResult Function(FacetTag data)? tag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (mention != null) {
-      return mention(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UFacetFeatureMention value) mention,
-    required TResult Function(UFacetFeatureLink value) link,
-    required TResult Function(UFacetFeatureTag value) tag,
-    required TResult Function(UFacetFeatureUnknown value) unknown,
-  }) {
-    return mention(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UFacetFeatureMention value)? mention,
-    TResult? Function(UFacetFeatureLink value)? link,
-    TResult? Function(UFacetFeatureTag value)? tag,
-    TResult? Function(UFacetFeatureUnknown value)? unknown,
-  }) {
-    return mention?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UFacetFeatureMention value)? mention,
-    TResult Function(UFacetFeatureLink value)? link,
-    TResult Function(UFacetFeatureTag value)? tag,
-    TResult Function(UFacetFeatureUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (mention != null) {
-      return mention(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UFacetFeatureMention implements FacetFeature {
-  const factory UFacetFeatureMention({required final FacetMention data}) =
-      _$UFacetFeatureMentionImpl;
-
-  @override
-  FacetMention get data;
-
-  /// Create a copy of FacetFeature
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UFacetFeatureMentionImplCopyWith<_$UFacetFeatureMentionImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UFacetFeatureLinkImplCopyWith<$Res> {
-  factory _$$UFacetFeatureLinkImplCopyWith(_$UFacetFeatureLinkImpl value,
-          $Res Function(_$UFacetFeatureLinkImpl) then) =
-      __$$UFacetFeatureLinkImplCopyWithImpl<$Res>;
+abstract mixin class $UFacetFeatureLinkCopyWith<$Res>
+    implements $FacetFeatureCopyWith<$Res> {
+  factory $UFacetFeatureLinkCopyWith(
+          UFacetFeatureLink value, $Res Function(UFacetFeatureLink) _then) =
+      _$UFacetFeatureLinkCopyWithImpl;
   @useResult
   $Res call({FacetLink data});
 
@@ -270,23 +163,22 @@ abstract class _$$UFacetFeatureLinkImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UFacetFeatureLinkImplCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureLinkImpl>
-    implements _$$UFacetFeatureLinkImplCopyWith<$Res> {
-  __$$UFacetFeatureLinkImplCopyWithImpl(_$UFacetFeatureLinkImpl _value,
-      $Res Function(_$UFacetFeatureLinkImpl) _then)
-      : super(_value, _then);
+class _$UFacetFeatureLinkCopyWithImpl<$Res>
+    implements $UFacetFeatureLinkCopyWith<$Res> {
+  _$UFacetFeatureLinkCopyWithImpl(this._self, this._then);
+
+  final UFacetFeatureLink _self;
+  final $Res Function(UFacetFeatureLink) _then;
 
   /// Create a copy of FacetFeature
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UFacetFeatureLinkImpl(
+    return _then(UFacetFeatureLink(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as FacetLink,
     ));
@@ -297,139 +189,50 @@ class __$$UFacetFeatureLinkImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $FacetLinkCopyWith<$Res> get data {
-    return $FacetLinkCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $FacetLinkCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UFacetFeatureLinkImpl implements UFacetFeatureLink {
-  const _$UFacetFeatureLinkImpl({required this.data});
+class UFacetFeatureTag implements FacetFeature {
+  const UFacetFeatureTag({required this.data});
 
   @override
-  final FacetLink data;
+  final FacetTag data;
 
-  @override
-  String toString() {
-    return 'FacetFeature.link(data: $data)';
-  }
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UFacetFeatureTagCopyWith<UFacetFeatureTag> get copyWith =>
+      _$UFacetFeatureTagCopyWithImpl<UFacetFeatureTag>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UFacetFeatureLinkImpl &&
+            other is UFacetFeatureTag &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of FacetFeature
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UFacetFeatureLinkImplCopyWith<_$UFacetFeatureLinkImpl> get copyWith =>
-      __$$UFacetFeatureLinkImplCopyWithImpl<_$UFacetFeatureLinkImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FacetMention data) mention,
-    required TResult Function(FacetLink data) link,
-    required TResult Function(FacetTag data) tag,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return link(data);
+  String toString() {
+    return 'FacetFeature.tag(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FacetMention data)? mention,
-    TResult? Function(FacetLink data)? link,
-    TResult? Function(FacetTag data)? tag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return link?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FacetMention data)? mention,
-    TResult Function(FacetLink data)? link,
-    TResult Function(FacetTag data)? tag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (link != null) {
-      return link(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UFacetFeatureMention value) mention,
-    required TResult Function(UFacetFeatureLink value) link,
-    required TResult Function(UFacetFeatureTag value) tag,
-    required TResult Function(UFacetFeatureUnknown value) unknown,
-  }) {
-    return link(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UFacetFeatureMention value)? mention,
-    TResult? Function(UFacetFeatureLink value)? link,
-    TResult? Function(UFacetFeatureTag value)? tag,
-    TResult? Function(UFacetFeatureUnknown value)? unknown,
-  }) {
-    return link?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UFacetFeatureMention value)? mention,
-    TResult Function(UFacetFeatureLink value)? link,
-    TResult Function(UFacetFeatureTag value)? tag,
-    TResult Function(UFacetFeatureUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (link != null) {
-      return link(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UFacetFeatureLink implements FacetFeature {
-  const factory UFacetFeatureLink({required final FacetLink data}) =
-      _$UFacetFeatureLinkImpl;
-
-  @override
-  FacetLink get data;
-
-  /// Create a copy of FacetFeature
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UFacetFeatureLinkImplCopyWith<_$UFacetFeatureLinkImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UFacetFeatureTagImplCopyWith<$Res> {
-  factory _$$UFacetFeatureTagImplCopyWith(_$UFacetFeatureTagImpl value,
-          $Res Function(_$UFacetFeatureTagImpl) then) =
-      __$$UFacetFeatureTagImplCopyWithImpl<$Res>;
+abstract mixin class $UFacetFeatureTagCopyWith<$Res>
+    implements $FacetFeatureCopyWith<$Res> {
+  factory $UFacetFeatureTagCopyWith(
+          UFacetFeatureTag value, $Res Function(UFacetFeatureTag) _then) =
+      _$UFacetFeatureTagCopyWithImpl;
   @useResult
   $Res call({FacetTag data});
 
@@ -437,23 +240,22 @@ abstract class _$$UFacetFeatureTagImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UFacetFeatureTagImplCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureTagImpl>
-    implements _$$UFacetFeatureTagImplCopyWith<$Res> {
-  __$$UFacetFeatureTagImplCopyWithImpl(_$UFacetFeatureTagImpl _value,
-      $Res Function(_$UFacetFeatureTagImpl) _then)
-      : super(_value, _then);
+class _$UFacetFeatureTagCopyWithImpl<$Res>
+    implements $UFacetFeatureTagCopyWith<$Res> {
+  _$UFacetFeatureTagCopyWithImpl(this._self, this._then);
+
+  final UFacetFeatureTag _self;
+  final $Res Function(UFacetFeatureTag) _then;
 
   /// Create a copy of FacetFeature
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UFacetFeatureTagImpl(
+    return _then(UFacetFeatureTag(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as FacetTag,
     ));
@@ -464,171 +266,16 @@ class __$$UFacetFeatureTagImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $FacetTagCopyWith<$Res> get data {
-    return $FacetTagCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $FacetTagCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UFacetFeatureTagImpl implements UFacetFeatureTag {
-  const _$UFacetFeatureTagImpl({required this.data});
-
-  @override
-  final FacetTag data;
-
-  @override
-  String toString() {
-    return 'FacetFeature.tag(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UFacetFeatureTagImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of FacetFeature
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UFacetFeatureTagImplCopyWith<_$UFacetFeatureTagImpl> get copyWith =>
-      __$$UFacetFeatureTagImplCopyWithImpl<_$UFacetFeatureTagImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FacetMention data) mention,
-    required TResult Function(FacetLink data) link,
-    required TResult Function(FacetTag data) tag,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return tag(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FacetMention data)? mention,
-    TResult? Function(FacetLink data)? link,
-    TResult? Function(FacetTag data)? tag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return tag?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FacetMention data)? mention,
-    TResult Function(FacetLink data)? link,
-    TResult Function(FacetTag data)? tag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (tag != null) {
-      return tag(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UFacetFeatureMention value) mention,
-    required TResult Function(UFacetFeatureLink value) link,
-    required TResult Function(UFacetFeatureTag value) tag,
-    required TResult Function(UFacetFeatureUnknown value) unknown,
-  }) {
-    return tag(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UFacetFeatureMention value)? mention,
-    TResult? Function(UFacetFeatureLink value)? link,
-    TResult? Function(UFacetFeatureTag value)? tag,
-    TResult? Function(UFacetFeatureUnknown value)? unknown,
-  }) {
-    return tag?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UFacetFeatureMention value)? mention,
-    TResult Function(UFacetFeatureLink value)? link,
-    TResult Function(UFacetFeatureTag value)? tag,
-    TResult Function(UFacetFeatureUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (tag != null) {
-      return tag(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UFacetFeatureTag implements FacetFeature {
-  const factory UFacetFeatureTag({required final FacetTag data}) =
-      _$UFacetFeatureTagImpl;
-
-  @override
-  FacetTag get data;
-
-  /// Create a copy of FacetFeature
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UFacetFeatureTagImplCopyWith<_$UFacetFeatureTagImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UFacetFeatureUnknownImplCopyWith<$Res> {
-  factory _$$UFacetFeatureUnknownImplCopyWith(_$UFacetFeatureUnknownImpl value,
-          $Res Function(_$UFacetFeatureUnknownImpl) then) =
-      __$$UFacetFeatureUnknownImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$UFacetFeatureUnknownImplCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureUnknownImpl>
-    implements _$$UFacetFeatureUnknownImplCopyWith<$Res> {
-  __$$UFacetFeatureUnknownImplCopyWithImpl(_$UFacetFeatureUnknownImpl _value,
-      $Res Function(_$UFacetFeatureUnknownImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of FacetFeature
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$UFacetFeatureUnknownImpl(
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UFacetFeatureUnknownImpl implements UFacetFeatureUnknown {
-  const _$UFacetFeatureUnknownImpl({required final Map<String, dynamic> data})
+class UFacetFeatureUnknown implements FacetFeature {
+  const UFacetFeatureUnknown({required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -639,16 +286,19 @@ class _$UFacetFeatureUnknownImpl implements UFacetFeatureUnknown {
     return EqualUnmodifiableMapView(_data);
   }
 
-  @override
-  String toString() {
-    return 'FacetFeature.unknown(data: $data)';
-  }
+  /// Create a copy of FacetFeature
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UFacetFeatureUnknownCopyWith<UFacetFeatureUnknown> get copyWith =>
+      _$UFacetFeatureUnknownCopyWithImpl<UFacetFeatureUnknown>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UFacetFeatureUnknownImpl &&
+            other is UFacetFeatureUnknown &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -656,101 +306,43 @@ class _$UFacetFeatureUnknownImpl implements UFacetFeatureUnknown {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
+  @override
+  String toString() {
+    return 'FacetFeature.unknown(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UFacetFeatureUnknownCopyWith<$Res>
+    implements $FacetFeatureCopyWith<$Res> {
+  factory $UFacetFeatureUnknownCopyWith(UFacetFeatureUnknown value,
+          $Res Function(UFacetFeatureUnknown) _then) =
+      _$UFacetFeatureUnknownCopyWithImpl;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class _$UFacetFeatureUnknownCopyWithImpl<$Res>
+    implements $UFacetFeatureUnknownCopyWith<$Res> {
+  _$UFacetFeatureUnknownCopyWithImpl(this._self, this._then);
+
+  final UFacetFeatureUnknown _self;
+  final $Res Function(UFacetFeatureUnknown) _then;
+
   /// Create a copy of FacetFeature
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$UFacetFeatureUnknownImplCopyWith<_$UFacetFeatureUnknownImpl>
-      get copyWith =>
-          __$$UFacetFeatureUnknownImplCopyWithImpl<_$UFacetFeatureUnknownImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(FacetMention data) mention,
-    required TResult Function(FacetLink data) link,
-    required TResult Function(FacetTag data) tag,
-    required TResult Function(Map<String, dynamic> data) unknown,
+  $Res call({
+    Object? data = null,
   }) {
-    return unknown(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FacetMention data)? mention,
-    TResult? Function(FacetLink data)? link,
-    TResult? Function(FacetTag data)? tag,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return unknown?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FacetMention data)? mention,
-    TResult Function(FacetLink data)? link,
-    TResult Function(FacetTag data)? tag,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UFacetFeatureMention value) mention,
-    required TResult Function(UFacetFeatureLink value) link,
-    required TResult Function(UFacetFeatureTag value) tag,
-    required TResult Function(UFacetFeatureUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UFacetFeatureMention value)? mention,
-    TResult? Function(UFacetFeatureLink value)? link,
-    TResult? Function(UFacetFeatureTag value)? tag,
-    TResult? Function(UFacetFeatureUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UFacetFeatureMention value)? mention,
-    TResult Function(UFacetFeatureLink value)? link,
-    TResult Function(UFacetFeatureTag value)? tag,
-    TResult Function(UFacetFeatureUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
+    return _then(UFacetFeatureUnknown(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
-abstract class UFacetFeatureUnknown implements FacetFeature {
-  const factory UFacetFeatureUnknown(
-      {required final Map<String, dynamic> data}) = _$UFacetFeatureUnknownImpl;
-
-  @override
-  Map<String, dynamic> get data;
-
-  /// Create a copy of FacetFeature
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UFacetFeatureUnknownImplCopyWith<_$UFacetFeatureUnknownImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

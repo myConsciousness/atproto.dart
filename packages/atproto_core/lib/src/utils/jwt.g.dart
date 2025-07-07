@@ -8,11 +8,11 @@ part of 'jwt.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$JwtImpl _$$JwtImplFromJson(Map json) => $checkedCreate(
-      r'_$JwtImpl',
+_Jwt _$JwtFromJson(Map json) => $checkedCreate(
+      '_Jwt',
       json,
       ($checkedConvert) {
-        final val = _$JwtImpl(
+        final val = _Jwt(
           aud: $checkedConvert('aud', (v) => v as String),
           sub: $checkedConvert('sub', (v) => v as String),
           jti: $checkedConvert('jti', (v) => v as String?),
@@ -34,7 +34,7 @@ _$JwtImpl _$$JwtImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'clientId': 'client_id'},
     );
 
-Map<String, dynamic> _$$JwtImplToJson(_$JwtImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$JwtToJson(_Jwt instance) => <String, dynamic>{
       'aud': instance.aud,
       'sub': instance.sub,
       if (instance.jti case final value?) 'jti': value,

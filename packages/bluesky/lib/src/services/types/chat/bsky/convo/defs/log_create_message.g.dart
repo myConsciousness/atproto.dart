@@ -8,12 +8,11 @@ part of 'log_create_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LogCreateMessageImpl _$$LogCreateMessageImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$LogCreateMessageImpl',
+_LogCreateMessage _$LogCreateMessageFromJson(Map json) => $checkedCreate(
+      '_LogCreateMessage',
       json,
       ($checkedConvert) {
-        final val = _$LogCreateMessageImpl(
+        final val = _LogCreateMessage(
           rev: $checkedConvert('rev', (v) => v as String),
           convoId: $checkedConvert('convoId', (v) => v as String),
           message: $checkedConvert(
@@ -25,8 +24,7 @@ _$LogCreateMessageImpl _$$LogCreateMessageImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$LogCreateMessageImplToJson(
-        _$LogCreateMessageImpl instance) =>
+Map<String, dynamic> _$LogCreateMessageToJson(_LogCreateMessage instance) =>
     <String, dynamic>{
       'rev': instance.rev,
       'convoId': instance.convoId,

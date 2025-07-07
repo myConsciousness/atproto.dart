@@ -7,7 +7,7 @@ part 'lex_integer.freezed.dart';
 part 'lex_integer.g.dart';
 
 @freezed
-class LexInteger with _$LexInteger {
+abstract class LexInteger with _$LexInteger {
   @JsonSerializable(includeIfNull: false)
   const factory LexInteger({
     @Default('integer') String type,

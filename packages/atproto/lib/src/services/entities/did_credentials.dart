@@ -6,7 +6,7 @@ part 'did_credentials.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/GetRecommendedDidCredentials#output
 @freezed
-class DidCredentials with _$DidCredentials {
+abstract class DidCredentials with _$DidCredentials {
   const factory DidCredentials({
     List<String>? rotationKeys,
     List<String>? alsoKnownAs,

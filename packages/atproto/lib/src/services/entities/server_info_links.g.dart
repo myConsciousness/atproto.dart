@@ -8,12 +8,11 @@ part of 'server_info_links.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServerInfoLinksImpl _$$ServerInfoLinksImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ServerInfoLinksImpl',
+_ServerInfoLinks _$ServerInfoLinksFromJson(Map json) => $checkedCreate(
+      '_ServerInfoLinks',
       json,
       ($checkedConvert) {
-        final val = _$ServerInfoLinksImpl(
+        final val = _ServerInfoLinks(
           privacyPolicy: $checkedConvert('privacyPolicy', (v) => v as String?),
           termsOfService:
               $checkedConvert('termsOfService', (v) => v as String?),
@@ -22,8 +21,7 @@ _$ServerInfoLinksImpl _$$ServerInfoLinksImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ServerInfoLinksImplToJson(
-        _$ServerInfoLinksImpl instance) =>
+Map<String, dynamic> _$ServerInfoLinksToJson(_ServerInfoLinks instance) =>
     <String, dynamic>{
       if (instance.privacyPolicy case final value?) 'privacyPolicy': value,
       if (instance.termsOfService case final value?) 'termsOfService': value,

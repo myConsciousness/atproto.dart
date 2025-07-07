@@ -8,11 +8,11 @@ part of 'labelers_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LabelersPrefImpl _$$LabelersPrefImplFromJson(Map json) => $checkedCreate(
-      r'_$LabelersPrefImpl',
+_LabelersPref _$LabelersPrefFromJson(Map json) => $checkedCreate(
+      '_LabelersPref',
       json,
       ($checkedConvert) {
-        final val = _$LabelersPrefImpl(
+        final val = _LabelersPref(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsLabelersPref),
           labelers: $checkedConvert(
@@ -27,7 +27,7 @@ _$LabelersPrefImpl _$$LabelersPrefImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$LabelersPrefImplToJson(_$LabelersPrefImpl instance) =>
+Map<String, dynamic> _$LabelersPrefToJson(_LabelersPref instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'labelers': instance.labelers.map((e) => e.toJson()).toList(),

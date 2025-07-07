@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,94 +10,62 @@ part of 'output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SearchStarterPacksOutput _$SearchStarterPacksOutputFromJson(
-    Map<String, dynamic> json) {
-  return _SearchStarterPacksOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SearchStarterPacksOutput {
-  String? get cursor => throw _privateConstructorUsedError;
-  List<StarterPackViewBasic> get starterPacks =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this SearchStarterPacksOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get cursor;
+  List<StarterPackViewBasic> get starterPacks;
 
   /// Create a copy of SearchStarterPacksOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SearchStarterPacksOutputCopyWith<SearchStarterPacksOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SearchStarterPacksOutputCopyWith<$Res> {
-  factory $SearchStarterPacksOutputCopyWith(SearchStarterPacksOutput value,
-          $Res Function(SearchStarterPacksOutput) then) =
-      _$SearchStarterPacksOutputCopyWithImpl<$Res, SearchStarterPacksOutput>;
-  @useResult
-  $Res call({String? cursor, List<StarterPackViewBasic> starterPacks});
-}
-
-/// @nodoc
-class _$SearchStarterPacksOutputCopyWithImpl<$Res,
-        $Val extends SearchStarterPacksOutput>
-    implements $SearchStarterPacksOutputCopyWith<$Res> {
-  _$SearchStarterPacksOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SearchStarterPacksOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SearchStarterPacksOutputCopyWith<SearchStarterPacksOutput> get copyWith =>
+      _$SearchStarterPacksOutputCopyWithImpl<SearchStarterPacksOutput>(
+          this as SearchStarterPacksOutput, _$identity);
+
+  /// Serializes this SearchStarterPacksOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? cursor = freezed,
-    Object? starterPacks = null,
-  }) {
-    return _then(_value.copyWith(
-      cursor: freezed == cursor
-          ? _value.cursor
-          : cursor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      starterPacks: null == starterPacks
-          ? _value.starterPacks
-          : starterPacks // ignore: cast_nullable_to_non_nullable
-              as List<StarterPackViewBasic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SearchStarterPacksOutput &&
+            (identical(other.cursor, cursor) || other.cursor == cursor) &&
+            const DeepCollectionEquality()
+                .equals(other.starterPacks, starterPacks));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, cursor, const DeepCollectionEquality().hash(starterPacks));
+
+  @override
+  String toString() {
+    return 'SearchStarterPacksOutput(cursor: $cursor, starterPacks: $starterPacks)';
   }
 }
 
 /// @nodoc
-abstract class _$$SearchStarterPacksOutputImplCopyWith<$Res>
-    implements $SearchStarterPacksOutputCopyWith<$Res> {
-  factory _$$SearchStarterPacksOutputImplCopyWith(
-          _$SearchStarterPacksOutputImpl value,
-          $Res Function(_$SearchStarterPacksOutputImpl) then) =
-      __$$SearchStarterPacksOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SearchStarterPacksOutputCopyWith<$Res> {
+  factory $SearchStarterPacksOutputCopyWith(SearchStarterPacksOutput value,
+          $Res Function(SearchStarterPacksOutput) _then) =
+      _$SearchStarterPacksOutputCopyWithImpl;
   @useResult
   $Res call({String? cursor, List<StarterPackViewBasic> starterPacks});
 }
 
 /// @nodoc
-class __$$SearchStarterPacksOutputImplCopyWithImpl<$Res>
-    extends _$SearchStarterPacksOutputCopyWithImpl<$Res,
-        _$SearchStarterPacksOutputImpl>
-    implements _$$SearchStarterPacksOutputImplCopyWith<$Res> {
-  __$$SearchStarterPacksOutputImplCopyWithImpl(
-      _$SearchStarterPacksOutputImpl _value,
-      $Res Function(_$SearchStarterPacksOutputImpl) _then)
-      : super(_value, _then);
+class _$SearchStarterPacksOutputCopyWithImpl<$Res>
+    implements $SearchStarterPacksOutputCopyWith<$Res> {
+  _$SearchStarterPacksOutputCopyWithImpl(this._self, this._then);
+
+  final SearchStarterPacksOutput _self;
+  final $Res Function(SearchStarterPacksOutput) _then;
 
   /// Create a copy of SearchStarterPacksOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -106,13 +75,13 @@ class __$$SearchStarterPacksOutputImplCopyWithImpl<$Res>
     Object? cursor = freezed,
     Object? starterPacks = null,
   }) {
-    return _then(_$SearchStarterPacksOutputImpl(
+    return _then(_self.copyWith(
       cursor: freezed == cursor
-          ? _value.cursor
+          ? _self.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
       starterPacks: null == starterPacks
-          ? _value._starterPacks
+          ? _self.starterPacks
           : starterPacks // ignore: cast_nullable_to_non_nullable
               as List<StarterPackViewBasic>,
     ));
@@ -122,13 +91,12 @@ class __$$SearchStarterPacksOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SearchStarterPacksOutputImpl implements _SearchStarterPacksOutput {
-  const _$SearchStarterPacksOutputImpl(
+class _SearchStarterPacksOutput implements SearchStarterPacksOutput {
+  const _SearchStarterPacksOutput(
       {this.cursor, required final List<StarterPackViewBasic> starterPacks})
       : _starterPacks = starterPacks;
-
-  factory _$SearchStarterPacksOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SearchStarterPacksOutputImplFromJson(json);
+  factory _SearchStarterPacksOutput.fromJson(Map<String, dynamic> json) =>
+      _$SearchStarterPacksOutputFromJson(json);
 
   @override
   final String? cursor;
@@ -140,16 +108,27 @@ class _$SearchStarterPacksOutputImpl implements _SearchStarterPacksOutput {
     return EqualUnmodifiableListView(_starterPacks);
   }
 
+  /// Create a copy of SearchStarterPacksOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SearchStarterPacksOutput(cursor: $cursor, starterPacks: $starterPacks)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SearchStarterPacksOutputCopyWith<_SearchStarterPacksOutput> get copyWith =>
+      __$SearchStarterPacksOutputCopyWithImpl<_SearchStarterPacksOutput>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SearchStarterPacksOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchStarterPacksOutputImpl &&
+            other is _SearchStarterPacksOutput &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             const DeepCollectionEquality()
                 .equals(other._starterPacks, _starterPacks));
@@ -160,41 +139,50 @@ class _$SearchStarterPacksOutputImpl implements _SearchStarterPacksOutput {
   int get hashCode => Object.hash(
       runtimeType, cursor, const DeepCollectionEquality().hash(_starterPacks));
 
-  /// Create a copy of SearchStarterPacksOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SearchStarterPacksOutputImplCopyWith<_$SearchStarterPacksOutputImpl>
-      get copyWith => __$$SearchStarterPacksOutputImplCopyWithImpl<
-          _$SearchStarterPacksOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SearchStarterPacksOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SearchStarterPacksOutput(cursor: $cursor, starterPacks: $starterPacks)';
   }
 }
 
-abstract class _SearchStarterPacksOutput implements SearchStarterPacksOutput {
-  const factory _SearchStarterPacksOutput(
-          {final String? cursor,
-          required final List<StarterPackViewBasic> starterPacks}) =
-      _$SearchStarterPacksOutputImpl;
-
-  factory _SearchStarterPacksOutput.fromJson(Map<String, dynamic> json) =
-      _$SearchStarterPacksOutputImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SearchStarterPacksOutputCopyWith<$Res>
+    implements $SearchStarterPacksOutputCopyWith<$Res> {
+  factory _$SearchStarterPacksOutputCopyWith(_SearchStarterPacksOutput value,
+          $Res Function(_SearchStarterPacksOutput) _then) =
+      __$SearchStarterPacksOutputCopyWithImpl;
   @override
-  String? get cursor;
-  @override
-  List<StarterPackViewBasic> get starterPacks;
+  @useResult
+  $Res call({String? cursor, List<StarterPackViewBasic> starterPacks});
+}
+
+/// @nodoc
+class __$SearchStarterPacksOutputCopyWithImpl<$Res>
+    implements _$SearchStarterPacksOutputCopyWith<$Res> {
+  __$SearchStarterPacksOutputCopyWithImpl(this._self, this._then);
+
+  final _SearchStarterPacksOutput _self;
+  final $Res Function(_SearchStarterPacksOutput) _then;
 
   /// Create a copy of SearchStarterPacksOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SearchStarterPacksOutputImplCopyWith<_$SearchStarterPacksOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cursor = freezed,
+    Object? starterPacks = null,
+  }) {
+    return _then(_SearchStarterPacksOutput(
+      cursor: freezed == cursor
+          ? _self.cursor
+          : cursor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      starterPacks: null == starterPacks
+          ? _self._starterPacks
+          : starterPacks // ignore: cast_nullable_to_non_nullable
+              as List<StarterPackViewBasic>,
+    ));
+  }
 }
+
+// dart format on

@@ -8,7 +8,7 @@ import 'mod_object.dart';
 part 'moderation_ui.freezed.dart';
 
 @modObject
-class ModerationUI with _$ModerationUI {
+abstract class ModerationUI with _$ModerationUI {
   const factory ModerationUI({
     @Default(false) bool noOverride,
     @Default([]) List<ModerationCause> filters,

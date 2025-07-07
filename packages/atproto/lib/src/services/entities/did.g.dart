@@ -8,17 +8,17 @@ part of 'did.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DIDImpl _$$DIDImplFromJson(Map json) => $checkedCreate(
-      r'_$DIDImpl',
+_DID _$DIDFromJson(Map json) => $checkedCreate(
+      '_DID',
       json,
       ($checkedConvert) {
-        final val = _$DIDImpl(
+        final val = _DID(
           did: $checkedConvert('did', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$DIDImplToJson(_$DIDImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$DIDToJson(_DID instance) => <String, dynamic>{
       'did': instance.did,
     };

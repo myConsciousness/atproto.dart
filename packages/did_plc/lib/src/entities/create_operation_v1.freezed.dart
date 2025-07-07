@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,114 +10,62 @@ part of 'create_operation_v1.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CreateOperationV1 _$CreateOperationV1FromJson(Map<String, dynamic> json) {
-  return _CreateOperationV1.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CreateOperationV1 {
-  String get sig => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  String get signingKey => throw _privateConstructorUsedError;
-  String get recoveryKey => throw _privateConstructorUsedError;
-  String get handle => throw _privateConstructorUsedError;
-  String get service => throw _privateConstructorUsedError;
-  String? get prev => throw _privateConstructorUsedError;
-
-  /// Serializes this CreateOperationV1 to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get sig;
+  String get type;
+  String get signingKey;
+  String get recoveryKey;
+  String get handle;
+  String get service;
+  String? get prev;
 
   /// Create a copy of CreateOperationV1
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CreateOperationV1CopyWith<CreateOperationV1> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreateOperationV1CopyWith<$Res> {
-  factory $CreateOperationV1CopyWith(
-          CreateOperationV1 value, $Res Function(CreateOperationV1) then) =
-      _$CreateOperationV1CopyWithImpl<$Res, CreateOperationV1>;
-  @useResult
-  $Res call(
-      {String sig,
-      String type,
-      String signingKey,
-      String recoveryKey,
-      String handle,
-      String service,
-      String? prev});
-}
-
-/// @nodoc
-class _$CreateOperationV1CopyWithImpl<$Res, $Val extends CreateOperationV1>
-    implements $CreateOperationV1CopyWith<$Res> {
-  _$CreateOperationV1CopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of CreateOperationV1
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CreateOperationV1CopyWith<CreateOperationV1> get copyWith =>
+      _$CreateOperationV1CopyWithImpl<CreateOperationV1>(
+          this as CreateOperationV1, _$identity);
+
+  /// Serializes this CreateOperationV1 to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? sig = null,
-    Object? type = null,
-    Object? signingKey = null,
-    Object? recoveryKey = null,
-    Object? handle = null,
-    Object? service = null,
-    Object? prev = freezed,
-  }) {
-    return _then(_value.copyWith(
-      sig: null == sig
-          ? _value.sig
-          : sig // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      signingKey: null == signingKey
-          ? _value.signingKey
-          : signingKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      recoveryKey: null == recoveryKey
-          ? _value.recoveryKey
-          : recoveryKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      handle: null == handle
-          ? _value.handle
-          : handle // ignore: cast_nullable_to_non_nullable
-              as String,
-      service: null == service
-          ? _value.service
-          : service // ignore: cast_nullable_to_non_nullable
-              as String,
-      prev: freezed == prev
-          ? _value.prev
-          : prev // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CreateOperationV1 &&
+            (identical(other.sig, sig) || other.sig == sig) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.signingKey, signingKey) ||
+                other.signingKey == signingKey) &&
+            (identical(other.recoveryKey, recoveryKey) ||
+                other.recoveryKey == recoveryKey) &&
+            (identical(other.handle, handle) || other.handle == handle) &&
+            (identical(other.service, service) || other.service == service) &&
+            (identical(other.prev, prev) || other.prev == prev));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, sig, type, signingKey, recoveryKey, handle, service, prev);
+
+  @override
+  String toString() {
+    return 'CreateOperationV1(sig: $sig, type: $type, signingKey: $signingKey, recoveryKey: $recoveryKey, handle: $handle, service: $service, prev: $prev)';
   }
 }
 
 /// @nodoc
-abstract class _$$CreateOperationV1ImplCopyWith<$Res>
-    implements $CreateOperationV1CopyWith<$Res> {
-  factory _$$CreateOperationV1ImplCopyWith(_$CreateOperationV1Impl value,
-          $Res Function(_$CreateOperationV1Impl) then) =
-      __$$CreateOperationV1ImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CreateOperationV1CopyWith<$Res> {
+  factory $CreateOperationV1CopyWith(
+          CreateOperationV1 value, $Res Function(CreateOperationV1) _then) =
+      _$CreateOperationV1CopyWithImpl;
   @useResult
   $Res call(
       {String sig,
@@ -129,12 +78,12 @@ abstract class _$$CreateOperationV1ImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CreateOperationV1ImplCopyWithImpl<$Res>
-    extends _$CreateOperationV1CopyWithImpl<$Res, _$CreateOperationV1Impl>
-    implements _$$CreateOperationV1ImplCopyWith<$Res> {
-  __$$CreateOperationV1ImplCopyWithImpl(_$CreateOperationV1Impl _value,
-      $Res Function(_$CreateOperationV1Impl) _then)
-      : super(_value, _then);
+class _$CreateOperationV1CopyWithImpl<$Res>
+    implements $CreateOperationV1CopyWith<$Res> {
+  _$CreateOperationV1CopyWithImpl(this._self, this._then);
+
+  final CreateOperationV1 _self;
+  final $Res Function(CreateOperationV1) _then;
 
   /// Create a copy of CreateOperationV1
   /// with the given fields replaced by the non-null parameter values.
@@ -149,33 +98,33 @@ class __$$CreateOperationV1ImplCopyWithImpl<$Res>
     Object? service = null,
     Object? prev = freezed,
   }) {
-    return _then(_$CreateOperationV1Impl(
+    return _then(_self.copyWith(
       sig: null == sig
-          ? _value.sig
+          ? _self.sig
           : sig // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       signingKey: null == signingKey
-          ? _value.signingKey
+          ? _self.signingKey
           : signingKey // ignore: cast_nullable_to_non_nullable
               as String,
       recoveryKey: null == recoveryKey
-          ? _value.recoveryKey
+          ? _self.recoveryKey
           : recoveryKey // ignore: cast_nullable_to_non_nullable
               as String,
       handle: null == handle
-          ? _value.handle
+          ? _self.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String,
       service: null == service
-          ? _value.service
+          ? _self.service
           : service // ignore: cast_nullable_to_non_nullable
               as String,
       prev: freezed == prev
-          ? _value.prev
+          ? _self.prev
           : prev // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -185,8 +134,8 @@ class __$$CreateOperationV1ImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$CreateOperationV1Impl implements _CreateOperationV1 {
-  const _$CreateOperationV1Impl(
+class _CreateOperationV1 implements CreateOperationV1 {
+  const _CreateOperationV1(
       {required this.sig,
       this.type = 'create',
       required this.signingKey,
@@ -194,9 +143,8 @@ class _$CreateOperationV1Impl implements _CreateOperationV1 {
       required this.handle,
       required this.service,
       this.prev});
-
-  factory _$CreateOperationV1Impl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateOperationV1ImplFromJson(json);
+  factory _CreateOperationV1.fromJson(Map<String, dynamic> json) =>
+      _$CreateOperationV1FromJson(json);
 
   @override
   final String sig;
@@ -214,16 +162,26 @@ class _$CreateOperationV1Impl implements _CreateOperationV1 {
   @override
   final String? prev;
 
+  /// Create a copy of CreateOperationV1
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CreateOperationV1(sig: $sig, type: $type, signingKey: $signingKey, recoveryKey: $recoveryKey, handle: $handle, service: $service, prev: $prev)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CreateOperationV1CopyWith<_CreateOperationV1> get copyWith =>
+      __$CreateOperationV1CopyWithImpl<_CreateOperationV1>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CreateOperationV1ToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateOperationV1Impl &&
+            other is _CreateOperationV1 &&
             (identical(other.sig, sig) || other.sig == sig) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.signingKey, signingKey) ||
@@ -240,55 +198,82 @@ class _$CreateOperationV1Impl implements _CreateOperationV1 {
   int get hashCode => Object.hash(
       runtimeType, sig, type, signingKey, recoveryKey, handle, service, prev);
 
-  /// Create a copy of CreateOperationV1
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CreateOperationV1ImplCopyWith<_$CreateOperationV1Impl> get copyWith =>
-      __$$CreateOperationV1ImplCopyWithImpl<_$CreateOperationV1Impl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreateOperationV1ImplToJson(
-      this,
-    );
+  String toString() {
+    return 'CreateOperationV1(sig: $sig, type: $type, signingKey: $signingKey, recoveryKey: $recoveryKey, handle: $handle, service: $service, prev: $prev)';
   }
 }
 
-abstract class _CreateOperationV1 implements CreateOperationV1 {
-  const factory _CreateOperationV1(
-      {required final String sig,
-      final String type,
-      required final String signingKey,
-      required final String recoveryKey,
-      required final String handle,
-      required final String service,
-      final String? prev}) = _$CreateOperationV1Impl;
+/// @nodoc
+abstract mixin class _$CreateOperationV1CopyWith<$Res>
+    implements $CreateOperationV1CopyWith<$Res> {
+  factory _$CreateOperationV1CopyWith(
+          _CreateOperationV1 value, $Res Function(_CreateOperationV1) _then) =
+      __$CreateOperationV1CopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String sig,
+      String type,
+      String signingKey,
+      String recoveryKey,
+      String handle,
+      String service,
+      String? prev});
+}
 
-  factory _CreateOperationV1.fromJson(Map<String, dynamic> json) =
-      _$CreateOperationV1Impl.fromJson;
+/// @nodoc
+class __$CreateOperationV1CopyWithImpl<$Res>
+    implements _$CreateOperationV1CopyWith<$Res> {
+  __$CreateOperationV1CopyWithImpl(this._self, this._then);
 
-  @override
-  String get sig;
-  @override
-  String get type;
-  @override
-  String get signingKey;
-  @override
-  String get recoveryKey;
-  @override
-  String get handle;
-  @override
-  String get service;
-  @override
-  String? get prev;
+  final _CreateOperationV1 _self;
+  final $Res Function(_CreateOperationV1) _then;
 
   /// Create a copy of CreateOperationV1
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CreateOperationV1ImplCopyWith<_$CreateOperationV1Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? sig = null,
+    Object? type = null,
+    Object? signingKey = null,
+    Object? recoveryKey = null,
+    Object? handle = null,
+    Object? service = null,
+    Object? prev = freezed,
+  }) {
+    return _then(_CreateOperationV1(
+      sig: null == sig
+          ? _self.sig
+          : sig // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      signingKey: null == signingKey
+          ? _self.signingKey
+          : signingKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      recoveryKey: null == recoveryKey
+          ? _self.recoveryKey
+          : recoveryKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      handle: null == handle
+          ? _self.handle
+          : handle // ignore: cast_nullable_to_non_nullable
+              as String,
+      service: null == service
+          ? _self.service
+          : service // ignore: cast_nullable_to_non_nullable
+              as String,
+      prev: freezed == prev
+          ? _self.prev
+          : prev // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

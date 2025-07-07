@@ -8,7 +8,7 @@ part 'link_preview.g.dart';
 
 /// Represents information of link preview.
 @freezed
-class LinkPreview with _$LinkPreview {
+abstract class LinkPreview with _$LinkPreview {
   const factory LinkPreview({
     /// The preview url if the link.
     required String url,

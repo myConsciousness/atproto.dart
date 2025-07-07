@@ -5,7 +5,7 @@ part 'suite_user.freezed.dart';
 part 'suite_user.g.dart';
 
 @freezed
-class ModerationTestSuiteUser with _$ModerationTestSuiteUser {
+abstract class ModerationTestSuiteUser with _$ModerationTestSuiteUser {
   const factory ModerationTestSuiteUser({
     @Default(false) bool blocking,
     @Default(false) bool blockingByList,

@@ -95,20 +95,24 @@ final class _LexUserTypeConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexUserType object) => object.when(
-        record: (data) => data.toJson(),
-        xrpcQuery: (data) => data.toJson(),
-        xrpcProcedure: (data) => data.toJson(),
-        xrpcSubscription: (data) => data.toJson(),
-        blob: (data) => data.toJson(),
-        array: (data) => data.toJson(),
-        token: (data) => data.toJson(),
-        object: (data) => data.toJson(),
-        boolean: (data) => data.toJson(),
-        integer: (data) => data.toJson(),
-        string: (data) => data.toJson(),
-        bytes: (data) => data.toJson(),
-        cidLink: (data) => data.toJson(),
-        unknown: (data) => data.toJson(),
-      );
+  Map<String, dynamic> toJson(LexUserType object) => switch (object) {
+        ULexUserTypeRecord(data: final data) => data.toJson(),
+        ULexUserTypeXrpcQuery(data: final data) => data.toJson(),
+        ULexUserTypeXrpcProcedure(data: final data) => data.toJson(),
+        ULexUserTypeXrpcSubscription(data: final data) => data.toJson(),
+        ULexUserTypeBlob(data: final data) => data.toJson(),
+        ULexUserTypeArray(data: final data) => data.toJson(),
+        ULexUserTypeToken(data: final data) => data.toJson(),
+        ULexUserTypeObject(data: final data) => data.toJson(),
+        ULexUserTypeBoolean(data: final data) => data.toJson(),
+        ULexUserTypeInteger(data: final data) => data.toJson(),
+        ULexUserTypeString(data: final data) => data.toJson(),
+        ULexUserTypeBytes(data: final data) => data.toJson(),
+        ULexUserTypeCidLink(data: final data) => data.toJson(),
+        ULexUserTypeUnknown(data: final data) => data.toJson(),
+        // Add wildcard case for exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown LexUserType type: ${object.runtimeType}',
+          ),
+      };
 }

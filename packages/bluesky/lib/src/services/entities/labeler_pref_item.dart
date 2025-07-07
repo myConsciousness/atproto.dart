@@ -10,7 +10,7 @@ part 'labeler_pref_item.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#labelerprefitem
 @freezed
-class LabelerPrefItem with _$LabelerPrefItem {
+abstract class LabelerPrefItem with _$LabelerPrefItem {
   const factory LabelerPrefItem({
     @typeKey @Default(appBskyActorDefsLabelerPrefItem) String type,
     required String did,

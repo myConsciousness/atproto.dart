@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,83 +10,59 @@ part of 'thread_mention_rule.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ThreadMentionRule _$ThreadMentionRuleFromJson(Map<String, dynamic> json) {
-  return _ThreadMentionRule.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ThreadMentionRule {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-
-  /// Serializes this ThreadMentionRule to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
 
   /// Create a copy of ThreadMentionRule
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ThreadMentionRuleCopyWith<ThreadMentionRule> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ThreadMentionRuleCopyWith<$Res> {
-  factory $ThreadMentionRuleCopyWith(
-          ThreadMentionRule value, $Res Function(ThreadMentionRule) then) =
-      _$ThreadMentionRuleCopyWithImpl<$Res, ThreadMentionRule>;
-  @useResult
-  $Res call({@typeKey String type});
-}
-
-/// @nodoc
-class _$ThreadMentionRuleCopyWithImpl<$Res, $Val extends ThreadMentionRule>
-    implements $ThreadMentionRuleCopyWith<$Res> {
-  _$ThreadMentionRuleCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ThreadMentionRule
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ThreadMentionRuleCopyWith<ThreadMentionRule> get copyWith =>
+      _$ThreadMentionRuleCopyWithImpl<ThreadMentionRule>(
+          this as ThreadMentionRule, _$identity);
+
+  /// Serializes this ThreadMentionRule to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ThreadMentionRule &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type);
+
+  @override
+  String toString() {
+    return 'ThreadMentionRule(type: $type)';
   }
 }
 
 /// @nodoc
-abstract class _$$ThreadMentionRuleImplCopyWith<$Res>
-    implements $ThreadMentionRuleCopyWith<$Res> {
-  factory _$$ThreadMentionRuleImplCopyWith(_$ThreadMentionRuleImpl value,
-          $Res Function(_$ThreadMentionRuleImpl) then) =
-      __$$ThreadMentionRuleImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ThreadMentionRuleCopyWith<$Res> {
+  factory $ThreadMentionRuleCopyWith(
+          ThreadMentionRule value, $Res Function(ThreadMentionRule) _then) =
+      _$ThreadMentionRuleCopyWithImpl;
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class __$$ThreadMentionRuleImplCopyWithImpl<$Res>
-    extends _$ThreadMentionRuleCopyWithImpl<$Res, _$ThreadMentionRuleImpl>
-    implements _$$ThreadMentionRuleImplCopyWith<$Res> {
-  __$$ThreadMentionRuleImplCopyWithImpl(_$ThreadMentionRuleImpl _value,
-      $Res Function(_$ThreadMentionRuleImpl) _then)
-      : super(_value, _then);
+class _$ThreadMentionRuleCopyWithImpl<$Res>
+    implements $ThreadMentionRuleCopyWith<$Res> {
+  _$ThreadMentionRuleCopyWithImpl(this._self, this._then);
+
+  final ThreadMentionRule _self;
+  final $Res Function(ThreadMentionRule) _then;
 
   /// Create a copy of ThreadMentionRule
   /// with the given fields replaced by the non-null parameter values.
@@ -94,9 +71,9 @@ class __$$ThreadMentionRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$ThreadMentionRuleImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -106,27 +83,36 @@ class __$$ThreadMentionRuleImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ThreadMentionRuleImpl implements _ThreadMentionRule {
-  const _$ThreadMentionRuleImpl(
+class _ThreadMentionRule implements ThreadMentionRule {
+  const _ThreadMentionRule(
       {@typeKey this.type = appBskyFeedThreadgateMentionRule});
-
-  factory _$ThreadMentionRuleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ThreadMentionRuleImplFromJson(json);
+  factory _ThreadMentionRule.fromJson(Map<String, dynamic> json) =>
+      _$ThreadMentionRuleFromJson(json);
 
   @override
   @typeKey
   final String type;
 
+  /// Create a copy of ThreadMentionRule
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ThreadMentionRule(type: $type)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ThreadMentionRuleCopyWith<_ThreadMentionRule> get copyWith =>
+      __$ThreadMentionRuleCopyWithImpl<_ThreadMentionRule>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ThreadMentionRuleToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ThreadMentionRuleImpl &&
+            other is _ThreadMentionRule &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -134,38 +120,45 @@ class _$ThreadMentionRuleImpl implements _ThreadMentionRule {
   @override
   int get hashCode => Object.hash(runtimeType, type);
 
-  /// Create a copy of ThreadMentionRule
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ThreadMentionRuleImplCopyWith<_$ThreadMentionRuleImpl> get copyWith =>
-      __$$ThreadMentionRuleImplCopyWithImpl<_$ThreadMentionRuleImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ThreadMentionRuleImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ThreadMentionRule(type: $type)';
   }
 }
 
-abstract class _ThreadMentionRule implements ThreadMentionRule {
-  const factory _ThreadMentionRule({@typeKey final String type}) =
-      _$ThreadMentionRuleImpl;
-
-  factory _ThreadMentionRule.fromJson(Map<String, dynamic> json) =
-      _$ThreadMentionRuleImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ThreadMentionRuleCopyWith<$Res>
+    implements $ThreadMentionRuleCopyWith<$Res> {
+  factory _$ThreadMentionRuleCopyWith(
+          _ThreadMentionRule value, $Res Function(_ThreadMentionRule) _then) =
+      __$ThreadMentionRuleCopyWithImpl;
   @override
-  @typeKey
-  String get type;
+  @useResult
+  $Res call({@typeKey String type});
+}
+
+/// @nodoc
+class __$ThreadMentionRuleCopyWithImpl<$Res>
+    implements _$ThreadMentionRuleCopyWith<$Res> {
+  __$ThreadMentionRuleCopyWithImpl(this._self, this._then);
+
+  final _ThreadMentionRule _self;
+  final $Res Function(_ThreadMentionRule) _then;
 
   /// Create a copy of ThreadMentionRule
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ThreadMentionRuleImplCopyWith<_$ThreadMentionRuleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_ThreadMentionRule(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

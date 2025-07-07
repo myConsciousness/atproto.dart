@@ -8,7 +8,7 @@ part 'app_password.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createapppassword/#apppassword
 @freezed
-class AppPassword with _$AppPassword {
+abstract class AppPassword with _$AppPassword {
   const factory AppPassword({
     required String name,
     required String password,

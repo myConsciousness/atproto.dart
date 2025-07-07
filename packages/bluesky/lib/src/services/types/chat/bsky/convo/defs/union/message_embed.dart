@@ -9,7 +9,7 @@ import '../../../../../../entities/embed_record.dart';
 part 'message_embed.freezed.dart';
 
 @freezed
-class UConvoMessageEmbed with _$UConvoMessageEmbed {
+abstract class UConvoMessageEmbed with _$UConvoMessageEmbed {
   // ignore: unused_element
   const UConvoMessageEmbed._();
 
@@ -48,8 +48,11 @@ final class _UConvoMessageEmbedConverter
   }
 
   @override
-  Map<String, dynamic> toJson(UConvoMessageEmbed object) => object.when(
-        record: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(UConvoMessageEmbed object) => switch (object) {
+        UConvoMessageEmbedRecord(data: final data) => data.toJson(),
+        UConvoMessageEmbedUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown UConvoMessageEmbed type: ${object.runtimeType}'),
+      };
 }

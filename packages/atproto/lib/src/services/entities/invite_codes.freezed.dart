@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,57 @@ part of 'invite_codes.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-InviteCodes _$InviteCodesFromJson(Map<String, dynamic> json) {
-  return _InviteCodes.fromJson(json);
-}
 
 /// @nodoc
 mixin _$InviteCodes {
-  List<InviteCode> get codes => throw _privateConstructorUsedError;
-
-  /// Serializes this InviteCodes to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<InviteCode> get codes;
 
   /// Create a copy of InviteCodes
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $InviteCodesCopyWith<InviteCodes> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $InviteCodesCopyWith<$Res> {
-  factory $InviteCodesCopyWith(
-          InviteCodes value, $Res Function(InviteCodes) then) =
-      _$InviteCodesCopyWithImpl<$Res, InviteCodes>;
-  @useResult
-  $Res call({List<InviteCode> codes});
-}
-
-/// @nodoc
-class _$InviteCodesCopyWithImpl<$Res, $Val extends InviteCodes>
-    implements $InviteCodesCopyWith<$Res> {
-  _$InviteCodesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of InviteCodes
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $InviteCodesCopyWith<InviteCodes> get copyWith =>
+      _$InviteCodesCopyWithImpl<InviteCodes>(this as InviteCodes, _$identity);
+
+  /// Serializes this InviteCodes to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? codes = null,
-  }) {
-    return _then(_value.copyWith(
-      codes: null == codes
-          ? _value.codes
-          : codes // ignore: cast_nullable_to_non_nullable
-              as List<InviteCode>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is InviteCodes &&
+            const DeepCollectionEquality().equals(other.codes, codes));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(codes));
+
+  @override
+  String toString() {
+    return 'InviteCodes(codes: $codes)';
   }
 }
 
 /// @nodoc
-abstract class _$$InviteCodesImplCopyWith<$Res>
-    implements $InviteCodesCopyWith<$Res> {
-  factory _$$InviteCodesImplCopyWith(
-          _$InviteCodesImpl value, $Res Function(_$InviteCodesImpl) then) =
-      __$$InviteCodesImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $InviteCodesCopyWith<$Res> {
+  factory $InviteCodesCopyWith(
+          InviteCodes value, $Res Function(InviteCodes) _then) =
+      _$InviteCodesCopyWithImpl;
   @useResult
   $Res call({List<InviteCode> codes});
 }
 
 /// @nodoc
-class __$$InviteCodesImplCopyWithImpl<$Res>
-    extends _$InviteCodesCopyWithImpl<$Res, _$InviteCodesImpl>
-    implements _$$InviteCodesImplCopyWith<$Res> {
-  __$$InviteCodesImplCopyWithImpl(
-      _$InviteCodesImpl _value, $Res Function(_$InviteCodesImpl) _then)
-      : super(_value, _then);
+class _$InviteCodesCopyWithImpl<$Res> implements $InviteCodesCopyWith<$Res> {
+  _$InviteCodesCopyWithImpl(this._self, this._then);
+
+  final InviteCodes _self;
+  final $Res Function(InviteCodes) _then;
 
   /// Create a copy of InviteCodes
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +69,9 @@ class __$$InviteCodesImplCopyWithImpl<$Res>
   $Res call({
     Object? codes = null,
   }) {
-    return _then(_$InviteCodesImpl(
+    return _then(_self.copyWith(
       codes: null == codes
-          ? _value._codes
+          ? _self.codes
           : codes // ignore: cast_nullable_to_non_nullable
               as List<InviteCode>,
     ));
@@ -104,12 +80,10 @@ class __$$InviteCodesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$InviteCodesImpl implements _InviteCodes {
-  const _$InviteCodesImpl({required final List<InviteCode> codes})
-      : _codes = codes;
-
-  factory _$InviteCodesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$InviteCodesImplFromJson(json);
+class _InviteCodes implements InviteCodes {
+  const _InviteCodes({required final List<InviteCode> codes}) : _codes = codes;
+  factory _InviteCodes.fromJson(Map<String, dynamic> json) =>
+      _$InviteCodesFromJson(json);
 
   final List<InviteCode> _codes;
   @override
@@ -119,16 +93,26 @@ class _$InviteCodesImpl implements _InviteCodes {
     return EqualUnmodifiableListView(_codes);
   }
 
+  /// Create a copy of InviteCodes
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'InviteCodes(codes: $codes)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$InviteCodesCopyWith<_InviteCodes> get copyWith =>
+      __$InviteCodesCopyWithImpl<_InviteCodes>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$InviteCodesToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InviteCodesImpl &&
+            other is _InviteCodes &&
             const DeepCollectionEquality().equals(other._codes, _codes));
   }
 
@@ -137,36 +121,44 @@ class _$InviteCodesImpl implements _InviteCodes {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_codes));
 
-  /// Create a copy of InviteCodes
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$InviteCodesImplCopyWith<_$InviteCodesImpl> get copyWith =>
-      __$$InviteCodesImplCopyWithImpl<_$InviteCodesImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$InviteCodesImplToJson(
-      this,
-    );
+  String toString() {
+    return 'InviteCodes(codes: $codes)';
   }
 }
 
-abstract class _InviteCodes implements InviteCodes {
-  const factory _InviteCodes({required final List<InviteCode> codes}) =
-      _$InviteCodesImpl;
-
-  factory _InviteCodes.fromJson(Map<String, dynamic> json) =
-      _$InviteCodesImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$InviteCodesCopyWith<$Res>
+    implements $InviteCodesCopyWith<$Res> {
+  factory _$InviteCodesCopyWith(
+          _InviteCodes value, $Res Function(_InviteCodes) _then) =
+      __$InviteCodesCopyWithImpl;
   @override
-  List<InviteCode> get codes;
+  @useResult
+  $Res call({List<InviteCode> codes});
+}
+
+/// @nodoc
+class __$InviteCodesCopyWithImpl<$Res> implements _$InviteCodesCopyWith<$Res> {
+  __$InviteCodesCopyWithImpl(this._self, this._then);
+
+  final _InviteCodes _self;
+  final $Res Function(_InviteCodes) _then;
 
   /// Create a copy of InviteCodes
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InviteCodesImplCopyWith<_$InviteCodesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? codes = null,
+  }) {
+    return _then(_InviteCodes(
+      codes: null == codes
+          ? _self._codes
+          : codes // ignore: cast_nullable_to_non_nullable
+              as List<InviteCode>,
+    ));
+  }
 }
+
+// dart format on

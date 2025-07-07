@@ -95,22 +95,14 @@ final class _LexObjectPropertyConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexObjectProperty object) => object.when(
-        refVariant: (data) => data.when(
-          ref: (data) => data.toJson(),
-          refUnion: (data) => data.toJson(),
-        ),
-        ipld: (data) => data.when(
-          bytes: (data) => data.toJson(),
-          cidLink: (data) => data.toJson(),
-        ),
-        array: (data) => data.toJson(),
-        blob: (data) => data.toJson(),
-        primitive: (data) => data.when(
-          boolean: (data) => data.toJson(),
-          integer: (data) => data.toJson(),
-          string: (data) => data.toJson(),
-          unknown: (data) => data.toJson(),
-        ),
-      );
+  Map<String, dynamic> toJson(LexObjectProperty object) => switch (object) {
+        ULexObjectPropertyPrimitive(data: final data) => data.toJson(),
+        ULexObjectPropertyIpld(data: final data) => data.toJson(),
+        ULexObjectPropertyBlob(data: final data) => data.toJson(),
+        ULexObjectPropertyArray(data: final data) => data.toJson(),
+        ULexObjectPropertyRefVariant(data: final data) => data.toJson(),
+        _ => throw UnimplementedError(
+            'Unknown LexObjectProperty type: ${object.runtimeType}',
+          ),
+      };
 }

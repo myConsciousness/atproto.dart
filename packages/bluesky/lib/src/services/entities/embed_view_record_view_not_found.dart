@@ -12,7 +12,7 @@ part 'embed_view_record_view_not_found.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewnotfound
 @freezed
-class EmbedViewRecordViewNotFound with _$EmbedViewRecordViewNotFound {
+abstract class EmbedViewRecordViewNotFound with _$EmbedViewRecordViewNotFound {
   const factory EmbedViewRecordViewNotFound({
     @typeKey @Default(appBskyEmbedRecordViewNotFound) String type,
     @AtUriConverter() required AtUri uri,

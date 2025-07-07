@@ -12,7 +12,7 @@ part 'embed_view_media.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#view
 @freezed
-class EmbedViewMedia with _$EmbedViewMedia {
+abstract class EmbedViewMedia with _$EmbedViewMedia {
   const factory EmbedViewMedia.images({
     required EmbedViewImages data,
   }) = UEmbedViewMediaImages;

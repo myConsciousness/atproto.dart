@@ -8,12 +8,11 @@ part of 'feed_view_preference.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedViewPreferenceImpl _$$FeedViewPreferenceImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedViewPreferenceImpl',
+_FeedViewPreference _$FeedViewPreferenceFromJson(Map json) => $checkedCreate(
+      '_FeedViewPreference',
       json,
       ($checkedConvert) {
-        final val = _$FeedViewPreferenceImpl(
+        final val = _FeedViewPreference(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsFeedViewPref),
           feed: $checkedConvert('feed', (v) => v as String),
@@ -42,8 +41,7 @@ _$FeedViewPreferenceImpl _$$FeedViewPreferenceImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$FeedViewPreferenceImplToJson(
-        _$FeedViewPreferenceImpl instance) =>
+Map<String, dynamic> _$FeedViewPreferenceToJson(_FeedViewPreference instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'feed': instance.feed,

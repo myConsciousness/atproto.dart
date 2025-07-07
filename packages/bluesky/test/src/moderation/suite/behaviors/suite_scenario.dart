@@ -8,7 +8,7 @@ part 'suite_scenario.freezed.dart';
 part 'suite_scenario.g.dart';
 
 @freezed
-class ModerationTestSuiteScenario with _$ModerationTestSuiteScenario {
+abstract class ModerationTestSuiteScenario with _$ModerationTestSuiteScenario {
   const factory ModerationTestSuiteScenario({
     required String cfg,
     required String subject,

@@ -12,7 +12,7 @@ part 'post_thread_view.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
-class PostThreadView with _$PostThreadView {
+abstract class PostThreadView with _$PostThreadView {
   const factory PostThreadView.record({
     required PostThreadViewRecord data,
   }) = UPostThreadViewRecord;

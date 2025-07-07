@@ -46,11 +46,14 @@ final class _ThreadRuleConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadRule object) => object.when(
-        mention: (data) => data.toJson(),
-        following: (data) => data.toJson(),
-        followers: (data) => data.toJson(),
-        list: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(ThreadRule object) => switch (object) {
+        UThreadRuleMention(data: final data) => data.toJson(),
+        UThreadRuleFollowing(data: final data) => data.toJson(),
+        UThreadRuleFollower(data: final data) => data.toJson(),
+        UThreadRuleList(data: final data) => data.toJson(),
+        UThreadRuleUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown ThreadRule type: ${object.runtimeType}'),
+      };
 }

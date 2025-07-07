@@ -11,7 +11,7 @@ part 'posts_by_query.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchposts/#output
 @freezed
-class PostsByQuery with _$PostsByQuery {
+abstract class PostsByQuery with _$PostsByQuery {
   const factory PostsByQuery({
     required List<Post> posts,
 

@@ -20,7 +20,7 @@ part 'post_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedPost].
 @freezed
-class PostRecord with _$PostRecord {
+abstract class PostRecord with _$PostRecord {
   @jsonSerializable
   const factory PostRecord({
     @typeKey @Default(appBskyFeedPost) String type,

@@ -8,11 +8,11 @@ part of 'trending_topic.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TrendingTopicImpl _$$TrendingTopicImplFromJson(Map json) => $checkedCreate(
-      r'_$TrendingTopicImpl',
+_TrendingTopic _$TrendingTopicFromJson(Map json) => $checkedCreate(
+      '_TrendingTopic',
       json,
       ($checkedConvert) {
-        final val = _$TrendingTopicImpl(
+        final val = _TrendingTopic(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyUnspeccedDefsTrendingTopic),
           topic: $checkedConvert('topic', (v) => v as String),
@@ -25,7 +25,7 @@ _$TrendingTopicImpl _$$TrendingTopicImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$TrendingTopicImplToJson(_$TrendingTopicImpl instance) =>
+Map<String, dynamic> _$TrendingTopicToJson(_TrendingTopic instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'topic': instance.topic,

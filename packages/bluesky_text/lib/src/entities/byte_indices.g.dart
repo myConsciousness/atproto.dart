@@ -8,11 +8,11 @@ part of 'byte_indices.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ByteIndicesImpl _$$ByteIndicesImplFromJson(Map json) => $checkedCreate(
-      r'_$ByteIndicesImpl',
+_ByteIndices _$ByteIndicesFromJson(Map json) => $checkedCreate(
+      '_ByteIndices',
       json,
       ($checkedConvert) {
-        final val = _$ByteIndicesImpl(
+        final val = _ByteIndices(
           start: $checkedConvert('start', (v) => (v as num).toInt()),
           end: $checkedConvert('end', (v) => (v as num).toInt()),
         );
@@ -20,7 +20,7 @@ _$ByteIndicesImpl _$$ByteIndicesImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ByteIndicesImplToJson(_$ByteIndicesImpl instance) =>
+Map<String, dynamic> _$ByteIndicesToJson(_ByteIndices instance) =>
     <String, dynamic>{
       'start': instance.start,
       'end': instance.end,

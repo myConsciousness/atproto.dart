@@ -8,13 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SearchStarterPacksOutputImpl _$$SearchStarterPacksOutputImplFromJson(
-        Map json) =>
+_SearchStarterPacksOutput _$SearchStarterPacksOutputFromJson(Map json) =>
     $checkedCreate(
-      r'_$SearchStarterPacksOutputImpl',
+      '_SearchStarterPacksOutput',
       json,
       ($checkedConvert) {
-        final val = _$SearchStarterPacksOutputImpl(
+        final val = _SearchStarterPacksOutput(
           cursor: $checkedConvert('cursor', (v) => v as String?),
           starterPacks: $checkedConvert(
               'starterPacks',
@@ -27,8 +26,8 @@ _$SearchStarterPacksOutputImpl _$$SearchStarterPacksOutputImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$SearchStarterPacksOutputImplToJson(
-        _$SearchStarterPacksOutputImpl instance) =>
+Map<String, dynamic> _$SearchStarterPacksOutputToJson(
+        _SearchStarterPacksOutput instance) =>
     <String, dynamic>{
       if (instance.cursor case final value?) 'cursor': value,
       'starterPacks': instance.starterPacks.map((e) => e.toJson()).toList(),

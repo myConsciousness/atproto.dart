@@ -10,7 +10,7 @@ part 'reply_post.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
-class ReplyPost with _$ReplyPost {
+abstract class ReplyPost with _$ReplyPost {
   const factory ReplyPost.record({
     required Post data,
   }) = UReplyPostRecord;

@@ -11,7 +11,7 @@ part 'report.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#output
 @freezed
-class Report with _$Report {
+abstract class Report with _$Report {
   const factory Report({
     required int id,
     required ModerationReasonType reasonType,

@@ -37,9 +37,12 @@ final class _RelationshipConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Relationship object) => object.when(
-        relationship: (data) => data.toJson(),
-        notFoundActor: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(Relationship object) => switch (object) {
+        URelationshipRelationship(data: final data) => data.toJson(),
+        URelationshipNotFoundActor(data: final data) => data.toJson(),
+        URelationshipUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown Relationship type: ${object.runtimeType}'),
+      };
 }

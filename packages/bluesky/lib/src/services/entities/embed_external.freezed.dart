@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,151 +10,31 @@ part of 'embed_external.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EmbedExternal _$EmbedExternalFromJson(Map<String, dynamic> json) {
-  return _EmbedExternal.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EmbedExternal {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  EmbedExternalThumbnail get external => throw _privateConstructorUsedError;
-
-  /// Serializes this EmbedExternal to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  EmbedExternalThumbnail get external;
 
   /// Create a copy of EmbedExternal
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $EmbedExternalCopyWith<EmbedExternal> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$EmbedExternalCopyWithImpl<EmbedExternal>(
+          this as EmbedExternal, _$identity);
 
-/// @nodoc
-abstract class $EmbedExternalCopyWith<$Res> {
-  factory $EmbedExternalCopyWith(
-          EmbedExternal value, $Res Function(EmbedExternal) then) =
-      _$EmbedExternalCopyWithImpl<$Res, EmbedExternal>;
-  @useResult
-  $Res call({@typeKey String type, EmbedExternalThumbnail external});
-
-  $EmbedExternalThumbnailCopyWith<$Res> get external;
-}
-
-/// @nodoc
-class _$EmbedExternalCopyWithImpl<$Res, $Val extends EmbedExternal>
-    implements $EmbedExternalCopyWith<$Res> {
-  _$EmbedExternalCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of EmbedExternal
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? external = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      external: null == external
-          ? _value.external
-          : external // ignore: cast_nullable_to_non_nullable
-              as EmbedExternalThumbnail,
-    ) as $Val);
-  }
-
-  /// Create a copy of EmbedExternal
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $EmbedExternalThumbnailCopyWith<$Res> get external {
-    return $EmbedExternalThumbnailCopyWith<$Res>(_value.external, (value) {
-      return _then(_value.copyWith(external: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$EmbedExternalImplCopyWith<$Res>
-    implements $EmbedExternalCopyWith<$Res> {
-  factory _$$EmbedExternalImplCopyWith(
-          _$EmbedExternalImpl value, $Res Function(_$EmbedExternalImpl) then) =
-      __$$EmbedExternalImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, EmbedExternalThumbnail external});
-
-  @override
-  $EmbedExternalThumbnailCopyWith<$Res> get external;
-}
-
-/// @nodoc
-class __$$EmbedExternalImplCopyWithImpl<$Res>
-    extends _$EmbedExternalCopyWithImpl<$Res, _$EmbedExternalImpl>
-    implements _$$EmbedExternalImplCopyWith<$Res> {
-  __$$EmbedExternalImplCopyWithImpl(
-      _$EmbedExternalImpl _value, $Res Function(_$EmbedExternalImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of EmbedExternal
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? external = null,
-  }) {
-    return _then(_$EmbedExternalImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      external: null == external
-          ? _value.external
-          : external // ignore: cast_nullable_to_non_nullable
-              as EmbedExternalThumbnail,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$EmbedExternalImpl implements _EmbedExternal {
-  const _$EmbedExternalImpl(
-      {@typeKey this.type = appBskyEmbedExternal, required this.external});
-
-  factory _$EmbedExternalImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedExternalImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final EmbedExternalThumbnail external;
-
-  @override
-  String toString() {
-    return 'EmbedExternal(type: $type, external: $external)';
-  }
+  /// Serializes this EmbedExternal to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedExternalImpl &&
+            other is EmbedExternal &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.external, external) ||
                 other.external == external));
@@ -163,40 +44,162 @@ class _$EmbedExternalImpl implements _EmbedExternal {
   @override
   int get hashCode => Object.hash(runtimeType, type, external);
 
-  /// Create a copy of EmbedExternal
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EmbedExternalImplCopyWith<_$EmbedExternalImpl> get copyWith =>
-      __$$EmbedExternalImplCopyWithImpl<_$EmbedExternalImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EmbedExternalImplToJson(
-      this,
-    );
+  String toString() {
+    return 'EmbedExternal(type: $type, external: $external)';
   }
 }
 
-abstract class _EmbedExternal implements EmbedExternal {
-  const factory _EmbedExternal(
-      {@typeKey final String type,
-      required final EmbedExternalThumbnail external}) = _$EmbedExternalImpl;
+/// @nodoc
+abstract mixin class $EmbedExternalCopyWith<$Res> {
+  factory $EmbedExternalCopyWith(
+          EmbedExternal value, $Res Function(EmbedExternal) _then) =
+      _$EmbedExternalCopyWithImpl;
+  @useResult
+  $Res call({@typeKey String type, EmbedExternalThumbnail external});
 
-  factory _EmbedExternal.fromJson(Map<String, dynamic> json) =
-      _$EmbedExternalImpl.fromJson;
+  $EmbedExternalThumbnailCopyWith<$Res> get external;
+}
+
+/// @nodoc
+class _$EmbedExternalCopyWithImpl<$Res>
+    implements $EmbedExternalCopyWith<$Res> {
+  _$EmbedExternalCopyWithImpl(this._self, this._then);
+
+  final EmbedExternal _self;
+  final $Res Function(EmbedExternal) _then;
+
+  /// Create a copy of EmbedExternal
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? external = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      external: null == external
+          ? _self.external
+          : external // ignore: cast_nullable_to_non_nullable
+              as EmbedExternalThumbnail,
+    ));
+  }
+
+  /// Create a copy of EmbedExternal
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedExternalThumbnailCopyWith<$Res> get external {
+    return $EmbedExternalThumbnailCopyWith<$Res>(_self.external, (value) {
+      return _then(_self.copyWith(external: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _EmbedExternal implements EmbedExternal {
+  const _EmbedExternal(
+      {@typeKey this.type = appBskyEmbedExternal, required this.external});
+  factory _EmbedExternal.fromJson(Map<String, dynamic> json) =>
+      _$EmbedExternalFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
-  EmbedExternalThumbnail get external;
+  final EmbedExternalThumbnail external;
 
   /// Create a copy of EmbedExternal
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EmbedExternalImplCopyWith<_$EmbedExternalImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$EmbedExternalCopyWith<_EmbedExternal> get copyWith =>
+      __$EmbedExternalCopyWithImpl<_EmbedExternal>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EmbedExternalToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _EmbedExternal &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.external, external) ||
+                other.external == external));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, external);
+
+  @override
+  String toString() {
+    return 'EmbedExternal(type: $type, external: $external)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$EmbedExternalCopyWith<$Res>
+    implements $EmbedExternalCopyWith<$Res> {
+  factory _$EmbedExternalCopyWith(
+          _EmbedExternal value, $Res Function(_EmbedExternal) _then) =
+      __$EmbedExternalCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, EmbedExternalThumbnail external});
+
+  @override
+  $EmbedExternalThumbnailCopyWith<$Res> get external;
+}
+
+/// @nodoc
+class __$EmbedExternalCopyWithImpl<$Res>
+    implements _$EmbedExternalCopyWith<$Res> {
+  __$EmbedExternalCopyWithImpl(this._self, this._then);
+
+  final _EmbedExternal _self;
+  final $Res Function(_EmbedExternal) _then;
+
+  /// Create a copy of EmbedExternal
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? external = null,
+  }) {
+    return _then(_EmbedExternal(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      external: null == external
+          ? _self.external
+          : external // ignore: cast_nullable_to_non_nullable
+              as EmbedExternalThumbnail,
+    ));
+  }
+
+  /// Create a copy of EmbedExternal
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $EmbedExternalThumbnailCopyWith<$Res> get external {
+    return $EmbedExternalThumbnailCopyWith<$Res>(_self.external, (value) {
+      return _then(_self.copyWith(external: value));
+    });
+  }
+}
+
+// dart format on

@@ -12,7 +12,8 @@ part 'facet_link.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#link
 @freezed
-class FacetLink with _$FacetLink {
+abstract class FacetLink with _$FacetLink {
+  const FacetLink._();
   const factory FacetLink({
     @typeKey @Default(appBskyRichtextFacetLink) String type,
     required String uri,

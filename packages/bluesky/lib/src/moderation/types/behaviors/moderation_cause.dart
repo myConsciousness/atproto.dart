@@ -14,7 +14,7 @@ import 'moderation_cause_muted.dart';
 part 'moderation_cause.freezed.dart';
 
 @modObject
-class ModerationCause with _$ModerationCause {
+abstract class ModerationCause with _$ModerationCause {
   // ignore: unused_element
   const ModerationCause._();
 
@@ -46,13 +46,14 @@ class ModerationCause with _$ModerationCause {
     required ModerationCauseHidden data,
   }) = UModerationCauseHidden;
 
-  bool get downgraded => when(
-        blocking: (data) => data.downgraded,
-        blockedBy: (data) => data.downgraded,
-        blockOther: (data) => data.downgraded,
-        label: (data) => data.downgraded,
-        muted: (data) => data.downgraded,
-        muteWord: (data) => data.downgraded,
-        hidden: (data) => data.downgraded,
-      );
+  bool get downgraded => switch (this) {
+        UModerationCauseBlocking(data: final data) => data.downgraded,
+        UModerationCauseBlockedBy(data: final data) => data.downgraded,
+        UModerationCauseBlockOther(data: final data) => data.downgraded,
+        UModerationCauseLabel(data: final data) => data.downgraded,
+        UModerationCauseMuted(data: final data) => data.downgraded,
+        UModerationCauseMuteWord(data: final data) => data.downgraded,
+        UModerationCauseHidden(data: final data) => data.downgraded,
+        _ => false,
+      };
 }

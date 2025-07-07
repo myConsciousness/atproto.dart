@@ -12,7 +12,7 @@ part 'subscribed_repo_commit.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
 @freezed
-class Commit with _$Commit {
+abstract class Commit with _$Commit {
   @jsonSerializable
   const factory Commit({
     required List<RepoOp> ops,

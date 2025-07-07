@@ -6,7 +6,7 @@ part 'muted_word.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#mutedword
 @freezed
-class MutedWord with _$MutedWord {
+abstract class MutedWord with _$MutedWord {
   const factory MutedWord({
     required String value,
     required List<String> targets,

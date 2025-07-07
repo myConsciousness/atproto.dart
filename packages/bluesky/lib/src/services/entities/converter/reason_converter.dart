@@ -36,9 +36,12 @@ final class _ReasonConverter
   }
 
   @override
-  Map<String, dynamic> toJson(Reason object) => object.when(
-        repost: (data) => data.toJson(),
-        pin: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(Reason object) => switch (object) {
+        UReasonRepost(data: final data) => data.toJson(),
+        UReasonPin(data: final data) => data.toJson(),
+        UReasonUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown Reason type: ${object.runtimeType}'),
+      };
 }

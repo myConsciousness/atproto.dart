@@ -17,7 +17,7 @@ part 'generator_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedGenerator].
 @freezed
-class GeneratorRecord with _$GeneratorRecord {
+abstract class GeneratorRecord with _$GeneratorRecord {
   @jsonSerializable
   const factory GeneratorRecord({
     @typeKey @Default(appBskyFeedGenerator) String type,

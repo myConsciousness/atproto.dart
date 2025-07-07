@@ -8,11 +8,11 @@ part of 'lex_array.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LexArrayImpl _$$LexArrayImplFromJson(Map json) => $checkedCreate(
-      r'_$LexArrayImpl',
+_LexArray _$LexArrayFromJson(Map json) => $checkedCreate(
+      '_LexArray',
       json,
       ($checkedConvert) {
-        final val = _$LexArrayImpl(
+        final val = _LexArray(
           type: $checkedConvert('type', (v) => v as String? ?? 'array'),
           description: $checkedConvert('description', (v) => v as String?),
           items: $checkedConvert('items',
@@ -24,8 +24,7 @@ _$LexArrayImpl _$$LexArrayImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$LexArrayImplToJson(_$LexArrayImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LexArrayToJson(_LexArray instance) => <String, dynamic>{
       'type': instance.type,
       if (instance.description case final value?) 'description': value,
       'items': lexArrayItemConverter.toJson(instance.items),

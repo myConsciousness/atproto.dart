@@ -6,7 +6,7 @@ part 'get_repo_status_output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepoStatus/#output
 @freezed
-class GetRepoStatusOutput with _$GetRepoStatusOutput {
+abstract class GetRepoStatusOutput with _$GetRepoStatusOutput {
   const factory GetRepoStatusOutput({
     required String did,
     required bool active,

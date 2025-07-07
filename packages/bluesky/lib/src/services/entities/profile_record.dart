@@ -13,7 +13,7 @@ part 'profile_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile/#input
 @freezed
-class ProfileRecord with _$ProfileRecord {
+abstract class ProfileRecord with _$ProfileRecord {
   @jsonSerializable
   const factory ProfileRecord({
     @typeKey @Default(appBskyActorProfile) String type,

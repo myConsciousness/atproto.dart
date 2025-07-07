@@ -8,11 +8,11 @@ part of 'app_password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AppPasswordImpl _$$AppPasswordImplFromJson(Map json) => $checkedCreate(
-      r'_$AppPasswordImpl',
+_AppPassword _$AppPasswordFromJson(Map json) => $checkedCreate(
+      '_AppPassword',
       json,
       ($checkedConvert) {
-        final val = _$AppPasswordImpl(
+        final val = _AppPassword(
           name: $checkedConvert('name', (v) => v as String),
           password: $checkedConvert('password', (v) => v as String),
           createdAt:
@@ -23,7 +23,7 @@ _$AppPasswordImpl _$$AppPasswordImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$AppPasswordImplToJson(_$AppPasswordImpl instance) =>
+Map<String, dynamic> _$AppPasswordToJson(_AppPassword instance) =>
     <String, dynamic>{
       'name': instance.name,
       'password': instance.password,

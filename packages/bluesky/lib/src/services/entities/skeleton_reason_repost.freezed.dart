@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,140 +10,32 @@ part of 'skeleton_reason_repost.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map<String, dynamic> json) {
-  return _SkeletonReasonRepost.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SkeletonReasonRepost {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @AtUriConverter()
-  AtUri get repost => throw _privateConstructorUsedError;
-
-  /// Serializes this SkeletonReasonRepost to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri get repost;
 
   /// Create a copy of SkeletonReasonRepost
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $SkeletonReasonRepostCopyWith<SkeletonReasonRepost> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$SkeletonReasonRepostCopyWithImpl<SkeletonReasonRepost>(
+          this as SkeletonReasonRepost, _$identity);
 
-/// @nodoc
-abstract class $SkeletonReasonRepostCopyWith<$Res> {
-  factory $SkeletonReasonRepostCopyWith(SkeletonReasonRepost value,
-          $Res Function(SkeletonReasonRepost) then) =
-      _$SkeletonReasonRepostCopyWithImpl<$Res, SkeletonReasonRepost>;
-  @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri repost});
-}
-
-/// @nodoc
-class _$SkeletonReasonRepostCopyWithImpl<$Res,
-        $Val extends SkeletonReasonRepost>
-    implements $SkeletonReasonRepostCopyWith<$Res> {
-  _$SkeletonReasonRepostCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SkeletonReasonRepost
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? repost = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      repost: null == repost
-          ? _value.repost
-          : repost // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$SkeletonReasonRepostImplCopyWith<$Res>
-    implements $SkeletonReasonRepostCopyWith<$Res> {
-  factory _$$SkeletonReasonRepostImplCopyWith(_$SkeletonReasonRepostImpl value,
-          $Res Function(_$SkeletonReasonRepostImpl) then) =
-      __$$SkeletonReasonRepostImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri repost});
-}
-
-/// @nodoc
-class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
-    extends _$SkeletonReasonRepostCopyWithImpl<$Res, _$SkeletonReasonRepostImpl>
-    implements _$$SkeletonReasonRepostImplCopyWith<$Res> {
-  __$$SkeletonReasonRepostImplCopyWithImpl(_$SkeletonReasonRepostImpl _value,
-      $Res Function(_$SkeletonReasonRepostImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SkeletonReasonRepost
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? repost = null,
-  }) {
-    return _then(_$SkeletonReasonRepostImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      repost: null == repost
-          ? _value.repost
-          : repost // ignore: cast_nullable_to_non_nullable
-              as AtUri,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
-  const _$SkeletonReasonRepostImpl(
-      {@typeKey this.type = appBskyFeedDefsSkeletonReasonRepost,
-      @AtUriConverter() required this.repost});
-
-  factory _$SkeletonReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonReasonRepostImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  @AtUriConverter()
-  final AtUri repost;
-
-  @override
-  String toString() {
-    return 'SkeletonReasonRepost(type: $type, repost: $repost)';
-  }
+  /// Serializes this SkeletonReasonRepost to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonReasonRepostImpl &&
+            other is SkeletonReasonRepost &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.repost, repost) || other.repost == repost));
   }
@@ -151,44 +44,139 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
   @override
   int get hashCode => Object.hash(runtimeType, type, repost);
 
-  /// Create a copy of SkeletonReasonRepost
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SkeletonReasonRepostImplCopyWith<_$SkeletonReasonRepostImpl>
-      get copyWith =>
-          __$$SkeletonReasonRepostImplCopyWithImpl<_$SkeletonReasonRepostImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SkeletonReasonRepostImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SkeletonReasonRepost(type: $type, repost: $repost)';
   }
 }
 
-abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
-  const factory _SkeletonReasonRepost(
-          {@typeKey final String type,
-          @AtUriConverter() required final AtUri repost}) =
-      _$SkeletonReasonRepostImpl;
+/// @nodoc
+abstract mixin class $SkeletonReasonRepostCopyWith<$Res> {
+  factory $SkeletonReasonRepostCopyWith(SkeletonReasonRepost value,
+          $Res Function(SkeletonReasonRepost) _then) =
+      _$SkeletonReasonRepostCopyWithImpl;
+  @useResult
+  $Res call({@typeKey String type, @AtUriConverter() AtUri repost});
+}
 
-  factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =
-      _$SkeletonReasonRepostImpl.fromJson;
+/// @nodoc
+class _$SkeletonReasonRepostCopyWithImpl<$Res>
+    implements $SkeletonReasonRepostCopyWith<$Res> {
+  _$SkeletonReasonRepostCopyWithImpl(this._self, this._then);
+
+  final SkeletonReasonRepost _self;
+  final $Res Function(SkeletonReasonRepost) _then;
+
+  /// Create a copy of SkeletonReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? repost = null,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      repost: null == repost
+          ? _self.repost
+          : repost // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _SkeletonReasonRepost implements SkeletonReasonRepost {
+  const _SkeletonReasonRepost(
+      {@typeKey this.type = appBskyFeedDefsSkeletonReasonRepost,
+      @AtUriConverter() required this.repost});
+  factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =>
+      _$SkeletonReasonRepostFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
   @AtUriConverter()
-  AtUri get repost;
+  final AtUri repost;
 
   /// Create a copy of SkeletonReasonRepost
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SkeletonReasonRepostImplCopyWith<_$SkeletonReasonRepostImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$SkeletonReasonRepostCopyWith<_SkeletonReasonRepost> get copyWith =>
+      __$SkeletonReasonRepostCopyWithImpl<_SkeletonReasonRepost>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SkeletonReasonRepostToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SkeletonReasonRepost &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.repost, repost) || other.repost == repost));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, repost);
+
+  @override
+  String toString() {
+    return 'SkeletonReasonRepost(type: $type, repost: $repost)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$SkeletonReasonRepostCopyWith<$Res>
+    implements $SkeletonReasonRepostCopyWith<$Res> {
+  factory _$SkeletonReasonRepostCopyWith(_SkeletonReasonRepost value,
+          $Res Function(_SkeletonReasonRepost) _then) =
+      __$SkeletonReasonRepostCopyWithImpl;
+  @override
+  @useResult
+  $Res call({@typeKey String type, @AtUriConverter() AtUri repost});
+}
+
+/// @nodoc
+class __$SkeletonReasonRepostCopyWithImpl<$Res>
+    implements _$SkeletonReasonRepostCopyWith<$Res> {
+  __$SkeletonReasonRepostCopyWithImpl(this._self, this._then);
+
+  final _SkeletonReasonRepost _self;
+  final $Res Function(_SkeletonReasonRepost) _then;
+
+  /// Create a copy of SkeletonReasonRepost
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? repost = null,
+  }) {
+    return _then(_SkeletonReasonRepost(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      repost: null == repost
+          ? _self.repost
+          : repost // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+    ));
+  }
+}
+
+// dart format on

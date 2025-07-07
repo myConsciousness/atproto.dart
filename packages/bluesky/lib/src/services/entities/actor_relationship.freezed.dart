@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,177 +10,35 @@ part of 'actor_relationship.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ActorRelationship _$ActorRelationshipFromJson(Map<String, dynamic> json) {
-  return _ActorRelationship.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ActorRelationship {
   @typeKey
-  String get type => throw _privateConstructorUsedError;
-  String get did => throw _privateConstructorUsedError;
+  String get type;
+  String get did;
   @AtUriConverter()
-  AtUri? get following => throw _privateConstructorUsedError;
+  AtUri? get following;
   @AtUriConverter()
-  AtUri? get followedBy => throw _privateConstructorUsedError;
-
-  /// Serializes this ActorRelationship to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  AtUri? get followedBy;
 
   /// Create a copy of ActorRelationship
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ActorRelationshipCopyWith<ActorRelationship> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ActorRelationshipCopyWithImpl<ActorRelationship>(
+          this as ActorRelationship, _$identity);
 
-/// @nodoc
-abstract class $ActorRelationshipCopyWith<$Res> {
-  factory $ActorRelationshipCopyWith(
-          ActorRelationship value, $Res Function(ActorRelationship) then) =
-      _$ActorRelationshipCopyWithImpl<$Res, ActorRelationship>;
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String did,
-      @AtUriConverter() AtUri? following,
-      @AtUriConverter() AtUri? followedBy});
-}
-
-/// @nodoc
-class _$ActorRelationshipCopyWithImpl<$Res, $Val extends ActorRelationship>
-    implements $ActorRelationshipCopyWith<$Res> {
-  _$ActorRelationshipCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ActorRelationship
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? did = null,
-    Object? following = freezed,
-    Object? followedBy = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      following: freezed == following
-          ? _value.following
-          : following // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-      followedBy: freezed == followedBy
-          ? _value.followedBy
-          : followedBy // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ActorRelationshipImplCopyWith<$Res>
-    implements $ActorRelationshipCopyWith<$Res> {
-  factory _$$ActorRelationshipImplCopyWith(_$ActorRelationshipImpl value,
-          $Res Function(_$ActorRelationshipImpl) then) =
-      __$$ActorRelationshipImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@typeKey String type,
-      String did,
-      @AtUriConverter() AtUri? following,
-      @AtUriConverter() AtUri? followedBy});
-}
-
-/// @nodoc
-class __$$ActorRelationshipImplCopyWithImpl<$Res>
-    extends _$ActorRelationshipCopyWithImpl<$Res, _$ActorRelationshipImpl>
-    implements _$$ActorRelationshipImplCopyWith<$Res> {
-  __$$ActorRelationshipImplCopyWithImpl(_$ActorRelationshipImpl _value,
-      $Res Function(_$ActorRelationshipImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ActorRelationship
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? did = null,
-    Object? following = freezed,
-    Object? followedBy = freezed,
-  }) {
-    return _then(_$ActorRelationshipImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      did: null == did
-          ? _value.did
-          : did // ignore: cast_nullable_to_non_nullable
-              as String,
-      following: freezed == following
-          ? _value.following
-          : following // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-      followedBy: freezed == followedBy
-          ? _value.followedBy
-          : followedBy // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ActorRelationshipImpl implements _ActorRelationship {
-  const _$ActorRelationshipImpl(
-      {@typeKey this.type = appBskyGraphDefsRelationship,
-      required this.did,
-      @AtUriConverter() this.following,
-      @AtUriConverter() this.followedBy});
-
-  factory _$ActorRelationshipImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorRelationshipImplFromJson(json);
-
-  @override
-  @typeKey
-  final String type;
-  @override
-  final String did;
-  @override
-  @AtUriConverter()
-  final AtUri? following;
-  @override
-  @AtUriConverter()
-  final AtUri? followedBy;
-
-  @override
-  String toString() {
-    return 'ActorRelationship(type: $type, did: $did, following: $following, followedBy: $followedBy)';
-  }
+  /// Serializes this ActorRelationship to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorRelationshipImpl &&
+            other is ActorRelationship &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.following, following) ||
@@ -193,49 +52,178 @@ class _$ActorRelationshipImpl implements _ActorRelationship {
   int get hashCode =>
       Object.hash(runtimeType, type, did, following, followedBy);
 
-  /// Create a copy of ActorRelationship
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ActorRelationshipImplCopyWith<_$ActorRelationshipImpl> get copyWith =>
-      __$$ActorRelationshipImplCopyWithImpl<_$ActorRelationshipImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ActorRelationshipImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ActorRelationship(type: $type, did: $did, following: $following, followedBy: $followedBy)';
   }
 }
 
-abstract class _ActorRelationship implements ActorRelationship {
-  const factory _ActorRelationship(
-      {@typeKey final String type,
-      required final String did,
-      @AtUriConverter() final AtUri? following,
-      @AtUriConverter() final AtUri? followedBy}) = _$ActorRelationshipImpl;
+/// @nodoc
+abstract mixin class $ActorRelationshipCopyWith<$Res> {
+  factory $ActorRelationshipCopyWith(
+          ActorRelationship value, $Res Function(ActorRelationship) _then) =
+      _$ActorRelationshipCopyWithImpl;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String did,
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
+}
 
-  factory _ActorRelationship.fromJson(Map<String, dynamic> json) =
-      _$ActorRelationshipImpl.fromJson;
+/// @nodoc
+class _$ActorRelationshipCopyWithImpl<$Res>
+    implements $ActorRelationshipCopyWith<$Res> {
+  _$ActorRelationshipCopyWithImpl(this._self, this._then);
+
+  final ActorRelationship _self;
+  final $Res Function(ActorRelationship) _then;
+
+  /// Create a copy of ActorRelationship
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? did = null,
+    Object? following = freezed,
+    Object? followedBy = freezed,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      following: freezed == following
+          ? _self.following
+          : following // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+      followedBy: freezed == followedBy
+          ? _self.followedBy
+          : followedBy // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _ActorRelationship implements ActorRelationship {
+  const _ActorRelationship(
+      {@typeKey this.type = appBskyGraphDefsRelationship,
+      required this.did,
+      @AtUriConverter() this.following,
+      @AtUriConverter() this.followedBy});
+  factory _ActorRelationship.fromJson(Map<String, dynamic> json) =>
+      _$ActorRelationshipFromJson(json);
 
   @override
   @typeKey
-  String get type;
+  final String type;
   @override
-  String get did;
-  @override
-  @AtUriConverter()
-  AtUri? get following;
+  final String did;
   @override
   @AtUriConverter()
-  AtUri? get followedBy;
+  final AtUri? following;
+  @override
+  @AtUriConverter()
+  final AtUri? followedBy;
 
   /// Create a copy of ActorRelationship
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ActorRelationshipImplCopyWith<_$ActorRelationshipImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ActorRelationshipCopyWith<_ActorRelationship> get copyWith =>
+      __$ActorRelationshipCopyWithImpl<_ActorRelationship>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ActorRelationshipToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ActorRelationship &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.following, following) ||
+                other.following == following) &&
+            (identical(other.followedBy, followedBy) ||
+                other.followedBy == followedBy));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, type, did, following, followedBy);
+
+  @override
+  String toString() {
+    return 'ActorRelationship(type: $type, did: $did, following: $following, followedBy: $followedBy)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ActorRelationshipCopyWith<$Res>
+    implements $ActorRelationshipCopyWith<$Res> {
+  factory _$ActorRelationshipCopyWith(
+          _ActorRelationship value, $Res Function(_ActorRelationship) _then) =
+      __$ActorRelationshipCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      String did,
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
+}
+
+/// @nodoc
+class __$ActorRelationshipCopyWithImpl<$Res>
+    implements _$ActorRelationshipCopyWith<$Res> {
+  __$ActorRelationshipCopyWithImpl(this._self, this._then);
+
+  final _ActorRelationship _self;
+  final $Res Function(_ActorRelationship) _then;
+
+  /// Create a copy of ActorRelationship
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? did = null,
+    Object? following = freezed,
+    Object? followedBy = freezed,
+  }) {
+    return _then(_ActorRelationship(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: null == did
+          ? _self.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      following: freezed == following
+          ? _self.following
+          : following // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+      followedBy: freezed == followedBy
+          ? _self.followedBy
+          : followedBy // ignore: cast_nullable_to_non_nullable
+              as AtUri?,
+    ));
+  }
+}
+
+// dart format on

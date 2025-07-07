@@ -8,11 +8,11 @@ part of 'delete_action.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DeleteActionImpl _$$DeleteActionImplFromJson(Map json) => $checkedCreate(
-      r'_$DeleteActionImpl',
+_DeleteAction _$DeleteActionFromJson(Map json) => $checkedCreate(
+      '_DeleteAction',
       json,
       ($checkedConvert) {
-        final val = _$DeleteActionImpl(
+        final val = _DeleteAction(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesDelete),
           uri: $checkedConvert(
@@ -23,7 +23,7 @@ _$DeleteActionImpl _$$DeleteActionImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$DeleteActionImplToJson(_$DeleteActionImpl instance) =>
+Map<String, dynamic> _$DeleteActionToJson(_DeleteAction instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': const AtUriConverter().toJson(instance.uri),

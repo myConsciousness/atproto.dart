@@ -8,12 +8,11 @@ part of 'disable_rule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PostgateDisableRuleImpl _$$PostgateDisableRuleImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$PostgateDisableRuleImpl',
+_PostgateDisableRule _$PostgateDisableRuleFromJson(Map json) => $checkedCreate(
+      '_PostgateDisableRule',
       json,
       ($checkedConvert) {
-        final val = _$PostgateDisableRuleImpl(
+        final val = _PostgateDisableRule(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedPostgateDisableRule),
         );
@@ -22,8 +21,8 @@ _$PostgateDisableRuleImpl _$$PostgateDisableRuleImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$PostgateDisableRuleImplToJson(
-        _$PostgateDisableRuleImpl instance) =>
+Map<String, dynamic> _$PostgateDisableRuleToJson(
+        _PostgateDisableRule instance) =>
     <String, dynamic>{
       r'$type': instance.type,
     };

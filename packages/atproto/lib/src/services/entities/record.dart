@@ -12,7 +12,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listrecords/#record
 @freezed
-class Record with _$Record {
+abstract class Record with _$Record {
   // ignore: unused_element
   const Record._();
 

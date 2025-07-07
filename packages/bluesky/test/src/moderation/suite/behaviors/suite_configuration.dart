@@ -8,7 +8,8 @@ part 'suite_configuration.freezed.dart';
 part 'suite_configuration.g.dart';
 
 @freezed
-class ModerationTestSuiteConfiguration with _$ModerationTestSuiteConfiguration {
+abstract class ModerationTestSuiteConfiguration
+    with _$ModerationTestSuiteConfiguration {
   const factory ModerationTestSuiteConfiguration({
     @Default(true) bool authed,
     @Default(false) bool adultContentEnabled,

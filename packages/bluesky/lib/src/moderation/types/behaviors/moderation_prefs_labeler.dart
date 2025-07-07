@@ -8,7 +8,7 @@ import '../mod_object.dart';
 part 'moderation_prefs_labeler.freezed.dart';
 
 @modObject
-class ModerationPrefsLabeler with _$ModerationPrefsLabeler {
+abstract class ModerationPrefsLabeler with _$ModerationPrefsLabeler {
   const factory ModerationPrefsLabeler({
     required String did,
     required Map<String, LabelPreference> labels,

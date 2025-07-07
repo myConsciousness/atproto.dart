@@ -8,11 +8,11 @@ part of 'message_ref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MessageRefImpl _$$MessageRefImplFromJson(Map json) => $checkedCreate(
-      r'_$MessageRefImpl',
+_MessageRef _$MessageRefFromJson(Map json) => $checkedCreate(
+      '_MessageRef',
       json,
       ($checkedConvert) {
-        final val = _$MessageRefImpl(
+        final val = _MessageRef(
           did: $checkedConvert('did', (v) => v as String),
           convoId: $checkedConvert('convoId', (v) => v as String),
           messageId: $checkedConvert('messageId', (v) => v as String),
@@ -21,7 +21,7 @@ _$MessageRefImpl _$$MessageRefImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$MessageRefImplToJson(_$MessageRefImpl instance) =>
+Map<String, dynamic> _$MessageRefToJson(_MessageRef instance) =>
     <String, dynamic>{
       'did': instance.did,
       'convoId': instance.convoId,

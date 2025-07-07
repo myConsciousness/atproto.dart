@@ -59,14 +59,17 @@ final class _SubscribedRepoConverter
   }
 
   @override
-  Map<String, dynamic> toJson(SubscribedRepo object) => object.when(
-        commit: (data) => data.toJson(),
-        identity: (data) => data.toJson(),
-        account: (data) => data.toJson(),
-        handle: (data) => data.toJson(),
-        migrate: (data) => data.toJson(),
-        tombstone: (data) => data.toJson(),
-        info: (data) => data.toJson(),
-        unknown: (data) => data,
-      );
+  Map<String, dynamic> toJson(SubscribedRepo object) => switch (object) {
+        USubscribedRepoCommit(data: final data) => data.toJson(),
+        USubscribedRepoIdentity(data: final data) => data.toJson(),
+        USubscribedRepoAccount(data: final data) => data.toJson(),
+        USubscribedRepoHandle(data: final data) => data.toJson(),
+        USubscribedRepoMigrate(data: final data) => data.toJson(),
+        USubscribedRepoTombstone(data: final data) => data.toJson(),
+        USubscribedRepoInfo(data: final data) => data.toJson(),
+        USubscribedRepoUnknown(data: final data) => data,
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown SubscribedRepo type: ${object.runtimeType}'),
+      };
 }

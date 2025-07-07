@@ -13,7 +13,7 @@ part 'blocked_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#blockedpost
 @freezed
-class BlockedPost with _$BlockedPost {
+abstract class BlockedPost with _$BlockedPost {
   const factory BlockedPost({
     @typeKey @Default(appBskyFeedDefsBlockedPost) String type,
     @AtUriConverter() required AtUri uri,

@@ -12,7 +12,7 @@ part 'lex_xrpc_procedure.freezed.dart';
 part 'lex_xrpc_procedure.g.dart';
 
 @freezed
-class LexXrpcProcedure with _$LexXrpcProcedure {
+abstract class LexXrpcProcedure with _$LexXrpcProcedure {
   @JsonSerializable(includeIfNull: false)
   const factory LexXrpcProcedure({
     @Default('procedure') String type,

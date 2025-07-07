@@ -8,7 +8,7 @@ part 'repo_latest_commit.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getlatestcommit/#output
 @freezed
-class RepoLatestCommit with _$RepoLatestCommit {
+abstract class RepoLatestCommit with _$RepoLatestCommit {
   const factory RepoLatestCommit({
     required String cid,
     required String rev,

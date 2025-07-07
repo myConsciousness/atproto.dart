@@ -32,8 +32,11 @@ final class _LexRefVariantConverter
   }
 
   @override
-  Map<String, dynamic> toJson(LexRefVariant object) => object.when(
-        ref: (data) => data.toJson(),
-        refUnion: (data) => data.toJson(),
-      );
+  Map<String, dynamic> toJson(LexRefVariant object) => switch (object) {
+        ULexRefVariantRef(data: final data) => data.toJson(),
+        ULexRefVariantRefUnion(data: final data) => data.toJson(),
+        // Add wildcard case for switch exhaustiveness
+        _ => throw UnimplementedError(
+            'Unknown LexRefVariant type: ${object.runtimeType}'),
+      };
 }

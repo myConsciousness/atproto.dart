@@ -8,7 +8,7 @@ import 'moderation_cause_source.dart';
 part 'moderation_cause_mute_word.freezed.dart';
 
 @modObject
-class ModerationCauseMuteWord with _$ModerationCauseMuteWord {
+abstract class ModerationCauseMuteWord with _$ModerationCauseMuteWord {
   const factory ModerationCauseMuteWord({
     required ModerationCauseSource source,
     @Default(6) int priority,
