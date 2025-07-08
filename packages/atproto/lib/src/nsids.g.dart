@@ -121,6 +121,10 @@ const comAtprotoLexiconSchema = NSID(ids.comAtprotoLexiconSchema);
 const comAtprotoModerationCreateReport =
     NSID(ids.comAtprotoModerationCreateReport);
 
+/// `com.atproto.moderation.createReport#modTool`
+const comAtprotoModerationCreateReportModTool =
+    NSID(ids.comAtprotoModerationCreateReportModTool);
+
 /// `com.atproto.repo.applyWrites`
 const comAtprotoRepoApplyWrites = NSID(ids.comAtprotoRepoApplyWrites);
 

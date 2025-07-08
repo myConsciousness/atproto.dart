@@ -18,6 +18,7 @@ description: app.bsky.actor.defs
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
+| **status** | [#statusView](#statusview) | - | ❌ | - |
 
 ## #profileView
 
@@ -34,6 +35,7 @@ description: app.bsky.actor.defs
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
+| **status** | [#statusView](#statusview) | - | ❌ | - |
 
 ## #profileViewDetailed
 
@@ -56,6 +58,7 @@ description: app.bsky.actor.defs
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **pinnedPost** | [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
 | **verification** | [#verificationState](#verificationstate) | - | ❌ | - |
+| **status** | [#statusView](#statusview) | - | ❌ | - |
 
 ## #profileAssociated
 
@@ -66,12 +69,19 @@ description: app.bsky.actor.defs
 | **starterPacks** | integer | - | ❌ | - |
 | **labeler** | boolean | - | ❌ | - |
 | **chat** | [#profileAssociatedChat](#profileassociatedchat) | - | ❌ | - |
+| **activitySubscription** | [#profileAssociatedActivitySubscription](#profileassociatedactivitysubscription) | - | ❌ | - |
 
 ## #profileAssociatedChat
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **allowIncoming** | string | all<br/>none<br/>following | ✅ | - |
+
+## #profileAssociatedActivitySubscription
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **allowSubscriptions** | string | followers<br/>mutuals<br/>none | ✅ | - |
 
 ## #viewerState
 
@@ -87,6 +97,7 @@ Metadata about the requesting account's relationship with the subject account. O
 | **following** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **followedBy** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **knownFollowers** | [#knownFollowers](#knownfollowers) | - | ❌ | - |
+| **activitySubscription** | [app.bsky.notification.defs#activitySubscription](../../../../lexicons/app/bsky/notification/defs.md#activitysubscription) | - | ❌ | - |
 
 ## #knownFollowers
 
@@ -278,3 +289,13 @@ Default post interaction settings for the account. These values should be applie
 | --- | --- | --- | :---: | --- |
 | **threadgateAllowRules** | array of union<br/>[app.bsky.feed.threadgate#mentionRule](../../../../lexicons/app/bsky/feed/threadgate.md#mentionrule)<br/>[app.bsky.feed.threadgate#followerRule](../../../../lexicons/app/bsky/feed/threadgate.md#followerrule)<br/>[app.bsky.feed.threadgate#followingRule](../../../../lexicons/app/bsky/feed/threadgate.md#followingrule)<br/>[app.bsky.feed.threadgate#listRule](../../../../lexicons/app/bsky/feed/threadgate.md#listrule) | - | ❌ | Matches threadgate record. List of rules defining who can reply to this users posts. If value is an empty array, no one can reply. If value is undefined, anyone can reply. |
 | **postgateEmbeddingRules** | array of union<br/>[app.bsky.feed.postgate#disableRule](../../../../lexicons/app/bsky/feed/postgate.md#disablerule) | - | ❌ | Matches postgate record. List of rules defining who can embed this users posts. If value is an empty array or is undefined, no particular rules apply and anyone can embed. |
+
+## #statusView
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **status** | string | [app.bsky.actor.status#live](../../../../lexicons/app/bsky/actor/status.md#live) | ✅ | The status for the account. |
+| **record** | unknown | - | ✅ | - |
+| **embed** | union of <br/>[app.bsky.embed.external#view](../../../../lexicons/app/bsky/embed/external.md#view) | - | ❌ | - |
+| **expiresAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | The date when this status will expire. The application might choose to no longer return the status after expiration. |
+| **isActive** | boolean | - | ❌ | True if the status is not expired, false if it is expired. Only present if expiration was set. |

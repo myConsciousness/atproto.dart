@@ -161,6 +161,10 @@ const comAtprotoLexiconSchema = 'com.atproto.lexicon.schema';
 /// `com.atproto.moderation.createReport`
 const comAtprotoModerationCreateReport = 'com.atproto.moderation.createReport';
 
+/// `com.atproto.moderation.createReport#modTool`
+const comAtprotoModerationCreateReportModTool =
+    'com.atproto.moderation.createReport#modTool';
+
 /// `com.atproto.moderation.defs`
 const comAtprotoModerationDefs = 'com.atproto.moderation.defs';
 

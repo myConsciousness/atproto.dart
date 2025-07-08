@@ -67,6 +67,10 @@ const appBskyActorDefsPreferences = 'app.bsky.actor.defs#preferences';
 const appBskyActorDefsProfileAssociated =
     'app.bsky.actor.defs#profileAssociated';
 
+/// `app.bsky.actor.defs#profileAssociatedActivitySubscription`
+const appBskyActorDefsProfileAssociatedActivitySubscription =
+    'app.bsky.actor.defs#profileAssociatedActivitySubscription';
+
 /// `app.bsky.actor.defs#profileAssociatedChat`
 const appBskyActorDefsProfileAssociatedChat =
     'app.bsky.actor.defs#profileAssociatedChat';
@@ -89,6 +93,9 @@ const appBskyActorDefsSavedFeedsPref = 'app.bsky.actor.defs#savedFeedsPref';
 
 /// `app.bsky.actor.defs#savedFeedsPrefV2`
 const appBskyActorDefsSavedFeedsPrefV2 = 'app.bsky.actor.defs#savedFeedsPrefV2';
+
+/// `app.bsky.actor.defs#statusView`
+const appBskyActorDefsStatusView = 'app.bsky.actor.defs#statusView';
 
 /// `app.bsky.actor.defs#threadViewPref`
 const appBskyActorDefsThreadViewPref = 'app.bsky.actor.defs#threadViewPref';
@@ -131,6 +138,12 @@ const appBskyActorSearchActors = 'app.bsky.actor.searchActors';
 /// `app.bsky.actor.searchActorsTypeahead`
 const appBskyActorSearchActorsTypeahead =
     'app.bsky.actor.searchActorsTypeahead';
+
+/// `app.bsky.actor.status`
+const appBskyActorStatus = 'app.bsky.actor.status';
+
+/// `app.bsky.actor.status#live`
+const appBskyActorStatusLive = 'app.bsky.actor.status#live';
 
 /// `app.bsky.embed.defs`
 const appBskyEmbedDefs = 'app.bsky.embed.defs';
@@ -560,16 +573,51 @@ const appBskyLabelerGetServices = 'app.bsky.labeler.getServices';
 /// `app.bsky.labeler.service`
 const appBskyLabelerService = 'app.bsky.labeler.service';
 
+/// `app.bsky.notification.declaration`
+const appBskyNotificationDeclaration = 'app.bsky.notification.declaration';
+
 /// `app.bsky.notification.defs`
 const appBskyNotificationDefs = 'app.bsky.notification.defs';
+
+/// `app.bsky.notification.defs#activitySubscription`
+const appBskyNotificationDefsActivitySubscription =
+    'app.bsky.notification.defs#activitySubscription';
+
+/// `app.bsky.notification.defs#chatPreference`
+const appBskyNotificationDefsChatPreference =
+    'app.bsky.notification.defs#chatPreference';
+
+/// `app.bsky.notification.defs#filterablePreference`
+const appBskyNotificationDefsFilterablePreference =
+    'app.bsky.notification.defs#filterablePreference';
+
+/// `app.bsky.notification.defs#preference`
+const appBskyNotificationDefsPreference =
+    'app.bsky.notification.defs#preference';
+
+/// `app.bsky.notification.defs#preferences`
+const appBskyNotificationDefsPreferences =
+    'app.bsky.notification.defs#preferences';
 
 /// `app.bsky.notification.defs#recordDeleted`
 const appBskyNotificationDefsRecordDeleted =
     'app.bsky.notification.defs#recordDeleted';
 
+/// `app.bsky.notification.defs#subjectActivitySubscription`
+const appBskyNotificationDefsSubjectActivitySubscription =
+    'app.bsky.notification.defs#subjectActivitySubscription';
+
+/// `app.bsky.notification.getPreferences`
+const appBskyNotificationGetPreferences =
+    'app.bsky.notification.getPreferences';
+
 /// `app.bsky.notification.getUnreadCount`
 const appBskyNotificationGetUnreadCount =
     'app.bsky.notification.getUnreadCount';
+
+/// `app.bsky.notification.listActivitySubscriptions`
+const appBskyNotificationListActivitySubscriptions =
+    'app.bsky.notification.listActivitySubscriptions';
 
 /// `app.bsky.notification.listNotifications`
 const appBskyNotificationListNotifications =
@@ -579,9 +627,17 @@ const appBskyNotificationListNotifications =
 const appBskyNotificationListNotificationsNotification =
     'app.bsky.notification.listNotifications#notification';
 
+/// `app.bsky.notification.putActivitySubscription`
+const appBskyNotificationPutActivitySubscription =
+    'app.bsky.notification.putActivitySubscription';
+
 /// `app.bsky.notification.putPreferences`
 const appBskyNotificationPutPreferences =
     'app.bsky.notification.putPreferences';
+
+/// `app.bsky.notification.putPreferencesV2`
+const appBskyNotificationPutPreferencesV2 =
+    'app.bsky.notification.putPreferencesV2';
 
 /// `app.bsky.notification.registerPush`
 const appBskyNotificationRegisterPush = 'app.bsky.notification.registerPush';
@@ -623,6 +679,22 @@ const appBskyUnspeccedDefsSkeletonSearchStarterPack =
 const appBskyUnspeccedDefsSkeletonTrend =
     'app.bsky.unspecced.defs#skeletonTrend';
 
+/// `app.bsky.unspecced.defs#threadItemBlocked`
+const appBskyUnspeccedDefsThreadItemBlocked =
+    'app.bsky.unspecced.defs#threadItemBlocked';
+
+/// `app.bsky.unspecced.defs#threadItemNoUnauthenticated`
+const appBskyUnspeccedDefsThreadItemNoUnauthenticated =
+    'app.bsky.unspecced.defs#threadItemNoUnauthenticated';
+
+/// `app.bsky.unspecced.defs#threadItemNotFound`
+const appBskyUnspeccedDefsThreadItemNotFound =
+    'app.bsky.unspecced.defs#threadItemNotFound';
+
+/// `app.bsky.unspecced.defs#threadItemPost`
+const appBskyUnspeccedDefsThreadItemPost =
+    'app.bsky.unspecced.defs#threadItemPost';
+
 /// `app.bsky.unspecced.defs#trendView`
 const appBskyUnspeccedDefsTrendView = 'app.bsky.unspecced.defs#trendView';
 
@@ -633,9 +705,28 @@ const appBskyUnspeccedDefsTrendingTopic =
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
 
+/// `app.bsky.unspecced.getConfig#liveNowConfig`
+const appBskyUnspeccedGetConfigLiveNowConfig =
+    'app.bsky.unspecced.getConfig#liveNowConfig';
+
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     'app.bsky.unspecced.getPopularFeedGenerators';
+
+/// `app.bsky.unspecced.getPostThreadOtherV2`
+const appBskyUnspeccedGetPostThreadOtherV2 =
+    'app.bsky.unspecced.getPostThreadOtherV2';
+
+/// `app.bsky.unspecced.getPostThreadOtherV2#threadItem`
+const appBskyUnspeccedGetPostThreadOtherV2ThreadItem =
+    'app.bsky.unspecced.getPostThreadOtherV2#threadItem';
+
+/// `app.bsky.unspecced.getPostThreadV2`
+const appBskyUnspeccedGetPostThreadV2 = 'app.bsky.unspecced.getPostThreadV2';
+
+/// `app.bsky.unspecced.getPostThreadV2#threadItem`
+const appBskyUnspeccedGetPostThreadV2ThreadItem =
+    'app.bsky.unspecced.getPostThreadV2#threadItem';
 
 /// `app.bsky.unspecced.getSuggestedFeeds`
 const appBskyUnspeccedGetSuggestedFeeds =
