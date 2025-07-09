@@ -27,6 +27,7 @@ mixin _$ActorBasic {
   ProfileAssociated? get associated => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
+  ActorVerification get verification => throw _privateConstructorUsedError;
 
   /// Serializes this ActorBasic to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,10 +52,12 @@ abstract class $ActorBasicCopyWith<$Res> {
       String? avatar,
       ProfileAssociated? associated,
       ActorViewer viewer,
-      List<Label>? labels});
+      List<Label>? labels,
+      ActorVerification verification});
 
   $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
+  $ActorVerificationCopyWith<$Res> get verification;
 }
 
 /// @nodoc
@@ -79,6 +82,7 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
     Object? associated = freezed,
     Object? viewer = null,
     Object? labels = freezed,
+    Object? verification = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -109,6 +113,10 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      verification: null == verification
+          ? _value.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
     ) as $Val);
   }
 
@@ -135,6 +143,16 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
+
+  /// Create a copy of ActorBasic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_value.verification, (value) {
+      return _then(_value.copyWith(verification: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -152,12 +170,15 @@ abstract class _$$ActorBasicImplCopyWith<$Res>
       String? avatar,
       ProfileAssociated? associated,
       ActorViewer viewer,
-      List<Label>? labels});
+      List<Label>? labels,
+      ActorVerification verification});
 
   @override
   $ProfileAssociatedCopyWith<$Res>? get associated;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
+  @override
+  $ActorVerificationCopyWith<$Res> get verification;
 }
 
 /// @nodoc
@@ -180,6 +201,7 @@ class __$$ActorBasicImplCopyWithImpl<$Res>
     Object? associated = freezed,
     Object? viewer = null,
     Object? labels = freezed,
+    Object? verification = null,
   }) {
     return _then(_$ActorBasicImpl(
       did: null == did
@@ -210,6 +232,10 @@ class __$$ActorBasicImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      verification: null == verification
+          ? _value.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
     ));
   }
 }
@@ -225,7 +251,8 @@ class _$ActorBasicImpl extends _ActorBasic {
       this.avatar,
       this.associated,
       this.viewer = defaultActorViewer,
-      final List<Label>? labels})
+      final List<Label>? labels,
+      this.verification = defaultActorVerification})
       : _labels = labels,
         super._();
 
@@ -256,8 +283,12 @@ class _$ActorBasicImpl extends _ActorBasic {
   }
 
   @override
+  @JsonKey()
+  final ActorVerification verification;
+
+  @override
   String toString() {
-    return 'ActorBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels)';
+    return 'ActorBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, verification: $verification)';
   }
 
   @override
@@ -273,13 +304,23 @@ class _$ActorBasicImpl extends _ActorBasic {
             (identical(other.associated, associated) ||
                 other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
-            const DeepCollectionEquality().equals(other._labels, _labels));
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, did, handle, displayName, avatar,
-      associated, viewer, const DeepCollectionEquality().hash(_labels));
+  int get hashCode => Object.hash(
+      runtimeType,
+      did,
+      handle,
+      displayName,
+      avatar,
+      associated,
+      viewer,
+      const DeepCollectionEquality().hash(_labels),
+      verification);
 
   /// Create a copy of ActorBasic
   /// with the given fields replaced by the non-null parameter values.
@@ -305,7 +346,8 @@ abstract class _ActorBasic extends ActorBasic {
       final String? avatar,
       final ProfileAssociated? associated,
       final ActorViewer viewer,
-      final List<Label>? labels}) = _$ActorBasicImpl;
+      final List<Label>? labels,
+      final ActorVerification verification}) = _$ActorBasicImpl;
   const _ActorBasic._() : super._();
 
   factory _ActorBasic.fromJson(Map<String, dynamic> json) =
@@ -325,6 +367,8 @@ abstract class _ActorBasic extends ActorBasic {
   ActorViewer get viewer;
   @override
   List<Label>? get labels;
+  @override
+  ActorVerification get verification;
 
   /// Create a copy of ActorBasic
   /// with the given fields replaced by the non-null parameter values.

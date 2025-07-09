@@ -26,6 +26,7 @@ mixin _$MessageView {
   List<Facet>? get facets => throw _privateConstructorUsedError;
   @unionConvoMessageEmbedViewConverter
   UConvoMessageEmbedView? get embed => throw _privateConstructorUsedError;
+  List<ReactionView>? get reactions => throw _privateConstructorUsedError;
   MessageViewSender get sender => throw _privateConstructorUsedError;
   DateTime get sentAt => throw _privateConstructorUsedError;
 
@@ -51,6 +52,7 @@ abstract class $MessageViewCopyWith<$Res> {
       String text,
       List<Facet>? facets,
       @unionConvoMessageEmbedViewConverter UConvoMessageEmbedView? embed,
+      List<ReactionView>? reactions,
       MessageViewSender sender,
       DateTime sentAt});
 
@@ -78,6 +80,7 @@ class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
     Object? text = null,
     Object? facets = freezed,
     Object? embed = freezed,
+    Object? reactions = freezed,
     Object? sender = null,
     Object? sentAt = null,
   }) {
@@ -102,6 +105,10 @@ class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as UConvoMessageEmbedView?,
+      reactions: freezed == reactions
+          ? _value.reactions
+          : reactions // ignore: cast_nullable_to_non_nullable
+              as List<ReactionView>?,
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
@@ -152,6 +159,7 @@ abstract class _$$MessageViewImplCopyWith<$Res>
       String text,
       List<Facet>? facets,
       @unionConvoMessageEmbedViewConverter UConvoMessageEmbedView? embed,
+      List<ReactionView>? reactions,
       MessageViewSender sender,
       DateTime sentAt});
 
@@ -179,6 +187,7 @@ class __$$MessageViewImplCopyWithImpl<$Res>
     Object? text = null,
     Object? facets = freezed,
     Object? embed = freezed,
+    Object? reactions = freezed,
     Object? sender = null,
     Object? sentAt = null,
   }) {
@@ -203,6 +212,10 @@ class __$$MessageViewImplCopyWithImpl<$Res>
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as UConvoMessageEmbedView?,
+      reactions: freezed == reactions
+          ? _value._reactions
+          : reactions // ignore: cast_nullable_to_non_nullable
+              as List<ReactionView>?,
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
@@ -225,9 +238,11 @@ class _$MessageViewImpl implements _MessageView {
       required this.text,
       final List<Facet>? facets,
       @unionConvoMessageEmbedViewConverter this.embed,
+      final List<ReactionView>? reactions,
       required this.sender,
       required this.sentAt})
-      : _facets = facets;
+      : _facets = facets,
+        _reactions = reactions;
 
   factory _$MessageViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$MessageViewImplFromJson(json);
@@ -251,6 +266,16 @@ class _$MessageViewImpl implements _MessageView {
   @override
   @unionConvoMessageEmbedViewConverter
   final UConvoMessageEmbedView? embed;
+  final List<ReactionView>? _reactions;
+  @override
+  List<ReactionView>? get reactions {
+    final value = _reactions;
+    if (value == null) return null;
+    if (_reactions is EqualUnmodifiableListView) return _reactions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final MessageViewSender sender;
   @override
@@ -258,7 +283,7 @@ class _$MessageViewImpl implements _MessageView {
 
   @override
   String toString() {
-    return 'MessageView(id: $id, rev: $rev, text: $text, facets: $facets, embed: $embed, sender: $sender, sentAt: $sentAt)';
+    return 'MessageView(id: $id, rev: $rev, text: $text, facets: $facets, embed: $embed, reactions: $reactions, sender: $sender, sentAt: $sentAt)';
   }
 
   @override
@@ -271,14 +296,24 @@ class _$MessageViewImpl implements _MessageView {
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.embed, embed) || other.embed == embed) &&
+            const DeepCollectionEquality()
+                .equals(other._reactions, _reactions) &&
             (identical(other.sender, sender) || other.sender == sender) &&
             (identical(other.sentAt, sentAt) || other.sentAt == sentAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, rev, text,
-      const DeepCollectionEquality().hash(_facets), embed, sender, sentAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      rev,
+      text,
+      const DeepCollectionEquality().hash(_facets),
+      embed,
+      const DeepCollectionEquality().hash(_reactions),
+      sender,
+      sentAt);
 
   /// Create a copy of MessageView
   /// with the given fields replaced by the non-null parameter values.
@@ -303,6 +338,7 @@ abstract class _MessageView implements MessageView {
       required final String text,
       final List<Facet>? facets,
       @unionConvoMessageEmbedViewConverter final UConvoMessageEmbedView? embed,
+      final List<ReactionView>? reactions,
       required final MessageViewSender sender,
       required final DateTime sentAt}) = _$MessageViewImpl;
 
@@ -320,6 +356,8 @@ abstract class _MessageView implements MessageView {
   @override
   @unionConvoMessageEmbedViewConverter
   UConvoMessageEmbedView? get embed;
+  @override
+  List<ReactionView>? get reactions;
   @override
   MessageViewSender get sender;
   @override

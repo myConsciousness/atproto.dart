@@ -27,6 +27,12 @@ _$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
                       UConvoMessageEmbedView>(
                   v, unionConvoMessageEmbedViewConverter.fromJson)),
+          reactions: $checkedConvert(
+              'reactions',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => ReactionView.fromJson(
+                      Map<String, dynamic>.from(e as Map)))
+                  .toList()),
           sender: $checkedConvert(
               'sender',
               (v) => MessageViewSender.fromJson(
@@ -48,6 +54,8 @@ Map<String, dynamic> _$$MessageViewImplToJson(_$MessageViewImpl instance) =>
               instance.embed, unionConvoMessageEmbedViewConverter.toJson)
           case final value?)
         'embed': value,
+      if (instance.reactions?.map((e) => e.toJson()).toList() case final value?)
+        'reactions': value,
       'sender': instance.sender.toJson(),
       'sentAt': instance.sentAt.toIso8601String(),
     };

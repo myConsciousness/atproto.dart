@@ -4,6 +4,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import 'convo/acceptConvo/output.dart';
+import 'convo/addReaction/output.dart';
 import 'convo/defs/deleted_message_view.dart';
 import 'convo/defs/message_input.dart';
 import 'convo/defs/message_view.dart';
@@ -14,6 +16,7 @@ import 'convo/getMessages/output.dart';
 import 'convo/leaveConvo/output.dart';
 import 'convo/listConvos/output.dart';
 import 'convo/muteConvo/output.dart';
+import 'convo/removeReaction/output.dart';
 import 'convo/sendMessageBatch/batch_item.dart';
 import 'convo/sendMessageBatch/output.dart';
 import 'convo/unmuteConvo/output.dart';
@@ -97,7 +100,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoLeaveConvo,
-        parameters: {
+        body: {
           'convoId': convoId,
         },
         to: LeaveConvoOutput.fromJson,
@@ -107,12 +110,16 @@ final class ConvoService {
   Future<core.XRPCResponse<ListConvosOutput>> listConvos({
     int? limit,
     String? cursor,
+    String? readState,
+    String? status,
   }) async =>
       await _ctx.get(
         ns.chatBskyConvoListConvos,
         parameters: {
           'limit': limit,
           'cursor': cursor,
+          'readState': readState,
+          'status': status,
         },
         to: ListConvosOutput.fromJson,
       );
@@ -136,10 +143,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessage,
-        body: {
-          'convoId': convoId,
-          'message': message.toJson(),
-        },
+        body: {'convoId': convoId, 'message': message.toJson()},
         to: MessageView.fromJson,
       );
 
@@ -179,5 +183,49 @@ final class ConvoService {
           'messageId': messageId,
         },
         to: UpdateReadOutput.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/acceptconvo/
+  Future<core.XRPCResponse<AcceptConvoOutput>> acceptConvo({
+    required String convoId,
+  }) async =>
+      await _ctx.post(
+        ns.chatBskyConvoAcceptConvo,
+        body: {
+          'convoId': convoId,
+        },
+        to: AcceptConvoOutput.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/addReaction
+  Future<core.XRPCResponse<AddReactionOutput>> addReaction({
+    required String convoId,
+    required String messageId,
+    required String reaction,
+  }) async =>
+      await _ctx.post(
+        ns.chatBskyConvoAddReaction,
+        body: {
+          'convoId': convoId,
+          'messageId': messageId,
+          'value': reaction,
+        },
+        to: AddReactionOutput.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteReaction
+  Future<core.XRPCResponse<RemoveReactionOutput>> removeReaction({
+    required String convoId,
+    required String messageId,
+    required String reaction,
+  }) async =>
+      await _ctx.post(
+        ns.chatBskyConvoRemoveReaction,
+        body: {
+          'convoId': convoId,
+          'messageId': messageId,
+          'value': reaction,
+        },
+        to: RemoveReactionOutput.fromJson,
       );
 }

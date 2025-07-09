@@ -68,6 +68,11 @@ const _$NotificationReasonEnumMap = {
   NotificationReason.reply: 'reply',
   NotificationReason.quote: 'quote',
   NotificationReason.starterpackJoined: 'starterpack-joined',
+  NotificationReason.verified: 'verified',
+  NotificationReason.unverified: 'unverified',
+  NotificationReason.likeViaRepost: 'like-via-repost',
+  NotificationReason.repostViaRepost: 'repost-via-repost',
+  NotificationReason.subscribedPost: 'subscribed-post',
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

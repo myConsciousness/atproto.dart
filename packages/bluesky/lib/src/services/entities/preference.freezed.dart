@@ -32,6 +32,7 @@ mixin _$Preference {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +51,7 @@ mixin _$Preference {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +70,7 @@ mixin _$Preference {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -87,6 +90,8 @@ mixin _$Preference {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -105,6 +110,7 @@ mixin _$Preference {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -123,6 +129,7 @@ mixin _$Preference {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -246,6 +253,7 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return adultContent(data);
@@ -267,6 +275,7 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return adultContent?.call(data);
@@ -288,6 +297,7 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -313,6 +323,8 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return adultContent(this);
@@ -334,6 +346,7 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return adultContent?.call(this);
@@ -355,6 +368,7 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -477,6 +491,7 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return contentLabel(data);
@@ -498,6 +513,7 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return contentLabel?.call(data);
@@ -519,6 +535,7 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -544,6 +561,8 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return contentLabel(this);
@@ -565,6 +584,7 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return contentLabel?.call(this);
@@ -586,6 +606,7 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -707,6 +728,7 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return savedFeeds(data);
@@ -728,6 +750,7 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return savedFeeds?.call(data);
@@ -749,6 +772,7 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -774,6 +798,8 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return savedFeeds(this);
@@ -795,6 +821,7 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return savedFeeds?.call(this);
@@ -816,6 +843,7 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -937,6 +965,7 @@ class _$UPreferenceSavedFeedsV2Impl extends UPreferenceSavedFeedsV2 {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return savedFeedsV2(data);
@@ -958,6 +987,7 @@ class _$UPreferenceSavedFeedsV2Impl extends UPreferenceSavedFeedsV2 {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return savedFeedsV2?.call(data);
@@ -979,6 +1009,7 @@ class _$UPreferenceSavedFeedsV2Impl extends UPreferenceSavedFeedsV2 {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1004,6 +1035,8 @@ class _$UPreferenceSavedFeedsV2Impl extends UPreferenceSavedFeedsV2 {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return savedFeedsV2(this);
@@ -1025,6 +1058,7 @@ class _$UPreferenceSavedFeedsV2Impl extends UPreferenceSavedFeedsV2 {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return savedFeedsV2?.call(this);
@@ -1046,6 +1080,7 @@ class _$UPreferenceSavedFeedsV2Impl extends UPreferenceSavedFeedsV2 {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1167,6 +1202,7 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return personalDetails(data);
@@ -1188,6 +1224,7 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return personalDetails?.call(data);
@@ -1209,6 +1246,7 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1234,6 +1272,8 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return personalDetails(this);
@@ -1255,6 +1295,7 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return personalDetails?.call(this);
@@ -1276,6 +1317,7 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1396,6 +1438,7 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return feedView(data);
@@ -1417,6 +1460,7 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return feedView?.call(data);
@@ -1438,6 +1482,7 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1463,6 +1508,8 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return feedView(this);
@@ -1484,6 +1531,7 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return feedView?.call(this);
@@ -1505,6 +1553,7 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1625,6 +1674,7 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return threadView(data);
@@ -1646,6 +1696,7 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return threadView?.call(data);
@@ -1667,6 +1718,7 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1692,6 +1744,8 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return threadView(this);
@@ -1713,6 +1767,7 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return threadView?.call(this);
@@ -1734,6 +1789,7 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1854,6 +1910,7 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return interests(data);
@@ -1875,6 +1932,7 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return interests?.call(data);
@@ -1896,6 +1954,7 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1921,6 +1980,8 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return interests(this);
@@ -1942,6 +2003,7 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return interests?.call(this);
@@ -1963,6 +2025,7 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2083,6 +2146,7 @@ class _$UPreferenceMutedWordsImpl extends UPreferenceMutedWords {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return mutedWords(data);
@@ -2104,6 +2168,7 @@ class _$UPreferenceMutedWordsImpl extends UPreferenceMutedWords {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return mutedWords?.call(data);
@@ -2125,6 +2190,7 @@ class _$UPreferenceMutedWordsImpl extends UPreferenceMutedWords {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2150,6 +2216,8 @@ class _$UPreferenceMutedWordsImpl extends UPreferenceMutedWords {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return mutedWords(this);
@@ -2171,6 +2239,7 @@ class _$UPreferenceMutedWordsImpl extends UPreferenceMutedWords {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return mutedWords?.call(this);
@@ -2192,6 +2261,7 @@ class _$UPreferenceMutedWordsImpl extends UPreferenceMutedWords {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2313,6 +2383,7 @@ class _$UPreferenceHiddenPostsImpl extends UPreferenceHiddenPosts {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return hiddenPosts(data);
@@ -2334,6 +2405,7 @@ class _$UPreferenceHiddenPostsImpl extends UPreferenceHiddenPosts {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return hiddenPosts?.call(data);
@@ -2355,6 +2427,7 @@ class _$UPreferenceHiddenPostsImpl extends UPreferenceHiddenPosts {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2380,6 +2453,8 @@ class _$UPreferenceHiddenPostsImpl extends UPreferenceHiddenPosts {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return hiddenPosts(this);
@@ -2401,6 +2476,7 @@ class _$UPreferenceHiddenPostsImpl extends UPreferenceHiddenPosts {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return hiddenPosts?.call(this);
@@ -2422,6 +2498,7 @@ class _$UPreferenceHiddenPostsImpl extends UPreferenceHiddenPosts {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2543,6 +2620,7 @@ class _$UPreferenceLabelersPrefImpl extends UPreferenceLabelersPref {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return labelersPref(data);
@@ -2564,6 +2642,7 @@ class _$UPreferenceLabelersPrefImpl extends UPreferenceLabelersPref {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return labelersPref?.call(data);
@@ -2585,6 +2664,7 @@ class _$UPreferenceLabelersPrefImpl extends UPreferenceLabelersPref {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2610,6 +2690,8 @@ class _$UPreferenceLabelersPrefImpl extends UPreferenceLabelersPref {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return labelersPref(this);
@@ -2631,6 +2713,7 @@ class _$UPreferenceLabelersPrefImpl extends UPreferenceLabelersPref {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return labelersPref?.call(this);
@@ -2652,6 +2735,7 @@ class _$UPreferenceLabelersPrefImpl extends UPreferenceLabelersPref {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2778,6 +2862,7 @@ class _$UPreferencePostInteractionSettingsPrefImpl
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return postInteractionSettingsPref(data);
@@ -2799,6 +2884,7 @@ class _$UPreferencePostInteractionSettingsPrefImpl
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return postInteractionSettingsPref?.call(data);
@@ -2820,6 +2906,7 @@ class _$UPreferencePostInteractionSettingsPrefImpl
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -2845,6 +2932,8 @@ class _$UPreferencePostInteractionSettingsPrefImpl
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return postInteractionSettingsPref(this);
@@ -2866,6 +2955,7 @@ class _$UPreferencePostInteractionSettingsPrefImpl
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return postInteractionSettingsPref?.call(this);
@@ -2887,6 +2977,7 @@ class _$UPreferencePostInteractionSettingsPrefImpl
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -2911,6 +3002,249 @@ abstract class UPreferencePostInteractionSettingsPref extends Preference {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UPreferencePostInteractionSettingsPrefImplCopyWith<
           _$UPreferencePostInteractionSettingsPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPreferenceVerificationPreferenceImplCopyWith<$Res> {
+  factory _$$UPreferenceVerificationPreferenceImplCopyWith(
+          _$UPreferenceVerificationPreferenceImpl value,
+          $Res Function(_$UPreferenceVerificationPreferenceImpl) then) =
+      __$$UPreferenceVerificationPreferenceImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({VerificationPreference data});
+
+  $VerificationPreferenceCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPreferenceVerificationPreferenceImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res,
+        _$UPreferenceVerificationPreferenceImpl>
+    implements _$$UPreferenceVerificationPreferenceImplCopyWith<$Res> {
+  __$$UPreferenceVerificationPreferenceImplCopyWithImpl(
+      _$UPreferenceVerificationPreferenceImpl _value,
+      $Res Function(_$UPreferenceVerificationPreferenceImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPreferenceVerificationPreferenceImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as VerificationPreference,
+    ));
+  }
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VerificationPreferenceCopyWith<$Res> get data {
+    return $VerificationPreferenceCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPreferenceVerificationPreferenceImpl
+    extends UPreferenceVerificationPreference {
+  const _$UPreferenceVerificationPreferenceImpl({required this.data})
+      : super._();
+
+  @override
+  final VerificationPreference data;
+
+  @override
+  String toString() {
+    return 'Preference.verification(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPreferenceVerificationPreferenceImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceVerificationPreferenceImplCopyWith<
+          _$UPreferenceVerificationPreferenceImpl>
+      get copyWith => __$$UPreferenceVerificationPreferenceImplCopyWithImpl<
+          _$UPreferenceVerificationPreferenceImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(SavedFeedsPrefV2 data) savedFeedsV2,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(LabelersPref data) labelersPref,
+    required TResult Function(PostInteractionSettingsPref data)
+        postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return verification(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(LabelersPref data)? labelersPref,
+    TResult? Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return verification?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(SavedFeedsPrefV2 data)? savedFeedsV2,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(LabelersPref data)? labelersPref,
+    TResult Function(PostInteractionSettingsPref data)?
+        postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (verification != null) {
+      return verification(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferenceSavedFeedsV2 value) savedFeedsV2,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceLabelersPref value) labelersPref,
+    required TResult Function(UPreferencePostInteractionSettingsPref value)
+        postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return verification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult? Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return verification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferenceSavedFeedsV2 value)? savedFeedsV2,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceLabelersPref value)? labelersPref,
+    TResult Function(UPreferencePostInteractionSettingsPref value)?
+        postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (verification != null) {
+      return verification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferenceVerificationPreference extends Preference {
+  const factory UPreferenceVerificationPreference(
+          {required final VerificationPreference data}) =
+      _$UPreferenceVerificationPreferenceImpl;
+  const UPreferenceVerificationPreference._() : super._();
+
+  @override
+  VerificationPreference get data;
+
+  /// Create a copy of Preference
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UPreferenceVerificationPreferenceImplCopyWith<
+          _$UPreferenceVerificationPreferenceImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -3004,6 +3338,7 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     required TResult Function(LabelersPref data) labelersPref,
     required TResult Function(PostInteractionSettingsPref data)
         postInteractionSettingsPref,
+    required TResult Function(VerificationPreference data) verification,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -3025,6 +3360,7 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     TResult? Function(LabelersPref data)? labelersPref,
     TResult? Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult? Function(VerificationPreference data)? verification,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -3046,6 +3382,7 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     TResult Function(LabelersPref data)? labelersPref,
     TResult Function(PostInteractionSettingsPref data)?
         postInteractionSettingsPref,
+    TResult Function(VerificationPreference data)? verification,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -3071,6 +3408,8 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     required TResult Function(UPreferenceLabelersPref value) labelersPref,
     required TResult Function(UPreferencePostInteractionSettingsPref value)
         postInteractionSettingsPref,
+    required TResult Function(UPreferenceVerificationPreference value)
+        verification,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return unknown(this);
@@ -3092,6 +3431,7 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     TResult? Function(UPreferenceLabelersPref value)? labelersPref,
     TResult? Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult? Function(UPreferenceVerificationPreference value)? verification,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -3113,6 +3453,7 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     TResult Function(UPreferenceLabelersPref value)? labelersPref,
     TResult Function(UPreferencePostInteractionSettingsPref value)?
         postInteractionSettingsPref,
+    TResult Function(UPreferenceVerificationPreference value)? verification,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {

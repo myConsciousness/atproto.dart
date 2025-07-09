@@ -31,6 +31,7 @@ mixin _$ActorProfile {
   int get postsCount => throw _privateConstructorUsedError;
   ProfileAssociated? get associated => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
+  ActorVerification get verification => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
@@ -64,6 +65,7 @@ abstract class $ActorProfileCopyWith<$Res> {
       int postsCount,
       ProfileAssociated? associated,
       ActorViewer viewer,
+      ActorVerification verification,
       List<Label>? labels,
       DateTime? createdAt,
       DateTime? indexedAt,
@@ -71,6 +73,7 @@ abstract class $ActorProfileCopyWith<$Res> {
 
   $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
+  $ActorVerificationCopyWith<$Res> get verification;
   $StrongRefCopyWith<$Res>? get pinnedPost;
 }
 
@@ -100,6 +103,7 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
     Object? postsCount = null,
     Object? associated = freezed,
     Object? viewer = null,
+    Object? verification = null,
     Object? labels = freezed,
     Object? createdAt = freezed,
     Object? indexedAt = freezed,
@@ -150,6 +154,10 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      verification: null == verification
+          ? _value.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -197,6 +205,16 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $ActorVerificationCopyWith<$Res> get verification {
+    return $ActorVerificationCopyWith<$Res>(_value.verification, (value) {
+      return _then(_value.copyWith(verification: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ActorProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StrongRefCopyWith<$Res>? get pinnedPost {
     if (_value.pinnedPost == null) {
       return null;
@@ -228,6 +246,7 @@ abstract class _$$ActorProfileImplCopyWith<$Res>
       int postsCount,
       ProfileAssociated? associated,
       ActorViewer viewer,
+      ActorVerification verification,
       List<Label>? labels,
       DateTime? createdAt,
       DateTime? indexedAt,
@@ -237,6 +256,8 @@ abstract class _$$ActorProfileImplCopyWith<$Res>
   $ProfileAssociatedCopyWith<$Res>? get associated;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
+  @override
+  $ActorVerificationCopyWith<$Res> get verification;
   @override
   $StrongRefCopyWith<$Res>? get pinnedPost;
 }
@@ -265,6 +286,7 @@ class __$$ActorProfileImplCopyWithImpl<$Res>
     Object? postsCount = null,
     Object? associated = freezed,
     Object? viewer = null,
+    Object? verification = null,
     Object? labels = freezed,
     Object? createdAt = freezed,
     Object? indexedAt = freezed,
@@ -315,6 +337,10 @@ class __$$ActorProfileImplCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ActorViewer,
+      verification: null == verification
+          ? _value.verification
+          : verification // ignore: cast_nullable_to_non_nullable
+              as ActorVerification,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -351,6 +377,7 @@ class _$ActorProfileImpl extends _ActorProfile {
       this.postsCount = 0,
       this.associated,
       this.viewer = defaultActorViewer,
+      this.verification = defaultActorVerification,
       final List<Label>? labels,
       this.createdAt,
       this.indexedAt,
@@ -387,6 +414,9 @@ class _$ActorProfileImpl extends _ActorProfile {
   @override
   @JsonKey()
   final ActorViewer viewer;
+  @override
+  @JsonKey()
+  final ActorVerification verification;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -406,7 +436,7 @@ class _$ActorProfileImpl extends _ActorProfile {
 
   @override
   String toString() {
-    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, associated: $associated, viewer: $viewer, labels: $labels, createdAt: $createdAt, indexedAt: $indexedAt, pinnedPost: $pinnedPost)';
+    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, associated: $associated, viewer: $viewer, verification: $verification, labels: $labels, createdAt: $createdAt, indexedAt: $indexedAt, pinnedPost: $pinnedPost)';
   }
 
   @override
@@ -431,6 +461,8 @@ class _$ActorProfileImpl extends _ActorProfile {
             (identical(other.associated, associated) ||
                 other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.verification, verification) ||
+                other.verification == verification) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -455,6 +487,7 @@ class _$ActorProfileImpl extends _ActorProfile {
       postsCount,
       associated,
       viewer,
+      verification,
       const DeepCollectionEquality().hash(_labels),
       createdAt,
       indexedAt,
@@ -489,6 +522,7 @@ abstract class _ActorProfile extends ActorProfile {
       final int postsCount,
       final ProfileAssociated? associated,
       final ActorViewer viewer,
+      final ActorVerification verification,
       final List<Label>? labels,
       final DateTime? createdAt,
       final DateTime? indexedAt,
@@ -520,6 +554,8 @@ abstract class _ActorProfile extends ActorProfile {
   ProfileAssociated? get associated;
   @override
   ActorViewer get viewer;
+  @override
+  ActorVerification get verification;
   @override
   List<Label>? get labels;
   @override
