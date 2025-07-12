@@ -1,4 +1,3 @@
-export 'package:bluesky/src/services/entities/link_preview.dart';
 export 'package:bluesky/src/services/utils/link_preview.dart'
     show findLinkPreview;
 

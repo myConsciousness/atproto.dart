@@ -1,4 +1,0 @@
-enum MutedWordTarget {
-  content,
-  tag,
-}
