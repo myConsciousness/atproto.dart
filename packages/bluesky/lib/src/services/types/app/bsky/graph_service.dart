@@ -65,7 +65,7 @@ final class GraphService {
           );
   Future<XRPCResponse<RepoCreateRecordOutput>> block({
     required String subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -76,13 +76,13 @@ final class GraphService {
         rkey: $rey,
         record: {
           'subject': subject,
-          'createdAt': createdAt,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );
   Future<XRPCResponse<RepoCreateRecordOutput>> follow({
     required String subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -93,7 +93,7 @@ final class GraphService {
         rkey: $rey,
         record: {
           'subject': subject,
-          'createdAt': createdAt,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );
@@ -130,7 +130,7 @@ final class GraphService {
       );
   Future<XRPCResponse<RepoCreateRecordOutput>> listblock({
     required String subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -141,7 +141,7 @@ final class GraphService {
         rkey: $rey,
         record: {
           'subject': subject,
-          'createdAt': createdAt,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );
@@ -167,7 +167,7 @@ final class GraphService {
     List<RichtextFacet>? descriptionFacets,
     required String list,
     List<FeedItem>? feeds,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -179,10 +179,12 @@ final class GraphService {
         record: {
           'name': name,
           if (description != null) 'description': description,
-          if (descriptionFacets != null) 'descriptionFacets': descriptionFacets,
+          if (descriptionFacets != null)
+            'descriptionFacets':
+                descriptionFacets.map((e) => e.toJson()).toList(),
           'list': list,
-          if (feeds != null) 'feeds': feeds,
-          'createdAt': createdAt,
+          if (feeds != null) 'feeds': feeds.map((e) => e.toJson()).toList(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );
@@ -339,7 +341,7 @@ final class GraphService {
   Future<XRPCResponse<RepoCreateRecordOutput>> listitem({
     required String subject,
     required String list,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -351,7 +353,7 @@ final class GraphService {
         record: {
           'subject': subject,
           'list': list,
-          'createdAt': createdAt,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );
@@ -362,7 +364,7 @@ final class GraphService {
     List<RichtextFacet>? descriptionFacets,
     Blob? avatar,
     UGraphListLabels? labels,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -372,13 +374,15 @@ final class GraphService {
         collection: ids.appBskyGraphList,
         rkey: $rey,
         record: {
-          'purpose': purpose,
+          'purpose': purpose.toJson(),
           'name': name,
           if (description != null) 'description': description,
-          if (descriptionFacets != null) 'descriptionFacets': descriptionFacets,
+          if (descriptionFacets != null)
+            'descriptionFacets':
+                descriptionFacets.map((e) => e.toJson()).toList(),
           if (avatar != null) 'avatar': avatar,
-          if (labels != null) 'labels': labels,
-          'createdAt': createdAt,
+          if (labels != null) 'labels': labels.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );
@@ -406,7 +410,7 @@ final class GraphService {
     required String subject,
     required String handle,
     required String displayName,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -419,7 +423,7 @@ final class GraphService {
           'subject': subject,
           'handle': handle,
           'displayName': displayName,
-          'createdAt': createdAt,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );

@@ -196,7 +196,7 @@ final class RepoService {
         body: {
           'repo': repo,
           if (validate != null) 'validate': validate,
-          'writes': writes,
+          'writes': writes.map((e) => e.toJson()).toList(),
           if (swapCommit != null) 'swapCommit': swapCommit,
           ...?$unknown,
         },

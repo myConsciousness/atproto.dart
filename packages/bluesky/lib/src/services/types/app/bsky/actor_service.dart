@@ -129,7 +129,7 @@ final class ActorService {
     required String status,
     UActorStatusEmbed? embed,
     int? durationMinutes,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -140,9 +140,9 @@ final class ActorService {
         rkey: $rey,
         record: {
           'status': status,
-          if (embed != null) 'embed': embed,
+          if (embed != null) 'embed': embed.toJson(),
           if (durationMinutes != null) 'durationMinutes': durationMinutes,
-          'createdAt': createdAt,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );
@@ -182,11 +182,12 @@ final class ActorService {
           if (description != null) 'description': description,
           if (avatar != null) 'avatar': avatar,
           if (banner != null) 'banner': banner,
-          if (labels != null) 'labels': labels,
+          if (labels != null) 'labels': labels.toJson(),
           if (joinedViaStarterPack != null)
-            'joinedViaStarterPack': joinedViaStarterPack,
-          if (pinnedPost != null) 'pinnedPost': pinnedPost,
-          if (createdAt != null) 'createdAt': createdAt,
+            'joinedViaStarterPack': joinedViaStarterPack.toJson(),
+          if (pinnedPost != null) 'pinnedPost': pinnedPost.toJson(),
+          if (createdAt != null)
+            'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );

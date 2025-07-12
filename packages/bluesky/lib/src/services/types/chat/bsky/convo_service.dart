@@ -104,7 +104,7 @@ final class ConvoService {
         headers: $headers,
         body: {
           'convoId': convoId,
-          'message': message,
+          'message': message.toJson(),
           ...?$unknown,
         },
         to: const MessageViewConverter().fromJson,
@@ -292,7 +292,7 @@ final class ConvoService {
         ns.chatBskyConvoSendMessageBatch,
         headers: $headers,
         body: {
-          'items': items,
+          'items': items.map((e) => e.toJson()).toList(),
           ...?$unknown,
         },
         to: const ConvoSendMessageBatchOutputConverter().fromJson,

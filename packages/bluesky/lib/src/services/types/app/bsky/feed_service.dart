@@ -47,7 +47,7 @@ final class FeedService {
     bool? acceptsInteractions,
     UFeedGeneratorLabels? labels,
     String? contentMode,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -60,13 +60,15 @@ final class FeedService {
           'did': did,
           'displayName': displayName,
           if (description != null) 'description': description,
-          if (descriptionFacets != null) 'descriptionFacets': descriptionFacets,
+          if (descriptionFacets != null)
+            'descriptionFacets':
+                descriptionFacets.map((e) => e.toJson()).toList(),
           if (avatar != null) 'avatar': avatar,
           if (acceptsInteractions != null)
             'acceptsInteractions': acceptsInteractions,
-          if (labels != null) 'labels': labels,
+          if (labels != null) 'labels': labels.toJson(),
           if (contentMode != null) 'contentMode': contentMode,
-          'createdAt': createdAt,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );
@@ -81,7 +83,7 @@ final class FeedService {
         ns.appBskyFeedSendInteractions,
         headers: $headers,
         body: {
-          'interactions': interactions,
+          'interactions': interactions.map((e) => e.toJson()).toList(),
           ...?$unknown,
         },
       );
@@ -184,7 +186,7 @@ final class FeedService {
         to: const FeedGetLikesOutputConverter().fromJson,
       );
   Future<XRPCResponse<RepoCreateRecordOutput>> postgate({
-    required DateTime createdAt,
+    DateTime? createdAt,
     required String post,
     List<String>? detachedEmbeddingUris,
     List<UFeedPostgateEmbeddingRules>? embeddingRules,
@@ -197,18 +199,19 @@ final class FeedService {
         collection: ids.appBskyFeedPostgate,
         rkey: $rey,
         record: {
-          'createdAt': createdAt,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           'post': post,
           if (detachedEmbeddingUris != null)
             'detachedEmbeddingUris': detachedEmbeddingUris,
-          if (embeddingRules != null) 'embeddingRules': embeddingRules,
+          if (embeddingRules != null)
+            'embeddingRules': embeddingRules.map((e) => e.toJson()).toList(),
           ...?$unknown,
         },
       );
   Future<XRPCResponse<RepoCreateRecordOutput>> threadgate({
     required String post,
     List<UFeedThreadgateAllow>? allow,
-    required DateTime createdAt,
+    DateTime? createdAt,
     List<String>? hiddenReplies,
     String? $rey,
     Map<String, String>? $headers,
@@ -220,8 +223,8 @@ final class FeedService {
         rkey: $rey,
         record: {
           'post': post,
-          if (allow != null) 'allow': allow,
-          'createdAt': createdAt,
+          if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           if (hiddenReplies != null) 'hiddenReplies': hiddenReplies,
           ...?$unknown,
         },
@@ -268,7 +271,7 @@ final class FeedService {
       );
   Future<XRPCResponse<RepoCreateRecordOutput>> like({
     required RepoStrongRef subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
     RepoStrongRef? via,
     String? $rey,
     Map<String, String>? $headers,
@@ -279,9 +282,9 @@ final class FeedService {
         collection: ids.appBskyFeedLike,
         rkey: $rey,
         record: {
-          'subject': subject,
-          'createdAt': createdAt,
-          if (via != null) 'via': via,
+          'subject': subject.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          if (via != null) 'via': via.toJson(),
           ...?$unknown,
         },
       );
@@ -309,7 +312,7 @@ final class FeedService {
       );
   Future<XRPCResponse<RepoCreateRecordOutput>> repost({
     required RepoStrongRef subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
     RepoStrongRef? via,
     String? $rey,
     Map<String, String>? $headers,
@@ -320,9 +323,9 @@ final class FeedService {
         collection: ids.appBskyFeedRepost,
         rkey: $rey,
         record: {
-          'subject': subject,
-          'createdAt': createdAt,
-          if (via != null) 'via': via,
+          'subject': subject.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          if (via != null) 'via': via.toJson(),
           ...?$unknown,
         },
       );
@@ -522,7 +525,7 @@ final class FeedService {
     List<String>? langs,
     UFeedPostLabels? labels,
     List<String>? tags,
-    required DateTime createdAt,
+    DateTime? createdAt,
     String? $rey,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -533,13 +536,13 @@ final class FeedService {
         rkey: $rey,
         record: {
           'text': text,
-          if (facets != null) 'facets': facets,
-          if (reply != null) 'reply': reply,
-          if (embed != null) 'embed': embed,
+          if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
+          if (reply != null) 'reply': reply.toJson(),
+          if (embed != null) 'embed': embed.toJson(),
           if (langs != null) 'langs': langs,
-          if (labels != null) 'labels': labels,
+          if (labels != null) 'labels': labels.toJson(),
           if (tags != null) 'tags': tags,
-          'createdAt': createdAt,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...?$unknown,
         },
       );

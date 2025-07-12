@@ -44,7 +44,7 @@ final class VerificationService {
             ns.toolsOzoneVerificationGrantVerifications,
             headers: $headers,
             body: {
-              'verifications': verifications,
+              'verifications': verifications.map((e) => e.toJson()).toList(),
               ...?$unknown,
             },
             to: const VerificationGrantVerificationsOutputConverter().fromJson,

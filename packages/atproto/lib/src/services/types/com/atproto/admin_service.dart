@@ -198,9 +198,9 @@ final class AdminService {
         ns.comAtprotoAdminUpdateSubjectStatus,
         headers: $headers,
         body: {
-          'subject': subject,
-          if (takedown != null) 'takedown': takedown,
-          if (deactivated != null) 'deactivated': deactivated,
+          'subject': subject.toJson(),
+          if (takedown != null) 'takedown': takedown.toJson(),
+          if (deactivated != null) 'deactivated': deactivated.toJson(),
           ...?$unknown,
         },
         to: const AdminUpdateSubjectStatusOutputConverter().fromJson,

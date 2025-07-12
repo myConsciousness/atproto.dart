@@ -1,6 +1,6 @@
 // Project imports:
-import '../entities/notification.dart';
-import '../entities/notifications.dart';
+import '../types/app/bsky/notification/listNotifications/notification.dart';
+import '../types/app/bsky/notification/listNotifications/output.dart';
 
 sealed class GroupBy {
   // ignore: unused_element
@@ -9,7 +9,9 @@ sealed class GroupBy {
   const factory GroupBy.hour(final int hour) = Hour;
   const factory GroupBy.minute(final int minute) = Minute;
 
-  List<List<Notification>> execute(final Notifications data);
+  List<List<Notification>> execute(
+    final NotificationListNotificationsOutput data,
+  );
 }
 
 final class Hour implements GroupBy {
@@ -18,7 +20,7 @@ final class Hour implements GroupBy {
   final int hour;
 
   @override
-  List<List<Notification>> execute(Notifications data) {
+  List<List<Notification>> execute(NotificationListNotificationsOutput data) {
     return _buildChunks(
       _groupBy(
         data.notifications,
@@ -40,7 +42,7 @@ final class Minute implements GroupBy {
   final int minute;
 
   @override
-  List<List<Notification>> execute(Notifications data) {
+  List<List<Notification>> execute(NotificationListNotificationsOutput data) {
     return _buildChunks(
       _groupBy(
         data.notifications,

@@ -27,10 +27,10 @@ final class ModerationService {
         ns.comAtprotoModerationCreateReport,
         headers: $headers,
         body: {
-          'reasonType': reasonType,
+          'reasonType': reasonType.toJson(),
           if (reason != null) 'reason': reason,
-          'subject': subject,
-          if (modTool != null) 'modTool': modTool,
+          'subject': subject.toJson(),
+          if (modTool != null) 'modTool': modTool.toJson(),
           ...?$unknown,
         },
         to: const ModerationCreateReportOutputConverter().fromJson,

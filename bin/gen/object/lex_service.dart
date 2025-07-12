@@ -223,7 +223,9 @@ final class LexApi {
     }
     buffer.writeln('Future<XRPCResponse<RepoCreateRecordOutput>> $name({');
     for (final parameter in parameters ?? const <LexParameter>[]) {
-      buffer.writeln(parameter.getParams());
+      buffer.writeln(parameter.getParams(
+        ignoreRequired: parameter.name == 'createdAt',
+      ));
     }
     buffer.writeln('  String? \$rey,');
     buffer.writeln('  Map<String, String>? \$headers,');
@@ -235,7 +237,9 @@ final class LexApi {
     buffer.writeln('    rkey: \$rey,');
     buffer.writeln('    record: {');
     for (final parameter in parameters ?? const <LexParameter>[]) {
-      buffer.writeln(parameter.getParamsRecord());
+      buffer.writeln(parameter.getParamsRecord(
+        isRecordCreatedAt: parameter.name == 'createdAt',
+      ));
     }
     buffer.writeln('      ...?\$unknown,');
     buffer.writeln('    },');

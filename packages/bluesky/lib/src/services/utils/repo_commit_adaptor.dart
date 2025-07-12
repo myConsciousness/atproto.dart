@@ -3,6 +3,7 @@ import 'dart:async';
 
 // Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:atproto/com_atproto_sync_subscriberepos.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:
@@ -10,20 +11,22 @@ import '../../ids.g.dart' as ids;
 import '../entities/adaptor/repo_commit_create.dart';
 import '../entities/adaptor/repo_commit_delete.dart';
 import '../entities/adaptor/repo_commit_update.dart';
-import '../entities/block_list_record.dart';
-import '../entities/block_record.dart';
 import '../entities/converter/post_record_converter.dart';
-import '../entities/follow_record.dart';
-import '../entities/generator_record.dart';
-import '../entities/labeler_service_record.dart';
-import '../entities/like_record.dart';
-import '../entities/list_item_record.dart';
-import '../entities/list_record.dart';
-import '../entities/post_record.dart';
-import '../entities/profile_record.dart';
-import '../entities/repost_record.dart';
-import '../entities/threadgate_record.dart';
 import '../extensions/at_uri.dart';
+import '../types/app/bsky/actor/profile/main.dart';
+import '../types/app/bsky/feed/generator/main.dart';
+import '../types/app/bsky/feed/like/main.dart';
+import '../types/app/bsky/feed/post/main.dart';
+import '../types/app/bsky/feed/repost/main.dart';
+import '../types/app/bsky/feed/threadgate/main.dart';
+import '../types/app/bsky/graph/block/main.dart';
+import '../types/app/bsky/graph/follow/main.dart';
+import '../types/app/bsky/graph/list/main.dart';
+import '../types/app/bsky/graph/listblock/main.dart';
+import '../types/app/bsky/graph/listitem/main.dart';
+import '../types/app/bsky/labeler/service/main.dart';
+
+// Project imports:
 
 /// Action on create records.
 typedef RepoCommitOnCreate<T> = FutureOr<void> Function(
@@ -39,19 +42,19 @@ typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
 final class RepoCommitAdaptor {
   /// Returns the new instance of [RepoCommitAdaptor].
   const RepoCommitAdaptor({
-    final RepoCommitOnCreate<PostRecord>? onCreatePost,
-    final RepoCommitOnCreate<RepostRecord>? onCreateRepost,
-    final RepoCommitOnCreate<LikeRecord>? onCreateLike,
-    final RepoCommitOnCreate<GeneratorRecord>? onCreateGenerator,
-    final RepoCommitOnCreate<ThreadgateRecord>? onCreateThreadgate,
-    final RepoCommitOnCreate<FollowRecord>? onCreateFollow,
-    final RepoCommitOnCreate<BlockRecord>? onCreateBlock,
-    final RepoCommitOnCreate<ListRecord>? onCreateList,
-    final RepoCommitOnCreate<ListItemRecord>? onCreateListItem,
-    final RepoCommitOnCreate<BlockListRecord>? onCreateBlockList,
+    final RepoCommitOnCreate<FeedPostRecord>? onCreatePost,
+    final RepoCommitOnCreate<FeedRepostRecord>? onCreateRepost,
+    final RepoCommitOnCreate<FeedLikeRecord>? onCreateLike,
+    final RepoCommitOnCreate<FeedGeneratorRecord>? onCreateGenerator,
+    final RepoCommitOnCreate<FeedThreadgateRecord>? onCreateThreadgate,
+    final RepoCommitOnCreate<GraphFollowRecord>? onCreateFollow,
+    final RepoCommitOnCreate<GraphBlockRecord>? onCreateBlock,
+    final RepoCommitOnCreate<GraphListRecord>? onCreateList,
+    final RepoCommitOnCreate<GraphListitemRecord>? onCreateListItem,
+    final RepoCommitOnCreate<GraphListblockRecord>? onCreateBlockList,
     final RepoCommitOnCreate<LabelerServiceRecord>? onCreateLabelerService,
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
-    final RepoCommitOnUpdate<ProfileRecord>? onUpdateProfile,
+    final RepoCommitOnUpdate<ActorProfileRecord>? onUpdateProfile,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
     final RepoCommitOnDelete? onDeletePost,
     final RepoCommitOnDelete? onDeleteRepost,
@@ -92,20 +95,20 @@ final class RepoCommitAdaptor {
         _onDeleteLabelerService = onDeleteLabelerService,
         _onDeleteUnknown = onDeleteUnknown;
 
-  final RepoCommitOnCreate<PostRecord>? _onCreatePost;
-  final RepoCommitOnCreate<RepostRecord>? _onCreateRepost;
-  final RepoCommitOnCreate<LikeRecord>? _onCreateLike;
-  final RepoCommitOnCreate<GeneratorRecord>? _onCreateGenerator;
-  final RepoCommitOnCreate<ThreadgateRecord>? _onCreateThreadgate;
-  final RepoCommitOnCreate<FollowRecord>? _onCreateFollow;
-  final RepoCommitOnCreate<BlockRecord>? _onCreateBlock;
-  final RepoCommitOnCreate<ListRecord>? _onCreateList;
-  final RepoCommitOnCreate<ListItemRecord>? _onCreateListItem;
-  final RepoCommitOnCreate<BlockListRecord>? _onCreateBlockList;
+  final RepoCommitOnCreate<FeedPostRecord>? _onCreatePost;
+  final RepoCommitOnCreate<FeedRepostRecord>? _onCreateRepost;
+  final RepoCommitOnCreate<FeedLikeRecord>? _onCreateLike;
+  final RepoCommitOnCreate<FeedGeneratorRecord>? _onCreateGenerator;
+  final RepoCommitOnCreate<FeedThreadgateRecord>? _onCreateThreadgate;
+  final RepoCommitOnCreate<GraphFollowRecord>? _onCreateFollow;
+  final RepoCommitOnCreate<GraphBlockRecord>? _onCreateBlock;
+  final RepoCommitOnCreate<GraphListRecord>? _onCreateList;
+  final RepoCommitOnCreate<GraphListitemRecord>? _onCreateListItem;
+  final RepoCommitOnCreate<GraphListblockRecord>? _onCreateBlockList;
   final RepoCommitOnCreate<LabelerServiceRecord>? _onCreateLabelerService;
   final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
 
-  final RepoCommitOnUpdate<ProfileRecord>? _onUpdateProfile;
+  final RepoCommitOnUpdate<ActorProfileRecord>? _onUpdateProfile;
   final RepoCommitOnUpdate<Map<String, dynamic>>? _onUpdateUnknown;
 
   final RepoCommitOnDelete? _onDeletePost;
@@ -150,7 +153,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -162,7 +165,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -174,7 +177,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -186,7 +189,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -198,7 +201,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -208,7 +211,7 @@ final class RepoCommitAdaptor {
         RepoCommitCreate<FollowRecord>(
           record: FollowRecord.fromJson(op.record!),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -220,7 +223,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -232,7 +235,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -244,7 +247,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -256,7 +259,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -268,7 +271,7 @@ final class RepoCommitAdaptor {
             op.record!,
           ),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -278,7 +281,7 @@ final class RepoCommitAdaptor {
         RepoCommitCreate<Map<String, dynamic>>(
           record: op.record!,
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
         ),
@@ -296,7 +299,7 @@ final class RepoCommitAdaptor {
         RepoCommitUpdate<ProfileRecord>(
           record: ProfileRecord.fromJson(op.record!),
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
           createdAt: data.createdAt,
@@ -307,7 +310,7 @@ final class RepoCommitAdaptor {
         RepoCommitUpdate<Map<String, dynamic>>(
           record: op.record!,
           uri: op.uri,
-          cid: op.cid!,
+          cid: op.cid,
           author: data.did,
           cursor: data.cursor,
           createdAt: data.createdAt,

@@ -32,6 +32,10 @@ final class DartType {
     this.isNil = false,
   });
 
+  bool isRef() {
+    return ref != null;
+  }
+
   factory DartType.json({String? description}) => DartType(
         name: 'Map<String, dynamic>',
         description: description,

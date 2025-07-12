@@ -1,9 +1,9 @@
 import 'dart:io';
 
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/atproto_oauth.dart';
-import 'package:bluesky/app_bsky_embed_video.dart';
-import 'package:bluesky/atproto.dart';
+
 import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/bluesky_chat.dart';
 import 'package:bluesky/chat_bsky_convo_defs.dart';
@@ -65,7 +65,7 @@ Future<void> main() async {
 
     //! Let's get home timeline!
     final feeds = await bsky.feed.getTimeline(
-      headers: getLabelerHeaders(moderationPrefs),
+      $headers: getLabelerHeaders(moderationPrefs),
     );
 
     for (final feed in feeds.data.feed) {
@@ -89,11 +89,6 @@ Future<void> main() async {
     //! Let's post cool stuff!
     final createdRecord = await bsky.feed.post(
       text: 'Hello, Bluesky!',
-      embed: Embed.video(
-        data: EmbedVideo(
-          video: uploadedVideo.data.blob!,
-        ),
-      ),
     );
 
     print(createdRecord);

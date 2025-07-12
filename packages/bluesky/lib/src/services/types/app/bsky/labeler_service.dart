@@ -19,7 +19,7 @@ final class LabelerService {
   Future<XRPCResponse<RepoCreateRecordOutput>> service({
     required LabelerPolicies policies,
     ULabelerServiceLabels? labels,
-    required DateTime createdAt,
+    DateTime? createdAt,
     List<ReasonType>? reasonTypes,
     List<SubjectType>? subjectTypes,
     List<String>? subjectCollections,
@@ -32,11 +32,13 @@ final class LabelerService {
         collection: ids.appBskyLabelerService,
         rkey: $rey,
         record: {
-          'policies': policies,
-          if (labels != null) 'labels': labels,
-          'createdAt': createdAt,
-          if (reasonTypes != null) 'reasonTypes': reasonTypes,
-          if (subjectTypes != null) 'subjectTypes': subjectTypes,
+          'policies': policies.toJson(),
+          if (labels != null) 'labels': labels.toJson(),
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
+          if (reasonTypes != null)
+            'reasonTypes': reasonTypes.map((e) => e.toJson()).toList(),
+          if (subjectTypes != null)
+            'subjectTypes': subjectTypes.map((e) => e.toJson()).toList(),
           if (subjectCollections != null)
             'subjectCollections': subjectCollections,
           ...?$unknown,
