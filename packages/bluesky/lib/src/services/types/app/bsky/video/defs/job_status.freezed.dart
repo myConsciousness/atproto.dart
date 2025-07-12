@@ -20,14 +20,20 @@ JobStatus _$JobStatusFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JobStatus {
+  String get $type => throw _privateConstructorUsedError;
   String get jobId => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
+
+  /// The state of the video processing job. All values not listed as a known value indicate that the job is in process.
   String get state => throw _privateConstructorUsedError;
-  int get integer => throw _privateConstructorUsedError;
+
+  /// Progress within the current processing state.
+  int? get progress => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob? get blob => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this JobStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,13 +51,15 @@ abstract class $JobStatusCopyWith<$Res> {
       _$JobStatusCopyWithImpl<$Res, JobStatus>;
   @useResult
   $Res call(
-      {String jobId,
+      {String $type,
+      String jobId,
       String did,
       String state,
-      int integer,
+      int? progress,
       @BlobConverter() Blob? blob,
       String? error,
-      String? message});
+      String? message,
+      Map<String, dynamic>? $unknown});
 
   $BlobCopyWith<$Res>? get blob;
 }
@@ -71,15 +79,21 @@ class _$JobStatusCopyWithImpl<$Res, $Val extends JobStatus>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? jobId = null,
     Object? did = null,
     Object? state = null,
-    Object? integer = null,
+    Object? progress = freezed,
     Object? blob = freezed,
     Object? error = freezed,
     Object? message = freezed,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       jobId: null == jobId
           ? _value.jobId
           : jobId // ignore: cast_nullable_to_non_nullable
@@ -92,10 +106,10 @@ class _$JobStatusCopyWithImpl<$Res, $Val extends JobStatus>
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as String,
-      integer: null == integer
-          ? _value.integer
-          : integer // ignore: cast_nullable_to_non_nullable
-              as int,
+      progress: freezed == progress
+          ? _value.progress
+          : progress // ignore: cast_nullable_to_non_nullable
+              as int?,
       blob: freezed == blob
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
@@ -108,6 +122,10 @@ class _$JobStatusCopyWithImpl<$Res, $Val extends JobStatus>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -135,13 +153,15 @@ abstract class _$$JobStatusImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String jobId,
+      {String $type,
+      String jobId,
       String did,
       String state,
-      int integer,
+      int? progress,
       @BlobConverter() Blob? blob,
       String? error,
-      String? message});
+      String? message,
+      Map<String, dynamic>? $unknown});
 
   @override
   $BlobCopyWith<$Res>? get blob;
@@ -160,15 +180,21 @@ class __$$JobStatusImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? jobId = null,
     Object? did = null,
     Object? state = null,
-    Object? integer = null,
+    Object? progress = freezed,
     Object? blob = freezed,
     Object? error = freezed,
     Object? message = freezed,
+    Object? $unknown = freezed,
   }) {
     return _then(_$JobStatusImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       jobId: null == jobId
           ? _value.jobId
           : jobId // ignore: cast_nullable_to_non_nullable
@@ -181,10 +207,10 @@ class __$$JobStatusImplCopyWithImpl<$Res>
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as String,
-      integer: null == integer
-          ? _value.integer
-          : integer // ignore: cast_nullable_to_non_nullable
-              as int,
+      progress: freezed == progress
+          ? _value.progress
+          : progress // ignore: cast_nullable_to_non_nullable
+              as int?,
       blob: freezed == blob
           ? _value.blob
           : blob // ignore: cast_nullable_to_non_nullable
@@ -197,35 +223,47 @@ class __$$JobStatusImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$JobStatusImpl implements _JobStatus {
   const _$JobStatusImpl(
-      {required this.jobId,
+      {this.$type = appBskyVideoDefsJobStatus,
+      required this.jobId,
       required this.did,
       required this.state,
-      this.integer = 0,
+      this.progress,
       @BlobConverter() this.blob,
       this.error,
-      this.message});
+      this.message,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$JobStatusImpl.fromJson(Map<String, dynamic> json) =>
       _$$JobStatusImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String $type;
+  @override
   final String jobId;
   @override
   final String did;
+
+  /// The state of the video processing job. All values not listed as a known value indicate that the job is in process.
   @override
   final String state;
+
+  /// Progress within the current processing state.
   @override
-  @JsonKey()
-  final int integer;
+  final int? progress;
   @override
   @BlobConverter()
   final Blob? blob;
@@ -233,10 +271,19 @@ class _$JobStatusImpl implements _JobStatus {
   final String? error;
   @override
   final String? message;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'JobStatus(jobId: $jobId, did: $did, state: $state, integer: $integer, blob: $blob, error: $error, message: $message)';
+    return 'JobStatus(\$type: ${$type}, jobId: $jobId, did: $did, state: $state, progress: $progress, blob: $blob, error: $error, message: $message, \$unknown: ${$unknown})';
   }
 
   @override
@@ -244,19 +291,31 @@ class _$JobStatusImpl implements _JobStatus {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$JobStatusImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.jobId, jobId) || other.jobId == jobId) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.state, state) || other.state == state) &&
-            (identical(other.integer, integer) || other.integer == integer) &&
+            (identical(other.progress, progress) ||
+                other.progress == progress) &&
             (identical(other.blob, blob) || other.blob == blob) &&
             (identical(other.error, error) || other.error == error) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, jobId, did, state, integer, blob, error, message);
+      runtimeType,
+      $type,
+      jobId,
+      did,
+      state,
+      progress,
+      blob,
+      error,
+      message,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of JobStatus
   /// with the given fields replaced by the non-null parameter values.
@@ -276,25 +335,33 @@ class _$JobStatusImpl implements _JobStatus {
 
 abstract class _JobStatus implements JobStatus {
   const factory _JobStatus(
-      {required final String jobId,
+      {final String $type,
+      required final String jobId,
       required final String did,
       required final String state,
-      final int integer,
+      final int? progress,
       @BlobConverter() final Blob? blob,
       final String? error,
-      final String? message}) = _$JobStatusImpl;
+      final String? message,
+      final Map<String, dynamic>? $unknown}) = _$JobStatusImpl;
 
   factory _JobStatus.fromJson(Map<String, dynamic> json) =
       _$JobStatusImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   String get jobId;
   @override
   String get did;
+
+  /// The state of the video processing job. All values not listed as a known value indicate that the job is in process.
   @override
   String get state;
+
+  /// Progress within the current processing state.
   @override
-  int get integer;
+  int? get progress;
   @override
   @BlobConverter()
   Blob? get blob;
@@ -302,6 +369,8 @@ abstract class _JobStatus implements JobStatus {
   String? get error;
   @override
   String? get message;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of JobStatus
   /// with the given fields replaced by the non-null parameter values.

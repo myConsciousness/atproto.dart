@@ -20,12 +20,12 @@ TrendingTopic _$TrendingTopicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TrendingTopic {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get $type => throw _privateConstructorUsedError;
   String get topic => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String get link => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this TrendingTopic to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,11 +44,12 @@ abstract class $TrendingTopicCopyWith<$Res> {
       _$TrendingTopicCopyWithImpl<$Res, TrendingTopic>;
   @useResult
   $Res call(
-      {@typeKey String type,
+      {String $type,
       String topic,
       String? displayName,
       String? description,
-      String link});
+      String link,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -66,16 +67,17 @@ class _$TrendingTopicCopyWithImpl<$Res, $Val extends TrendingTopic>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? topic = null,
     Object? displayName = freezed,
     Object? description = freezed,
     Object? link = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       topic: null == topic
           ? _value.topic
@@ -93,6 +95,10 @@ class _$TrendingTopicCopyWithImpl<$Res, $Val extends TrendingTopic>
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -106,11 +112,12 @@ abstract class _$$TrendingTopicImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@typeKey String type,
+      {String $type,
       String topic,
       String? displayName,
       String? description,
-      String link});
+      String link,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -126,16 +133,17 @@ class __$$TrendingTopicImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? topic = null,
     Object? displayName = freezed,
     Object? description = freezed,
     Object? link = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$TrendingTopicImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       topic: null == topic
           ? _value.topic
@@ -153,27 +161,32 @@ class __$$TrendingTopicImplCopyWithImpl<$Res>
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$TrendingTopicImpl implements _TrendingTopic {
   const _$TrendingTopicImpl(
-      {@typeKey this.type = appBskyUnspeccedDefsTrendingTopic,
+      {this.$type = appBskyUnspeccedDefsTrendingTopic,
       required this.topic,
       this.displayName,
       this.description,
-      required this.link});
+      required this.link,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$TrendingTopicImpl.fromJson(Map<String, dynamic> json) =>
       _$$TrendingTopicImplFromJson(json);
 
   @override
-  @typeKey
-  final String type;
+  @JsonKey()
+  final String $type;
   @override
   final String topic;
   @override
@@ -182,10 +195,19 @@ class _$TrendingTopicImpl implements _TrendingTopic {
   final String? description;
   @override
   final String link;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'TrendingTopic(type: $type, topic: $topic, displayName: $displayName, description: $description, link: $link)';
+    return 'TrendingTopic(\$type: ${$type}, topic: $topic, displayName: $displayName, description: $description, link: $link, \$unknown: ${$unknown})';
   }
 
   @override
@@ -193,19 +215,20 @@ class _$TrendingTopicImpl implements _TrendingTopic {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TrendingTopicImpl &&
-            (identical(other.type, type) || other.type == type) &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.topic, topic) || other.topic == topic) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.link, link) || other.link == link));
+            (identical(other.link, link) || other.link == link) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, topic, displayName, description, link);
+  int get hashCode => Object.hash(runtimeType, $type, topic, displayName,
+      description, link, const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of TrendingTopic
   /// with the given fields replaced by the non-null parameter values.
@@ -225,18 +248,18 @@ class _$TrendingTopicImpl implements _TrendingTopic {
 
 abstract class _TrendingTopic implements TrendingTopic {
   const factory _TrendingTopic(
-      {@typeKey final String type,
+      {final String $type,
       required final String topic,
       final String? displayName,
       final String? description,
-      required final String link}) = _$TrendingTopicImpl;
+      required final String link,
+      final Map<String, dynamic>? $unknown}) = _$TrendingTopicImpl;
 
   factory _TrendingTopic.fromJson(Map<String, dynamic> json) =
       _$TrendingTopicImpl.fromJson;
 
   @override
-  @typeKey
-  String get type;
+  String get $type;
   @override
   String get topic;
   @override
@@ -245,6 +268,8 @@ abstract class _TrendingTopic implements TrendingTopic {
   String? get description;
   @override
   String get link;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of TrendingTopic
   /// with the given fields replaced by the non-null parameter values.

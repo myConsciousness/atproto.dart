@@ -14,61 +14,69 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-GetConvoOutput _$GetConvoOutputFromJson(Map<String, dynamic> json) {
-  return _GetConvoOutput.fromJson(json);
+ConvoGetConvoOutput _$ConvoGetConvoOutputFromJson(Map<String, dynamic> json) {
+  return _ConvoGetConvoOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetConvoOutput {
+mixin _$ConvoGetConvoOutput {
+  @ConvoViewConverter()
   ConvoView get convo => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
-  /// Serializes this GetConvoOutput to a JSON map.
+  /// Serializes this ConvoGetConvoOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of GetConvoOutput
+  /// Create a copy of ConvoGetConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetConvoOutputCopyWith<GetConvoOutput> get copyWith =>
+  $ConvoGetConvoOutputCopyWith<ConvoGetConvoOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetConvoOutputCopyWith<$Res> {
-  factory $GetConvoOutputCopyWith(
-          GetConvoOutput value, $Res Function(GetConvoOutput) then) =
-      _$GetConvoOutputCopyWithImpl<$Res, GetConvoOutput>;
+abstract class $ConvoGetConvoOutputCopyWith<$Res> {
+  factory $ConvoGetConvoOutputCopyWith(
+          ConvoGetConvoOutput value, $Res Function(ConvoGetConvoOutput) then) =
+      _$ConvoGetConvoOutputCopyWithImpl<$Res, ConvoGetConvoOutput>;
   @useResult
-  $Res call({ConvoView convo});
+  $Res call(
+      {@ConvoViewConverter() ConvoView convo, Map<String, dynamic>? $unknown});
 
   $ConvoViewCopyWith<$Res> get convo;
 }
 
 /// @nodoc
-class _$GetConvoOutputCopyWithImpl<$Res, $Val extends GetConvoOutput>
-    implements $GetConvoOutputCopyWith<$Res> {
-  _$GetConvoOutputCopyWithImpl(this._value, this._then);
+class _$ConvoGetConvoOutputCopyWithImpl<$Res, $Val extends ConvoGetConvoOutput>
+    implements $ConvoGetConvoOutputCopyWith<$Res> {
+  _$ConvoGetConvoOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetConvoOutput
+  /// Create a copy of ConvoGetConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? convo = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       convo: null == convo
           ? _value.convo
           : convo // ignore: cast_nullable_to_non_nullable
               as ConvoView,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
-  /// Create a copy of GetConvoOutput
+  /// Create a copy of ConvoGetConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -80,103 +88,127 @@ class _$GetConvoOutputCopyWithImpl<$Res, $Val extends GetConvoOutput>
 }
 
 /// @nodoc
-abstract class _$$GetConvoOutputImplCopyWith<$Res>
-    implements $GetConvoOutputCopyWith<$Res> {
-  factory _$$GetConvoOutputImplCopyWith(_$GetConvoOutputImpl value,
-          $Res Function(_$GetConvoOutputImpl) then) =
-      __$$GetConvoOutputImplCopyWithImpl<$Res>;
+abstract class _$$ConvoGetConvoOutputImplCopyWith<$Res>
+    implements $ConvoGetConvoOutputCopyWith<$Res> {
+  factory _$$ConvoGetConvoOutputImplCopyWith(_$ConvoGetConvoOutputImpl value,
+          $Res Function(_$ConvoGetConvoOutputImpl) then) =
+      __$$ConvoGetConvoOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ConvoView convo});
+  $Res call(
+      {@ConvoViewConverter() ConvoView convo, Map<String, dynamic>? $unknown});
 
   @override
   $ConvoViewCopyWith<$Res> get convo;
 }
 
 /// @nodoc
-class __$$GetConvoOutputImplCopyWithImpl<$Res>
-    extends _$GetConvoOutputCopyWithImpl<$Res, _$GetConvoOutputImpl>
-    implements _$$GetConvoOutputImplCopyWith<$Res> {
-  __$$GetConvoOutputImplCopyWithImpl(
-      _$GetConvoOutputImpl _value, $Res Function(_$GetConvoOutputImpl) _then)
+class __$$ConvoGetConvoOutputImplCopyWithImpl<$Res>
+    extends _$ConvoGetConvoOutputCopyWithImpl<$Res, _$ConvoGetConvoOutputImpl>
+    implements _$$ConvoGetConvoOutputImplCopyWith<$Res> {
+  __$$ConvoGetConvoOutputImplCopyWithImpl(_$ConvoGetConvoOutputImpl _value,
+      $Res Function(_$ConvoGetConvoOutputImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetConvoOutput
+  /// Create a copy of ConvoGetConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? convo = null,
+    Object? $unknown = freezed,
   }) {
-    return _then(_$GetConvoOutputImpl(
+    return _then(_$ConvoGetConvoOutputImpl(
       convo: null == convo
           ? _value.convo
           : convo // ignore: cast_nullable_to_non_nullable
               as ConvoView,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
+@JsonSerializable()
+class _$ConvoGetConvoOutputImpl implements _ConvoGetConvoOutput {
+  const _$ConvoGetConvoOutputImpl(
+      {@ConvoViewConverter() required this.convo,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
-@jsonSerializable
-class _$GetConvoOutputImpl implements _GetConvoOutput {
-  const _$GetConvoOutputImpl({required this.convo});
-
-  factory _$GetConvoOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetConvoOutputImplFromJson(json);
+  factory _$ConvoGetConvoOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConvoGetConvoOutputImplFromJson(json);
 
   @override
+  @ConvoViewConverter()
   final ConvoView convo;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'GetConvoOutput(convo: $convo)';
+    return 'ConvoGetConvoOutput(convo: $convo, \$unknown: ${$unknown})';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetConvoOutputImpl &&
-            (identical(other.convo, convo) || other.convo == convo));
+            other is _$ConvoGetConvoOutputImpl &&
+            (identical(other.convo, convo) || other.convo == convo) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, convo);
+  int get hashCode => Object.hash(
+      runtimeType, convo, const DeepCollectionEquality().hash(_$unknown));
 
-  /// Create a copy of GetConvoOutput
+  /// Create a copy of ConvoGetConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetConvoOutputImplCopyWith<_$GetConvoOutputImpl> get copyWith =>
-      __$$GetConvoOutputImplCopyWithImpl<_$GetConvoOutputImpl>(
+  _$$ConvoGetConvoOutputImplCopyWith<_$ConvoGetConvoOutputImpl> get copyWith =>
+      __$$ConvoGetConvoOutputImplCopyWithImpl<_$ConvoGetConvoOutputImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetConvoOutputImplToJson(
+    return _$$ConvoGetConvoOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _GetConvoOutput implements GetConvoOutput {
-  const factory _GetConvoOutput({required final ConvoView convo}) =
-      _$GetConvoOutputImpl;
+abstract class _ConvoGetConvoOutput implements ConvoGetConvoOutput {
+  const factory _ConvoGetConvoOutput(
+      {@ConvoViewConverter() required final ConvoView convo,
+      final Map<String, dynamic>? $unknown}) = _$ConvoGetConvoOutputImpl;
 
-  factory _GetConvoOutput.fromJson(Map<String, dynamic> json) =
-      _$GetConvoOutputImpl.fromJson;
+  factory _ConvoGetConvoOutput.fromJson(Map<String, dynamic> json) =
+      _$ConvoGetConvoOutputImpl.fromJson;
 
   @override
+  @ConvoViewConverter()
   ConvoView get convo;
+  @override
+  Map<String, dynamic>? get $unknown;
 
-  /// Create a copy of GetConvoOutput
+  /// Create a copy of ConvoGetConvoOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetConvoOutputImplCopyWith<_$GetConvoOutputImpl> get copyWith =>
+  _$$ConvoGetConvoOutputImplCopyWith<_$ConvoGetConvoOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

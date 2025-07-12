@@ -22,7 +22,7 @@ LexArray _$LexArrayFromJson(Map<String, dynamic> json) {
 mixin _$LexArray {
   String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  @lexArrayItemConverter
+  @LexArrayItemConverter()
   LexArrayItem get items => throw _privateConstructorUsedError;
   int? get minLength => throw _privateConstructorUsedError;
   int? get maxLength => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $LexArrayCopyWith<$Res> {
   $Res call(
       {String type,
       String? description,
-      @lexArrayItemConverter LexArrayItem items,
+      @LexArrayItemConverter() LexArrayItem items,
       int? minLength,
       int? maxLength});
 
@@ -119,7 +119,7 @@ abstract class _$$LexArrayImplCopyWith<$Res>
   $Res call(
       {String type,
       String? description,
-      @lexArrayItemConverter LexArrayItem items,
+      @LexArrayItemConverter() LexArrayItem items,
       int? minLength,
       int? maxLength});
 
@@ -178,7 +178,7 @@ class _$LexArrayImpl implements _LexArray {
   const _$LexArrayImpl(
       {this.type = 'array',
       this.description,
-      @lexArrayItemConverter required this.items,
+      @LexArrayItemConverter() required this.items,
       this.minLength,
       this.maxLength});
 
@@ -191,7 +191,7 @@ class _$LexArrayImpl implements _LexArray {
   @override
   final String? description;
   @override
-  @lexArrayItemConverter
+  @LexArrayItemConverter()
   final LexArrayItem items;
   @override
   final int? minLength;
@@ -243,7 +243,7 @@ abstract class _LexArray implements LexArray {
   const factory _LexArray(
       {final String type,
       final String? description,
-      @lexArrayItemConverter required final LexArrayItem items,
+      @LexArrayItemConverter() required final LexArrayItem items,
       final int? minLength,
       final int? maxLength}) = _$LexArrayImpl;
 
@@ -255,7 +255,7 @@ abstract class _LexArray implements LexArray {
   @override
   String? get description;
   @override
-  @lexArrayItemConverter
+  @LexArrayItemConverter()
   LexArrayItem get items;
   @override
   int? get minLength;

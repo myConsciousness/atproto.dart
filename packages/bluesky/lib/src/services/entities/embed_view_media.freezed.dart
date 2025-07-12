@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$EmbedViewMedia {
-  Object get data => throw _privateConstructorUsedError;
+  InvalidType get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(EmbedViewImages data) images,
@@ -434,8 +434,6 @@ abstract class _$$UEmbedViewMediaVideoImplCopyWith<$Res> {
       __$$UEmbedViewMediaVideoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedVideoView data});
-
-  $EmbedVideoViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -451,24 +449,14 @@ class __$$UEmbedViewMediaVideoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UEmbedViewMediaVideoImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedVideoView,
     ));
-  }
-
-  /// Create a copy of EmbedViewMedia
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $EmbedVideoViewCopyWith<$Res> get data {
-    return $EmbedVideoViewCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -490,11 +478,12 @@ class _$UEmbedViewMediaVideoImpl implements UEmbedViewMediaVideo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedViewMediaVideoImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of EmbedViewMedia
   /// with the given fields replaced by the non-null parameter values.

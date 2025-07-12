@@ -1,0 +1,76 @@
+// Copyright (c) 2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+// Package imports:
+import 'package:atproto_core/atproto_core.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
+import '../../../../../../ids.g.dart';
+import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
+
+part 'trend_view.freezed.dart';
+part 'trend_view.g.dart';
+
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
+
+@freezed
+abstract class TrendView with _$TrendView {
+  static const knownProps = <String>[
+    'topic',
+    'displayName',
+    'link',
+    'startedAt',
+    'postCount',
+    'status',
+    'category',
+    'actors',
+  ];
+
+  const factory TrendView({
+    @Default(appBskyUnspeccedDefsTrendView) String $type,
+    required String topic,
+    required String displayName,
+    required String link,
+    required DateTime startedAt,
+    required int postCount,
+    String? status,
+    String? category,
+    @ProfileViewBasicConverter() required List<ProfileViewBasic> actors,
+    Map<String, dynamic>? $unknown,
+  }) = _TrendView;
+
+  factory TrendView.fromJson(Map<String, Object?> json) =>
+      _$TrendViewFromJson(json);
+
+  static bool validate(final Map<String, dynamic> object) {
+    if (!object.containsKey('\$type')) return false;
+    return object['\$type'] == appBskyUnspeccedDefsTrendView;
+  }
+}
+
+final class TrendViewConverter
+    extends LexObjectConverter<TrendView, Map<String, dynamic>> {
+  const TrendViewConverter();
+
+  @override
+  TrendView fromJson(Map<String, dynamic> json) {
+    return TrendView.fromJson(translate(
+      json,
+      TrendView.knownProps,
+    ));
+  }
+
+  @override
+  Map<String, dynamic> toJson(TrendView object) => untranslate(
+        object.toJson(),
+      );
+}

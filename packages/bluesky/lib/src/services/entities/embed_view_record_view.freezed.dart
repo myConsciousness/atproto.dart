@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$EmbedViewRecordView {
-  Object get data => throw _privateConstructorUsedError;
+  InvalidType get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(EmbedViewRecordViewRecord data) record,
@@ -758,8 +758,6 @@ abstract class _$$UEmbedViewRecordViewViewDetachedImplCopyWith<$Res> {
       __$$UEmbedViewRecordViewViewDetachedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedRecordViewDetached data});
-
-  $EmbedRecordViewDetachedCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -777,24 +775,14 @@ class __$$UEmbedViewRecordViewViewDetachedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UEmbedViewRecordViewViewDetachedImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as EmbedRecordViewDetached,
     ));
-  }
-
-  /// Create a copy of EmbedViewRecordView
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $EmbedRecordViewDetachedCopyWith<$Res> get data {
-    return $EmbedRecordViewDetachedCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -817,11 +805,12 @@ class _$UEmbedViewRecordViewViewDetachedImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UEmbedViewRecordViewViewDetachedImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of EmbedViewRecordView
   /// with the given fields replaced by the non-null parameter values.

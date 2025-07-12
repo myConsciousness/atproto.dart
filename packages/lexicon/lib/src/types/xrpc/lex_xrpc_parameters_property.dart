@@ -24,5 +24,5 @@ class LexXrpcParametersProperty with _$LexXrpcParametersProperty {
   }) = ULexXrpcParametersPropertyPrimitive;
 
   Map<String, dynamic> toJson() =>
-      lexXrpcParametersPropertyConverter.toJson(this);
+      const LexXrpcParametersPropertyConverter().toJson(this);
 }

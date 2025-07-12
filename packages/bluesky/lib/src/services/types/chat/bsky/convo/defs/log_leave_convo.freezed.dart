@@ -20,8 +20,10 @@ LogLeaveConvo _$LogLeaveConvoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LogLeaveConvo {
+  String get $type => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this LogLeaveConvo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +41,11 @@ abstract class $LogLeaveConvoCopyWith<$Res> {
           LogLeaveConvo value, $Res Function(LogLeaveConvo) then) =
       _$LogLeaveConvoCopyWithImpl<$Res, LogLeaveConvo>;
   @useResult
-  $Res call({String rev, String convoId});
+  $Res call(
+      {String $type,
+      String rev,
+      String convoId,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -57,10 +63,16 @@ class _$LogLeaveConvoCopyWithImpl<$Res, $Val extends LogLeaveConvo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -69,6 +81,10 @@ class _$LogLeaveConvoCopyWithImpl<$Res, $Val extends LogLeaveConvo>
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -81,7 +97,11 @@ abstract class _$$LogLeaveConvoImplCopyWith<$Res>
       __$$LogLeaveConvoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String rev, String convoId});
+  $Res call(
+      {String $type,
+      String rev,
+      String convoId,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -97,10 +117,16 @@ class __$$LogLeaveConvoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LogLeaveConvoImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -109,27 +135,47 @@ class __$$LogLeaveConvoImplCopyWithImpl<$Res>
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$LogLeaveConvoImpl implements _LogLeaveConvo {
-  const _$LogLeaveConvoImpl({required this.rev, required this.convoId});
+  const _$LogLeaveConvoImpl(
+      {this.$type = chatBskyConvoDefsLogLeaveConvo,
+      required this.rev,
+      required this.convoId,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$LogLeaveConvoImpl.fromJson(Map<String, dynamic> json) =>
       _$$LogLeaveConvoImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String $type;
+  @override
   final String rev;
   @override
   final String convoId;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'LogLeaveConvo(rev: $rev, convoId: $convoId)';
+    return 'LogLeaveConvo(\$type: ${$type}, rev: $rev, convoId: $convoId, \$unknown: ${$unknown})';
   }
 
   @override
@@ -137,13 +183,16 @@ class _$LogLeaveConvoImpl implements _LogLeaveConvo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LogLeaveConvoImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.rev, rev) || other.rev == rev) &&
-            (identical(other.convoId, convoId) || other.convoId == convoId));
+            (identical(other.convoId, convoId) || other.convoId == convoId) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, rev, convoId);
+  int get hashCode => Object.hash(runtimeType, $type, rev, convoId,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of LogLeaveConvo
   /// with the given fields replaced by the non-null parameter values.
@@ -163,16 +212,22 @@ class _$LogLeaveConvoImpl implements _LogLeaveConvo {
 
 abstract class _LogLeaveConvo implements LogLeaveConvo {
   const factory _LogLeaveConvo(
-      {required final String rev,
-      required final String convoId}) = _$LogLeaveConvoImpl;
+      {final String $type,
+      required final String rev,
+      required final String convoId,
+      final Map<String, dynamic>? $unknown}) = _$LogLeaveConvoImpl;
 
   factory _LogLeaveConvo.fromJson(Map<String, dynamic> json) =
       _$LogLeaveConvoImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   String get rev;
   @override
   String get convoId;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of LogLeaveConvo
   /// with the given fields replaced by the non-null parameter values.

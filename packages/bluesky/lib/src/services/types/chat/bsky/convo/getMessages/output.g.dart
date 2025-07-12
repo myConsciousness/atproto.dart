@@ -8,28 +8,35 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetMessagesOutputImpl _$$GetMessagesOutputImplFromJson(Map json) =>
+_$ConvoGetMessagesOutputImpl _$$ConvoGetMessagesOutputImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$GetMessagesOutputImpl',
+      r'_$ConvoGetMessagesOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$GetMessagesOutputImpl(
+        final val = _$ConvoGetMessagesOutputImpl(
+          cursor: $checkedConvert('cursor', (v) => v as String?),
           messages: $checkedConvert(
               'messages',
               (v) => (v as List<dynamic>)
-                  .map((e) => unionConvoMessageViewConverter
+                  .map((e) => const UConvoGetMessagesMessagesConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$GetMessagesOutputImplToJson(
-        _$GetMessagesOutputImpl instance) =>
+Map<String, dynamic> _$$ConvoGetMessagesOutputImplToJson(
+        _$ConvoGetMessagesOutputImpl instance) =>
     <String, dynamic>{
-      'messages':
-          instance.messages.map(unionConvoMessageViewConverter.toJson).toList(),
-      if (instance.cursor case final value?) 'cursor': value,
+      'cursor': instance.cursor,
+      'messages': instance.messages
+          .map(const UConvoGetMessagesMessagesConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
     };

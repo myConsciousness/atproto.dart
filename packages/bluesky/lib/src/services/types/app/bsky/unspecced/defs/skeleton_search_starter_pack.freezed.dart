@@ -21,10 +21,9 @@ SkeletonSearchStarterPack _$SkeletonSearchStarterPackFromJson(
 
 /// @nodoc
 mixin _$SkeletonSearchStarterPack {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
-  @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
+  String get $type => throw _privateConstructorUsedError;
+  String get uri => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this SkeletonSearchStarterPack to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,7 +41,7 @@ abstract class $SkeletonSearchStarterPackCopyWith<$Res> {
           $Res Function(SkeletonSearchStarterPack) then) =
       _$SkeletonSearchStarterPackCopyWithImpl<$Res, SkeletonSearchStarterPack>;
   @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri uri});
+  $Res call({String $type, String uri, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -61,18 +60,23 @@ class _$SkeletonSearchStarterPackCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? uri = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
+              as String,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -86,7 +90,7 @@ abstract class _$$SkeletonSearchStarterPackImplCopyWith<$Res>
       __$$SkeletonSearchStarterPackImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri uri});
+  $Res call({String $type, String uri, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -104,43 +108,57 @@ class __$$SkeletonSearchStarterPackImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? uri = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SkeletonSearchStarterPackImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
+              as String,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$SkeletonSearchStarterPackImpl implements _SkeletonSearchStarterPack {
   const _$SkeletonSearchStarterPackImpl(
-      {@typeKey this.type = appBskyUnspeccedDefsSkeletonSearchStarterPack,
-      @AtUriConverter() required this.uri});
+      {this.$type = appBskyUnspeccedDefsSkeletonSearchStarterPack,
+      required this.uri,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$SkeletonSearchStarterPackImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonSearchStarterPackImplFromJson(json);
 
   @override
-  @typeKey
-  final String type;
+  @JsonKey()
+  final String $type;
   @override
-  @AtUriConverter()
-  final AtUri uri;
+  final String uri;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'SkeletonSearchStarterPack(type: $type, uri: $uri)';
+    return 'SkeletonSearchStarterPack(\$type: ${$type}, uri: $uri, \$unknown: ${$unknown})';
   }
 
   @override
@@ -148,13 +166,15 @@ class _$SkeletonSearchStarterPackImpl implements _SkeletonSearchStarterPack {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SkeletonSearchStarterPackImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.uri, uri) || other.uri == uri));
+            (identical(other.$type, $type) || other.$type == $type) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri);
+  int get hashCode => Object.hash(
+      runtimeType, $type, uri, const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of SkeletonSearchStarterPack
   /// with the given fields replaced by the non-null parameter values.
@@ -175,19 +195,19 @@ class _$SkeletonSearchStarterPackImpl implements _SkeletonSearchStarterPack {
 
 abstract class _SkeletonSearchStarterPack implements SkeletonSearchStarterPack {
   const factory _SkeletonSearchStarterPack(
-          {@typeKey final String type,
-          @AtUriConverter() required final AtUri uri}) =
-      _$SkeletonSearchStarterPackImpl;
+      {final String $type,
+      required final String uri,
+      final Map<String, dynamic>? $unknown}) = _$SkeletonSearchStarterPackImpl;
 
   factory _SkeletonSearchStarterPack.fromJson(Map<String, dynamic> json) =
       _$SkeletonSearchStarterPackImpl.fromJson;
 
   @override
-  @typeKey
-  String get type;
+  String get $type;
   @override
-  @AtUriConverter()
-  AtUri get uri;
+  String get uri;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of SkeletonSearchStarterPack
   /// with the given fields replaced by the non-null parameter values.

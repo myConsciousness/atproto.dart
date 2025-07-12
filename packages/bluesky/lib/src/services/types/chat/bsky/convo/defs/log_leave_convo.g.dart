@@ -13,8 +13,15 @@ _$LogLeaveConvoImpl _$$LogLeaveConvoImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LogLeaveConvoImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? chatBskyConvoDefsLogLeaveConvo),
           rev: $checkedConvert('rev', (v) => v as String),
           convoId: $checkedConvert('convoId', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -22,6 +29,8 @@ _$LogLeaveConvoImpl _$$LogLeaveConvoImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$LogLeaveConvoImplToJson(_$LogLeaveConvoImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'rev': instance.rev,
       'convoId': instance.convoId,
+      r'$unknown': instance.$unknown,
     };

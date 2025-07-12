@@ -11,7 +11,7 @@ import 'service_context.dart';
 final class NotificationService {
   NotificationService(this._ctx);
 
-  final BlueskyServiceContext _ctx;
+  final ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
   Future<core.XRPCResponse<Notifications>> listNotifications({

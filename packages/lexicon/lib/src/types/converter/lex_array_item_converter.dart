@@ -8,11 +8,9 @@ import 'lex_ipld_converter.dart';
 import 'lex_primitive_converter.dart';
 import 'lex_ref_variant_converter.dart';
 
-const lexArrayItemConverter = _LexArrayItemConverter();
-
-final class _LexArrayItemConverter
+final class LexArrayItemConverter
     implements JsonConverter<LexArrayItem, Map<String, dynamic>> {
-  const _LexArrayItemConverter();
+  const LexArrayItemConverter();
 
   @override
   LexArrayItem fromJson(Map<String, dynamic> json) {
@@ -24,13 +22,13 @@ final class _LexArrayItemConverter
       case 'boolean':
       case 'unknown':
         return LexArrayItem.primitive(
-          data: lexPrimitiveConverter.fromJson(json),
+          data: const LexPrimitiveConverter().fromJson(json),
         );
 
       case 'bytes':
       case 'cid-link':
         return LexArrayItem.ipld(
-          data: lexIpldConverter.fromJson(json),
+          data: const LexIpldConverter().fromJson(json),
         );
 
       case 'blob':
@@ -41,7 +39,7 @@ final class _LexArrayItemConverter
       case 'ref':
       case 'union':
         return LexArrayItem.refVariant(
-          data: lexRefVariantConverter.fromJson(json),
+          data: const LexRefVariantConverter().fromJson(json),
         );
 
       default:

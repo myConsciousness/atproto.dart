@@ -1,0 +1,64 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// ignore_for_file: non_constant_identifier_names
+
+part of 'commit.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
+      r'_$CommitImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$CommitImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? comAtprotoSyncSubscribeReposCommit),
+          seq: $checkedConvert('seq', (v) => (v as num).toInt()),
+          repo: $checkedConvert('repo', (v) => v as String),
+          commit: $checkedConvert(
+              'commit', (v) => Map<String, dynamic>.from(v as Map)),
+          rev: $checkedConvert('rev', (v) => v as String),
+          since: $checkedConvert('since', (v) => v as String),
+          blocks: $checkedConvert(
+              'blocks', (v) => Map<String, dynamic>.from(v as Map)),
+          ops: $checkedConvert(
+              'ops',
+              (v) => (v as List<dynamic>)
+                  .map((e) => const RepoOpConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          blobs: $checkedConvert('blobs',
+              (v) => (v as List<dynamic>).map((e) => e as Object).toList()),
+          prevData: $checkedConvert(
+              'prevData',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+          time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'seq': instance.seq,
+      'repo': instance.repo,
+      'commit': instance.commit,
+      'rev': instance.rev,
+      'since': instance.since,
+      'blocks': instance.blocks,
+      'ops': instance.ops.map(const RepoOpConverter().toJson).toList(),
+      'blobs': instance.blobs,
+      'prevData': instance.prevData,
+      'time': instance.time.toIso8601String(),
+      r'$unknown': instance.$unknown,
+    };

@@ -22,7 +22,7 @@ LexPrimitiveArray _$LexPrimitiveArrayFromJson(Map<String, dynamic> json) {
 mixin _$LexPrimitiveArray {
   String get type => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  @lexPrimitiveConverter
+  @LexPrimitiveConverter()
   LexPrimitive get items => throw _privateConstructorUsedError;
   int? get minLength => throw _privateConstructorUsedError;
   int? get maxLength => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $LexPrimitiveArrayCopyWith<$Res> {
   $Res call(
       {String type,
       String? description,
-      @lexPrimitiveConverter LexPrimitive items,
+      @LexPrimitiveConverter() LexPrimitive items,
       int? minLength,
       int? maxLength});
 
@@ -120,7 +120,7 @@ abstract class _$$LexPrimitiveArrayImplCopyWith<$Res>
   $Res call(
       {String type,
       String? description,
-      @lexPrimitiveConverter LexPrimitive items,
+      @LexPrimitiveConverter() LexPrimitive items,
       int? minLength,
       int? maxLength});
 
@@ -179,7 +179,7 @@ class _$LexPrimitiveArrayImpl implements _LexPrimitiveArray {
   const _$LexPrimitiveArrayImpl(
       {this.type = 'array',
       this.description,
-      @lexPrimitiveConverter required this.items,
+      @LexPrimitiveConverter() required this.items,
       this.minLength,
       this.maxLength});
 
@@ -192,7 +192,7 @@ class _$LexPrimitiveArrayImpl implements _LexPrimitiveArray {
   @override
   final String? description;
   @override
-  @lexPrimitiveConverter
+  @LexPrimitiveConverter()
   final LexPrimitive items;
   @override
   final int? minLength;
@@ -245,7 +245,7 @@ abstract class _LexPrimitiveArray implements LexPrimitiveArray {
   const factory _LexPrimitiveArray(
       {final String type,
       final String? description,
-      @lexPrimitiveConverter required final LexPrimitive items,
+      @LexPrimitiveConverter() required final LexPrimitive items,
       final int? minLength,
       final int? maxLength}) = _$LexPrimitiveArrayImpl;
 
@@ -257,7 +257,7 @@ abstract class _LexPrimitiveArray implements LexPrimitiveArray {
   @override
   String? get description;
   @override
-  @lexPrimitiveConverter
+  @LexPrimitiveConverter()
   LexPrimitive get items;
   @override
   int? get minLength;

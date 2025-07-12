@@ -23,5 +23,5 @@ class LexXrpcSchema with _$LexXrpcSchema {
     required LexObject data,
   }) = ULexXrpcSchemaObject;
 
-  Map<String, dynamic> toJson() => lexXrpcSchemaConverter.toJson(this);
+  Map<String, dynamic> toJson() => const LexXrpcSchemaConverter().toJson(this);
 }

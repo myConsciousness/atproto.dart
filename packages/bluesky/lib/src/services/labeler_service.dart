@@ -12,7 +12,7 @@ import 'service_context.dart';
 final class LabelerService {
   LabelerService(this._ctx);
 
-  final BlueskyServiceContext _ctx;
+  final ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/getServices
   Future<core.XRPCResponse<LabelerServices>> getServices({

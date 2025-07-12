@@ -20,12 +20,16 @@ Nux _$NuxFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Nux {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get $type => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
+
+  /// Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.
   String? get data => throw _privateConstructorUsedError;
+
+  /// The date and time at which the NUX will expire and should be considered completed.
   DateTime? get expiresAt => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this Nux to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,11 +46,12 @@ abstract class $NuxCopyWith<$Res> {
       _$NuxCopyWithImpl<$Res, Nux>;
   @useResult
   $Res call(
-      {@typeKey String type,
+      {String $type,
       String id,
       bool completed,
       String? data,
-      DateTime? expiresAt});
+      DateTime? expiresAt,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -63,16 +68,17 @@ class _$NuxCopyWithImpl<$Res, $Val extends Nux> implements $NuxCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? id = null,
     Object? completed = null,
     Object? data = freezed,
     Object? expiresAt = freezed,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       id: null == id
           ? _value.id
@@ -90,6 +96,10 @@ class _$NuxCopyWithImpl<$Res, $Val extends Nux> implements $NuxCopyWith<$Res> {
           ? _value.expiresAt
           : expiresAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -101,11 +111,12 @@ abstract class _$$NuxImplCopyWith<$Res> implements $NuxCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@typeKey String type,
+      {String $type,
       String id,
       bool completed,
       String? data,
-      DateTime? expiresAt});
+      DateTime? expiresAt,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -119,16 +130,17 @@ class __$$NuxImplCopyWithImpl<$Res> extends _$NuxCopyWithImpl<$Res, _$NuxImpl>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? id = null,
     Object? completed = null,
     Object? data = freezed,
     Object? expiresAt = freezed,
+    Object? $unknown = freezed,
   }) {
     return _then(_$NuxImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       id: null == id
           ? _value.id
@@ -146,40 +158,57 @@ class __$$NuxImplCopyWithImpl<$Res> extends _$NuxCopyWithImpl<$Res, _$NuxImpl>
           ? _value.expiresAt
           : expiresAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$NuxImpl implements _Nux {
   const _$NuxImpl(
-      {@typeKey this.type = appBskyActorDefsNux,
+      {this.$type = appBskyActorDefsNux,
       required this.id,
-      this.completed = false,
+      required this.completed,
       this.data,
-      this.expiresAt});
+      this.expiresAt,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$NuxImpl.fromJson(Map<String, dynamic> json) =>
       _$$NuxImplFromJson(json);
 
   @override
-  @typeKey
-  final String type;
+  @JsonKey()
+  final String $type;
   @override
   final String id;
   @override
-  @JsonKey()
   final bool completed;
+
+  /// Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.
   @override
   final String? data;
+
+  /// The date and time at which the NUX will expire and should be considered completed.
   @override
   final DateTime? expiresAt;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'Nux(type: $type, id: $id, completed: $completed, data: $data, expiresAt: $expiresAt)';
+    return 'Nux(\$type: ${$type}, id: $id, completed: $completed, data: $data, expiresAt: $expiresAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -187,19 +216,20 @@ class _$NuxImpl implements _Nux {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NuxImpl &&
-            (identical(other.type, type) || other.type == type) &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.completed, completed) ||
                 other.completed == completed) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.expiresAt, expiresAt) ||
-                other.expiresAt == expiresAt));
+                other.expiresAt == expiresAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, id, completed, data, expiresAt);
+  int get hashCode => Object.hash(runtimeType, $type, id, completed, data,
+      expiresAt, const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of Nux
   /// with the given fields replaced by the non-null parameter values.
@@ -219,25 +249,31 @@ class _$NuxImpl implements _Nux {
 
 abstract class _Nux implements Nux {
   const factory _Nux(
-      {@typeKey final String type,
+      {final String $type,
       required final String id,
-      final bool completed,
+      required final bool completed,
       final String? data,
-      final DateTime? expiresAt}) = _$NuxImpl;
+      final DateTime? expiresAt,
+      final Map<String, dynamic>? $unknown}) = _$NuxImpl;
 
   factory _Nux.fromJson(Map<String, dynamic> json) = _$NuxImpl.fromJson;
 
   @override
-  @typeKey
-  String get type;
+  String get $type;
   @override
   String get id;
   @override
   bool get completed;
+
+  /// Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.
   @override
   String? get data;
+
+  /// The date and time at which the NUX will expire and should be considered completed.
   @override
   DateTime? get expiresAt;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of Nux
   /// with the given fields replaced by the non-null parameter values.

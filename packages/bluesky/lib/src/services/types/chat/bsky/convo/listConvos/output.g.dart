@@ -8,27 +8,33 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListConvosOutputImpl _$$ListConvosOutputImplFromJson(Map json) =>
+_$ConvoListConvosOutputImpl _$$ConvoListConvosOutputImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ListConvosOutputImpl',
+      r'_$ConvoListConvosOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ListConvosOutputImpl(
+        final val = _$ConvoListConvosOutputImpl(
+          cursor: $checkedConvert('cursor', (v) => v as String?),
           convos: $checkedConvert(
               'convos',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ConvoView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ConvoViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$ListConvosOutputImplToJson(
-        _$ListConvosOutputImpl instance) =>
+Map<String, dynamic> _$$ConvoListConvosOutputImplToJson(
+        _$ConvoListConvosOutputImpl instance) =>
     <String, dynamic>{
-      'convos': instance.convos.map((e) => e.toJson()).toList(),
-      if (instance.cursor case final value?) 'cursor': value,
+      'cursor': instance.cursor,
+      'convos': instance.convos.map(const ConvoViewConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
     };

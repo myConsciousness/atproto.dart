@@ -13,18 +13,25 @@ _$MessageInputImpl _$$MessageInputImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$MessageInputImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? chatBskyConvoDefsMessageInput),
           text: $checkedConvert('text', (v) => v as String),
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const RichtextFacetConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      UConvoMessageEmbed>(
-                  v, unionConvoMessageEmbedConverter.fromJson)),
+                      UMessageInputEmbed>(
+                  v, const UMessageInputEmbedConverter().fromJson)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -32,13 +39,13 @@ _$MessageInputImpl _$$MessageInputImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$MessageInputImplToJson(_$MessageInputImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'text': instance.text,
-      if (instance.facets?.map((e) => e.toJson()).toList() case final value?)
-        'facets': value,
-      if (_$JsonConverterToJson<Map<String, dynamic>, UConvoMessageEmbed>(
-              instance.embed, unionConvoMessageEmbedConverter.toJson)
-          case final value?)
-        'embed': value,
+      'facets':
+          instance.facets?.map(const RichtextFacetConverter().toJson).toList(),
+      'embed': _$JsonConverterToJson<Map<String, dynamic>, UMessageInputEmbed>(
+          instance.embed, const UMessageInputEmbedConverter().toJson),
+      r'$unknown': instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

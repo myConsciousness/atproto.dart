@@ -20,10 +20,12 @@ Metadata _$MetadataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Metadata {
+  String get $type => throw _privateConstructorUsedError;
   int get messagesSent => throw _privateConstructorUsedError;
   int get messagesReceived => throw _privateConstructorUsedError;
   int get convos => throw _privateConstructorUsedError;
   int get convosStarted => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this Metadata to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +43,12 @@ abstract class $MetadataCopyWith<$Res> {
       _$MetadataCopyWithImpl<$Res, Metadata>;
   @useResult
   $Res call(
-      {int messagesSent, int messagesReceived, int convos, int convosStarted});
+      {String $type,
+      int messagesSent,
+      int messagesReceived,
+      int convos,
+      int convosStarted,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -59,12 +66,18 @@ class _$MetadataCopyWithImpl<$Res, $Val extends Metadata>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? messagesSent = null,
     Object? messagesReceived = null,
     Object? convos = null,
     Object? convosStarted = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       messagesSent: null == messagesSent
           ? _value.messagesSent
           : messagesSent // ignore: cast_nullable_to_non_nullable
@@ -81,6 +94,10 @@ class _$MetadataCopyWithImpl<$Res, $Val extends Metadata>
           ? _value.convosStarted
           : convosStarted // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -94,7 +111,12 @@ abstract class _$$MetadataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int messagesSent, int messagesReceived, int convos, int convosStarted});
+      {String $type,
+      int messagesSent,
+      int messagesReceived,
+      int convos,
+      int convosStarted,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -110,12 +132,18 @@ class __$$MetadataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? messagesSent = null,
     Object? messagesReceived = null,
     Object? convos = null,
     Object? convosStarted = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$MetadataImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       messagesSent: null == messagesSent
           ? _value.messagesSent
           : messagesSent // ignore: cast_nullable_to_non_nullable
@@ -132,23 +160,32 @@ class __$$MetadataImplCopyWithImpl<$Res>
           ? _value.convosStarted
           : convosStarted // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$MetadataImpl implements _Metadata {
   const _$MetadataImpl(
-      {required this.messagesSent,
+      {this.$type = chatBskyModerationGetActorMetadataMetadata,
+      required this.messagesSent,
       required this.messagesReceived,
       required this.convos,
-      required this.convosStarted});
+      required this.convosStarted,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$MetadataImpl.fromJson(Map<String, dynamic> json) =>
       _$$MetadataImplFromJson(json);
 
+  @override
+  @JsonKey()
+  final String $type;
   @override
   final int messagesSent;
   @override
@@ -157,10 +194,19 @@ class _$MetadataImpl implements _Metadata {
   final int convos;
   @override
   final int convosStarted;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'Metadata(messagesSent: $messagesSent, messagesReceived: $messagesReceived, convos: $convos, convosStarted: $convosStarted)';
+    return 'Metadata(\$type: ${$type}, messagesSent: $messagesSent, messagesReceived: $messagesReceived, convos: $convos, convosStarted: $convosStarted, \$unknown: ${$unknown})';
   }
 
   @override
@@ -168,19 +214,27 @@ class _$MetadataImpl implements _Metadata {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MetadataImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.messagesSent, messagesSent) ||
                 other.messagesSent == messagesSent) &&
             (identical(other.messagesReceived, messagesReceived) ||
                 other.messagesReceived == messagesReceived) &&
             (identical(other.convos, convos) || other.convos == convos) &&
             (identical(other.convosStarted, convosStarted) ||
-                other.convosStarted == convosStarted));
+                other.convosStarted == convosStarted) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, messagesSent, messagesReceived, convos, convosStarted);
+      runtimeType,
+      $type,
+      messagesSent,
+      messagesReceived,
+      convos,
+      convosStarted,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of Metadata
   /// with the given fields replaced by the non-null parameter values.
@@ -200,14 +254,18 @@ class _$MetadataImpl implements _Metadata {
 
 abstract class _Metadata implements Metadata {
   const factory _Metadata(
-      {required final int messagesSent,
+      {final String $type,
+      required final int messagesSent,
       required final int messagesReceived,
       required final int convos,
-      required final int convosStarted}) = _$MetadataImpl;
+      required final int convosStarted,
+      final Map<String, dynamic>? $unknown}) = _$MetadataImpl;
 
   factory _Metadata.fromJson(Map<String, dynamic> json) =
       _$MetadataImpl.fromJson;
 
+  @override
+  String get $type;
   @override
   int get messagesSent;
   @override
@@ -216,6 +274,8 @@ abstract class _Metadata implements Metadata {
   int get convos;
   @override
   int get convosStarted;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of Metadata
   /// with the given fields replaced by the non-null parameter values.

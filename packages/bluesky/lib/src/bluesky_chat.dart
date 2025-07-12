@@ -28,7 +28,7 @@ sealed class BlueskyChat {
     final core.PostClient? mockedPostClient,
   }) =>
       _BlueskyChat(
-        BlueskyServiceContext(
+        ServiceContext(
           atproto: atp.ATProto.fromSession(
             headers: {
               ...?headers,
@@ -71,7 +71,7 @@ sealed class BlueskyChat {
     final core.PostClient? mockedPostClient,
   }) =>
       _BlueskyChat(
-        BlueskyServiceContext(
+        ServiceContext(
           atproto: atp.ATProto.fromOAuthSession(
             headers: {
               ...?headers,
@@ -135,13 +135,13 @@ sealed class BlueskyChat {
 }
 
 final class _BlueskyChat implements BlueskyChat {
-  _BlueskyChat(final BlueskyServiceContext ctx)
+  _BlueskyChat(final ServiceContext ctx)
       : actor = ActorService(ctx),
         convo = ConvoService(ctx),
         moderation = ModerationService(ctx),
         _ctx = ctx;
 
-  final BlueskyServiceContext _ctx;
+  final ServiceContext _ctx;
 
   @override
   Map<String, String> get headers => _ctx.headers;

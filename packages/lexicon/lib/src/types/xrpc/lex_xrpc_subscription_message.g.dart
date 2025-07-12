@@ -20,7 +20,7 @@ _$LexXrpcSubscriptionMessageImpl _$$LexXrpcSubscriptionMessageImplFromJson(
               'schema',
               (v) =>
                   _$JsonConverterFromJson<Map<String, dynamic>, LexXrpcSchema>(
-                      v, lexXrpcSchemaConverter.fromJson)),
+                      v, const LexXrpcSchemaConverter().fromJson)),
         );
         return val;
       },
@@ -31,7 +31,7 @@ Map<String, dynamic> _$$LexXrpcSubscriptionMessageImplToJson(
     <String, dynamic>{
       if (instance.description case final value?) 'description': value,
       if (_$JsonConverterToJson<Map<String, dynamic>, LexXrpcSchema>(
-              instance.schema, lexXrpcSchemaConverter.toJson)
+              instance.schema, const LexXrpcSchemaConverter().toJson)
           case final value?)
         'schema': value,
     };

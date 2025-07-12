@@ -324,7 +324,7 @@ void _writeXrpcParameters(
     properties.forEach((name, property) {
       final isRequired = requiredProperties.contains(name);
 
-      property.when(
+      property.whenOrNull(
         primitiveArray: (data) => _writePrimitiveArray(
           matrix,
           data.items,

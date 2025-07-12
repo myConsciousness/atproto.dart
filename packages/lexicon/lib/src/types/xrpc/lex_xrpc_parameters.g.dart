@@ -23,7 +23,7 @@ _$LexXrpcParametersImpl _$$LexXrpcParametersImplFromJson(Map json) =>
               (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(
                         k as String,
-                        lexXrpcParametersPropertyConverter
+                        const LexXrpcParametersPropertyConverter()
                             .fromJson(e as Map<String, dynamic>)),
                   )),
         );
@@ -39,7 +39,7 @@ Map<String, dynamic> _$$LexXrpcParametersImplToJson(
       if (instance.description case final value?) 'description': value,
       if (instance.requiredProperties case final value?) 'required': value,
       if (instance.properties?.map((k, e) =>
-              MapEntry(k, lexXrpcParametersPropertyConverter.toJson(e)))
+              MapEntry(k, const LexXrpcParametersPropertyConverter().toJson(e)))
           case final value?)
         'properties': value,
     };

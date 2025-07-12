@@ -8,33 +8,41 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetTrendingTopicsOutputImpl _$$GetTrendingTopicsOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$GetTrendingTopicsOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GetTrendingTopicsOutputImpl(
-          topics: $checkedConvert(
-              'topics',
-              (v) => (v as List<dynamic>)
-                  .map((e) => TrendingTopic.fromJson(
-                      Map<String, Object?>.from(e as Map)))
-                  .toList()),
-          suggested: $checkedConvert(
-              'suggested',
-              (v) => (v as List<dynamic>)
-                  .map((e) => TrendingTopic.fromJson(
-                      Map<String, Object?>.from(e as Map)))
-                  .toList()),
+_$UnspeccedGetTrendingTopicsOutputImpl
+    _$$UnspeccedGetTrendingTopicsOutputImplFromJson(Map json) => $checkedCreate(
+          r'_$UnspeccedGetTrendingTopicsOutputImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$UnspeccedGetTrendingTopicsOutputImpl(
+              topics: $checkedConvert(
+                  'topics',
+                  (v) => (v as List<dynamic>)
+                      .map((e) => const TrendingTopicConverter()
+                          .fromJson(e as Map<String, dynamic>))
+                      .toList()),
+              suggested: $checkedConvert(
+                  'suggested',
+                  (v) => (v as List<dynamic>)
+                      .map((e) => const TrendingTopicConverter()
+                          .fromJson(e as Map<String, dynamic>))
+                      .toList()),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$GetTrendingTopicsOutputImplToJson(
-        _$GetTrendingTopicsOutputImpl instance) =>
+Map<String, dynamic> _$$UnspeccedGetTrendingTopicsOutputImplToJson(
+        _$UnspeccedGetTrendingTopicsOutputImpl instance) =>
     <String, dynamic>{
-      'topics': instance.topics.map((e) => e.toJson()).toList(),
-      'suggested': instance.suggested.map((e) => e.toJson()).toList(),
+      'topics':
+          instance.topics.map(const TrendingTopicConverter().toJson).toList(),
+      'suggested': instance.suggested
+          .map(const TrendingTopicConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
     };

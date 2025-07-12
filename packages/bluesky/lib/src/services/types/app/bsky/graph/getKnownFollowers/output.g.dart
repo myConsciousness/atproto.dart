@@ -8,31 +8,40 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetKnownFollowersOutputImpl _$$GetKnownFollowersOutputImplFromJson(
+_$GraphGetKnownFollowersOutputImpl _$$GraphGetKnownFollowersOutputImplFromJson(
         Map json) =>
     $checkedCreate(
-      r'_$GetKnownFollowersOutputImpl',
+      r'_$GraphGetKnownFollowersOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$GetKnownFollowersOutputImpl(
-          subject: $checkedConvert('subject',
-              (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
+        final val = _$GraphGetKnownFollowersOutputImpl(
+          subject: $checkedConvert(
+              'subject',
+              (v) => const ProfileViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
           followers: $checkedConvert(
               'followers',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Actor.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$GetKnownFollowersOutputImplToJson(
-        _$GetKnownFollowersOutputImpl instance) =>
+Map<String, dynamic> _$$GraphGetKnownFollowersOutputImplToJson(
+        _$GraphGetKnownFollowersOutputImpl instance) =>
     <String, dynamic>{
-      'subject': instance.subject.toJson(),
-      'followers': instance.followers.map((e) => e.toJson()).toList(),
-      if (instance.cursor case final value?) 'cursor': value,
+      'subject': const ProfileViewConverter().toJson(instance.subject),
+      'cursor': instance.cursor,
+      'followers':
+          instance.followers.map(const ProfileViewConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
     };

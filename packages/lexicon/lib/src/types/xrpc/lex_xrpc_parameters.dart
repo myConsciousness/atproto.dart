@@ -17,7 +17,7 @@ class LexXrpcParameters with _$LexXrpcParameters {
     @Default('params') String type,
     String? description,
     @JsonKey(name: 'required') List<String>? requiredProperties,
-    @lexXrpcParametersPropertyConverter
+    @LexXrpcParametersPropertyConverter()
     Map<String, LexXrpcParametersProperty>? properties,
   }) = _LexXrpcParameters;
 

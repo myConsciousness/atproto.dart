@@ -22,7 +22,7 @@ LexXrpcSubscriptionMessage _$LexXrpcSubscriptionMessageFromJson(
 /// @nodoc
 mixin _$LexXrpcSubscriptionMessage {
   String? get description => throw _privateConstructorUsedError;
-  @lexXrpcSchemaConverter
+  @LexXrpcSchemaConverter()
   LexXrpcSchema? get schema => throw _privateConstructorUsedError;
 
   /// Serializes this LexXrpcSubscriptionMessage to a JSON map.
@@ -43,7 +43,7 @@ abstract class $LexXrpcSubscriptionMessageCopyWith<$Res> {
           LexXrpcSubscriptionMessage>;
   @useResult
   $Res call(
-      {String? description, @lexXrpcSchemaConverter LexXrpcSchema? schema});
+      {String? description, @LexXrpcSchemaConverter() LexXrpcSchema? schema});
 
   $LexXrpcSchemaCopyWith<$Res>? get schema;
 }
@@ -104,7 +104,7 @@ abstract class _$$LexXrpcSubscriptionMessageImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? description, @lexXrpcSchemaConverter LexXrpcSchema? schema});
+      {String? description, @LexXrpcSchemaConverter() LexXrpcSchema? schema});
 
   @override
   $LexXrpcSchemaCopyWith<$Res>? get schema;
@@ -146,7 +146,7 @@ class __$$LexXrpcSubscriptionMessageImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$LexXrpcSubscriptionMessageImpl implements _LexXrpcSubscriptionMessage {
   const _$LexXrpcSubscriptionMessageImpl(
-      {this.description, @lexXrpcSchemaConverter this.schema});
+      {this.description, @LexXrpcSchemaConverter() this.schema});
 
   factory _$LexXrpcSubscriptionMessageImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -155,7 +155,7 @@ class _$LexXrpcSubscriptionMessageImpl implements _LexXrpcSubscriptionMessage {
   @override
   final String? description;
   @override
-  @lexXrpcSchemaConverter
+  @LexXrpcSchemaConverter()
   final LexXrpcSchema? schema;
 
   @override
@@ -198,7 +198,7 @@ abstract class _LexXrpcSubscriptionMessage
     implements LexXrpcSubscriptionMessage {
   const factory _LexXrpcSubscriptionMessage(
           {final String? description,
-          @lexXrpcSchemaConverter final LexXrpcSchema? schema}) =
+          @LexXrpcSchemaConverter() final LexXrpcSchema? schema}) =
       _$LexXrpcSubscriptionMessageImpl;
 
   factory _LexXrpcSubscriptionMessage.fromJson(Map<String, dynamic> json) =
@@ -207,7 +207,7 @@ abstract class _LexXrpcSubscriptionMessage
   @override
   String? get description;
   @override
-  @lexXrpcSchemaConverter
+  @LexXrpcSchemaConverter()
   LexXrpcSchema? get schema;
 
   /// Create a copy of LexXrpcSubscriptionMessage

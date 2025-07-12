@@ -8,27 +8,35 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetMessageContextOutputImpl _$$GetMessageContextOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$GetMessageContextOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GetMessageContextOutputImpl(
-          messages: $checkedConvert(
-              'messages',
-              (v) => (v as List<dynamic>)
-                  .map((e) => unionConvoMessageViewConverter
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
+_$ModerationGetMessageContextOutputImpl
+    _$$ModerationGetMessageContextOutputImplFromJson(Map json) =>
+        $checkedCreate(
+          r'_$ModerationGetMessageContextOutputImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$ModerationGetMessageContextOutputImpl(
+              messages: $checkedConvert(
+                  'messages',
+                  (v) => (v as List<dynamic>)
+                      .map((e) =>
+                          const UModerationGetMessageContextMessagesConverter()
+                              .fromJson(e as Map<String, dynamic>))
+                      .toList()),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$GetMessageContextOutputImplToJson(
-        _$GetMessageContextOutputImpl instance) =>
+Map<String, dynamic> _$$ModerationGetMessageContextOutputImplToJson(
+        _$ModerationGetMessageContextOutputImpl instance) =>
     <String, dynamic>{
-      'messages':
-          instance.messages.map(unionConvoMessageViewConverter.toJson).toList(),
+      'messages': instance.messages
+          .map(const UModerationGetMessageContextMessagesConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
     };

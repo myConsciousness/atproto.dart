@@ -20,8 +20,11 @@ BatchItem _$BatchItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BatchItem {
+  String get $type => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
+  @MessageInputConverter()
   MessageInput get message => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this BatchItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +41,11 @@ abstract class $BatchItemCopyWith<$Res> {
   factory $BatchItemCopyWith(BatchItem value, $Res Function(BatchItem) then) =
       _$BatchItemCopyWithImpl<$Res, BatchItem>;
   @useResult
-  $Res call({String convoId, MessageInput message});
+  $Res call(
+      {String $type,
+      String convoId,
+      @MessageInputConverter() MessageInput message,
+      Map<String, dynamic>? $unknown});
 
   $MessageInputCopyWith<$Res> get message;
 }
@@ -58,10 +65,16 @@ class _$BatchItemCopyWithImpl<$Res, $Val extends BatchItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? convoId = null,
     Object? message = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       convoId: null == convoId
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
@@ -70,6 +83,10 @@ class _$BatchItemCopyWithImpl<$Res, $Val extends BatchItem>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as MessageInput,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -92,7 +109,11 @@ abstract class _$$BatchItemImplCopyWith<$Res>
       __$$BatchItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String convoId, MessageInput message});
+  $Res call(
+      {String $type,
+      String convoId,
+      @MessageInputConverter() MessageInput message,
+      Map<String, dynamic>? $unknown});
 
   @override
   $MessageInputCopyWith<$Res> get message;
@@ -111,10 +132,16 @@ class __$$BatchItemImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? convoId = null,
     Object? message = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$BatchItemImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       convoId: null == convoId
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
@@ -123,27 +150,48 @@ class __$$BatchItemImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as MessageInput,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$BatchItemImpl implements _BatchItem {
-  const _$BatchItemImpl({required this.convoId, required this.message});
+  const _$BatchItemImpl(
+      {this.$type = chatBskyConvoSendMessageBatchBatchItem,
+      required this.convoId,
+      @MessageInputConverter() required this.message,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$BatchItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$BatchItemImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String $type;
+  @override
   final String convoId;
   @override
+  @MessageInputConverter()
   final MessageInput message;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'BatchItem(convoId: $convoId, message: $message)';
+    return 'BatchItem(\$type: ${$type}, convoId: $convoId, message: $message, \$unknown: ${$unknown})';
   }
 
   @override
@@ -151,13 +199,16 @@ class _$BatchItemImpl implements _BatchItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BatchItemImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.convoId, convoId) || other.convoId == convoId) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, convoId, message);
+  int get hashCode => Object.hash(runtimeType, $type, convoId, message,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of BatchItem
   /// with the given fields replaced by the non-null parameter values.
@@ -177,16 +228,23 @@ class _$BatchItemImpl implements _BatchItem {
 
 abstract class _BatchItem implements BatchItem {
   const factory _BatchItem(
-      {required final String convoId,
-      required final MessageInput message}) = _$BatchItemImpl;
+      {final String $type,
+      required final String convoId,
+      @MessageInputConverter() required final MessageInput message,
+      final Map<String, dynamic>? $unknown}) = _$BatchItemImpl;
 
   factory _BatchItem.fromJson(Map<String, dynamic> json) =
       _$BatchItemImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   String get convoId;
   @override
+  @MessageInputConverter()
   MessageInput get message;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of BatchItem
   /// with the given fields replaced by the non-null parameter values.

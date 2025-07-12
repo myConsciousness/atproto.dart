@@ -1,12 +1,10 @@
 // Package imports:
 import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_com_atproto_services.dart' show RepoService;
 import 'package:atproto_core/atproto_core.dart' as core;
 
-// Project imports:
-import '../ids.g.dart' as ids;
-
-final class BlueskyServiceContext extends core.ServiceContext {
-  BlueskyServiceContext({
+final class ServiceContext extends core.ServiceContext {
+  ServiceContext({
     required this.atproto,
     super.headers,
     super.protocol,
@@ -23,25 +21,6 @@ final class BlueskyServiceContext extends core.ServiceContext {
   /// The client of AT Protocol.
   final atp.ATProto atproto;
 
-  Future<core.XRPCResponse<T>> findRecord<T>(
-    final core.AtUri uri, [
-    core.ResponseDataBuilder<T>? to,
-  ]) async {
-    final record = await atproto.repo.getRecord(uri: uri);
-
-    return core.XRPCResponse(
-      headers: record.headers,
-      status: record.status,
-      request: record.request,
-      rateLimit: record.rateLimit,
-      data: to != null ? to.call(record.data.value) : record.data.value as T,
-    );
-  }
-
-  /// Returns the AT URI of authenticated user.
-  core.AtUri get selfUri => core.AtUri.make(
-        session?.did ?? oAuthSession?.sub ?? 'alice',
-        ids.appBskyActorProfile,
-        'self',
-      );
+  String get $repo => session?.did ?? oAuthSession?.sub ?? '';
+  RepoService get repo => atproto.repo;
 }

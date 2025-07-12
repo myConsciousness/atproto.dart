@@ -2,70 +2,50 @@ import 'package:lexicon/lexicon.dart' as lex;
 import '../rule.dart' as rule;
 import '../object/lex_object.dart';
 
+import 'lex_property_generator.dart';
+
 LexObject generateLexObject(
   final lex.NSID lexiconId,
   final String defName,
   final lex.LexObject object,
+  final List<String> mainVariants,
 ) =>
     _LexObjectGenerator(
       lexiconId,
       defName,
       object,
+      mainVariants,
     ).execute();
 
 final class _LexObjectGenerator {
   final lex.NSID lexiconId;
   final String defName;
   final lex.LexObject object;
+  final List<String> mainVariants;
 
   _LexObjectGenerator(
     this.lexiconId,
     this.defName,
     this.object,
+    this.mainVariants,
   ) : assert(defName.isNotEmpty);
 
   LexObject execute() {
     return LexObject(
       lexiconId: lexiconId.toString(),
       defName: defName,
-      name: rule.getLexObjectName(lexiconId.toString(), defName),
-      properties: _getProperties(),
+      name: rule.getLexObjectName(
+        lexiconId.toString(),
+        defName,
+        mainVariants,
+      ),
+      properties: generateLexProperties(
+        lexiconId,
+        defName,
+        object.properties,
+        object.requiredProperties,
+        mainVariants,
+      ),
     );
-  }
-
-  List<LexObjectProperty> _getProperties() {
-    final requiredProps = object.requiredProperties ?? const [];
-
-    final properties = <LexObjectProperty>[];
-    for (final property in (object.properties ?? const {}).entries) {
-      final propertyDef = property.value;
-      final name = property.key;
-
-      properties.add(LexObjectProperty(
-        isRequired: requiredProps.contains(name),
-        type: _toDartType(propertyDef),
-        name: name,
-      ));
-    }
-
-    return properties;
-  }
-
-  String _toDartType(final lex.LexObjectProperty property) {
-    switch (property) {
-      case lex.ULexObjectPropertyPrimitive primitive:
-        switch (primitive.data) {
-          case lex.ULexPrimitiveString _:
-            return 'String';
-          case lex.ULexPrimitiveInteger _:
-            return 'int';
-          case lex.ULexPrimitiveBoolean _:
-            return 'bool';
-          default:
-            return 'Object';
-        }
-      default:
-        return 'Object';
-    }
   }
 }

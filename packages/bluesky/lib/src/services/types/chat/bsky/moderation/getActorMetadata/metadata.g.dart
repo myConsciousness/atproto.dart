@@ -13,6 +13,10 @@ _$MetadataImpl _$$MetadataImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$MetadataImpl(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ?? chatBskyModerationGetActorMetadataMetadata),
           messagesSent:
               $checkedConvert('messagesSent', (v) => (v as num).toInt()),
           messagesReceived:
@@ -20,6 +24,11 @@ _$MetadataImpl _$$MetadataImplFromJson(Map json) => $checkedCreate(
           convos: $checkedConvert('convos', (v) => (v as num).toInt()),
           convosStarted:
               $checkedConvert('convosStarted', (v) => (v as num).toInt()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -27,8 +36,10 @@ _$MetadataImpl _$$MetadataImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$MetadataImplToJson(_$MetadataImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'messagesSent': instance.messagesSent,
       'messagesReceived': instance.messagesReceived,
       'convos': instance.convos,
       'convosStarted': instance.convosStarted,
+      r'$unknown': instance.$unknown,
     };

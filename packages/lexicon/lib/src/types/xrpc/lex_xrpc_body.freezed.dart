@@ -22,7 +22,7 @@ LexXrpcBody _$LexXrpcBodyFromJson(Map<String, dynamic> json) {
 mixin _$LexXrpcBody {
   String? get description => throw _privateConstructorUsedError;
   String get encoding => throw _privateConstructorUsedError;
-  @lexXrpcSchemaConverter
+  @LexXrpcSchemaConverter()
   LexXrpcSchema? get schema => throw _privateConstructorUsedError;
 
   /// Serializes this LexXrpcBody to a JSON map.
@@ -44,7 +44,7 @@ abstract class $LexXrpcBodyCopyWith<$Res> {
   $Res call(
       {String? description,
       String encoding,
-      @lexXrpcSchemaConverter LexXrpcSchema? schema});
+      @LexXrpcSchemaConverter() LexXrpcSchema? schema});
 
   $LexXrpcSchemaCopyWith<$Res>? get schema;
 }
@@ -110,7 +110,7 @@ abstract class _$$LexXrpcBodyImplCopyWith<$Res>
   $Res call(
       {String? description,
       String encoding,
-      @lexXrpcSchemaConverter LexXrpcSchema? schema});
+      @LexXrpcSchemaConverter() LexXrpcSchema? schema});
 
   @override
   $LexXrpcSchemaCopyWith<$Res>? get schema;
@@ -157,7 +157,7 @@ class _$LexXrpcBodyImpl implements _LexXrpcBody {
   const _$LexXrpcBodyImpl(
       {this.description,
       required this.encoding,
-      @lexXrpcSchemaConverter this.schema});
+      @LexXrpcSchemaConverter() this.schema});
 
   factory _$LexXrpcBodyImpl.fromJson(Map<String, dynamic> json) =>
       _$$LexXrpcBodyImplFromJson(json);
@@ -167,7 +167,7 @@ class _$LexXrpcBodyImpl implements _LexXrpcBody {
   @override
   final String encoding;
   @override
-  @lexXrpcSchemaConverter
+  @LexXrpcSchemaConverter()
   final LexXrpcSchema? schema;
 
   @override
@@ -209,9 +209,10 @@ class _$LexXrpcBodyImpl implements _LexXrpcBody {
 
 abstract class _LexXrpcBody implements LexXrpcBody {
   const factory _LexXrpcBody(
-      {final String? description,
-      required final String encoding,
-      @lexXrpcSchemaConverter final LexXrpcSchema? schema}) = _$LexXrpcBodyImpl;
+          {final String? description,
+          required final String encoding,
+          @LexXrpcSchemaConverter() final LexXrpcSchema? schema}) =
+      _$LexXrpcBodyImpl;
 
   factory _LexXrpcBody.fromJson(Map<String, dynamic> json) =
       _$LexXrpcBodyImpl.fromJson;
@@ -221,7 +222,7 @@ abstract class _LexXrpcBody implements LexXrpcBody {
   @override
   String get encoding;
   @override
-  @lexXrpcSchemaConverter
+  @LexXrpcSchemaConverter()
   LexXrpcSchema? get schema;
 
   /// Create a copy of LexXrpcBody

@@ -23,5 +23,5 @@ class LexRefVariant with _$LexRefVariant {
     required LexRefUnion data,
   }) = ULexRefVariantRefUnion;
 
-  Map<String, dynamic> toJson() => lexRefVariantConverter.toJson(this);
+  Map<String, dynamic> toJson() => const LexRefVariantConverter().toJson(this);
 }

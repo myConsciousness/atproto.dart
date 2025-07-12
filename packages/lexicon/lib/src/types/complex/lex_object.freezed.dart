@@ -26,7 +26,7 @@ mixin _$LexObject {
   List<String>? get requiredProperties => throw _privateConstructorUsedError;
   @JsonKey(name: 'nullable')
   List<String>? get nullableProperties => throw _privateConstructorUsedError;
-  @lexObjectPropertyConverter
+  @LexObjectPropertyConverter()
   Map<String, LexObjectProperty>? get properties =>
       throw _privateConstructorUsedError;
 
@@ -50,7 +50,8 @@ abstract class $LexObjectCopyWith<$Res> {
       String? description,
       @JsonKey(name: 'required') List<String>? requiredProperties,
       @JsonKey(name: 'nullable') List<String>? nullableProperties,
-      @lexObjectPropertyConverter Map<String, LexObjectProperty>? properties});
+      @LexObjectPropertyConverter()
+      Map<String, LexObjectProperty>? properties});
 }
 
 /// @nodoc
@@ -112,7 +113,8 @@ abstract class _$$LexObjectImplCopyWith<$Res>
       String? description,
       @JsonKey(name: 'required') List<String>? requiredProperties,
       @JsonKey(name: 'nullable') List<String>? nullableProperties,
-      @lexObjectPropertyConverter Map<String, LexObjectProperty>? properties});
+      @LexObjectPropertyConverter()
+      Map<String, LexObjectProperty>? properties});
 }
 
 /// @nodoc
@@ -168,7 +170,7 @@ class _$LexObjectImpl implements _LexObject {
       this.description,
       @JsonKey(name: 'required') final List<String>? requiredProperties,
       @JsonKey(name: 'nullable') final List<String>? nullableProperties,
-      @lexObjectPropertyConverter
+      @LexObjectPropertyConverter()
       final Map<String, LexObjectProperty>? properties})
       : _requiredProperties = requiredProperties,
         _nullableProperties = nullableProperties,
@@ -208,7 +210,7 @@ class _$LexObjectImpl implements _LexObject {
 
   final Map<String, LexObjectProperty>? _properties;
   @override
-  @lexObjectPropertyConverter
+  @LexObjectPropertyConverter()
   Map<String, LexObjectProperty>? get properties {
     final value = _properties;
     if (value == null) return null;
@@ -270,7 +272,7 @@ abstract class _LexObject implements LexObject {
       final String? description,
       @JsonKey(name: 'required') final List<String>? requiredProperties,
       @JsonKey(name: 'nullable') final List<String>? nullableProperties,
-      @lexObjectPropertyConverter
+      @LexObjectPropertyConverter()
       final Map<String, LexObjectProperty>? properties}) = _$LexObjectImpl;
 
   factory _LexObject.fromJson(Map<String, dynamic> json) =
@@ -287,7 +289,7 @@ abstract class _LexObject implements LexObject {
   @JsonKey(name: 'nullable')
   List<String>? get nullableProperties;
   @override
-  @lexObjectPropertyConverter
+  @LexObjectPropertyConverter()
   Map<String, LexObjectProperty>? get properties;
 
   /// Create a copy of LexObject

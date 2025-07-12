@@ -20,9 +20,11 @@ MessageRef _$MessageRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MessageRef {
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
   String get messageId => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this MessageRef to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +42,12 @@ abstract class $MessageRefCopyWith<$Res> {
           MessageRef value, $Res Function(MessageRef) then) =
       _$MessageRefCopyWithImpl<$Res, MessageRef>;
   @useResult
-  $Res call({String did, String convoId, String messageId});
+  $Res call(
+      {String $type,
+      String did,
+      String convoId,
+      String messageId,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -58,11 +65,17 @@ class _$MessageRefCopyWithImpl<$Res, $Val extends MessageRef>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? convoId = null,
     Object? messageId = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -75,6 +88,10 @@ class _$MessageRefCopyWithImpl<$Res, $Val extends MessageRef>
           ? _value.messageId
           : messageId // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -87,7 +104,12 @@ abstract class _$$MessageRefImplCopyWith<$Res>
       __$$MessageRefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, String convoId, String messageId});
+  $Res call(
+      {String $type,
+      String did,
+      String convoId,
+      String messageId,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -103,11 +125,17 @@ class __$$MessageRefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? convoId = null,
     Object? messageId = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$MessageRefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -120,30 +148,50 @@ class __$$MessageRefImplCopyWithImpl<$Res>
           ? _value.messageId
           : messageId // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$MessageRefImpl implements _MessageRef {
   const _$MessageRefImpl(
-      {required this.did, required this.convoId, required this.messageId});
+      {this.$type = chatBskyConvoDefsMessageRef,
+      required this.did,
+      required this.convoId,
+      required this.messageId,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$MessageRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$MessageRefImplFromJson(json);
 
+  @override
+  @JsonKey()
+  final String $type;
   @override
   final String did;
   @override
   final String convoId;
   @override
   final String messageId;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'MessageRef(did: $did, convoId: $convoId, messageId: $messageId)';
+    return 'MessageRef(\$type: ${$type}, did: $did, convoId: $convoId, messageId: $messageId, \$unknown: ${$unknown})';
   }
 
   @override
@@ -151,15 +199,18 @@ class _$MessageRefImpl implements _MessageRef {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MessageRefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.convoId, convoId) || other.convoId == convoId) &&
             (identical(other.messageId, messageId) ||
-                other.messageId == messageId));
+                other.messageId == messageId) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, did, convoId, messageId);
+  int get hashCode => Object.hash(runtimeType, $type, did, convoId, messageId,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of MessageRef
   /// with the given fields replaced by the non-null parameter values.
@@ -179,19 +230,25 @@ class _$MessageRefImpl implements _MessageRef {
 
 abstract class _MessageRef implements MessageRef {
   const factory _MessageRef(
-      {required final String did,
+      {final String $type,
+      required final String did,
       required final String convoId,
-      required final String messageId}) = _$MessageRefImpl;
+      required final String messageId,
+      final Map<String, dynamic>? $unknown}) = _$MessageRefImpl;
 
   factory _MessageRef.fromJson(Map<String, dynamic> json) =
       _$MessageRefImpl.fromJson;
 
+  @override
+  String get $type;
   @override
   String get did;
   @override
   String get convoId;
   @override
   String get messageId;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of MessageRef
   /// with the given fields replaced by the non-null parameter values.

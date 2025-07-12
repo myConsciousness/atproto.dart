@@ -6,11 +6,9 @@ import '../ipld/lex_bytes.dart';
 import '../ipld/lex_cid_link.dart';
 import '../ipld/lex_ipld.dart';
 
-const lexIpldConverter = _LexIpldConverter();
-
-final class _LexIpldConverter
+final class LexIpldConverter
     implements JsonConverter<LexIpld, Map<String, dynamic>> {
-  const _LexIpldConverter();
+  const LexIpldConverter();
 
   @override
   LexIpld fromJson(Map<String, dynamic> json) {

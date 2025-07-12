@@ -20,8 +20,10 @@ AspectRatio _$AspectRatioFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AspectRatio {
+  String get $type => throw _privateConstructorUsedError;
   int get width => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this AspectRatio to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +41,8 @@ abstract class $AspectRatioCopyWith<$Res> {
           AspectRatio value, $Res Function(AspectRatio) then) =
       _$AspectRatioCopyWithImpl<$Res, AspectRatio>;
   @useResult
-  $Res call({int width, int height});
+  $Res call(
+      {String $type, int width, int height, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -57,10 +60,16 @@ class _$AspectRatioCopyWithImpl<$Res, $Val extends AspectRatio>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? width = null,
     Object? height = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -69,6 +78,10 @@ class _$AspectRatioCopyWithImpl<$Res, $Val extends AspectRatio>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -81,7 +94,8 @@ abstract class _$$AspectRatioImplCopyWith<$Res>
       __$$AspectRatioImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int width, int height});
+  $Res call(
+      {String $type, int width, int height, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -97,10 +111,16 @@ class __$$AspectRatioImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? width = null,
     Object? height = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$AspectRatioImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -109,6 +129,10 @@ class __$$AspectRatioImplCopyWithImpl<$Res>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -116,19 +140,36 @@ class __$$AspectRatioImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AspectRatioImpl implements _AspectRatio {
-  const _$AspectRatioImpl({required this.width, required this.height});
+  const _$AspectRatioImpl(
+      {this.$type = appBskyEmbedDefsAspectRatio,
+      required this.width,
+      required this.height,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$AspectRatioImpl.fromJson(Map<String, dynamic> json) =>
       _$$AspectRatioImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String $type;
+  @override
   final int width;
   @override
   final int height;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'AspectRatio(width: $width, height: $height)';
+    return 'AspectRatio(\$type: ${$type}, width: $width, height: $height, \$unknown: ${$unknown})';
   }
 
   @override
@@ -136,13 +177,16 @@ class _$AspectRatioImpl implements _AspectRatio {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AspectRatioImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.width, width) || other.width == width) &&
-            (identical(other.height, height) || other.height == height));
+            (identical(other.height, height) || other.height == height) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, width, height);
+  int get hashCode => Object.hash(runtimeType, $type, width, height,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of AspectRatio
   /// with the given fields replaced by the non-null parameter values.
@@ -162,16 +206,22 @@ class _$AspectRatioImpl implements _AspectRatio {
 
 abstract class _AspectRatio implements AspectRatio {
   const factory _AspectRatio(
-      {required final int width,
-      required final int height}) = _$AspectRatioImpl;
+      {final String $type,
+      required final int width,
+      required final int height,
+      final Map<String, dynamic>? $unknown}) = _$AspectRatioImpl;
 
   factory _AspectRatio.fromJson(Map<String, dynamic> json) =
       _$AspectRatioImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   int get width;
   @override
   int get height;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of AspectRatio
   /// with the given fields replaced by the non-null parameter values.

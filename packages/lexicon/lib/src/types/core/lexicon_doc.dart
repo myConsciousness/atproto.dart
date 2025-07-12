@@ -20,7 +20,7 @@ class LexiconDoc with _$LexiconDoc {
     @nsidConverter required NSID id,
     int? revision,
     String? description,
-    @lexUserTypeConverter required Map<String, LexUserType> defs,
+    @LexUserTypeConverter() required Map<String, LexUserType> defs,
   }) = _LexiconDoc;
 
   factory LexiconDoc.fromJson(Map<String, Object?> json) =>

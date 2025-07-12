@@ -8,25 +8,34 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetStarterPacksOutputImpl _$$GetStarterPacksOutputImplFromJson(Map json) =>
+_$GraphGetStarterPacksOutputImpl _$$GraphGetStarterPacksOutputImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$GetStarterPacksOutputImpl',
+      r'_$GraphGetStarterPacksOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$GetStarterPacksOutputImpl(
+        final val = _$GraphGetStarterPacksOutputImpl(
           starterPacks: $checkedConvert(
               'starterPacks',
               (v) => (v as List<dynamic>)
-                  .map((e) => StarterPackViewBasic.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const StarterPackViewBasicConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$GetStarterPacksOutputImplToJson(
-        _$GetStarterPacksOutputImpl instance) =>
+Map<String, dynamic> _$$GraphGetStarterPacksOutputImplToJson(
+        _$GraphGetStarterPacksOutputImpl instance) =>
     <String, dynamic>{
-      'starterPacks': instance.starterPacks.map((e) => e.toJson()).toList(),
+      'starterPacks': instance.starterPacks
+          .map(const StarterPackViewBasicConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
     };

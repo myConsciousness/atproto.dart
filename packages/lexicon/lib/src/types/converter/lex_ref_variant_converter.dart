@@ -6,11 +6,9 @@ import '../references/lex_ref.dart';
 import '../references/lex_ref_union.dart';
 import '../references/lex_ref_variant.dart';
 
-const lexRefVariantConverter = _LexRefVariantConverter();
-
-final class _LexRefVariantConverter
+final class LexRefVariantConverter
     implements JsonConverter<LexRefVariant, Map<String, dynamic>> {
-  const _LexRefVariantConverter();
+  const LexRefVariantConverter();
 
   @override
   LexRefVariant fromJson(Map<String, dynamic> json) {

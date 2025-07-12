@@ -14,16 +14,21 @@ _$SkeletonReasonPinImpl _$$SkeletonReasonPinImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$SkeletonReasonPinImpl(
-          type: $checkedConvert(r'$type',
+          $type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyFeedDefsSkeletonReasonPin),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$SkeletonReasonPinImplToJson(
         _$SkeletonReasonPinImpl instance) =>
     <String, dynamic>{
-      r'$type': instance.type,
+      r'$type': instance.$type,
+      r'$unknown': instance.$unknown,
     };

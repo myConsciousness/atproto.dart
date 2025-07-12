@@ -2,6 +2,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import '../../../lexicon.dart';
 import '../complex/lex_primitive_array.dart';
 import '../primitives/lex_boolean.dart';
 import '../primitives/lex_integer.dart';
@@ -10,12 +11,9 @@ import '../primitives/lex_string.dart';
 import '../primitives/lex_unknown.dart';
 import '../xrpc/lex_xrpc_parameters_property.dart';
 
-const lexXrpcParametersPropertyConverter =
-    _LexXrpcParametersPropertyConverter();
-
-final class _LexXrpcParametersPropertyConverter
+final class LexXrpcParametersPropertyConverter
     implements JsonConverter<LexXrpcParametersProperty, Map<String, dynamic>> {
-  const _LexXrpcParametersPropertyConverter();
+  const LexXrpcParametersPropertyConverter();
 
   @override
   LexXrpcParametersProperty fromJson(Map<String, dynamic> json) {
@@ -50,6 +48,7 @@ final class _LexXrpcParametersPropertyConverter
         return LexXrpcParametersProperty.primitiveArray(
           data: LexPrimitiveArray.fromJson(json),
         );
+
       default:
         throw UnimplementedError('Unsupported type [$type]');
     }

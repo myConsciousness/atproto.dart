@@ -1,3 +1,12 @@
+// Copyright (c) 2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -5,15 +14,41 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo/#main
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
+
 @freezed
-class LeaveConvoOutput with _$LeaveConvoOutput {
-  @jsonSerializable
-  const factory LeaveConvoOutput({
+abstract class ConvoLeaveConvoOutput with _$ConvoLeaveConvoOutput {
+  static const knownProps = <String>[
+    'convoId',
+    'rev',
+  ];
+
+  const factory ConvoLeaveConvoOutput({
     required String convoId,
     required String rev,
-  }) = _LeaveConvoOutput;
+    Map<String, dynamic>? $unknown,
+  }) = _ConvoLeaveConvoOutput;
 
-  factory LeaveConvoOutput.fromJson(Map<String, Object?> json) =>
-      _$LeaveConvoOutputFromJson(json);
+  factory ConvoLeaveConvoOutput.fromJson(Map<String, Object?> json) =>
+      _$ConvoLeaveConvoOutputFromJson(json);
+}
+
+final class ConvoLeaveConvoOutputConverter
+    extends LexObjectConverter<ConvoLeaveConvoOutput, Map<String, dynamic>> {
+  const ConvoLeaveConvoOutputConverter();
+
+  @override
+  ConvoLeaveConvoOutput fromJson(Map<String, dynamic> json) {
+    return ConvoLeaveConvoOutput.fromJson(translate(
+      json,
+      ConvoLeaveConvoOutput.knownProps,
+    ));
+  }
+
+  @override
+  Map<String, dynamic> toJson(ConvoLeaveConvoOutput object) => untranslate(
+        object.toJson(),
+      );
 }

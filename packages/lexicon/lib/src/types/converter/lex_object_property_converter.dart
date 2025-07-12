@@ -17,11 +17,9 @@ import '../references/lex_ref.dart';
 import '../references/lex_ref_union.dart';
 import '../references/lex_ref_variant.dart';
 
-const lexObjectPropertyConverter = _LexObjectPropertyConverter();
-
-final class _LexObjectPropertyConverter
+final class LexObjectPropertyConverter
     implements JsonConverter<LexObjectProperty, Map<String, dynamic>> {
-  const _LexObjectPropertyConverter();
+  const LexObjectPropertyConverter();
 
   @override
   LexObjectProperty fromJson(Map<String, dynamic> json) {

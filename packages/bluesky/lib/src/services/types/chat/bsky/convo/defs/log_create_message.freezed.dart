@@ -20,10 +20,12 @@ LogCreateMessage _$LogCreateMessageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LogCreateMessage {
+  String get $type => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
-  @unionConvoMessageViewConverter
-  UConvoMessageView get message => throw _privateConstructorUsedError;
+  @ULogCreateMessageMessageConverter()
+  ULogCreateMessageMessage get message => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this LogCreateMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,11 +44,13 @@ abstract class $LogCreateMessageCopyWith<$Res> {
       _$LogCreateMessageCopyWithImpl<$Res, LogCreateMessage>;
   @useResult
   $Res call(
-      {String rev,
+      {String $type,
+      String rev,
       String convoId,
-      @unionConvoMessageViewConverter UConvoMessageView message});
+      @ULogCreateMessageMessageConverter() ULogCreateMessageMessage message,
+      Map<String, dynamic>? $unknown});
 
-  $UConvoMessageViewCopyWith<$Res> get message;
+  $ULogCreateMessageMessageCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -64,11 +68,17 @@ class _$LogCreateMessageCopyWithImpl<$Res, $Val extends LogCreateMessage>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
     Object? message = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -80,7 +90,11 @@ class _$LogCreateMessageCopyWithImpl<$Res, $Val extends LogCreateMessage>
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageView,
+              as ULogCreateMessageMessage,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -88,8 +102,8 @@ class _$LogCreateMessageCopyWithImpl<$Res, $Val extends LogCreateMessage>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UConvoMessageViewCopyWith<$Res> get message {
-    return $UConvoMessageViewCopyWith<$Res>(_value.message, (value) {
+  $ULogCreateMessageMessageCopyWith<$Res> get message {
+    return $ULogCreateMessageMessageCopyWith<$Res>(_value.message, (value) {
       return _then(_value.copyWith(message: value) as $Val);
     });
   }
@@ -104,12 +118,14 @@ abstract class _$$LogCreateMessageImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String rev,
+      {String $type,
+      String rev,
       String convoId,
-      @unionConvoMessageViewConverter UConvoMessageView message});
+      @ULogCreateMessageMessageConverter() ULogCreateMessageMessage message,
+      Map<String, dynamic>? $unknown});
 
   @override
-  $UConvoMessageViewCopyWith<$Res> get message;
+  $ULogCreateMessageMessageCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -125,11 +141,17 @@ class __$$LogCreateMessageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
     Object? message = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LogCreateMessageImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -141,34 +163,52 @@ class __$$LogCreateMessageImplCopyWithImpl<$Res>
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageView,
+              as ULogCreateMessageMessage,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$LogCreateMessageImpl implements _LogCreateMessage {
   const _$LogCreateMessageImpl(
-      {required this.rev,
+      {this.$type = chatBskyConvoDefsLogCreateMessage,
+      required this.rev,
       required this.convoId,
-      @unionConvoMessageViewConverter required this.message});
+      @ULogCreateMessageMessageConverter() required this.message,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$LogCreateMessageImpl.fromJson(Map<String, dynamic> json) =>
       _$$LogCreateMessageImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String $type;
+  @override
   final String rev;
   @override
   final String convoId;
   @override
-  @unionConvoMessageViewConverter
-  final UConvoMessageView message;
+  @ULogCreateMessageMessageConverter()
+  final ULogCreateMessageMessage message;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'LogCreateMessage(rev: $rev, convoId: $convoId, message: $message)';
+    return 'LogCreateMessage(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, \$unknown: ${$unknown})';
   }
 
   @override
@@ -176,14 +216,17 @@ class _$LogCreateMessageImpl implements _LogCreateMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LogCreateMessageImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.convoId, convoId) || other.convoId == convoId) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, rev, convoId, message);
+  int get hashCode => Object.hash(runtimeType, $type, rev, convoId, message,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of LogCreateMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -204,21 +247,27 @@ class _$LogCreateMessageImpl implements _LogCreateMessage {
 
 abstract class _LogCreateMessage implements LogCreateMessage {
   const factory _LogCreateMessage(
-      {required final String rev,
+      {final String $type,
+      required final String rev,
       required final String convoId,
-      @unionConvoMessageViewConverter
-      required final UConvoMessageView message}) = _$LogCreateMessageImpl;
+      @ULogCreateMessageMessageConverter()
+      required final ULogCreateMessageMessage message,
+      final Map<String, dynamic>? $unknown}) = _$LogCreateMessageImpl;
 
   factory _LogCreateMessage.fromJson(Map<String, dynamic> json) =
       _$LogCreateMessageImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   String get rev;
   @override
   String get convoId;
   @override
-  @unionConvoMessageViewConverter
-  UConvoMessageView get message;
+  @ULogCreateMessageMessageConverter()
+  ULogCreateMessageMessage get message;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of LogCreateMessage
   /// with the given fields replaced by the non-null parameter values.

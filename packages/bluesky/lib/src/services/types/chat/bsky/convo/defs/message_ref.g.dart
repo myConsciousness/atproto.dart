@@ -13,9 +13,16 @@ _$MessageRefImpl _$$MessageRefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$MessageRefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? chatBskyConvoDefsMessageRef),
           did: $checkedConvert('did', (v) => v as String),
           convoId: $checkedConvert('convoId', (v) => v as String),
           messageId: $checkedConvert('messageId', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -23,7 +30,9 @@ _$MessageRefImpl _$$MessageRefImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$MessageRefImplToJson(_$MessageRefImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'did': instance.did,
       'convoId': instance.convoId,
       'messageId': instance.messageId,
+      r'$unknown': instance.$unknown,
     };

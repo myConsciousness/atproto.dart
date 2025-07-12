@@ -34,7 +34,7 @@ import 'types/app/bsky/feed/getQuotes/output.dart';
 final class FeedService {
   FeedService(this._ctx);
 
-  final BlueskyServiceContext _ctx;
+  final ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
   Future<core.XRPCResponse<atp.StrongRef>> post({

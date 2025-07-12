@@ -50,3 +50,6 @@ export 'package:xrpc/xrpc.dart'
         GetClient,
         PostClient;
 export 'package:xrpc/http.dart' show Request, Response, HttpException;
+
+export 'package:atproto_core/src/json/lex_object_converter.dart';
+export 'package:atproto_core/src/json/lex_known_values_converter.dart';

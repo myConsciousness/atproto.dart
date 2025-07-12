@@ -18,7 +18,7 @@ import 'service_context.dart';
 final class ActorService {
   ActorService(this._ctx);
 
-  final BlueskyServiceContext _ctx;
+  final ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
   Future<core.XRPCResponse<Actors>> searchActors({

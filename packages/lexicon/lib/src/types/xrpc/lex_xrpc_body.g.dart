@@ -19,7 +19,7 @@ _$LexXrpcBodyImpl _$$LexXrpcBodyImplFromJson(Map json) => $checkedCreate(
               'schema',
               (v) =>
                   _$JsonConverterFromJson<Map<String, dynamic>, LexXrpcSchema>(
-                      v, lexXrpcSchemaConverter.fromJson)),
+                      v, const LexXrpcSchemaConverter().fromJson)),
         );
         return val;
       },
@@ -30,7 +30,7 @@ Map<String, dynamic> _$$LexXrpcBodyImplToJson(_$LexXrpcBodyImpl instance) =>
       if (instance.description case final value?) 'description': value,
       'encoding': instance.encoding,
       if (_$JsonConverterToJson<Map<String, dynamic>, LexXrpcSchema>(
-              instance.schema, lexXrpcSchemaConverter.toJson)
+              instance.schema, const LexXrpcSchemaConverter().toJson)
           case final value?)
         'schema': value,
     };

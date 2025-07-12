@@ -13,15 +13,20 @@ _$ReasonPinImpl _$$ReasonPinImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ReasonPinImpl(
-          type: $checkedConvert(
+          $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsReasonPin),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$ReasonPinImplToJson(_$ReasonPinImpl instance) =>
     <String, dynamic>{
-      r'$type': instance.type,
+      r'$type': instance.$type,
+      r'$unknown': instance.$unknown,
     };

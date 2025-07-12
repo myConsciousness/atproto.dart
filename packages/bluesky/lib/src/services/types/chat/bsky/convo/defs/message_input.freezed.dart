@@ -20,10 +20,13 @@ MessageInput _$MessageInputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MessageInput {
+  String get $type => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
-  List<Facet>? get facets => throw _privateConstructorUsedError;
-  @unionConvoMessageEmbedConverter
-  UConvoMessageEmbed? get embed => throw _privateConstructorUsedError;
+  @RichtextFacetConverter()
+  List<RichtextFacet>? get facets => throw _privateConstructorUsedError;
+  @UMessageInputEmbedConverter()
+  UMessageInputEmbed? get embed => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this MessageInput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,11 +45,13 @@ abstract class $MessageInputCopyWith<$Res> {
       _$MessageInputCopyWithImpl<$Res, MessageInput>;
   @useResult
   $Res call(
-      {String text,
-      List<Facet>? facets,
-      @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed});
+      {String $type,
+      String text,
+      @RichtextFacetConverter() List<RichtextFacet>? facets,
+      @UMessageInputEmbedConverter() UMessageInputEmbed? embed,
+      Map<String, dynamic>? $unknown});
 
-  $UConvoMessageEmbedCopyWith<$Res>? get embed;
+  $UMessageInputEmbedCopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -64,11 +69,17 @@ class _$MessageInputCopyWithImpl<$Res, $Val extends MessageInput>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? text = null,
     Object? facets = freezed,
     Object? embed = freezed,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -76,11 +87,15 @@ class _$MessageInputCopyWithImpl<$Res, $Val extends MessageInput>
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<RichtextFacet>?,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageEmbed?,
+              as UMessageInputEmbed?,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -88,12 +103,12 @@ class _$MessageInputCopyWithImpl<$Res, $Val extends MessageInput>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UConvoMessageEmbedCopyWith<$Res>? get embed {
+  $UMessageInputEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UConvoMessageEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $UMessageInputEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -108,12 +123,14 @@ abstract class _$$MessageInputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String text,
-      List<Facet>? facets,
-      @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed});
+      {String $type,
+      String text,
+      @RichtextFacetConverter() List<RichtextFacet>? facets,
+      @UMessageInputEmbedConverter() UMessageInputEmbed? embed,
+      Map<String, dynamic>? $unknown});
 
   @override
-  $UConvoMessageEmbedCopyWith<$Res>? get embed;
+  $UMessageInputEmbedCopyWith<$Res>? get embed;
 }
 
 /// @nodoc
@@ -129,11 +146,17 @@ class __$$MessageInputImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? text = null,
     Object? facets = freezed,
     Object? embed = freezed,
+    Object? $unknown = freezed,
   }) {
     return _then(_$MessageInputImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -141,33 +164,43 @@ class __$$MessageInputImplCopyWithImpl<$Res>
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<RichtextFacet>?,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageEmbed?,
+              as UMessageInputEmbed?,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$MessageInputImpl implements _MessageInput {
   const _$MessageInputImpl(
-      {required this.text,
-      final List<Facet>? facets,
-      @unionConvoMessageEmbedConverter this.embed})
-      : _facets = facets;
+      {this.$type = chatBskyConvoDefsMessageInput,
+      required this.text,
+      @RichtextFacetConverter() final List<RichtextFacet>? facets,
+      @UMessageInputEmbedConverter() this.embed,
+      final Map<String, dynamic>? $unknown})
+      : _facets = facets,
+        _$unknown = $unknown;
 
   factory _$MessageInputImpl.fromJson(Map<String, dynamic> json) =>
       _$$MessageInputImplFromJson(json);
 
   @override
-  final String text;
-  final List<Facet>? _facets;
+  @JsonKey()
+  final String $type;
   @override
-  List<Facet>? get facets {
+  final String text;
+  final List<RichtextFacet>? _facets;
+  @override
+  @RichtextFacetConverter()
+  List<RichtextFacet>? get facets {
     final value = _facets;
     if (value == null) return null;
     if (_facets is EqualUnmodifiableListView) return _facets;
@@ -176,12 +209,21 @@ class _$MessageInputImpl implements _MessageInput {
   }
 
   @override
-  @unionConvoMessageEmbedConverter
-  final UConvoMessageEmbed? embed;
+  @UMessageInputEmbedConverter()
+  final UMessageInputEmbed? embed;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'MessageInput(text: $text, facets: $facets, embed: $embed)';
+    return 'MessageInput(\$type: ${$type}, text: $text, facets: $facets, embed: $embed, \$unknown: ${$unknown})';
   }
 
   @override
@@ -189,15 +231,22 @@ class _$MessageInputImpl implements _MessageInput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MessageInputImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
-            (identical(other.embed, embed) || other.embed == embed));
+            (identical(other.embed, embed) || other.embed == embed) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, text, const DeepCollectionEquality().hash(_facets), embed);
+      runtimeType,
+      $type,
+      text,
+      const DeepCollectionEquality().hash(_facets),
+      embed,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of MessageInput
   /// with the given fields replaced by the non-null parameter values.
@@ -217,21 +266,27 @@ class _$MessageInputImpl implements _MessageInput {
 
 abstract class _MessageInput implements MessageInput {
   const factory _MessageInput(
-          {required final String text,
-          final List<Facet>? facets,
-          @unionConvoMessageEmbedConverter final UConvoMessageEmbed? embed}) =
-      _$MessageInputImpl;
+      {final String $type,
+      required final String text,
+      @RichtextFacetConverter() final List<RichtextFacet>? facets,
+      @UMessageInputEmbedConverter() final UMessageInputEmbed? embed,
+      final Map<String, dynamic>? $unknown}) = _$MessageInputImpl;
 
   factory _MessageInput.fromJson(Map<String, dynamic> json) =
       _$MessageInputImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   String get text;
   @override
-  List<Facet>? get facets;
+  @RichtextFacetConverter()
+  List<RichtextFacet>? get facets;
   @override
-  @unionConvoMessageEmbedConverter
-  UConvoMessageEmbed? get embed;
+  @UMessageInputEmbedConverter()
+  UMessageInputEmbed? get embed;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of MessageInput
   /// with the given fields replaced by the non-null parameter values.

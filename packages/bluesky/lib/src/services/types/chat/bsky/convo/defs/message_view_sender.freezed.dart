@@ -20,7 +20,9 @@ MessageViewSender _$MessageViewSenderFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MessageViewSender {
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this MessageViewSender to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +40,7 @@ abstract class $MessageViewSenderCopyWith<$Res> {
           MessageViewSender value, $Res Function(MessageViewSender) then) =
       _$MessageViewSenderCopyWithImpl<$Res, MessageViewSender>;
   @useResult
-  $Res call({String did});
+  $Res call({String $type, String did, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -56,13 +58,23 @@ class _$MessageViewSenderCopyWithImpl<$Res, $Val extends MessageViewSender>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -75,7 +87,7 @@ abstract class _$$MessageViewSenderImplCopyWith<$Res>
       __$$MessageViewSenderImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did});
+  $Res call({String $type, String did, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -91,32 +103,57 @@ class __$$MessageViewSenderImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$MessageViewSenderImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$MessageViewSenderImpl implements _MessageViewSender {
-  const _$MessageViewSenderImpl({required this.did});
+  const _$MessageViewSenderImpl(
+      {this.$type = chatBskyConvoDefsMessageViewSender,
+      required this.did,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$MessageViewSenderImpl.fromJson(Map<String, dynamic> json) =>
       _$$MessageViewSenderImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String $type;
+  @override
   final String did;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'MessageViewSender(did: $did)';
+    return 'MessageViewSender(\$type: ${$type}, did: $did, \$unknown: ${$unknown})';
   }
 
   @override
@@ -124,12 +161,15 @@ class _$MessageViewSenderImpl implements _MessageViewSender {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MessageViewSenderImpl &&
-            (identical(other.did, did) || other.did == did));
+            (identical(other.$type, $type) || other.$type == $type) &&
+            (identical(other.did, did) || other.did == did) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, did);
+  int get hashCode => Object.hash(
+      runtimeType, $type, did, const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of MessageViewSender
   /// with the given fields replaced by the non-null parameter values.
@@ -149,14 +189,20 @@ class _$MessageViewSenderImpl implements _MessageViewSender {
 }
 
 abstract class _MessageViewSender implements MessageViewSender {
-  const factory _MessageViewSender({required final String did}) =
-      _$MessageViewSenderImpl;
+  const factory _MessageViewSender(
+      {final String $type,
+      required final String did,
+      final Map<String, dynamic>? $unknown}) = _$MessageViewSenderImpl;
 
   factory _MessageViewSender.fromJson(Map<String, dynamic> json) =
       _$MessageViewSenderImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   String get did;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of MessageViewSender
   /// with the given fields replaced by the non-null parameter values.

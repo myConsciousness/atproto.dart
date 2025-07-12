@@ -1,0 +1,3 @@
+dependency_overrides:
+  lexicon:
+    path: packages/lexicon

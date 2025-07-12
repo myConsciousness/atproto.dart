@@ -25,7 +25,7 @@ mixin _$LexiconDoc {
   NSID get id => throw _privateConstructorUsedError;
   int? get revision => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  @lexUserTypeConverter
+  @LexUserTypeConverter()
   Map<String, LexUserType> get defs => throw _privateConstructorUsedError;
 
   /// Serializes this LexiconDoc to a JSON map.
@@ -49,7 +49,7 @@ abstract class $LexiconDocCopyWith<$Res> {
       @nsidConverter NSID id,
       int? revision,
       String? description,
-      @lexUserTypeConverter Map<String, LexUserType> defs});
+      @LexUserTypeConverter() Map<String, LexUserType> defs});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ abstract class _$$LexiconDocImplCopyWith<$Res>
       @nsidConverter NSID id,
       int? revision,
       String? description,
-      @lexUserTypeConverter Map<String, LexUserType> defs});
+      @LexUserTypeConverter() Map<String, LexUserType> defs});
 }
 
 /// @nodoc
@@ -167,7 +167,7 @@ class _$LexiconDocImpl implements _LexiconDoc {
       @nsidConverter required this.id,
       this.revision,
       this.description,
-      @lexUserTypeConverter required final Map<String, LexUserType> defs})
+      @LexUserTypeConverter() required final Map<String, LexUserType> defs})
       : _defs = defs;
 
   factory _$LexiconDocImpl.fromJson(Map<String, dynamic> json) =>
@@ -184,7 +184,7 @@ class _$LexiconDocImpl implements _LexiconDoc {
   final String? description;
   final Map<String, LexUserType> _defs;
   @override
-  @lexUserTypeConverter
+  @LexUserTypeConverter()
   Map<String, LexUserType> get defs {
     if (_defs is EqualUnmodifiableMapView) return _defs;
     // ignore: implicit_dynamic_type
@@ -233,12 +233,12 @@ class _$LexiconDocImpl implements _LexiconDoc {
 
 abstract class _LexiconDoc implements LexiconDoc {
   const factory _LexiconDoc(
-          {required final int lexicon,
-          @nsidConverter required final NSID id,
-          final int? revision,
-          final String? description,
-          @lexUserTypeConverter required final Map<String, LexUserType> defs}) =
-      _$LexiconDocImpl;
+      {required final int lexicon,
+      @nsidConverter required final NSID id,
+      final int? revision,
+      final String? description,
+      @LexUserTypeConverter()
+      required final Map<String, LexUserType> defs}) = _$LexiconDocImpl;
 
   factory _LexiconDoc.fromJson(Map<String, dynamic> json) =
       _$LexiconDocImpl.fromJson;
@@ -253,7 +253,7 @@ abstract class _LexiconDoc implements LexiconDoc {
   @override
   String? get description;
   @override
-  @lexUserTypeConverter
+  @LexUserTypeConverter()
   Map<String, LexUserType> get defs;
 
   /// Create a copy of LexiconDoc

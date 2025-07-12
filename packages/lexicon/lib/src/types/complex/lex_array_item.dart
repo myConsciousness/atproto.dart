@@ -33,5 +33,5 @@ class LexArrayItem with _$LexArrayItem {
     required LexRefVariant data,
   }) = ULexArrayRefVariant;
 
-  Map<String, dynamic> toJson() => lexArrayItemConverter.toJson(this);
+  Map<String, dynamic> toJson() => const LexArrayItemConverter().toJson(this);
 }

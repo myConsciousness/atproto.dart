@@ -20,8 +20,8 @@ SkeletonReasonPin _$SkeletonReasonPinFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonReasonPin {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get $type => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this SkeletonReasonPin to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $SkeletonReasonPinCopyWith<$Res> {
           SkeletonReasonPin value, $Res Function(SkeletonReasonPin) then) =
       _$SkeletonReasonPinCopyWithImpl<$Res, SkeletonReasonPin>;
   @useResult
-  $Res call({@typeKey String type});
+  $Res call({String $type, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -57,13 +57,18 @@ class _$SkeletonReasonPinCopyWithImpl<$Res, $Val extends SkeletonReasonPin>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -76,7 +81,7 @@ abstract class _$$SkeletonReasonPinImplCopyWith<$Res>
       __$$SkeletonReasonPinImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type});
+  $Res call({String $type, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -92,34 +97,49 @@ class __$$SkeletonReasonPinImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$SkeletonReasonPinImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$SkeletonReasonPinImpl implements _SkeletonReasonPin {
   const _$SkeletonReasonPinImpl(
-      {@typeKey this.type = appBskyFeedDefsSkeletonReasonPin});
+      {this.$type = appBskyFeedDefsSkeletonReasonPin,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$SkeletonReasonPinImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonReasonPinImplFromJson(json);
 
   @override
-  @typeKey
-  final String type;
+  @JsonKey()
+  final String $type;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'SkeletonReasonPin(type: $type)';
+    return 'SkeletonReasonPin(\$type: ${$type}, \$unknown: ${$unknown})';
   }
 
   @override
@@ -127,12 +147,14 @@ class _$SkeletonReasonPinImpl implements _SkeletonReasonPin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SkeletonReasonPinImpl &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.$type, $type) || other.$type == $type) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type);
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of SkeletonReasonPin
   /// with the given fields replaced by the non-null parameter values.
@@ -152,15 +174,17 @@ class _$SkeletonReasonPinImpl implements _SkeletonReasonPin {
 }
 
 abstract class _SkeletonReasonPin implements SkeletonReasonPin {
-  const factory _SkeletonReasonPin({@typeKey final String type}) =
-      _$SkeletonReasonPinImpl;
+  const factory _SkeletonReasonPin(
+      {final String $type,
+      final Map<String, dynamic>? $unknown}) = _$SkeletonReasonPinImpl;
 
   factory _SkeletonReasonPin.fromJson(Map<String, dynamic> json) =
       _$SkeletonReasonPinImpl.fromJson;
 
   @override
-  @typeKey
-  String get type;
+  String get $type;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of SkeletonReasonPin
   /// with the given fields replaced by the non-null parameter values.

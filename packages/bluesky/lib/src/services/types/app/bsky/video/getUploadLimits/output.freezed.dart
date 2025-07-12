@@ -14,55 +14,58 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-GetUploadLimitsOutput _$GetUploadLimitsOutputFromJson(
+VideoGetUploadLimitsOutput _$VideoGetUploadLimitsOutputFromJson(
     Map<String, dynamic> json) {
-  return _GetUploadLimitsOutput.fromJson(json);
+  return _VideoGetUploadLimitsOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetUploadLimitsOutput {
+mixin _$VideoGetUploadLimitsOutput {
   bool get canUpload => throw _privateConstructorUsedError;
   int? get remainingDailyVideos => throw _privateConstructorUsedError;
   int? get remainingDailyBytes => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
-  /// Serializes this GetUploadLimitsOutput to a JSON map.
+  /// Serializes this VideoGetUploadLimitsOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of GetUploadLimitsOutput
+  /// Create a copy of VideoGetUploadLimitsOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetUploadLimitsOutputCopyWith<GetUploadLimitsOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+  $VideoGetUploadLimitsOutputCopyWith<VideoGetUploadLimitsOutput>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetUploadLimitsOutputCopyWith<$Res> {
-  factory $GetUploadLimitsOutputCopyWith(GetUploadLimitsOutput value,
-          $Res Function(GetUploadLimitsOutput) then) =
-      _$GetUploadLimitsOutputCopyWithImpl<$Res, GetUploadLimitsOutput>;
+abstract class $VideoGetUploadLimitsOutputCopyWith<$Res> {
+  factory $VideoGetUploadLimitsOutputCopyWith(VideoGetUploadLimitsOutput value,
+          $Res Function(VideoGetUploadLimitsOutput) then) =
+      _$VideoGetUploadLimitsOutputCopyWithImpl<$Res,
+          VideoGetUploadLimitsOutput>;
   @useResult
   $Res call(
       {bool canUpload,
       int? remainingDailyVideos,
       int? remainingDailyBytes,
       String? message,
-      String? error});
+      String? error,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
-class _$GetUploadLimitsOutputCopyWithImpl<$Res,
-        $Val extends GetUploadLimitsOutput>
-    implements $GetUploadLimitsOutputCopyWith<$Res> {
-  _$GetUploadLimitsOutputCopyWithImpl(this._value, this._then);
+class _$VideoGetUploadLimitsOutputCopyWithImpl<$Res,
+        $Val extends VideoGetUploadLimitsOutput>
+    implements $VideoGetUploadLimitsOutputCopyWith<$Res> {
+  _$VideoGetUploadLimitsOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetUploadLimitsOutput
+  /// Create a copy of VideoGetUploadLimitsOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -72,6 +75,7 @@ class _$GetUploadLimitsOutputCopyWithImpl<$Res,
     Object? remainingDailyBytes = freezed,
     Object? message = freezed,
     Object? error = freezed,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       canUpload: null == canUpload
@@ -94,17 +98,21 @@ class _$GetUploadLimitsOutputCopyWithImpl<$Res,
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$GetUploadLimitsOutputImplCopyWith<$Res>
-    implements $GetUploadLimitsOutputCopyWith<$Res> {
-  factory _$$GetUploadLimitsOutputImplCopyWith(
-          _$GetUploadLimitsOutputImpl value,
-          $Res Function(_$GetUploadLimitsOutputImpl) then) =
-      __$$GetUploadLimitsOutputImplCopyWithImpl<$Res>;
+abstract class _$$VideoGetUploadLimitsOutputImplCopyWith<$Res>
+    implements $VideoGetUploadLimitsOutputCopyWith<$Res> {
+  factory _$$VideoGetUploadLimitsOutputImplCopyWith(
+          _$VideoGetUploadLimitsOutputImpl value,
+          $Res Function(_$VideoGetUploadLimitsOutputImpl) then) =
+      __$$VideoGetUploadLimitsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,19 +120,21 @@ abstract class _$$GetUploadLimitsOutputImplCopyWith<$Res>
       int? remainingDailyVideos,
       int? remainingDailyBytes,
       String? message,
-      String? error});
+      String? error,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
-class __$$GetUploadLimitsOutputImplCopyWithImpl<$Res>
-    extends _$GetUploadLimitsOutputCopyWithImpl<$Res,
-        _$GetUploadLimitsOutputImpl>
-    implements _$$GetUploadLimitsOutputImplCopyWith<$Res> {
-  __$$GetUploadLimitsOutputImplCopyWithImpl(_$GetUploadLimitsOutputImpl _value,
-      $Res Function(_$GetUploadLimitsOutputImpl) _then)
+class __$$VideoGetUploadLimitsOutputImplCopyWithImpl<$Res>
+    extends _$VideoGetUploadLimitsOutputCopyWithImpl<$Res,
+        _$VideoGetUploadLimitsOutputImpl>
+    implements _$$VideoGetUploadLimitsOutputImplCopyWith<$Res> {
+  __$$VideoGetUploadLimitsOutputImplCopyWithImpl(
+      _$VideoGetUploadLimitsOutputImpl _value,
+      $Res Function(_$VideoGetUploadLimitsOutputImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetUploadLimitsOutput
+  /// Create a copy of VideoGetUploadLimitsOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -134,8 +144,9 @@ class __$$GetUploadLimitsOutputImplCopyWithImpl<$Res>
     Object? remainingDailyBytes = freezed,
     Object? message = freezed,
     Object? error = freezed,
+    Object? $unknown = freezed,
   }) {
-    return _then(_$GetUploadLimitsOutputImpl(
+    return _then(_$VideoGetUploadLimitsOutputImpl(
       canUpload: null == canUpload
           ? _value.canUpload
           : canUpload // ignore: cast_nullable_to_non_nullable
@@ -156,23 +167,29 @@ class __$$GetUploadLimitsOutputImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
-class _$GetUploadLimitsOutputImpl implements _GetUploadLimitsOutput {
-  const _$GetUploadLimitsOutputImpl(
+@JsonSerializable()
+class _$VideoGetUploadLimitsOutputImpl implements _VideoGetUploadLimitsOutput {
+  const _$VideoGetUploadLimitsOutputImpl(
       {required this.canUpload,
       this.remainingDailyVideos,
       this.remainingDailyBytes,
       this.message,
-      this.error});
+      this.error,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
-  factory _$GetUploadLimitsOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetUploadLimitsOutputImplFromJson(json);
+  factory _$VideoGetUploadLimitsOutputImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$VideoGetUploadLimitsOutputImplFromJson(json);
 
   @override
   final bool canUpload;
@@ -184,17 +201,26 @@ class _$GetUploadLimitsOutputImpl implements _GetUploadLimitsOutput {
   final String? message;
   @override
   final String? error;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'GetUploadLimitsOutput(canUpload: $canUpload, remainingDailyVideos: $remainingDailyVideos, remainingDailyBytes: $remainingDailyBytes, message: $message, error: $error)';
+    return 'VideoGetUploadLimitsOutput(canUpload: $canUpload, remainingDailyVideos: $remainingDailyVideos, remainingDailyBytes: $remainingDailyBytes, message: $message, error: $error, \$unknown: ${$unknown})';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetUploadLimitsOutputImpl &&
+            other is _$VideoGetUploadLimitsOutputImpl &&
             (identical(other.canUpload, canUpload) ||
                 other.canUpload == canUpload) &&
             (identical(other.remainingDailyVideos, remainingDailyVideos) ||
@@ -202,41 +228,50 @@ class _$GetUploadLimitsOutputImpl implements _GetUploadLimitsOutput {
             (identical(other.remainingDailyBytes, remainingDailyBytes) ||
                 other.remainingDailyBytes == remainingDailyBytes) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, canUpload, remainingDailyVideos,
-      remainingDailyBytes, message, error);
+  int get hashCode => Object.hash(
+      runtimeType,
+      canUpload,
+      remainingDailyVideos,
+      remainingDailyBytes,
+      message,
+      error,
+      const DeepCollectionEquality().hash(_$unknown));
 
-  /// Create a copy of GetUploadLimitsOutput
+  /// Create a copy of VideoGetUploadLimitsOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetUploadLimitsOutputImplCopyWith<_$GetUploadLimitsOutputImpl>
-      get copyWith => __$$GetUploadLimitsOutputImplCopyWithImpl<
-          _$GetUploadLimitsOutputImpl>(this, _$identity);
+  _$$VideoGetUploadLimitsOutputImplCopyWith<_$VideoGetUploadLimitsOutputImpl>
+      get copyWith => __$$VideoGetUploadLimitsOutputImplCopyWithImpl<
+          _$VideoGetUploadLimitsOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetUploadLimitsOutputImplToJson(
+    return _$$VideoGetUploadLimitsOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _GetUploadLimitsOutput implements GetUploadLimitsOutput {
-  const factory _GetUploadLimitsOutput(
+abstract class _VideoGetUploadLimitsOutput
+    implements VideoGetUploadLimitsOutput {
+  const factory _VideoGetUploadLimitsOutput(
       {required final bool canUpload,
       final int? remainingDailyVideos,
       final int? remainingDailyBytes,
       final String? message,
-      final String? error}) = _$GetUploadLimitsOutputImpl;
+      final String? error,
+      final Map<String, dynamic>? $unknown}) = _$VideoGetUploadLimitsOutputImpl;
 
-  factory _GetUploadLimitsOutput.fromJson(Map<String, dynamic> json) =
-      _$GetUploadLimitsOutputImpl.fromJson;
+  factory _VideoGetUploadLimitsOutput.fromJson(Map<String, dynamic> json) =
+      _$VideoGetUploadLimitsOutputImpl.fromJson;
 
   @override
   bool get canUpload;
@@ -248,11 +283,13 @@ abstract class _GetUploadLimitsOutput implements GetUploadLimitsOutput {
   String? get message;
   @override
   String? get error;
+  @override
+  Map<String, dynamic>? get $unknown;
 
-  /// Create a copy of GetUploadLimitsOutput
+  /// Create a copy of VideoGetUploadLimitsOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetUploadLimitsOutputImplCopyWith<_$GetUploadLimitsOutputImpl>
+  _$$VideoGetUploadLimitsOutputImplCopyWith<_$VideoGetUploadLimitsOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -8,22 +8,29 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetConvoForMembersOutputImpl _$$GetConvoForMembersOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$GetConvoForMembersOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GetConvoForMembersOutputImpl(
-          convo: $checkedConvert('convo',
-              (v) => ConvoView.fromJson(Map<String, Object?>.from(v as Map))),
+_$ConvoGetConvoForMembersOutputImpl
+    _$$ConvoGetConvoForMembersOutputImplFromJson(Map json) => $checkedCreate(
+          r'_$ConvoGetConvoForMembersOutputImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$ConvoGetConvoForMembersOutputImpl(
+              convo: $checkedConvert(
+                  'convo',
+                  (v) => const ConvoViewConverter()
+                      .fromJson(v as Map<String, dynamic>)),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$GetConvoForMembersOutputImplToJson(
-        _$GetConvoForMembersOutputImpl instance) =>
+Map<String, dynamic> _$$ConvoGetConvoForMembersOutputImplToJson(
+        _$ConvoGetConvoForMembersOutputImpl instance) =>
     <String, dynamic>{
-      'convo': instance.convo.toJson(),
+      'convo': const ConvoViewConverter().toJson(instance.convo),
+      r'$unknown': instance.$unknown,
     };

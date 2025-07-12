@@ -13,23 +13,28 @@ _$TrendingTopicImpl _$$TrendingTopicImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$TrendingTopicImpl(
-          type: $checkedConvert(r'$type',
+          $type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyUnspeccedDefsTrendingTopic),
           topic: $checkedConvert('topic', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String?),
           description: $checkedConvert('description', (v) => v as String?),
           link: $checkedConvert('link', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$TrendingTopicImplToJson(_$TrendingTopicImpl instance) =>
     <String, dynamic>{
-      r'$type': instance.type,
+      r'$type': instance.$type,
       'topic': instance.topic,
-      if (instance.displayName case final value?) 'displayName': value,
-      if (instance.description case final value?) 'description': value,
+      'displayName': instance.displayName,
+      'description': instance.description,
       'link': instance.link,
+      r'$unknown': instance.$unknown,
     };

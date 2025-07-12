@@ -1,11 +1,33 @@
-import 'template.dart';
+import 'lex_type.dart';
 
-final class LexObject implements Template {
+import 'lex_property.dart';
+import 'utils.dart';
+import '../utils.dart';
+
+import '../rule.dart' as rule;
+
+final class LexObject extends LexType {
+  @override
   final String lexiconId;
+  @override
   final String defName;
 
   final String name;
-  final List<LexObjectProperty> properties;
+  final List<LexProperty> properties;
+
+  @override
+  List<LexProperty> getProperties() {
+    return properties;
+  }
+
+  @override
+  List<LexType> get nested => properties
+      .where((e) => e.type.isUnion)
+      .map((e) => e.type.union!)
+      .toList();
+
+  @override
+  LexTypeState get state => LexTypeState.object;
 
   const LexObject({
     required this.lexiconId,
@@ -15,59 +37,81 @@ final class LexObject implements Template {
   });
 
   @override
-  String format() {
-    final properties = StringBuffer();
-    for (final property in this.properties) {
-      properties.writeln(property.format());
-    }
-
-    return '''import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'main.freezed.dart';
-part 'main.g.dart';
-
-@freezed
-abstract class $name with _\$$name {
-  const factory $name({
-${properties.toString()}
-  }) = _$name;
-
-  factory $name.fromJson(Map<String, Object?> json) => _\$${name}FromJson(json);
-}
-''';
+  String getTypeName() {
+    return name;
   }
-}
-
-final class LexObjectProperty implements Template {
-  final bool isRequired;
-  final String type;
-  final String name;
-  final String? defaultValue;
-
-  const LexObjectProperty({
-    this.isRequired = false,
-    required this.type,
-    required this.name,
-    this.defaultValue,
-  });
 
   @override
   String format() {
+    final id = rule.getLexObjectTypeId(lexiconId, defName);
+    final fileName = rule.getLexObjectFileName(defName);
+
+    final properties = StringBuffer();
+    for (final property in this.properties) {
+      if (rule.isDeprecated(property.description)) {
+        continue;
+      }
+
+      properties.writeln(property.format());
+    }
+
+    final packages = StringBuffer();
+    for (final packagePath in this
+        .properties
+        .where((e) => e.type.packagePath != null)
+        .map((e) => e.type.packagePath)
+        .toSet()
+        .toList()) {
+      packages.writeln("import '$packagePath';");
+    }
+
+    final knownProps = getKnownProps(this.properties);
+    final validateMethod = _getValidateMethod(id);
+    final converter = getObjectConverter(name);
+
+    return '''$kHeaderHint
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:atproto_core/atproto_core.dart';
+
+import '../../../../../../ids.g.dart';
+
+${packages.toString()}
+
+part '$fileName.freezed.dart';
+part '$fileName.g.dart';
+
+$kHeader
+
+@freezed
+abstract class $name with _\$$name {
+  $knownProps
+
+  const factory $name({
+    @Default($id) String \$type,
+    ${properties.toString()}
+    Map<String, dynamic>? \$unknown,
+  }) = _$name;
+
+  factory $name.fromJson(Map<String, Object?> json) => _\$${name}FromJson(json);
+
+  $validateMethod
+}
+
+$converter
+''';
+  }
+
+  String _getValidateMethod(final String id) {
     final buffer = StringBuffer();
-
-    if (isRequired) {
-      buffer.write('required');
-      buffer.write(' ');
+    buffer.writeln('static bool validate(final Map<String, dynamic> object) {');
+    buffer.writeln("  if (!object.containsKey('\\\$type')) return false;");
+    buffer.writeln("  return object['\\\$type'] == $id");
+    if (defName == 'main') {
+      buffer.writeln("  || object['\\\$type'] == '$lexiconId#main'");
     }
-
-    buffer.write(type);
-    if (!isRequired) {
-      buffer.write('?');
-    }
-    buffer.write(' ');
-
-    buffer.write(name);
-    buffer.write(',');
+    buffer.writeln(';');
+    buffer.writeln('}');
 
     return buffer.toString();
   }

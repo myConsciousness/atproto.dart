@@ -13,21 +13,27 @@ _$ListItemViewImpl _$$ListItemViewImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ListItemViewImpl(
-          type: $checkedConvert(
+          $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphDefsListItemView),
-          uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
-          subject: $checkedConvert('subject',
-              (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
+          uri: $checkedConvert('uri', (v) => v as String),
+          subject: $checkedConvert(
+              'subject',
+              (v) => const ProfileViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$ListItemViewImplToJson(_$ListItemViewImpl instance) =>
     <String, dynamic>{
-      r'$type': instance.type,
-      'uri': const AtUriConverter().toJson(instance.uri),
-      'subject': instance.subject.toJson(),
+      r'$type': instance.$type,
+      'uri': instance.uri,
+      'subject': const ProfileViewConverter().toJson(instance.subject),
+      r'$unknown': instance.$unknown,
     };

@@ -14,7 +14,14 @@ _$MessageViewSenderImpl _$$MessageViewSenderImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$MessageViewSenderImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? chatBskyConvoDefsMessageViewSender),
           did: $checkedConvert('did', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -23,5 +30,7 @@ _$MessageViewSenderImpl _$$MessageViewSenderImplFromJson(Map json) =>
 Map<String, dynamic> _$$MessageViewSenderImplToJson(
         _$MessageViewSenderImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'did': instance.did,
+      r'$unknown': instance.$unknown,
     };

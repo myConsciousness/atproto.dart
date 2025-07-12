@@ -13,35 +13,23 @@ _$ThreadContextImpl _$$ThreadContextImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ThreadContextImpl(
-          type: $checkedConvert(
+          $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsThreadContext),
-          rootAuthorLike: $checkedConvert(
-              'rootAuthorLike',
-              (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, const AtUriConverter().fromJson)),
+          rootAuthorLike:
+              $checkedConvert('rootAuthorLike', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$ThreadContextImplToJson(_$ThreadContextImpl instance) =>
     <String, dynamic>{
-      r'$type': instance.type,
-      if (_$JsonConverterToJson<String, AtUri>(
-              instance.rootAuthorLike, const AtUriConverter().toJson)
-          case final value?)
-        'rootAuthorLike': value,
+      r'$type': instance.$type,
+      'rootAuthorLike': instance.rootAuthorLike,
+      r'$unknown': instance.$unknown,
     };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);

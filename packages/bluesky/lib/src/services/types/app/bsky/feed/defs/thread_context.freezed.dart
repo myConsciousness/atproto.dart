@@ -20,10 +20,9 @@ ThreadContext _$ThreadContextFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadContext {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
-  @AtUriConverter()
-  AtUri? get rootAuthorLike => throw _privateConstructorUsedError;
+  String get $type => throw _privateConstructorUsedError;
+  String? get rootAuthorLike => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this ThreadContext to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +40,8 @@ abstract class $ThreadContextCopyWith<$Res> {
           ThreadContext value, $Res Function(ThreadContext) then) =
       _$ThreadContextCopyWithImpl<$Res, ThreadContext>;
   @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri? rootAuthorLike});
+  $Res call(
+      {String $type, String? rootAuthorLike, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -59,18 +59,23 @@ class _$ThreadContextCopyWithImpl<$Res, $Val extends ThreadContext>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? rootAuthorLike = freezed,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       rootAuthorLike: freezed == rootAuthorLike
           ? _value.rootAuthorLike
           : rootAuthorLike // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
+              as String?,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -83,7 +88,8 @@ abstract class _$$ThreadContextImplCopyWith<$Res>
       __$$ThreadContextImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri? rootAuthorLike});
+  $Res call(
+      {String $type, String? rootAuthorLike, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -99,43 +105,57 @@ class __$$ThreadContextImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? rootAuthorLike = freezed,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ThreadContextImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       rootAuthorLike: freezed == rootAuthorLike
           ? _value.rootAuthorLike
           : rootAuthorLike // ignore: cast_nullable_to_non_nullable
-              as AtUri?,
+              as String?,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$ThreadContextImpl implements _ThreadContext {
   const _$ThreadContextImpl(
-      {@typeKey this.type = appBskyFeedDefsThreadContext,
-      @AtUriConverter() this.rootAuthorLike});
+      {this.$type = appBskyFeedDefsThreadContext,
+      this.rootAuthorLike,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$ThreadContextImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadContextImplFromJson(json);
 
   @override
-  @typeKey
-  final String type;
+  @JsonKey()
+  final String $type;
   @override
-  @AtUriConverter()
-  final AtUri? rootAuthorLike;
+  final String? rootAuthorLike;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'ThreadContext(type: $type, rootAuthorLike: $rootAuthorLike)';
+    return 'ThreadContext(\$type: ${$type}, rootAuthorLike: $rootAuthorLike, \$unknown: ${$unknown})';
   }
 
   @override
@@ -143,14 +163,16 @@ class _$ThreadContextImpl implements _ThreadContext {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThreadContextImpl &&
-            (identical(other.type, type) || other.type == type) &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.rootAuthorLike, rootAuthorLike) ||
-                other.rootAuthorLike == rootAuthorLike));
+                other.rootAuthorLike == rootAuthorLike) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type, rootAuthorLike);
+  int get hashCode => Object.hash(runtimeType, $type, rootAuthorLike,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of ThreadContext
   /// with the given fields replaced by the non-null parameter values.
@@ -170,18 +192,19 @@ class _$ThreadContextImpl implements _ThreadContext {
 
 abstract class _ThreadContext implements ThreadContext {
   const factory _ThreadContext(
-      {@typeKey final String type,
-      @AtUriConverter() final AtUri? rootAuthorLike}) = _$ThreadContextImpl;
+      {final String $type,
+      final String? rootAuthorLike,
+      final Map<String, dynamic>? $unknown}) = _$ThreadContextImpl;
 
   factory _ThreadContext.fromJson(Map<String, dynamic> json) =
       _$ThreadContextImpl.fromJson;
 
   @override
-  @typeKey
-  String get type;
+  String get $type;
   @override
-  @AtUriConverter()
-  AtUri? get rootAuthorLike;
+  String? get rootAuthorLike;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of ThreadContext
   /// with the given fields replaced by the non-null parameter values.

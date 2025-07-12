@@ -14,179 +14,198 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-StarterpackFeedItem _$StarterpackFeedItemFromJson(Map<String, dynamic> json) {
-  return _StarterpackFeedItem.fromJson(json);
+FeedItem _$FeedItemFromJson(Map<String, dynamic> json) {
+  return _FeedItem.fromJson(json);
 }
 
 /// @nodoc
-mixin _$StarterpackFeedItem {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
-  @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
+mixin _$FeedItem {
+  String get $type => throw _privateConstructorUsedError;
+  String get uri => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
-  /// Serializes this StarterpackFeedItem to a JSON map.
+  /// Serializes this FeedItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of StarterpackFeedItem
+  /// Create a copy of FeedItem
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StarterpackFeedItemCopyWith<StarterpackFeedItem> get copyWith =>
+  $FeedItemCopyWith<FeedItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StarterpackFeedItemCopyWith<$Res> {
-  factory $StarterpackFeedItemCopyWith(
-          StarterpackFeedItem value, $Res Function(StarterpackFeedItem) then) =
-      _$StarterpackFeedItemCopyWithImpl<$Res, StarterpackFeedItem>;
+abstract class $FeedItemCopyWith<$Res> {
+  factory $FeedItemCopyWith(FeedItem value, $Res Function(FeedItem) then) =
+      _$FeedItemCopyWithImpl<$Res, FeedItem>;
   @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri uri});
+  $Res call({String $type, String uri, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
-class _$StarterpackFeedItemCopyWithImpl<$Res, $Val extends StarterpackFeedItem>
-    implements $StarterpackFeedItemCopyWith<$Res> {
-  _$StarterpackFeedItemCopyWithImpl(this._value, this._then);
+class _$FeedItemCopyWithImpl<$Res, $Val extends FeedItem>
+    implements $FeedItemCopyWith<$Res> {
+  _$FeedItemCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of StarterpackFeedItem
+  /// Create a copy of FeedItem
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? uri = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
+              as String,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$StarterpackFeedItemImplCopyWith<$Res>
-    implements $StarterpackFeedItemCopyWith<$Res> {
-  factory _$$StarterpackFeedItemImplCopyWith(_$StarterpackFeedItemImpl value,
-          $Res Function(_$StarterpackFeedItemImpl) then) =
-      __$$StarterpackFeedItemImplCopyWithImpl<$Res>;
+abstract class _$$FeedItemImplCopyWith<$Res>
+    implements $FeedItemCopyWith<$Res> {
+  factory _$$FeedItemImplCopyWith(
+          _$FeedItemImpl value, $Res Function(_$FeedItemImpl) then) =
+      __$$FeedItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, @AtUriConverter() AtUri uri});
+  $Res call({String $type, String uri, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
-class __$$StarterpackFeedItemImplCopyWithImpl<$Res>
-    extends _$StarterpackFeedItemCopyWithImpl<$Res, _$StarterpackFeedItemImpl>
-    implements _$$StarterpackFeedItemImplCopyWith<$Res> {
-  __$$StarterpackFeedItemImplCopyWithImpl(_$StarterpackFeedItemImpl _value,
-      $Res Function(_$StarterpackFeedItemImpl) _then)
+class __$$FeedItemImplCopyWithImpl<$Res>
+    extends _$FeedItemCopyWithImpl<$Res, _$FeedItemImpl>
+    implements _$$FeedItemImplCopyWith<$Res> {
+  __$$FeedItemImplCopyWithImpl(
+      _$FeedItemImpl _value, $Res Function(_$FeedItemImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of StarterpackFeedItem
+  /// Create a copy of FeedItem
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? uri = null,
+    Object? $unknown = freezed,
   }) {
-    return _then(_$StarterpackFeedItemImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+    return _then(_$FeedItemImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
+              as String,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
+@JsonSerializable()
+class _$FeedItemImpl implements _FeedItem {
+  const _$FeedItemImpl(
+      {this.$type = appBskyGraphStarterpackFeedItem,
+      required this.uri,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
-@jsonSerializable
-class _$StarterpackFeedItemImpl implements _StarterpackFeedItem {
-  const _$StarterpackFeedItemImpl(
-      {@typeKey this.type = appBskyGraphStarterpackFeedItem,
-      @AtUriConverter() required this.uri});
-
-  factory _$StarterpackFeedItemImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StarterpackFeedItemImplFromJson(json);
+  factory _$FeedItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedItemImplFromJson(json);
 
   @override
-  @typeKey
-  final String type;
+  @JsonKey()
+  final String $type;
   @override
-  @AtUriConverter()
-  final AtUri uri;
+  final String uri;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'StarterpackFeedItem(type: $type, uri: $uri)';
+    return 'FeedItem(\$type: ${$type}, uri: $uri, \$unknown: ${$unknown})';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StarterpackFeedItemImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.uri, uri) || other.uri == uri));
+            other is _$FeedItemImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type, uri);
+  int get hashCode => Object.hash(
+      runtimeType, $type, uri, const DeepCollectionEquality().hash(_$unknown));
 
-  /// Create a copy of StarterpackFeedItem
+  /// Create a copy of FeedItem
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$StarterpackFeedItemImplCopyWith<_$StarterpackFeedItemImpl> get copyWith =>
-      __$$StarterpackFeedItemImplCopyWithImpl<_$StarterpackFeedItemImpl>(
-          this, _$identity);
+  _$$FeedItemImplCopyWith<_$FeedItemImpl> get copyWith =>
+      __$$FeedItemImplCopyWithImpl<_$FeedItemImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$StarterpackFeedItemImplToJson(
+    return _$$FeedItemImplToJson(
       this,
     );
   }
 }
 
-abstract class _StarterpackFeedItem implements StarterpackFeedItem {
-  const factory _StarterpackFeedItem(
-      {@typeKey final String type,
-      @AtUriConverter() required final AtUri uri}) = _$StarterpackFeedItemImpl;
+abstract class _FeedItem implements FeedItem {
+  const factory _FeedItem(
+      {final String $type,
+      required final String uri,
+      final Map<String, dynamic>? $unknown}) = _$FeedItemImpl;
 
-  factory _StarterpackFeedItem.fromJson(Map<String, dynamic> json) =
-      _$StarterpackFeedItemImpl.fromJson;
+  factory _FeedItem.fromJson(Map<String, dynamic> json) =
+      _$FeedItemImpl.fromJson;
 
   @override
-  @typeKey
-  String get type;
+  String get $type;
   @override
-  @AtUriConverter()
-  AtUri get uri;
+  String get uri;
+  @override
+  Map<String, dynamic>? get $unknown;
 
-  /// Create a copy of StarterpackFeedItem
+  /// Create a copy of FeedItem
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StarterpackFeedItemImplCopyWith<_$StarterpackFeedItemImpl> get copyWith =>
+  _$$FeedItemImplCopyWith<_$FeedItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

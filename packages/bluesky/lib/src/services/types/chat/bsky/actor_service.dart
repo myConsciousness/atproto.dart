@@ -1,34 +1,52 @@
 // Package imports:
-import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto/com_atproto_repo_createrecord.dart';
+import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
+import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart';
-import 'actor/declaration/allow_incoming.dart';
+import '../../../service_context.dart' as z;
 
-/// Represents `chat.bsky.actor.*` service.
 final class ActorService {
   ActorService(this._ctx);
 
-  final BlueskyServiceContext _ctx;
+  final z.ServiceContext _ctx;
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
-  Future<core.XRPCResponse<atp.StrongRef>> declaration({
-    required DeclarationAllowIncoming allowIncoming,
+  Future<XRPCResponse<RepoCreateRecordOutput>> declaration({
+    required String allowIncoming,
+    String? $rey,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
   }) async =>
-      await _ctx.atproto.repo.createRecord(
-        collection: ns.chatBskyActorDeclaration,
+      await _ctx.repo.createRecord(
+        repo: _ctx.$repo,
+        collection: ids.chatBskyActorDeclaration,
+        rkey: $rey,
         record: {
-          'allowIncoming': allowIncoming.value,
+          'allowIncoming': allowIncoming,
+          ...?$unknown,
         },
       );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/deleteAccount
-  Future<core.XRPCResponse<core.EmptyData>> deleteAccount() async =>
-      await _ctx.post(ns.chatBskyActorDeleteAccount);
-
-  // /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
-  // Future<core.XRPCResponse<core.EmptyData>> exportAccountData() async =>
-  //     await _ctx.get(ns.chatBskyActorExportAccountData);
+  Future<XRPCResponse<EmptyData>> exportAccountData({
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async =>
+      await _ctx.get(
+        ns.chatBskyActorExportAccountData,
+        headers: $headers,
+        parameters: {
+          ...?$unknown,
+        },
+      );
+  Future<XRPCResponse<EmptyData>> deleteAccount({
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async =>
+      await _ctx.post(
+        ns.chatBskyActorDeleteAccount,
+        headers: $headers,
+        body: {
+          ...?$unknown,
+        },
+      );
 }

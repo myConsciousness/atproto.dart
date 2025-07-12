@@ -20,10 +20,12 @@ LogDeleteMessage _$LogDeleteMessageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LogDeleteMessage {
+  String get $type => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
-  @unionConvoMessageViewConverter
-  UConvoMessageView get message => throw _privateConstructorUsedError;
+  @ULogDeleteMessageMessageConverter()
+  ULogDeleteMessageMessage get message => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this LogDeleteMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,11 +44,13 @@ abstract class $LogDeleteMessageCopyWith<$Res> {
       _$LogDeleteMessageCopyWithImpl<$Res, LogDeleteMessage>;
   @useResult
   $Res call(
-      {String rev,
+      {String $type,
+      String rev,
       String convoId,
-      @unionConvoMessageViewConverter UConvoMessageView message});
+      @ULogDeleteMessageMessageConverter() ULogDeleteMessageMessage message,
+      Map<String, dynamic>? $unknown});
 
-  $UConvoMessageViewCopyWith<$Res> get message;
+  $ULogDeleteMessageMessageCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -64,11 +68,17 @@ class _$LogDeleteMessageCopyWithImpl<$Res, $Val extends LogDeleteMessage>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
     Object? message = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -80,7 +90,11 @@ class _$LogDeleteMessageCopyWithImpl<$Res, $Val extends LogDeleteMessage>
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageView,
+              as ULogDeleteMessageMessage,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -88,8 +102,8 @@ class _$LogDeleteMessageCopyWithImpl<$Res, $Val extends LogDeleteMessage>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UConvoMessageViewCopyWith<$Res> get message {
-    return $UConvoMessageViewCopyWith<$Res>(_value.message, (value) {
+  $ULogDeleteMessageMessageCopyWith<$Res> get message {
+    return $ULogDeleteMessageMessageCopyWith<$Res>(_value.message, (value) {
       return _then(_value.copyWith(message: value) as $Val);
     });
   }
@@ -104,12 +118,14 @@ abstract class _$$LogDeleteMessageImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String rev,
+      {String $type,
+      String rev,
       String convoId,
-      @unionConvoMessageViewConverter UConvoMessageView message});
+      @ULogDeleteMessageMessageConverter() ULogDeleteMessageMessage message,
+      Map<String, dynamic>? $unknown});
 
   @override
-  $UConvoMessageViewCopyWith<$Res> get message;
+  $ULogDeleteMessageMessageCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -125,11 +141,17 @@ class __$$LogDeleteMessageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
     Object? message = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LogDeleteMessageImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -141,34 +163,52 @@ class __$$LogDeleteMessageImplCopyWithImpl<$Res>
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as UConvoMessageView,
+              as ULogDeleteMessageMessage,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$LogDeleteMessageImpl implements _LogDeleteMessage {
   const _$LogDeleteMessageImpl(
-      {required this.rev,
+      {this.$type = chatBskyConvoDefsLogDeleteMessage,
+      required this.rev,
       required this.convoId,
-      @unionConvoMessageViewConverter required this.message});
+      @ULogDeleteMessageMessageConverter() required this.message,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$LogDeleteMessageImpl.fromJson(Map<String, dynamic> json) =>
       _$$LogDeleteMessageImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String $type;
+  @override
   final String rev;
   @override
   final String convoId;
   @override
-  @unionConvoMessageViewConverter
-  final UConvoMessageView message;
+  @ULogDeleteMessageMessageConverter()
+  final ULogDeleteMessageMessage message;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'LogDeleteMessage(rev: $rev, convoId: $convoId, message: $message)';
+    return 'LogDeleteMessage(\$type: ${$type}, rev: $rev, convoId: $convoId, message: $message, \$unknown: ${$unknown})';
   }
 
   @override
@@ -176,14 +216,17 @@ class _$LogDeleteMessageImpl implements _LogDeleteMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LogDeleteMessageImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.convoId, convoId) || other.convoId == convoId) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, rev, convoId, message);
+  int get hashCode => Object.hash(runtimeType, $type, rev, convoId, message,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of LogDeleteMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -204,21 +247,27 @@ class _$LogDeleteMessageImpl implements _LogDeleteMessage {
 
 abstract class _LogDeleteMessage implements LogDeleteMessage {
   const factory _LogDeleteMessage(
-      {required final String rev,
+      {final String $type,
+      required final String rev,
       required final String convoId,
-      @unionConvoMessageViewConverter
-      required final UConvoMessageView message}) = _$LogDeleteMessageImpl;
+      @ULogDeleteMessageMessageConverter()
+      required final ULogDeleteMessageMessage message,
+      final Map<String, dynamic>? $unknown}) = _$LogDeleteMessageImpl;
 
   factory _LogDeleteMessage.fromJson(Map<String, dynamic> json) =
       _$LogDeleteMessageImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   String get rev;
   @override
   String get convoId;
   @override
-  @unionConvoMessageViewConverter
-  UConvoMessageView get message;
+  @ULogDeleteMessageMessageConverter()
+  ULogDeleteMessageMessage get message;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of LogDeleteMessage
   /// with the given fields replaced by the non-null parameter values.

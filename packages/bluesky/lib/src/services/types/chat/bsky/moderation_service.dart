@@ -1,60 +1,60 @@
 // Package imports:
-import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_core/atproto_core.dart';
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
-import '../../../service_context.dart';
+import '../../../service_context.dart' as z;
 import 'moderation/getActorMetadata/output.dart';
 import 'moderation/getMessageContext/output.dart';
 
-/// Represents `chat.bsky.moderation.*` service.
 final class ModerationService {
   ModerationService(this._ctx);
 
-  final BlueskyServiceContext _ctx;
+  final z.ServiceContext _ctx;
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getMessageContext
-  Future<core.XRPCResponse<GetActorMetadataOutput>> getActorMetadata({
+  Future<XRPCResponse<ModerationGetActorMetadataOutput>> getActorMetadata({
     required String actor,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
   }) async =>
       await _ctx.get(
         ns.chatBskyModerationGetActorMetadata,
+        headers: $headers,
         parameters: {
           'actor': actor,
+          ...?$unknown,
         },
-        to: GetActorMetadataOutput.fromJson,
+        to: const ModerationGetActorMetadataOutputConverter().fromJson,
       );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getMessageContext
-  Future<core.XRPCResponse<GetMessageContextOutput>> getMessageContext({
-    required String messageId,
+  Future<XRPCResponse<ModerationGetMessageContextOutput>> getMessageContext({
     String? convoId,
+    required String messageId,
     int? before,
     int? after,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
   }) async =>
       await _ctx.get(
         ns.chatBskyModerationGetMessageContext,
+        headers: $headers,
         parameters: {
+          if (convoId != null) 'convoId': convoId,
           'messageId': messageId,
-          'convoId': convoId,
-          'before': before,
-          'after': after,
+          if (before != null) 'before': before,
+          if (after != null) 'after': after,
+          ...?$unknown,
         },
-        to: GetMessageContextOutput.fromJson,
+        to: const ModerationGetMessageContextOutputConverter().fromJson,
       );
-
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/updateActorAccess
-  Future<core.XRPCResponse<core.EmptyData>> updateActorAccess({
-    required String actor,
-    required bool allowAccess,
-    String? ref,
+  Future<XRPCResponse<EmptyData>> updateActorAccess({
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
   }) async =>
       await _ctx.post(
         ns.chatBskyModerationUpdateActorAccess,
+        headers: $headers,
         body: {
-          'actor': actor,
-          'allowAccess': allowAccess,
-          'ref': ref,
+          ...?$unknown,
         },
       );
 }

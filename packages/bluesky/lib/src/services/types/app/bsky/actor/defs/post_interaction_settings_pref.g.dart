@@ -15,7 +15,7 @@ _$PostInteractionSettingsPrefImpl _$$PostInteractionSettingsPrefImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$PostInteractionSettingsPrefImpl(
-          type: $checkedConvert(
+          $type: $checkedConvert(
               r'$type',
               (v) =>
                   v as String? ?? appBskyActorDefsPostInteractionSettingsPref),
@@ -23,32 +23,39 @@ _$PostInteractionSettingsPrefImpl _$$PostInteractionSettingsPrefImplFromJson(
               'threadgateAllowRules',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      threadRuleConverter.fromJson(e as Map<String, dynamic>))
+                      const UPostInteractionSettingsPrefThreadgateAllowRulesConverter()
+                          .fromJson(e as Map<String, dynamic>))
                   .toList()),
           postgateEmbeddingRules: $checkedConvert(
               'postgateEmbeddingRules',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => const UPostRuleConverter()
-                      .fromJson(e as Map<String, dynamic>))
+                  ?.map((e) =>
+                      const UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter()
+                          .fromJson(e as Map<String, dynamic>))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$PostInteractionSettingsPrefImplToJson(
         _$PostInteractionSettingsPrefImpl instance) =>
     <String, dynamic>{
-      r'$type': instance.type,
-      if (instance.threadgateAllowRules
-              ?.map(threadRuleConverter.toJson)
-              .toList()
-          case final value?)
-        'threadgateAllowRules': value,
-      if (instance.postgateEmbeddingRules
-              ?.map(const UPostRuleConverter().toJson)
-              .toList()
-          case final value?)
-        'postgateEmbeddingRules': value,
+      r'$type': instance.$type,
+      'threadgateAllowRules': instance.threadgateAllowRules
+          ?.map(
+              const UPostInteractionSettingsPrefThreadgateAllowRulesConverter()
+                  .toJson)
+          .toList(),
+      'postgateEmbeddingRules': instance.postgateEmbeddingRules
+          ?.map(
+              const UPostInteractionSettingsPrefPostgateEmbeddingRulesConverter()
+                  .toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
     };

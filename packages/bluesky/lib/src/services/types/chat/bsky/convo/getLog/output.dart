@@ -1,22 +1,57 @@
+// Copyright (c) 2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import '../defs/union/log.dart';
+import './union_main_logs.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog/#main
-@freezed
-class GetLogOutput with _$GetLogOutput {
-  @jsonSerializable
-  const factory GetLogOutput({
-    @unionConvoLogConverter required List<UConvoLog> logs,
-    String? cursor,
-  }) = _GetLogOutput;
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
 
-  factory GetLogOutput.fromJson(Map<String, Object?> json) =>
-      _$GetLogOutputFromJson(json);
+@freezed
+abstract class ConvoGetLogOutput with _$ConvoGetLogOutput {
+  static const knownProps = <String>[
+    'cursor',
+    'logs',
+  ];
+
+  const factory ConvoGetLogOutput({
+    String? cursor,
+    @UConvoGetLogLogsConverter() required List<UConvoGetLogLogs> logs,
+    Map<String, dynamic>? $unknown,
+  }) = _ConvoGetLogOutput;
+
+  factory ConvoGetLogOutput.fromJson(Map<String, Object?> json) =>
+      _$ConvoGetLogOutputFromJson(json);
+}
+
+final class ConvoGetLogOutputConverter
+    extends LexObjectConverter<ConvoGetLogOutput, Map<String, dynamic>> {
+  const ConvoGetLogOutputConverter();
+
+  @override
+  ConvoGetLogOutput fromJson(Map<String, dynamic> json) {
+    return ConvoGetLogOutput.fromJson(translate(
+      json,
+      ConvoGetLogOutput.knownProps,
+    ));
+  }
+
+  @override
+  Map<String, dynamic> toJson(ConvoGetLogOutput object) => untranslate(
+        object.toJson(),
+      );
 }

@@ -1,0 +1,50 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// ignore_for_file: non_constant_identifier_names
+
+part of 'related_account.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$RelatedAccountImpl _$$RelatedAccountImplFromJson(Map json) => $checkedCreate(
+      r'_$RelatedAccountImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$RelatedAccountImpl(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ??
+                  toolsOzoneSignatureFindRelatedAccountsRelatedAccount),
+          account: $checkedConvert(
+              'account',
+              (v) => const AccountViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          similarities: $checkedConvert(
+              'similarities',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => const SigDetailConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$$RelatedAccountImplToJson(
+        _$RelatedAccountImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'account': const AccountViewConverter().toJson(instance.account),
+      'similarities': instance.similarities
+          ?.map(const SigDetailConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
+    };

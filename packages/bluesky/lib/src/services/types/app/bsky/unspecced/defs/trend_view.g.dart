@@ -1,0 +1,56 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// ignore_for_file: non_constant_identifier_names
+
+part of 'trend_view.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$TrendViewImpl _$$TrendViewImplFromJson(Map json) => $checkedCreate(
+      r'_$TrendViewImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$TrendViewImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyUnspeccedDefsTrendView),
+          topic: $checkedConvert('topic', (v) => v as String),
+          displayName: $checkedConvert('displayName', (v) => v as String),
+          link: $checkedConvert('link', (v) => v as String),
+          startedAt:
+              $checkedConvert('startedAt', (v) => DateTime.parse(v as String)),
+          postCount: $checkedConvert('postCount', (v) => (v as num).toInt()),
+          status: $checkedConvert('status', (v) => v as String?),
+          category: $checkedConvert('category', (v) => v as String?),
+          actors: $checkedConvert(
+              'actors',
+              (v) => (v as List<dynamic>)
+                  .map((e) => const ProfileViewBasicConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$$TrendViewImplToJson(_$TrendViewImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'topic': instance.topic,
+      'displayName': instance.displayName,
+      'link': instance.link,
+      'startedAt': instance.startedAt.toIso8601String(),
+      'postCount': instance.postCount,
+      'status': instance.status,
+      'category': instance.category,
+      'actors': instance.actors
+          .map(const ProfileViewBasicConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
+    };

@@ -20,7 +20,7 @@ const _videoService = 'video.bsky.app';
 final class VideoService {
   VideoService(this._ctx);
 
-  final BlueskyServiceContext _ctx;
+  final ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/video/getJobStatus
   Future<core.XRPCResponse<GetJobStatusOutput>> getJobStatus({

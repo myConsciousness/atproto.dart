@@ -14,53 +14,62 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-GetTrendingTopicsOutput _$GetTrendingTopicsOutputFromJson(
+UnspeccedGetTrendingTopicsOutput _$UnspeccedGetTrendingTopicsOutputFromJson(
     Map<String, dynamic> json) {
-  return _GetTrendingTopicsOutput.fromJson(json);
+  return _UnspeccedGetTrendingTopicsOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetTrendingTopicsOutput {
+mixin _$UnspeccedGetTrendingTopicsOutput {
+  @TrendingTopicConverter()
   List<TrendingTopic> get topics => throw _privateConstructorUsedError;
+  @TrendingTopicConverter()
   List<TrendingTopic> get suggested => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
-  /// Serializes this GetTrendingTopicsOutput to a JSON map.
+  /// Serializes this UnspeccedGetTrendingTopicsOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of GetTrendingTopicsOutput
+  /// Create a copy of UnspeccedGetTrendingTopicsOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetTrendingTopicsOutputCopyWith<GetTrendingTopicsOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+  $UnspeccedGetTrendingTopicsOutputCopyWith<UnspeccedGetTrendingTopicsOutput>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetTrendingTopicsOutputCopyWith<$Res> {
-  factory $GetTrendingTopicsOutputCopyWith(GetTrendingTopicsOutput value,
-          $Res Function(GetTrendingTopicsOutput) then) =
-      _$GetTrendingTopicsOutputCopyWithImpl<$Res, GetTrendingTopicsOutput>;
+abstract class $UnspeccedGetTrendingTopicsOutputCopyWith<$Res> {
+  factory $UnspeccedGetTrendingTopicsOutputCopyWith(
+          UnspeccedGetTrendingTopicsOutput value,
+          $Res Function(UnspeccedGetTrendingTopicsOutput) then) =
+      _$UnspeccedGetTrendingTopicsOutputCopyWithImpl<$Res,
+          UnspeccedGetTrendingTopicsOutput>;
   @useResult
-  $Res call({List<TrendingTopic> topics, List<TrendingTopic> suggested});
+  $Res call(
+      {@TrendingTopicConverter() List<TrendingTopic> topics,
+      @TrendingTopicConverter() List<TrendingTopic> suggested,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
-class _$GetTrendingTopicsOutputCopyWithImpl<$Res,
-        $Val extends GetTrendingTopicsOutput>
-    implements $GetTrendingTopicsOutputCopyWith<$Res> {
-  _$GetTrendingTopicsOutputCopyWithImpl(this._value, this._then);
+class _$UnspeccedGetTrendingTopicsOutputCopyWithImpl<$Res,
+        $Val extends UnspeccedGetTrendingTopicsOutput>
+    implements $UnspeccedGetTrendingTopicsOutputCopyWith<$Res> {
+  _$UnspeccedGetTrendingTopicsOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetTrendingTopicsOutput
+  /// Create a copy of UnspeccedGetTrendingTopicsOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? topics = null,
     Object? suggested = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       topics: null == topics
@@ -71,41 +80,49 @@ class _$GetTrendingTopicsOutputCopyWithImpl<$Res,
           ? _value.suggested
           : suggested // ignore: cast_nullable_to_non_nullable
               as List<TrendingTopic>,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$GetTrendingTopicsOutputImplCopyWith<$Res>
-    implements $GetTrendingTopicsOutputCopyWith<$Res> {
-  factory _$$GetTrendingTopicsOutputImplCopyWith(
-          _$GetTrendingTopicsOutputImpl value,
-          $Res Function(_$GetTrendingTopicsOutputImpl) then) =
-      __$$GetTrendingTopicsOutputImplCopyWithImpl<$Res>;
+abstract class _$$UnspeccedGetTrendingTopicsOutputImplCopyWith<$Res>
+    implements $UnspeccedGetTrendingTopicsOutputCopyWith<$Res> {
+  factory _$$UnspeccedGetTrendingTopicsOutputImplCopyWith(
+          _$UnspeccedGetTrendingTopicsOutputImpl value,
+          $Res Function(_$UnspeccedGetTrendingTopicsOutputImpl) then) =
+      __$$UnspeccedGetTrendingTopicsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<TrendingTopic> topics, List<TrendingTopic> suggested});
+  $Res call(
+      {@TrendingTopicConverter() List<TrendingTopic> topics,
+      @TrendingTopicConverter() List<TrendingTopic> suggested,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
-class __$$GetTrendingTopicsOutputImplCopyWithImpl<$Res>
-    extends _$GetTrendingTopicsOutputCopyWithImpl<$Res,
-        _$GetTrendingTopicsOutputImpl>
-    implements _$$GetTrendingTopicsOutputImplCopyWith<$Res> {
-  __$$GetTrendingTopicsOutputImplCopyWithImpl(
-      _$GetTrendingTopicsOutputImpl _value,
-      $Res Function(_$GetTrendingTopicsOutputImpl) _then)
+class __$$UnspeccedGetTrendingTopicsOutputImplCopyWithImpl<$Res>
+    extends _$UnspeccedGetTrendingTopicsOutputCopyWithImpl<$Res,
+        _$UnspeccedGetTrendingTopicsOutputImpl>
+    implements _$$UnspeccedGetTrendingTopicsOutputImplCopyWith<$Res> {
+  __$$UnspeccedGetTrendingTopicsOutputImplCopyWithImpl(
+      _$UnspeccedGetTrendingTopicsOutputImpl _value,
+      $Res Function(_$UnspeccedGetTrendingTopicsOutputImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetTrendingTopicsOutput
+  /// Create a copy of UnspeccedGetTrendingTopicsOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? topics = null,
     Object? suggested = null,
+    Object? $unknown = freezed,
   }) {
-    return _then(_$GetTrendingTopicsOutputImpl(
+    return _then(_$UnspeccedGetTrendingTopicsOutputImpl(
       topics: null == topics
           ? _value._topics
           : topics // ignore: cast_nullable_to_non_nullable
@@ -114,25 +131,33 @@ class __$$GetTrendingTopicsOutputImplCopyWithImpl<$Res>
           ? _value._suggested
           : suggested // ignore: cast_nullable_to_non_nullable
               as List<TrendingTopic>,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
-class _$GetTrendingTopicsOutputImpl implements _GetTrendingTopicsOutput {
-  const _$GetTrendingTopicsOutputImpl(
-      {required final List<TrendingTopic> topics,
-      required final List<TrendingTopic> suggested})
+@JsonSerializable()
+class _$UnspeccedGetTrendingTopicsOutputImpl
+    implements _UnspeccedGetTrendingTopicsOutput {
+  const _$UnspeccedGetTrendingTopicsOutputImpl(
+      {@TrendingTopicConverter() required final List<TrendingTopic> topics,
+      @TrendingTopicConverter() required final List<TrendingTopic> suggested,
+      final Map<String, dynamic>? $unknown})
       : _topics = topics,
-        _suggested = suggested;
+        _suggested = suggested,
+        _$unknown = $unknown;
 
-  factory _$GetTrendingTopicsOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetTrendingTopicsOutputImplFromJson(json);
+  factory _$UnspeccedGetTrendingTopicsOutputImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$UnspeccedGetTrendingTopicsOutputImplFromJson(json);
 
   final List<TrendingTopic> _topics;
   @override
+  @TrendingTopicConverter()
   List<TrendingTopic> get topics {
     if (_topics is EqualUnmodifiableListView) return _topics;
     // ignore: implicit_dynamic_type
@@ -141,25 +166,37 @@ class _$GetTrendingTopicsOutputImpl implements _GetTrendingTopicsOutput {
 
   final List<TrendingTopic> _suggested;
   @override
+  @TrendingTopicConverter()
   List<TrendingTopic> get suggested {
     if (_suggested is EqualUnmodifiableListView) return _suggested;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_suggested);
   }
 
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   String toString() {
-    return 'GetTrendingTopicsOutput(topics: $topics, suggested: $suggested)';
+    return 'UnspeccedGetTrendingTopicsOutput(topics: $topics, suggested: $suggested, \$unknown: ${$unknown})';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetTrendingTopicsOutputImpl &&
+            other is _$UnspeccedGetTrendingTopicsOutputImpl &&
             const DeepCollectionEquality().equals(other._topics, _topics) &&
             const DeepCollectionEquality()
-                .equals(other._suggested, _suggested));
+                .equals(other._suggested, _suggested) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -167,43 +204,53 @@ class _$GetTrendingTopicsOutputImpl implements _GetTrendingTopicsOutput {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_topics),
-      const DeepCollectionEquality().hash(_suggested));
+      const DeepCollectionEquality().hash(_suggested),
+      const DeepCollectionEquality().hash(_$unknown));
 
-  /// Create a copy of GetTrendingTopicsOutput
+  /// Create a copy of UnspeccedGetTrendingTopicsOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetTrendingTopicsOutputImplCopyWith<_$GetTrendingTopicsOutputImpl>
-      get copyWith => __$$GetTrendingTopicsOutputImplCopyWithImpl<
-          _$GetTrendingTopicsOutputImpl>(this, _$identity);
+  _$$UnspeccedGetTrendingTopicsOutputImplCopyWith<
+          _$UnspeccedGetTrendingTopicsOutputImpl>
+      get copyWith => __$$UnspeccedGetTrendingTopicsOutputImplCopyWithImpl<
+          _$UnspeccedGetTrendingTopicsOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetTrendingTopicsOutputImplToJson(
+    return _$$UnspeccedGetTrendingTopicsOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _GetTrendingTopicsOutput implements GetTrendingTopicsOutput {
-  const factory _GetTrendingTopicsOutput(
-          {required final List<TrendingTopic> topics,
-          required final List<TrendingTopic> suggested}) =
-      _$GetTrendingTopicsOutputImpl;
+abstract class _UnspeccedGetTrendingTopicsOutput
+    implements UnspeccedGetTrendingTopicsOutput {
+  const factory _UnspeccedGetTrendingTopicsOutput(
+      {@TrendingTopicConverter() required final List<TrendingTopic> topics,
+      @TrendingTopicConverter() required final List<TrendingTopic> suggested,
+      final Map<String, dynamic>?
+          $unknown}) = _$UnspeccedGetTrendingTopicsOutputImpl;
 
-  factory _GetTrendingTopicsOutput.fromJson(Map<String, dynamic> json) =
-      _$GetTrendingTopicsOutputImpl.fromJson;
+  factory _UnspeccedGetTrendingTopicsOutput.fromJson(
+          Map<String, dynamic> json) =
+      _$UnspeccedGetTrendingTopicsOutputImpl.fromJson;
 
   @override
+  @TrendingTopicConverter()
   List<TrendingTopic> get topics;
   @override
+  @TrendingTopicConverter()
   List<TrendingTopic> get suggested;
+  @override
+  Map<String, dynamic>? get $unknown;
 
-  /// Create a copy of GetTrendingTopicsOutput
+  /// Create a copy of UnspeccedGetTrendingTopicsOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetTrendingTopicsOutputImplCopyWith<_$GetTrendingTopicsOutputImpl>
+  _$$UnspeccedGetTrendingTopicsOutputImplCopyWith<
+          _$UnspeccedGetTrendingTopicsOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

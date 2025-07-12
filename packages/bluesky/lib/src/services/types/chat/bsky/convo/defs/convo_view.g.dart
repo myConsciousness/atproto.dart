@@ -13,23 +13,35 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ConvoViewImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? chatBskyConvoDefsConvoView),
           id: $checkedConvert('id', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
           members: $checkedConvert(
               'members',
               (v) => (v as List<dynamic>)
-                  .map((e) => ProfileViewBasic.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewBasicConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           lastMessage: $checkedConvert(
               'lastMessage',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      UConvoMessageView>(
-                  v, unionConvoMessageViewConverter.fromJson)),
+                      UConvoViewLastMessage>(
+                  v, const UConvoViewLastMessageConverter().fromJson)),
+          lastReaction: $checkedConvert(
+              'lastReaction',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UConvoViewLastReaction>(
+                  v, const UConvoViewLastReactionConverter().fromJson)),
           muted: $checkedConvert('muted', (v) => v as bool),
-          opened: $checkedConvert('opened', (v) => v as bool? ?? false),
+          status: $checkedConvert('status', (v) => v as String?),
           unreadCount:
               $checkedConvert('unreadCount', (v) => (v as num).toInt()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -37,16 +49,24 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ConvoViewImplToJson(_$ConvoViewImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'id': instance.id,
       'rev': instance.rev,
-      'members': instance.members.map((e) => e.toJson()).toList(),
-      if (_$JsonConverterToJson<Map<String, dynamic>, UConvoMessageView>(
-              instance.lastMessage, unionConvoMessageViewConverter.toJson)
-          case final value?)
-        'lastMessage': value,
+      'members': instance.members
+          .map(const ProfileViewBasicConverter().toJson)
+          .toList(),
+      'lastMessage':
+          _$JsonConverterToJson<Map<String, dynamic>, UConvoViewLastMessage>(
+              instance.lastMessage,
+              const UConvoViewLastMessageConverter().toJson),
+      'lastReaction':
+          _$JsonConverterToJson<Map<String, dynamic>, UConvoViewLastReaction>(
+              instance.lastReaction,
+              const UConvoViewLastReactionConverter().toJson),
       'muted': instance.muted,
-      'opened': instance.opened,
+      'status': instance.status,
       'unreadCount': instance.unreadCount,
+      r'$unknown': instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

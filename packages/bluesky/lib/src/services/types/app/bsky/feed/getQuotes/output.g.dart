@@ -8,32 +8,37 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetQuotesOutputImpl _$$GetQuotesOutputImplFromJson(Map json) =>
+_$FeedGetQuotesOutputImpl _$$FeedGetQuotesOutputImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$GetQuotesOutputImpl',
+      r'_$FeedGetQuotesOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$GetQuotesOutputImpl(
-          uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+        final val = _$FeedGetQuotesOutputImpl(
+          uri: $checkedConvert('uri', (v) => v as String),
           cid: $checkedConvert('cid', (v) => v as String?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
-                  .map(
-                      (e) => Post.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const PostViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$GetQuotesOutputImplToJson(
-        _$GetQuotesOutputImpl instance) =>
+Map<String, dynamic> _$$FeedGetQuotesOutputImplToJson(
+        _$FeedGetQuotesOutputImpl instance) =>
     <String, dynamic>{
-      'uri': const AtUriConverter().toJson(instance.uri),
-      if (instance.cid case final value?) 'cid': value,
-      if (instance.cursor case final value?) 'cursor': value,
-      'posts': instance.posts.map((e) => e.toJson()).toList(),
+      'uri': instance.uri,
+      'cid': instance.cid,
+      'cursor': instance.cursor,
+      'posts': instance.posts.map(const PostViewConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
     };

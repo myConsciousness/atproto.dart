@@ -9,7 +9,6 @@ import 'package:bluesky/src/services/feed_service.dart';
 import 'package:bluesky/src/services/graph_service.dart';
 import 'package:bluesky/src/services/labeler_service.dart';
 import 'package:bluesky/src/services/notification_service.dart';
-import 'package:bluesky/src/services/service_context.dart';
 import 'package:bluesky/src/services/unspecced_service.dart';
 
 const _runner = _ServiceRunner();

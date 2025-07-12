@@ -14,34 +14,44 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-GetActorMetadataOutput _$GetActorMetadataOutputFromJson(
+ModerationGetActorMetadataOutput _$ModerationGetActorMetadataOutputFromJson(
     Map<String, dynamic> json) {
-  return _GetActorMetadataOutput.fromJson(json);
+  return _ModerationGetActorMetadataOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetActorMetadataOutput {
+mixin _$ModerationGetActorMetadataOutput {
+  @MetadataConverter()
   Metadata get day => throw _privateConstructorUsedError;
+  @MetadataConverter()
   Metadata get month => throw _privateConstructorUsedError;
+  @MetadataConverter()
   Metadata get all => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
-  /// Serializes this GetActorMetadataOutput to a JSON map.
+  /// Serializes this ModerationGetActorMetadataOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of GetActorMetadataOutput
+  /// Create a copy of ModerationGetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetActorMetadataOutputCopyWith<GetActorMetadataOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ModerationGetActorMetadataOutputCopyWith<ModerationGetActorMetadataOutput>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetActorMetadataOutputCopyWith<$Res> {
-  factory $GetActorMetadataOutputCopyWith(GetActorMetadataOutput value,
-          $Res Function(GetActorMetadataOutput) then) =
-      _$GetActorMetadataOutputCopyWithImpl<$Res, GetActorMetadataOutput>;
+abstract class $ModerationGetActorMetadataOutputCopyWith<$Res> {
+  factory $ModerationGetActorMetadataOutputCopyWith(
+          ModerationGetActorMetadataOutput value,
+          $Res Function(ModerationGetActorMetadataOutput) then) =
+      _$ModerationGetActorMetadataOutputCopyWithImpl<$Res,
+          ModerationGetActorMetadataOutput>;
   @useResult
-  $Res call({Metadata day, Metadata month, Metadata all});
+  $Res call(
+      {@MetadataConverter() Metadata day,
+      @MetadataConverter() Metadata month,
+      @MetadataConverter() Metadata all,
+      Map<String, dynamic>? $unknown});
 
   $MetadataCopyWith<$Res> get day;
   $MetadataCopyWith<$Res> get month;
@@ -49,17 +59,17 @@ abstract class $GetActorMetadataOutputCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$GetActorMetadataOutputCopyWithImpl<$Res,
-        $Val extends GetActorMetadataOutput>
-    implements $GetActorMetadataOutputCopyWith<$Res> {
-  _$GetActorMetadataOutputCopyWithImpl(this._value, this._then);
+class _$ModerationGetActorMetadataOutputCopyWithImpl<$Res,
+        $Val extends ModerationGetActorMetadataOutput>
+    implements $ModerationGetActorMetadataOutputCopyWith<$Res> {
+  _$ModerationGetActorMetadataOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetActorMetadataOutput
+  /// Create a copy of ModerationGetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -67,6 +77,7 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
     Object? day = null,
     Object? month = null,
     Object? all = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       day: null == day
@@ -81,10 +92,14 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
           ? _value.all
           : all // ignore: cast_nullable_to_non_nullable
               as Metadata,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
-  /// Create a copy of GetActorMetadataOutput
+  /// Create a copy of ModerationGetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -94,7 +109,7 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
     });
   }
 
-  /// Create a copy of GetActorMetadataOutput
+  /// Create a copy of ModerationGetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -104,7 +119,7 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
     });
   }
 
-  /// Create a copy of GetActorMetadataOutput
+  /// Create a copy of ModerationGetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -116,15 +131,19 @@ class _$GetActorMetadataOutputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$GetActorMetadataOutputImplCopyWith<$Res>
-    implements $GetActorMetadataOutputCopyWith<$Res> {
-  factory _$$GetActorMetadataOutputImplCopyWith(
-          _$GetActorMetadataOutputImpl value,
-          $Res Function(_$GetActorMetadataOutputImpl) then) =
-      __$$GetActorMetadataOutputImplCopyWithImpl<$Res>;
+abstract class _$$ModerationGetActorMetadataOutputImplCopyWith<$Res>
+    implements $ModerationGetActorMetadataOutputCopyWith<$Res> {
+  factory _$$ModerationGetActorMetadataOutputImplCopyWith(
+          _$ModerationGetActorMetadataOutputImpl value,
+          $Res Function(_$ModerationGetActorMetadataOutputImpl) then) =
+      __$$ModerationGetActorMetadataOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Metadata day, Metadata month, Metadata all});
+  $Res call(
+      {@MetadataConverter() Metadata day,
+      @MetadataConverter() Metadata month,
+      @MetadataConverter() Metadata all,
+      Map<String, dynamic>? $unknown});
 
   @override
   $MetadataCopyWith<$Res> get day;
@@ -135,16 +154,16 @@ abstract class _$$GetActorMetadataOutputImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GetActorMetadataOutputImplCopyWithImpl<$Res>
-    extends _$GetActorMetadataOutputCopyWithImpl<$Res,
-        _$GetActorMetadataOutputImpl>
-    implements _$$GetActorMetadataOutputImplCopyWith<$Res> {
-  __$$GetActorMetadataOutputImplCopyWithImpl(
-      _$GetActorMetadataOutputImpl _value,
-      $Res Function(_$GetActorMetadataOutputImpl) _then)
+class __$$ModerationGetActorMetadataOutputImplCopyWithImpl<$Res>
+    extends _$ModerationGetActorMetadataOutputCopyWithImpl<$Res,
+        _$ModerationGetActorMetadataOutputImpl>
+    implements _$$ModerationGetActorMetadataOutputImplCopyWith<$Res> {
+  __$$ModerationGetActorMetadataOutputImplCopyWithImpl(
+      _$ModerationGetActorMetadataOutputImpl _value,
+      $Res Function(_$ModerationGetActorMetadataOutputImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetActorMetadataOutput
+  /// Create a copy of ModerationGetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -152,8 +171,9 @@ class __$$GetActorMetadataOutputImplCopyWithImpl<$Res>
     Object? day = null,
     Object? month = null,
     Object? all = null,
+    Object? $unknown = freezed,
   }) {
-    return _then(_$GetActorMetadataOutputImpl(
+    return _then(_$ModerationGetActorMetadataOutputImpl(
       day: null == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
@@ -166,83 +186,117 @@ class __$$GetActorMetadataOutputImplCopyWithImpl<$Res>
           ? _value.all
           : all // ignore: cast_nullable_to_non_nullable
               as Metadata,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
+@JsonSerializable()
+class _$ModerationGetActorMetadataOutputImpl
+    implements _ModerationGetActorMetadataOutput {
+  const _$ModerationGetActorMetadataOutputImpl(
+      {@MetadataConverter() required this.day,
+      @MetadataConverter() required this.month,
+      @MetadataConverter() required this.all,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
-@jsonSerializable
-class _$GetActorMetadataOutputImpl implements _GetActorMetadataOutput {
-  const _$GetActorMetadataOutputImpl(
-      {required this.day, required this.month, required this.all});
-
-  factory _$GetActorMetadataOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetActorMetadataOutputImplFromJson(json);
+  factory _$ModerationGetActorMetadataOutputImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ModerationGetActorMetadataOutputImplFromJson(json);
 
   @override
+  @MetadataConverter()
   final Metadata day;
   @override
+  @MetadataConverter()
   final Metadata month;
   @override
+  @MetadataConverter()
   final Metadata all;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'GetActorMetadataOutput(day: $day, month: $month, all: $all)';
+    return 'ModerationGetActorMetadataOutput(day: $day, month: $month, all: $all, \$unknown: ${$unknown})';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetActorMetadataOutputImpl &&
+            other is _$ModerationGetActorMetadataOutputImpl &&
             (identical(other.day, day) || other.day == day) &&
             (identical(other.month, month) || other.month == month) &&
-            (identical(other.all, all) || other.all == all));
+            (identical(other.all, all) || other.all == all) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, day, month, all);
+  int get hashCode => Object.hash(runtimeType, day, month, all,
+      const DeepCollectionEquality().hash(_$unknown));
 
-  /// Create a copy of GetActorMetadataOutput
+  /// Create a copy of ModerationGetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetActorMetadataOutputImplCopyWith<_$GetActorMetadataOutputImpl>
-      get copyWith => __$$GetActorMetadataOutputImplCopyWithImpl<
-          _$GetActorMetadataOutputImpl>(this, _$identity);
+  _$$ModerationGetActorMetadataOutputImplCopyWith<
+          _$ModerationGetActorMetadataOutputImpl>
+      get copyWith => __$$ModerationGetActorMetadataOutputImplCopyWithImpl<
+          _$ModerationGetActorMetadataOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetActorMetadataOutputImplToJson(
+    return _$$ModerationGetActorMetadataOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _GetActorMetadataOutput implements GetActorMetadataOutput {
-  const factory _GetActorMetadataOutput(
-      {required final Metadata day,
-      required final Metadata month,
-      required final Metadata all}) = _$GetActorMetadataOutputImpl;
+abstract class _ModerationGetActorMetadataOutput
+    implements ModerationGetActorMetadataOutput {
+  const factory _ModerationGetActorMetadataOutput(
+          {@MetadataConverter() required final Metadata day,
+          @MetadataConverter() required final Metadata month,
+          @MetadataConverter() required final Metadata all,
+          final Map<String, dynamic>? $unknown}) =
+      _$ModerationGetActorMetadataOutputImpl;
 
-  factory _GetActorMetadataOutput.fromJson(Map<String, dynamic> json) =
-      _$GetActorMetadataOutputImpl.fromJson;
+  factory _ModerationGetActorMetadataOutput.fromJson(
+          Map<String, dynamic> json) =
+      _$ModerationGetActorMetadataOutputImpl.fromJson;
 
   @override
+  @MetadataConverter()
   Metadata get day;
   @override
+  @MetadataConverter()
   Metadata get month;
   @override
+  @MetadataConverter()
   Metadata get all;
+  @override
+  Map<String, dynamic>? get $unknown;
 
-  /// Create a copy of GetActorMetadataOutput
+  /// Create a copy of ModerationGetActorMetadataOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetActorMetadataOutputImplCopyWith<_$GetActorMetadataOutputImpl>
+  _$$ModerationGetActorMetadataOutputImplCopyWith<
+          _$ModerationGetActorMetadataOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

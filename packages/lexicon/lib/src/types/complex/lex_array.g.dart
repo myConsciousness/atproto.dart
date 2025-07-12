@@ -15,8 +15,10 @@ _$LexArrayImpl _$$LexArrayImplFromJson(Map json) => $checkedCreate(
         final val = _$LexArrayImpl(
           type: $checkedConvert('type', (v) => v as String? ?? 'array'),
           description: $checkedConvert('description', (v) => v as String?),
-          items: $checkedConvert('items',
-              (v) => lexArrayItemConverter.fromJson(v as Map<String, dynamic>)),
+          items: $checkedConvert(
+              'items',
+              (v) => const LexArrayItemConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           minLength: $checkedConvert('minLength', (v) => (v as num?)?.toInt()),
           maxLength: $checkedConvert('maxLength', (v) => (v as num?)?.toInt()),
         );
@@ -28,7 +30,7 @@ Map<String, dynamic> _$$LexArrayImplToJson(_$LexArrayImpl instance) =>
     <String, dynamic>{
       'type': instance.type,
       if (instance.description case final value?) 'description': value,
-      'items': lexArrayItemConverter.toJson(instance.items),
+      'items': const LexArrayItemConverter().toJson(instance.items),
       if (instance.minLength case final value?) 'minLength': value,
       if (instance.maxLength case final value?) 'maxLength': value,
     };

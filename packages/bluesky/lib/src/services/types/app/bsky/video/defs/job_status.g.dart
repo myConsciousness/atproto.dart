@@ -13,16 +13,23 @@ _$JobStatusImpl _$$JobStatusImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$JobStatusImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyVideoDefsJobStatus),
           jobId: $checkedConvert('jobId', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String),
           state: $checkedConvert('state', (v) => v as String),
-          integer: $checkedConvert('integer', (v) => (v as num?)?.toInt() ?? 0),
+          progress: $checkedConvert('progress', (v) => (v as num?)?.toInt()),
           blob: $checkedConvert(
               'blob',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Blob>(
                   v, const BlobConverter().fromJson)),
           error: $checkedConvert('error', (v) => v as String?),
           message: $checkedConvert('message', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -30,16 +37,16 @@ _$JobStatusImpl _$$JobStatusImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$JobStatusImplToJson(_$JobStatusImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'jobId': instance.jobId,
       'did': instance.did,
       'state': instance.state,
-      'integer': instance.integer,
-      if (_$JsonConverterToJson<Map<String, dynamic>, Blob>(
-              instance.blob, const BlobConverter().toJson)
-          case final value?)
-        'blob': value,
-      if (instance.error case final value?) 'error': value,
-      if (instance.message case final value?) 'message': value,
+      'progress': instance.progress,
+      'blob': _$JsonConverterToJson<Map<String, dynamic>, Blob>(
+          instance.blob, const BlobConverter().toJson),
+      'error': instance.error,
+      'message': instance.message,
+      r'$unknown': instance.$unknown,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

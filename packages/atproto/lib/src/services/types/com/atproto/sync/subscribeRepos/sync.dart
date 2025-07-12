@@ -1,0 +1,76 @@
+// Copyright (c) 2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+// Package imports:
+import 'package:atproto_core/atproto_core.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
+import '../../../../../../ids.g.dart';
+
+part 'sync.freezed.dart';
+part 'sync.g.dart';
+
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
+
+@freezed
+abstract class Sync with _$Sync {
+  static const knownProps = <String>[
+    'seq',
+    'did',
+    'blocks',
+    'rev',
+    'time',
+  ];
+
+  const factory Sync({
+    @Default(comAtprotoSyncSubscribeReposSync) String $type,
+
+    /// The stream sequence number of this message.
+    required int seq,
+
+    /// The account this repo event corresponds to. Must match that in the commit object.
+    required String did,
+    required Map<String, dynamic> blocks,
+
+    /// The rev of the commit. This value must match that in the commit object.
+    required String rev,
+
+    /// Timestamp of when this message was originally broadcast.
+    required DateTime time,
+    Map<String, dynamic>? $unknown,
+  }) = _Sync;
+
+  factory Sync.fromJson(Map<String, Object?> json) => _$SyncFromJson(json);
+
+  static bool validate(final Map<String, dynamic> object) {
+    if (!object.containsKey('\$type')) return false;
+    return object['\$type'] == comAtprotoSyncSubscribeReposSync;
+  }
+}
+
+final class SyncConverter
+    extends LexObjectConverter<Sync, Map<String, dynamic>> {
+  const SyncConverter();
+
+  @override
+  Sync fromJson(Map<String, dynamic> json) {
+    return Sync.fromJson(translate(
+      json,
+      Sync.knownProps,
+    ));
+  }
+
+  @override
+  Map<String, dynamic> toJson(Sync object) => untranslate(
+        object.toJson(),
+      );
+}

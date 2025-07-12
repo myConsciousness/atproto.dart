@@ -1,0 +1,112 @@
+import 'lex_type.dart';
+import 'lex_property.dart';
+import 'utils.dart';
+import '../utils.dart';
+
+import '../rule.dart' as rule;
+
+final class LexRecord extends LexType {
+  @override
+  final String lexiconId;
+  @override
+  final String defName;
+
+  final String name;
+  final List<LexProperty> properties;
+
+  @override
+  List<LexProperty> getProperties() {
+    return properties;
+  }
+
+  @override
+  List<LexType> get nested => properties
+      .where((e) => e.type.isUnion)
+      .map((e) => e.type.union!)
+      .toList();
+
+  @override
+  LexTypeState get state => LexTypeState.record;
+
+  const LexRecord({
+    required this.lexiconId,
+    required this.defName,
+    required this.name,
+    required this.properties,
+  });
+
+  @override
+  String getTypeName() {
+    return '${name}Record';
+  }
+
+  @override
+  String format() {
+    final properties = StringBuffer();
+    for (final property in this.properties) {
+      if (rule.isDeprecated(property.description)) {
+        continue;
+      }
+
+      properties.writeln(property.format());
+    }
+
+    final id = rule.getLexObjectTypeId(lexiconId, defName);
+
+    final packages = StringBuffer();
+    for (final packagePath in this
+        .properties
+        .where((e) => e.type.packagePath != null)
+        .map((e) => e.type.packagePath)
+        .toSet()
+        .toList()) {
+      packages.writeln("import '$packagePath';");
+    }
+
+    final knownProps = getKnownProps(this.properties);
+    final validateMethod = _getValidateMethod(id);
+    final converter = getObjectConverter(name, suffix: 'Record');
+
+    return '''$kHeaderHint
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:atproto_core/atproto_core.dart';
+
+import '../../../../../../ids.g.dart';
+
+${packages.toString()}
+
+part 'main.freezed.dart';
+part 'main.g.dart';
+
+$kHeader
+
+@freezed
+abstract class ${name}Record with _\$${name}Record {
+  $knownProps
+
+  const factory ${name}Record({
+    @Default($id) String \$type,
+    ${properties.toString()}
+    Map<String, dynamic>? \$unknown,
+  }) = _${name}Record;
+
+  factory ${name}Record.fromJson(Map<String, Object?> json) => _\$${name}RecordFromJson(json);
+
+  $validateMethod
+}
+
+$converter
+''';
+  }
+
+  String _getValidateMethod(final String id) {
+    final buffer = StringBuffer();
+    buffer.writeln('static bool validate(final Map<String, dynamic> object) {');
+    buffer.writeln("  if (!object.containsKey('\\\$type')) return false;");
+    buffer.writeln("  return object['\\\$type'] == $id;");
+    buffer.writeln('}');
+
+    return buffer.toString();
+  }
+}

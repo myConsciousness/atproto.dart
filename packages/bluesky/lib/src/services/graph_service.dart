@@ -29,7 +29,7 @@ import 'types/app/bsky/graph/starterpack/feed_item.dart';
 final class GraphService {
   GraphService(this._ctx);
 
-  final BlueskyServiceContext _ctx;
+  final ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
   Future<core.XRPCResponse<atp.StrongRef>> follow({

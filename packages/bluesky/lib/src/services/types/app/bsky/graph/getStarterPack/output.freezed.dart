@@ -14,62 +14,72 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-GetStarterPackOutput _$GetStarterPackOutputFromJson(Map<String, dynamic> json) {
-  return _GetStarterPackOutput.fromJson(json);
+GraphGetStarterPackOutput _$GraphGetStarterPackOutputFromJson(
+    Map<String, dynamic> json) {
+  return _GraphGetStarterPackOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetStarterPackOutput {
+mixin _$GraphGetStarterPackOutput {
+  @StarterPackViewConverter()
   StarterPackView get starterPack => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
-  /// Serializes this GetStarterPackOutput to a JSON map.
+  /// Serializes this GraphGetStarterPackOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of GetStarterPackOutput
+  /// Create a copy of GraphGetStarterPackOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetStarterPackOutputCopyWith<GetStarterPackOutput> get copyWith =>
+  $GraphGetStarterPackOutputCopyWith<GraphGetStarterPackOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetStarterPackOutputCopyWith<$Res> {
-  factory $GetStarterPackOutputCopyWith(GetStarterPackOutput value,
-          $Res Function(GetStarterPackOutput) then) =
-      _$GetStarterPackOutputCopyWithImpl<$Res, GetStarterPackOutput>;
+abstract class $GraphGetStarterPackOutputCopyWith<$Res> {
+  factory $GraphGetStarterPackOutputCopyWith(GraphGetStarterPackOutput value,
+          $Res Function(GraphGetStarterPackOutput) then) =
+      _$GraphGetStarterPackOutputCopyWithImpl<$Res, GraphGetStarterPackOutput>;
   @useResult
-  $Res call({StarterPackView starterPack});
+  $Res call(
+      {@StarterPackViewConverter() StarterPackView starterPack,
+      Map<String, dynamic>? $unknown});
 
   $StarterPackViewCopyWith<$Res> get starterPack;
 }
 
 /// @nodoc
-class _$GetStarterPackOutputCopyWithImpl<$Res,
-        $Val extends GetStarterPackOutput>
-    implements $GetStarterPackOutputCopyWith<$Res> {
-  _$GetStarterPackOutputCopyWithImpl(this._value, this._then);
+class _$GraphGetStarterPackOutputCopyWithImpl<$Res,
+        $Val extends GraphGetStarterPackOutput>
+    implements $GraphGetStarterPackOutputCopyWith<$Res> {
+  _$GraphGetStarterPackOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetStarterPackOutput
+  /// Create a copy of GraphGetStarterPackOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? starterPack = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
       starterPack: null == starterPack
           ? _value.starterPack
           : starterPack // ignore: cast_nullable_to_non_nullable
               as StarterPackView,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
-  /// Create a copy of GetStarterPackOutput
+  /// Create a copy of GraphGetStarterPackOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -81,106 +91,132 @@ class _$GetStarterPackOutputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$GetStarterPackOutputImplCopyWith<$Res>
-    implements $GetStarterPackOutputCopyWith<$Res> {
-  factory _$$GetStarterPackOutputImplCopyWith(_$GetStarterPackOutputImpl value,
-          $Res Function(_$GetStarterPackOutputImpl) then) =
-      __$$GetStarterPackOutputImplCopyWithImpl<$Res>;
+abstract class _$$GraphGetStarterPackOutputImplCopyWith<$Res>
+    implements $GraphGetStarterPackOutputCopyWith<$Res> {
+  factory _$$GraphGetStarterPackOutputImplCopyWith(
+          _$GraphGetStarterPackOutputImpl value,
+          $Res Function(_$GraphGetStarterPackOutputImpl) then) =
+      __$$GraphGetStarterPackOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StarterPackView starterPack});
+  $Res call(
+      {@StarterPackViewConverter() StarterPackView starterPack,
+      Map<String, dynamic>? $unknown});
 
   @override
   $StarterPackViewCopyWith<$Res> get starterPack;
 }
 
 /// @nodoc
-class __$$GetStarterPackOutputImplCopyWithImpl<$Res>
-    extends _$GetStarterPackOutputCopyWithImpl<$Res, _$GetStarterPackOutputImpl>
-    implements _$$GetStarterPackOutputImplCopyWith<$Res> {
-  __$$GetStarterPackOutputImplCopyWithImpl(_$GetStarterPackOutputImpl _value,
-      $Res Function(_$GetStarterPackOutputImpl) _then)
+class __$$GraphGetStarterPackOutputImplCopyWithImpl<$Res>
+    extends _$GraphGetStarterPackOutputCopyWithImpl<$Res,
+        _$GraphGetStarterPackOutputImpl>
+    implements _$$GraphGetStarterPackOutputImplCopyWith<$Res> {
+  __$$GraphGetStarterPackOutputImplCopyWithImpl(
+      _$GraphGetStarterPackOutputImpl _value,
+      $Res Function(_$GraphGetStarterPackOutputImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetStarterPackOutput
+  /// Create a copy of GraphGetStarterPackOutput
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? starterPack = null,
+    Object? $unknown = freezed,
   }) {
-    return _then(_$GetStarterPackOutputImpl(
+    return _then(_$GraphGetStarterPackOutputImpl(
       starterPack: null == starterPack
           ? _value.starterPack
           : starterPack // ignore: cast_nullable_to_non_nullable
               as StarterPackView,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
+@JsonSerializable()
+class _$GraphGetStarterPackOutputImpl implements _GraphGetStarterPackOutput {
+  const _$GraphGetStarterPackOutputImpl(
+      {@StarterPackViewConverter() required this.starterPack,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
-@jsonSerializable
-class _$GetStarterPackOutputImpl implements _GetStarterPackOutput {
-  const _$GetStarterPackOutputImpl({required this.starterPack});
-
-  factory _$GetStarterPackOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetStarterPackOutputImplFromJson(json);
+  factory _$GraphGetStarterPackOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GraphGetStarterPackOutputImplFromJson(json);
 
   @override
+  @StarterPackViewConverter()
   final StarterPackView starterPack;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'GetStarterPackOutput(starterPack: $starterPack)';
+    return 'GraphGetStarterPackOutput(starterPack: $starterPack, \$unknown: ${$unknown})';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetStarterPackOutputImpl &&
+            other is _$GraphGetStarterPackOutputImpl &&
             (identical(other.starterPack, starterPack) ||
-                other.starterPack == starterPack));
+                other.starterPack == starterPack) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, starterPack);
+  int get hashCode => Object.hash(
+      runtimeType, starterPack, const DeepCollectionEquality().hash(_$unknown));
 
-  /// Create a copy of GetStarterPackOutput
+  /// Create a copy of GraphGetStarterPackOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetStarterPackOutputImplCopyWith<_$GetStarterPackOutputImpl>
-      get copyWith =>
-          __$$GetStarterPackOutputImplCopyWithImpl<_$GetStarterPackOutputImpl>(
-              this, _$identity);
+  _$$GraphGetStarterPackOutputImplCopyWith<_$GraphGetStarterPackOutputImpl>
+      get copyWith => __$$GraphGetStarterPackOutputImplCopyWithImpl<
+          _$GraphGetStarterPackOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetStarterPackOutputImplToJson(
+    return _$$GraphGetStarterPackOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _GetStarterPackOutput implements GetStarterPackOutput {
-  const factory _GetStarterPackOutput(
-          {required final StarterPackView starterPack}) =
-      _$GetStarterPackOutputImpl;
+abstract class _GraphGetStarterPackOutput implements GraphGetStarterPackOutput {
+  const factory _GraphGetStarterPackOutput(
+      {@StarterPackViewConverter() required final StarterPackView starterPack,
+      final Map<String, dynamic>? $unknown}) = _$GraphGetStarterPackOutputImpl;
 
-  factory _GetStarterPackOutput.fromJson(Map<String, dynamic> json) =
-      _$GetStarterPackOutputImpl.fromJson;
+  factory _GraphGetStarterPackOutput.fromJson(Map<String, dynamic> json) =
+      _$GraphGetStarterPackOutputImpl.fromJson;
 
   @override
+  @StarterPackViewConverter()
   StarterPackView get starterPack;
+  @override
+  Map<String, dynamic>? get $unknown;
 
-  /// Create a copy of GetStarterPackOutput
+  /// Create a copy of GraphGetStarterPackOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetStarterPackOutputImplCopyWith<_$GetStarterPackOutputImpl>
+  _$$GraphGetStarterPackOutputImplCopyWith<_$GraphGetStarterPackOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

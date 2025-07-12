@@ -8,30 +8,39 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SearchStarterPacksSkeletonOutputImpl
-    _$$SearchStarterPacksSkeletonOutputImplFromJson(Map json) => $checkedCreate(
-          r'_$SearchStarterPacksSkeletonOutputImpl',
+_$UnspeccedSearchStarterPacksSkeletonOutputImpl
+    _$$UnspeccedSearchStarterPacksSkeletonOutputImplFromJson(Map json) =>
+        $checkedCreate(
+          r'_$UnspeccedSearchStarterPacksSkeletonOutputImpl',
           json,
           ($checkedConvert) {
-            final val = _$SearchStarterPacksSkeletonOutputImpl(
+            final val = _$UnspeccedSearchStarterPacksSkeletonOutputImpl(
               cursor: $checkedConvert('cursor', (v) => v as String?),
-              hitsTotal: $checkedConvert(
-                  'hitsTotal', (v) => (v as num?)?.toInt() ?? 0),
+              hitsTotal:
+                  $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt()),
               starterPacks: $checkedConvert(
                   'starterPacks',
                   (v) => (v as List<dynamic>)
-                      .map((e) => SkeletonSearchStarterPack.fromJson(
-                          Map<String, Object?>.from(e as Map)))
+                      .map((e) => const SkeletonSearchStarterPackConverter()
+                          .fromJson(e as Map<String, dynamic>))
                       .toList()),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
             );
             return val;
           },
         );
 
-Map<String, dynamic> _$$SearchStarterPacksSkeletonOutputImplToJson(
-        _$SearchStarterPacksSkeletonOutputImpl instance) =>
+Map<String, dynamic> _$$UnspeccedSearchStarterPacksSkeletonOutputImplToJson(
+        _$UnspeccedSearchStarterPacksSkeletonOutputImpl instance) =>
     <String, dynamic>{
-      if (instance.cursor case final value?) 'cursor': value,
+      'cursor': instance.cursor,
       'hitsTotal': instance.hitsTotal,
-      'starterPacks': instance.starterPacks.map((e) => e.toJson()).toList(),
+      'starterPacks': instance.starterPacks
+          .map(const SkeletonSearchStarterPackConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
     };

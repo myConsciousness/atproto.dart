@@ -13,25 +13,32 @@ _$KnownFollowersImpl _$$KnownFollowersImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$KnownFollowersImpl(
-          type: $checkedConvert(
+          $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsKnownFollowers),
           count: $checkedConvert('count', (v) => (v as num).toInt()),
           followers: $checkedConvert(
               'followers',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ActorBasic.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewBasicConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$KnownFollowersImplToJson(
         _$KnownFollowersImpl instance) =>
     <String, dynamic>{
-      r'$type': instance.type,
+      r'$type': instance.$type,
       'count': instance.count,
-      'followers': instance.followers.map((e) => e.toJson()).toList(),
+      'followers': instance.followers
+          .map(const ProfileViewBasicConverter().toJson)
+          .toList(),
+      r'$unknown': instance.$unknown,
     };

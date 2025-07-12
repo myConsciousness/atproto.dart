@@ -20,10 +20,13 @@ DeletedMessageView _$DeletedMessageViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeletedMessageView {
+  String get $type => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
+  @MessageViewSenderConverter()
   MessageViewSender get sender => throw _privateConstructorUsedError;
   DateTime get sentAt => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this DeletedMessageView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +44,13 @@ abstract class $DeletedMessageViewCopyWith<$Res> {
           DeletedMessageView value, $Res Function(DeletedMessageView) then) =
       _$DeletedMessageViewCopyWithImpl<$Res, DeletedMessageView>;
   @useResult
-  $Res call({String id, String rev, MessageViewSender sender, DateTime sentAt});
+  $Res call(
+      {String $type,
+      String id,
+      String rev,
+      @MessageViewSenderConverter() MessageViewSender sender,
+      DateTime sentAt,
+      Map<String, dynamic>? $unknown});
 
   $MessageViewSenderCopyWith<$Res> get sender;
 }
@@ -61,12 +70,18 @@ class _$DeletedMessageViewCopyWithImpl<$Res, $Val extends DeletedMessageView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? id = null,
     Object? rev = null,
     Object? sender = null,
     Object? sentAt = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -83,6 +98,10 @@ class _$DeletedMessageViewCopyWithImpl<$Res, $Val extends DeletedMessageView>
           ? _value.sentAt
           : sentAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -105,7 +124,13 @@ abstract class _$$DeletedMessageViewImplCopyWith<$Res>
       __$$DeletedMessageViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String rev, MessageViewSender sender, DateTime sentAt});
+  $Res call(
+      {String $type,
+      String id,
+      String rev,
+      @MessageViewSenderConverter() MessageViewSender sender,
+      DateTime sentAt,
+      Map<String, dynamic>? $unknown});
 
   @override
   $MessageViewSenderCopyWith<$Res> get sender;
@@ -124,12 +149,18 @@ class __$$DeletedMessageViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? id = null,
     Object? rev = null,
     Object? sender = null,
     Object? sentAt = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$DeletedMessageViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -146,35 +177,54 @@ class __$$DeletedMessageViewImplCopyWithImpl<$Res>
           ? _value.sentAt
           : sentAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$DeletedMessageViewImpl implements _DeletedMessageView {
   const _$DeletedMessageViewImpl(
-      {required this.id,
+      {this.$type = chatBskyConvoDefsDeletedMessageView,
+      required this.id,
       required this.rev,
-      required this.sender,
-      required this.sentAt});
+      @MessageViewSenderConverter() required this.sender,
+      required this.sentAt,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$DeletedMessageViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeletedMessageViewImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String $type;
+  @override
   final String id;
   @override
   final String rev;
   @override
+  @MessageViewSenderConverter()
   final MessageViewSender sender;
   @override
   final DateTime sentAt;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'DeletedMessageView(id: $id, rev: $rev, sender: $sender, sentAt: $sentAt)';
+    return 'DeletedMessageView(\$type: ${$type}, id: $id, rev: $rev, sender: $sender, sentAt: $sentAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -182,15 +232,18 @@ class _$DeletedMessageViewImpl implements _DeletedMessageView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeletedMessageViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.sender, sender) || other.sender == sender) &&
-            (identical(other.sentAt, sentAt) || other.sentAt == sentAt));
+            (identical(other.sentAt, sentAt) || other.sentAt == sentAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, rev, sender, sentAt);
+  int get hashCode => Object.hash(runtimeType, $type, id, rev, sender, sentAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of DeletedMessageView
   /// with the given fields replaced by the non-null parameter values.
@@ -211,22 +264,29 @@ class _$DeletedMessageViewImpl implements _DeletedMessageView {
 
 abstract class _DeletedMessageView implements DeletedMessageView {
   const factory _DeletedMessageView(
-      {required final String id,
+      {final String $type,
+      required final String id,
       required final String rev,
-      required final MessageViewSender sender,
-      required final DateTime sentAt}) = _$DeletedMessageViewImpl;
+      @MessageViewSenderConverter() required final MessageViewSender sender,
+      required final DateTime sentAt,
+      final Map<String, dynamic>? $unknown}) = _$DeletedMessageViewImpl;
 
   factory _DeletedMessageView.fromJson(Map<String, dynamic> json) =
       _$DeletedMessageViewImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   String get id;
   @override
   String get rev;
   @override
+  @MessageViewSenderConverter()
   MessageViewSender get sender;
   @override
   DateTime get sentAt;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of DeletedMessageView
   /// with the given fields replaced by the non-null parameter values.

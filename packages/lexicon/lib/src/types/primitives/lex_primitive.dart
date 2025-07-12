@@ -33,5 +33,5 @@ class LexPrimitive with _$LexPrimitive {
     required LexUnknown data,
   }) = ULexPrimitiveUnknown;
 
-  Map<String, dynamic> toJson() => lexPrimitiveConverter.toJson(this);
+  Map<String, dynamic> toJson() => const LexPrimitiveConverter().toJson(this);
 }

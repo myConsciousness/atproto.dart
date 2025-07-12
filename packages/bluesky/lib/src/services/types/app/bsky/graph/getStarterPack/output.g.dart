@@ -8,23 +8,31 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetStarterPackOutputImpl _$$GetStarterPackOutputImplFromJson(Map json) =>
+_$GraphGetStarterPackOutputImpl _$$GraphGetStarterPackOutputImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$GetStarterPackOutputImpl',
+      r'_$GraphGetStarterPackOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$GetStarterPackOutputImpl(
+        final val = _$GraphGetStarterPackOutputImpl(
           starterPack: $checkedConvert(
               'starterPack',
-              (v) => StarterPackView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+              (v) => const StarterPackViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$GetStarterPackOutputImplToJson(
-        _$GetStarterPackOutputImpl instance) =>
+Map<String, dynamic> _$$GraphGetStarterPackOutputImplToJson(
+        _$GraphGetStarterPackOutputImpl instance) =>
     <String, dynamic>{
-      'starterPack': instance.starterPack.toJson(),
+      'starterPack':
+          const StarterPackViewConverter().toJson(instance.starterPack),
+      r'$unknown': instance.$unknown,
     };

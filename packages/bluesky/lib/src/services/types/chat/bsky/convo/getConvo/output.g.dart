@@ -8,20 +8,29 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetConvoOutputImpl _$$GetConvoOutputImplFromJson(Map json) => $checkedCreate(
-      r'_$GetConvoOutputImpl',
+_$ConvoGetConvoOutputImpl _$$ConvoGetConvoOutputImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$ConvoGetConvoOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$GetConvoOutputImpl(
-          convo: $checkedConvert('convo',
-              (v) => ConvoView.fromJson(Map<String, Object?>.from(v as Map))),
+        final val = _$ConvoGetConvoOutputImpl(
+          convo: $checkedConvert(
+              'convo',
+              (v) => const ConvoViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$GetConvoOutputImplToJson(
-        _$GetConvoOutputImpl instance) =>
+Map<String, dynamic> _$$ConvoGetConvoOutputImplToJson(
+        _$ConvoGetConvoOutputImpl instance) =>
     <String, dynamic>{
-      'convo': instance.convo.toJson(),
+      'convo': const ConvoViewConverter().toJson(instance.convo),
+      r'$unknown': instance.$unknown,
     };

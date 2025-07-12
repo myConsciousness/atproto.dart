@@ -38,5 +38,6 @@ class LexObjectProperty with _$LexObjectProperty {
     required LexPrimitive data,
   }) = ULexObjectPropertyPrimitive;
 
-  Map<String, dynamic> toJson() => lexObjectPropertyConverter.toJson(this);
+  Map<String, dynamic> toJson() =>
+      const LexObjectPropertyConverter().toJson(this);
 }

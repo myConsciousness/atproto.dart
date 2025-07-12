@@ -20,18 +20,19 @@ StarterPackViewBasic _$StarterPackViewBasicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StarterPackViewBasic {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
-  @AtUriConverter()
-  AtUri get uri => throw _privateConstructorUsedError;
+  String get $type => throw _privateConstructorUsedError;
+  String get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
-  StarterpackRecord get record => throw _privateConstructorUsedError;
-  ActorBasic get creator => throw _privateConstructorUsedError;
-  int get listItemCount => throw _privateConstructorUsedError;
-  int get joinedWeekCount => throw _privateConstructorUsedError;
-  int get joinedAllTimeCount => throw _privateConstructorUsedError;
+  Map<String, dynamic> get record => throw _privateConstructorUsedError;
+  @ProfileViewBasicConverter()
+  ProfileViewBasic get creator => throw _privateConstructorUsedError;
+  int? get listItemCount => throw _privateConstructorUsedError;
+  int? get joinedWeekCount => throw _privateConstructorUsedError;
+  int? get joinedAllTimeCount => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this StarterPackViewBasic to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,19 +51,19 @@ abstract class $StarterPackViewBasicCopyWith<$Res> {
       _$StarterPackViewBasicCopyWithImpl<$Res, StarterPackViewBasic>;
   @useResult
   $Res call(
-      {@typeKey String type,
-      @AtUriConverter() AtUri uri,
+      {String $type,
+      String uri,
       String cid,
-      StarterpackRecord record,
-      ActorBasic creator,
-      int listItemCount,
-      int joinedWeekCount,
-      int joinedAllTimeCount,
-      List<Label>? labels,
-      DateTime indexedAt});
+      Map<String, dynamic> record,
+      @ProfileViewBasicConverter() ProfileViewBasic creator,
+      int? listItemCount,
+      int? joinedWeekCount,
+      int? joinedAllTimeCount,
+      @LabelConverter() List<Label>? labels,
+      DateTime indexedAt,
+      Map<String, dynamic>? $unknown});
 
-  $StarterpackRecordCopyWith<$Res> get record;
-  $ActorBasicCopyWith<$Res> get creator;
+  $ProfileViewBasicCopyWith<$Res> get creator;
 }
 
 /// @nodoc
@@ -81,26 +82,27 @@ class _$StarterPackViewBasicCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? record = null,
     Object? creator = null,
-    Object? listItemCount = null,
-    Object? joinedWeekCount = null,
-    Object? joinedAllTimeCount = null,
+    Object? listItemCount = freezed,
+    Object? joinedWeekCount = freezed,
+    Object? joinedAllTimeCount = freezed,
     Object? labels = freezed,
     Object? indexedAt = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
+              as String,
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -108,23 +110,23 @@ class _$StarterPackViewBasicCopyWithImpl<$Res,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as StarterpackRecord,
+              as Map<String, dynamic>,
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorBasic,
-      listItemCount: null == listItemCount
+              as ProfileViewBasic,
+      listItemCount: freezed == listItemCount
           ? _value.listItemCount
           : listItemCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      joinedWeekCount: null == joinedWeekCount
+              as int?,
+      joinedWeekCount: freezed == joinedWeekCount
           ? _value.joinedWeekCount
           : joinedWeekCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      joinedAllTimeCount: null == joinedAllTimeCount
+              as int?,
+      joinedAllTimeCount: freezed == joinedAllTimeCount
           ? _value.joinedAllTimeCount
           : joinedAllTimeCount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -133,6 +135,10 @@ class _$StarterPackViewBasicCopyWithImpl<$Res,
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 
@@ -140,18 +146,8 @@ class _$StarterPackViewBasicCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $StarterpackRecordCopyWith<$Res> get record {
-    return $StarterpackRecordCopyWith<$Res>(_value.record, (value) {
-      return _then(_value.copyWith(record: value) as $Val);
-    });
-  }
-
-  /// Create a copy of StarterPackViewBasic
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorBasicCopyWith<$Res> get creator {
-    return $ActorBasicCopyWith<$Res>(_value.creator, (value) {
+  $ProfileViewBasicCopyWith<$Res> get creator {
+    return $ProfileViewBasicCopyWith<$Res>(_value.creator, (value) {
       return _then(_value.copyWith(creator: value) as $Val);
     });
   }
@@ -166,21 +162,20 @@ abstract class _$$StarterPackViewBasicImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@typeKey String type,
-      @AtUriConverter() AtUri uri,
+      {String $type,
+      String uri,
       String cid,
-      StarterpackRecord record,
-      ActorBasic creator,
-      int listItemCount,
-      int joinedWeekCount,
-      int joinedAllTimeCount,
-      List<Label>? labels,
-      DateTime indexedAt});
+      Map<String, dynamic> record,
+      @ProfileViewBasicConverter() ProfileViewBasic creator,
+      int? listItemCount,
+      int? joinedWeekCount,
+      int? joinedAllTimeCount,
+      @LabelConverter() List<Label>? labels,
+      DateTime indexedAt,
+      Map<String, dynamic>? $unknown});
 
   @override
-  $StarterpackRecordCopyWith<$Res> get record;
-  @override
-  $ActorBasicCopyWith<$Res> get creator;
+  $ProfileViewBasicCopyWith<$Res> get creator;
 }
 
 /// @nodoc
@@ -196,50 +191,51 @@ class __$$StarterPackViewBasicImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? record = null,
     Object? creator = null,
-    Object? listItemCount = null,
-    Object? joinedWeekCount = null,
-    Object? joinedAllTimeCount = null,
+    Object? listItemCount = freezed,
+    Object? joinedWeekCount = freezed,
+    Object? joinedAllTimeCount = freezed,
     Object? labels = freezed,
     Object? indexedAt = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$StarterPackViewBasicImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
-              as AtUri,
+              as String,
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
       record: null == record
-          ? _value.record
+          ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
-              as StarterpackRecord,
+              as Map<String, dynamic>,
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorBasic,
-      listItemCount: null == listItemCount
+              as ProfileViewBasic,
+      listItemCount: freezed == listItemCount
           ? _value.listItemCount
           : listItemCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      joinedWeekCount: null == joinedWeekCount
+              as int?,
+      joinedWeekCount: freezed == joinedWeekCount
           ? _value.joinedWeekCount
           : joinedWeekCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      joinedAllTimeCount: null == joinedAllTimeCount
+              as int?,
+      joinedAllTimeCount: freezed == joinedAllTimeCount
           ? _value.joinedAllTimeCount
           : joinedAllTimeCount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -248,53 +244,63 @@ class __$$StarterPackViewBasicImplCopyWithImpl<$Res>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$StarterPackViewBasicImpl implements _StarterPackViewBasic {
   const _$StarterPackViewBasicImpl(
-      {@typeKey this.type = appBskyGraphDefsStarterPackViewBasic,
-      @AtUriConverter() required this.uri,
+      {this.$type = appBskyGraphDefsStarterPackViewBasic,
+      required this.uri,
       required this.cid,
-      required this.record,
-      required this.creator,
-      this.listItemCount = 0,
-      this.joinedWeekCount = 0,
-      this.joinedAllTimeCount = 0,
-      final List<Label>? labels,
-      required this.indexedAt})
-      : _labels = labels;
+      required final Map<String, dynamic> record,
+      @ProfileViewBasicConverter() required this.creator,
+      this.listItemCount,
+      this.joinedWeekCount,
+      this.joinedAllTimeCount,
+      @LabelConverter() final List<Label>? labels,
+      required this.indexedAt,
+      final Map<String, dynamic>? $unknown})
+      : _record = record,
+        _labels = labels,
+        _$unknown = $unknown;
 
   factory _$StarterPackViewBasicImpl.fromJson(Map<String, dynamic> json) =>
       _$$StarterPackViewBasicImplFromJson(json);
 
   @override
-  @typeKey
-  final String type;
+  @JsonKey()
+  final String $type;
   @override
-  @AtUriConverter()
-  final AtUri uri;
+  final String uri;
   @override
   final String cid;
+  final Map<String, dynamic> _record;
   @override
-  final StarterpackRecord record;
+  Map<String, dynamic> get record {
+    if (_record is EqualUnmodifiableMapView) return _record;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_record);
+  }
+
   @override
-  final ActorBasic creator;
+  @ProfileViewBasicConverter()
+  final ProfileViewBasic creator;
   @override
-  @JsonKey()
-  final int listItemCount;
+  final int? listItemCount;
   @override
-  @JsonKey()
-  final int joinedWeekCount;
+  final int? joinedWeekCount;
   @override
-  @JsonKey()
-  final int joinedAllTimeCount;
+  final int? joinedAllTimeCount;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -305,10 +311,19 @@ class _$StarterPackViewBasicImpl implements _StarterPackViewBasic {
 
   @override
   final DateTime indexedAt;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'StarterPackViewBasic(type: $type, uri: $uri, cid: $cid, record: $record, creator: $creator, listItemCount: $listItemCount, joinedWeekCount: $joinedWeekCount, joinedAllTimeCount: $joinedAllTimeCount, labels: $labels, indexedAt: $indexedAt)';
+    return 'StarterPackViewBasic(\$type: ${$type}, uri: $uri, cid: $cid, record: $record, creator: $creator, listItemCount: $listItemCount, joinedWeekCount: $joinedWeekCount, joinedAllTimeCount: $joinedAllTimeCount, labels: $labels, indexedAt: $indexedAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -316,10 +331,10 @@ class _$StarterPackViewBasicImpl implements _StarterPackViewBasic {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StarterPackViewBasicImpl &&
-            (identical(other.type, type) || other.type == type) &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
-            (identical(other.record, record) || other.record == record) &&
+            const DeepCollectionEquality().equals(other._record, _record) &&
             (identical(other.creator, creator) || other.creator == creator) &&
             (identical(other.listItemCount, listItemCount) ||
                 other.listItemCount == listItemCount) &&
@@ -329,23 +344,25 @@ class _$StarterPackViewBasicImpl implements _StarterPackViewBasic {
                 other.joinedAllTimeCount == joinedAllTimeCount) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.indexedAt, indexedAt) ||
-                other.indexedAt == indexedAt));
+                other.indexedAt == indexedAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      type,
+      $type,
       uri,
       cid,
-      record,
+      const DeepCollectionEquality().hash(_record),
       creator,
       listItemCount,
       joinedWeekCount,
       joinedAllTimeCount,
       const DeepCollectionEquality().hash(_labels),
-      indexedAt);
+      indexedAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of StarterPackViewBasic
   /// with the given fields replaced by the non-null parameter values.
@@ -367,42 +384,45 @@ class _$StarterPackViewBasicImpl implements _StarterPackViewBasic {
 
 abstract class _StarterPackViewBasic implements StarterPackViewBasic {
   const factory _StarterPackViewBasic(
-      {@typeKey final String type,
-      @AtUriConverter() required final AtUri uri,
+      {final String $type,
+      required final String uri,
       required final String cid,
-      required final StarterpackRecord record,
-      required final ActorBasic creator,
-      final int listItemCount,
-      final int joinedWeekCount,
-      final int joinedAllTimeCount,
-      final List<Label>? labels,
-      required final DateTime indexedAt}) = _$StarterPackViewBasicImpl;
+      required final Map<String, dynamic> record,
+      @ProfileViewBasicConverter() required final ProfileViewBasic creator,
+      final int? listItemCount,
+      final int? joinedWeekCount,
+      final int? joinedAllTimeCount,
+      @LabelConverter() final List<Label>? labels,
+      required final DateTime indexedAt,
+      final Map<String, dynamic>? $unknown}) = _$StarterPackViewBasicImpl;
 
   factory _StarterPackViewBasic.fromJson(Map<String, dynamic> json) =
       _$StarterPackViewBasicImpl.fromJson;
 
   @override
-  @typeKey
-  String get type;
+  String get $type;
   @override
-  @AtUriConverter()
-  AtUri get uri;
+  String get uri;
   @override
   String get cid;
   @override
-  StarterpackRecord get record;
+  Map<String, dynamic> get record;
   @override
-  ActorBasic get creator;
+  @ProfileViewBasicConverter()
+  ProfileViewBasic get creator;
   @override
-  int get listItemCount;
+  int? get listItemCount;
   @override
-  int get joinedWeekCount;
+  int? get joinedWeekCount;
   @override
-  int get joinedAllTimeCount;
+  int? get joinedAllTimeCount;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
   DateTime get indexedAt;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of StarterPackViewBasic
   /// with the given fields replaced by the non-null parameter values.

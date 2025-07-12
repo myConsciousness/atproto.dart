@@ -8,27 +8,39 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetActorMetadataOutputImpl _$$GetActorMetadataOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GetActorMetadataOutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$GetActorMetadataOutputImpl(
-          day: $checkedConvert('day',
-              (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
-          month: $checkedConvert('month',
-              (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
-          all: $checkedConvert('all',
-              (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
+_$ModerationGetActorMetadataOutputImpl
+    _$$ModerationGetActorMetadataOutputImplFromJson(Map json) => $checkedCreate(
+          r'_$ModerationGetActorMetadataOutputImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$ModerationGetActorMetadataOutputImpl(
+              day: $checkedConvert(
+                  'day',
+                  (v) => const MetadataConverter()
+                      .fromJson(v as Map<String, dynamic>)),
+              month: $checkedConvert(
+                  'month',
+                  (v) => const MetadataConverter()
+                      .fromJson(v as Map<String, dynamic>)),
+              all: $checkedConvert(
+                  'all',
+                  (v) => const MetadataConverter()
+                      .fromJson(v as Map<String, dynamic>)),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$GetActorMetadataOutputImplToJson(
-        _$GetActorMetadataOutputImpl instance) =>
+Map<String, dynamic> _$$ModerationGetActorMetadataOutputImplToJson(
+        _$ModerationGetActorMetadataOutputImpl instance) =>
     <String, dynamic>{
-      'day': instance.day.toJson(),
-      'month': instance.month.toJson(),
-      'all': instance.all.toJson(),
+      'day': const MetadataConverter().toJson(instance.day),
+      'month': const MetadataConverter().toJson(instance.month),
+      'all': const MetadataConverter().toJson(instance.all),
+      r'$unknown': instance.$unknown,
     };

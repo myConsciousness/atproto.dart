@@ -1,4 +1,11 @@
-// ignore_for_file: invalid_annotation_target
+// Copyright (c) 2025, Shinya Kato.
+// All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 // Package imports:
 import 'package:atproto_core/atproto_core.dart';
@@ -7,18 +14,47 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/video/getUploadLimits/#output
+// **************************************************************************
+// LexGenerator
+// **************************************************************************
+
 @freezed
-class GetUploadLimitsOutput with _$GetUploadLimitsOutput {
-  @jsonSerializable
-  const factory GetUploadLimitsOutput({
+abstract class VideoGetUploadLimitsOutput with _$VideoGetUploadLimitsOutput {
+  static const knownProps = <String>[
+    'canUpload',
+    'remainingDailyVideos',
+    'remainingDailyBytes',
+    'message',
+    'error',
+  ];
+
+  const factory VideoGetUploadLimitsOutput({
     required bool canUpload,
     int? remainingDailyVideos,
     int? remainingDailyBytes,
     String? message,
     String? error,
-  }) = _GetUploadLimitsOutput;
+    Map<String, dynamic>? $unknown,
+  }) = _VideoGetUploadLimitsOutput;
 
-  factory GetUploadLimitsOutput.fromJson(Map<String, Object?> json) =>
-      _$GetUploadLimitsOutputFromJson(json);
+  factory VideoGetUploadLimitsOutput.fromJson(Map<String, Object?> json) =>
+      _$VideoGetUploadLimitsOutputFromJson(json);
+}
+
+final class VideoGetUploadLimitsOutputConverter extends LexObjectConverter<
+    VideoGetUploadLimitsOutput, Map<String, dynamic>> {
+  const VideoGetUploadLimitsOutputConverter();
+
+  @override
+  VideoGetUploadLimitsOutput fromJson(Map<String, dynamic> json) {
+    return VideoGetUploadLimitsOutput.fromJson(translate(
+      json,
+      VideoGetUploadLimitsOutput.knownProps,
+    ));
+  }
+
+  @override
+  Map<String, dynamic> toJson(VideoGetUploadLimitsOutput object) => untranslate(
+        object.toJson(),
+      );
 }

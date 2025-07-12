@@ -83,5 +83,5 @@ class LexUserType with _$LexUserType {
     required LexUnknown data,
   }) = ULexUserTypeUnknown;
 
-  Map<String, dynamic> toJson() => lexUserTypeConverter.toJson(this);
+  Map<String, dynamic> toJson() => const LexUserTypeConverter().toJson(this);
 }

@@ -8,25 +8,27 @@ part of 'feed_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StarterpackFeedItemImpl _$$StarterpackFeedItemImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$StarterpackFeedItemImpl',
+_$FeedItemImpl _$$FeedItemImplFromJson(Map json) => $checkedCreate(
+      r'_$FeedItemImpl',
       json,
       ($checkedConvert) {
-        final val = _$StarterpackFeedItemImpl(
-          type: $checkedConvert(
+        final val = _$FeedItemImpl(
+          $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphStarterpackFeedItem),
-          uri: $checkedConvert(
-              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+          uri: $checkedConvert('uri', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$StarterpackFeedItemImplToJson(
-        _$StarterpackFeedItemImpl instance) =>
+Map<String, dynamic> _$$FeedItemImplToJson(_$FeedItemImpl instance) =>
     <String, dynamic>{
-      r'$type': instance.type,
-      'uri': const AtUriConverter().toJson(instance.uri),
+      r'$type': instance.$type,
+      'uri': instance.uri,
+      r'$unknown': instance.$unknown,
     };

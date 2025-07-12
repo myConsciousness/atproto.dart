@@ -17,7 +17,7 @@ import 'types/app/bsky/unspecced/searchStarterPacksSkeleton/output.dart';
 final class UnspeccedService {
   UnspeccedService(this._ctx);
 
-  final BlueskyServiceContext _ctx;
+  final ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators
   Future<core.XRPCResponse<FeedGenerators>> getPopularFeedGenerators({

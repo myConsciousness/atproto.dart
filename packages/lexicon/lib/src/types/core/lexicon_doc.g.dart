@@ -22,7 +22,7 @@ _$LexiconDocImpl _$$LexiconDocImplFromJson(Map json) => $checkedCreate(
               (v) => (v as Map).map(
                     (k, e) => MapEntry(
                         k as String,
-                        lexUserTypeConverter
+                        const LexUserTypeConverter()
                             .fromJson(e as Map<String, dynamic>)),
                   )),
         );
@@ -37,5 +37,5 @@ Map<String, dynamic> _$$LexiconDocImplToJson(_$LexiconDocImpl instance) =>
       if (instance.revision case final value?) 'revision': value,
       if (instance.description case final value?) 'description': value,
       'defs': instance.defs
-          .map((k, e) => MapEntry(k, lexUserTypeConverter.toJson(e))),
+          .map((k, e) => MapEntry(k, const LexUserTypeConverter().toJson(e))),
     };

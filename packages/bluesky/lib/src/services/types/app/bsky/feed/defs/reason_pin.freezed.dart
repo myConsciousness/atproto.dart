@@ -20,8 +20,8 @@ ReasonPin _$ReasonPinFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReasonPin {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get $type => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this ReasonPin to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $ReasonPinCopyWith<$Res> {
   factory $ReasonPinCopyWith(ReasonPin value, $Res Function(ReasonPin) then) =
       _$ReasonPinCopyWithImpl<$Res, ReasonPin>;
   @useResult
-  $Res call({@typeKey String type});
+  $Res call({String $type, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -56,13 +56,18 @@ class _$ReasonPinCopyWithImpl<$Res, $Val extends ReasonPin>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -75,7 +80,7 @@ abstract class _$$ReasonPinImplCopyWith<$Res>
       __$$ReasonPinImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type});
+  $Res call({String $type, Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -91,33 +96,49 @@ class __$$ReasonPinImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$ReasonPinImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$ReasonPinImpl implements _ReasonPin {
-  const _$ReasonPinImpl({@typeKey this.type = appBskyFeedDefsReasonPin});
+  const _$ReasonPinImpl(
+      {this.$type = appBskyFeedDefsReasonPin,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$ReasonPinImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReasonPinImplFromJson(json);
 
   @override
-  @typeKey
-  final String type;
+  @JsonKey()
+  final String $type;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'ReasonPin(type: $type)';
+    return 'ReasonPin(\$type: ${$type}, \$unknown: ${$unknown})';
   }
 
   @override
@@ -125,12 +146,14 @@ class _$ReasonPinImpl implements _ReasonPin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReasonPinImpl &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.$type, $type) || other.$type == $type) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type);
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of ReasonPin
   /// with the given fields replaced by the non-null parameter values.
@@ -149,14 +172,17 @@ class _$ReasonPinImpl implements _ReasonPin {
 }
 
 abstract class _ReasonPin implements ReasonPin {
-  const factory _ReasonPin({@typeKey final String type}) = _$ReasonPinImpl;
+  const factory _ReasonPin(
+      {final String $type,
+      final Map<String, dynamic>? $unknown}) = _$ReasonPinImpl;
 
   factory _ReasonPin.fromJson(Map<String, dynamic> json) =
       _$ReasonPinImpl.fromJson;
 
   @override
-  @typeKey
-  String get type;
+  String get $type;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of ReasonPin
   /// with the given fields replaced by the non-null parameter values.

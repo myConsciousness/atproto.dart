@@ -16,7 +16,7 @@ class LexPrimitiveArray with _$LexPrimitiveArray {
   const factory LexPrimitiveArray({
     @Default('array') String type,
     String? description,
-    @lexPrimitiveConverter required LexPrimitive items,
+    @LexPrimitiveConverter() required LexPrimitive items,
     int? minLength,
     int? maxLength,
   }) = _LexPrimitiveArray;

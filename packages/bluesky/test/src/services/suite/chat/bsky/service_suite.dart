@@ -4,7 +4,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_test/atproto_test.dart' as atp_test;
 
 // Project imports:
-import 'package:bluesky/src/services/service_context.dart';
 import 'package:bluesky/src/services/types/chat/bsky/actor_service.dart';
 import 'package:bluesky/src/services/types/chat/bsky/convo_service.dart';
 import 'package:bluesky/src/services/types/chat/bsky/moderation_service.dart';

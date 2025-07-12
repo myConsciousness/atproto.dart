@@ -14,29 +14,41 @@ _$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ProfileViewBasicImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? chatBskyActorDefsProfileViewBasic),
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String?),
-          avatar: $checkedConvert('avatar', (v) => v as String?),
+          avatar: $checkedConvert(
+              'avatar',
+              (v) => _$JsonConverterFromJson<String, AtUri>(
+                  v, const AtUriConverter().fromJson)),
           associated: $checkedConvert(
               'associated',
-              (v) => v == null
-                  ? null
-                  : ProfileAssociated.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      ProfileAssociated>(
+                  v, const ProfileAssociatedConverter().fromJson)),
           viewer: $checkedConvert(
               'viewer',
-              (v) => v == null
-                  ? const ActorViewer()
-                  : ActorViewer.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, ViewerState>(
+                  v, const ViewerStateConverter().fromJson)),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
-          chatDisabled:
-              $checkedConvert('chatDisabled', (v) => v as bool? ?? false),
+          chatDisabled: $checkedConvert('chatDisabled', (v) => v as bool?),
+          verification: $checkedConvert(
+              'verification',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      VerificationState>(
+                  v, const VerificationStateConverter().fromJson)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -45,13 +57,33 @@ _$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
 Map<String, dynamic> _$$ProfileViewBasicImplToJson(
         _$ProfileViewBasicImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'did': instance.did,
       'handle': instance.handle,
-      if (instance.displayName case final value?) 'displayName': value,
-      if (instance.avatar case final value?) 'avatar': value,
-      if (instance.associated?.toJson() case final value?) 'associated': value,
-      'viewer': instance.viewer.toJson(),
-      if (instance.labels?.map((e) => e.toJson()).toList() case final value?)
-        'labels': value,
+      'displayName': instance.displayName,
+      'avatar': _$JsonConverterToJson<String, AtUri>(
+          instance.avatar, const AtUriConverter().toJson),
+      'associated':
+          _$JsonConverterToJson<Map<String, dynamic>, ProfileAssociated>(
+              instance.associated, const ProfileAssociatedConverter().toJson),
+      'viewer': _$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
+          instance.viewer, const ViewerStateConverter().toJson),
+      'labels': instance.labels?.map(const LabelConverter().toJson).toList(),
       'chatDisabled': instance.chatDisabled,
+      'verification':
+          _$JsonConverterToJson<Map<String, dynamic>, VerificationState>(
+              instance.verification, const VerificationStateConverter().toJson),
+      r'$unknown': instance.$unknown,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

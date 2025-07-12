@@ -20,8 +20,10 @@ LogBeginConvo _$LogBeginConvoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LogBeginConvo {
+  String get $type => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this LogBeginConvo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +41,11 @@ abstract class $LogBeginConvoCopyWith<$Res> {
           LogBeginConvo value, $Res Function(LogBeginConvo) then) =
       _$LogBeginConvoCopyWithImpl<$Res, LogBeginConvo>;
   @useResult
-  $Res call({String rev, String convoId});
+  $Res call(
+      {String $type,
+      String rev,
+      String convoId,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -57,10 +63,16 @@ class _$LogBeginConvoCopyWithImpl<$Res, $Val extends LogBeginConvo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -69,6 +81,10 @@ class _$LogBeginConvoCopyWithImpl<$Res, $Val extends LogBeginConvo>
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -81,7 +97,11 @@ abstract class _$$LogBeginConvoImplCopyWith<$Res>
       __$$LogBeginConvoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String rev, String convoId});
+  $Res call(
+      {String $type,
+      String rev,
+      String convoId,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -97,10 +117,16 @@ class __$$LogBeginConvoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? rev = null,
     Object? convoId = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$LogBeginConvoImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -109,27 +135,47 @@ class __$$LogBeginConvoImplCopyWithImpl<$Res>
           ? _value.convoId
           : convoId // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$LogBeginConvoImpl implements _LogBeginConvo {
-  const _$LogBeginConvoImpl({required this.rev, required this.convoId});
+  const _$LogBeginConvoImpl(
+      {this.$type = chatBskyConvoDefsLogBeginConvo,
+      required this.rev,
+      required this.convoId,
+      final Map<String, dynamic>? $unknown})
+      : _$unknown = $unknown;
 
   factory _$LogBeginConvoImpl.fromJson(Map<String, dynamic> json) =>
       _$$LogBeginConvoImplFromJson(json);
 
   @override
+  @JsonKey()
+  final String $type;
+  @override
   final String rev;
   @override
   final String convoId;
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'LogBeginConvo(rev: $rev, convoId: $convoId)';
+    return 'LogBeginConvo(\$type: ${$type}, rev: $rev, convoId: $convoId, \$unknown: ${$unknown})';
   }
 
   @override
@@ -137,13 +183,16 @@ class _$LogBeginConvoImpl implements _LogBeginConvo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LogBeginConvoImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.rev, rev) || other.rev == rev) &&
-            (identical(other.convoId, convoId) || other.convoId == convoId));
+            (identical(other.convoId, convoId) || other.convoId == convoId) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, rev, convoId);
+  int get hashCode => Object.hash(runtimeType, $type, rev, convoId,
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of LogBeginConvo
   /// with the given fields replaced by the non-null parameter values.
@@ -163,16 +212,22 @@ class _$LogBeginConvoImpl implements _LogBeginConvo {
 
 abstract class _LogBeginConvo implements LogBeginConvo {
   const factory _LogBeginConvo(
-      {required final String rev,
-      required final String convoId}) = _$LogBeginConvoImpl;
+      {final String $type,
+      required final String rev,
+      required final String convoId,
+      final Map<String, dynamic>? $unknown}) = _$LogBeginConvoImpl;
 
   factory _LogBeginConvo.fromJson(Map<String, dynamic> json) =
       _$LogBeginConvoImpl.fromJson;
 
   @override
+  String get $type;
+  @override
   String get rev;
   @override
   String get convoId;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of LogBeginConvo
   /// with the given fields replaced by the non-null parameter values.

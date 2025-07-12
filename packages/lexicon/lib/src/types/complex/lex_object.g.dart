@@ -24,7 +24,7 @@ _$LexObjectImpl _$$LexObjectImplFromJson(Map json) => $checkedCreate(
               (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(
                         k as String,
-                        lexObjectPropertyConverter
+                        const LexObjectPropertyConverter()
                             .fromJson(e as Map<String, dynamic>)),
                   )),
         );
@@ -42,8 +42,8 @@ Map<String, dynamic> _$$LexObjectImplToJson(_$LexObjectImpl instance) =>
       if (instance.description case final value?) 'description': value,
       if (instance.requiredProperties case final value?) 'required': value,
       if (instance.nullableProperties case final value?) 'nullable': value,
-      if (instance.properties
-              ?.map((k, e) => MapEntry(k, lexObjectPropertyConverter.toJson(e)))
+      if (instance.properties?.map((k, e) =>
+              MapEntry(k, const LexObjectPropertyConverter().toJson(e)))
           case final value?)
         'properties': value,
     };

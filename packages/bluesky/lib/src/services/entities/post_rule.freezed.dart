@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UPostRule {
-  Object get data => throw _privateConstructorUsedError;
+  InvalidType get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PostgateDisableRule data) disableRule,
@@ -84,8 +84,6 @@ abstract class _$$UPostRuleDisableRuleImplCopyWith<$Res> {
       __$$UPostRuleDisableRuleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PostgateDisableRule data});
-
-  $PostgateDisableRuleCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -101,24 +99,14 @@ class __$$UPostRuleDisableRuleImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UPostRuleDisableRuleImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as PostgateDisableRule,
     ));
-  }
-
-  /// Create a copy of UPostRule
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostgateDisableRuleCopyWith<$Res> get data {
-    return $PostgateDisableRuleCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -140,11 +128,12 @@ class _$UPostRuleDisableRuleImpl extends UPostRuleDisableRule {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UPostRuleDisableRuleImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of UPostRule
   /// with the given fields replaced by the non-null parameter values.

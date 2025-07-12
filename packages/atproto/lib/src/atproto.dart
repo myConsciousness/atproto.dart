@@ -3,13 +3,14 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:atproto_core/atproto_oauth.dart' as oauth;
 
 // Project imports:
-import 'services/identity_service.dart';
-import 'services/label_service.dart';
-import 'services/moderation_service.dart';
-import 'services/repo_service.dart';
-import 'services/server_service.dart';
-import 'services/sync_service.dart';
-import 'services/temp_service.dart';
+import 'services/service_context.dart';
+import 'services/types/com/atproto/identity_service.dart';
+import 'services/types/com/atproto/label_service.dart';
+import 'services/types/com/atproto/moderation_service.dart';
+import 'services/types/com/atproto/repo_service.dart';
+import 'services/types/com/atproto/server_service.dart';
+import 'services/types/com/atproto/sync_service.dart';
+import 'services/types/com/atproto/temp_service.dart';
 
 /// Provides `com.atproto.*` services.
 sealed class ATProto {
@@ -26,7 +27,7 @@ sealed class ATProto {
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        core.ServiceContext(
+        ServiceContext(
           headers: headers,
           protocol: protocol,
           service: service,
@@ -52,7 +53,7 @@ sealed class ATProto {
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        core.ServiceContext(
+        ServiceContext(
           headers: headers,
           protocol: protocol,
           service: service,
@@ -77,7 +78,7 @@ sealed class ATProto {
     final core.PostClient? mockedPostClient,
   }) =>
       _ATProto(
-        core.ServiceContext(
+        ServiceContext(
           headers: headers,
           protocol: protocol,
           service: service,
@@ -185,7 +186,7 @@ sealed class ATProto {
 }
 
 final class _ATProto implements ATProto {
-  _ATProto(final core.ServiceContext ctx)
+  _ATProto(final ServiceContext ctx)
       : server = ServerService(ctx),
         identity = IdentityService(ctx),
         repo = RepoService(ctx),
@@ -193,7 +194,9 @@ final class _ATProto implements ATProto {
         sync = SyncService(ctx),
         label = LabelService(ctx),
         temp = TempService(ctx),
-        _ctx = ctx;
+        _ctx = ctx {
+    ctx.setRepo(repo);
+  }
 
   @override
   Map<String, String> get headers => _ctx.headers;

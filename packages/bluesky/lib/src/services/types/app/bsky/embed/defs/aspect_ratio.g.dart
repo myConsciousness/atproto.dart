@@ -13,8 +13,15 @@ _$AspectRatioImpl _$$AspectRatioImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$AspectRatioImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedDefsAspectRatio),
           width: $checkedConvert('width', (v) => (v as num).toInt()),
           height: $checkedConvert('height', (v) => (v as num).toInt()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
         );
         return val;
       },
@@ -22,6 +29,8 @@ _$AspectRatioImpl _$$AspectRatioImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$AspectRatioImplToJson(_$AspectRatioImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'width': instance.width,
       'height': instance.height,
+      r'$unknown': instance.$unknown,
     };

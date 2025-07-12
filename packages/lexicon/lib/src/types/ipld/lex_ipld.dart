@@ -23,5 +23,5 @@ class LexIpld with _$LexIpld {
     required LexCidLink data,
   }) = ULexIpldCidLink;
 
-  Map<String, dynamic> toJson() => lexIpldConverter.toJson(this);
+  Map<String, dynamic> toJson() => const LexIpldConverter().toJson(this);
 }

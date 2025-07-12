@@ -20,10 +20,11 @@ KnownFollowers _$KnownFollowersFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$KnownFollowers {
-  @typeKey
-  String get type => throw _privateConstructorUsedError;
+  String get $type => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
-  List<ActorBasic> get followers => throw _privateConstructorUsedError;
+  @ProfileViewBasicConverter()
+  List<ProfileViewBasic> get followers => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get $unknown => throw _privateConstructorUsedError;
 
   /// Serializes this KnownFollowers to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +42,11 @@ abstract class $KnownFollowersCopyWith<$Res> {
           KnownFollowers value, $Res Function(KnownFollowers) then) =
       _$KnownFollowersCopyWithImpl<$Res, KnownFollowers>;
   @useResult
-  $Res call({@typeKey String type, int count, List<ActorBasic> followers});
+  $Res call(
+      {String $type,
+      int count,
+      @ProfileViewBasicConverter() List<ProfileViewBasic> followers,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -59,14 +64,15 @@ class _$KnownFollowersCopyWithImpl<$Res, $Val extends KnownFollowers>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? count = null,
     Object? followers = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       count: null == count
           ? _value.count
@@ -75,7 +81,11 @@ class _$KnownFollowersCopyWithImpl<$Res, $Val extends KnownFollowers>
       followers: null == followers
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
-              as List<ActorBasic>,
+              as List<ProfileViewBasic>,
+      $unknown: freezed == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -88,7 +98,11 @@ abstract class _$$KnownFollowersImplCopyWith<$Res>
       __$$KnownFollowersImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, int count, List<ActorBasic> followers});
+  $Res call(
+      {String $type,
+      int count,
+      @ProfileViewBasicConverter() List<ProfileViewBasic> followers,
+      Map<String, dynamic>? $unknown});
 }
 
 /// @nodoc
@@ -104,14 +118,15 @@ class __$$KnownFollowersImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
+    Object? $type = null,
     Object? count = null,
     Object? followers = null,
+    Object? $unknown = freezed,
   }) {
     return _then(_$KnownFollowersImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
               as String,
       count: null == count
           ? _value.count
@@ -120,40 +135,57 @@ class __$$KnownFollowersImplCopyWithImpl<$Res>
       followers: null == followers
           ? _value._followers
           : followers // ignore: cast_nullable_to_non_nullable
-              as List<ActorBasic>,
+              as List<ProfileViewBasic>,
+      $unknown: freezed == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$KnownFollowersImpl implements _KnownFollowers {
   const _$KnownFollowersImpl(
-      {@typeKey this.type = appBskyActorDefsKnownFollowers,
+      {this.$type = appBskyActorDefsKnownFollowers,
       required this.count,
-      required final List<ActorBasic> followers})
-      : _followers = followers;
+      @ProfileViewBasicConverter()
+      required final List<ProfileViewBasic> followers,
+      final Map<String, dynamic>? $unknown})
+      : _followers = followers,
+        _$unknown = $unknown;
 
   factory _$KnownFollowersImpl.fromJson(Map<String, dynamic> json) =>
       _$$KnownFollowersImplFromJson(json);
 
   @override
-  @typeKey
-  final String type;
+  @JsonKey()
+  final String $type;
   @override
   final int count;
-  final List<ActorBasic> _followers;
+  final List<ProfileViewBasic> _followers;
   @override
-  List<ActorBasic> get followers {
+  @ProfileViewBasicConverter()
+  List<ProfileViewBasic> get followers {
     if (_followers is EqualUnmodifiableListView) return _followers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_followers);
   }
 
+  final Map<String, dynamic>? _$unknown;
+  @override
+  Map<String, dynamic>? get $unknown {
+    final value = _$unknown;
+    if (value == null) return null;
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   String toString() {
-    return 'KnownFollowers(type: $type, count: $count, followers: $followers)';
+    return 'KnownFollowers(\$type: ${$type}, count: $count, followers: $followers, \$unknown: ${$unknown})';
   }
 
   @override
@@ -161,16 +193,21 @@ class _$KnownFollowersImpl implements _KnownFollowers {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$KnownFollowersImpl &&
-            (identical(other.type, type) || other.type == type) &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.count, count) || other.count == count) &&
             const DeepCollectionEquality()
-                .equals(other._followers, _followers));
+                .equals(other._followers, _followers) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type, count,
-      const DeepCollectionEquality().hash(_followers));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      count,
+      const DeepCollectionEquality().hash(_followers),
+      const DeepCollectionEquality().hash(_$unknown));
 
   /// Create a copy of KnownFollowers
   /// with the given fields replaced by the non-null parameter values.
@@ -191,20 +228,24 @@ class _$KnownFollowersImpl implements _KnownFollowers {
 
 abstract class _KnownFollowers implements KnownFollowers {
   const factory _KnownFollowers(
-      {@typeKey final String type,
+      {final String $type,
       required final int count,
-      required final List<ActorBasic> followers}) = _$KnownFollowersImpl;
+      @ProfileViewBasicConverter()
+      required final List<ProfileViewBasic> followers,
+      final Map<String, dynamic>? $unknown}) = _$KnownFollowersImpl;
 
   factory _KnownFollowers.fromJson(Map<String, dynamic> json) =
       _$KnownFollowersImpl.fromJson;
 
   @override
-  @typeKey
-  String get type;
+  String get $type;
   @override
   int get count;
   @override
-  List<ActorBasic> get followers;
+  @ProfileViewBasicConverter()
+  List<ProfileViewBasic> get followers;
+  @override
+  Map<String, dynamic>? get $unknown;
 
   /// Create a copy of KnownFollowers
   /// with the given fields replaced by the non-null parameter values.
