@@ -47,6 +47,7 @@ View moderation statuses of subjects (record or repo).
 | **minReportedRecordsCount** | integer | - | ❌ | If specified, only subjects that belong to an account that has at least this many reported records will be returned. |
 | **minTakendownRecordsCount** | integer | - | ❌ | If specified, only subjects that belong to an account that has at least this many taken down records will be returned. |
 | **minPriorityScore** | integer | - | ❌ | If specified, only subjects that have priority score value above the given value will be returned. |
+| **ageAssuranceState** | string | pending<br/>assured<br/>unknown<br/>reset<br/>blocked | ❌ | If specified, only subjects with the given age assurance state will be returned. |
 
 ### Output
 

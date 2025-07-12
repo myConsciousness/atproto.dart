@@ -5001,7 +5001,11 @@ const appBskyNotificationRegisterPush = <String, dynamic>{
               "type": "string",
               "knownValues": ["ios", "android", "web"]
             },
-            "appId": {"type": "string"}
+            "appId": {"type": "string"},
+            "ageRestricted": {
+              "type": "boolean",
+              "description": "Set to true when the actor is age restricted"
+            }
           }
         }
       }
@@ -12533,6 +12537,12 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
                 "If specified, only subjects that have priority score value above the given value will be returned.",
             "minimum": 0,
             "maximum": 100
+          },
+          "ageAssuranceState": {
+            "type": "string",
+            "description":
+                "If specified, only subjects with the given age assurance state will be returned.",
+            "knownValues": ["pending", "assured", "unknown", "reset", "blocked"]
           }
         }
       },
@@ -12803,7 +12813,9 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#accountEvent",
             "#identityEvent",
             "#recordEvent",
-            "#modEventPriorityScore"
+            "#modEventPriorityScore",
+            "#ageAssuranceEvent",
+            "#ageAssuranceOverrideEvent"
           ]
         },
         "subject": {
@@ -12858,7 +12870,9 @@ const toolsOzoneModerationDefs = <String, dynamic>{
             "#accountEvent",
             "#identityEvent",
             "#recordEvent",
-            "#modEventPriorityScore"
+            "#modEventPriorityScore",
+            "#ageAssuranceEvent",
+            "#ageAssuranceOverrideEvent"
           ]
         },
         "subject": {
@@ -12957,6 +12971,17 @@ const toolsOzoneModerationDefs = <String, dynamic>{
           "description":
               "Statistics related to the record subjects authored by the subject's account",
           "ref": "#recordsStats"
+        },
+        "ageAssuranceState": {
+          "type": "string",
+          "description": "Current age assurance state of the subject.",
+          "knownValues": ["pending", "assured", "unknown", "reset", "blocked"]
+        },
+        "ageAssuranceUpdatedBy": {
+          "type": "string",
+          "description":
+              "Whether or not the last successful update to age assurance was made by the user or admin.",
+          "knownValues": ["admin", "user"]
         }
       }
     },
@@ -13173,6 +13198,63 @@ const toolsOzoneModerationDefs = <String, dynamic>{
       "properties": {
         "comment": {"type": "string"},
         "score": {"type": "integer", "minimum": 0, "maximum": 100}
+      }
+    },
+    "ageAssuranceEvent": {
+      "type": "object",
+      "description":
+          "Age assurance info coming directly from users. Only works on DID subjects.",
+      "required": ["createdAt", "status", "attemptId"],
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "The date and time of this write operation."
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the age assurance process.",
+          "knownValues": ["unknown", "pending", "assured"]
+        },
+        "attemptId": {
+          "type": "string",
+          "description":
+              "The unique identifier for this instance of the age assurance flow, in UUID format."
+        },
+        "initIp": {
+          "type": "string",
+          "description": "The IP address used when initiating the AA flow."
+        },
+        "initUa": {
+          "type": "string",
+          "description": "The user agent used when initiating the AA flow."
+        },
+        "completeIp": {
+          "type": "string",
+          "description": "The IP address used when completing the AA flow."
+        },
+        "completeUa": {
+          "type": "string",
+          "description": "The user agent used when completing the AA flow."
+        }
+      }
+    },
+    "ageAssuranceOverrideEvent": {
+      "type": "object",
+      "description":
+          "Age assurance status override by moderators. Only works on DID subjects.",
+      "required": ["comment", "status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "description":
+              "The status to be set for the user decided by a moderator, overriding whatever value the user had previously. Use reset to default to original state.",
+          "knownValues": ["assured", "reset", "blocked"]
+        },
+        "comment": {
+          "type": "string",
+          "description": "Comment describing the reason for the override."
+        }
       }
     },
     "modEventAcknowledge": {
@@ -13750,6 +13832,12 @@ const toolsOzoneModerationQueryEvents = <String, dynamic>{
                 "If specified, only events where the modTool name matches any of the given values are returned",
             "items": {"type": "string"}
           },
+          "ageAssuranceState": {
+            "type": "string",
+            "description":
+                "If specified, only events where the age assurance state matches the given value are returned",
+            "knownValues": ["pending", "assured", "unknown", "reset", "blocked"]
+          },
           "cursor": {"type": "string"}
         }
       },
@@ -13809,7 +13897,9 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
                 "tools.ozone.moderation.defs#accountEvent",
                 "tools.ozone.moderation.defs#identityEvent",
                 "tools.ozone.moderation.defs#recordEvent",
-                "tools.ozone.moderation.defs#modEventPriorityScore"
+                "tools.ozone.moderation.defs#modEventPriorityScore",
+                "tools.ozone.moderation.defs#ageAssuranceEvent",
+                "tools.ozone.moderation.defs#ageAssuranceOverrideEvent"
               ]
             },
             "subject": {

@@ -19,3 +19,4 @@ Register to receive push notifications, via a specified service, for the request
 | **token** | string | - | ✅ | - |
 | **platform** | string | ios<br/>android<br/>web | ✅ | - |
 | **appId** | string | - | ✅ | - |
+| **ageRestricted** | boolean | - | ❌ | Set to true when the actor is age restricted |
