@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:characters/characters.dart';
 
 // Project imports:
 import '../../services/entities/facet.dart';

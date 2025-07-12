@@ -64,8 +64,6 @@ abstract class $ModerationSubjectPostCopyWith<$Res> {
       _$ModerationSubjectPostCopyWithImpl<$Res, ModerationSubjectPost>;
   @useResult
   $Res call({Post data});
-
-  $PostCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -84,24 +82,14 @@ class _$ModerationSubjectPostCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Post,
     ) as $Val);
-  }
-
-  /// Create a copy of ModerationSubjectPost
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostCopyWith<$Res> get data {
-    return $PostCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
-    });
   }
 }
 
@@ -115,9 +103,6 @@ abstract class _$$UModerationSubjectPostPostViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call({Post data});
-
-  @override
-  $PostCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -135,10 +120,10 @@ class __$$UModerationSubjectPostPostViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UModerationSubjectPostPostViewImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Post,
@@ -165,11 +150,12 @@ class _$UModerationSubjectPostPostViewImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectPostPostViewImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of ModerationSubjectPost
   /// with the given fields replaced by the non-null parameter values.

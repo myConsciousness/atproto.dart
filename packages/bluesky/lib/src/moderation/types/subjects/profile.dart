@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
 
 // Project imports:
 import '../../decision.dart';

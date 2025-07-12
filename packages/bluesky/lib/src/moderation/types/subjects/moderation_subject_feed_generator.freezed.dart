@@ -67,8 +67,6 @@ abstract class $ModerationSubjectFeedGeneratorCopyWith<$Res> {
           ModerationSubjectFeedGenerator>;
   @useResult
   $Res call({FeedGeneratorView data});
-
-  $FeedGeneratorViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -87,24 +85,14 @@ class _$ModerationSubjectFeedGeneratorCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as FeedGeneratorView,
     ) as $Val);
-  }
-
-  /// Create a copy of ModerationSubjectFeedGenerator
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $FeedGeneratorViewCopyWith<$Res> get data {
-    return $FeedGeneratorViewCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
-    });
   }
 }
 
@@ -118,9 +106,6 @@ abstract class _$$UModerationSubjectFeedGeneratorImplCopyWith<$Res>
   @override
   @useResult
   $Res call({FeedGeneratorView data});
-
-  @override
-  $FeedGeneratorViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -138,10 +123,10 @@ class __$$UModerationSubjectFeedGeneratorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UModerationSubjectFeedGeneratorImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as FeedGeneratorView,
@@ -168,11 +153,12 @@ class _$UModerationSubjectFeedGeneratorImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectFeedGeneratorImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of ModerationSubjectFeedGenerator
   /// with the given fields replaced by the non-null parameter values.

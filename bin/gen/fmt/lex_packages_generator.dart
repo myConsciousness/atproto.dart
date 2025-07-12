@@ -35,7 +35,7 @@ List<LexPackage> generateLexPackagesForService(
 
     lexPackages.add(LexPackage(
       root: root,
-      name: 'lex_${name}_services',
+      name: '${name}_services',
       dependencies: package.value.toList(),
     ));
   }

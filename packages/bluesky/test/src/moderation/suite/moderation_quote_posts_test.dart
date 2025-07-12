@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:test/test.dart';
 
 // Project imports:

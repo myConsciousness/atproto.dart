@@ -1,5 +1,4 @@
 // Package imports:
-import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // Project imports:

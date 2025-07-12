@@ -67,8 +67,6 @@ abstract class $ModerationSubjectNotificationCopyWith<$Res> {
           ModerationSubjectNotification>;
   @useResult
   $Res call({Notification data});
-
-  $NotificationCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -87,24 +85,14 @@ class _$ModerationSubjectNotificationCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Notification,
     ) as $Val);
-  }
-
-  /// Create a copy of ModerationSubjectNotification
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $NotificationCopyWith<$Res> get data {
-    return $NotificationCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
-    });
   }
 }
 
@@ -118,9 +106,6 @@ abstract class _$$UModerationSubjectNotificationImplCopyWith<$Res>
   @override
   @useResult
   $Res call({Notification data});
-
-  @override
-  $NotificationCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -138,10 +123,10 @@ class __$$UModerationSubjectNotificationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UModerationSubjectNotificationImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Notification,
@@ -168,11 +153,12 @@ class _$UModerationSubjectNotificationImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectNotificationImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of ModerationSubjectNotification
   /// with the given fields replaced by the non-null parameter values.

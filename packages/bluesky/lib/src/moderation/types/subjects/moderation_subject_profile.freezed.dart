@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ModerationSubjectProfile {
-  Object get data => throw _privateConstructorUsedError;
+  InvalidType get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ActorBasic data) profileViewBasic,
@@ -69,6 +69,12 @@ mixin _$ModerationSubjectProfile {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Create a copy of ModerationSubjectProfile
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ModerationSubjectProfileCopyWith<ModerationSubjectProfile> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -76,6 +82,8 @@ abstract class $ModerationSubjectProfileCopyWith<$Res> {
   factory $ModerationSubjectProfileCopyWith(ModerationSubjectProfile value,
           $Res Function(ModerationSubjectProfile) then) =
       _$ModerationSubjectProfileCopyWithImpl<$Res, ModerationSubjectProfile>;
+  @useResult
+  $Res call({InvalidType data});
 }
 
 /// @nodoc
@@ -91,18 +99,30 @@ class _$ModerationSubjectProfileCopyWithImpl<$Res,
 
   /// Create a copy of ModerationSubjectProfile
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_value.copyWith(
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as InvalidType,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectProfileProfileViewBasicImplCopyWith<$Res> {
+abstract class _$$UModerationSubjectProfileProfileViewBasicImplCopyWith<$Res>
+    implements $ModerationSubjectProfileCopyWith<$Res> {
   factory _$$UModerationSubjectProfileProfileViewBasicImplCopyWith(
           _$UModerationSubjectProfileProfileViewBasicImpl value,
           $Res Function(_$UModerationSubjectProfileProfileViewBasicImpl) then) =
       __$$UModerationSubjectProfileProfileViewBasicImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({ActorBasic data});
-
-  $ActorBasicCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -120,24 +140,14 @@ class __$$UModerationSubjectProfileProfileViewBasicImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UModerationSubjectProfileProfileViewBasicImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ActorBasic,
     ));
-  }
-
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorBasicCopyWith<$Res> get data {
-    return $ActorBasicCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -160,11 +170,12 @@ class _$UModerationSubjectProfileProfileViewBasicImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectProfileProfileViewBasicImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of ModerationSubjectProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -266,6 +277,7 @@ abstract class UModerationSubjectProfileProfileViewBasic
 
   /// Create a copy of ModerationSubjectProfile
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationSubjectProfileProfileViewBasicImplCopyWith<
           _$UModerationSubjectProfileProfileViewBasicImpl>
@@ -273,15 +285,15 @@ abstract class UModerationSubjectProfileProfileViewBasic
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectProfileProfileViewImplCopyWith<$Res> {
+abstract class _$$UModerationSubjectProfileProfileViewImplCopyWith<$Res>
+    implements $ModerationSubjectProfileCopyWith<$Res> {
   factory _$$UModerationSubjectProfileProfileViewImplCopyWith(
           _$UModerationSubjectProfileProfileViewImpl value,
           $Res Function(_$UModerationSubjectProfileProfileViewImpl) then) =
       __$$UModerationSubjectProfileProfileViewImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({Actor data});
-
-  $ActorCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -299,24 +311,14 @@ class __$$UModerationSubjectProfileProfileViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UModerationSubjectProfileProfileViewImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Actor,
     ));
-  }
-
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorCopyWith<$Res> get data {
-    return $ActorCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -339,11 +341,12 @@ class _$UModerationSubjectProfileProfileViewImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectProfileProfileViewImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of ModerationSubjectProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -442,6 +445,7 @@ abstract class UModerationSubjectProfileProfileView
 
   /// Create a copy of ModerationSubjectProfile
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationSubjectProfileProfileViewImplCopyWith<
           _$UModerationSubjectProfileProfileViewImpl>
@@ -449,17 +453,16 @@ abstract class UModerationSubjectProfileProfileView
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith<
-    $Res> {
+abstract class _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith<$Res>
+    implements $ModerationSubjectProfileCopyWith<$Res> {
   factory _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith(
           _$UModerationSubjectProfileProfileViewDetailedImpl value,
           $Res Function(_$UModerationSubjectProfileProfileViewDetailedImpl)
               then) =
       __$$UModerationSubjectProfileProfileViewDetailedImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({ActorProfile data});
-
-  $ActorProfileCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -478,24 +481,14 @@ class __$$UModerationSubjectProfileProfileViewDetailedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UModerationSubjectProfileProfileViewDetailedImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ActorProfile,
     ));
-  }
-
-  /// Create a copy of ModerationSubjectProfile
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ActorProfileCopyWith<$Res> get data {
-    return $ActorProfileCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -519,11 +512,12 @@ class _$UModerationSubjectProfileProfileViewDetailedImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectProfileProfileViewDetailedImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of ModerationSubjectProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -625,6 +619,7 @@ abstract class UModerationSubjectProfileProfileViewDetailed
 
   /// Create a copy of ModerationSubjectProfile
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationSubjectProfileProfileViewDetailedImplCopyWith<
           _$UModerationSubjectProfileProfileViewDetailedImpl>

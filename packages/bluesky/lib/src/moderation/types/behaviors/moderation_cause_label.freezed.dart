@@ -54,7 +54,6 @@ abstract class $ModerationCauseLabelCopyWith<$Res> {
       bool downgraded});
 
   $ModerationCauseSourceCopyWith<$Res> get source;
-  $LabelCopyWith<$Res> get label;
   $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
 }
 
@@ -75,7 +74,7 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? source = null,
-    Object? label = null,
+    Object? label = freezed,
     Object? labelDef = null,
     Object? target = null,
     Object? setting = null,
@@ -89,7 +88,7 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as ModerationCauseSource,
-      label: null == label
+      label: freezed == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as Label,
@@ -138,16 +137,6 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LabelCopyWith<$Res> get label {
-    return $LabelCopyWith<$Res>(_value.label, (value) {
-      return _then(_value.copyWith(label: value) as $Val);
-    });
-  }
-
-  /// Create a copy of ModerationCauseLabel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
   $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef {
     return $InterpretedLabelValueDefinitionCopyWith<$Res>(_value.labelDef,
         (value) {
@@ -178,8 +167,6 @@ abstract class _$$ModerationCauseLabelImplCopyWith<$Res>
   @override
   $ModerationCauseSourceCopyWith<$Res> get source;
   @override
-  $LabelCopyWith<$Res> get label;
-  @override
   $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
 }
 
@@ -197,7 +184,7 @@ class __$$ModerationCauseLabelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? source = null,
-    Object? label = null,
+    Object? label = freezed,
     Object? labelDef = null,
     Object? target = null,
     Object? setting = null,
@@ -211,7 +198,7 @@ class __$$ModerationCauseLabelImplCopyWithImpl<$Res>
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as ModerationCauseSource,
-      label: null == label
+      label: freezed == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as Label,
@@ -303,7 +290,7 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
         (other.runtimeType == runtimeType &&
             other is _$ModerationCauseLabelImpl &&
             (identical(other.source, source) || other.source == source) &&
-            (identical(other.label, label) || other.label == label) &&
+            const DeepCollectionEquality().equals(other.label, label) &&
             (identical(other.labelDef, labelDef) ||
                 other.labelDef == labelDef) &&
             (identical(other.target, target) || other.target == target) &&
@@ -321,7 +308,7 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
   int get hashCode => Object.hash(
       runtimeType,
       source,
-      label,
+      const DeepCollectionEquality().hash(label),
       labelDef,
       target,
       setting,

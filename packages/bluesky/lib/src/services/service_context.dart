@@ -1,6 +1,6 @@
 // Package imports:
 import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto/lex_com_atproto_services.dart' show RepoService;
+import 'package:atproto/com_atproto_services.dart' show RepoService;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 final class ServiceContext extends core.ServiceContext {

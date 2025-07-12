@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ModerationSubjectUserList {
-  Object get data => throw _privateConstructorUsedError;
+  InvalidType get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ListViewBasic data) listViewBasic,
@@ -59,6 +59,12 @@ mixin _$ModerationSubjectUserList {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Create a copy of ModerationSubjectUserList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ModerationSubjectUserListCopyWith<ModerationSubjectUserList> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -66,6 +72,8 @@ abstract class $ModerationSubjectUserListCopyWith<$Res> {
   factory $ModerationSubjectUserListCopyWith(ModerationSubjectUserList value,
           $Res Function(ModerationSubjectUserList) then) =
       _$ModerationSubjectUserListCopyWithImpl<$Res, ModerationSubjectUserList>;
+  @useResult
+  $Res call({InvalidType data});
 }
 
 /// @nodoc
@@ -81,18 +89,30 @@ class _$ModerationSubjectUserListCopyWithImpl<$Res,
 
   /// Create a copy of ModerationSubjectUserList
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_value.copyWith(
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as InvalidType,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectUserListListViewBasicImplCopyWith<$Res> {
+abstract class _$$UModerationSubjectUserListListViewBasicImplCopyWith<$Res>
+    implements $ModerationSubjectUserListCopyWith<$Res> {
   factory _$$UModerationSubjectUserListListViewBasicImplCopyWith(
           _$UModerationSubjectUserListListViewBasicImpl value,
           $Res Function(_$UModerationSubjectUserListListViewBasicImpl) then) =
       __$$UModerationSubjectUserListListViewBasicImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({ListViewBasic data});
-
-  $ListViewBasicCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -110,24 +130,14 @@ class __$$UModerationSubjectUserListListViewBasicImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UModerationSubjectUserListListViewBasicImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ListViewBasic,
     ));
-  }
-
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ListViewBasicCopyWith<$Res> get data {
-    return $ListViewBasicCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -150,11 +160,12 @@ class _$UModerationSubjectUserListListViewBasicImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectUserListListViewBasicImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of ModerationSubjectUserList
   /// with the given fields replaced by the non-null parameter values.
@@ -245,6 +256,7 @@ abstract class UModerationSubjectUserListListViewBasic
 
   /// Create a copy of ModerationSubjectUserList
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationSubjectUserListListViewBasicImplCopyWith<
           _$UModerationSubjectUserListListViewBasicImpl>
@@ -252,15 +264,15 @@ abstract class UModerationSubjectUserListListViewBasic
 }
 
 /// @nodoc
-abstract class _$$UModerationSubjectUserListListViewImplCopyWith<$Res> {
+abstract class _$$UModerationSubjectUserListListViewImplCopyWith<$Res>
+    implements $ModerationSubjectUserListCopyWith<$Res> {
   factory _$$UModerationSubjectUserListListViewImplCopyWith(
           _$UModerationSubjectUserListListViewImpl value,
           $Res Function(_$UModerationSubjectUserListListViewImpl) then) =
       __$$UModerationSubjectUserListListViewImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({ListView data});
-
-  $ListViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -278,24 +290,14 @@ class __$$UModerationSubjectUserListListViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$UModerationSubjectUserListListViewImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ListView,
     ));
-  }
-
-  /// Create a copy of ModerationSubjectUserList
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ListViewCopyWith<$Res> get data {
-    return $ListViewCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -318,11 +320,12 @@ class _$UModerationSubjectUserListListViewImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UModerationSubjectUserListListViewImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of ModerationSubjectUserList
   /// with the given fields replaced by the non-null parameter values.
@@ -412,6 +415,7 @@ abstract class UModerationSubjectUserListListView
 
   /// Create a copy of ModerationSubjectUserList
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UModerationSubjectUserListListViewImplCopyWith<
           _$UModerationSubjectUserListListViewImpl>

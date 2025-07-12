@@ -32,8 +32,6 @@ abstract class $ModerationCauseSourceListCopyWith<$Res> {
       _$ModerationCauseSourceListCopyWithImpl<$Res, ModerationCauseSourceList>;
   @useResult
   $Res call({ListViewBasic list});
-
-  $ListViewBasicCopyWith<$Res> get list;
 }
 
 /// @nodoc
@@ -52,24 +50,14 @@ class _$ModerationCauseSourceListCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? list = null,
+    Object? list = freezed,
   }) {
     return _then(_value.copyWith(
-      list: null == list
+      list: freezed == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as ListViewBasic,
     ) as $Val);
-  }
-
-  /// Create a copy of ModerationCauseSourceList
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ListViewBasicCopyWith<$Res> get list {
-    return $ListViewBasicCopyWith<$Res>(_value.list, (value) {
-      return _then(_value.copyWith(list: value) as $Val);
-    });
   }
 }
 
@@ -83,9 +71,6 @@ abstract class _$$ModerationCauseSourceListImplCopyWith<$Res>
   @override
   @useResult
   $Res call({ListViewBasic list});
-
-  @override
-  $ListViewBasicCopyWith<$Res> get list;
 }
 
 /// @nodoc
@@ -103,10 +88,10 @@ class __$$ModerationCauseSourceListImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? list = null,
+    Object? list = freezed,
   }) {
     return _then(_$ModerationCauseSourceListImpl(
-      list: null == list
+      list: freezed == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as ListViewBasic,
@@ -132,11 +117,12 @@ class _$ModerationCauseSourceListImpl implements _ModerationCauseSourceList {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ModerationCauseSourceListImpl &&
-            (identical(other.list, list) || other.list == list));
+            const DeepCollectionEquality().equals(other.list, list));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, list);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(list));
 
   /// Create a copy of ModerationCauseSourceList
   /// with the given fields replaced by the non-null parameter values.
