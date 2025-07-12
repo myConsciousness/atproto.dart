@@ -4,6 +4,7 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'admin/defs/account_view.dart';
 import 'admin/defs/status_attr.dart';
 import 'admin/getAccountInfos/output.dart';
 import 'admin/getInviteCodes/output.dart';
@@ -32,7 +33,7 @@ final class AdminService {
       );
 
   /// Get details about an account.
-  Future<XRPCResponse<EmptyData>> getAccountInfo({
+  Future<XRPCResponse<AccountView>> getAccountInfo({
     required String did,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -44,6 +45,7 @@ final class AdminService {
           'did': did,
           ...?$unknown,
         },
+        to: const AccountViewConverter().fromJson,
       );
 
   /// Get the service-specific admin status of a subject (account, record, or blob).

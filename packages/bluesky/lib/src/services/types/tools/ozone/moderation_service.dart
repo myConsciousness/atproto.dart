@@ -4,7 +4,10 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'moderation/defs/mod_event_view_detail.dart';
 import 'moderation/defs/mod_tool.dart';
+import 'moderation/defs/record_view_detail.dart';
+import 'moderation/defs/repo_view_detail.dart';
 import 'moderation/emitEvent/union_main_event.dart';
 import 'moderation/emitEvent/union_main_subject.dart';
 import 'moderation/getRecords/output.dart';
@@ -127,7 +130,7 @@ final class ModerationService {
       );
 
   /// Get details about a repository.
-  Future<XRPCResponse<EmptyData>> getRepo({
+  Future<XRPCResponse<RepoViewDetail>> getRepo({
     required String did,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -139,6 +142,7 @@ final class ModerationService {
           'did': did,
           ...?$unknown,
         },
+        to: const RepoViewDetailConverter().fromJson,
       );
 
   /// Get details about subjects.
@@ -174,7 +178,7 @@ final class ModerationService {
       );
 
   /// Get details about a moderation event.
-  Future<XRPCResponse<EmptyData>> getEvent({
+  Future<XRPCResponse<ModEventViewDetail>> getEvent({
     required int id,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -186,6 +190,7 @@ final class ModerationService {
           'id': id,
           ...?$unknown,
         },
+        to: const ModEventViewDetailConverter().fromJson,
       );
 
   /// List moderation events related to a subject.
@@ -244,7 +249,7 @@ final class ModerationService {
       );
 
   /// Get details about a record.
-  Future<XRPCResponse<EmptyData>> getRecord({
+  Future<XRPCResponse<RecordViewDetail>> getRecord({
     required String uri,
     String? cid,
     Map<String, String>? $headers,
@@ -258,6 +263,7 @@ final class ModerationService {
           if (cid != null) 'cid': cid,
           ...?$unknown,
         },
+        to: const RecordViewDetailConverter().fromJson,
       );
 
   /// Take a moderation action on an actor.

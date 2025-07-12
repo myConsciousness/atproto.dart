@@ -4,6 +4,7 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'identity/defs/identity_info.dart';
 import 'identity/getRecommendedDidCredentials/output.dart';
 import 'identity/resolveDid/output.dart';
 import 'identity/resolveHandle/output.dart';
@@ -66,7 +67,7 @@ final class IdentityService {
       );
 
   /// Resolves an identity (DID or Handle) to a full identity (DID document and verified handle).
-  Future<XRPCResponse<EmptyData>> resolveIdentity({
+  Future<XRPCResponse<IdentityInfo>> resolveIdentity({
     required String identifier,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -78,6 +79,7 @@ final class IdentityService {
           'identifier': identifier,
           ...?$unknown,
         },
+        to: const IdentityInfoConverter().fromJson,
       );
 
   /// Request that the server re-resolve an identity (DID and handle). The server may ignore this request, or require authentication, depending on the role, implementation, and policy of the server.

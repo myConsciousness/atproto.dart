@@ -52,11 +52,11 @@ final class _LexServiceGenerator {
 
         final returnType = _getRelatedType(
           doc.id.toString(),
-          [LexTypeState.output],
+          const [LexTypeState.output],
         );
         final inputType = _getRelatedType(
           doc.id.toString(),
-          [LexTypeState.input, LexTypeState.record],
+          const [LexTypeState.input, LexTypeState.record],
         );
 
         apis.add(LexApi(
@@ -157,11 +157,32 @@ final class _LexServiceGenerator {
 
   LexType? _getRelatedType(
     final String lexiconId,
-    final List<LexTypeState> states,
-  ) {
+    final List<LexTypeState> states, {
+    String? refDefName,
+  }) {
     for (final type in types) {
-      if (type.lexiconId == lexiconId && states.contains(type.state)) {
-        return type;
+      if (refDefName != null) {
+        if (type.lexiconId == lexiconId &&
+            type.defName == refDefName &&
+            states.contains(type.state)) {
+          return type;
+        }
+      } else {
+        if (type.lexiconId == lexiconId && states.contains(type.state)) {
+          final ref = type.getRef();
+          if (ref == null) return type;
+
+          // Try to get the object from ref
+          final parts = ref.split('#');
+          final refLexiconId = parts.first;
+          final refDefName = parts.last;
+
+          return _getRelatedType(
+            refLexiconId,
+            const [LexTypeState.object],
+            refDefName: refDefName,
+          );
+        }
       }
     }
 

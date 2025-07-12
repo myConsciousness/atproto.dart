@@ -7,6 +7,7 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../ids.g.dart' as ids;
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'actor/defs/profile_view_detailed.dart';
 import 'actor/getPreferences/output.dart';
 import 'actor/getProfiles/output.dart';
 import 'actor/getSuggestions/output.dart';
@@ -54,7 +55,7 @@ final class ActorService {
       );
 
   /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
-  Future<XRPCResponse<EmptyData>> getProfile({
+  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
     required String actor,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -66,6 +67,7 @@ final class ActorService {
           'actor': actor,
           ...?$unknown,
         },
+        to: const ProfileViewDetailedConverter().fromJson,
       );
 
   /// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
