@@ -366,6 +366,10 @@ const appBskyRichtextFacetMention = NSID(ids.appBskyRichtextFacetMention);
 /// `app.bsky.richtext.facet#tag`
 const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 
+/// `app.bsky.unspecced.getAgeAssuranceState`
+const appBskyUnspeccedGetAgeAssuranceState =
+    NSID(ids.appBskyUnspeccedGetAgeAssuranceState);
+
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = NSID(ids.appBskyUnspeccedGetConfig);
 
@@ -439,6 +443,10 @@ const appBskyUnspeccedGetTrends = NSID(ids.appBskyUnspeccedGetTrends);
 /// `app.bsky.unspecced.getTrendsSkeleton`
 const appBskyUnspeccedGetTrendsSkeleton =
     NSID(ids.appBskyUnspeccedGetTrendsSkeleton);
+
+/// `app.bsky.unspecced.initAgeAssurance`
+const appBskyUnspeccedInitAgeAssurance =
+    NSID(ids.appBskyUnspeccedInitAgeAssurance);
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =
