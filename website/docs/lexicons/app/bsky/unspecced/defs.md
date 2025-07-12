@@ -78,3 +78,27 @@ description: app.bsky.unspecced.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **author** | [app.bsky.feed.defs#blockedAuthor](../../../../lexicons/app/bsky/feed/defs.md#blockedauthor) | - | ✅ | - |
+
+## #ageAssuranceState
+
+The computed state of the age assurance process, returned to the user in question on certain authenticated requests.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **lastInitiatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | The timestamp when this state was last updated. |
+| **status** | string | unknown<br/>pending<br/>assured<br/>blocked | ✅ | The status of the age assurance process. |
+
+## #ageAssuranceEvent
+
+Object used to store age assurance data in stash.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | The date and time of this write operation. |
+| **status** | string | unknown<br/>pending<br/>assured | ✅ | The status of the age assurance process. |
+| **attemptId** | string | - | ✅ | The unique identifier for this instance of the age assurance flow, in UUID format. |
+| **email** | string | - | ❌ | The email used for AA. |
+| **initIp** | string | - | ❌ | The IP address used when initiating the AA flow. |
+| **initUa** | string | - | ❌ | The user agent used when initiating the AA flow. |
+| **completeIp** | string | - | ❌ | The IP address used when completing the AA flow. |
+| **completeUa** | string | - | ❌ | The user agent used when completing the AA flow. |

@@ -663,6 +663,14 @@ const appBskyRichtextFacetTag = 'app.bsky.richtext.facet#tag';
 /// `app.bsky.unspecced.defs`
 const appBskyUnspeccedDefs = 'app.bsky.unspecced.defs';
 
+/// `app.bsky.unspecced.defs#ageAssuranceEvent`
+const appBskyUnspeccedDefsAgeAssuranceEvent =
+    'app.bsky.unspecced.defs#ageAssuranceEvent';
+
+/// `app.bsky.unspecced.defs#ageAssuranceState`
+const appBskyUnspeccedDefsAgeAssuranceState =
+    'app.bsky.unspecced.defs#ageAssuranceState';
+
 /// `app.bsky.unspecced.defs#skeletonSearchActor`
 const appBskyUnspeccedDefsSkeletonSearchActor =
     'app.bsky.unspecced.defs#skeletonSearchActor';
@@ -701,6 +709,10 @@ const appBskyUnspeccedDefsTrendView = 'app.bsky.unspecced.defs#trendView';
 /// `app.bsky.unspecced.defs#trendingTopic`
 const appBskyUnspeccedDefsTrendingTopic =
     'app.bsky.unspecced.defs#trendingTopic';
+
+/// `app.bsky.unspecced.getAgeAssuranceState`
+const appBskyUnspeccedGetAgeAssuranceState =
+    'app.bsky.unspecced.getAgeAssuranceState';
 
 /// `app.bsky.unspecced.getConfig`
 const appBskyUnspeccedGetConfig = 'app.bsky.unspecced.getConfig';
@@ -774,6 +786,9 @@ const appBskyUnspeccedGetTrends = 'app.bsky.unspecced.getTrends';
 /// `app.bsky.unspecced.getTrendsSkeleton`
 const appBskyUnspeccedGetTrendsSkeleton =
     'app.bsky.unspecced.getTrendsSkeleton';
+
+/// `app.bsky.unspecced.initAgeAssurance`
+const appBskyUnspeccedInitAgeAssurance = 'app.bsky.unspecced.initAgeAssurance';
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =
