@@ -4,6 +4,7 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'communication/defs/template_view.dart';
 import 'communication/listTemplates/output.dart';
 
 final class CommunicationService {
@@ -12,7 +13,7 @@ final class CommunicationService {
   final z.ServiceContext _ctx;
 
   /// Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.
-  Future<XRPCResponse<EmptyData>> updateTemplate({
+  Future<XRPCResponse<TemplateView>> updateTemplate({
     required String id,
     String? name,
     String? lang,
@@ -36,10 +37,11 @@ final class CommunicationService {
           if (disabled != null) 'disabled': disabled,
           ...?$unknown,
         },
+        to: const TemplateViewConverter().fromJson,
       );
 
   /// Administrative action to create a new, re-usable communication (email for now) template.
-  Future<XRPCResponse<EmptyData>> createTemplate({
+  Future<XRPCResponse<TemplateView>> createTemplate({
     required String name,
     required String contentMarkdown,
     required String subject,
@@ -59,6 +61,7 @@ final class CommunicationService {
           if (createdBy != null) 'createdBy': createdBy,
           ...?$unknown,
         },
+        to: const TemplateViewConverter().fromJson,
       );
 
   /// Get list of all communication templates.

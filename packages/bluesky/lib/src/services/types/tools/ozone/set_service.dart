@@ -4,6 +4,7 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'set/defs/set_view.dart';
 import 'set/getValues/output.dart';
 import 'set/querySets/output.dart';
 
@@ -61,7 +62,7 @@ final class SetService {
       );
 
   /// Create or update set metadata
-  Future<XRPCResponse<EmptyData>> upsertSet({
+  Future<XRPCResponse<SetView>> upsertSet({
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async =>
@@ -71,6 +72,7 @@ final class SetService {
         body: {
           ...?$unknown,
         },
+        to: const SetViewConverter().fromJson,
       );
 
   /// Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error

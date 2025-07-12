@@ -4,6 +4,7 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'moderation/defs/mod_event_view.dart';
 import 'moderation/defs/mod_event_view_detail.dart';
 import 'moderation/defs/mod_tool.dart';
 import 'moderation/defs/record_view_detail.dart';
@@ -267,7 +268,7 @@ final class ModerationService {
       );
 
   /// Take a moderation action on an actor.
-  Future<XRPCResponse<EmptyData>> emitEvent({
+  Future<XRPCResponse<ModEventView>> emitEvent({
     required UModerationEmitEventEvent event,
     required UModerationEmitEventSubject subject,
     List<String>? subjectBlobCids,
@@ -287,6 +288,7 @@ final class ModerationService {
           if (modTool != null) 'modTool': modTool,
           ...?$unknown,
         },
+        to: const ModEventViewConverter().fromJson,
       );
 
   /// Find repositories based on a search term.

@@ -83,7 +83,7 @@ final class IdentityService {
       );
 
   /// Request that the server re-resolve an identity (DID and handle). The server may ignore this request, or require authentication, depending on the role, implementation, and policy of the server.
-  Future<XRPCResponse<EmptyData>> refreshIdentity({
+  Future<XRPCResponse<IdentityInfo>> refreshIdentity({
     required String identifier,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
@@ -95,6 +95,7 @@ final class IdentityService {
           'identifier': identifier,
           ...?$unknown,
         },
+        to: const IdentityInfoConverter().fromJson,
       );
 
   /// Resolves an atproto handle (hostname) to a DID. Does not necessarily bi-directionally verify against the the DID document.

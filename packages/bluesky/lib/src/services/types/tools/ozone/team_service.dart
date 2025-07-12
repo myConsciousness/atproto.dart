@@ -4,6 +4,7 @@ import 'package:atproto_core/atproto_core.dart';
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
+import 'team/defs/member.dart';
 import 'team/listMembers/output.dart';
 
 final class TeamService {
@@ -49,7 +50,7 @@ final class TeamService {
       );
 
   /// Update a member in the ozone service. Requires admin role.
-  Future<XRPCResponse<EmptyData>> updateMember({
+  Future<XRPCResponse<Member>> updateMember({
     required String did,
     bool? disabled,
     String? role,
@@ -65,10 +66,11 @@ final class TeamService {
           if (role != null) 'role': role,
           ...?$unknown,
         },
+        to: const MemberConverter().fromJson,
       );
 
   /// Add a member to the ozone team. Requires admin role.
-  Future<XRPCResponse<EmptyData>> addMember({
+  Future<XRPCResponse<Member>> addMember({
     required String did,
     required String role,
     Map<String, String>? $headers,
@@ -82,5 +84,6 @@ final class TeamService {
           'role': role,
           ...?$unknown,
         },
+        to: const MemberConverter().fromJson,
       );
 }

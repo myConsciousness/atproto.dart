@@ -5,6 +5,7 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
 import 'safelink/defs/action_type.dart';
+import 'safelink/defs/event.dart';
 import 'safelink/defs/pattern_type.dart';
 import 'safelink/defs/reason_type.dart';
 import 'safelink/queryEvents/output.dart';
@@ -16,7 +17,7 @@ final class SafelinkService {
   final z.ServiceContext _ctx;
 
   /// Add a new URL safety rule
-  Future<XRPCResponse<EmptyData>> addRule({
+  Future<XRPCResponse<Event>> addRule({
     required String url,
     required PatternType pattern,
     required ActionType action,
@@ -38,10 +39,11 @@ final class SafelinkService {
           if (createdBy != null) 'createdBy': createdBy,
           ...?$unknown,
         },
+        to: const EventConverter().fromJson,
       );
 
   /// Remove an existing URL safety rule
-  Future<XRPCResponse<EmptyData>> removeRule({
+  Future<XRPCResponse<Event>> removeRule({
     required String url,
     required PatternType pattern,
     String? comment,
@@ -59,10 +61,11 @@ final class SafelinkService {
           if (createdBy != null) 'createdBy': createdBy,
           ...?$unknown,
         },
+        to: const EventConverter().fromJson,
       );
 
   /// Update an existing URL safety rule
-  Future<XRPCResponse<EmptyData>> updateRule({
+  Future<XRPCResponse<Event>> updateRule({
     required String url,
     required PatternType pattern,
     required ActionType action,
@@ -84,6 +87,7 @@ final class SafelinkService {
           if (createdBy != null) 'createdBy': createdBy,
           ...?$unknown,
         },
+        to: const EventConverter().fromJson,
       );
 
   /// Query URL safety audit events

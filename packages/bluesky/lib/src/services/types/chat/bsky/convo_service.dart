@@ -6,7 +6,9 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart' as z;
 import 'convo/acceptConvo/output.dart';
 import 'convo/addReaction/output.dart';
+import 'convo/defs/deleted_message_view.dart';
 import 'convo/defs/message_input.dart';
+import 'convo/defs/message_view.dart';
 import 'convo/getConvo/output.dart';
 import 'convo/getConvoAvailability/output.dart';
 import 'convo/getConvoForMembers/output.dart';
@@ -91,7 +93,7 @@ final class ConvoService {
         },
         to: const ConvoGetLogOutputConverter().fromJson,
       );
-  Future<XRPCResponse<EmptyData>> sendMessage({
+  Future<XRPCResponse<MessageView>> sendMessage({
     required String convoId,
     required MessageInput message,
     Map<String, String>? $headers,
@@ -105,6 +107,7 @@ final class ConvoService {
           'message': message,
           ...?$unknown,
         },
+        to: const MessageViewConverter().fromJson,
       );
   Future<XRPCResponse<ConvoLeaveConvoOutput>> leaveConvo({
     required String convoId,
@@ -168,7 +171,7 @@ final class ConvoService {
         },
         to: const ConvoMuteConvoOutputConverter().fromJson,
       );
-  Future<XRPCResponse<EmptyData>> deleteMessageForSelf({
+  Future<XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
     required String convoId,
     required String messageId,
     Map<String, String>? $headers,
@@ -182,6 +185,7 @@ final class ConvoService {
           'messageId': messageId,
           ...?$unknown,
         },
+        to: const DeletedMessageViewConverter().fromJson,
       );
 
   /// Removes an emoji reaction from a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in that reaction not being present, even if it already wasn't.
